@@ -108,6 +108,7 @@ S pVec::Glob2Loc(S global_index){
 		return index_map >Glob2Loc(global_index);
 	} else {return -1;}
 }
+
 	void ReadExtVec();
 	
 
