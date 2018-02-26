@@ -45,12 +45,21 @@ int main(int argc, char** argv) {
 
     printf("Proc. %d   Lower bound = %d   Upper bound = %d \n",world_rank, lower_b , upper_b ) ;
 
+    double a = 1.0; float b =2.0;
+
     parVector<double,int> *vec = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
 
-    //vec->SetToZero();
+    vec->SetTovalue(a);
+    MPI_Barrier(MPI_COMM_WORLD);
 
-//    parVectorMap<double,int> pm(MPI_COMM_WORLD, 1,2);
-    // Finalize the MPI environment.
+    vec->VecView();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+
+//    parVector<float,int> *vec2 = new parVector<float,int>(MPI_COMM_WORLD, lower_b, upper_b);
+//    vec2->SetTovalue(b);
+
     MPI_Finalize();
 
     return 0;

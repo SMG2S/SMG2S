@@ -35,6 +35,7 @@ class parVector{
 		void SetToZero();
 
 		void ReadExtVec();
+                void VecView();
 	
 		S Loc2Glob(S local_index);
 		S Glob2Loc(S global_index);

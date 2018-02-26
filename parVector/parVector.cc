@@ -111,7 +111,7 @@ template<typename T, typename S>
 S parVector<T,S>::Loc2Glob(S local_index)
 {
 	if ( index_map != NULL ) {
-		return index_map >Loc2Glob(local_index);
+		return index_map -> Loc2Glob(local_index);
 	} else {return  -1; }
 }
 
@@ -119,10 +119,25 @@ template<typename T, typename S>
 S parVector<T,S>::Glob2Loc(S global_index)
 {
 	 if ( index_map != NULL ) {
-		return index_map >Glob2Loc(global_index);
+		return index_map ->Glob2Loc(global_index);
 	} else {return -1;}
 }
 
+template<typename T, typename S>
+void parVector<T,S>::VecView()
+{
+	int r;
+	r = index_map->GetRank();
+	if (r == 0){
+		std::cout << "Parallel Vector View: " << std::endl << std::endl;
+	}
+	T *array = GetArray();
+	S global;
+	for(S i = 0; i < array_size; i++){
+		global = Loc2Glob(i);
+		std::cout << "[" << global << "]: " << array[i] << std::endl;
+	}
+}
 template<typename T, typename S>
 void parVector<T,S>::ReadExtVec()
 {
