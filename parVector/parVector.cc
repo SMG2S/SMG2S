@@ -22,7 +22,7 @@ parVector<T,S>::parVector(MPI_Comm ncomm, S lbound, S ubound)
 
 	local_size = index_map->GetLocalSize();
 	array_size = index_map->GetLocTotSize();
-	array = new S[array_size];
+	array = new T[array_size];
 }
 
 template<typename T,typename S>
@@ -104,7 +104,7 @@ template<typename T, typename S>
 void parVector<T,S>::SetToZero()
 {
 	T val = 0;
-	SetToValue(val);
+	SetTovalue(val);
 }
 
 template<typename T, typename S>

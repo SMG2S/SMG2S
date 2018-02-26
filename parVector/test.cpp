@@ -1,5 +1,6 @@
 //#include "parVectorMap.cc"
 #include "parVector.cc"
+#include <math.h>
 
 int main(int argc, char** argv) {
     // Initialize the MPI environment
@@ -18,7 +19,7 @@ int main(int argc, char** argv) {
     int name_len;
     MPI_Get_processor_name(processor_name, &name_len);
 
-    parVectorMap<int> pm(MPI_COMM_WORLD, 1,2);
+ //   parVectorMap<int> pm(MPI_COMM_WORLD, 1,2);
 
     //MPI_Barrier(MPI_COMM_WORLD);
     // Print off a hello world message
@@ -26,9 +27,31 @@ int main(int argc, char** argv) {
            " out of %d processors\n",
            processor_name, world_rank, world_size);
 
+
+    int probSize = 10;
+    int span, lower_b, upper_b;
+
+    span = int(floor(double(probSize)/double(world_size)));
+
+    printf("span = %d\n", span);
+    if(world_rank == world_size - 1){
+	lower_b = world_rank * span;
+	upper_b = probSize - 1 + 1;
+    }
+    else{
+	lower_b = world_rank * span;
+	upper_b = (world_rank + 1) * span - 1 + 1;
+    }
+
+    printf("Proc. %d   Lower bound = %d   Upper bound = %d \n",world_rank, lower_b , upper_b ) ;
+
+    parVector<double,int> *vec = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
+
+    //vec->SetToZero();
+
 //    parVectorMap<double,int> pm(MPI_COMM_WORLD, 1,2);
     // Finalize the MPI environment.
- //   MPI_Finalize();
+    MPI_Finalize();
 
     return 0;
 }
