@@ -15,8 +15,8 @@ class parVectorMap
 		int	  nproc;
 		int	  rank;
 
-		S	  low_bound;
-		S	  up_bound;
+		S	  lower_bound;
+		S	  upper_bound;
 	
 		S	  local_size;
 		S	  loctot_size;
@@ -35,7 +35,7 @@ class parVectorMap
 		//constructor
 		parVectorMap(MPI_Comm ncomm, S lbound, S ubound);
 		//destroyer
-		~pVecMap();
+		~parVectorMap();
 
 		S Loc2Glob(S local_index);
 		S Glob2Loc(S global_index);
@@ -44,11 +44,11 @@ class parVectorMap
 		int GetOwner(S index);
 		int GetRank(){return rank;};
 
-		S GetLowerBound(){return lower_bound};
-		S GetUpperBound(){return upper_bound};
+		S GetLowerBound(){return lower_bound;};
+		S GetUpperBound(){return upper_bound;};
 		S GetLocalSize(){return local_size;};
-		S GetGlobalSize(){return global_size};
-		S GetLocTotSize(){return loctot_size};
+		S GetGlobalSize(){return global_size;};
+		S GetLocTotSize(){return loctot_size;};
 
 		//Active usrs
 
