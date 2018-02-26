@@ -1,4 +1,4 @@
-#include <pVecMap.h>
+#include "parVectorMap.h"
 
 template<typename T, typename S>
 parVectorMap<T,S>::parVectorMap(MPI_Comm ncomm, S lbound, S ubound)
@@ -43,11 +43,11 @@ template<typename T, typename S>
 parVectorMap<T,S>::~parVectorMap(){
 	MPI_Comm_free(&comm);
 	if(lprocbound_map!=NULL){
-		delete [] lrpocbound_map;
+		delete [] lprocbound_map;
 	}
 	
         if(uprocbound_map!=NULL){
-                delete [] urpocbound_map;
+                delete [] uprocbound_map;
         }
 }
 
@@ -68,7 +68,7 @@ S parVectorMap<T,S>::Glob2Loc(S global_index){
 
 //get
 template<typename T, typename S>
-int parVectorMap<T,S>::GetOwer(S index)
+int parVectorMap<T,S>::GetOwner(S index)
 {
 	if((index < global_size) && (index >= 0)){
 		for (int i = 0; i <nproc; i++){
