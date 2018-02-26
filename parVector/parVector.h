@@ -17,10 +17,10 @@ class parVector{
 
 	public:
 		parVector();
-		parVector(MPI_Comm ncomm, int lbound, int ubound);
+		parVector(MPI_Comm ncomm, S lbound, S ubound);
 		~parVector();
 
-		parVectorMap *GetVecMap(){return index_map;};
+		parVectorMap<S> *GetVecMap(){return index_map;};
 
 		S GetLowerBound();
 		S GetUpperBound();

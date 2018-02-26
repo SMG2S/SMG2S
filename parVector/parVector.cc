@@ -5,7 +5,7 @@
 #include <string>
 
 #include "parVector.h"
-
+#include "parVectorMap.cc"
 template<typename T,typename S>
 parVector<T,S>::parVector(){
 	array = NULL;
@@ -15,10 +15,10 @@ parVector<T,S>::parVector(){
 }
 
 template<typename T,typename S>
-parVector<T,S>::parVector(MPI_Comm ncomm, int lbound, int ubound)
+parVector<T,S>::parVector(MPI_Comm ncomm, S lbound, S ubound)
 {
-	index_map = new parVectorMap(ncomm, lbound, ubound);
-	index_map -> AddUser();
+	index_map = new parVectorMap<S>(ncomm, lbound, ubound);
+	index_map->AddUser();
 
 	local_size = index_map->GetLocalSize();
 	array_size = index_map->GetLocTotSize();
@@ -62,7 +62,7 @@ S parVector<T,S>::GetLocalSize()
 }
 
 template<typename T, typename S>
-S parVector<T,S>:GetGlocalSize()
+S parVector<T,S>::GetGlocalSize()
 {
 	if(index_map != NULL){
 		return index_map->GetGlobalSize();
@@ -101,9 +101,10 @@ void parVector<T,S>::SetTovalue(T value)
 }
 
 template<typename T, typename S>
-void parVector<T,S>:SetToZero()
+void parVector<T,S>::SetToZero()
 {
-	SetToValue<T,S>(0.0);
+	T val = 0;
+	SetToValue(val);
 }
 
 template<typename T, typename S>
@@ -131,7 +132,7 @@ void parVector<T,S>::ReadExtVec()
 	S lower_bound = GetLowerBound();
 	S upper_bound = GetUpperBound();
 
-	S val1, dummyl;
+	S val1, dummy;
 	T val2;
 
 	int quit;
@@ -160,7 +161,7 @@ void parVector<T,S>::ReadExtVec()
 		linestream >> val1 >> dummy >> val2;
 		val1 = val1 - 1;
 		
-		if((val1 >= lowerbound) && (val1 < upper_bound)){
+		if((val1 >= lower_bound) && (val1 < upper_bound)){
 			AddValueLocal(index_map->Glob2Loc(val1),val2);
 		}
 
