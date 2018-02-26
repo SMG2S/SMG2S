@@ -18,8 +18,9 @@ int main(int argc, char** argv) {
     int name_len;
     MPI_Get_processor_name(processor_name, &name_len);
 
-    parVectorMap<double,int> pm(MPI_COMM_WORLD, 1,2);
+    parVectorMap<int> pm(MPI_COMM_WORLD, 1,2);
 
+    //MPI_Barrier(MPI_COMM_WORLD);
     // Print off a hello world message
     printf("Hello world from processor %s, rank %d"
            " out of %d processors\n",
@@ -27,6 +28,8 @@ int main(int argc, char** argv) {
 
 //    parVectorMap<double,int> pm(MPI_COMM_WORLD, 1,2);
     // Finalize the MPI environment.
-    MPI_Finalize();
+ //   MPI_Finalize();
+
+    return 0;
 }
 

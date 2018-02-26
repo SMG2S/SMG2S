@@ -7,7 +7,7 @@
 #include <iostream>
 #include <fstream>
 
-template<typename T, typename S>
+template<typename S>
 class parVectorMap
 {
 	private:

@@ -1,7 +1,7 @@
 #include "parVectorMap.h"
 
-template<typename T, typename S>
-parVectorMap<T,S>::parVectorMap(MPI_Comm ncomm, S lbound, S ubound)
+template<typename S>
+parVectorMap<S>::parVectorMap(MPI_Comm ncomm, S lbound, S ubound)
 {
 	MPI_Comm_dup(ncomm, &comm);
 	MPI_Comm_size(comm, &nproc);
@@ -39,8 +39,8 @@ parVectorMap<T,S>::parVectorMap(MPI_Comm ncomm, S lbound, S ubound)
 	loctot_size = local_size;
 }
 
-template<typename T, typename S>
-parVectorMap<T,S>::~parVectorMap(){
+template<typename S>
+parVectorMap<S>::~parVectorMap(){
 	MPI_Comm_free(&comm);
 	if(lprocbound_map!=NULL){
 		delete [] lprocbound_map;
@@ -52,23 +52,23 @@ parVectorMap<T,S>::~parVectorMap(){
 }
 
 //convert local index to gobal or vice versa
-template<typename T, typename S>
-S parVectorMap<T,S>::Loc2Glob(S local_index){
+template<typename S>
+S parVectorMap<S>::Loc2Glob(S local_index){
 	if((local_index < global_size) && (local_index >= 0))
 		{return lower_bound + local_index;}
 	else
 		{return -1;}
 }
 
-template<typename T, typename S> 
-S parVectorMap<T,S>::Glob2Loc(S global_index){
+template<typename S> 
+S parVectorMap<S>::Glob2Loc(S global_index){
 	if((global_index >= local_size) && (global_index < upper_bound))
 		{return global_index - lower_bound;}
 }
 
 //get
-template<typename T, typename S>
-int parVectorMap<T,S>::GetOwner(S index)
+template<typename S>
+int parVectorMap<S>::GetOwner(S index)
 {
 	if((index < global_size) && (index >= 0)){
 		for (int i = 0; i <nproc; i++){
