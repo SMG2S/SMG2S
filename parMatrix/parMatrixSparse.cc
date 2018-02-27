@@ -637,6 +637,38 @@ void parMatrixSparse<T,S>::MatVecProd(parVector *XVec, parVector *YVec){
 	}
 #else
 
+	#pragma omp parallel default (shared) private (i,j,k,v)
+	{
+	        if(CSR_lloc != NULL){
+        	#pragma omp for schedule(guided)
+		       	for(i = 0; i < nrows; i++){
+                        	for(k = CSR_lloc->rows[i]; k < CSR_lloc->rows[i+1]; k++){
+                                	j = x_index_map->Glob2Loc(CSR_lloc->cols[k]);
+                                	v = CSR_lloc->vals[k]*sBuf[j];
+                                	YVec->AddValueLocal(i,v);
+                        	}
+                	}
+        	}
+	}
+
+	#pragma omp barrier
+	#pragma omp master
+	{
+		MPI_Waitall(nProcs-1, Rreqs, Rstat);
+	}
+
+	#pragma omp barrier
+        if(CSR_gloc != NULL){
+        #pragma omp for schedule(guided)
+	        for(i = 0; i < nrows; i++){
+                        for(k = CSR_gloc->rows[i]; k < CSR_gloc->rows[i+1];k++){
+                                j = CSR_gloc->cols[k];
+                                v = CSR_gloc->vals[k]*rBuf[j];
+                                YVec->AddValueLocal(i,v);
+                        }
+                }
+        }
+
 #endif
 
 	delete [] rBuf;
