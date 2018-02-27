@@ -246,4 +246,234 @@ void parMatrixSparse<T,S>::AddValuesLocal(S nindex, S *rows, S *cols, T *values)
 	}
 }
 
+template<typename T,typename S>
+void parMatrixSparse<T,S>::ConvertToCSR()
+{
+	S 	count, i, j, k;
+	T	v;
+	std::map<S,T>::iterator it;
+	
+	if(dynmat_lloc != NULL){
+		//allocate csr matrix
+		CSR_lloc = new MatrixCSR(nnz_lloc, nrows);
+
+		//convert local local to csr
+		count = 0;
+		CSR_lloc->rows[0] = 0;
+
+		for(i = 0; i < nrows; i++){
+			CSR_lloc->rows[i] = count;
+			for(it = dynmat_lloc[i].begin(); it != dynmat_lloc[i].end(); it++){
+				j = it->first;
+				v = it->second;
+				CSR_lloc->vals[count] = v;
+				CSR_lloc->cols[count] = j;
+				count++;
+			}
+		}
+		CSR_lloc->rows[nrows] = nnz_lloc;
+	}
+
+	if(dynmat_gloc != NULL){
+		CSR_gloc = new MatrixCSR(nnz_gloc, nrows);
+		//convert global-local to CSR
+		count = 0;
+		CSR_gloc->rows[0] = 0;
+		for(i = 0; i < nrows; i++){
+			CSR_gloc->rows[i] = count;
+			for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); it++){
+				j = it->first;
+				v = it->second;
+				CSR_gloc->vals[count] = v;
+				CSR_gloc->cols[count] = j;
+				count++;
+			}
+		}
+		CSR_gloc->rows[nrows] = nnz_gloc;
+	}
+}
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::ReadExtMat()
+{
+	//Reader
+	std::ifstream file("matrix.mat");
+	std::string line;
+	S	row, col;
+	T	value;
+	row = 0;
+	col = 0;
+	value = 0.0;
+	S quit = 0;
+
+	//Past no number content in the file
+	while(std::getline(file,line)){
+		row = 0;
+		col = 0;
+		value = 0.0;
+		std::stringstream linestream(line);
+		linestream >> row >> col >> value;
+		if(row != 0 && col != 0 && value != 0.0){
+			break;
+		}
+	}
+		
+	//read values and add them to matrix
+	while(std::getline(file,line)){
+		std::stringstream linestream(line);
+		linestream >> row >> col >> value;
+		row = row - 1;
+		col = col - 1;
+		if((row >= lower_y && row < upper_y) && (col < ncols)){
+			AddValueLocal(y_index_map->Glob2Loc(row),col,value);
+		}
+	}
+}
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::FindColsToRecv()
+{
+	std::map<S,S> Rrows;
+	std::map<S,S> Srows;
+	std::map<S,S>::iterator vit;
+	std::map<S,T>::iterator mit;
+
+	S	i, j, k;
+	S	count, count1;
+
+	count = 0;
+	count1 = 0;
+
+	S	nRecv;
+
+	MPI_Comm_rank(MPI_COMM_WORLD, &ProcID);
+	MPI_Comm_size(MPI_COMM_WORLD, &nRrocs);
+
+	//Initialise vector containing numer of entries to send and recv on each procss
+	VNumRecv = new S [nProcs];
+	for(i = 0; i < nProcs; i++){
+		VNumRecv[i] = 0;
+	}
+	VNumRecv = new S [nProcs];
+	for(i = 0; i < nProcs; i++){
+		VNumSend[i] = 0;
+	}
+
+	MPI_Request	*Rreqs, *Sreqs;
+	MPI_Status	statusm *Rstat, *Sstat;
+	int		tag1, tag2;
+	tag1 = 0;
+	tag2 = 1;
+	int		Rtag, Stag;
+	Rtag = 0;
+	Stag = 1;
+
+	S		maxRecv, maxSend;
+
+	if(dynmat_gloc != NULL){
+		for(i = 0; i < nrows; i++){
+			for(mit = dynmat_gloc[i].begin(); mit != dynmat_gloc[i].end(); mit++){
+				j = mit->first;
+				vit = Rrows.find(j);
+				if(vit == Rrows.end()){
+					Rrows[j] = x_index_map->GetOwner(j);
+					VNumRecv[Rrows[j]] = VNumRecv[Rrows[j]] + 1;
+					count++:
+				}
+			}
+		}
+		nRecv = count;
+	}
+	else{
+		for(i = 0; i < nProcs; i++){
+			VNumRecv[i] = 0;
+		}
+	}
+
+	//MPI non-blocking requests and status
+	Rreqs = new MPI_Request [nProcs - 1];
+	Sreqs = new MPI_Request [nProcs - 1];
+	Rstat = new MPI_Status [nProcs - 1];
+	Sstat = new MPI_Status [nProcs - 1];
+
+	count = 0;
+	maxRecv = 0;
+	maxSend = 0;
+	
+	for(i = 0; i < nProcs; i++){
+		if(VNumRecv[i] >maxRecv){
+			maxRecv = VNumRecv[i];
+		}
+		if(i != ProcID){
+			MPI_Isend(&VNumRecv[i],1,MPI_INT,i,tag1,MPI_COMM_WORLD,&Sreqs[count]);
+			MPI_Irecv(&VNumSend[i],1,MPI_INT,i,tag1,MPI_COMM_WORLD,&Rreqs[count]);
+			count++;
+		}
+	}
+	
+	//wait for receives to finish
+	MPI_Waitall(nProcs-1,Rreqs,Rstat);
+	//find max num to send
+	for(i = 0; i < nProcs; i++){
+		if(VNumSend[i] > maxSend){
+			maxSend = VNumSend[i];
+		}
+	}
+
+	//Initialisation of send and receive buffers
+	Rbuffer = new int * [nProcs];
+	Sbuffer = new int * [nProcs];
+	
+	for(i = 0; i < nProcs; i++){
+		Rbuffer[i] = NULL;
+	}
+	for(i = 0; i < nProcs; i++){
+		Sbuffer[i] = NULL;
+	}
+
+	//MPI NON-BLOCKING 
+	count = 0;
+	count1 = 0;
+	
+	for(i = 0; i < nProcs; i++){
+		count = 0;
+		if(ProcID != i){
+			Sbuffer[i] = new S [VNumRecv[i]];
+			for(vit = Rows.begin(); vit  != Rrows.end(); vit++){
+				if(vit->second == i){
+					Sbuffer[i][count] = vit->first;
+					count++;
+				}
+			}
+			MPI_Isend(Sbuffer[i],VNumRecv[i], MPI_INT,i,tag1,MPI_COMM_WORLD, &Sreqs[count1]);
+			count++:
+		}
+		else{
+			Sbuffer[i] = new S [1];
+			Sbuffer[i][0] = 0;
+		}
+	}
+
+	count1 = 1;
+	
+	for(i = 0; i < nProcs; i++){
+		if(ProcID != i){
+			Rbuffer[i] = new S [VNumSend[i]];
+			MPI_Irecv(Rbuffer[i],VNumSend[i],MPI_INT,i,tag1,MPI_COMM_WORLD,&Rreqs[count1]);
+		}
+		else{
+			Rbuffer[i] = new S [1];
+			Rbuffer[i][0] = 0;	
+		}
+	}
+
+	//wait for receives to finish
+	MPI_Waitall(nProcs-1, Rreqs, Rstat);
+
+	delete [] Rreqs;	
+	delete [] Sreqs;
+	delete [] Rstat;
+	delete [] Sstat;
+
+}
 
