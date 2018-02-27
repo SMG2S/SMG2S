@@ -477,3 +477,175 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 
 }
 
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::SetupDataTypes()
+{
+	S	i,j,k;
+	S	count, *blength, *displac;
+
+	DTypeSend = new MPI_Datatype [nProcs];
+	DTypeRecv = new MPI_Datatype [nProcs];
+
+	for(i = 0; i < nProcs; i++){
+		count = VNumSend[i];
+		blength = new S [count];
+		displac = new s [count];
+
+		for(j = 0; j < count; j++){
+			blength[j] = 1;
+			displac[j] = x_index_map->Glob2Loc(Rbuffer[i][j]);
+		}
+
+		MPI_Type_indexed(count, blength, displac, MPI_DOUBLE, &DTypeSend[i]);
+		MPI_Type_commit(&DTypeSend[i]);
+
+		count = VNumRecv[i];
+		blength = new S [count];
+		displac = new S [count];
+
+		for(j = 0; j < count; j++){
+			blength[j] = 1;
+			displac[j] = Sbuffer[i][j];
+		}
+
+		MPI_Type_indexed(count, blength, displac, MPI_DOUBLE, &DTypeRecv[i]);
+                MPI_Type_commit(&DTypeRecv[i]);
+	}
+	
+	delete [] blength;
+	delete [] displac;
+}
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::TestCommunication(parVector *XVec, parVector *YVec)
+{
+	S	i,j,k,l,ng;
+	S	sender, receiver;
+	sender = 2;
+	receiver = 1;
+	
+	MPI_Status Rstat;
+
+	T	*rBuf, *sBuf;
+
+	k = XVec->GetLocalSize();
+	l = XVec->GetGlobalSize();
+	rBuf = new T [1];
+	for(i = 0; i < 1; i++){
+		rBuf[i] = 0;	
+	}
+	
+	sBuf = XVec->GetArray();
+
+	if(ProcID == sender){
+		MPI_Send(sBuf, 1, DTypeSend[receiver], receiver, 1, MPI_COMM_WORLD);
+		printf("sending done! \n");
+	}
+	else{
+		MPI_Recv(rBuf,1,DTyoeRecv[sender],sender,1,MPI_COMM_WORLD,&Rstat);
+		printf("receiving done! \n");
+	}
+
+	if(ProcID == sender){
+		for( i = 0; i < k; i++){
+			printf("sBuf[%d] = %f \n", i, sBuf[i]);
+		}
+	}
+	MPI_Barrier(MPI_COMM_WORLD);
+
+	if(ProcID == receiver){
+		for( i = 0; i < l; i++){
+                        printf("rBuf[%d] = %f \n", i, rBuf[i]);
+		}
+	}	
+}
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::MatVecProd(parVector *XVec, parVector *YVec){
+	S	i,j,k,l;
+	S	llength, glength;
+	S	count; count = 0;
+	S	count2; count2 = 0;
+	S	tag1; tag1 = 0;
+	T	v; v = 0;
+
+	MPI_Request *Rreqs, *Sreqs;
+	MPI_Status  *Rstat, *Sstat;
+
+	T	*rBuf, *sBuf;
+
+	//get local and global length
+	llength = XVec->GetLocalSize();
+	glength = XVec->GetGlobalSize();
+	//setting recv and send buffers
+	rBuf = new T [glength];
+	
+	for (i = 0; i < glength; i++){
+		rBuf[i] = 0;
+	}
+
+	sBuf = XVec->GetArray;
+
+        Rreqs = new MPI_Request [nProcs - 1];
+        Sreqs = new MPI_Request [nProcs - 1];
+        Rstat = new MPI_Status [nProcs - 1];
+        Sstat = new MPI_Status [nProcs - 1];
+
+	count = 0;
+	for(i = 0; i < nProcs; i++){
+		if(i != ProcID){
+			if(DTypeSend[i] != MPI_DATATYPE_NULL){
+				MPI_Isend(sBuf,1,DTypeSend[i],i,tag1,MPI_COMM_WORLD,&Sreqs[count]);
+			}
+			else{
+				Sreqs[count] = MPI_REQUEST_NULL;
+			}
+			if(DTypeRecv[i] != MPI_DATATYPE_NULL){
+				MPI_Irecv(rBuf,1,DTypeRecv[i],i,tag1,MPI_COMM_WORLD,&Rreqs[count]);
+			}
+			else{
+				Rreqs[count] = MPI_REQUEST_NULL;
+			}
+			count++;
+		}
+	}
+
+#ifndef _OPENMP
+	//calculate local-local product
+	if(CSR_lloc != NULL){
+		for(i = 0; i < nrows; i++){
+			for(k = CSR_lloc->rows[i]; k < CSR_lloc->rows[i+1]; k++){
+				j = x_index_map->Glob2Loc(CSR_lloc->cols[k]);
+				v = CSR_lloc->vals[k]*sBuf[j];
+				YVec->AddValueLocal(i,v);
+			}
+		}
+	}
+
+	MPI_Waitall(nProcs-1, Rreqs, Rstat);
+
+	//calculate local-global product
+	if(CSR_gloc != NULL){
+		for(i = 0; i < nrows; i++){
+			for(k = CSR_gloc->rows[i]; k < CSR_gloc->rows[i+1];k++){
+				j = CSR_gloc->cols[k];
+				v = CSR_gloc->vals[k]*rBuf[j];
+				YVec->AddValueLocal(i,v);
+			}
+		}
+	}
+#else
+
+#endif
+
+	delete [] rBuf;
+	delete [] Rreqs;
+	delete [] Sreqs;
+	delete [] Rstat;
+	delete [] Sstat;
+}	
+
+
+
+
