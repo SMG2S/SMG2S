@@ -5,6 +5,7 @@
 #include <string>
 
 #include "parVectorMap.h"
+#include "../utils/random.h"
 
 template<typename T, typename S>
 class parVector{
@@ -33,6 +34,7 @@ class parVector{
 		void AddValuesLocal(S nindex, S *rows, T *values);
 		void SetTovalue(T value);
 		void SetToZero();
+		void SetRandomValues(T min, T max);
 
 		void ReadExtVec();
                 void VecView();

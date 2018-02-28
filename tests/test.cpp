@@ -1,6 +1,7 @@
 //#include "parVectorMap.cc"
 #include "../parMatrix/parMatrixSparse.cc"
 #include <math.h>
+#include <complex.h>
 
 int main(int argc, char** argv) {
     // Initialize the MPI environment
@@ -46,6 +47,7 @@ int main(int argc, char** argv) {
     printf("Proc. %d   Lower bound = %d   Upper bound = %d \n",world_rank, lower_b , upper_b ) ;
 
     double a = 1.0; float b =2.0;
+
 
     parVector<double,int> *vec = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
 

@@ -107,6 +107,15 @@ void parVector<T,S>::SetToZero()
 	SetTovalue(val);
 }
 
+template<typename T,typename S>
+void parVector<T,S>::SetRandomValues(T min, T max)
+{
+        for(S i= 0; i < array_size; i++) {
+                array[i] = random_unint(min, max);
+        }
+}
+
+
 template<typename T, typename S>
 S parVector<T,S>::Loc2Glob(S local_index)
 {

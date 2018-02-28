@@ -73,6 +73,18 @@ class parMatrixSparse
 		void	AddValueLocal( S row, S col, T value);
   		void 	AddValuesLocal( S nindex, S *rows, S *cols, T *values);
 
+		//set mat diagonal by vector given 
+		void	SetDiagonal(parVector<T,S> *diag);
+
+		//Mat Scala
+		void	Scale(T scale);
+		
+		//AXPY
+		void	AXPY(parMatrixSparse<T,S> *X, T scale);
+
+		//AYPX
+		void    AYPX(parMatrixSparse<T,S> *X, T scale);
+
 		//Reader
 		void	ReadExtMat();
 		// convert from dyn to csr
@@ -85,5 +97,9 @@ class parMatrixSparse
 
 		//spmv
 		void	MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec);
+
+		//spgmm
+		void	MatMatProd(parVector<T,S> *XVec, parVector<T,S> *YVec, parVector<T,S> *ZVec);
+
 
 };
