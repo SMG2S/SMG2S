@@ -36,7 +36,7 @@ parMatrixSparse<T,S>::parMatrixSparse()
 }
 
 template<typename T, typename S>
-parMatrixSparse<T,S>::parMatrixSparse(parVector *XVec, parVector *YVec)
+parMatrixSparse<T,S>::parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec)
 {
 	dynmat_lloc = NULL;
 	dynmat_gloc = NULL;
@@ -74,7 +74,7 @@ parMatrixSparse<T,S>::parMatrixSparse(parVector *XVec, parVector *YVec)
 	//get vector map for x and y direction
 	x_index_map = XVec->GetVectorMap();
 	x_index_map->AddUser();
-	y_index_Map = YVec->GetVectorMap();
+	y_index_map = YVec->GetVectorMap();
 	y_index_map->AddUser();
 	
 	if(x_index_map != NULL && y_index_map != NULL){
@@ -205,7 +205,7 @@ S parMatrixSparse<T,S>::GetYUpperBound(){
 template<typename T,typename S>
 void parMatrixSparse<T,S>::AddValueLocal(S row, S col, T value)
 {
-	std::map<S,T>::iterator it;
+	typename std::map<S,T>::iterator it;
 	//if location is inside of local area then add to local dynamic map
 	if((row < nrows && row >= 0) && (col < upper_x && col >= lower_x && col > 0)){
 		if(dynmat_lloc == NULL){
@@ -239,7 +239,7 @@ void parMatrixSparse<T,S>::AddValueLocal(S row, S col, T value)
 template<typename T,typename S>
 void parMatrixSparse<T,S>::AddValuesLocal(S nindex, S *rows, S *cols, T *values)
 {
-	std::map<S,T>::iterator it;
+	typename std::map<S,T>::iterator it;
 	
 	for( S i = 0; i < nindex; i++){
 		AddValueLocal(rows[i],cols[i],values[i]);
@@ -251,11 +251,11 @@ void parMatrixSparse<T,S>::ConvertToCSR()
 {
 	S 	count, i, j, k;
 	T	v;
-	std::map<S,T>::iterator it;
+	typename std::map<S,T>::iterator it;
 	
 	if(dynmat_lloc != NULL){
 		//allocate csr matrix
-		CSR_lloc = new MatrixCSR(nnz_lloc, nrows);
+		CSR_lloc = new MatrixCSR<T,S>(nnz_lloc, nrows);
 
 		//convert local local to csr
 		count = 0;
@@ -275,7 +275,7 @@ void parMatrixSparse<T,S>::ConvertToCSR()
 	}
 
 	if(dynmat_gloc != NULL){
-		CSR_gloc = new MatrixCSR(nnz_gloc, nrows);
+		CSR_gloc = new MatrixCSR<T,S>(nnz_gloc, nrows);
 		//convert global-local to CSR
 		count = 0;
 		CSR_gloc->rows[0] = 0;
@@ -335,8 +335,8 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 {
 	std::map<S,S> Rrows;
 	std::map<S,S> Srows;
-	std::map<S,S>::iterator vit;
-	std::map<S,T>::iterator mit;
+	typename std::map<S,S>::iterator vit;
+	typename std::map<S,T>::iterator mit;
 
 	S	i, j, k;
 	S	count, count1;
@@ -347,7 +347,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	S	nRecv;
 
 	MPI_Comm_rank(MPI_COMM_WORLD, &ProcID);
-	MPI_Comm_size(MPI_COMM_WORLD, &nRrocs);
+	MPI_Comm_size(MPI_COMM_WORLD, &nProcs);
 
 	//Initialise vector containing numer of entries to send and recv on each procss
 	VNumRecv = new S [nProcs];
@@ -360,7 +360,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	}
 
 	MPI_Request	*Rreqs, *Sreqs;
-	MPI_Status	statusm *Rstat, *Sstat;
+	MPI_Status	status, *Rstat, *Sstat;
 	int		tag1, tag2;
 	tag1 = 0;
 	tag2 = 1;
@@ -378,7 +378,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 				if(vit == Rrows.end()){
 					Rrows[j] = x_index_map->GetOwner(j);
 					VNumRecv[Rrows[j]] = VNumRecv[Rrows[j]] + 1;
-					count++:
+					count++;
 				}
 			}
 		}
@@ -439,14 +439,14 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 		count = 0;
 		if(ProcID != i){
 			Sbuffer[i] = new S [VNumRecv[i]];
-			for(vit = Rows.begin(); vit  != Rrows.end(); vit++){
+			for(vit = Rrows.begin(); vit  != Rrows.end(); vit++){
 				if(vit->second == i){
 					Sbuffer[i][count] = vit->first;
 					count++;
 				}
 			}
 			MPI_Isend(Sbuffer[i],VNumRecv[i], MPI_INT,i,tag1,MPI_COMM_WORLD, &Sreqs[count1]);
-			count++:
+			count++;
 		}
 		else{
 			Sbuffer[i] = new S [1];
@@ -490,7 +490,7 @@ void parMatrixSparse<T,S>::SetupDataTypes()
 	for(i = 0; i < nProcs; i++){
 		count = VNumSend[i];
 		blength = new S [count];
-		displac = new s [count];
+		displac = new S [count];
 
 		for(j = 0; j < count; j++){
 			blength[j] = 1;
@@ -518,7 +518,7 @@ void parMatrixSparse<T,S>::SetupDataTypes()
 }
 
 template<typename T,typename S>
-void parMatrixSparse<T,S>::TestCommunication(parVector *XVec, parVector *YVec)
+void parMatrixSparse<T,S>::TestCommunication(parVector<T,S> *XVec, parVector<T,S> *YVec)
 {
 	S	i,j,k,l,ng;
 	S	sender, receiver;
@@ -543,7 +543,7 @@ void parMatrixSparse<T,S>::TestCommunication(parVector *XVec, parVector *YVec)
 		printf("sending done! \n");
 	}
 	else{
-		MPI_Recv(rBuf,1,DTyoeRecv[sender],sender,1,MPI_COMM_WORLD,&Rstat);
+		MPI_Recv(rBuf,1,DTypeRecv[sender],sender,1,MPI_COMM_WORLD,&Rstat);
 		printf("receiving done! \n");
 	}
 
@@ -562,7 +562,7 @@ void parMatrixSparse<T,S>::TestCommunication(parVector *XVec, parVector *YVec)
 }
 
 template<typename T,typename S>
-void parMatrixSparse<T,S>::MatVecProd(parVector *XVec, parVector *YVec){
+void parMatrixSparse<T,S>::MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec){
 	S	i,j,k,l;
 	S	llength, glength;
 	S	count; count = 0;

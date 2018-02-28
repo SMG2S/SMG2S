@@ -5,23 +5,23 @@
 #include <string> 
 #include <vector>
 
-#include "../parVector/parVector.h"
+#include "../parVector/parVector.cc"
 #include "MatrixCSR.h"
 
 template<typename T, typename S>
 class parMatrixSparse
 {
 	private:
-		std::map<S, T> *dynamat_lloc, *dynmat_gloc;
+		std::map<S, T> *dynmat_lloc, *dynmat_gloc;
 		//size of local matrix
 		S	ncols, nrows;
 		
-		MatrixCSR *CSR_lloc, *CSR_gloc;
+		MatrixCSR<T,S> *CSR_lloc, *CSR_gloc;
 		
 		S	nnz_lloc, nnz_gloc;
 		
-		parVectorMap	*x_index_map;
-		parVectorMap	*y_index_map;
+		parVectorMap<S>	*x_index_map;
+		parVectorMap<S>	*y_index_map;
 
 		S	njloc;
 		S	lower_x, lower_y, upper_x, upper_y;
@@ -34,21 +34,21 @@ class parMatrixSparse
 		S	maxRecv, maxSend;
 		S	**Rbuffer, **Sbuffer;
 
-		MPI_Datatype DTypeRecv , DTypeSend ;
+		MPI_Datatype *DTypeRecv , *DTypeSend ;
 			
 	public:
 		//constructor
 		parMatrixSparse();
-		parMatrixSparse(parVector *XVec, parVector *YVec);
+		parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec);
 		//deconstructor
 		~parMatrixSparse();
 
 		//get
-		parVectorMap *GetXMap(){return x_index_map;};
-		ParVectorMap *GetYMap(){return y_index_map;};
+		parVectorMap<S> *GetXMap(){return x_index_map;};
+		parVectorMap<S> *GetYMap(){return y_index_map;};
 
 		S	GetXLowerBound();
-		S	GetYlowerBound();
+		S	GetYLowerBound();
 
 	        S       GetXUpperBound();
                 S       GetYUpperBound();
@@ -66,8 +66,8 @@ class parMatrixSparse
 		std::map<S,T>	*GetDynMatGLobLoc(){return dynmat_lloc;};
 		std::map<S,T>	*GetDynMatGlobLoc(){return dynmat_gloc;};
 
-		MatrixCSR	*GetCSRLocLoc(){return CSR_lloc;};
-		MatrixCSR	*GetCSRGlobLoc(){return CSR_gloc};
+		MatrixCSR<T,S>	*GetCSRLocLoc(){return CSR_lloc;};
+		MatrixCSR<T,S>	*GetCSRGlobLoc(){return CSR_gloc;};
 
 		//add
 		void	AddValueLocal( S row, S col, T value);
@@ -81,9 +81,9 @@ class parMatrixSparse
 		void	FindColsToRecv();
 		void	SetupDataTypes();
 
-		void	TestCommunication(parVector	*XVec, parVec *YVec);
+		void	TestCommunication(parVector<T,S> *XVec, parVector<T,S> *YVec);
 
 		//spmv
-		void	MatVecProd(parVector *XVec, parVector *YVec);
+		void	MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec);
 
 };

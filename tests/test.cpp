@@ -1,5 +1,5 @@
 //#include "parVectorMap.cc"
-#include "../parVector/parVector.cc"
+#include "../parMatrix/parMatrixSparse.cc"
 #include <math.h>
 
 int main(int argc, char** argv) {
