@@ -25,7 +25,7 @@ class parVector{
 
 		S GetLowerBound();
 		S GetUpperBound();
-		S GetGlocalSize();
+		S GetGlobalSize();
 		S GetLocalSize();
 		S GetArraySize();
 		T *GetArray(){return array;};

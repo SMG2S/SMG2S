@@ -62,7 +62,7 @@ S parVector<T,S>::GetLocalSize()
 }
 
 template<typename T, typename S>
-S parVector<T,S>::GetGlocalSize()
+S parVector<T,S>::GetGlobalSize()
 {
 	if(index_map != NULL){
 		return index_map->GetGlobalSize();

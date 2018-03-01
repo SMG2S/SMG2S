@@ -72,9 +72,9 @@ parMatrixSparse<T,S>::parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec
 	DTypeSend = NULL;
 
 	//get vector map for x and y direction
-	x_index_map = XVec->GetVectorMap();
+	x_index_map = XVec->GetVecMap();
 	x_index_map->AddUser();
-	y_index_map = YVec->GetVectorMap();
+	y_index_map = YVec->GetVecMap();
 	y_index_map->AddUser();
 	
 	if(x_index_map != NULL && y_index_map != NULL){
@@ -247,6 +247,34 @@ void parMatrixSparse<T,S>::AddValuesLocal(S nindex, S *rows, S *cols, T *values)
 }
 
 template<typename T,typename S>
+T parMatrixSparse<T,S>::GetValue(S row, S col)
+{
+	if((row < nrows && row >= 0) && (col < upper_x && col >= lower_x && col > 0)){
+		return dynmat_lloc[row][col];
+	}
+	else if ((row < nrows && row >= 0) && (col >= upper_x || col < lower_x) && (col >= 0)){
+		return dynmat_gloc[row][col];
+	}
+}
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::SetDiagonal(parVector<T,S> *diag)
+{
+	if (nrows != njloc ){
+		if(ProcID == 0){
+			printf("ERROR: cannot set digonal for non-square matrix.");
+		}
+	}
+	else{
+		T *array = diag->GetArray();
+
+		for(S i = 0; i < nrows; i++){
+			AddValueLocal(i,i,array[i]);
+		}
+	}
+}
+
+template<typename T,typename S>
 void parMatrixSparse<T,S>::ConvertToCSR()
 {
 	S 	count, i, j, k;
@@ -354,10 +382,11 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	for(i = 0; i < nProcs; i++){
 		VNumRecv[i] = 0;
 	}
-	VNumRecv = new S [nProcs];
+	VNumSend = new S [nProcs];
 	for(i = 0; i < nProcs; i++){
 		VNumSend[i] = 0;
 	}
+
 
 	MPI_Request	*Rreqs, *Sreqs;
 	MPI_Status	status, *Rstat, *Sstat;
@@ -369,6 +398,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	Stag = 1;
 
 	S		maxRecv, maxSend;
+
 
 	if(dynmat_gloc != NULL){
 		for(i = 0; i < nrows; i++){
@@ -585,7 +615,7 @@ void parMatrixSparse<T,S>::MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec
 		rBuf[i] = 0;
 	}
 
-	sBuf = XVec->GetArray;
+	sBuf = XVec->GetArray();
 
         Rreqs = new MPI_Request [nProcs - 1];
         Sreqs = new MPI_Request [nProcs - 1];

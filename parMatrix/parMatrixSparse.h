@@ -72,6 +72,9 @@ class parMatrixSparse
 		//add
 		void	AddValueLocal( S row, S col, T value);
   		void 	AddValuesLocal( S nindex, S *rows, S *cols, T *values);
+		
+		//get
+		T	GetValue(S row, S col);
 
 		//set mat diagonal by vector given 
 		void	SetDiagonal(parVector<T,S> *diag);

@@ -48,16 +48,50 @@ int main(int argc, char** argv) {
 
     double a = 1.0; float b =2.0;
 
-
     parVector<double,int> *vec = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
-
+    parVector<double,int> *prod = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
     vec->SetTovalue(a);
+    prod->SetToZero();
+
     MPI_Barrier(MPI_COMM_WORLD);
 
     vec->VecView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
+    prod->VecView();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    //Matrix Initialization
+
+    parMatrixSparse<double,int> *Am = new parMatrixSparse<double,int>(vec,prod);
+
+    if(world_rank == 0){printf("Matrix Initialized\n");}
+
+    Am->SetDiagonal(vec);
+
+    Am->AddValueLocal(3,5,10.0);
+
+    double x;
+
+    x = Am->GetValue(1,1);
+
+    if(world_rank == 0){printf("x = %f \n", x);}
+
+    Am->ConvertToCSR();
+	
+    Am->FindColsToRecv();
+    
+    Am->SetupDataTypes();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    Am->MatVecProd(vec,prod);
+
+    if(world_rank == 0){printf("print SPMV results\n");}
+ 
+    prod->VecView();
 
 //    parVector<float,int> *vec2 = new parVector<float,int>(MPI_COMM_WORLD, lower_b, upper_b);
 //    vec2->SetTovalue(b);
