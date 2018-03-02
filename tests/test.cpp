@@ -55,11 +55,11 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    vec->VecView();
+    //vec->VecView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    prod->VecView();
+   // prod->VecView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -71,27 +71,29 @@ int main(int argc, char** argv) {
 
     Am->SetDiagonal(vec);
 
-    Am->AddValueLocal(3,5,10.0);
+    //Am->AddValueLocal(3,5,10.0);
 
     double x;
 
-    x = Am->GetValue(1,1);
+    x = Am->GetValue(0,0);
+
+    Am->MatView();
 
     if(world_rank == 0){printf("x = %f \n", x);}
 
-    Am->ConvertToCSR();
+    //Am->ConvertToCSR();
 	
-    Am->FindColsToRecv();
+    //Am->FindColsToRecv();
     
-    Am->SetupDataTypes();
+   // Am->SetupDataTypes();
 
-    MPI_Barrier(MPI_COMM_WORLD);
+   // MPI_Barrier(MPI_COMM_WORLD);
 
-    Am->MatVecProd(vec,prod);
+   // Am->MatVecProd(vec,prod);
 
-    if(world_rank == 0){printf("print SPMV results\n");}
+  //  if(world_rank == 0){printf("print SPMV results\n");}
  
-    prod->VecView();
+    //prod->VecView();
 
 //    parVector<float,int> *vec2 = new parVector<float,int>(MPI_COMM_WORLD, lower_b, upper_b);
 //    vec2->SetTovalue(b);

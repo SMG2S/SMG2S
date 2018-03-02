@@ -1,4 +1,4 @@
 #!/bin/bash
 #SBATCH -n 2
  	 
-srun -n 2 ./a.out
+srun -n 1 ./a.out

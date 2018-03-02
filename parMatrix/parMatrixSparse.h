@@ -76,6 +76,10 @@ class parMatrixSparse
 		//get
 		T	GetValue(S row, S col);
 
+		//show
+
+		void	MatView();
+
 		//set mat diagonal by vector given 
 		void	SetDiagonal(parVector<T,S> *diag);
 

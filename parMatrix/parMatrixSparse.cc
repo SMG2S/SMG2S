@@ -207,7 +207,7 @@ void parMatrixSparse<T,S>::AddValueLocal(S row, S col, T value)
 {
 	typename std::map<S,T>::iterator it;
 	//if location is inside of local area then add to local dynamic map
-	if((row < nrows && row >= 0) && (col < upper_x && col >= lower_x && col > 0)){
+	if((row < nrows && row >= 0) && (col < upper_x && col >= lower_x && col >= 0)){
 		if(dynmat_lloc == NULL){
 			dynmat_lloc = new std::map<S,T> [nrows];
 		}
@@ -254,6 +254,42 @@ T parMatrixSparse<T,S>::GetValue(S row, S col)
 	}
 	else if ((row < nrows && row >= 0) && (col >= upper_x || col < lower_x) && (col >= 0)){
 		return dynmat_gloc[row][col];
+	}
+}
+
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::MatView(){
+	S i, j;
+	T v;
+
+	if(ProcID == 0) {std::cout << "Parallel MatView: " << std::endl;}
+
+	for(i = 0; i < nrows; i++){
+		std::cout << "row " << i << ":";
+		for (j = 0; j < ncols; j++){
+			if(j < upper_x && j >= lower_x){
+				if(dynmat_lloc[i][j] != 0.0){
+					std::cout << ", " << dynmat_lloc[i][j] << " "<< j;
+				}
+			}
+			else if(j >= upper_x || j < lower_x){
+				std::cout << ", " << j;
+			}
+		}
+
+
+/*
+		for (j = 0; j < ncols; j++){
+			if(j < upper_x && j >= lower_x){
+				std::cout << " "<< "("<< j << ","<< dynmat_lloc[i+1][j+1] << ")";
+			}
+			else if(j >= upper_x || j < lower_x){
+				std::cout << " "<< "("<< j << "," << dynmat_gloc[i+1][j+1] << ")";
+			}
+		}
+*/
+	std::cout << std::endl;
 	}
 }
 
