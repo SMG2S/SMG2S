@@ -264,31 +264,16 @@ void parMatrixSparse<T,S>::MatView(){
 	T v;
 
 	if(ProcID == 0) {std::cout << "Parallel MatView: " << std::endl;}
-
-	for(i = 0; i < nrows; i++){
-		std::cout << "row " << i << ":";
+	for (i = 0; i < nrows; i++){
 		for (j = 0; j < ncols; j++){
 			if(j < upper_x && j >= lower_x){
-				if(dynmat_lloc[i][j] != 0.0){
-					std::cout << ", " << dynmat_lloc[i][j] << " "<< j;
-				}
+				std::cout << " "<< "("<< j << ","<< dynmat_lloc[i][j] << ")";
 			}
 			else if(j >= upper_x || j < lower_x){
-				std::cout << ", " << j;
+				std::cout << " "<< "("<< j << "," << dynmat_gloc[i][j] << ")";
 			}
 		}
 
-
-/*
-		for (j = 0; j < ncols; j++){
-			if(j < upper_x && j >= lower_x){
-				std::cout << " "<< "("<< j << ","<< dynmat_lloc[i+1][j+1] << ")";
-			}
-			else if(j >= upper_x || j < lower_x){
-				std::cout << " "<< "("<< j << "," << dynmat_gloc[i+1][j+1] << ")";
-			}
-		}
-*/
 	std::cout << std::endl;
 	}
 }
