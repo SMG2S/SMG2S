@@ -46,22 +46,34 @@ int main(int argc, char** argv) {
 
     printf("Proc. %d   Lower bound = %d   Upper bound = %d \n",world_rank, lower_b , upper_b ) ;
 
-    double a = 1.0; float b =2.0;
+    double a = 1.0, c = 2.0; float b =2.0;
 
     parVector<double,int> *vec = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
     parVector<double,int> *prod = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
+
     vec->SetTovalue(a);
-    prod->SetToZero();
+
+    prod->SetTovalue(c);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    //vec->VecView();
+    vec->VecView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-   // prod->VecView();
+    vec->VecAdd(prod);
+   
+    vec->VecView();
 
     MPI_Barrier(MPI_COMM_WORLD);
+
+    vec->VecScale(c);
+
+    double dot;
+
+    dot = vec->VecDot(prod);
+
+    if(world_rank == 0){printf("vecdot = %f\n", dot);}
 
     //Matrix Initialization
 
@@ -77,7 +89,7 @@ int main(int argc, char** argv) {
 
     x = Am->GetValue(0,0);
 
-    Am->MatView();
+//    Am->MatView();
 
     if(world_rank == 0){printf("x = %f \n", x);}
 

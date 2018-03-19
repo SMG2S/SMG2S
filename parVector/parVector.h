@@ -35,7 +35,10 @@ class parVector{
 		void SetTovalue(T value);
 		void SetToZero();
 		void SetRandomValues(T min, T max);
-
+		
+		void VecAdd(parVector *v);
+		void VecScale(T scale);
+		T    VecDot(parVector *v);
 		void ReadExtVec();
                 void VecView();
 	

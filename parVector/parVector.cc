@@ -133,6 +133,35 @@ S parVector<T,S>::Glob2Loc(S global_index)
 }
 
 template<typename T, typename S>
+void parVector<T,S>::VecAdd(parVector<T,S> *v)
+{
+	if(array_size != v->array_size){std::cout << "vector size not coherant" << std::endl;}
+	else{
+		for(S i = 0; i < array_size; i++){
+			array[i] = array[i] + v->array[i];
+		}
+	}	
+}
+
+template<typename T, typename S>
+void parVector<T,S>::VecScale(T scale)
+{
+	for(S i = 0; i < array_size; i++){
+		array[i] = scale*array[i];
+	}
+}
+
+template<typename T, typename S>
+T parVector<T,S>::VecDot(parVector *v)
+{
+	T sum;
+	for(S i = 0; i < array_size; i++){
+		sum += array[i]*v->array[i];
+	}
+
+	return sum;
+}
+template<typename T, typename S>
 void parVector<T,S>::VecView()
 {
 	int r;
