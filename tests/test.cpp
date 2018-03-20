@@ -2,6 +2,7 @@
 #include "../parMatrix/parMatrixSparse.cc"
 #include <math.h>
 #include <complex.h>
+#include <sys/malloc.h>
 
 int main(int argc, char** argv) {
     // Initialize the MPI environment
@@ -29,7 +30,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 10;
+    int probSize = 11;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -57,6 +58,35 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
+//    vec->VecView();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    vec->VecAdd(prod);
+   
+//    vec->VecView();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    vec->VecScale(c);
+
+    double dot;
+
+    dot = vec->VecDot(prod);
+
+    if(world_rank == 0){printf("vecdot = %f\n", dot);}
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    int as = vec->GetArraySize();
+    if(world_rank == 0){printf("vector array Size  = %d\n", as);}
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    double *va = vec->GetArray();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
     vec->VecView();
 
     MPI_Barrier(MPI_COMM_WORLD);
@@ -69,11 +99,6 @@ int main(int argc, char** argv) {
 
     vec->VecScale(c);
 
-    double dot;
-
-    dot = vec->VecDot(prod);
-
-    if(world_rank == 0){printf("vecdot = %f\n", dot);}
 
     //Matrix Initialization
 
@@ -81,18 +106,26 @@ int main(int argc, char** argv) {
 
     if(world_rank == 0){printf("Matrix Initialized\n");}
 
-    Am->SetDiagonal(vec);
+    //Am->SetDiagonal(vec);
 
-    //Am->AddValueLocal(3,5,10.0);
+    MPI_Barrier(MPI_COMM_WORLD);
 
-    double x;
+    printf("\n\nprc %d: LOWER_X = %d, LOWER_Y = %d, UPPER_X = %d, UPPER_Y = %d \n", world_rank, Am->GetXLowerBound(), Am->GetYLowerBound(), Am->GetXUpperBound(), Am->GetYUpperBound());
+
+    for(int j; j < probSize; j++){
+        Am->AddValue(j,j,j+1);
+    }
+
+    double x, y;
 
     x = Am->GetValue(0,0);
 
+    y = Am->GetValue(9,9);
+//    Am->MatView();
 //    Am->MatView();
 
-    if(world_rank == 0){printf("x = %f \n", x);}
-
+    printf("Prc %d: x = %f, y = %f \n", world_rank, x, y);
+/*
     //Am->ConvertToCSR();
 	
     //Am->FindColsToRecv();
@@ -109,7 +142,7 @@ int main(int argc, char** argv) {
 
 //    parVector<float,int> *vec2 = new parVector<float,int>(MPI_COMM_WORLD, lower_b, upper_b);
 //    vec2->SetTovalue(b);
-
+*/
     MPI_Finalize();
 
     return 0;

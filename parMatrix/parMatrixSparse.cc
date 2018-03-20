@@ -237,6 +237,18 @@ void parMatrixSparse<T,S>::AddValueLocal(S row, S col, T value)
 }
 
 template<typename T,typename S>
+T parMatrixSparse<T,S>::GetLocalValue(S row, S col)
+{
+	if((row < nrows && row >= 0) && (col < upper_x && col >= lower_x && col >= 0)){
+		return dynmat_lloc[row][col]; 
+	}
+	else if ((row < nrows && row >= 0) && (col >= upper_x || col < lower_x) && (col >= 0)){
+		return dynmat_gloc[row][col];
+	}
+	else return 0.0;
+}
+
+template<typename T,typename S>
 void parMatrixSparse<T,S>::AddValuesLocal(S nindex, S *rows, S *cols, T *values)
 {
 	typename std::map<S,T>::iterator it;
@@ -247,14 +259,18 @@ void parMatrixSparse<T,S>::AddValuesLocal(S nindex, S *rows, S *cols, T *values)
 }
 
 template<typename T,typename S>
+void parMatrixSparse<T,S>::AddValue(S row, S col, T value)
+{
+
+	if((row >= lower_y) && (row < upper_y) && (col < ncols)){
+		AddValueLocal(y_index_map->Glob2Loc(row),col,value);
+	}
+}
+
+template<typename T,typename S>
 T parMatrixSparse<T,S>::GetValue(S row, S col)
 {
-	if((row < nrows && row >= 0) && (col < upper_x && col >= lower_x && col > 0)){
-		return dynmat_lloc[row][col];
-	}
-	else if ((row < nrows && row >= 0) && (col >= upper_x || col < lower_x) && (col >= 0)){
-		return dynmat_gloc[row][col];
-	}
+	return GetLocalValue(y_index_map->Glob2Loc(row), col);
 }
 
 
@@ -287,11 +303,12 @@ void parMatrixSparse<T,S>::SetDiagonal(parVector<T,S> *diag)
 		}
 	}
 	else{
-		T *array = diag->GetArray();
-
-		for(S i = 0; i < nrows; i++){
-			AddValueLocal(i,i,array[i]);
+		T *a = diag->GetArray();
+		S s = diag->GetArraySize();
+		std::cout << "s = " << s << std::endl;
+		for(S i = 0; i < s; i++){
 		}
+
 	}
 }
 

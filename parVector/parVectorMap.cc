@@ -62,8 +62,9 @@ S parVectorMap<S>::Loc2Glob(S local_index){
 
 template<typename S> 
 S parVectorMap<S>::Glob2Loc(S global_index){
-	if((global_index >= local_size) && (global_index < upper_bound))
+	if((global_index >= lower_bound) && (global_index < upper_bound))
 		{return global_index - lower_bound;}
+	else return -1;
 }
 
 //get
