@@ -74,10 +74,11 @@ int parVectorMap<S>::GetOwner(S index)
 	if((index < global_size) && (index >= 0)){
 		for (int i = 0; i <nproc; i++){
 			if(index < uprocbound_map[i]){return i;}
+			else return -1;
 		}
 	}
-	else {return -1;}
-
+	else 
+		return -1;
 }
 
 

@@ -273,7 +273,26 @@ T parMatrixSparse<T,S>::GetValue(S row, S col)
 	return GetLocalValue(y_index_map->Glob2Loc(row), col);
 }
 
+template<typename T,typename S>
+void parMatrixSparse<T,S>::MatView()
+{
+	S i,j;
+	T vs;
+        if(ProcID == 0) {std::cout << "Parallel MatView: " << std::endl;}
+	for(i = 0; i < 11; i++){
+		std::cout << "Row " << i << ":";
+		for(j = 0; j < 11; j++){
+//			v = GetValue(i,j);
+			if (vs != 0.0){
+				std::cout << " " << "(" << j << "," << vs << ")"; 
+			}
+		
+		}
+        	std::cout << std::endl;
+	}
+}
 
+/*
 template<typename T,typename S>
 void parMatrixSparse<T,S>::MatView(){
 	S i, j;
@@ -293,6 +312,7 @@ void parMatrixSparse<T,S>::MatView(){
 	std::cout << std::endl;
 	}
 }
+*/
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::SetDiagonal(parVector<T,S> *diag)
@@ -538,6 +558,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	//wait for receives to finish
 	MPI_Waitall(nProcs-1, Rreqs, Rstat);
 
+	printf ("Found the cols to recv\n");
 	delete [] Rreqs;	
 	delete [] Sreqs;
 	delete [] Rstat;
@@ -580,7 +601,8 @@ void parMatrixSparse<T,S>::SetupDataTypes()
 		MPI_Type_indexed(count, blength, displac, MPI_DOUBLE, &DTypeRecv[i]);
                 MPI_Type_commit(&DTypeRecv[i]);
 	}
-	
+
+	printf("Setup data types finished\n");	
 	delete [] blength;
 	delete [] displac;
 }

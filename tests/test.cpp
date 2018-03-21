@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
 
     vec->SetTovalue(a);
 
-    prod->SetTovalue(c);
+    prod->SetTovalue(0.0);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -87,18 +87,19 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    vec->VecView();
+//    vec->VecView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
     vec->VecAdd(prod);
    
-    vec->VecView();
+//    vec->VecView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
     vec->VecScale(c);
 
+    vec->VecView();
 
     //Matrix Initialization
 
@@ -125,21 +126,29 @@ int main(int argc, char** argv) {
 //    Am->MatView();
 
     printf("Prc %d: x = %f, y = %f \n", world_rank, x, y);
-/*
-    //Am->ConvertToCSR();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    Am->ConvertToCSR();
+
+//    if(world_rank == 0){printf("Matrix Converted to CSR\n");}
+
 	
-    //Am->FindColsToRecv();
+    Am->FindColsToRecv();
     
-   // Am->SetupDataTypes();
+    Am->SetupDataTypes();
 
-   // MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(MPI_COMM_WORLD);
 
-   // Am->MatVecProd(vec,prod);
+    Am->MatVecProd(vec,prod);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
 
   //  if(world_rank == 0){printf("print SPMV results\n");}
  
-    //prod->VecView();
-
+    prod->VecView();
+/*
 //    parVector<float,int> *vec2 = new parVector<float,int>(MPI_COMM_WORLD, lower_b, upper_b);
 //    vec2->SetTovalue(b);
 */
