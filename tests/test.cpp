@@ -52,27 +52,24 @@ int main(int argc, char** argv) {
     parVector<double,int> *vec = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
     parVector<double,int> *prod = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
 
-    vec->SetTovalue(a);
+    vec->SetTovalue(a); //1.0,1.0...1.0
 
-    prod->SetTovalue(0.0);
-
-    MPI_Barrier(MPI_COMM_WORLD);
-
-//    vec->VecView();
+    prod->SetTovalue(1.0);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    vec->VecAdd(prod);
+    vec->VecAdd(prod); //2.0,2.0...
    
-//    vec->VecView();
-
     MPI_Barrier(MPI_COMM_WORLD);
 
-    vec->VecScale(c);
+    vec->VecScale(c); //4.0,4.0...
 
-    double dot;
+    double dot_local, dot;
 
-    dot = vec->VecDot(prod);
+    dot_local = vec->VecDot(prod);
+
+    MPI_Allreduce(&dot_local, &dot, 1, MPI_DOUBLE, MPI_SUM,
+                  MPI_COMM_WORLD);
 
     if(world_rank == 0){printf("vecdot = %f\n", dot);}
 
@@ -87,17 +84,7 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-//    vec->VecView();
-
-    MPI_Barrier(MPI_COMM_WORLD);
-
-    vec->VecAdd(prod);
-   
-//    vec->VecView();
-
-    MPI_Barrier(MPI_COMM_WORLD);
-
-    vec->VecScale(c);
+    vec->VecScale(c); //8.0,8.0...
 
     vec->VecView();
 
@@ -107,11 +94,9 @@ int main(int argc, char** argv) {
 
     if(world_rank == 0){printf("Matrix Initialized\n");}
 
-    //Am->SetDiagonal(vec);
-
     MPI_Barrier(MPI_COMM_WORLD);
 
-    printf("\n\nprc %d: LOWER_X = %d, LOWER_Y = %d, UPPER_X = %d, UPPER_Y = %d \n", world_rank, Am->GetXLowerBound(), Am->GetYLowerBound(), Am->GetXUpperBound(), Am->GetYUpperBound());
+//    printf("\n\nprc %d: LOWER_X = %d, LOWER_Y = %d, UPPER_X = %d, UPPER_Y = %d \n", world_rank, Am->GetXLowerBound(), Am->GetYLowerBound(), Am->GetXUpperBound(), Am->GetYUpperBound());
 
     for(int j; j < probSize; j++){
         Am->AddValue(j,j,j+1);
@@ -125,14 +110,11 @@ int main(int argc, char** argv) {
 //    Am->MatView();
 //    Am->MatView();
 
-    printf("Prc %d: x = %f, y = %f \n", world_rank, x, y);
+//    printf("Prc %d: x = %f, y = %f \n", world_rank, x, y);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
     Am->ConvertToCSR();
-
-//    if(world_rank == 0){printf("Matrix Converted to CSR\n");}
-
 	
     Am->FindColsToRecv();
     
@@ -145,7 +127,7 @@ int main(int argc, char** argv) {
     MPI_Barrier(MPI_COMM_WORLD);
 
 
-  //  if(world_rank == 0){printf("print SPMV results\n");}
+    if(world_rank == 0){printf("print SPMV results\n");}
  
     prod->VecView();
 /*

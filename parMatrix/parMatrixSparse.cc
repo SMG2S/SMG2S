@@ -217,7 +217,8 @@ void parMatrixSparse<T,S>::AddValueLocal(S row, S col, T value)
 			nnz_lloc++;
 		}
 		else{
-			it->second = it->second + value;
+	//		it->second = it->second + value;
+			it->second = value;
 		}
 	//if location is inside of local-global area
 	}
@@ -231,7 +232,8 @@ void parMatrixSparse<T,S>::AddValueLocal(S row, S col, T value)
 			nnz_gloc++;
 		}
 		else{
-			it->second = it->second + value;
+//			it->second = it->second + value;
+			it->second = value;
 		}
 	}
 }

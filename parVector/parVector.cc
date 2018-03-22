@@ -80,7 +80,8 @@ template<typename T, typename S>
 void parVector<T,S>::AddValueLocal(S row, T value)
 {
 	if (row < array_size){
-		array[row] = array[row] + value;
+		//array[row] = array[row] + value;
+		array[row] = value;
 	}
 }
 
