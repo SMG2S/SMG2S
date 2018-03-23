@@ -76,6 +76,7 @@ int main(int argc, char** argv) {
     MPI_Barrier(MPI_COMM_WORLD);
 
     int as = vec->GetArraySize();
+    
     if(world_rank == 0){printf("vector array Size  = %d\n", as);}
 
     MPI_Barrier(MPI_COMM_WORLD);

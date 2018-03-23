@@ -77,11 +77,28 @@ S parVector<T,S>::GetArraySize()
 }
 
 template<typename T, typename S>
+S parVector<T,S>::Loc2Glob(S local_index)
+{
+	if ( index_map != NULL ) {
+		return index_map -> Loc2Glob(local_index);
+	}
+	else return -1;
+}
+
+template<typename T, typename S>
+S parVector<T,S>::Glob2Loc(S global_index)
+{
+	 if ( index_map != NULL ) {
+		return index_map ->Glob2Loc(global_index);
+	}
+}
+
+template<typename T, typename S>
 void parVector<T,S>::AddValueLocal(S row, T value)
 {
 	if (row < array_size){
-		//array[row] = array[row] + value;
-		array[row] = value;
+		array[row] = array[row] + value;
+		//array[row] = value;
 	}
 }
 
@@ -90,6 +107,36 @@ void parVector<T,S>::AddValuesLocal(S nindex, S *rows, T *values)
 {
 	for(S i = 0; i < nindex; i++){
 		AddValueLocal(rows[i],values[i]);
+	}
+}
+
+template<typename T, typename S>
+void parVector<T,S>::SetValueLocal(S row, T value)
+{
+	if (row < array_size){
+		array[row] = value;
+	}
+}
+
+template<typename T, typename S>
+void parVector<T,S>::SetValuesLocal(S nindex, S *rows, T *values)
+{
+	for(S i = 0; i < nindex; i++){
+		SetValueLocal(rows[i],values[i]);
+	}
+}
+
+template<typename T, typename S>
+void parVector<T,S>::SetValueGlobal(S index, T value)
+{
+	SetValueLocal(Glob2Loc(index), value);
+}
+
+template<typename T, typename S>
+void parVector<T,S>::SetValuesGlobal(S nindex, S *rows, T *values)
+{
+	for(S i = 0; i < nindex; i++){
+		SetValueLocal(Glob2Loc(rows[i]),values[i]);
 	}
 }
 
@@ -116,23 +163,6 @@ void parVector<T,S>::SetRandomValues(T min, T max)
         }
 }
 
-
-template<typename T, typename S>
-S parVector<T,S>::Loc2Glob(S local_index)
-{
-	if ( index_map != NULL ) {
-		return index_map -> Loc2Glob(local_index);
-	}
-	else return -1;
-}
-
-template<typename T, typename S>
-S parVector<T,S>::Glob2Loc(S global_index)
-{
-	 if ( index_map != NULL ) {
-		return index_map ->Glob2Loc(global_index);
-	}
-}
 
 template<typename T, typename S>
 void parVector<T,S>::VecAdd(parVector<T,S> *v)

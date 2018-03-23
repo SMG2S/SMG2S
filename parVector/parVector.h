@@ -30,8 +30,17 @@ class parVector{
 		S GetArraySize();
 		T *GetArray(){return array;};
 
+		S Loc2Glob(S local_index);
+		S Glob2Loc(S global_index);
+		
 		void AddValueLocal(S row, T value);
 		void AddValuesLocal(S nindex, S *rows, T *values);
+
+		void SetValueLocal(S row, T value);
+		void SetValuesLocal(S nindex, S *rows, T *values);
+		void SetValueGlobal(S index, T value);
+		void SetValuesGlobal(S nindex, S *rows, T *values);
+
 		void SetTovalue(T value);
 		void SetToZero();
 		void SetRandomValues(T min, T max);
@@ -41,9 +50,6 @@ class parVector{
 		T    VecDot(parVector *v);
 		void ReadExtVec();
                 void VecView();
-	
-		S Loc2Glob(S local_index);
-		S Glob2Loc(S global_index);
 
 		void RestoreArray(){};
 };

@@ -437,7 +437,8 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	MPI_Comm_rank(MPI_COMM_WORLD, &ProcID);
 	MPI_Comm_size(MPI_COMM_WORLD, &nProcs);
 
-	//Initialise vector containing numer of entries to send and recv on each procss
+	//Initialise vector containing numer of entries to send and recv on each procss, number of vectors
+
 	VNumRecv = new S [nProcs];
 	for(i = 0; i < nProcs; i++){
 		VNumRecv[i] = 0;
@@ -446,7 +447,6 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	for(i = 0; i < nProcs; i++){
 		VNumSend[i] = 0;
 	}
-
 
 	MPI_Request	*Rreqs, *Sreqs;
 	MPI_Status	status, *Rstat, *Sstat;
@@ -458,7 +458,6 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	Stag = 1;
 
 	S		maxRecv, maxSend;
-
 
 	if(dynmat_gloc != NULL){
 		for(i = 0; i < nrows; i++){
@@ -529,7 +528,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 		count = 0;
 		if(ProcID != i){
 			Sbuffer[i] = new S [VNumRecv[i]];
-			for(vit = Rrows.begin(); vit  != Rrows.end(); vit++){
+			for(vit = Rrows.begin(); vit != Rrows.end(); vit++){
 				if(vit->second == i){
 					Sbuffer[i][count] = vit->first;
 					count++;
@@ -679,10 +678,10 @@ void parMatrixSparse<T,S>::MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec
 
 	sBuf = XVec->GetArray();
 
-        Rreqs = new MPI_Request [nProcs - 1];
-        Sreqs = new MPI_Request [nProcs - 1];
-        Rstat = new MPI_Status [nProcs - 1];
-        Sstat = new MPI_Status [nProcs - 1];
+    Rreqs = new MPI_Request [nProcs - 1];
+    Sreqs = new MPI_Request [nProcs - 1];
+    Rstat = new MPI_Status [nProcs - 1];
+    Sstat = new MPI_Status [nProcs - 1];
 
 	count = 0;
 	for(i = 0; i < nProcs; i++){
