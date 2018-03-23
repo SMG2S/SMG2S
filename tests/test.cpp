@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 11;
+    int probSize = 10;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
 
     vec->SetTovalue(a); //1.0,1.0...1.0
 
-    prod->SetTovalue(1.0);
+    prod->SetTovalue(0.0);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -75,9 +75,9 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    int as = vec->GetArraySize();
-    
-    if(world_rank == 0){printf("vector array Size  = %d\n", as);}
+//    int as = vec->GetArraySize();
+
+//    if(world_rank == 0){printf("vector array Size  = %d\n", as);}
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -99,36 +99,48 @@ int main(int argc, char** argv) {
 
 //    printf("\n\nprc %d: LOWER_X = %d, LOWER_Y = %d, UPPER_X = %d, UPPER_Y = %d \n", world_rank, Am->GetXLowerBound(), Am->GetYLowerBound(), Am->GetXUpperBound(), Am->GetYUpperBound());
 
-    for(int j; j < probSize; j++){
-        Am->AddValue(j,j,j+1);
+    for(int j=0; j < probSize; j++){
+        Am->SetValue(j,j,j+1);
+    }
+ 
+    for(int j=0; j < 5; j++){
+        Am->SetValue(j,j+5,1.0);
+        Am->SetValue(j+5,j,2.0);
     }
 
     double x, y;
 
-    x = Am->GetValue(0,0);
+    x = Am->GetValue(0,5);
 
     y = Am->GetValue(9,9);
 //    Am->MatView();
 //    Am->MatView();
 
-//    printf("Prc %d: x = %f, y = %f \n", world_rank, x, y);
+ //   printf("Prc %d: x = %f, y = %f \n", world_rank, x, y);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
     Am->ConvertToCSR();
 	
+    MPI_Barrier(MPI_COMM_WORLD);
+
     Am->FindColsToRecv();
     
+    MPI_Barrier(MPI_COMM_WORLD);
+
+
     Am->SetupDataTypes();
 
     MPI_Barrier(MPI_COMM_WORLD);
+
+ //   Am->TestCommunication(vec,prod);
 
     Am->MatVecProd(vec,prod);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
 
-    if(world_rank == 0){printf("print SPMV results\n");}
+//    if(world_rank == 0){printf("print SPMV results\n");}
  
     prod->VecView();
 /*

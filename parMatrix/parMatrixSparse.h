@@ -73,9 +73,16 @@ class parMatrixSparse
 		void	AddValueLocal( S row, S col, T value);
   		void 	AddValuesLocal( S nindex, S *rows, S *cols, T *values);
 
-		//global set
+		//global add
 		void	AddValue(S row, S col, T value);
-	
+
+  		//set
+		void	SetValueLocal( S row, S col, T value);
+  		void 	SetValuesLocal( S nindex, S *rows, S *cols, T *values);
+
+		//global set
+		void	SetValue(S row, S col, T value);
+
 		//get
 		T	GetLocalValue(S row, S col);
 		T	GetValue(S row, S col);

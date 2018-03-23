@@ -217,8 +217,8 @@ void parMatrixSparse<T,S>::AddValueLocal(S row, S col, T value)
 			nnz_lloc++;
 		}
 		else{
-	//		it->second = it->second + value;
-			it->second = value;
+			it->second = it->second + value;
+	//		it->second = value;
 		}
 	//if location is inside of local-global area
 	}
@@ -232,8 +232,8 @@ void parMatrixSparse<T,S>::AddValueLocal(S row, S col, T value)
 			nnz_gloc++;
 		}
 		else{
-//			it->second = it->second + value;
-			it->second = value;
+			it->second = it->second + value;
+//			it->second = value;
 		}
 	}
 }
@@ -268,6 +268,63 @@ void parMatrixSparse<T,S>::AddValue(S row, S col, T value)
 		AddValueLocal(y_index_map->Glob2Loc(row),col,value);
 	}
 }
+
+//set
+template<typename T,typename S>
+void parMatrixSparse<T,S>::SetValueLocal( S row, S col, T value)
+{
+	typename std::map<S,T>::iterator it;
+	//if location is inside of local area then add to local dynamic map
+	if((row < nrows && row >= 0) && (col < upper_x && col >= lower_x && col >= 0)){
+		if(dynmat_lloc == NULL){
+			dynmat_lloc = new std::map<S,T> [nrows];
+		}
+		it = dynmat_lloc[row].find(col);
+		if(it == dynmat_lloc[row].end()){
+			dynmat_lloc[row][col] = value;
+			nnz_lloc++;
+		}
+		else{
+	//		it->second = it->second + value;
+			it->second = value;
+		}
+	//if location is inside of local-global area
+	}
+	else if ((row < nrows && row >= 0) && (col >= upper_x || col < lower_x) && (col >= 0)){
+		if(dynmat_gloc == NULL){
+			dynmat_gloc = new std::map<S,T> [nrows];
+		}
+		it = dynmat_gloc[row].find(col);
+		if(it == dynmat_gloc[row].end()){
+			dynmat_gloc[row][col] = value;
+			nnz_gloc++;
+		}
+		else{
+//			it->second = it->second + value;
+			it->second = value;
+		}
+	}
+}
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::SetValuesLocal( S nindex, S *rows, S *cols, T *values)
+{
+	typename std::map<S,T>::iterator it;
+	
+	for( S i = 0; i < nindex; i++){
+		SetValueLocal(rows[i],cols[i],values[i]);
+	}
+}
+
+//global set
+template<typename T,typename S>
+void parMatrixSparse<T,S>::SetValue(S row, S col, T value)
+{
+	if((row >= lower_y) && (row < upper_y) && (col < ncols)){
+		SetValueLocal(y_index_map->Glob2Loc(row),col,value);
+	}
+}
+
 
 template<typename T,typename S>
 T parMatrixSparse<T,S>::GetValue(S row, S col)
@@ -467,11 +524,13 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 				if(vit == Rrows.end()){
 					Rrows[j] = x_index_map->GetOwner(j);
 					VNumRecv[Rrows[j]] = VNumRecv[Rrows[j]] + 1;
+//					printf("Proc %d: Rrows[%d] = %d ----------\n", ProcID,j,Rrows[j]);
 					count++;
 				}
 			}
 		}
 		nRecv = count;
+//		printf("Proc %d: nRecv = %d, VNumRecv[%d] = %d\n", ProcID,count, ProcID, VNumRecv[ProcID]);
 	}
 	else{
 		for(i = 0; i < nProcs; i++){
@@ -502,6 +561,16 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	
 	//wait for receives to finish
 	MPI_Waitall(nProcs-1,Rreqs,Rstat);
+
+	for(i = 0; i < nProcs; i++){
+		printf("Proc %d: -VNumRecv[%d] = %d\n", ProcID, i,VNumRecv[i]);
+	}
+
+
+	for(i = 0; i < nProcs; i++){
+		printf("Proc %d: +VNumSend[%d] = %d\n", ProcID, i,VNumSend[i]);
+	}
+
 	//find max num to send
 	for(i = 0; i < nProcs; i++){
 		if(VNumSend[i] > maxSend){
@@ -543,7 +612,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 		}
 	}
 
-	count1 = 1;
+	count1 = 0;
 	
 	for(i = 0; i < nProcs; i++){
 		if(ProcID != i){
@@ -579,31 +648,37 @@ void parMatrixSparse<T,S>::SetupDataTypes()
 
 	for(i = 0; i < nProcs; i++){
 		count = VNumSend[i];
+		printf("!!!!!!>>>Proc %d::: VNumSend[%d] = %d\n", ProcID, i, count);
 		blength = new S [count];
 		displac = new S [count];
 
 		for(j = 0; j < count; j++){
+			printf("Rbuffer[i][j] = %d\n", Rbuffer[i][j]);
 			blength[j] = 1;
 			displac[j] = x_index_map->Glob2Loc(Rbuffer[i][j]);
+			printf("!!!!!!>>>Proc %d: DTypeSend %d //// Rbuffer[i][%d] = %d \n", ProcID, displac[j], j, Rbuffer[i][j]);
 		}
 
 		MPI_Type_indexed(count, blength, displac, MPI_DOUBLE, &DTypeSend[i]);
 		MPI_Type_commit(&DTypeSend[i]);
 
 		count = VNumRecv[i];
+//		printf("VNumRecv[%d] = %d\n", i, count);
 		blength = new S [count];
 		displac = new S [count];
 
 		for(j = 0; j < count; j++){
 			blength[j] = 1;
 			displac[j] = Sbuffer[i][j];
+			printf("@@@>>>Proc %d: DTypeRecv %d //// Sbuffer[i][%d] = %d\n", ProcID, displac[j], j,Sbuffer[i][j] );
 		}
 
 		MPI_Type_indexed(count, blength, displac, MPI_DOUBLE, &DTypeRecv[i]);
-                MPI_Type_commit(&DTypeRecv[i]);
+        MPI_Type_commit(&DTypeRecv[i]);
 	}
 
 	printf("Setup data types finished\n");	
+
 	delete [] blength;
 	delete [] displac;
 }
@@ -613,7 +688,7 @@ void parMatrixSparse<T,S>::TestCommunication(parVector<T,S> *XVec, parVector<T,S
 {
 	S	i,j,k,l,ng;
 	S	sender, receiver;
-	sender = 2;
+	sender = 0;
 	receiver = 1;
 	
 	MPI_Status Rstat;
@@ -622,34 +697,53 @@ void parMatrixSparse<T,S>::TestCommunication(parVector<T,S> *XVec, parVector<T,S
 
 	k = XVec->GetLocalSize();
 	l = XVec->GetGlobalSize();
-	rBuf = new T [1];
-	for(i = 0; i < 1; i++){
+
+	//printf("##### k = %d, l = %d\n", k,l);
+
+	rBuf = new T [l];
+	for(i = 0; i < l; i++){
 		rBuf[i] = 0;	
 	}
 	
 	sBuf = XVec->GetArray();
 
+
+	int number_amount;
+
 	if(ProcID == sender){
+		for(i = 0; i < k; i++){printf("=> sBuf[%d] = %f \n",i, sBuf[i] );}
 		MPI_Send(sBuf, 1, DTypeSend[receiver], receiver, 1, MPI_COMM_WORLD);
 		printf("sending done! \n");
 	}
 	else{
-		MPI_Recv(rBuf,1,DTypeRecv[sender],sender,1,MPI_COMM_WORLD,&Rstat);
-		printf("receiving done! \n");
+		for(i = 0; i < l; i++){printf("*> rBuf[%d] = %f \n",i, rBuf[i] );}
+		MPI_Recv(&rBuf,1,DTypeRecv[sender],sender,1,MPI_COMM_WORLD,&Rstat);
+		for(i = 0; i < l; i++){printf("@> rBuf[%d] = %f \n",i, rBuf[i] );}
+
+//		MPI_Get_count(&Rstat, DTypeRecv[sender], &number_amount);
+//		printf("Message source = %d, %d numbers are received\n", Rstat.MPI_SOURCE, number_amount);
 	}
+
+		printf("##### k = %d, l = %d\n", k,l);
+
+
 
 	if(ProcID == sender){
 		for( i = 0; i < k; i++){
 			printf("sBuf[%d] = %f \n", i, sBuf[i]);
 		}
+	} else{
+		for( i = 0; i < l; i++){
+            printf("rBuf[%d] = %f \n", i, rBuf[i]);
+		}
 	}
-	MPI_Barrier(MPI_COMM_WORLD);
-
+/*
 	if(ProcID == receiver){
 		for( i = 0; i < l; i++){
-                        printf("rBuf[%d] = %f \n", i, rBuf[i]);
+            printf("rBuf[%d] = %f \n", i, rBuf[i]);
 		}
 	}	
+	*/
 }
 
 template<typename T,typename S>
@@ -671,7 +765,7 @@ void parMatrixSparse<T,S>::MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec
 	glength = XVec->GetGlobalSize();
 	//setting recv and send buffers
 	rBuf = new T [glength];
-	
+
 	for (i = 0; i < glength; i++){
 		rBuf[i] = 0;
 	}
@@ -715,13 +809,18 @@ void parMatrixSparse<T,S>::MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec
 	}
 
 	MPI_Waitall(nProcs-1, Rreqs, Rstat);
-
+/*
+	for (i = 0; i < glength; i++){
+		printf("rBuf[%d] = %f\n", i, rBuf[i]);
+	}
+*/
 	//calculate local-global product
 	if(CSR_gloc != NULL){
 		for(i = 0; i < nrows; i++){
 			for(k = CSR_gloc->rows[i]; k < CSR_gloc->rows[i+1];k++){
 				j = CSR_gloc->cols[k];
 				v = CSR_gloc->vals[k]*rBuf[j];
+				printf("v = %f\n", rBuf[j]);
 				YVec->AddValueLocal(i,v);
 			}
 		}
