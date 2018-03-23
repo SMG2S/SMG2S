@@ -332,6 +332,7 @@ T parMatrixSparse<T,S>::GetValue(S row, S col)
 	return GetLocalValue(y_index_map->Glob2Loc(row), col);
 }
 
+/*
 template<typename T,typename S>
 void parMatrixSparse<T,S>::MatView()
 {
@@ -350,28 +351,45 @@ void parMatrixSparse<T,S>::MatView()
         	std::cout << std::endl;
 	}
 }
+*/
 
-/*
 template<typename T,typename S>
 void parMatrixSparse<T,S>::MatView(){
+	
 	S i, j;
 	T v;
+	typename std::map<S,T>::iterator it;
 
 	if(ProcID == 0) {std::cout << "Parallel MatView: " << std::endl;}
+
 	for (i = 0; i < nrows; i++){
-		for (j = 0; j < ncols; j++){
-			if(j < upper_x && j >= lower_x){
-				std::cout << " "<< "("<< j << ","<< dynmat_lloc[i][j] << ")";
+		std::map<S,T> merge;
+		std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
+
+		if((dynmat_gloc != NULL) && (dynmat_lloc != NULL)){
+			merge.insert(dynmat_lloc[i].begin(),dynmat_lloc[i].end());
+			merge.insert(dynmat_gloc[i].begin(),dynmat_gloc[i].end());
+	
+			for(it = merge.begin(); it != merge.end(); ++it){
+				std::cout <<"("<<it->first << "," << it->second << "); ";
 			}
-			else if(j >= upper_x || j < lower_x){
-				std::cout << " "<< "("<< j << "," << dynmat_gloc[i][j] << ")";
+			merge.clear();
+		}
+		else if ((dynmat_lloc != NULL)){
+			for(it = dynmat_lloc[i].begin(); it != dynmat_lloc[i].end(); ++it){
+				std::cout <<"("<<it->first << "," << it->second << "); ";
 			}
 		}
-
-	std::cout << std::endl;
+		else if (dynmat_gloc != NULL){
+			for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); ++it){
+				std::cout <<"("<<it->first << "," << it->second << "); ";
+			}
+		}
+		else {if(ProcID == 0) {std::cout << "Matrix is NULL ! ";}}
+		std::cout << std::endl;
 	}
 }
-*/
+
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::SetDiagonal(parVector<T,S> *diag)
@@ -562,6 +580,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	//wait for receives to finish
 	MPI_Waitall(nProcs-1,Rreqs,Rstat);
 
+/*
 	for(i = 0; i < nProcs; i++){
 		printf("Proc %d: -VNumRecv[%d] = %d\n", ProcID, i,VNumRecv[i]);
 	}
@@ -570,6 +589,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	for(i = 0; i < nProcs; i++){
 		printf("Proc %d: +VNumSend[%d] = %d\n", ProcID, i,VNumSend[i]);
 	}
+*/
 
 	//find max num to send
 	for(i = 0; i < nProcs; i++){
@@ -648,15 +668,15 @@ void parMatrixSparse<T,S>::SetupDataTypes()
 
 	for(i = 0; i < nProcs; i++){
 		count = VNumSend[i];
-		printf("!!!!!!>>>Proc %d::: VNumSend[%d] = %d\n", ProcID, i, count);
+//		printf("!!!!!!>>>Proc %d::: VNumSend[%d] = %d\n", ProcID, i, count);
 		blength = new S [count];
 		displac = new S [count];
 
 		for(j = 0; j < count; j++){
-			printf("Rbuffer[i][j] = %d\n", Rbuffer[i][j]);
+//			printf("Rbuffer[i][j] = %d\n", Rbuffer[i][j]);
 			blength[j] = 1;
 			displac[j] = x_index_map->Glob2Loc(Rbuffer[i][j]);
-			printf("!!!!!!>>>Proc %d: DTypeSend %d //// Rbuffer[i][%d] = %d \n", ProcID, displac[j], j, Rbuffer[i][j]);
+//			printf("!!!!!!>>>Proc %d: DTypeSend %d //// Rbuffer[i][%d] = %d \n", ProcID, displac[j], j, Rbuffer[i][j]);
 		}
 
 		MPI_Type_indexed(count, blength, displac, MPI_DOUBLE, &DTypeSend[i]);
@@ -670,7 +690,7 @@ void parMatrixSparse<T,S>::SetupDataTypes()
 		for(j = 0; j < count; j++){
 			blength[j] = 1;
 			displac[j] = Sbuffer[i][j];
-			printf("@@@>>>Proc %d: DTypeRecv %d //// Sbuffer[i][%d] = %d\n", ProcID, displac[j], j,Sbuffer[i][j] );
+//			printf("@@@>>>Proc %d: DTypeRecv %d //// Sbuffer[i][%d] = %d\n", ProcID, displac[j], j,Sbuffer[i][j] );
 		}
 
 		MPI_Type_indexed(count, blength, displac, MPI_DOUBLE, &DTypeRecv[i]);
@@ -820,7 +840,7 @@ void parMatrixSparse<T,S>::MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec
 			for(k = CSR_gloc->rows[i]; k < CSR_gloc->rows[i+1];k++){
 				j = CSR_gloc->cols[k];
 				v = CSR_gloc->vals[k]*rBuf[j];
-				printf("v = %f\n", rBuf[j]);
+//				printf("v = %f\n", rBuf[j]);
 				YVec->AddValueLocal(i,v);
 			}
 		}

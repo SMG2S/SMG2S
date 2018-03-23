@@ -74,13 +74,22 @@ S parVectorMap<S>::Glob2Loc(S global_index){
 template<typename S>
 int parVectorMap<S>::GetOwner(S index)
 {
+	int m;
 	if((index < global_size) && (index >= 0)){
 		for (int i = 0; i <nproc; i++){
 //			printf("Proc %d: ###########uprocbound_map[%d] = %d, nproc = %d\n",rank, i, uprocbound_map[i],nproc);
-			if(index < uprocbound_map[i]){return i;}
+			if(index < uprocbound_map[i]){
+				m = i;
+			}
+			else{
+				m = -1;
+			}
 		}
 	}
-	else return -1;
+	else{ 
+		m = -1;
+	}
+	return m;
 }
 
 

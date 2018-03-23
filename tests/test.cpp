@@ -21,16 +21,15 @@ int main(int argc, char** argv) {
     int name_len;
     MPI_Get_processor_name(processor_name, &name_len);
 
- //   parVectorMap<int> pm(MPI_COMM_WORLD, 1,2);
-
     //MPI_Barrier(MPI_COMM_WORLD);
+    
     // Print off a hello world message
     printf("Hello world from processor %s, rank %d"
            " out of %d processors\n",
            processor_name, world_rank, world_size);
 
 
-    int probSize = 10;
+    int probSize = 100;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -113,8 +112,8 @@ int main(int argc, char** argv) {
     x = Am->GetValue(0,5);
 
     y = Am->GetValue(9,9);
-//    Am->MatView();
-//    Am->MatView();
+
+    Am->MatView();
 
  //   printf("Prc %d: x = %f, y = %f \n", world_rank, x, y);
 
@@ -143,10 +142,7 @@ int main(int argc, char** argv) {
 //    if(world_rank == 0){printf("print SPMV results\n");}
  
     prod->VecView();
-/*
-//    parVector<float,int> *vec2 = new parVector<float,int>(MPI_COMM_WORLD, lower_b, upper_b);
-//    vec2->SetTovalue(b);
-*/
+
     MPI_Finalize();
 
     return 0;

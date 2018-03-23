@@ -46,7 +46,7 @@ class parVectorMap
 
 		S GetLowerBound(){return lower_bound;};
 		S GetUpperBound(){return upper_bound;};
-		S GetLocalSize(){printf("------> Proc %d: local size = %d \n\n", rank, local_size);return local_size;};
+		S GetLocalSize(){return local_size;};
 		S GetGlobalSize(){return global_size;};
 		S GetLocTotSize(){return loctot_size;};
 
