@@ -1,7 +1,10 @@
-cmake_minimum_required(VERSION 2.6)
+aux_source_directory(. DIR_SRC)
 
-project(smg2s-test)
+add_executable(run.exe test.cpp)
 
-add_executable(smg2s-test test.cpp)
-target_link_libraries(smg2s-test parvec-lib parmat-lib)
+link_directories(${SMG2S_SOURCE_FILE}/${DIR_PARVEC_SRC} ${SMG2S_SOURCE_FILE}/${DIR_PARMAT_SRC})
+
+target_link_libraries(run.exe PRIVATE ${MPI_C_LIBRARIES} parvec parmat)
+
+target_include_directories(run.exe PRIVATE ${MPI_C_INCLUDE_PATH})
 
