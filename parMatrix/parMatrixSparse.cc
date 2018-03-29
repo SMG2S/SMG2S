@@ -418,7 +418,11 @@ void parMatrixSparse<T,S>::ConvertToCSR()
 	
 	if(dynmat_lloc != NULL){
 		//allocate csr matrix
+
+
 		CSR_lloc = new MatrixCSR<T,S>(nnz_lloc, nrows);
+
+//		CSR_lloc = new MatrixCSR<T,S>(nrows);
 
 		//convert local local to csr
 		count = 0;
@@ -438,7 +442,11 @@ void parMatrixSparse<T,S>::ConvertToCSR()
 	}
 
 	if(dynmat_gloc != NULL){
+
+
 		CSR_gloc = new MatrixCSR<T,S>(nnz_gloc, nrows);
+//		CSR_gloc = new MatrixCSR<T,S>(nrows);
+
 		//convert global-local to CSR
 		count = 0;
 		CSR_gloc->rows[0] = 0;
