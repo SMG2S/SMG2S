@@ -1,12 +1,20 @@
+#include <vector>
+
 template<typename T, typename S>
 struct MatrixCSR
 {
 	S	nrows;
 	S	nnz;
+
 	S	*rows;
 	S	*cols;
 	T	*vals;
 
+/*
+	std::vector<S> rows;
+	std::vector<S> cols;
+	std::vector<T> vals;
+*/
 	MatrixCSR()
 	{
 		nnz = 0;

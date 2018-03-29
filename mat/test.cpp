@@ -1,10 +1,10 @@
-#include "SparseMatrix.cpp"
+#include "MatrixCSR.cc"
 
 using namespace std;
 
 int main(int argc, char ** argv){
 
-	SparseMatrix<int> matrix(3);
+	MatrixCSR<int,int> matrix(3);
 
 	matrix.set(-5,2,3);
 
