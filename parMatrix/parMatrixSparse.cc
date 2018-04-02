@@ -332,26 +332,6 @@ T parMatrixSparse<T,S>::GetValue(S row, S col)
 	return GetLocalValue(y_index_map->Glob2Loc(row), col);
 }
 
-/*
-template<typename T,typename S>
-void parMatrixSparse<T,S>::MatView()
-{
-	S i,j;
-	T vs;
-        if(ProcID == 0) {std::cout << "Parallel MatView: " << std::endl;}
-	for(i = 0; i < 11; i++){
-		std::cout << "Row " << i << ":";
-		for(j = 0; j < 11; j++){
-//			v = GetValue(i,j);
-			if (vs != 0.0){
-				std::cout << " " << "(" << j << "," << vs << ")"; 
-			}
-		
-		}
-        	std::cout << std::endl;
-	}
-}
-*/
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::MatView(){
@@ -775,7 +755,7 @@ void parMatrixSparse<T,S>::TestCommunication(parVector<T,S> *XVec, parVector<T,S
 }
 
 template<typename T,typename S>
-void parMatrixSparse<T,S>::MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec){
+void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec){
 	S	i,j,k,l;
 	S	llength, glength;
 	S	count; count = 0;
@@ -896,6 +876,169 @@ void parMatrixSparse<T,S>::MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec
 	delete [] Sstat;
 }	
 
+template<typename T,typename S>
+void parMatrixSparse<T,S>::ELL_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec){
+
+	S	i,j,p;
+	S	llength, glength;
+	S	count; count = 0;
+	S	count2; count2 = 0;
+	S	tag1; tag1 = 0;
+	T	v;
+	T   s=0;
+
+	typename std::map<S,T>::iterator it;
+
+	MPI_Request *Rreqs, *Sreqs;
+	MPI_Status  *Rstat, *Sstat;
+
+	T	*rBuf, *sBuf;
+
+	//get local and global length
+	llength = XVec->GetLocalSize();
+	glength = XVec->GetGlobalSize();
+	//setting recv and send buffers
+	rBuf = new T [glength];
+
+	for (i = 0; i < glength; i++){
+		rBuf[i] = 0;
+	}
+
+	sBuf = XVec->GetArray();
+
+    Rreqs = new MPI_Request [nProcs - 1];
+    Sreqs = new MPI_Request [nProcs - 1];
+    Rstat = new MPI_Status [nProcs - 1];
+    Sstat = new MPI_Status [nProcs - 1];
+
+	count = 0;
+	for(i = 0; i < nProcs; i++){
+		if(i != ProcID){
+			if(DTypeSend[i] != MPI_DATATYPE_NULL){
+				MPI_Isend(sBuf,1,DTypeSend[i],i,tag1,MPI_COMM_WORLD,&Sreqs[count]);
+			}
+			else{
+				Sreqs[count] = MPI_REQUEST_NULL;
+			}
+			if(DTypeRecv[i] != MPI_DATATYPE_NULL){
+				MPI_Irecv(rBuf,1,DTypeRecv[i],i,tag1,MPI_COMM_WORLD,&Rreqs[count]);
+			}
+			else{
+				Rreqs[count] = MPI_REQUEST_NULL;
+			}
+			count++;
+		}
+	}	
+
+#ifndef _OPENMP
+	//calculate local-local product
 
 
+	if(dynmat_lloc != NULL){
+		for(i = 0; i < nrows; i++){
+			for(it = dynmat_lloc[i].begin(); it != dynmat_lloc[i].end(); it++){	
+				j = it->first;
+				v = it->second;
+				p = x_index_map->Glob2Loc(j);
+				s = v*sBuf[p];
+				YVec->AddValueLocal(i,s);
+			}
+		}
+	}
+
+
+	MPI_Waitall(nProcs-1, Rreqs, Rstat);
+/*
+	for (i = 0; i < glength; i++){
+		printf("rBuf[%d] = %f\n", i, rBuf[i]);
+	}
+*/
+	//calculate local-global product
+
+	if(dynmat_gloc != NULL){
+		for(i = 0; i < nrows; i++){
+			for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); it++){	
+				j = it->first;
+				v = it->second;
+				p = x_index_map->Glob2Loc(j);
+				s = v*rBuf[p];
+				YVec->AddValueLocal(i,s);
+			}
+		}
+	}
+#else
+
+	#pragma omp parallel default (shared) private (i,j,k,v)
+	{
+			if(dynmat_lloc != NULL){
+				#pragma omp for schedule(guided)
+				for(i = 0; i < nrows; i++){
+					for(it = dynmat_lloc[i].begin(); it != dynmat_lloc[i].end(); it++){	
+						j = it->first;
+						v = it->second;
+						p = x_index_map->Glob2Loc(j);
+						s = v*sBuf[p];
+						YVec->AddValueLocal(i,s);
+					}
+				}
+			}
+	}
+
+	#pragma omp barrier
+	#pragma omp master
+	{
+		MPI_Waitall(nProcs-1, Rreqs, Rstat);
+	}
+
+	#pragma omp barrier
+        if(dynmat_gloc != NULL){
+        	#pragma omp for schedule(guided)
+			for(i = 0; i < nrows; i++){
+				for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); it++){	
+					j = it->first;
+					v = it->second;
+					p = x_index_map->Glob2Loc(j);
+					s = v*rBuf[p];
+					YVec->AddValueLocal(i,s);
+				}
+			}
+        }
+
+#endif
+
+	delete [] rBuf;
+	delete [] Rreqs;
+	delete [] Sreqs;
+	delete [] Rstat;
+	delete [] Sstat;
+
+}
+
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::AXPY(parMatrixSparse<T,S> *X, T scale){
+	S i, k;
+	if(CSR_lloc != NULL){
+		for(i = 0; i < nrows; i++){
+			for(k = CSR_lloc->rows[i]; k < CSR_lloc->rows[i+1]; k++){
+				CSR_lloc->vals[k] = scale*CSR_lloc->vals[k]; 
+			}
+		}
+	}
+
+	if(CSR_gloc != NULL){
+		for(i = 0; i < nrows; i++){
+			for(k = CSR_gloc->rows[i]; k < CSR_gloc->rows[i+1]; k++){
+				CSR_gloc->vals[k] = scale*CSR_gloc->vals[k]; 
+			}
+		}
+	}
+
+}
+
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::CSRMatView(){
+	
+}
 

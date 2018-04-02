@@ -104,7 +104,7 @@ struct MatrixCSR
 		for (S i = 1; i <= nrows; i++){
 			for (S j = 1; j <= ncols; j++) {
 				v1 = GetValue(i,j);
-				v2 = m->GetValue(i,j);
+				v2 = m.GetValue(i,j);
 				v = v1 + v2;
 				if(v != 0.0){
 					InsertValue(i,j,v1+v2);

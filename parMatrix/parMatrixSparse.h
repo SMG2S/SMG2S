@@ -105,6 +105,8 @@ class parMatrixSparse
 		//AYPX
 		void    AYPX(parMatrixSparse<T,S> *X, T scale);
 
+		void CSRMatView();
+
 		//Reader
 		void	ReadExtMat();
 		// convert from dyn to csr
@@ -116,8 +118,9 @@ class parMatrixSparse
 		void	TestCommunication(parVector<T,S> *XVec, parVector<T,S> *YVec);
 
 		//spmv
-		void	MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec);
+		void	CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec);
 
+		void	ELL_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec);
 		//spgmm
 		void	MatMatProd(parVector<T,S> *XVec, parVector<T,S> *YVec, parVector<T,S> *ZVec);
 

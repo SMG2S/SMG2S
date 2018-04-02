@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 100;
+    int probSize = 11;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -50,10 +50,13 @@ int main(int argc, char** argv) {
 
     parVector<double,int> *vec = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
     parVector<double,int> *prod = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
+    parVector<double,int> *prod2 = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
 
     vec->SetTovalue(a); //1.0,1.0...1.0
 
     prod->SetTovalue(0.0);
+
+    prod2->SetTovalue(0.0);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -91,6 +94,7 @@ int main(int argc, char** argv) {
     //Matrix Initialization
 
     parMatrixSparse<double,int> *Am = new parMatrixSparse<double,int>(vec,prod);
+    parMatrixSparse<double,int> *Bm = new parMatrixSparse<double,int>(vec,prod);
 
     if(world_rank == 0){printf("Matrix Initialized\n");}
 
@@ -102,6 +106,10 @@ int main(int argc, char** argv) {
         Am->SetValue(j,j,j+1);
     }
  
+     for(int j=0; j < probSize; j++){
+        Bm->SetValue(j,j,j+1);
+    }
+
     for(int j=0; j < 5; j++){
         Am->SetValue(j,j+5,1.0);
         Am->SetValue(j+5,j,2.0);
@@ -113,14 +121,22 @@ int main(int argc, char** argv) {
 
     y = Am->GetValue(9,9);
 
-    Am->MatView();
-
  //   printf("Prc %d: x = %f, y = %f \n", world_rank, x, y);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    Am->MatView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
     Am->ConvertToCSR();
 	
+    //Am->AXPY(Am, 2.0);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    Am->CSRMatView();
+
     MPI_Barrier(MPI_COMM_WORLD);
 
     Am->FindColsToRecv();
@@ -134,7 +150,7 @@ int main(int argc, char** argv) {
 
  //   Am->TestCommunication(vec,prod);
 
-    Am->MatVecProd(vec,prod);
+    Am->ELL_MatVecProd(vec,prod);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -142,6 +158,14 @@ int main(int argc, char** argv) {
 //    if(world_rank == 0){printf("print SPMV results\n");}
  
     prod->VecView();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    Am->CSR_MatVecProd(vec,prod2);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    prod2->VecView();
 
     MPI_Finalize();
 
