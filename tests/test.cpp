@@ -131,7 +131,7 @@ int main(int argc, char** argv) {
 
     Am->ConvertToCSR();
 	
-    //Am->AXPY(Am, 2.0);
+    Am->AXPY(Am, 2.0);
 
     MPI_Barrier(MPI_COMM_WORLD);
 

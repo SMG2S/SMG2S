@@ -1017,23 +1017,39 @@ void parMatrixSparse<T,S>::ELL_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::AXPY(parMatrixSparse<T,S> *X, T scale){
+
+	typename std::map<S,T>::iterator it;
+
 	S i, k;
-	if(CSR_lloc != NULL){
+	T v;
+	if(dynmat_lloc != NULL){
 		for(i = 0; i < nrows; i++){
-			for(k = CSR_lloc->rows[i]; k < CSR_lloc->rows[i+1]; k++){
-				CSR_lloc->vals[k] = scale*CSR_lloc->vals[k]; 
+			for(it = dynmat_lloc[i].begin(); it != dynmat_lloc[i].end(); it++){
+				it->second = it->second*scale;
 			}
 		}
 	}
 
-	if(CSR_gloc != NULL){
+	if(dynmat_gloc != NULL){
 		for(i = 0; i < nrows; i++){
-			for(k = CSR_gloc->rows[i]; k < CSR_gloc->rows[i+1]; k++){
-				CSR_gloc->vals[k] = scale*CSR_gloc->vals[k]; 
+			for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); it++){
+				it->second = it->second*scale;
 			}
 		}
 	}
 
+	if(dynmat_lloc != NULL){
+		for(i = 0; i < nrows; i++){
+			std::map<S,T> merge;
+			merge.insert(dynmat_lloc[i].begin(),dynmat_lloc[i].end());
+			merge.insert(X->dynmat_lloc[i].begin(),X->dynmat_lloc[i].end());
+			for(it = merge.begin(); it != merge.end(); ++it){
+				k = it->first;
+				v = dynmat_lloc[i][k]+X->dynmat_lloc[i][k];
+				SetValue(i,  k, v);
+			}
+		}
+	}
 }
 
 
