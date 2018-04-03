@@ -104,10 +104,14 @@ int main(int argc, char** argv) {
 
 
     for(int j=6; j < probSize; j++){
-        Am->SetValue(j,j-6,1);
+        Am->SetValue(j-6,j,1);
+        Am->SetValue(j, j-6,2);
     }
 
- 
+    for(int j=0; j < probSize; j++){
+        Am->SetValue(j,j,1);
+    }
+
     for(int j=0; j < probSize; j++){
         Bm->SetValue(j,j,0);
     }

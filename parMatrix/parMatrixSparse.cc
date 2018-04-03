@@ -838,6 +838,7 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 			for(k = CSR_gloc->rows[i]; k < CSR_gloc->rows[i+1];k++){
 				j = CSR_gloc->cols[k];
 				v = CSR_gloc->vals[k]*rBuf[j];
+//				printf("CSR_gloc->cols[%d] = %d\n", k, CSR_gloc->cols[k]);
 //				printf("i = %d, v = %f\n",i, v);
 				YVec->AddValueLocal(i,v);
 //				printf("vv[%d] = %f\n", i, v);
@@ -968,8 +969,7 @@ void parMatrixSparse<T,S>::ELL_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 			for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); it++){	
 				j = it->first;
 				v = it->second;
-				p = x_index_map->Glob2Loc(j);
-				s = v*rBuf[p];
+				s = v*rBuf[j];
 				YVec->AddValueLocal(i,s);
 			}
 		}
@@ -1005,8 +1005,7 @@ void parMatrixSparse<T,S>::ELL_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 				for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); it++){	
 					j = it->first;
 					v = it->second;
-					p = x_index_map->Glob2Loc(j);
-					s = v*rBuf[p];
+					s = v*rBuf[j];
 					YVec->AddValueLocal(i,s);
 				}
 			}
