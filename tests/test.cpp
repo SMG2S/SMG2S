@@ -10,6 +10,9 @@ int main(int argc, char** argv) {
 
     // Get the number of processes
     int world_size;
+
+    double start, end;
+
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
     // Get the rank of the process
@@ -29,7 +32,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 11;
+    int probSize = 100000;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -89,7 +92,7 @@ int main(int argc, char** argv) {
 
     vec->VecScale(c); //8.0,8.0...
 
-    vec->VecView();
+    //vec->VecView();
 
     //Matrix Initialization
 
@@ -106,6 +109,16 @@ int main(int argc, char** argv) {
     for(int j=6; j < probSize; j++){
         Am->SetValue(j-6,j,1);
         Am->SetValue(j, j-6,2);
+    }
+
+    for(int j=3; j < probSize; j++){
+        Am->SetValue(j-3,j,1);
+        Am->SetValue(j, j-3,2);
+    }
+
+    for(int j=100; j < probSize; j++){
+        Am->SetValue(j-100,j,1);
+        Am->SetValue(j, j-100,2);
     }
 
     for(int j=0; j < probSize; j++){
@@ -130,7 +143,7 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    Am->MatView();
+ //   Am->MatView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -140,9 +153,10 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    Am->MatView();
+//    Am->MatView();
 
     MPI_Barrier(MPI_COMM_WORLD);
+
 
     Am->FindColsToRecv();
     
@@ -154,21 +168,30 @@ int main(int argc, char** argv) {
 
  //   Am->TestCommunication(vec,prod);
 
-    Am->ELL_MatVecProd(vec,prod);
+//    Am->ELL_MatVecProd(vec,prod);
 
     MPI_Barrier(MPI_COMM_WORLD);
+
 
 //    if(world_rank == 0){printf("print SPMV results\n");}
  
-    prod->VecView();
+//    prod->VecView();
 
     MPI_Barrier(MPI_COMM_WORLD);
+
+    start = MPI_Wtime();
 
     Am->CSR_MatVecProd(vec,prod2);
 
+    end = MPI_Wtime();
+
+    double t2 = end - start;
+
+    if(world_rank == 0) {printf("CSR time = %1.6f\n", t2);}
+
     MPI_Barrier(MPI_COMM_WORLD);
 
-    prod2->VecView();
+//    prod2->VecView();
 
     MPI_Finalize();
 
