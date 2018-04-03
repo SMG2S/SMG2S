@@ -77,9 +77,10 @@ int parVectorMap<S>::GetOwner(S index)
 	int m;
 	if((index < global_size) && (index >= 0)){
 		for (int i = 0; i <nproc; i++){
-//			printf("Proc %d: ###########uprocbound_map[%d] = %d, nproc = %d\n",rank, i, uprocbound_map[i],nproc);
+			//printf("Proc %d: ###########lprocbound_map[%d] = %d, uprocbound_map[%d] = %d, nproc = %d, index = %d\n",rank, i, lprocbound_map[i], i, uprocbound_map[i],nproc, index);
 			if(index < uprocbound_map[i]){
 				m = i;
+				break;
 			}
 			else{
 				m = -1;

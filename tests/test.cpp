@@ -102,26 +102,27 @@ int main(int argc, char** argv) {
 
 //    printf("\n\nprc %d: LOWER_X = %d, LOWER_Y = %d, UPPER_X = %d, UPPER_Y = %d \n", world_rank, Am->GetXLowerBound(), Am->GetYLowerBound(), Am->GetXUpperBound(), Am->GetYUpperBound());
 
-    for(int j=0; j < probSize; j++){
-        Am->SetValue(j,j,j+1);
+
+    for(int j=6; j < probSize; j++){
+        Am->SetValue(j,j-6,1);
     }
+
  
-     for(int j=0; j < probSize; j++){
-        Bm->SetValue(j,j,j+1);
+    for(int j=0; j < probSize; j++){
+        Bm->SetValue(j,j,0);
     }
-
-    for(int j=0; j < 5; j++){
+/*
+    for(int j=0; j < probSize - 5; j++){
         Am->SetValue(j,j+5,1.0);
-        Am->SetValue(j+5,j,2.0);
     }
-
+*/
     double x, y;
 
-    x = Am->GetValue(0,5);
+ //   x = Am->GetValue(10,11);
 
-    y = Am->GetValue(9,9);
+   // y = Am->GetValue(10,11);
 
- //   printf("Prc %d: x = %f, y = %f \n", world_rank, x, y);
+    //printf("Prc %d: x = %f, y = %f \n", world_rank, x, y);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -131,18 +132,17 @@ int main(int argc, char** argv) {
 
     Am->ConvertToCSR();
 	
-    Am->AXPY(Am, 2.0);
+    //Am->AXPY(Bm, 2.0);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    Am->CSRMatView();
+    Am->MatView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
     Am->FindColsToRecv();
     
     MPI_Barrier(MPI_COMM_WORLD);
-
 
     Am->SetupDataTypes();
 
@@ -153,7 +153,6 @@ int main(int argc, char** argv) {
     Am->ELL_MatVecProd(vec,prod);
 
     MPI_Barrier(MPI_COMM_WORLD);
-
 
 //    if(world_rank == 0){printf("print SPMV results\n");}
  

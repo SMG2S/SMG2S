@@ -218,7 +218,6 @@ void parMatrixSparse<T,S>::AddValueLocal(S row, S col, T value)
 		}
 		else{
 			it->second = it->second + value;
-	//		it->second = value;
 		}
 	//if location is inside of local-global area
 	}
@@ -233,7 +232,6 @@ void parMatrixSparse<T,S>::AddValueLocal(S row, S col, T value)
 		}
 		else{
 			it->second = it->second + value;
-//			it->second = value;
 		}
 	}
 }
@@ -320,8 +318,10 @@ void parMatrixSparse<T,S>::SetValuesLocal( S nindex, S *rows, S *cols, T *values
 template<typename T,typename S>
 void parMatrixSparse<T,S>::SetValue(S row, S col, T value)
 {
+	S local_row = y_index_map->Glob2Loc(row);
+
 	if((row >= lower_y) && (row < upper_y) && (col < ncols)){
-		SetValueLocal(y_index_map->Glob2Loc(row),col,value);
+		SetValueLocal(local_row,col,value);
 	}
 }
 
@@ -365,7 +365,7 @@ void parMatrixSparse<T,S>::MatView(){
 				std::cout <<"("<<it->first << "," << it->second << "); ";
 			}
 		}
-		else {if(ProcID == 0) {std::cout << "Matrix is NULL ! ";}}
+
 		std::cout << std::endl;
 	}
 }
@@ -530,19 +530,29 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 				if(vit == Rrows.end()){
 					Rrows[j] = x_index_map->GetOwner(j);
 					VNumRecv[Rrows[j]] = VNumRecv[Rrows[j]] + 1;
-//					printf("Proc %d: Rrows[%d] = %d ----------\n", ProcID,j,Rrows[j]);
+					//printf("Proc %d: Rrows[%d] = %d ---- %d ----------\n", ProcID,j,Rrows[j],VNumRecv[Rrows[j]]);
 					count++;
 				}
 			}
 		}
+
 		nRecv = count;
-//		printf("Proc %d: nRecv = %d, VNumRecv[%d] = %d\n", ProcID,count, ProcID, VNumRecv[ProcID]);
+		//printf("Proc %d: nRecv = %d, VNumRecv[%d] = %d\n", ProcID,count, ProcID, VNumRecv[ProcID]);
 	}
+//	printf("Proc : %d, %d\n\n\n", ProcID, VNumRecv[0]);
+/*
+	for(i = 0; i < nProcs; i++){
+		printf("Proc %d: -------VNumRecv[%d] = %d\n", ProcID, i,VNumRecv[i]);
+	}
+*/
+	/*
 	else{
+		printf("fucking check 2\n\n\n\n");
 		for(i = 0; i < nProcs; i++){
 			VNumRecv[i] = 0;
 		}
 	}
+	*/
 
 	//MPI non-blocking requests and status
 	Rreqs = new MPI_Request [nProcs - 1];
@@ -554,6 +564,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	maxRecv = 0;
 	maxSend = 0;
 	
+
 	for(i = 0; i < nProcs; i++){
 		if(VNumRecv[i] >maxRecv){
 			maxRecv = VNumRecv[i];
@@ -570,12 +581,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 
 /*
 	for(i = 0; i < nProcs; i++){
-		printf("Proc %d: -VNumRecv[%d] = %d\n", ProcID, i,VNumRecv[i]);
-	}
-
-
-	for(i = 0; i < nProcs; i++){
-		printf("Proc %d: +VNumSend[%d] = %d\n", ProcID, i,VNumSend[i]);
+		printf("Proc %d: +++++VNumSend[%d] = %d\n", ProcID, i,VNumSend[i]);
 	}
 */
 
@@ -771,6 +777,7 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 	//get local and global length
 	llength = XVec->GetLocalSize();
 	glength = XVec->GetGlobalSize();
+
 	//setting recv and send buffers
 	rBuf = new T [glength];
 
@@ -804,6 +811,7 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 		}
 	}
 
+
 #ifndef _OPENMP
 	//calculate local-local product
 	if(CSR_lloc != NULL){
@@ -812,11 +820,13 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 				j = x_index_map->Glob2Loc(CSR_lloc->cols[k]);
 				v = CSR_lloc->vals[k]*sBuf[j];
 				YVec->AddValueLocal(i,v);
+//				printf("v[%d] = %f\n", i,v);
 			}
 		}
 	}
 
 	MPI_Waitall(nProcs-1, Rreqs, Rstat);
+
 /*
 	for (i = 0; i < glength; i++){
 		printf("rBuf[%d] = %f\n", i, rBuf[i]);
@@ -828,11 +838,13 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 			for(k = CSR_gloc->rows[i]; k < CSR_gloc->rows[i+1];k++){
 				j = CSR_gloc->cols[k];
 				v = CSR_gloc->vals[k]*rBuf[j];
-//				printf("v = %f\n", rBuf[j]);
+//				printf("i = %d, v = %f\n",i, v);
 				YVec->AddValueLocal(i,v);
+//				printf("vv[%d] = %f\n", i, v);
 			}
 		}
 	}
+
 #else
 
 	#pragma omp parallel default (shared) private (i,j,k,v)
@@ -948,11 +960,7 @@ void parMatrixSparse<T,S>::ELL_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 
 
 	MPI_Waitall(nProcs-1, Rreqs, Rstat);
-/*
-	for (i = 0; i < glength; i++){
-		printf("rBuf[%d] = %f\n", i, rBuf[i]);
-	}
-*/
+
 	//calculate local-global product
 
 	if(dynmat_gloc != NULL){
@@ -1018,7 +1026,7 @@ void parMatrixSparse<T,S>::ELL_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 template<typename T,typename S>
 void parMatrixSparse<T,S>::AXPY(parMatrixSparse<T,S> *X, T scale){
 
-	typename std::map<S,T>::iterator it;
+	typename std::map<S,T>::iterator it, itv, itvv;
 
 	S i, k;
 	T v;
@@ -1038,16 +1046,53 @@ void parMatrixSparse<T,S>::AXPY(parMatrixSparse<T,S> *X, T scale){
 		}
 	}
 
-	if(dynmat_lloc != NULL){
+	if(dynmat_lloc != NULL && X->dynmat_lloc != NULL){
 		for(i = 0; i < nrows; i++){
 			std::map<S,T> merge;
 			merge.insert(dynmat_lloc[i].begin(),dynmat_lloc[i].end());
 			merge.insert(X->dynmat_lloc[i].begin(),X->dynmat_lloc[i].end());
 			for(it = merge.begin(); it != merge.end(); ++it){
 				k = it->first;
-				v = dynmat_lloc[i][k]+X->dynmat_lloc[i][k];
-				SetValue(i,  k, v);
+				dynmat_lloc[i][k] = dynmat_lloc[i][k]+X->dynmat_lloc[i][k];
 			}
+			merge.clear();
+		}
+	}
+
+	if(dynmat_lloc == NULL && X->dynmat_lloc != NULL){
+		for(i = 0; i < nrows; i++){
+			std::map<S,T> merge;
+			merge.insert(X->dynmat_lloc[i].begin(),X->dynmat_lloc[i].end());
+			for(it = merge.begin(); it != merge.end(); ++it){
+				k = it->first;
+				dynmat_lloc[i][k] = X->dynmat_lloc[i][k];
+			}
+			merge.clear();
+		}
+	}
+
+	if(dynmat_gloc != NULL && X->dynmat_gloc != NULL){
+		for(i = 0; i < nrows; i++){
+			std::map<S,T> merge;
+			merge.insert(dynmat_gloc[i].begin(),dynmat_gloc[i].end());
+			merge.insert(X->dynmat_gloc[i].begin(),X->dynmat_gloc[i].end());
+			for(it = merge.begin(); it != merge.end(); ++it){
+				k = it->first;
+				dynmat_gloc[i][k] =dynmat_gloc[i][k]+ X->dynmat_gloc[i][k];
+			}
+			merge.clear();
+		}
+	}
+
+	if(dynmat_gloc == NULL && X->dynmat_gloc != NULL){
+		for(i = 0; i < nrows; i++){
+			std::map<S,T> merge;
+			merge.insert(X->dynmat_gloc[i].begin(),X->dynmat_gloc[i].end());
+			for(it = merge.begin(); it != merge.end(); ++it){
+				k = it->first;
+				dynmat_gloc[i][k] = X->dynmat_gloc[i][k];
+			}
+			merge.clear();
 		}
 	}
 }
