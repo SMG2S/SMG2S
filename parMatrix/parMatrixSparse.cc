@@ -457,6 +457,7 @@ void parMatrixSparse<T,S>::ReadExtMat()
 	value = 0.0;
 	S quit = 0;
 
+	if(ProcID == 0) printf("start reading matrix !!!!\n");
 	//Past no number content in the file
 	while(std::getline(file,line)){
 		row = 0;
@@ -467,6 +468,7 @@ void parMatrixSparse<T,S>::ReadExtMat()
 		if(row != 0 && col != 0 && value != 0.0){
 			break;
 		}
+		if(ProcID == 0) printf("The title of matrix readed !!!!\n");
 	}
 		
 	//read values and add them to matrix
@@ -816,12 +818,14 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 	//calculate local-local product
 	if(CSR_lloc != NULL){
 		for(i = 0; i < nrows; i++){
+			v = 0.0;
 			for(k = CSR_lloc->rows[i]; k < CSR_lloc->rows[i+1]; k++){
 				j = x_index_map->Glob2Loc(CSR_lloc->cols[k]);
-				v = CSR_lloc->vals[k]*sBuf[j];
-				YVec->AddValueLocal(i,v);
+				v += CSR_lloc->vals[k]*sBuf[j];
+			}	
+			YVec->AddValueLocal(i,v);
 //				printf("v[%d] = %f\n", i,v);
-			}
+			
 		}
 	}
 
@@ -835,29 +839,35 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 	//calculate local-global product
 	if(CSR_gloc != NULL){
 		for(i = 0; i < nrows; i++){
+			v = 0;
 			for(k = CSR_gloc->rows[i]; k < CSR_gloc->rows[i+1];k++){
 				j = CSR_gloc->cols[k];
-				v = CSR_gloc->vals[k]*rBuf[j];
+				v += CSR_gloc->vals[k]*rBuf[j];
 //				printf("CSR_gloc->cols[%d] = %d\n", k, CSR_gloc->cols[k]);
 //				printf("i = %d, v = %f\n",i, v);
-				YVec->AddValueLocal(i,v);
+			}	
+			YVec->AddValueLocal(i,v);
 //				printf("vv[%d] = %f\n", i, v);
-			}
+			
 		}
 	}
 
 #else
 
-	#pragma omp parallel default (shared) private (i,j,k,v)
+	#pragma omp parallel default (shared) private (i,j,k)
 	{
 	        if(CSR_lloc != NULL){
-        	#pragma omp for schedule(guided)
+        	#pragma omp for schedule(static)
+		#pragma vector aligned
 		       	for(i = 0; i < nrows; i++){
+				v = 0;
+//			#pragma omp parallel for reduction(+:v)
                         	for(k = CSR_lloc->rows[i]; k < CSR_lloc->rows[i+1]; k++){
                                 	j = x_index_map->Glob2Loc(CSR_lloc->cols[k]);
-                                	v = CSR_lloc->vals[k]*sBuf[j];
-                                	YVec->AddValueLocal(i,v);
+                                	v += CSR_lloc->vals[k]*sBuf[j];
+                         
                         	}
+				YVec->AddValueLocal(i,v);
                 	}
         	}
 	}
@@ -869,16 +879,25 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 	}
 
 	#pragma omp barrier
-        if(CSR_gloc != NULL){
-        #pragma omp for schedule(guided)
+
+	#pragma omp parallel default (shared) private (i,j,k)
+        {
+	if(CSR_gloc != NULL){
+        #pragma omp for schedule(static) 
+	#pragma vector aligned
 	        for(i = 0; i < nrows; i++){
+			v = 0;
+//			#pragma omp parallel for reduction(+:v)
                         for(k = CSR_gloc->rows[i]; k < CSR_gloc->rows[i+1];k++){
                                 j = CSR_gloc->cols[k];
-                                v = CSR_gloc->vals[k]*rBuf[j];
-                                YVec->AddValueLocal(i,v);
-                        }
+                                v += CSR_gloc->vals[k]*rBuf[j];
+                	}        
+		        YVec->AddValueLocal(i,v);
+                        
                 }
         }
+	
+	}
 
 #endif
 

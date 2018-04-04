@@ -2,7 +2,12 @@
 #include "../parMatrix/parMatrixSparse.cc"
 #include <math.h>
 #include <complex.h>
+
+#ifdef __APPLE__
 #include <sys/malloc.h>
+#else
+#include <malloc.h>
+#endif
 
 int main(int argc, char** argv) {
     // Initialize the MPI environment
@@ -32,7 +37,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 100000;
+    int probSize = 50000000;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -157,6 +162,7 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
+    start = MPI_Wtime();
 
     Am->FindColsToRecv();
     
@@ -179,7 +185,7 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    start = MPI_Wtime();
+//    start = MPI_Wtime();
 
     Am->CSR_MatVecProd(vec,prod2);
 
