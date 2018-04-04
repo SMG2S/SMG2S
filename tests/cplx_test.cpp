@@ -54,12 +54,12 @@ int main(int argc, char** argv) {
 
     printf("Proc. %d   Lower bound = %d   Upper bound = %d \n",world_rank, lower_b , upper_b ) ;
 
-    double a = 1.0, c = 2.0; float b =2.0;
+    std::complex<double> a = 1.0, c = 2.0; std::complex<double> b =2.0;
 
   
-    parVector<double,int> *vec = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
-    parVector<double,int> *prod = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
-    parVector<double,int> *prod2 = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
+    parVector<std::complex<double>,int> *vec = new parVector<std::complex<double>,int>(MPI_COMM_WORLD, lower_b, upper_b);
+    parVector<std::complex<double>,int> *prod = new parVector<std::complex<double>,int>(MPI_COMM_WORLD, lower_b, upper_b);
+    parVector<std::complex<double>,int> *prod2 = new parVector<std::complex<double>,int>(MPI_COMM_WORLD, lower_b, upper_b);
 
 
     vec->SetTovalue(a); //1.0,1.0...1.0
@@ -76,14 +76,14 @@ int main(int argc, char** argv) {
 
     vec->VecScale(c); //4.0,4.0...
 
-    double dot_local, dot;
+    std::complex<double> dot_local, dot;
 
     dot_local = vec->VecDot(prod);
 
     MPI_Allreduce(&dot_local, &dot, 1, MPI_DOUBLE, MPI_SUM,
                   MPI_COMM_WORLD);
 
-    if(world_rank == 0){printf("vecdot = %f\n", dot);}
+    if(world_rank == 0){printf("vecdot done\n");}
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -93,7 +93,7 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    double *va = vec->GetArray();
+    std::complex<double> *va = vec->GetArray();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -103,8 +103,8 @@ int main(int argc, char** argv) {
 
     //Matrix Initialization
 
-    parMatrixSparse<double,int> *Am = new parMatrixSparse<double,int>(vec,prod);
-    parMatrixSparse<double,int> *Bm = new parMatrixSparse<double,int>(vec,prod);
+    parMatrixSparse<std::complex<double>,int> *Am = new parMatrixSparse<std::complex<double>,int>(vec,prod);
+    parMatrixSparse<std::complex<double>,int> *Bm = new parMatrixSparse<std::complex<double>,int>(vec,prod);
 
     if(world_rank == 0){printf("Matrix Initialized\n");}
 
