@@ -97,21 +97,28 @@ class parMatrixSparse
 		void	SetDiagonal(parVector<T,S> *diag);
 
 		//Mat Scala
-		void	Scale(T scale);
+		void	MatScale(T scale);
 		
 		//AXPY
-		void	AXPY(parMatrixSparse<T,S> *X, T scale);
+		void	MatAXPY(parMatrixSparse<T,S> *X, T scale);
 
 		//AYPX
-		void    AYPX(parMatrixSparse<T,S> *X, T scale);
+		void    MatAYPX(parMatrixSparse<T,S> *X, T scale);
 
 		void CSRMatView();
 
 		//Reader
 		void	ReadExtMat();
+
+		//Writer
+		void	WriteExtMat();
+
 		// convert from dyn to csr
 		void	ConvertToCSR();
 
+		// Zeros all entries with keeping the previous matrix pattern
+		void	ZeroEntries();
+		
 		void	FindColsToRecv();
 		void	SetupDataTypes();
 

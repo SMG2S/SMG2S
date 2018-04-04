@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 50000000;
+    int probSize = 10;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -121,24 +121,30 @@ int main(int argc, char** argv) {
         Am->SetValue(j, j-3,2);
     }
 
+/*
     for(int j=100; j < probSize; j++){
         Am->SetValue(j-100,j,1);
         Am->SetValue(j, j-100,2);
     }
-
+*/
     for(int j=0; j < probSize; j++){
         Am->SetValue(j,j,1);
     }
 
+    Am->SetDiagonal(vec);
+
+/*
     for(int j=0; j < probSize; j++){
         Bm->SetValue(j,j,0);
     }
+*/
+
 /*
     for(int j=0; j < probSize - 5; j++){
         Am->SetValue(j,j+5,1.0);
     }
 */
-    double x, y;
+//    double x, y;
 
  //   x = Am->GetValue(10,11);
 
@@ -148,17 +154,25 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
- //   Am->MatView();
+    Am->MatView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
     Am->ConvertToCSR();
 	
-    //Am->AXPY(Bm, 2.0);
+    Am->MatAXPY(Am, 2.0);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-//    Am->MatView();
+    Am->MatScale(4.0);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    Am->ConvertToCSR();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    Am->MatView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -197,7 +211,7 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-//    prod2->VecView();
+    prod2->VecView();
 
     MPI_Finalize();
 
