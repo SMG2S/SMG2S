@@ -31,6 +31,9 @@
 *.out
 *.app
 
+# Matrix file
+*.mat
+
 #cmake files
 CMakeCache.txt
 CMakeLists.txt
