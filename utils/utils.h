@@ -2,6 +2,7 @@
 #include <iostream>
 #include <ctime>
 #include <stdlib.h>
+#include <map>
 
 template<class T>
 T random_unint(T min, T max)
@@ -32,3 +33,26 @@ S factorial(S start, S end)
 
 	return value;
 }
+
+template<class S>
+std::map<S,S> nilpotent(S matrix_size, S degree)
+{
+	std::map<S,S> zeroPosition; //<index, zeros' postion in niplotent matrix >
+
+	S i, j = 0;
+
+	S size = (S) matrix_size / ( degree + 1 );
+
+	printf("DEBUG >>> The zero array size for nilpotent matrix should be %d! \n", size);
+
+	for(i=0;i<matrix_size-1;i++){
+		i = i + degree;
+		zeroPosition.insert(std::pair<S,S>(j,i));
+		j++;
+		if(i + degree > matrix_size-2) break;
+	}
+
+	return zeroPosition;
+
+}
+
