@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "../parVector/parVector.cc"
-//#include "MatrixCSR.h"
+#include "../utils/utils.h"
 #include "MatrixCSR.h"
 
 
@@ -118,7 +118,7 @@ class parMatrixSparse
 
 		// Zeros all entries with keeping the previous matrix pattern
 		void	ZeroEntries();
-		
+
 		void	FindColsToRecv();
 		void	SetupDataTypes();
 
@@ -130,6 +130,12 @@ class parMatrixSparse
 		void	ELL_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec);
 		//spgmm
 		void	MatMatProd(parVector<T,S> *XVec, parVector<T,S> *YVec, parVector<T,S> *ZVec);
+		
+		//matrix multiple a special nilpotent matrix
+		void	MA(Nilpotency n);
+		//special nilpotent matrix multiple another matrix
+		void	AM(Nilpotency n);
+
 
 
 };

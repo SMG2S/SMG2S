@@ -16,5 +16,13 @@ int main(int argc, char **argv){
 		printf("nilp[%d] = %d\n", itr->first, itr->second);
 	}
 
+	Nilpotency<int> a;
+
+	printf("%d\n", a.diagPosition);
+
+	a = Nilpotency<int>(2,2,10);
+	
+	printf("%d\n", a.diagPosition);
+	
 	return 0;
 }

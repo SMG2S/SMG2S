@@ -1123,3 +1123,16 @@ void parMatrixSparse<T,S>::ZeroEntries()
 	}
 }
 
+
+//matrix multiple a special nilpotent matrix
+template<typename T,typename S>
+void parMatrixSparse<T,S>::MA()
+{
+
+}
+//special nilpotent matrix multiple another matrix
+template<typename T,typename S>
+void parMatrixSparse<T,S>::AM()
+{
+
+}

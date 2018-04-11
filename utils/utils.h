@@ -1,7 +1,7 @@
 //#include <random>
 #include <iostream>
 #include <ctime>
-#include <stdlib.h>
+#include <cstdlib>
 #include <map>
 
 template<class T>
@@ -55,4 +55,33 @@ std::map<S,S> nilpotent(S matrix_size, S degree)
 	return zeroPosition;
 
 }
+
+template<typename S>
+struct Nilpotency
+{
+	S	diagPosition; //off-diagonal offset
+	S	nbOne; //continuous 1 number of nilpotent matrix
+	S   matrix_size; //matrix size
+
+	Nilpotency()
+	{
+		diagPosition = 0;
+		nbOne = 0;
+		matrix_size = 0;
+	};
+
+	Nilpotency(S offset, S num, S size)
+	{
+		diagPosition = offset;
+		nbOne = num;
+		matrix_size = size;
+	
+	};
+
+	~Nilpotency()
+	{
+
+	};
+
+};
 
