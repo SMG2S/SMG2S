@@ -16,13 +16,24 @@ int main(int argc, char **argv){
 		printf("nilp[%d] = %d\n", itr->first, itr->second);
 	}
 
-	Nilpotency<int> a;
+	Nilpotency<int> a, b, c;
 
 	printf("%d\n", a.diagPosition);
 
-	a = Nilpotency<int>(2,2,10);
+	a = Nilpotency<int>(2,2,10,3);
 	
 	printf("%d\n", a.diagPosition);
+
+	b.NilpType1(1,20);
+
+	printf("%d\n", b.matrix_size);
+
+	c.NilpType2(2,20);
+
+	if(c.setup == true)
+	{
+		printf("%d\n", c.nilpotency);
+	}	
 	
 	return 0;
 }

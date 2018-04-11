@@ -62,21 +62,50 @@ struct Nilpotency
 	S	diagPosition; //off-diagonal offset
 	S	nbOne; //continuous 1 number of nilpotent matrix
 	S   matrix_size; //matrix size
+	S   nilpotency;
+	bool setup;
 
 	Nilpotency()
 	{
 		diagPosition = 0;
 		nbOne = 0;
 		matrix_size = 0;
+		nilpotency = 0;
+		setup = false;
 	};
 
-	Nilpotency(S offset, S num, S size)
+	Nilpotency(S offset, S num, S size, S nil)
 	{
 		diagPosition = offset;
 		nbOne = num;
 		matrix_size = size;
-	
+		nilpotency = nil;
+		setup = true;
 	};
+
+	void NilpType1(S num, S size)
+	{
+		diagPosition = 2;
+		nbOne = num;
+		matrix_size = size;
+		nilpotency = num+1;
+		setup = true;
+	}
+
+	void NilpType2(S num, S size)
+	{
+		if(num%2 == 0){
+			diagPosition = 2;
+			nbOne = num;
+			matrix_size = size;
+			nilpotency = num+1;
+			setup = true;
+		}
+		else{
+			setup = false;
+			printf("Please choose the right nb of continuous 1 \n");	
+		} 
+	}
 
 	~Nilpotency()
 	{
