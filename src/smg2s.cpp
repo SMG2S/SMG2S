@@ -80,6 +80,8 @@ int main(int argc, char** argv) {
 
     //setup the lower part of initial matrix
 
+    start = MPI_Wtime();
+
     for(int i = 0; i < probSize; i++){
         for(int j = i - lbandwidth; j < i; j++){
             if(j >= 0){
@@ -90,12 +92,34 @@ int main(int argc, char** argv) {
 
     Am->SetDiagonal(vec);
 
+    end = MPI_Wtime();
+
+    double t2 = end - start;
+
+    if(world_rank == 0) {printf("Initial matrix generation time = %1.6f\n", t2);}
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    start = MPI_Wtime();
+
+    Am->glocPlusLloc();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    Am->LOC_MatView();
+
+    end = MPI_Wtime();
+
+    t2 = end - start;
+    
+    if(world_rank == 0) {printf("Combination time = %1.6f\n", t2);}
+
     //insert the diagonal of initial matrix with given spectra.
 
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    Am->MatView();
+//    Am->MatView();
 
     MPI_Finalize();
 

@@ -5,12 +5,14 @@ parMatrixSparse<T,S>::parMatrixSparse()
 {
 	dynmat_lloc = NULL;
 	dynmat_gloc = NULL;
+	dynmat_loc  = NULL;
 
 	CSR_lloc = NULL; 
 	CSR_gloc = NULL;
 	
 	nnz_lloc = 0;
 	nnz_gloc = 0;
+	nnz_loc = 0;
 
 	ncols = 0;
 	nrows = 0;
@@ -40,12 +42,14 @@ parMatrixSparse<T,S>::parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec
 {
 	dynmat_lloc = NULL;
 	dynmat_gloc = NULL;
+	dynmat_loc  = NULL;
 
 	CSR_lloc = NULL;
 	CSR_gloc = NULL;
 
 	nnz_lloc = 0;
 	nnz_gloc = 0;
+	nnz_loc  = 0;
 
 	x_index_map = NULL;
 	y_index_map = NULL;
@@ -332,6 +336,35 @@ T parMatrixSparse<T,S>::GetValue(S row, S col)
 	return GetLocalValue(y_index_map->Glob2Loc(row), col);
 }
 
+template<typename T,typename S>
+void parMatrixSparse<T,S>::glocPlusLloc(){
+	
+	S i,j;
+	T v;
+	typename std::map<S,T>::iterator it;
+
+	if(ProcID == 0) {std::cout << "Combine the block-diagonal part and non block-diagonal part of parallel matrix together " << std::endl;}
+
+	if(dynmat_loc == NULL){
+		dynmat_loc = new std::map<S, T> [nrows];
+	}
+	for(i = 0; i < nrows; i++){
+		if((dynmat_gloc != NULL) && (dynmat_lloc != NULL)){
+			dynmat_loc[i].insert(dynmat_lloc[i].begin(),dynmat_lloc[i].end());
+			dynmat_loc[i].insert(dynmat_gloc[i].begin(),dynmat_gloc[i].end());
+		}
+		else if ((dynmat_lloc != NULL)){
+			dynmat_loc[i].insert(dynmat_lloc[i].begin(),dynmat_lloc[i].end());
+		}
+		else if (dynmat_gloc != NULL){
+			dynmat_loc[i].insert(dynmat_gloc[i].begin(),dynmat_gloc[i].end());
+		}
+		else{
+			if(ProcID == 0) {std::cout << "Cannot execute the function glocPlusLloc since the given matrix is NULL " << std::endl;}
+		}
+	}
+
+}
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::MatView(){
@@ -370,6 +403,25 @@ void parMatrixSparse<T,S>::MatView(){
 	}
 }
 
+template<typename T,typename S>
+void parMatrixSparse<T,S>::LOC_MatView(){
+	
+	S i, j;
+	T v;
+	typename std::map<S,T>::iterator it;
+
+	if(ProcID == 0) {std::cout << "LOC MODE Parallel MatView: " << std::endl;}
+
+	for (i = 0; i < nrows; i++){
+		if(dynmat_loc != NULL){
+			std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+				std::cout <<"("<<it->first << "," << it->second << "); ";
+			}
+		}
+	std::cout << std::endl;
+	}
+}
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::SetDiagonal(parVector<T,S> *diag)
@@ -495,6 +547,7 @@ template<typename T,typename S>
 void parMatrixSparse<T,S>::WriteExtMat(){
 
 }
+
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::FindColsToRecv()

@@ -15,12 +15,15 @@ class parMatrixSparse
 {
 	private:
 		std::map<S, T> *dynmat_lloc, *dynmat_gloc;
+
+		std::map<S, T> *dynmat_loc;
+
 		//size of local matrix
 		S	ncols, nrows;
 		
 		MatrixCSR<T,S> *CSR_lloc, *CSR_gloc;
 		
-		S	nnz_lloc, nnz_gloc;
+		S	nnz_lloc, nnz_gloc, nnz_loc;
 		
 		parVectorMap<S>	*x_index_map;
 		parVectorMap<S>	*y_index_map;
@@ -52,8 +55,8 @@ class parMatrixSparse
 		S	GetXLowerBound();
 		S	GetYLowerBound();
 
-	        S       GetXUpperBound();
-                S       GetYUpperBound();
+	    S   GetXUpperBound();
+        S   GetYUpperBound();
 		
 		void	GetTrueLocalSize(S &rs, S &cs){
 			rs = nrows;
@@ -89,9 +92,14 @@ class parMatrixSparse
 		T	GetLocalValue(S row, S col);
 		T	GetValue(S row, S col);
 
-		//show
 
+		//combine gloc + lloc -> loc together
+		void	glocPlusLloc();
+
+		//show
 		void	MatView();
+
+		void	LOC_MatView();
 
 		//set mat diagonal by vector given 
 		void	SetDiagonal(parVector<T,S> *diag);
@@ -105,7 +113,7 @@ class parMatrixSparse
 		//AYPX
 		void    MatAYPX(parMatrixSparse<T,S> *X, T scale);
 
-		void CSRMatView();
+		void 	CSRMatView();
 
 		//Reader
 		void	ReadExtMat();
