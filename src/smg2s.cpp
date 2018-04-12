@@ -88,14 +88,14 @@ int main(int argc, char** argv) {
     for(int i = 0; i < probSize; i++){
         for(int j = i - lbandwidth; j < i; j++){
             if(j >= 0){
-                Am->SetValue(i,j,1);   
+                Am->Loc_SetValue(i,j,1);   
             }
         }
     }
 
     //insert the diagonal of initial matrix with given spectra.
 
-    Am->SetDiagonal(vec);
+    Am->Loc_SetDiagonal(vec);
 
     end = MPI_Wtime();
 
@@ -107,7 +107,7 @@ int main(int argc, char** argv) {
 
     start = MPI_Wtime();
 
-    Am->glocPlusLloc();
+//    Am->glocPlusLloc();
 
     MPI_Barrier(MPI_COMM_WORLD);
 

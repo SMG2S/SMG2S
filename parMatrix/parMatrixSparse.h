@@ -92,8 +92,8 @@ class parMatrixSparse
 		void	SetValue(S row, S col, T value);
 
 		//get
-		T	GetLocalValue(S row, S col);
-		T	GetValue(S row, S col);
+		T		GetLocalValue(S row, S col);
+		T		GetValue(S row, S col);
 
 
 		//combine gloc + lloc -> loc together
@@ -106,8 +106,24 @@ class parMatrixSparse
 
 		void	LOC_MatView();
 
+
+  		//LOC set
+		void	Loc_SetValueLocal( S row, S col, T value);
+  		void 	Loc_SetValuesLocal( S nindex, S *rows, S *cols, T *values);
+
+		//LOC global set
+		void	Loc_SetValue(S row, S col, T value);
+
+		//LOC get
+		T		Loc_GetLocalValue(S row, S col);
+		T		Loc_GetValue(S row, S col);
+
 		//set mat diagonal by vector given 
 		void	SetDiagonal(parVector<T,S> *diag);
+
+		//Loc set mat diagonal by vector given 
+		void	Loc_SetDiagonal(parVector<T,S> *diag);
+
 
 		//Mat Scala
 		void	MatScale(T scale);

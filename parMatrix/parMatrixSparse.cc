@@ -363,6 +363,7 @@ void parMatrixSparse<T,S>::glocPlusLloc(){
 			if(ProcID == 0) {std::cout << "Cannot execute the function glocPlusLloc since the given matrix is NULL " << std::endl;}
 		}
 	}
+	nnz_loc = nnz_gloc + nnz_lloc;
 
 }
 
@@ -428,6 +429,64 @@ void parMatrixSparse<T,S>::LOC_MatView(){
 	}
 }
 
+
+//Loc set
+template<typename T,typename S>
+void parMatrixSparse<T,S>::Loc_SetValueLocal( S row, S col, T value)
+{
+	typename std::map<S,T>::iterator it;
+	
+	if(dynmat_loc == NULL){
+		dynmat_loc = new std::map<S,T> [nrows];
+	}
+	it = dynmat_loc[row].find(col);
+	if(it == dynmat_loc[row].end()){
+		dynmat_loc[row][col] = value;
+		nnz_loc++;
+	}
+	else{
+		it->second = value;
+	}	
+}
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::Loc_SetValuesLocal( S nindex, S *rows, S *cols, T *values)
+{
+	typename std::map<S,T>::iterator it;
+	
+	for( S i = 0; i < nindex; i++){
+		Loc_SetValueLocal(rows[i],cols[i],values[i]);
+	}
+}
+
+//Loc global set
+template<typename T,typename S>
+void parMatrixSparse<T,S>::Loc_SetValue(S row, S col, T value)
+{
+	S local_row = y_index_map->Glob2Loc(row);
+
+	Loc_SetValueLocal(local_row,col,value);
+
+}
+
+template<typename T,typename S>
+T parMatrixSparse<T,S>::Loc_GetLocalValue(S row, S col)
+{
+	if(dynmat_loc != NULL){
+		return dynmat_loc[row][col]; 
+	}
+	else return 0.0;
+}
+
+
+template<typename T,typename S>
+T parMatrixSparse<T,S>::Loc_GetValue(S row, S col)
+{
+	return Loc_GetLocalValue(y_index_map->Glob2Loc(row), col);
+}
+
+
+
 template<typename T,typename S>
 void parMatrixSparse<T,S>::SetDiagonal(parVector<T,S> *diag)
 {
@@ -436,7 +495,7 @@ void parMatrixSparse<T,S>::SetDiagonal(parVector<T,S> *diag)
 
 	if (nrows != njloc ){
 		if(ProcID == 0){
-			printf("ERROR: cannot set digonal for non-square matrix.");
+			printf("ERROR: cannot set diagonal for non-square matrix.");
 		}
 	}
 	else{
@@ -449,6 +508,32 @@ void parMatrixSparse<T,S>::SetDiagonal(parVector<T,S> *diag)
 		std::cout << "local size  = " << local_size << "  lower bound = " << lbound << "  upper bound = " << ubound << std::endl;
 		for(S i = 0; i < local_size; i++){
 			SetValueLocal(i,diag->Loc2Glob(i),a[i]);
+		}
+
+	}
+}
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::Loc_SetDiagonal(parVector<T,S> *diag)
+{
+	S    lbound;
+	S 	 ubound;
+
+	if (nrows != njloc ){
+		if(ProcID == 0){
+			printf("ERROR: cannot set diagonal for non-square matrix.");
+		}
+	}
+	else{
+		T *a = diag->GetArray();
+		S local_size = diag->GetArraySize();
+
+		lbound = diag->GetLowerBound();
+		ubound = diag->GetUpperBound();
+
+		std::cout << "local size  = " << local_size << "  lower bound = " << lbound << "  upper bound = " << ubound << std::endl;
+		for(S i = 0; i < local_size; i++){
+			Loc_SetValueLocal(i,diag->Loc2Glob(i),a[i]);
 		}
 
 	}
