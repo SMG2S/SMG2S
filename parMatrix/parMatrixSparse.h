@@ -1,3 +1,6 @@
+#ifndef __PAR_MATRIX_SPARSE_H__
+#define __PAR_MATRIX_SPARSE_H__
+
 #include <mpi.h> 
 #include <iostream> 
 #include <fstream> 
@@ -142,10 +145,12 @@ class parMatrixSparse
 		void	MatMatProd(parVector<T,S> *XVec, parVector<T,S> *YVec, parVector<T,S> *ZVec);
 		
 		//matrix multiple a special nilpotent matrix
-		void	MA(Nilpotency<S> n);
+		void	MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod);
+
 		//special nilpotent matrix multiple another matrix
 		void	AM(Nilpotency<S> n);
 
-
-
 };
+
+
+#endif

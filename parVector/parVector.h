@@ -1,3 +1,6 @@
+#ifndef __PAR_VECTOR_H__
+#define __PAR_VECTOR_H__
+
 #include <mpi.h> // Input/output
 #include <iostream> 
 #include <fstream> 
@@ -53,3 +56,5 @@ class parVector{
 
 		void RestoreArray(){};
 };
+
+#endif

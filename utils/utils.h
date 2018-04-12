@@ -1,3 +1,6 @@
+#ifndef __UTILS_H__
+#define __UTILS_H__
+
 //#include <random>
 #include <iostream>
 #include <ctime>
@@ -116,3 +119,4 @@ struct Nilpotency
 
 };
 
+#endif

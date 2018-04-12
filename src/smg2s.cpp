@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 20;
+    int probSize = 10;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
     //Matrix Initialization
 
     parMatrixSparse<double,int> *Am = new parMatrixSparse<double,int>(vec,prod);
-    parMatrixSparse<double,int> *Bm = new parMatrixSparse<double,int>(vec,prod);
+    parMatrixSparse<double,int> *MA = new parMatrixSparse<double,int>(vec,prod);
 
     if(world_rank == 0){printf("Matrix Initialized\n");}
 
@@ -92,6 +92,8 @@ int main(int argc, char** argv) {
             }
         }
     }
+
+    //insert the diagonal of initial matrix with given spectra.
 
     Am->SetDiagonal(vec);
 
@@ -117,10 +119,16 @@ int main(int argc, char** argv) {
     
     if(world_rank == 0) {printf("Combination time = %1.6f\n", t2);}
 
-    //insert the diagonal of initial matrix with given spectra.
+    Nilpotency<int> nilp, nps;
+    
+    nilp.NilpType1(2,probSize);
 
+    Am->MA(nilp, MA);
 
     MPI_Barrier(MPI_COMM_WORLD);
+
+    MA->LOC_MatView();
+
 
 //    Am->MatView();
 

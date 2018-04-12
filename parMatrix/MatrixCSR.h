@@ -1,3 +1,6 @@
+#ifndef __MATRIXCSR_H__
+#define __MATRIXCSR_H__
+
 #include <vector>
 
 template<typename T, typename S>
@@ -131,4 +134,4 @@ struct MatrixCSR
 
 };
 
-
+#endif

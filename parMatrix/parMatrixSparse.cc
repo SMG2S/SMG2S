@@ -369,7 +369,7 @@ void parMatrixSparse<T,S>::glocPlusLloc(){
 template<typename T,typename S>
 void parMatrixSparse<T,S>::llocToGlocLoc()
 {
-	
+
 }
 template<typename T,typename S>
 void parMatrixSparse<T,S>::MatView(){
@@ -1184,10 +1184,55 @@ void parMatrixSparse<T,S>::ZeroEntries()
 
 //matrix multiple a special nilpotent matrix
 template<typename T,typename S>
-void parMatrixSparse<T,S>::MA(Nilpotency<S> n)
+void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 {
+	S i, j, k;
+	T v;
 
+	typename std::map<S,T>::iterator it;
+
+	if(nilp.setup == true && y_index_map->GetGlobalSize() == nilp.matrix_size){
+		if(ProcID == 0){
+			std::cout << "Info ]>: Nilpotent matrix diagPostion = " << nilp.diagPosition << std::endl;
+			std::cout << "Info ]>: Nilpotent matrix nbOne = " << nilp.nbOne << std::endl;
+			std::cout << "Info ]>: Nilpotent matrix size = " << nilp.matrix_size << std::endl;
+			std::cout << "Info ]>: Nilpotent matrix setup = " << nilp.setup << std::endl;
+		}
+	}
+	else if(nilp.setup == false){
+		if(ProcID == 0){
+			std::cout << "ERROR ]>: Nilpotent Matrix is not setup." << std::endl;
+		}
+		return;
+	}
+	else if(y_index_map->GetGlobalSize() != nilp.matrix_size){
+		if(ProcID == 0){
+			std::cout << "ERROR ]>: Nilpotent Matrix dimension do not equal to given matrix size." << std::endl;
+		}
+		return;
+	}
+
+	//use the given nilpotency matrix, MA operation will make elements of matrix right move diaPosition-1 offset.
+	//And the positions of 0: pos = nbOne*integer - 1
+
+	for(i = 0; i < nrows; i++){
+		if(dynmat_loc == NULL) {
+			return;
+		}
+		if(dynmat_loc != NULL && prod->dynmat_loc == NULL){
+			prod->dynmat_loc = new std::map<S,T> [nrows];
+		}
+		
+		for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+			j = it->first + nilp.diagPosition - 1;
+			k = (j+1)%(nilp.nbOne + 1);
+			if(j < ncols && k != 0){
+				prod->dynmat_loc[i][j] = it->second;
+			}
+		}
+	}
 }
+
 //special nilpotent matrix multiple another matrix
 template<typename T,typename S>
 void parMatrixSparse<T,S>::AM(Nilpotency<S> n)

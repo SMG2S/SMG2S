@@ -1,3 +1,6 @@
+#ifndef __LOGO_H__
+#define __LOGO_H__
+
 #include <iostream>
 #include<stdio.h>
 #include<stdlib.h>
@@ -45,7 +48,6 @@ void logo(float version)
 
 }
 
-
-
+#endif
 
 

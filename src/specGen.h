@@ -1,3 +1,6 @@
+#ifndef __SPECGEN_H__
+#define __SPECGEN_H__
+
 //#include "../parVector/parVector.cc"
 #include "../parMatrix/parMatrixSparse.cc"
 
@@ -14,3 +17,5 @@ void specGen(parVector<T,S> *vec){
 	}
 
 }
+
+#endif
