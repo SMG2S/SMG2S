@@ -76,6 +76,8 @@ int main(int argc, char** argv) {
 
     parMatrixSparse<double,int> *Am = new parMatrixSparse<double,int>(vec,prod);
     parMatrixSparse<double,int> *MA = new parMatrixSparse<double,int>(vec,prod);
+    parMatrixSparse<double,int> *MB = new parMatrixSparse<double,int>(vec,prod);
+    parMatrixSparse<double,int> *MC = new parMatrixSparse<double,int>(vec,prod);
 
     if(world_rank == 0){printf("Matrix Initialized\n");}
 
@@ -137,6 +139,23 @@ int main(int argc, char** argv) {
 
     MA->MatView();
 
+    Am->Loc_ZeroEntries();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    MA->MA(nilp, MB);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    MB->LOC_MatView();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    MB->MA(nilp, MC);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    MC->LOC_MatView();
 //    Am->MatView();
 
     MPI_Finalize();
