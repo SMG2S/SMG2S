@@ -367,6 +367,11 @@ void parMatrixSparse<T,S>::glocPlusLloc(){
 }
 
 template<typename T,typename S>
+void parMatrixSparse<T,S>::llocToGlocLoc()
+{
+	
+}
+template<typename T,typename S>
 void parMatrixSparse<T,S>::MatView(){
 	
 	S i, j;

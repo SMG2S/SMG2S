@@ -96,6 +96,8 @@ class parMatrixSparse
 		//combine gloc + lloc -> loc together
 		void	glocPlusLloc();
 
+		void	llocToGlocLoc();
+
 		//show
 		void	MatView();
 

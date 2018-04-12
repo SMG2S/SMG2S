@@ -3,6 +3,7 @@
 #include "specGen.h"
 #include <math.h>
 #include <complex.h>
+#include "../utils/logo.h"
 
 #ifdef __APPLE__
 #include <sys/malloc.h>
@@ -24,6 +25,8 @@ int main(int argc, char** argv) {
     // Get the rank of the process
     int world_rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+
+    if(world_rank == 0) {logo(1.0);}
 
     // Get the name of the processor
     char processor_name[MPI_MAX_PROCESSOR_NAME];
