@@ -1126,13 +1126,13 @@ void parMatrixSparse<T,S>::ZeroEntries()
 
 //matrix multiple a special nilpotent matrix
 template<typename T,typename S>
-void parMatrixSparse<T,S>::MA()
+void parMatrixSparse<T,S>::MA(Nilpotency<S> n)
 {
 
 }
 //special nilpotent matrix multiple another matrix
 template<typename T,typename S>
-void parMatrixSparse<T,S>::AM()
+void parMatrixSparse<T,S>::AM(Nilpotency<S> n)
 {
 
 }

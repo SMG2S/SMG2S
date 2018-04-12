@@ -34,6 +34,7 @@ S factorial(S start, S end)
 	return value;
 }
 
+/*
 template<class S>
 std::map<S,S> nilpotent(S matrix_size, S degree)
 {
@@ -55,6 +56,7 @@ std::map<S,S> nilpotent(S matrix_size, S degree)
 	return zeroPosition;
 
 }
+*/
 
 template<typename S>
 struct Nilpotency

@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "../parVector/parVector.cc"
-#include "../utils/utils.h"
+//#include "../utils/utils.h"
 #include "MatrixCSR.h"
 
 
@@ -132,9 +132,9 @@ class parMatrixSparse
 		void	MatMatProd(parVector<T,S> *XVec, parVector<T,S> *YVec, parVector<T,S> *ZVec);
 		
 		//matrix multiple a special nilpotent matrix
-		void	MA(Nilpotency n);
+		void	MA(Nilpotency<S> n);
 		//special nilpotent matrix multiple another matrix
-		void	AM(Nilpotency n);
+		void	AM(Nilpotency<S> n);
 
 
 

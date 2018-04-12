@@ -88,9 +88,9 @@ S parVector<T,S>::Loc2Glob(S local_index)
 template<typename T, typename S>
 S parVector<T,S>::Glob2Loc(S global_index)
 {
-	 if ( index_map != NULL ) {
+	if ( index_map != NULL ) {
 		return index_map ->Glob2Loc(global_index);
-	}
+	} else return -1;
 }
 
 template<typename T, typename S>
