@@ -127,8 +127,15 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    MA->LOC_MatView();
+//    MA->LOC_MatView();
 
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    MA->llocToGlocLoc();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    MA->MatView();
 
 //    Am->MatView();
 

@@ -333,7 +333,10 @@ void parMatrixSparse<T,S>::SetValue(S row, S col, T value)
 template<typename T,typename S>
 T parMatrixSparse<T,S>::GetValue(S row, S col)
 {
-	return GetLocalValue(y_index_map->Glob2Loc(row), col);
+	S local_row = y_index_map->Glob2Loc(row);
+	if(local_row >= 0 && local_row < nrows){
+		return GetLocalValue(local_row, col);
+	}
 }
 
 template<typename T,typename S>
@@ -370,8 +373,33 @@ void parMatrixSparse<T,S>::glocPlusLloc(){
 template<typename T,typename S>
 void parMatrixSparse<T,S>::llocToGlocLoc()
 {
+	typename std::map<S,T>::iterator it;
 
+	S col;
+
+	//if location is inside of local area then add to local dynamic map
+	if(dynmat_loc != NULL){
+		if(dynmat_lloc == NULL){
+			dynmat_lloc = new std::map<S,T> [nrows];
+		}
+		if(dynmat_gloc == NULL){
+			dynmat_gloc = new std::map<S,T> [nrows];
+		}
+
+		for(S i = 0; i < nrows; i++){		
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+				col = it->first;
+				if(col < upper_x && col >= lower_x && col >= 0){
+					dynmat_lloc[i][col] = it->second;
+				}
+				else if((col >= upper_x || col < lower_x) && (col >= 0)){
+					dynmat_gloc[i][col] = it->second;
+				}
+			}
+		}
+	}
 }
+
 template<typename T,typename S>
 void parMatrixSparse<T,S>::MatView(){
 	
@@ -435,11 +463,12 @@ template<typename T,typename S>
 void parMatrixSparse<T,S>::Loc_SetValueLocal( S row, S col, T value)
 {
 	typename std::map<S,T>::iterator it;
-	
+
 	if(dynmat_loc == NULL){
 		dynmat_loc = new std::map<S,T> [nrows];
 	}
 	it = dynmat_loc[row].find(col);
+
 	if(it == dynmat_loc[row].end()){
 		dynmat_loc[row][col] = value;
 		nnz_loc++;
@@ -465,7 +494,9 @@ void parMatrixSparse<T,S>::Loc_SetValue(S row, S col, T value)
 {
 	S local_row = y_index_map->Glob2Loc(row);
 
-	Loc_SetValueLocal(local_row,col,value);
+	if (local_row >= 0 && local_row < nrows){
+		Loc_SetValueLocal(local_row,col,value);
+	}
 
 }
 
@@ -482,7 +513,10 @@ T parMatrixSparse<T,S>::Loc_GetLocalValue(S row, S col)
 template<typename T,typename S>
 T parMatrixSparse<T,S>::Loc_GetValue(S row, S col)
 {
-	return Loc_GetLocalValue(y_index_map->Glob2Loc(row), col);
+	S local_row = y_index_map->Glob2Loc(row);
+	if(local_row >= 0 && local_row < nrows){
+		return Loc_GetLocalValue(local_row, col);
+	}
 }
 
 
@@ -1242,6 +1276,108 @@ void parMatrixSparse<T,S>::MatAYPX(parMatrixSparse<T,S> *X, T scale){
 
 
 template<typename T,typename S>
+void parMatrixSparse<T,S>::Loc_MatAXPY(parMatrixSparse<T,S> *X, T scale){
+
+	typename std::map<S,T>::iterator it, itv, itvv;
+
+	S i, k;
+	T v;
+	if(dynmat_loc != NULL){
+		for(i = 0; i < nrows; i++){
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+				it->second = it->second*scale;
+			}
+		}
+	}
+
+	if(dynmat_loc != NULL && X->dynmat_loc != NULL){
+		for(i = 0; i < nrows; i++){
+			std::map<S,T> merge;
+			merge.insert(dynmat_loc[i].begin(),dynmat_loc[i].end());
+			merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
+			for(it = merge.begin(); it != merge.end(); ++it){
+				k = it->first;
+				dynmat_loc[i][k] = dynmat_loc[i][k]+X->dynmat_loc[i][k];
+			}
+			merge.clear();
+		}
+	}
+
+	if(dynmat_loc == NULL && X->dynmat_loc != NULL){
+		for(i = 0; i < nrows; i++){
+			std::map<S,T> merge;
+			merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
+			for(it = merge.begin(); it != merge.end(); ++it){
+				k = it->first;
+				dynmat_loc[i][k] = X->dynmat_loc[i][k];
+			}
+			merge.clear();
+		}
+	}
+}
+
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::Loc_MatScale(T scale){
+	typename std::map<S,T>::iterator it;
+
+	S i;
+	T v;
+
+	if(dynmat_loc != NULL){
+		for(i = 0; i < nrows; i++){
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+				it->second = it->second*scale;
+			}
+		}
+	}
+}
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::Loc_MatAYPX(parMatrixSparse<T,S> *X, T scale){
+
+	typename std::map<S,T>::iterator it, itv, itvv;
+
+	S i, k;
+	T v;
+	if(X->dynmat_loc != NULL){
+		for(i = 0; i < nrows; i++){
+			for(it = X->dynmat_loc[i].begin(); it != X->dynmat_loc[i].end(); it++){
+				k = it->first;
+				X->dynmat_loc[i][k] = X->dynmat_loc[i][k]*scale;
+			}
+		}
+	}
+
+	if(dynmat_loc != NULL && X->dynmat_loc != NULL){
+		for(i = 0; i < nrows; i++){
+			std::map<S,T> merge;
+			merge.insert(dynmat_loc[i].begin(),dynmat_loc[i].end());
+			merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
+			for(it = merge.begin(); it != merge.end(); ++it){
+				k = it->first;
+				dynmat_loc[i][k] = dynmat_loc[i][k]+X->dynmat_loc[i][k];
+			}
+			merge.clear();
+		}
+	}
+
+	if(dynmat_loc == NULL && X->dynmat_loc != NULL){
+		for(i = 0; i < nrows; i++){
+			std::map<S,T> merge;
+			merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
+			for(it = merge.begin(); it != merge.end(); ++it){
+				k = it->first;
+				dynmat_loc[i][k] = X->dynmat_loc[i][k];
+			}
+			merge.clear();
+		}
+	}
+}
+
+
+
+template<typename T,typename S>
 void parMatrixSparse<T,S>::ZeroEntries()
 {
 	typename std::map<S,T>::iterator it;
@@ -1260,6 +1396,24 @@ void parMatrixSparse<T,S>::ZeroEntries()
 	if(dynmat_gloc != NULL){
 		for(i = 0; i < nrows; i++){
 			for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); it++){
+				it->second = 0;
+			}
+		}
+	}
+}
+
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::Loc_ZeroEntries()
+{
+	typename std::map<S,T>::iterator it;
+
+	S i;
+	T v;
+
+	if(dynmat_loc != NULL){
+		for(i = 0; i < nrows; i++){
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
 				it->second = 0;
 			}
 		}

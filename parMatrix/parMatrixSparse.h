@@ -134,6 +134,16 @@ class parMatrixSparse
 		//AYPX
 		void    MatAYPX(parMatrixSparse<T,S> *X, T scale);
 
+		//Loc Mat Scala
+		void	Loc_MatScale(T scale);
+		
+		//Loc AXPY
+		void	Loc_MatAXPY(parMatrixSparse<T,S> *X, T scale);
+
+		//Loc AYPX
+		void    Loc_MatAYPX(parMatrixSparse<T,S> *X, T scale);
+
+
 		void 	CSRMatView();
 
 		//Reader
@@ -148,7 +158,11 @@ class parMatrixSparse
 		// Zeros all entries with keeping the previous matrix pattern
 		void	ZeroEntries();
 
+		// Loc: Zeros all entries with keeping the previous matrix pattern
+		void	Loc_ZeroEntries();
+
 		void	FindColsToRecv();
+
 		void	SetupDataTypes();
 
 		void	TestCommunication(parVector<T,S> *XVec, parVector<T,S> *YVec);
