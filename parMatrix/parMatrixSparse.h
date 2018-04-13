@@ -178,6 +178,9 @@ class parMatrixSparse
 		//matrix multiple a special nilpotent matrix
 		void	MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod);
 
+
+		//AM setup data type for communication
+		void 	AM_SetUpDataTypes(Nilpotency<S> nilp);
 		//special nilpotent matrix multiple another matrix
 		void	AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod);
 

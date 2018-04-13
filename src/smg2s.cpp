@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 20;
+    int probSize = 10;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -114,7 +114,7 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    //Am->LOC_MatView();
+    Am->LOC_MatView();
 
     end = MPI_Wtime();
 
@@ -140,7 +140,7 @@ int main(int argc, char** argv) {
 
     start = MPI_Wtime();
 
-    Am->AM(nilp, MA);
+    Am->AM(nilp, AM);
 
     end = MPI_Wtime();
 
@@ -148,8 +148,12 @@ int main(int argc, char** argv) {
 
     if(world_rank == 0) {printf("AM time = %1.6f\n", t2);}
 
-
 //    MA->LOC_MatView();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    AM->LOC_MatView();
+
 
 /*
     MPI_Barrier(MPI_COMM_WORLD);

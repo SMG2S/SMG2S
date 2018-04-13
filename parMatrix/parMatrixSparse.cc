@@ -1472,11 +1472,35 @@ void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	}
 }
 
+template<typename T,typename S>
+void parMatrixSparse<T,S>::AM_SetUpDataTypes(Nilpotency<S> nilp){
+	
+	if(nilp.setup == true && y_index_map->GetGlobalSize() == nilp.matrix_size){
+		if(ProcID == 0){
+			std::cout << "INFO ]>: Nilpotent matrix diagPostion = " << nilp.diagPosition << std::endl;
+			std::cout << "INFO ]>: Nilpotent matrix nbOne = " << nilp.nbOne << std::endl;
+			std::cout << "INFO ]>: Nilpotent matrix size = " << nilp.matrix_size << std::endl;
+			std::cout << "INFO ]>: Nilpotent matrix setup = " << nilp.setup << std::endl;
+		}
+	}
+	else if(nilp.setup == false){
+		if(ProcID == 0){
+			std::cout << "ERROR ]>: Nilpotent Matrix is not setup." << std::endl;
+		}
+		return;
+	}
+	else if(y_index_map->GetGlobalSize() != nilp.matrix_size){
+		if(ProcID == 0){
+			std::cout << "ERROR ]>: Nilpotent Matrix dimension do not equal to given matrix size." << std::endl;
+		}
+		return;
+	}
+}
 //special nilpotent matrix multiple another matrix
 template<typename T,typename S>
 void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 {
-	S i, j, k;
+	S i, j, k, p, q, c;
 	T v;
 
 	typename std::map<S,T>::iterator it;
@@ -1521,7 +1545,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 	int up, down;
 
-	int			tag1, tag2;
+	int			tag1[nilp.diagPosition - 1];
 	int			Rtag, Stag;
 	S           count, count1;
 
@@ -1530,16 +1554,30 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 	up = ProcID - 1; 
 	down =ProcID + 1;
-	
-	tag1 = 0; tag2 = 1; Rtag = 0; Stag = 1;
+	S size[nilp.diagPosition - 1];
+
+	for(S a = 0; a < nilp.diagPosition - 1; a++){
+		tag1[a] = a;
+	}
+
+	if(ProcID != 0){
+		for(S a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	Rtag = 0; Stag = 1;
 
 	//MPI non-blocking requests and status
 	
-	Rreqs = new MPI_Request [nProcs - 1];
-	Sreqs = new MPI_Request [nProcs - 1];
-	Rstat = new MPI_Status [nProcs - 1];
-	Sstat = new MPI_Status [nProcs - 1];
+	Rreqs = new MPI_Request [nilp.diagPosition - 1];
+	Sreqs = new MPI_Request [nilp.diagPosition - 1];
+	Rstat = new MPI_Status [nilp.diagPosition - 1];
+	Sstat = new MPI_Status [nilp.diagPosition - 1];
 
+	if(dynmat_loc == NULL){
+		return;
+	}
 
 	if(std::is_same<T,std::complex<double> >::value){
 		if(ProcID == 0){
@@ -1553,8 +1591,30 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		}
 	}
 
-	T sd(ProcID*0.1,ProcID*10);
-	T rcv;
+	for(p = nilp.diagPosition - 1; p < nrows; p++){
+		if(prod->dynmat_loc == NULL){
+			prod->dynmat_loc = new std::map<S,T> [nrows];
+		}
+
+		i = p - nilp.diagPosition + 1;
+		q = y_index_map->Loc2Glob(i);
+
+		k = (q + 1)%(nilp.nbOne + 1);
+		
+		for(it = dynmat_loc[p].begin(); it != dynmat_loc[p].end(); ++it){
+			
+			j = it->first;
+
+			if(i >= 0 && i < nrows && k != 0){
+				prod->dynmat_loc[i][j] = it->second;
+				//std::cout << "ProcID = " << ProcID << ": i = " << i << ", j = " << j << std::endl;
+			}
+		}
+		
+	}
+
+	std::complex<T> sd(ProcID*0.1,ProcID*10);
+	std::complex<T> rcv;
 	std::cout << sd << std::endl;
 
 	MPI_Datatype MPI_SCALAR = MPI_Scalar<T>();
@@ -1563,17 +1623,19 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 	if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<float> >::value){
 		if(std::is_same<T,std::complex<double> >::value){
+
+			/*
 			double  sBuf[2], rBuf[2];
 			sBuf[0] = sd.real();
 			sBuf[1] = sd.imag();
 
 			if(ProcID != 0){
-				MPI_Isend(sBuf, 1, MPI_SCALAR, up, tag1, MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
+				MPI_Isend(sBuf, 1, MPI_SCALAR, up, tag1[0], MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
 				printf("Proc %d sending\n", ProcID);
 			}
 
 			if(ProcID != nProcs - 1){
-				MPI_Irecv(rBuf, 1, MPI_SCALAR, down, tag1, MPI_COMM_WORLD, &Rreqs[ProcID]);
+				MPI_Irecv(rBuf, 1, MPI_SCALAR, down, tag1[0], MPI_COMM_WORLD, &Rreqs[ProcID]);
 				printf("Proc %d receiving\n", ProcID);
 			} else {
 				rBuf[0] = 0.0, rBuf[1] = 0.0;
@@ -1587,20 +1649,23 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 //			printf("ProcID = %d: sBuf = %f + %fi, rBuf = %f + %fi\n", ProcID, sBuf[0], sBuf[1],rBuf[0], rBuf[1]);
 			std::cout << "ProcID = " << ProcID << ": rcv = " << rcv <<std::endl;
+			*/
 
 		} else if(std::is_same<T,std::complex<double> >::value){
+
+			/*
 			float  sBuf[2], rBuf[2];
 
 			sBuf[0] = sd.real();
 			sBuf[1] = sd.imag();
 
 			if(ProcID != 0){
-				MPI_Isend(sBuf, 1, MPI_SCALAR, up, tag1, MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
+				MPI_Isend(sBuf, 1, MPI_SCALAR, up, tag1[0], MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
 				printf("Proc %d sending\n", ProcID);
 			}
 
 			if(ProcID != nProcs - 1){
-				MPI_Irecv(rBuf, 1, MPI_SCALAR, down, tag1, MPI_COMM_WORLD, &Rreqs[ProcID]);
+				MPI_Irecv(rBuf, 1, MPI_SCALAR, down, tag1[0], MPI_COMM_WORLD, &Rreqs[ProcID]);
 				printf("Proc %d receiving\n", ProcID);
 			} else {
 				rBuf[0] = 0.0, rBuf[1] = 0.0;
@@ -1615,38 +1680,51 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 //			printf("ProcID = %d: sBuf = %f + %fi, rBuf = %f + %fi\n", ProcID, sBuf[0], sBuf[1],rBuf[0], rBuf[1]);
 			std::cout << "ProcID = " << ProcID << ": rcv = " << rcv <<std::endl;
 
+*/
 		}
+
 
 		//printf("ProcID = %d: sBuf = %f, rBuf = %f \n", ProcID, sBuf, rBuf);
 	} else{
-			T sBuf = 1, rBuf;
+
+			T sBuf, rBuf;
+		/*
+			T *sBuf[nilp.diagPosition - 1], *rBuf[nilp.diagPosition - 1];
+			for(S b = 0; b < diagPosition -1; b++){
+				for(it = dynmat_loc[d].begin(); it != dynmat_loc[d].end(); ++it)
+					c = it->first;
+					sBuf[b][c] = c->second;
+					rBuf[b][c] = 0.0;
+			}
+		*/	
+			//T *sBuf, *rBuf;
 
 			if(ProcID != 0){
-				MPI_Isend(&sBuf, 1, MPI_SCALAR, up, tag1, MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
-				printf("Proc %d sending\n", ProcID);
+					for(p = 0; p < nilp.diagPosition-1; p++){
+						sBuf = (T) size[0];
+						MPI_Isend(&sBuf, 1, MPI_SCALAR, up, tag1[p], MPI_COMM_WORLD, &Sreqs[p]);
+						printf("Proc %d sending\n", ProcID);
+					}
 			}
 
 			if(ProcID != nProcs - 1){
-				MPI_Irecv(&rBuf, 1, MPI_SCALAR, down, tag1, MPI_COMM_WORLD, &Rreqs[ProcID]);
-				printf("Proc %d receiving\n", ProcID);
+				for(p = 0; p < nilp.diagPosition-1; p++){
+					MPI_Irecv(&rBuf, 1, MPI_SCALAR, down, tag1[p], MPI_COMM_WORLD, &Rreqs[p]);
+					printf("Proc %d receiving\n", ProcID);
+				}
 			} else {
 				rBuf = 0.0;
 			}
 
 			if(ProcID != nProcs - 1){
-				MPI_Wait(&Rreqs[ProcID],&Rstat[ProcID]);
+				for(p = 0; p < nilp.diagPosition-1; p++){
+					MPI_Wait(&Rreqs[p],&Rstat[p]);
+				}
 			}
 
 			std::cout << "ProcID = " << ProcID << ": rBuf = " << rBuf <<std::endl;
 
 	}
-
-	//sBuf = (double) ProcID*0.1 + (double) ProcID*10i ;
-	//sBuf[0] = (double)ProcID*0.1;
-	//sBuf[1] = (double) ProcID*10;
-
 	
-
-
 
 }
