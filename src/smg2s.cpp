@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 10000000;
+    int probSize = 10;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));

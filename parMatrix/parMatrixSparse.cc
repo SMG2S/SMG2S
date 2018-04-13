@@ -1500,7 +1500,7 @@ void parMatrixSparse<T,S>::AM_SetUpDataTypes(Nilpotency<S> nilp){
 template<typename T,typename S>
 void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 {
-	S i, j, k, p, q, c;
+	S i, j, k, p, q, c, loc;
 	T v;
 
 	typename std::map<S,T>::iterator it;
@@ -1540,9 +1540,9 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		}
 	}
 
-	MPI_Request	*Rreqs, *Sreqs, rtypereq, stypereq;
+	MPI_Request	*Rreqs, *Sreqs, rtypereq, stypereq, *idxRreqs, *idxSreqs;
 
-	MPI_Status	*status, *Rstat, *Sstat, typestat;
+	MPI_Status	*status, *Rstat, *Sstat, typestat, *idxRstat, *idxSstat;
 
 	int up, down;
 
@@ -1603,6 +1603,11 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	Rstat = new MPI_Status [nilp.diagPosition - 1];
 	Sstat = new MPI_Status [nilp.diagPosition - 1];
 
+	idxRreqs = new MPI_Request [nilp.diagPosition - 1];
+	idxSreqs = new MPI_Request [nilp.diagPosition - 1];
+	idxRstat = new MPI_Status [nilp.diagPosition - 1];
+	idxSstat = new MPI_Status [nilp.diagPosition - 1];
+
 	if(dynmat_loc == NULL){
 		return;
 	}
@@ -1651,68 +1656,137 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 	if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<float> >::value){
 		if(std::is_same<T,std::complex<double> >::value){
+		
+			double *sBuf, *rBuf;
 
-			/*
-			double  sBuf[2], rBuf[2];
-			sBuf[0] = sd.real();
-			sBuf[1] = sd.imag();
+			S *sIndx, *rIndx;
+			S cnt = 0, cnt2 = 0;
 
-			if(ProcID != 0){
-				MPI_Isend(sBuf, 1, MPI_SCALAR, up, tag1[0], MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
-				printf("Proc %d sending\n", ProcID);
+			for(S b = 0; b < nilp.diagPosition -1; b++){
+
+				if(ProcID != 0){
+					loc = y_index_map->Loc2Glob(b);
+					q = loc - nilp.diagPosition + 1 + b;
+//					std::cout << "----->loc = " << loc << " divisblae = "<< (q + 1)%(nilp.nbOne + 1) << std::endl;
+					if(q == 0){
+						return;
+					}
+				}
+				
+				if(ProcID != 0){
+					sBuf  = new double [2*size[b]];
+					sIndx  = new S [size[b]];
+					for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
+						sBuf[cnt] = (it->second).real();
+						sBuf[cnt+1] = (it->second).imag();
+						sIndx[cnt2] = it->first;
+						cnt = cnt + 2;
+						cnt2++;
+					}
+
+					MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], MPI_COMM_WORLD, &Sreqs[b]);
+					MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], MPI_COMM_WORLD, &idxSreqs[b]);
+				}
+
+				if(ProcID != nProcs - 1){
+					rBuf = new double [2*rsize[b]];
+					rIndx = new S [2*rsize[b]];
+					for(S tt =0; tt < 2*rsize[b]; tt++){
+						rBuf[tt] = 0.0;
+					}
+
+					for(S tt =0; tt < rsize[b]; tt++){
+						rIndx[tt] = 0;
+					}
+
+					MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);	
+					MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], MPI_COMM_WORLD, &idxRreqs[b]);	
+
+				}
+
+				if(ProcID != nProcs - 1){
+					MPI_Wait(&Rreqs[b],&Rstat[b]);
+					MPI_Wait(&idxRreqs[b],&idxRstat[b]);
+				}
+
+				if(ProcID != nProcs - 1){
+						for(S tt = 0; tt < rsize[b]; tt++){
+								std::cout << " ===> rBuf[" << tt << "] = " << rBuf[tt] << "   rIndx[" << tt << "] = " << rIndx[tt] << std::endl;
+								(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).real(rBuf[2*tt]);
+								(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).imag(rBuf[2*tt + 1]);
+						}
+				
+				}
+
 			}
 
-			if(ProcID != nProcs - 1){
-				MPI_Irecv(rBuf, 1, MPI_SCALAR, down, tag1[0], MPI_COMM_WORLD, &Rreqs[ProcID]);
-				printf("Proc %d receiving\n", ProcID);
-			} else {
-				rBuf[0] = 0.0, rBuf[1] = 0.0;
+
+		} else if(std::is_same<T,std::complex<float> >::value){
+
+			float *sBuf, *rBuf;
+
+			S *sIndx, *rIndx;
+			S cnt = 0, cnt2 = 0;
+
+			for(S b = 0; b < nilp.diagPosition -1; b++){
+
+				if(ProcID != 0){
+					loc = y_index_map->Loc2Glob(b);
+					q = loc - nilp.diagPosition + 1 + b;
+//					std::cout << "----->loc = " << loc << " divisblae = "<< (q + 1)%(nilp.nbOne + 1) << std::endl;
+					if(q == 0){
+						return;
+					}
+				}
+				
+				if(ProcID != 0){
+					sBuf  = new float [2*size[b]];
+					sIndx  = new S [size[b]];
+					for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
+						sBuf[cnt] = (it->second).real();
+						sBuf[cnt+1] = (it->second).imag();
+						sIndx[cnt2] = it->first;
+						cnt = cnt + 2;
+						cnt2++;
+					}
+
+					MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], MPI_COMM_WORLD, &Sreqs[b]);
+					MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], MPI_COMM_WORLD, &idxSreqs[b]);
+				}
+
+				if(ProcID != nProcs - 1){
+					rBuf = new float [2*rsize[b]];
+					rIndx = new S [2*rsize[b]];
+					for(S tt =0; tt < 2*rsize[b]; tt++){
+						rBuf[tt] = 0.0;
+					}
+
+					for(S tt =0; tt < rsize[b]; tt++){
+						rIndx[tt] = 0;
+					}
+
+					MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);	
+					MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], MPI_COMM_WORLD, &idxRreqs[b]);	
+
+				}
+
+				if(ProcID != nProcs - 1){
+					MPI_Wait(&Rreqs[b],&Rstat[b]);
+					MPI_Wait(&idxRreqs[b],&idxRstat[b]);
+				}
+
+				if(ProcID != nProcs - 1){
+						for(S tt = 0; tt < rsize[b]; tt++){
+								std::cout << " ===> rBuf[" << tt << "] = " << rBuf[tt] << "   rIndx[" << tt << "] = " << rIndx[tt] << std::endl;
+								(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).real(rBuf[2*tt]);
+								(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).imag(rBuf[2*tt + 1]);
+						}
+				
+				}
+
 			}
-
-			if(ProcID != nProcs - 1){
-				MPI_Wait(&Rreqs[ProcID],&Rstat[ProcID]);
-			}
-			rcv.real(rBuf[0]);
-			rcv.imag(rBuf[1]);
-
-//			printf("ProcID = %d: sBuf = %f + %fi, rBuf = %f + %fi\n", ProcID, sBuf[0], sBuf[1],rBuf[0], rBuf[1]);
-			std::cout << "ProcID = " << ProcID << ": rcv = " << rcv <<std::endl;
-			*/
-
-		} else if(std::is_same<T,std::complex<double> >::value){
-
-			/*
-			float  sBuf[2], rBuf[2];
-
-			sBuf[0] = sd.real();
-			sBuf[1] = sd.imag();
-
-			if(ProcID != 0){
-				MPI_Isend(sBuf, 1, MPI_SCALAR, up, tag1[0], MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
-				printf("Proc %d sending\n", ProcID);
-			}
-
-			if(ProcID != nProcs - 1){
-				MPI_Irecv(rBuf, 1, MPI_SCALAR, down, tag1[0], MPI_COMM_WORLD, &Rreqs[ProcID]);
-				printf("Proc %d receiving\n", ProcID);
-			} else {
-				rBuf[0] = 0.0, rBuf[1] = 0.0;
-			}
-
-			if(ProcID != nProcs - 1){
-				MPI_Wait(&Rreqs[ProcID],&Rstat[ProcID]);
-			}
-			rcv.real(rBuf[0]);
-			rcv.imag(rBuf[1]);
-
-//			printf("ProcID = %d: sBuf = %f + %fi, rBuf = %f + %fi\n", ProcID, sBuf[0], sBuf[1],rBuf[0], rBuf[1]);
-			std::cout << "ProcID = " << ProcID << ": rcv = " << rcv <<std::endl;
-
-*/
 		}
 
-
-		//printf("ProcID = %d: sBuf = %f, rBuf = %f \n", ProcID, sBuf, rBuf);
 	} else{
 
 //			T sBuf, rBuf;
@@ -1722,6 +1796,16 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 			S cnt = 0, cnt2 = 0;
 
 			for(S b = 0; b < nilp.diagPosition -1; b++){
+
+				if(ProcID != 0){
+					loc = y_index_map->Loc2Glob(b);
+					q = loc - nilp.diagPosition + 1 + b;
+//					std::cout << "----->loc = " << loc << " divisblae = "<< (q + 1)%(nilp.nbOne + 1) << std::endl;
+					if(q == 0){
+						return;
+					}
+				}
+				
 				if(ProcID != 0){
 					sBuf  = new T [size[b]];
 					sIndx  = new S [size[b]];
@@ -1731,70 +1815,33 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 						cnt++;
 					}
 					MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], MPI_COMM_WORLD, &Sreqs[b]);
+					MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], MPI_COMM_WORLD, &idxSreqs[b]);
 				}
 
 				if(ProcID != nProcs - 1){
-					rBuf = new T [ncols];
-					rIndx = new S [ncols];
-					for(S tt =0; tt < ncols; tt++){
+					rBuf = new T [rsize[b]];
+					rIndx = new S [rsize[b]];
+					for(S tt =0; tt < rsize[b]; tt++){
 						rBuf[tt] = 0.0;
 						rIndx[tt] = 0;
 					}
-					MPI_Irecv(rBuf,ncols, MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);	
+					MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);	
+					MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], MPI_COMM_WORLD, &idxRreqs[b]);	
+
 				}
 
 				if(ProcID != nProcs - 1){
 					MPI_Wait(&Rreqs[b],&Rstat[b]);
+					MPI_Wait(&idxRreqs[b],&idxRstat[b]);
 				}
 
 				if(ProcID != nProcs - 1){
 						for(S tt = 0; tt < rsize[b]; tt++){
-								std::cout << " ===> rBuf[" << b << "] = " << rBuf[tt] << std::endl;
+								std::cout << " ===> rBuf[" << tt << "] = " << rBuf[tt] << "   rIndx[" << tt << "] = " << rIndx[tt] << std::endl;
+								prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
 						}
 				
 				}
-
-			}
-	
-		
-		/*
-			if(ProcID != nProcs - 1){
-				for(S b = 0; b < diagPosition -1; b++){
-					for(it = dynmat_loc[d].begin(); it != dynmat_loc[d].end(); ++it)
-						rBuf[cnt] = 0;
-						rIndx[cnt] = 0;
-						cnt++;
-				}
-			}
-		
-			//T *sBuf, *rBuf;
-
-			if(ProcID != 0){
-					for(p = 0; p < nilp.diagPosition-1; p++){
-						sBuf = (T) size[0];
-						MPI_Isend(sBuf, size[p], MPI_SCALAR, up, tag1[p], MPI_COMM_WORLD, &Sreqs[p]);
-						printf("Proc %d sending\n", ProcID);
-					}
-			}
-			
-
-			if(ProcID != nProcs - 1){
-				for(p = 0; p < nilp.diagPosition-1; p++){
-					MPI_Irecv(rBuf, size[p], MPI_SCALAR, down, tag1[p], MPI_COMM_WORLD, &Rreqs[p]);
-					printf("Proc %d receiving\n", ProcID);
-				}
-			} else {
-				rBuf = 0.0;
-			}
-
-			if(ProcID != nProcs - 1){
-				for(p = 0; p < nilp.diagPosition-1; p++){
-					MPI_Wait(&Rreqs[p],&Rstat[p]);
-				}
-			}
-		*/
-			if(ProcID != nProcs - 1){
-							std::cout << "ProcID = " << ProcID << ": rBuf = " << rBuf[3] <<std::endl;
 
 			}
 
