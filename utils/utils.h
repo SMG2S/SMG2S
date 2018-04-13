@@ -100,7 +100,7 @@ struct Nilpotency
 	void NilpType2(S num, S size)
 	{
 		if(num%2 == 0){
-			diagPosition = 2;
+			diagPosition = 3;
 			nbOne = num;
 			matrix_size = size;
 			nilpotency = num+1;
@@ -108,7 +108,7 @@ struct Nilpotency
 		}
 		else{
 			setup = false;
-			printf("Please choose the right nb of continuous 1 \n");	
+			printf("Please choose the right nb of continuous 1, for NilpType2, it should be divisible by 2 \n");	
 		} 
 	}
 

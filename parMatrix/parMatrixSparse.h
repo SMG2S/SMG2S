@@ -178,7 +178,7 @@ class parMatrixSparse
 		void	MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod);
 
 		//special nilpotent matrix multiple another matrix
-		void	AM(Nilpotency<S> n);
+		void	AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod);
 
 };
 

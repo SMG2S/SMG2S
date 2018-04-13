@@ -1432,10 +1432,10 @@ void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 	if(nilp.setup == true && y_index_map->GetGlobalSize() == nilp.matrix_size){
 		if(ProcID == 0){
-			std::cout << "Info ]>: Nilpotent matrix diagPostion = " << nilp.diagPosition << std::endl;
-			std::cout << "Info ]>: Nilpotent matrix nbOne = " << nilp.nbOne << std::endl;
-			std::cout << "Info ]>: Nilpotent matrix size = " << nilp.matrix_size << std::endl;
-			std::cout << "Info ]>: Nilpotent matrix setup = " << nilp.setup << std::endl;
+			std::cout << "INFO ]>: Nilpotent matrix diagPostion = " << nilp.diagPosition << std::endl;
+			std::cout << "INFO ]>: Nilpotent matrix nbOne = " << nilp.nbOne << std::endl;
+			std::cout << "INFO ]>: Nilpotent matrix size = " << nilp.matrix_size << std::endl;
+			std::cout << "INFO ]>: Nilpotent matrix setup = " << nilp.setup << std::endl;
 		}
 	}
 	else if(nilp.setup == false){
@@ -1474,7 +1474,93 @@ void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 //special nilpotent matrix multiple another matrix
 template<typename T,typename S>
-void parMatrixSparse<T,S>::AM(Nilpotency<S> n)
+void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 {
+	S i, j, k;
+	T v;
+
+	typename std::map<S,T>::iterator it;
+
+	if(nilp.setup == true && y_index_map->GetGlobalSize() == nilp.matrix_size){
+		if(ProcID == 0){
+			std::cout << "INFO ]>: Nilpotent matrix diagPostion = " << nilp.diagPosition << std::endl;
+			std::cout << "INFO ]>: Nilpotent matrix nbOne = " << nilp.nbOne << std::endl;
+			std::cout << "INFO ]>: Nilpotent matrix size = " << nilp.matrix_size << std::endl;
+			std::cout << "INFO ]>: Nilpotent matrix setup = " << nilp.setup << std::endl;
+		}
+	}
+	else if(nilp.setup == false){
+		if(ProcID == 0){
+			std::cout << "ERROR ]>: Nilpotent Matrix is not setup." << std::endl;
+		}
+		return;
+	}
+	else if(y_index_map->GetGlobalSize() != nilp.matrix_size){
+		if(ProcID == 0){
+			std::cout << "ERROR ]>: Nilpotent Matrix dimension do not equal to given matrix size." << std::endl;
+		}
+		return;
+	}
+
+	//use the given nilpotency matrix, AM operation will make elements of matrix up move diaPosition-1 offset.
+	//And the positions of 0: pos = nbOne*integer - 1
+
+	if((nilp.diagPosition - 1) > nrows){
+		if(ProcID == 0){
+			std::cout << "INFO ]>: Nilpotent matrix diagPostion - 1 is larger than local rows number," << std::endl << "         sending should be divided into block"  << std::endl;
+		}
+	}
+	else{
+		if(ProcID == 0){
+			std::cout << "INFO ]>: The MPI sending and receiving row num = " << nilp.diagPosition - 1 << std::endl;
+		}
+	}
+
+	MPI_Request	*Rreqs, *Sreqs;
+	MPI_Status	*status, *Rstat, *Sstat;
+
+	int up, down;
+
+	int			tag1, tag2;
+	int			Rtag, Stag;
+	S           count, count1;
+
+	double           sBuf, rBuf;
+
+	sBuf = (double) ProcID*0.1;
+
+	count = 0;
+	count1 = 0;
+
+	up = ProcID - 1; 
+	down =ProcID + 1;
+	
+	tag1 = 0; tag2 = 1; Rtag = 0; Stag = 1;
+
+	//MPI non-blocking requests and status
+	
+	Rreqs = new MPI_Request [nProcs - 1];
+	Sreqs = new MPI_Request [nProcs - 1];
+	Rstat = new MPI_Status [nProcs - 1];
+	Sstat = new MPI_Status [nProcs - 1];
+	
+
+	if(ProcID != 0){
+		MPI_Isend(&sBuf, 1, MPI_DOUBLE, up, tag1, MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
+		printf("Proc %d sending\n", ProcID);
+	}
+
+	if(ProcID != nProcs - 1){
+		MPI_Irecv(&rBuf, 1, MPI_DOUBLE, down, tag1, MPI_COMM_WORLD, &Rreqs[ProcID]);
+		printf("Proc %d receiving\n", ProcID);
+	} else {
+		rBuf = 0.0;
+	}
+
+	if(ProcID != nProcs - 1){
+		MPI_Wait(&Rreqs[ProcID],&Rstat[ProcID]);
+	}
+	printf("ProcID = %d: sBuf = %f, rBuf = %f \n", ProcID, sBuf, rBuf);
+
 
 }

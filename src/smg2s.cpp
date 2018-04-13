@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 10;
+    int probSize = 20;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -78,6 +78,7 @@ int main(int argc, char** argv) {
     parMatrixSparse<double,int> *MA = new parMatrixSparse<double,int>(vec,prod);
     parMatrixSparse<double,int> *MB = new parMatrixSparse<double,int>(vec,prod);
     parMatrixSparse<double,int> *MC = new parMatrixSparse<double,int>(vec,prod);
+    parMatrixSparse<double,int> *AM = new parMatrixSparse<double,int>(vec,prod);
 
     if(world_rank == 0){printf("Matrix Initialized\n");}
 
@@ -113,7 +114,7 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    Am->LOC_MatView();
+    //Am->LOC_MatView();
 
     end = MPI_Wtime();
 
@@ -125,19 +126,39 @@ int main(int argc, char** argv) {
     
     nilp.NilpType1(2,probSize);
 
+    start = MPI_Wtime();
+
     Am->MA(nilp, MA);
+
+    end = MPI_Wtime();
+
+    t2 = end - start;
+
+    if(world_rank == 0) {printf("MA time = %1.6f\n", t2);}
 
     MPI_Barrier(MPI_COMM_WORLD);
 
+    start = MPI_Wtime();
+
+    Am->AM(nilp, MA);
+
+    end = MPI_Wtime();
+
+    t2 = end - start;
+
+    if(world_rank == 0) {printf("AM time = %1.6f\n", t2);}
+
+
 //    MA->LOC_MatView();
 
+/*
     MPI_Barrier(MPI_COMM_WORLD);
 
     MA->llocToGlocLoc();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    MA->MatView();
+    //MA->MatView();
 
     Am->Loc_ZeroEntries();
 
@@ -147,7 +168,7 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    MB->LOC_MatView();
+    //MB->LOC_MatView();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -155,8 +176,9 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    MC->LOC_MatView();
+    //MC->LOC_MatView();
 //    Am->MatView();
+*/
 
     MPI_Finalize();
 
