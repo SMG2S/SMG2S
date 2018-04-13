@@ -1540,12 +1540,13 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		}
 	}
 
-	MPI_Request	*Rreqs, *Sreqs;
-	MPI_Status	*status, *Rstat, *Sstat;
+	MPI_Request	*Rreqs, *Sreqs, rtypereq, stypereq;
+
+	MPI_Status	*status, *Rstat, *Sstat, typestat;
 
 	int up, down;
 
-	int			tag1[nilp.diagPosition - 1];
+	int			tag1[nilp.diagPosition - 1], tag2[nilp.diagPosition - 1], tagtype = nilp.diagPosition - 1 + nilp.diagPosition ;
 	int			Rtag, Stag;
 	S           count, count1;
 
@@ -1554,10 +1555,11 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 	up = ProcID - 1; 
 	down =ProcID + 1;
-	S size[nilp.diagPosition - 1];
+	S size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
 
 	for(S a = 0; a < nilp.diagPosition - 1; a++){
 		tag1[a] = a;
+		tag2[a] = nilp.diagPosition - 1 + a;
 	}
 
 	if(ProcID != 0){
@@ -1566,6 +1568,32 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		}
 	}
 
+	if(ProcID != nProcs - 1){
+		for(S a = 0; a < nilp.diagPosition - 1; a++){
+			rsize[a] = 0;
+		}
+	}
+
+
+
+	if(ProcID != 0){
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, MPI_COMM_WORLD, &stypereq);
+	}
+
+	if(ProcID != nProcs - 1){
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, MPI_COMM_WORLD, &rtypereq);
+	}
+	
+	if(ProcID != nProcs - 1){
+		MPI_Wait(&rtypereq,&typestat);
+	}
+
+/*
+	if(ProcID != nProcs - 1){
+		std::cout << "s-s-s--s-s-s-s-s-s-s----->" << rsize[0] << std::endl;
+	}
+
+*/
 	Rtag = 0; Stag = 1;
 
 	//MPI non-blocking requests and status
@@ -1687,29 +1715,72 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		//printf("ProcID = %d: sBuf = %f, rBuf = %f \n", ProcID, sBuf, rBuf);
 	} else{
 
-			T sBuf, rBuf;
-		/*
-			T *sBuf[nilp.diagPosition - 1], *rBuf[nilp.diagPosition - 1];
-			for(S b = 0; b < diagPosition -1; b++){
-				for(it = dynmat_loc[d].begin(); it != dynmat_loc[d].end(); ++it)
-					c = it->first;
-					sBuf[b][c] = c->second;
-					rBuf[b][c] = 0.0;
+//			T sBuf, rBuf;
+		
+			T *sBuf, *rBuf;
+			S *sIndx, *rIndx;
+			S cnt = 0, cnt2 = 0;
+
+			for(S b = 0; b < nilp.diagPosition -1; b++){
+				if(ProcID != 0){
+					sBuf  = new T [size[b]];
+					sIndx  = new S [size[b]];
+					for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
+						sBuf[cnt] = it->second;
+						sIndx[cnt] = it->first;
+						cnt++;
+					}
+					MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], MPI_COMM_WORLD, &Sreqs[b]);
+				}
+
+				if(ProcID != nProcs - 1){
+					rBuf = new T [ncols];
+					rIndx = new S [ncols];
+					for(S tt =0; tt < ncols; tt++){
+						rBuf[tt] = 0.0;
+						rIndx[tt] = 0;
+					}
+					MPI_Irecv(rBuf,ncols, MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);	
+				}
+
+				if(ProcID != nProcs - 1){
+					MPI_Wait(&Rreqs[b],&Rstat[b]);
+				}
+
+				if(ProcID != nProcs - 1){
+						for(S tt = 0; tt < rsize[b]; tt++){
+								std::cout << " ===> rBuf[" << b << "] = " << rBuf[tt] << std::endl;
+						}
+				
+				}
+
 			}
-		*/	
+	
+		
+		/*
+			if(ProcID != nProcs - 1){
+				for(S b = 0; b < diagPosition -1; b++){
+					for(it = dynmat_loc[d].begin(); it != dynmat_loc[d].end(); ++it)
+						rBuf[cnt] = 0;
+						rIndx[cnt] = 0;
+						cnt++;
+				}
+			}
+		
 			//T *sBuf, *rBuf;
 
 			if(ProcID != 0){
 					for(p = 0; p < nilp.diagPosition-1; p++){
 						sBuf = (T) size[0];
-						MPI_Isend(&sBuf, 1, MPI_SCALAR, up, tag1[p], MPI_COMM_WORLD, &Sreqs[p]);
+						MPI_Isend(sBuf, size[p], MPI_SCALAR, up, tag1[p], MPI_COMM_WORLD, &Sreqs[p]);
 						printf("Proc %d sending\n", ProcID);
 					}
 			}
+			
 
 			if(ProcID != nProcs - 1){
 				for(p = 0; p < nilp.diagPosition-1; p++){
-					MPI_Irecv(&rBuf, 1, MPI_SCALAR, down, tag1[p], MPI_COMM_WORLD, &Rreqs[p]);
+					MPI_Irecv(rBuf, size[p], MPI_SCALAR, down, tag1[p], MPI_COMM_WORLD, &Rreqs[p]);
 					printf("Proc %d receiving\n", ProcID);
 				}
 			} else {
@@ -1721,8 +1792,11 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 					MPI_Wait(&Rreqs[p],&Rstat[p]);
 				}
 			}
+		*/
+			if(ProcID != nProcs - 1){
+							std::cout << "ProcID = " << ProcID << ": rBuf = " << rBuf[3] <<std::endl;
 
-			std::cout << "ProcID = " << ProcID << ": rBuf = " << rBuf <<std::endl;
+			}
 
 	}
 	
