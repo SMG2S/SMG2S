@@ -2,7 +2,7 @@
 #include "../parMatrix/parMatrixSparse.cc"
 #include <math.h>
 #include <complex.h>
-
+#include "../utils/MPI_DataType.h"
 #ifdef __APPLE__
 #include <sys/malloc.h>
 #else
@@ -61,6 +61,7 @@ int main(int argc, char** argv) {
     parVector<std::complex<double>,int> *prod = new parVector<std::complex<double>,int>(MPI_COMM_WORLD, lower_b, upper_b);
     parVector<std::complex<double>,int> *prod2 = new parVector<std::complex<double>,int>(MPI_COMM_WORLD, lower_b, upper_b);
 
+    MPI_Scalar_Setup<double>();
 
     vec->SetTovalue(a); //1.0,1.0...1.0
 

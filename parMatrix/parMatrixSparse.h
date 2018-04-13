@@ -7,11 +7,12 @@
 #include <sstream> 
 #include <string> 
 #include <vector>
-
+#include "../utils/MPI_DataType.h"
 #include "../parVector/parVector.cc"
 //#include "../utils/utils.h"
 #include "MatrixCSR.h"
 
+#include <complex>
 
 template<typename T, typename S>
 class parMatrixSparse

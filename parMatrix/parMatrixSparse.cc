@@ -1525,10 +1525,6 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	int			Rtag, Stag;
 	S           count, count1;
 
-	double           sBuf, rBuf;
-
-	sBuf = (double) ProcID*0.1;
-
 	count = 0;
 	count1 = 0;
 
@@ -1543,24 +1539,114 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	Sreqs = new MPI_Request [nProcs - 1];
 	Rstat = new MPI_Status [nProcs - 1];
 	Sstat = new MPI_Status [nProcs - 1];
+
+
+	if(std::is_same<T,std::complex<double> >::value){
+		if(ProcID == 0){
+			std::cout << "INFO ]>: Using Complex Double values" << std::endl; 
+		}
+	}
+
+	if(std::is_same<T,std::complex<float> >::value){
+		if(ProcID == 0){
+			std::cout << "INFO ]>: Using Complex Single values" << std::endl; 
+		}
+	}
+
+	T sd(ProcID*0.1,ProcID*10);
+	T rcv;
+	std::cout << sd << std::endl;
+
+	MPI_Datatype MPI_SCALAR = MPI_Scalar<T>();
+
+	MPI_Barrier(MPI_COMM_WORLD);
+
+	if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<float> >::value){
+		if(std::is_same<T,std::complex<double> >::value){
+			double  sBuf[2], rBuf[2];
+			sBuf[0] = sd.real();
+			sBuf[1] = sd.imag();
+
+			if(ProcID != 0){
+				MPI_Isend(sBuf, 1, MPI_SCALAR, up, tag1, MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
+				printf("Proc %d sending\n", ProcID);
+			}
+
+			if(ProcID != nProcs - 1){
+				MPI_Irecv(rBuf, 1, MPI_SCALAR, down, tag1, MPI_COMM_WORLD, &Rreqs[ProcID]);
+				printf("Proc %d receiving\n", ProcID);
+			} else {
+				rBuf[0] = 0.0, rBuf[1] = 0.0;
+			}
+
+			if(ProcID != nProcs - 1){
+				MPI_Wait(&Rreqs[ProcID],&Rstat[ProcID]);
+			}
+			rcv.real(rBuf[0]);
+			rcv.imag(rBuf[1]);
+
+//			printf("ProcID = %d: sBuf = %f + %fi, rBuf = %f + %fi\n", ProcID, sBuf[0], sBuf[1],rBuf[0], rBuf[1]);
+			std::cout << "ProcID = " << ProcID << ": rcv = " << rcv <<std::endl;
+
+		} else if(std::is_same<T,std::complex<double> >::value){
+			float  sBuf[2], rBuf[2];
+
+			sBuf[0] = sd.real();
+			sBuf[1] = sd.imag();
+
+			if(ProcID != 0){
+				MPI_Isend(sBuf, 1, MPI_SCALAR, up, tag1, MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
+				printf("Proc %d sending\n", ProcID);
+			}
+
+			if(ProcID != nProcs - 1){
+				MPI_Irecv(rBuf, 1, MPI_SCALAR, down, tag1, MPI_COMM_WORLD, &Rreqs[ProcID]);
+				printf("Proc %d receiving\n", ProcID);
+			} else {
+				rBuf[0] = 0.0, rBuf[1] = 0.0;
+			}
+
+			if(ProcID != nProcs - 1){
+				MPI_Wait(&Rreqs[ProcID],&Rstat[ProcID]);
+			}
+			rcv.real(rBuf[0]);
+			rcv.imag(rBuf[1]);
+
+//			printf("ProcID = %d: sBuf = %f + %fi, rBuf = %f + %fi\n", ProcID, sBuf[0], sBuf[1],rBuf[0], rBuf[1]);
+			std::cout << "ProcID = " << ProcID << ": rcv = " << rcv <<std::endl;
+
+		}
+
+		//printf("ProcID = %d: sBuf = %f, rBuf = %f \n", ProcID, sBuf, rBuf);
+	} else{
+			T sBuf = 1, rBuf;
+
+			if(ProcID != 0){
+				MPI_Isend(&sBuf, 1, MPI_SCALAR, up, tag1, MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
+				printf("Proc %d sending\n", ProcID);
+			}
+
+			if(ProcID != nProcs - 1){
+				MPI_Irecv(&rBuf, 1, MPI_SCALAR, down, tag1, MPI_COMM_WORLD, &Rreqs[ProcID]);
+				printf("Proc %d receiving\n", ProcID);
+			} else {
+				rBuf = 0.0;
+			}
+
+			if(ProcID != nProcs - 1){
+				MPI_Wait(&Rreqs[ProcID],&Rstat[ProcID]);
+			}
+
+			std::cout << "ProcID = " << ProcID << ": rBuf = " << rBuf <<std::endl;
+
+	}
+
+	//sBuf = (double) ProcID*0.1 + (double) ProcID*10i ;
+	//sBuf[0] = (double)ProcID*0.1;
+	//sBuf[1] = (double) ProcID*10;
+
 	
 
-	if(ProcID != 0){
-		MPI_Isend(&sBuf, 1, MPI_DOUBLE, up, tag1, MPI_COMM_WORLD, &Sreqs[ProcID - 1]);
-		printf("Proc %d sending\n", ProcID);
-	}
-
-	if(ProcID != nProcs - 1){
-		MPI_Irecv(&rBuf, 1, MPI_DOUBLE, down, tag1, MPI_COMM_WORLD, &Rreqs[ProcID]);
-		printf("Proc %d receiving\n", ProcID);
-	} else {
-		rBuf = 0.0;
-	}
-
-	if(ProcID != nProcs - 1){
-		MPI_Wait(&Rreqs[ProcID],&Rstat[ProcID]);
-	}
-	printf("ProcID = %d: sBuf = %f, rBuf = %f \n", ProcID, sBuf, rBuf);
 
 
 }

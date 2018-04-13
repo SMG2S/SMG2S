@@ -53,7 +53,6 @@ class SparseMatrix{
 	template<typename X>
 	friend ostream & operator << (ostream & os, const SparseMatrix<X> & matrix);
 
-
 	protected:
 
 	int m, n;
