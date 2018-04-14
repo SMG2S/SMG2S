@@ -80,6 +80,8 @@ void smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
 
     Am->MA(nilp, MA);
 
+    //MA->LOC_MatView();
+
     end = MPI_Wtime();
 
     t2 = end - start;
@@ -91,6 +93,8 @@ void smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
     start = MPI_Wtime();
 
     Am->AM(nilp, AM);
+
+    AM->LOC_MatView();
 
     end = MPI_Wtime();
 

@@ -2,7 +2,7 @@
 #define __SPECGEN_H__
 
 //#include "../parVector/parVector.cc"
-#include "../parMatrix/parMatrixSparse.cc"
+#include "../../parMatrix/parMatrixSparse.cc"
 
 template<typename T, typename S>
 void specGen(parVector<T,S> *vec){

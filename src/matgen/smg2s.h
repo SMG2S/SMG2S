@@ -2,13 +2,10 @@
 #define __SMG2S_H__
 
 //#include "../parVector/parVector.cc"
-#include "../parMatrix/parMatrixSparse.cc"
-#include "specGen.h"
-
+//#include "../../parMatrix/parMatrixSparse.cc"
 #include "specGen.h"
 #include <math.h>
 #include <complex.h>
-#include "../utils/logo.h"
 
 #ifdef __APPLE__
 #include <sys/malloc.h>

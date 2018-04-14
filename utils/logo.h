@@ -49,6 +49,15 @@ void logo(float version)
 
 }
 
+static void show_usage(std::string name)
+{
+    std::cerr << "Usage: mpirun -np ${PROCS} " << name << " -SIZE ${MATRIX SIZE} -L ${LOWER BANDWIDTH} -C ${NB ONES FOR NILPOTENT MATRIX}\n"
+              << "Options:\n"
+              << "\t-h,--help\t\tShow this HELP message\n\n"
+              << std::endl;
+}
+
+
 #endif
 
 
