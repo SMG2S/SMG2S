@@ -6,7 +6,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include "../debug/debug.h"
+#include "../config/config.h"
 
 
 template<typename S>

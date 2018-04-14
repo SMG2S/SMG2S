@@ -76,8 +76,6 @@ int main(int argc, char** argv) {
 
     parMatrixSparse<double,int> *Am = new parMatrixSparse<double,int>(vec,prod);
     parMatrixSparse<double,int> *MA = new parMatrixSparse<double,int>(vec,prod);
-    parMatrixSparse<double,int> *MB = new parMatrixSparse<double,int>(vec,prod);
-    parMatrixSparse<double,int> *MC = new parMatrixSparse<double,int>(vec,prod);
     parMatrixSparse<double,int> *AM = new parMatrixSparse<double,int>(vec,prod);
 
     if(world_rank == 0){printf("Matrix Initialized\n");}
