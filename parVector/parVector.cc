@@ -220,7 +220,7 @@ void parVector<T,S>::ReadExtVec()
 	S val1, dummy;
 	T val2;
 
-	int quit;
+	//int quit;
 
 	// Read past first few lines of input file that are not numbers
 

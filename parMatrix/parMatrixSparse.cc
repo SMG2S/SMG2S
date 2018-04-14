@@ -576,7 +576,7 @@ void parMatrixSparse<T,S>::Loc_SetDiagonal(parVector<T,S> *diag)
 template<typename T,typename S>
 void parMatrixSparse<T,S>::ConvertToCSR()
 {
-	S 	count, i, j, k;
+	S 	count, i, j;
 	T	v;
 	typename std::map<S,T>::iterator it;
 	
@@ -590,19 +590,19 @@ void parMatrixSparse<T,S>::ConvertToCSR()
 
 		//convert local local to csr
 		count = 0;
-		CSR_lloc->rows[0] = 0;
+		//CSR_lloc->rows.push_back(0);
 
 		for(i = 0; i < nrows; i++){
-			CSR_lloc->rows[i] = count;
+			CSR_lloc->rows.push_back(count);
 			for(it = dynmat_lloc[i].begin(); it != dynmat_lloc[i].end(); it++){
 				j = it->first;
 				v = it->second;
-				CSR_lloc->vals[count] = v;
-				CSR_lloc->cols[count] = j;
+				CSR_lloc->vals.push_back(v);
+				CSR_lloc->cols.push_back(j);
 				count++;
 			}
 		}
-		CSR_lloc->rows[nrows] = nnz_lloc;
+		CSR_lloc->rows.push_back(nnz_lloc);
 	}
 
 	if(dynmat_gloc != NULL){
@@ -613,18 +613,18 @@ void parMatrixSparse<T,S>::ConvertToCSR()
 
 		//convert global-local to CSR
 		count = 0;
-		CSR_gloc->rows[0] = 0;
+		//CSR_gloc->rows.push_back(0);
 		for(i = 0; i < nrows; i++){
-			CSR_gloc->rows[i] = count;
+			CSR_gloc->rows.push_back(count);
 			for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); it++){
 				j = it->first;
 				v = it->second;
-				CSR_gloc->vals[count] = v;
-				CSR_gloc->cols[count] = j;
+				CSR_gloc->vals.push_back(v);
+				CSR_gloc->cols.push_back(j);
 				count++;
 			}
 		}
-		CSR_gloc->rows[nrows] = nnz_gloc;
+		CSR_gloc->rows.push_back(nnz_gloc);
 	}
 }
 
@@ -704,7 +704,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	}
 
 	MPI_Request	*Rreqs, *Sreqs;
-	MPI_Status	status, *Rstat, *Sstat;
+	MPI_Status	 *Rstat, *Sstat;
 	int		tag1, tag2;
 	tag1 = 0;
 	tag2 = 1;
@@ -912,9 +912,6 @@ void parMatrixSparse<T,S>::TestCommunication(parVector<T,S> *XVec, parVector<T,S
 	}
 	
 	sBuf = XVec->GetArray();
-
-
-	int number_amount;
 
 	if(ProcID == sender){
 		for(i = 0; i < k; i++){printf("=> sBuf[%d] = %f \n",i, sBuf[i] );}

@@ -24,9 +24,7 @@ class parMatrixSparse
 
 		//size of local matrix
 		S	ncols, nrows;
-		
-		MatrixCSR<T,S> *CSR_lloc, *CSR_gloc;
-		
+				
 		S	nnz_lloc, nnz_gloc, nnz_loc;
 		
 		parVectorMap<S>	*x_index_map;
@@ -46,6 +44,9 @@ class parMatrixSparse
 		MPI_Datatype *DTypeRecv , *DTypeSend ;
 			
 	public:
+
+		MatrixCSR<T,S> *CSR_lloc, *CSR_gloc;
+
 		//constructor
 		parMatrixSparse();
 		parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec);
