@@ -1465,6 +1465,7 @@ void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	T v;
 
 	typename std::map<S,T>::iterator it;
+/*
 
 	if(nilp.setup == true && y_index_map->GetGlobalSize() == nilp.matrix_size){
 		if(ProcID == 0){
@@ -1486,7 +1487,7 @@ void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		}
 		return;
 	}
-
+*/
 	//use the given nilpotency matrix, MA operation will make elements of matrix right move diaPosition-1 offset.
 	//And the positions of 0: pos = nbOne*integer - 1
 
@@ -1541,7 +1542,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	bool sendflg = true, recvflag = true;
 
 	typename std::map<S,T>::iterator it;
-
+/*
 	if(nilp.setup == true && y_index_map->GetGlobalSize() == nilp.matrix_size){
 		if(ProcID == 0){
 			std::cout << "INFO ]>: Nilpotent matrix diagPostion = " << nilp.diagPosition << std::endl;
@@ -1562,10 +1563,11 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		}
 		return;
 	}
-
+*/
 	//use the given nilpotency matrix, AM operation will make elements of matrix up move diaPosition-1 offset.
 	//And the positions of 0: pos = nbOne*integer - 1
 
+/*
 	if((nilp.diagPosition - 1) > nrows){
 		if(ProcID == 0){
 			std::cout << "INFO ]>: Nilpotent matrix diagPostion - 1 is larger than local rows number," << std::endl << "         sending should be divided into block"  << std::endl;
@@ -1576,7 +1578,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 			std::cout << "INFO ]>: The MPI sending and receiving row num = " << nilp.diagPosition - 1 << std::endl;
 		}
 	}
-
+*/
 	MPI_Request	*Rreqs, *Sreqs, rtypereq, stypereq, *idxRreqs, *idxSreqs;
 
 	MPI_Status	*status, *Rstat, *Sstat, typestat, *idxRstat, *idxSstat;
@@ -1648,7 +1650,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	if(dynmat_loc == NULL){
 		return;
 	}
-
+/*
 	if(std::is_same<T,std::complex<double> >::value){
 		if(ProcID == 0){
 			std::cout << "INFO ]>: Using Complex Double values" << std::endl; 
@@ -1660,7 +1662,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 			std::cout << "INFO ]>: Using Complex Single values" << std::endl; 
 		}
 	}
-
+*/
 	for(p = nilp.diagPosition - 1; p < nrows; p++){
 		if(prod->dynmat_loc == NULL){
 			prod->dynmat_loc = new std::map<S,T> [nrows];

@@ -2,7 +2,7 @@
 #include "smg2s.h"
 
 template<typename T, typename S>
-void smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
+parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
 
 	int world_size;
 	int world_rank;
@@ -48,6 +48,8 @@ void smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
     parMatrixSparse<T,S> *MA = new parMatrixSparse<T,S>(vec,prod);
     parMatrixSparse<T,S> *AM = new parMatrixSparse<T,S>(vec,prod);
 
+    parMatrixSparse<T,S> *matAop;
+
     if(world_rank == 0){printf("Matrix Initialized\n");}
 
     MPI_Barrier(MPI_COMM_WORLD);
@@ -56,10 +58,14 @@ void smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
 
     start = MPI_Wtime();
 
+    T rnd;
+
     for(S i = 0; i < probSize; i++){
         for(S j = i - lbandwidth; j < i; j++){
             if(j >= 0){
-                Am->Loc_SetValue(i,j,1);   
+            	rnd = 0.5*random<T,S>(0,10);
+            	//if(world_rank == 0) printf("rnd = %f\n", rnd);
+                Am->Loc_SetValue(i,j,rnd);   
             }
         }
     }
@@ -76,31 +82,38 @@ void smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    start = MPI_Wtime();
+    S my_factorielle_bornes = 1;
 
-    Am->MA(nilp, MA);
+    my_factorielle_bornes = factorial(1,(2*nilp.nbOne-2));
+
+    printf("my_factorielle_bornes = %d\n", my_factorielle_bornes);
+    
+    matAop = Am;
+
+//    Am->LOC_MatView();
+
+    Am->Loc_MatScale((T)my_factorielle_bornes);
+
+    for (S k=1; k<=(2*nilp.nbOne-2); k++){
+    	matAop->MA(nilp, MA);
+    	matAop->AM(nilp, AM);
+    	matAop->Loc_MatAYPX(AM, 0);
+    	matAop->Loc_MatAXPY(MA, -1);
+
+    	my_factorielle_bornes =  factorial(k+1,2*nilp.nbOne-2);
+    	Am->Loc_MatAXPY(matAop, (T)my_factorielle_bornes);
+
+    	MA->Loc_ZeroEntries();
+    	AM->Loc_ZeroEntries();
+    }
+
+	my_factorielle_bornes = factorial(1,(2*nilp.nbOne-2));
+
+	T inv = 1/(T)my_factorielle_bornes;
+
+	Am->Loc_MatScale(inv);
 
     //MA->LOC_MatView();
 
-    end = MPI_Wtime();
-
-    t2 = end - start;
-
-    if(world_rank == 0) {printf("MA time = %1.6f\n", t2);}
-
-    MPI_Barrier(MPI_COMM_WORLD);
-
-    start = MPI_Wtime();
-
-    Am->AM(nilp, AM);
-
-    AM->LOC_MatView();
-
-    end = MPI_Wtime();
-
-    t2 = end - start;
-
-    if(world_rank == 0) {printf("AM time = %1.6f\n", t2);}
-
-
+    return Am;
 }

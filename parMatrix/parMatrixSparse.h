@@ -126,7 +126,6 @@ class parMatrixSparse
 		//Loc set mat diagonal by vector given 
 		void	Loc_SetDiagonal(parVector<T,S> *diag);
 
-
 		//Mat Scala
 		void	MatScale(T scale);
 		

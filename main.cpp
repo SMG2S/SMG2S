@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     // Get the number of processes
     int size;
 
-    double start, end;
+    double start, end, time;
 
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
@@ -90,7 +90,9 @@ int main(int argc, char** argv) {
     
     nilp.NilpType1(length,probSize);
 
-    smg2s<std::complex<double>,__int64_t>(probSize, nilp, lbandwidth);
+    parMatrixSparse<std::complex<double>,__int64_t> *Mt;
+
+    Mt = smg2s<std::complex<double>,__int64_t>(probSize, nilp, lbandwidth);
 
 
 #elif defined (__USE_COMPLEX__) && defined(__USE_DOUBLE__)
@@ -106,8 +108,22 @@ int main(int argc, char** argv) {
     
     nilp.NilpType1(length,probSize);
 
+    parMatrixSparse<std::complex<double>,int> *Mt;
+
 //    smg2s<std::complex<double>,int> (probSize, nilp, lbandwidth);
-    smg2s<std::complex<double>,int> (probSize, nilp,lbandwidth);
+    start = MPI_Wtime();
+    
+    Mt =  smg2s<std::complex<double>,int> (probSize, nilp,lbandwidth);
+
+    end = MPI_Wtime();
+
+    time = end - start ;
+
+    if(rank == 0){
+        printf ( "------------------------------------\n" );
+                printf ( "---- SMG2S Time is %f seconds --------\n", time );
+                printf ( "------------------------------------\n" );
+    }
 
 #elif defined (__USE_COMPLEX__) && defined(__USE_64BIT__)
 //complex  single long int
@@ -122,7 +138,9 @@ int main(int argc, char** argv) {
     
     nilp.NilpType1(length,probSize);
 
-    smg2s<std::complex<float>,__int64_t>(probSize, nilp, lbandwidth);
+    parMatrixSparse<std::complex<float>,__int64_t> *Mt;
+
+    Mt = smg2s<std::complex<float>,__int64_t>(probSize, nilp, lbandwidth);
 
 #elif defined (__USE_COMPLEX__)
 //complex single int
@@ -137,7 +155,9 @@ int main(int argc, char** argv) {
     
     nilp.NilpType1(length,probSize);
 
-    smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth);
+    parMatrixSparse<std::complex<float>,int> *Mt;
+
+    Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth);
 
 #elif defined (__USE_DOUBLE__) && defined(__USE_64BIT__)
 //real double long int
@@ -152,7 +172,9 @@ int main(int argc, char** argv) {
     
     nilp.NilpType1(length,probSize);
 
-    smg2s<double,__int64_t>(probSize, nilp, lbandwidth);
+    parMatrixSparse<double,__int64_t> *Mt;
+
+    Mt = smg2s<double,__int64_t>(probSize, nilp, lbandwidth);
 
 #elif defined (__USE_DOUBLE__)
 //real double int
@@ -167,7 +189,22 @@ int main(int argc, char** argv) {
     
     nilp.NilpType1(length,probSize);
 
-    smg2s<double,int>(probSize, nilp, lbandwidth);
+    parMatrixSparse<double,int> *Mt;
+
+    start = MPI_Wtime();
+    Mt = smg2s<double,int>(probSize, nilp, lbandwidth);
+    end = MPI_Wtime();
+
+
+    time = end - start ;
+
+    if(rank == 0){
+        printf ( "------------------------------------\n" );
+                printf ( "---- SMG2S Time is %f seconds --------\n", time );
+                printf ( "------------------------------------\n" );
+    }
+
+   // Mt->LOC_MatView();
 
 #elif defined (__USE_64BIT__)
 //real single long int
@@ -182,7 +219,9 @@ int main(int argc, char** argv) {
     
     nilp.NilpType1(length,probSize);
 
-    smg2s<float,__int64_t>(probSize, nilp, lbandwidth);
+    parMatrixSparse<float,__int64_t> *Mt;
+
+    Mt = smg2s<float,__int64_t>(probSize, nilp, lbandwidth);
 else
 //real single int
     int probSize, lbandwidth, length;
@@ -191,11 +230,15 @@ else
     lbandwidth = atoi(l);
     length = atoi(c);
 
+
     Nilpotency<int> nilp;
     
     nilp.NilpType1(length,probSize);
 
-    smg2s<float,int>(probSize, nilp, lbandwidth);
+    parMatrixSparse<float,int> *Mt;
+
+
+    Mt = smg2s<float,int>(probSize, nilp, lbandwidth);
 
 #endif
 

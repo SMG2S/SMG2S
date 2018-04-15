@@ -18,6 +18,13 @@ T random_unint(T min, T max)
 
 }
 
+template<class T, class S>
+T random(S min, S max)
+{
+	return (min + (rand()%(max - min + 1)));
+
+}
+
 template<class S>
 S factorial(S start, S end)
 {

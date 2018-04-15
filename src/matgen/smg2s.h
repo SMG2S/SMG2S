@@ -14,6 +14,6 @@
 #endif
 
 template<typename T, typename S>
-void smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth);
+parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth);
 
 #endif
