@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 5;
+    int probSize = 100;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -69,28 +69,34 @@ int main(int argc, char** argv) {
 
     //setup the lower part of initial matrix
 
-/*
+
     for(int i = 0; i < probSize; i++){
-        for(int j = i - lbandwidth; j < i; j++){
+        for(int j = i - 3; j < i; j++){
             if(j >= 0){
-                Am->SetValue(i,j,1);   
+                Am->Loc_SetValue(i,j,0.5);   
             }
         }
     }
-*/
+
 
 
     for(int i = 0; i < probSize; i++){
-        Am->SetValue(i,i,1.0*i);
+        Am->Loc_SetValue(i,i,1.0*i);
     }  
 
 
+    //Am->SetValue(0,2,1.0*2);
+    //Am->SetValue(3,4,1.0*2);
 
-    Am->ConvertToCSR();
+
+    Am->Loc_ConvertToCSR();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
+    Am->LOC_MatView();
+
     Mat M;
+    MatCreate(PETSC_COMM_WORLD,&M);
 
     M = ConvertToPETSCMat(Am);
 

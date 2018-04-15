@@ -45,7 +45,7 @@ class parMatrixSparse
 			
 	public:
 
-		MatrixCSR<T,S> *CSR_lloc, *CSR_gloc;
+		MatrixCSR<T,S> *CSR_lloc, *CSR_gloc, *CSR_loc;
 
 		//constructor
 		parMatrixSparse();
@@ -156,6 +156,9 @@ class parMatrixSparse
 
 		// convert from dyn to csr
 		void	ConvertToCSR();
+
+		// convert from dyn to csr
+		void	Loc_ConvertToCSR();
 
 		// Zeros all entries with keeping the previous matrix pattern
 		void	ZeroEntries();

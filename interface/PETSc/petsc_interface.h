@@ -27,57 +27,36 @@
 		M->GetLocalSize(g, b);
 
 		m = (PetscInt)g;
-		n = (PetscInt)b;
+		n = (PetscInt)m;
 
-		if(M->CSR_lloc != NULL){
-			c = M->CSR_lloc->rows.size();
-			d = M->CSR_lloc->cols.size();
+//		printf("Proc: %d, m = %d, n = %d\n", rank, m, n);
+
+		if(M->CSR_loc != NULL){
+			c = M->CSR_loc->rows.size();
+			d = M->CSR_loc->cols.size();
+
+//			printf("Proc: %d, c = %d, d = %d\n",rank, c, d);
+
+
 			PetscMalloc1((PetscInt)c, &i);
 			PetscMalloc1((PetscInt)d, &j);
 			PetscMalloc1((PetscInt)d, &a);
 
-			//printf("c = %d, d = %d\n",c, d);
 			for(PetscInt q =0; q < c; q++){
-				i[q] = M->CSR_lloc->rows[q];
-				//printf("Proc: %d, i[%d] = %d\n", rank, q, i[q]);
+				i[q] = M->CSR_loc->rows[q];
+//				printf("Proc: %d, i[%d] = %d\n", rank, q, i[q]);
 			}
 
 			for(PetscInt q = 0; q < d; q++){
-				j[q] = M->CSR_lloc->cols[q];
-				a[q] = M->CSR_lloc->vals[q].real() + PETSC_i * M->CSR_lloc->vals[q].imag();
-				//printf("Proc: %d, j[%d] = %d, a[%d] = %f+%fi\n", rank, q, j[q],q, M->CSR_lloc->vals[q].real(), M->CSR_lloc->vals[q].imag());
-			}
-		}
-
-		if(M->CSR_gloc != NULL){
-			e = M->CSR_gloc->nrows;
-			f = M->CSR_gloc->ncols;
-			PetscMalloc1((PetscInt)e, &oi);
-			PetscMalloc1((PetscInt)f, &oj);
-			PetscMalloc1((PetscInt)f, &oa);
-
-			for(PetscInt q = 0; q < e; q++){
-				oi[q] = M->CSR_gloc->rows[q];
+				j[q] = M->CSR_loc->cols[q];
+				a[q] = M->CSR_loc->vals[q].real() + PETSC_i * M->CSR_loc->vals[q].imag();
+//				printf("Proc: %d, j[%d] = %d, a[%d] = %f+%fi\n", rank, q, j[q],q, M->CSR_loc->vals[q].real(), M->CSR_loc->vals[q].imag());
 			}
 
-			for(PetscInt q = 0; q < f; q++){
-				oj[q] = M->CSR_gloc->cols[q];
-				oa[q] = M->CSR_gloc->vals[q].real() + PETSC_i * M->CSR_gloc->vals[q].imag();
-			}
-		}
-
-		//MatCreateMPIAIJWithSplitArrays(PETSC_COMM_WORLD, m, n, PETSC_DETERMINE, PETSC_DETERMINE,  M->CSR_lloc->rows.data(), M->CSR_lloc->cols.data(), M->CSR_lloc->vals.data(), M->CSR_gloc->rows.data(), M->CSR_gloc->cols.data(), M->CSR_gloc->vals.data(), &A);
-
-		if(M->CSR_gloc == NULL){
-			MatCreateMPIAIJWithArrays(PETSC_COMM_WORLD, m, n, PETSC_DETERMINE, PETSC_DETERMINE,  i, j, a, &A);
+			MatCreateMPIAIJWithArrays(PETSC_COMM_WORLD, m, m, PETSC_DETERMINE, PETSC_DETERMINE,  i, j, a, &A);
 
 		}
-		else if(M->CSR_lloc == NULL){
-			MatCreateMPIAIJWithArrays(PETSC_COMM_WORLD, m, n, PETSC_DETERMINE, PETSC_DETERMINE,  oi, oj, oa, &A);
-		}
-		else if (M->CSR_gloc != NULL && M->CSR_lloc != NULL){
-			MatCreateMPIAIJWithSplitArrays(PETSC_COMM_WORLD, m, n, PETSC_DETERMINE, PETSC_DETERMINE,  i, j, a, oi, oj, oa, &A);
-		}
+
 		return A;
 
 	}
@@ -91,7 +70,7 @@
 
 	Mat ConvertToPETSCMat(parMatrixSparse<double, int > *M){
 
-		int rank, size;
+	int rank, size;
 
 		MPI_Comm_size(MPI_COMM_WORLD, &size);
 		MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -106,54 +85,36 @@
 		M->GetLocalSize(g, b);
 
 		m = (PetscInt)g;
-		n = (PetscInt)b;
+		n = (PetscInt)m;
 
-		if(M->CSR_lloc != NULL){
-			c = M->CSR_lloc->rows.size();
-			d = M->CSR_lloc->cols.size();
+		//printf("Proc: %d, m = %d, n = %d\n", rank, m, n);
+
+		if(M->CSR_loc != NULL){
+			c = M->CSR_loc->rows.size();
+			d = M->CSR_loc->cols.size();
+
+//			printf("Proc: %d, c = %d, d = %d\n",rank, c, d);
+
+
 			PetscMalloc1((PetscInt)c, &i);
 			PetscMalloc1((PetscInt)d, &j);
 			PetscMalloc1((PetscInt)d, &a);
 
 			for(PetscInt q =0; q < c; q++){
-				i[q] = M->CSR_lloc->rows[q];
+				i[q] = M->CSR_loc->rows[q];
+//				printf("Proc: %d, i[%d] = %d\n", rank, q, i[q]);
 			}
 
 			for(PetscInt q = 0; q < d; q++){
-				j[q] = M->CSR_lloc->cols[q];
-				a[q] = M->CSR_lloc->vals[q].real();
-			}
-		}
-
-		if(M->CSR_gloc != NULL){
-			e = M->CSR_gloc->nrows;
-			f = M->CSR_gloc->ncols;
-			PetscMalloc1((PetscInt)e, &oi);
-			PetscMalloc1((PetscInt)f, &oj);
-			PetscMalloc1((PetscInt)f, &oa);
-
-			for(PetscInt q = 0; q < e; q++){
-				oi[q] = M->CSR_gloc->rows[q];
+				j[q] = M->CSR_loc->cols[q];
+				a[q] = M->CSR_loc->vals[q];
+//				printf("Proc: %d, j[%d] = %d, a[%d] = %f\n", rank, q, j[q],q, M->CSR_loc->vals[q]);
 			}
 
-			for(PetscInt q = 0; q < f; q++){
-				oj[q] = M->CSR_gloc->cols[q];
-				oa[q] = M->CSR_gloc->vals[q];
-			}
-		}
-
-		//MatCreateMPIAIJWithSplitArrays(PETSC_COMM_WORLD, m, n, PETSC_DETERMINE, PETSC_DETERMINE,  M->CSR_lloc->rows.data(), M->CSR_lloc->cols.data(), M->CSR_lloc->vals.data(), M->CSR_gloc->rows.data(), M->CSR_gloc->cols.data(), M->CSR_gloc->vals.data(), &A);
-
-		if(M->CSR_gloc == NULL){
-			MatCreateMPIAIJWithArrays(PETSC_COMM_WORLD, m, n, PETSC_DETERMINE, PETSC_DETERMINE,  i, j, a, &A);
+			MatCreateMPIAIJWithArrays(PETSC_COMM_WORLD, m, m, PETSC_DETERMINE, PETSC_DETERMINE,  i, j, a, &A);
 
 		}
-		else if(M->CSR_lloc == NULL){
-			MatCreateMPIAIJWithArrays(PETSC_COMM_WORLD, m, n, PETSC_DETERMINE, PETSC_DETERMINE,  oi, oj, oa, &A);
-		}
-		else if (M->CSR_gloc != NULL && M->CSR_lloc != NULL){
-			MatCreateMPIAIJWithSplitArrays(PETSC_COMM_WORLD, m, n, PETSC_DETERMINE, PETSC_DETERMINE,  i, j, a, oi, oj, oa, &A);
-		}
+
 		return A;
 
 	}

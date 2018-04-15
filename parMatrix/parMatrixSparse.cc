@@ -9,7 +9,8 @@ parMatrixSparse<T,S>::parMatrixSparse()
 
 	CSR_lloc = NULL; 
 	CSR_gloc = NULL;
-	
+	CSR_loc = NULL;
+
 	nnz_lloc = 0;
 	nnz_gloc = 0;
 	nnz_loc = 0;
@@ -46,7 +47,8 @@ parMatrixSparse<T,S>::parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec
 
 	CSR_lloc = NULL;
 	CSR_gloc = NULL;
-
+    CSR_loc = NULL;
+	
 	nnz_lloc = 0;
 	nnz_gloc = 0;
 	nnz_loc  = 0;
@@ -127,6 +129,9 @@ parMatrixSparse<T,S>::~parMatrixSparse()
 	}
 	if(CSR_gloc != NULL){
 		delete [] CSR_gloc;
+	}
+	if(CSR_gloc != NULL){
+		delete [] CSR_loc;
 	}
 	if(VNumRecv != NULL){
 		delete [] VNumRecv;
@@ -627,6 +632,40 @@ void parMatrixSparse<T,S>::ConvertToCSR()
 		CSR_gloc->rows.push_back(nnz_gloc);
 	}
 }
+
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::Loc_ConvertToCSR()
+{
+	S 	count, i, j;
+	T	v;
+	typename std::map<S,T>::iterator it;
+	
+	if(dynmat_loc != NULL){
+		//allocate csr matrix
+
+
+		CSR_loc = new MatrixCSR<T,S>(nnz_loc, nrows);
+
+//		CSR_lloc = new MatrixCSR<T,S>(nrows);
+
+		count = 0;
+		//CSR_lloc->rows.push_back(0);
+
+		for(i = 0; i < nrows; i++){
+			CSR_loc->rows.push_back(count);
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+				j = it->first;
+				v = it->second;
+				CSR_loc->vals.push_back(v);
+				CSR_loc->cols.push_back(j);
+				count++;
+			}
+		}
+		CSR_loc->rows.push_back(nnz_loc);
+	}
+}
+
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::ReadExtMat()
