@@ -1,5 +1,5 @@
 #include "petscmat.h"
-#include "../../parMatrix/parMatrixSparse.cc"
+#include "../../src/matgen/smg2s.cc"
 #include <complex>
 
 
@@ -17,12 +17,14 @@
 		MPI_Comm_size(MPI_COMM_WORLD, &size);
 		MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-		int g, b, c, d, e, f;
+		int g, b, c, d;
 		PetscInt m, n;
-		PetscInt *i, *j, *oi, *oj;
-		PetscScalar *a, *oa;
+		PetscInt *i, *j;
+		PetscScalar *a;
 
 		Mat A;
+
+		MatCreate(PETSC_COMM_WORLD,&A);
 
 		M->GetLocalSize(g, b);
 
@@ -75,10 +77,10 @@
 		MPI_Comm_size(MPI_COMM_WORLD, &size);
 		MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-		int g, b, c, d, e, f;
+		int g, b, c, d;
 		PetscInt m, n;
-		PetscInt *i, *j, *oi, *oj;
-		PetscScalar *a, *oa;
+		PetscInt *i, *j;
+		PetscScalar *a;
 
 		Mat A;
 

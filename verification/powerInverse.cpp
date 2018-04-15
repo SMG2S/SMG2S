@@ -6,6 +6,12 @@ static const char help[] = "Solve Non-Hermitian eigenvalues problem by Power Ite
 \t-xfile initial_guess_file (in PETSc bin format)\n";
 
 int main(int argc, char **argv){
+
+	// Initialize the MPI environment
+    MPI_Init(&argc, &argv);
+
+    SlepcInitialize(&argc,&argv,PETSC_NULL,help);
+
 	PetscErrorCode ierr;
 	Vec x;
 	Mat A;
@@ -13,48 +19,87 @@ int main(int argc, char **argv){
 	PetscInt its, nev, nconv;
 	EPSType type;
 	PetscScalar vtest, target, eigr, eigi;
-	PetscBool   vtest_flg, tol_flg, degree_flg;	
+	PetscBool   vtest_flg, tol_flg, degree_flg, n_flg, l_flg;	
 	Vec Ax;
 	Vec xr, xi, eigenvector;
 	PetscReal norm, vnorm, residual;
 	PetscReal test_tol;
-	PetscInt  degree, fac;
+	PetscInt  degree, n,lbandwidth;
 
-	ierr=SlepcInitialize(&argc,&argv,PETSC_NULL,help);CHKERRQ(ierr);
+    // Get the number of processes
+    int size;
+
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+    // Get the rank of the process
+    int rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
 	PetscPrintf(PETSC_COMM_WORLD,"\n]> Initializing SLEPc\n");
 
+	ierr = PetscOptionsGetInt(NULL, PETSC_NULL, "-n", &n, &n_flg);
 	ierr = PetscOptionsGetScalar(NULL, PETSC_NULL, "-exact_value", &vtest, &vtest_flg);
-        ierr = PetscOptionsGetScalar(NULL, PETSC_NULL, "-test_tol", &test_tol, &tol_flg);
-        ierr = PetscOptionsGetInt(NULL, PETSC_NULL, "-degree", &degree, &degree_flg);
-/*        
-        if(!degree_flg){
-          PetscPrintf(PETSC_COMM_WORLD, "ERROR: Please set the degree used by matGen... \n");
-          PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");
-          return 0;
-       } else{
-          PetscPrintf(PETSC_COMM_WORLD, " @>Remainder: degree = %d ...\n", degree);
-        }
+    ierr = PetscOptionsGetReal(NULL, PETSC_NULL, "-test_tol", &test_tol, &tol_flg);
+    ierr = PetscOptionsGetInt(NULL, PETSC_NULL, "-degree", &degree, &degree_flg);
+    ierr = PetscOptionsGetInt(NULL, PETSC_NULL, "-l", &lbandwidth, &l_flg);
 
-        fac = factorial(1, 2*degree-2);
-        PetscPrintf(PETSC_COMM_WORLD, " @>Remainder: fac =  %d ...\n", fac);
-*/
-	if(!vtest_flg){
-	  PetscPrintf(PETSC_COMM_WORLD, "ERROR: Please set the exact expacted eigenvalues to test... \n");
-          PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");
+
+	if(!n_flg){
+	  	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Set Matrix dimension to generate... \n");
+        PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");
 	  return 0;
-       } 
-//	else{
-//	  vtest = vtest * fac;
-//      	  vtest = vtest;
-//          PetscPrintf(PETSC_COMM_WORLD, " @>Remainder: test value = %f + %fi...\n", PetscRealPart(vtest), PetscImaginaryPart(vtest));
-//	}
+    } 
+/*
+	if(!vtest_flg){
+	  	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Please set the exact expacted eigenvalues to test... \n");
+      	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");
+	  return 0;
+    } 
+*/
 	if(!tol_flg){
 		test_tol = 1e-8;
-          	PetscPrintf(PETSC_COMM_WORLD, " @>Remainder: Not set the tolerance for validation, use the defaut value tol =  %.2e ...\n",test_tol);
+        PetscPrintf(PETSC_COMM_WORLD, " @>Remainder: Not set the tolerance for validation, use the defaut value tol =  %.2e ...\n",test_tol);
 	}
-	/*Load data*/
-	ierr=loadInputs(&A,&x);CHKERRQ(ierr);
-	PetscPrintf(PETSC_COMM_WORLD,"]> Data loaded\n");
+
+#if defined (PETSC_USE_COMPLEX)
+
+    Nilpotency<int> nilp;
+    
+    degree = 2; n = 10; lbandwidth = 3;
+
+    nilp.NilpType1(degree,n);
+
+    printf("degree = %d, n = %d\n", degree, n);
+
+    parMatrixSparse<std::complex<double>,int> *Mt;
+
+//    smg2s<std::complex<double>,int> (probSize, nilp, lbandwidth);
+    
+    Mt =  smg2s<std::complex<double>,int> (n, nilp,lbandwidth);
+
+    if(rank == 0){
+        printf ( "------------------------------------\n" );
+        printf ( "---- MATRIX GENERATION DONE! -------\n" );
+        printf ( "------------------------------------\n" );
+    }
+
+#else
+
+#endif
+
+    Mt->LOC_MatView();
+    Mt->Loc_ConvertToCSR();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    A = ConvertToPETSCMat(Mt);
+
+    MatAssemblyBegin(A,MAT_FINAL_ASSEMBLY);
+    MatAssemblyEnd(A,MAT_FINAL_ASSEMBLY);
+
+	MatView(A, PETSC_VIEWER_STDOUT_WORLD);
+
+	PetscPrintf(PETSC_COMM_WORLD,"]> PETSc Data loaded\n");
 
 	/*Create the EPS context and setup*/
 	ierr = EPSCreate(PETSC_COMM_WORLD,&eps);CHKERRQ(ierr);
@@ -144,14 +189,16 @@ int main(int argc, char **argv){
 	ierr = VecDestroy(&x);CHKERRQ(ierr);
 	ierr = MatDestroy(&A);CHKERRQ(ierr);
 	ierr = VecDestroy(&Ax);CHKERRQ(ierr);
-        ierr = VecDestroy(&xi);CHKERRQ(ierr);
-        ierr = VecDestroy(&xr);CHKERRQ(ierr);
-        ierr = VecDestroy(&eigenvector);CHKERRQ(ierr);
+    ierr = VecDestroy(&xi);CHKERRQ(ierr);
+    ierr = VecDestroy(&xr);CHKERRQ(ierr);
+    ierr = VecDestroy(&eigenvector);CHKERRQ(ierr);
 
 	PetscPrintf(PETSC_COMM_WORLD,"]> Cleaned structures, finalized ... \n\n");
 
 	/*Finalize SLEPc*/
 	SlepcFinalize(); 
+
+	MPI_Finalize();
 
 	return 0;
 }

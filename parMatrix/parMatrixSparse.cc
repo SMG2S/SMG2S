@@ -445,7 +445,7 @@ void parMatrixSparse<T,S>::MatView(){
 template<typename T,typename S>
 void parMatrixSparse<T,S>::LOC_MatView(){
 	
-	S i, j;
+	S i;
 	T v;
 	typename std::map<S,T>::iterator it;
 
@@ -1537,7 +1537,7 @@ void parMatrixSparse<T,S>::AM_SetUpDataTypes(Nilpotency<S> nilp){
 template<typename T,typename S>
 void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 {
-	S i, j, k, p, q, c, loc;
+	S i, j, k, p, q, loc;
 	T v;
 	bool sendflg = true, recvflag = true;
 
@@ -1581,7 +1581,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 */
 	MPI_Request	*Rreqs, *Sreqs, rtypereq, stypereq, *idxRreqs, *idxSreqs;
 
-	MPI_Status	*status, *Rstat, *Sstat, typestat, *idxRstat, *idxSstat;
+	MPI_Status	*Rstat, *Sstat, typestat, *idxRstat, *idxSstat;
 
 	int up, down;
 
@@ -1842,7 +1842,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 	T *sBuf, *rBuf;
 	S *sIndx, *rIndx;
-	S cnt = 0, cnt2 = 0;
+	S cnt = 0;
 
 	for(S b = 0; b < nilp.diagPosition -1; b++){
 

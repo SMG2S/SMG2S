@@ -48,7 +48,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
     parMatrixSparse<T,S> *MA = new parMatrixSparse<T,S>(vec,prod);
     parMatrixSparse<T,S> *AM = new parMatrixSparse<T,S>(vec,prod);
 
-    parMatrixSparse<T,S> *matAop;
+    parMatrixSparse<T,S> *matAop = new parMatrixSparse<T,S>(vec,prod);
 
     if(world_rank == 0){printf("Matrix Initialized\n");}
 
@@ -66,6 +66,8 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
             	rnd = 0.5*random<T,S>(0,10);
             	//if(world_rank == 0) printf("rnd = %f\n", rnd);
                 Am->Loc_SetValue(i,j,rnd);   
+                matAop->Loc_SetValue(i,j,rnd);   
+
             }
         }
     }
@@ -73,6 +75,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
     //insert the diagonal of initial matrix with given spectra.
 
     Am->Loc_SetDiagonal(vec);
+    matAop->Loc_SetDiagonal(vec);
 
     end = MPI_Wtime();
 
@@ -88,10 +91,6 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
 
     printf("my_factorielle_bornes = %d\n", my_factorielle_bornes);
     
-    matAop = Am;
-
-//    Am->LOC_MatView();
-
     Am->Loc_MatScale((T)my_factorielle_bornes);
 
     for (S k=1; k<=(2*nilp.nbOne-2); k++){
@@ -106,14 +105,23 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
     	MA->Loc_ZeroEntries();
     	AM->Loc_ZeroEntries();
     }
+    
+    Am->LOC_MatView();
 
 	my_factorielle_bornes = factorial(1,(2*nilp.nbOne-2));
 
-	T inv = 1/(T)my_factorielle_bornes;
+	//T inv = 1/(T)my_factorielle_bornes;
+#ifdef __USE_DOUBLE__
+    double fac = (double)my_factorielle_bornes;
+    double inv = 1/fac;
+#else
+    float fac = (float)my_factorielle_bornes;
+    float inv = 1/fac;
+#endif
 
 	Am->Loc_MatScale(inv);
 
-    //MA->LOC_MatView();
+    Am->LOC_MatView();
 
     return Am;
 }
