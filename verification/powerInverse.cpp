@@ -25,15 +25,16 @@ int main(int argc, char **argv){
 	PetscReal norm, vnorm, residual;
 	PetscReal test_tol;
 	PetscInt  degree, n,lbandwidth;
+	PetscInt sizex, sizey;
 
     // Get the number of processes
-    int size;
+    int world_size;
 
-    MPI_Comm_size(MPI_COMM_WORLD, &size);
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
     // Get the rank of the process
-    int rank;
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
 
 	PetscPrintf(PETSC_COMM_WORLD,"\n]> Initializing SLEPc\n");
 
@@ -49,35 +50,32 @@ int main(int argc, char **argv){
         PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");
 	  return 0;
     } 
-/*
+
 	if(!vtest_flg){
 	  	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Please set the exact expacted eigenvalues to test... \n");
       	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");
 	  return 0;
     } 
-*/
+
 	if(!tol_flg){
 		test_tol = 1e-8;
         PetscPrintf(PETSC_COMM_WORLD, " @>Remainder: Not set the tolerance for validation, use the defaut value tol =  %.2e ...\n",test_tol);
 	}
 
+
 #if defined (PETSC_USE_COMPLEX)
 
     Nilpotency<int> nilp;
     
-    degree = 2; n = 10; lbandwidth = 3;
-
     nilp.NilpType1(degree,n);
 
     printf("degree = %d, n = %d\n", degree, n);
 
     parMatrixSparse<std::complex<double>,int> *Mt;
-
-//    smg2s<std::complex<double>,int> (probSize, nilp, lbandwidth);
     
     Mt =  smg2s<std::complex<double>,int> (n, nilp,lbandwidth);
 
-    if(rank == 0){
+    if(world_rank == 0){
         printf ( "------------------------------------\n" );
         printf ( "---- MATRIX GENERATION DONE! -------\n" );
         printf ( "------------------------------------\n" );
@@ -88,6 +86,7 @@ int main(int argc, char **argv){
 #endif
 
     Mt->LOC_MatView();
+
     Mt->Loc_ConvertToCSR();
 
     MPI_Barrier(MPI_COMM_WORLD);
@@ -99,6 +98,10 @@ int main(int argc, char **argv){
 
 	MatView(A, PETSC_VIEWER_STDOUT_WORLD);
 
+	ierr=MatGetSize(A,&sizex,&sizey);CHKERRQ(ierr);
+
+	ierr=generateVectorRandom(sizex,&x);CHKERRQ(ierr);
+
 	PetscPrintf(PETSC_COMM_WORLD,"]> PETSc Data loaded\n");
 
 	/*Create the EPS context and setup*/
@@ -108,6 +111,8 @@ int main(int argc, char **argv){
 	ierr = EPSSetType(eps,EPSPOWER);CHKERRQ(ierr);
 	ierr = EPSSetFromOptions(eps);CHKERRQ(ierr);
 	EPSSetWhichEigenpairs(eps, EPS_TARGET_MAGNITUDE);
+
+
 	#ifdef PETSC_USE_COMPLEX
 		target = PetscRealPart(vtest)+0.001+PetscImaginaryPart(vtest)*PETSC_i;
 	#else
@@ -119,12 +124,13 @@ int main(int argc, char **argv){
 	#else
 		PetscPrintf(PETSC_COMM_WORLD, " @>Remainder: The input target value is %f ...\n", target);
 	#endif
+
 	ierr=EPSSetInitialSpace(eps,1,&x);CHKERRQ(ierr);
 	PetscPrintf(PETSC_COMM_WORLD,"]> Krylov Solver settings done\n");
 
 	/*Solve the problem*/
 	PetscPrintf(PETSC_COMM_WORLD,"]> Krylov Solver Launching solving process\n");
-        ierr = EPSSolve(eps);CHKERRQ(ierr);
+    ierr = EPSSolve(eps);CHKERRQ(ierr);
 	PetscPrintf(PETSC_COMM_WORLD,"]> Krylov Solver System solved\n");
 
 	/*Get some informations of resolution*/
@@ -135,15 +141,18 @@ int main(int argc, char **argv){
 	PetscPrintf(PETSC_COMM_WORLD," @> Solution method: %s\n",type);
 	ierr = EPSGetDimensions(eps,&nev,NULL,NULL);CHKERRQ(ierr);
 	PetscPrintf(PETSC_COMM_WORLD," @> Number of requested eigenvalues: %D\n",nev);
+
 	/*Display the solution*/
 	EPSGetConverged(eps,&nconv);
 	if(nconv > 0){
 		PetscPrintf(PETSC_COMM_WORLD," @> Number of converged eigenpairs: %D\n",nconv);
 	}else {
-                PetscPrintf(PETSC_COMM_WORLD," @> No converged eigenpairs, exit without validatint input value\n");
+          PetscPrintf(PETSC_COMM_WORLD," @> No converged eigenpairs, exit without validatint input value\n");
 		return 0;
 	}
+
         /*Validation*/
+
 	PetscPrintf(PETSC_COMM_WORLD,"]> Validation the input test value\n");
 	ierr = MatCreateVecs(A,NULL,&xr);CHKERRQ(ierr);
 	ierr = MatCreateVecs(A,NULL,&xi);CHKERRQ(ierr);
@@ -184,6 +193,7 @@ int main(int argc, char **argv){
 	}else{
         PetscPrintf(PETSC_COMM_WORLD," @> Residual:= %.5e > test_tol %.2e, not validated!!!\n\n", residual, test_tol);
 	}
+	
 	/*Clean*/
 	ierr = EPSDestroy(&eps);CHKERRQ(ierr);
 	ierr = VecDestroy(&x);CHKERRQ(ierr);

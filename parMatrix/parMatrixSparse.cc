@@ -455,7 +455,15 @@ void parMatrixSparse<T,S>::LOC_MatView(){
 		if(dynmat_loc != NULL){
 			std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
 			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
-				std::cout <<"("<<it->first << "," << it->second << "); ";
+#if defined (__USE_COMPLEX__)
+				if(it->second.real() != 0 || it->second.imag() != 0){
+					std::cout <<"("<<it->first << "," << it->second << "); ";
+				}
+#else
+				if(it->second != 0){
+					std::cout <<"("<<it->first << "," << it->second << "); ";
+				}
+#endif
 			}
 		}
 	std::cout << std::endl;
@@ -655,14 +663,27 @@ void parMatrixSparse<T,S>::Loc_ConvertToCSR()
 		for(i = 0; i < nrows; i++){
 			CSR_loc->rows.push_back(count);
 			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
-				j = it->first;
-				v = it->second;
-				CSR_loc->vals.push_back(v);
-				CSR_loc->cols.push_back(j);
-				count++;
+#if defined (__USE_COMPLEX__)
+				if(it->second.imag() != 0 || it->second.real() != 0){
+					j = it->first;
+					v = it->second;
+					CSR_loc->vals.push_back(v);
+					CSR_loc->cols.push_back(j);
+					count++;
+				}
+#else
+				if(it->second != 0){
+					j = it->first;
+					v = it->second;
+					CSR_loc->vals.push_back(v);
+					CSR_loc->cols.push_back(j);
+					count++;
+				}
+#endif
+
 			}
 		}
-		CSR_loc->rows.push_back(nnz_loc);
+		CSR_loc->rows.push_back(count);
 	}
 }
 

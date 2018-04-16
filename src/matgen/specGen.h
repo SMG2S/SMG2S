@@ -3,6 +3,7 @@
 
 //#include "../parVector/parVector.cc"
 #include "../../parMatrix/parMatrixSparse.cc"
+#include <complex>
 
 template<typename T, typename S>
 void specGen(parVector<T,S> *vec){
@@ -12,7 +13,8 @@ void specGen(parVector<T,S> *vec){
 	T    val;
 
 	for(S i=0; i < size; i++){
-		val = 2+i;
+		val.imag(1) ;
+		val.real(2) ;
 		vec->SetValueGlobal(i, val);
 	}
 

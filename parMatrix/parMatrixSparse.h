@@ -20,8 +20,6 @@ class parMatrixSparse
 	private:
 		std::map<S, T> *dynmat_lloc, *dynmat_gloc;
 
-		std::map<S, T> *dynmat_loc;
-
 		//size of local matrix
 		S	ncols, nrows;
 				
@@ -47,6 +45,8 @@ class parMatrixSparse
 
 		MatrixCSR<T,S> *CSR_lloc, *CSR_gloc, *CSR_loc;
 
+
+		std::map<S, T> *dynmat_loc;
 		//constructor
 		parMatrixSparse();
 		parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec);
@@ -75,6 +75,8 @@ class parMatrixSparse
 
 		std::map<S,T>	*GetDynMatGLobLoc(){return dynmat_lloc;};
 		std::map<S,T>	*GetDynMatGlobLoc(){return dynmat_gloc;};
+
+		std::map<S,T>	*GetDynMatLoc(){return dynmat_loc;};
 
 		MatrixCSR<T,S>	*GetCSRLocLoc(){return CSR_lloc;};
 		MatrixCSR<T,S>	*GetCSRGlobLoc(){return CSR_gloc;};

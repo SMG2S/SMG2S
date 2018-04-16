@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
            processor_name, world_rank, world_size);
 
 
-    int probSize = 100;
+    int probSize = 5;
     int span, lower_b, upper_b;
 
     span = int(floor(double(probSize)/double(world_size)));
@@ -81,19 +81,15 @@ int main(int argc, char** argv) {
 
 
     for(int i = 0; i < probSize; i++){
-        Am->Loc_SetValue(i,i,1.0*i);
+        Am->Loc_SetValue(i,i,1.0*i+1);
     }  
 
-
-    //Am->SetValue(0,2,1.0*2);
-    //Am->SetValue(3,4,1.0*2);
-
-
-    Am->Loc_ConvertToCSR();
 
     MPI_Barrier(MPI_COMM_WORLD);
 
     Am->LOC_MatView();
+
+    Am->Loc_ConvertToCSR();
 
     Mat M;
     MatCreate(PETSC_COMM_WORLD,&M);
@@ -101,8 +97,9 @@ int main(int argc, char** argv) {
     M = ConvertToPETSCMat(Am);
 
     MatView(M, PETSC_VIEWER_STDOUT_WORLD);
-
+    PetscFree(M);
     PetscFinalize();
+
     MPI_Finalize();
 
     return 0;
