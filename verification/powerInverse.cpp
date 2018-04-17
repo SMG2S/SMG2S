@@ -85,7 +85,7 @@ int main(int argc, char **argv){
 
 #endif
 
-    Mt->LOC_MatView();
+    //Mt->LOC_MatView();
 
     Mt->Loc_ConvertToCSR();
 
@@ -96,7 +96,7 @@ int main(int argc, char **argv){
     MatAssemblyBegin(A,MAT_FINAL_ASSEMBLY);
     MatAssemblyEnd(A,MAT_FINAL_ASSEMBLY);
 
-	MatView(A, PETSC_VIEWER_STDOUT_WORLD);
+//	MatView(A, PETSC_VIEWER_STDOUT_WORLD);
 
 	ierr=MatGetSize(A,&sizex,&sizey);CHKERRQ(ierr);
 
@@ -114,7 +114,7 @@ int main(int argc, char **argv){
 
 
 	#ifdef PETSC_USE_COMPLEX
-		target = PetscRealPart(vtest)+0.001+PetscImaginaryPart(vtest)*PETSC_i;
+		target = PetscRealPart(vtest)+0.001+(PetscImaginaryPart(vtest)+0.0001)*PETSC_i;
 	#else
                 target = vtest+0.001;
 	#endif
@@ -184,6 +184,7 @@ int main(int argc, char **argv){
 	ierr = VecNorm(Ax, NORM_2, &norm);CHKERRQ(ierr);
 //	ierr = VecNorm(eigenvector, NORM_2, &vnorm);
 	residual = norm / vnorm;
+//residual = norm;
 //        residual = norm;
 	PetscPrintf(PETSC_COMM_WORLD," \n     Residual:||Av-kv||/||Av||  \n");
         PetscPrintf(PETSC_COMM_WORLD,"     ------------------------- \n");

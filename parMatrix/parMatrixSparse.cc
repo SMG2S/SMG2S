@@ -1339,13 +1339,6 @@ void parMatrixSparse<T,S>::Loc_MatAXPY(parMatrixSparse<T,S> *X, T scale){
 
 	S i, k;
 	T v;
-	if(dynmat_loc != NULL){
-		for(i = 0; i < nrows; i++){
-			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
-				it->second = it->second*scale;
-			}
-		}
-	}
 
 	if(dynmat_loc != NULL && X->dynmat_loc != NULL){
 		for(i = 0; i < nrows; i++){
@@ -1354,7 +1347,7 @@ void parMatrixSparse<T,S>::Loc_MatAXPY(parMatrixSparse<T,S> *X, T scale){
 			merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
 			for(it = merge.begin(); it != merge.end(); ++it){
 				k = it->first;
-				dynmat_loc[i][k] = dynmat_loc[i][k]+X->dynmat_loc[i][k];
+				dynmat_loc[i][k] = dynmat_loc[i][k]+X->dynmat_loc[i][k]*scale;
 			}
 			merge.clear();
 		}
@@ -1366,7 +1359,7 @@ void parMatrixSparse<T,S>::Loc_MatAXPY(parMatrixSparse<T,S> *X, T scale){
 			merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
 			for(it = merge.begin(); it != merge.end(); ++it){
 				k = it->first;
-				dynmat_loc[i][k] = X->dynmat_loc[i][k];
+				dynmat_loc[i][k] = X->dynmat_loc[i][k]*scale;
 			}
 			merge.clear();
 		}
@@ -1397,11 +1390,11 @@ void parMatrixSparse<T,S>::Loc_MatAYPX(parMatrixSparse<T,S> *X, T scale){
 
 	S i, k;
 	T v;
-	if(X->dynmat_loc != NULL){
+	if(dynmat_loc != NULL){
 		for(i = 0; i < nrows; i++){
-			for(it = X->dynmat_loc[i].begin(); it != X->dynmat_loc[i].end(); it++){
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
 				k = it->first;
-				X->dynmat_loc[i][k] = X->dynmat_loc[i][k]*scale;
+				dynmat_loc[i][k] = dynmat_loc[i][k]*scale;
 			}
 		}
 	}

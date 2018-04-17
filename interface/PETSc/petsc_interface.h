@@ -14,7 +14,7 @@
 
 		int rank, size;
 		std::vector<int>::iterator it;
-	    std::vector<std::complex<double> >::iterator itm;
+		std::vector<std::complex<double> >::iterator itm;
 
 		MPI_Comm_size(MPI_COMM_WORLD, &size);
 		MPI_Comm_rank(MPI_COMM_WORLD, &rank);

@@ -32,6 +32,10 @@
 *.app
 view
 
+# service platforms results
+*.out
+*.err
+
 # Matrix file
 *.mat
 

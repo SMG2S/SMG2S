@@ -44,7 +44,7 @@ do
 	EXACT_VALUE=$I
   fi
   echo EXACT_VALUE = $EXACT_VALUE
-  srun  -n ${MPI_NODES} ./powerInverse.exe -mfile ${MDIR}/${MAT} ${EPS_MONITOR} ${LOG_VIEW} -eps_power_shift_type ${SHIFT_TYPE} -st_type ${ST_TYPE} -exact_value ${EXACT_VALUE} -test_tol ${TEST_TOL} -degree ${DEGREE}
+  srun  -n ${MPI_NODES} ./powerInverse.exe -mfile -n 10 -l 3  ${EPS_MONITOR} ${LOG_VIEW} -eps_power_shift_type ${SHIFT_TYPE} -st_type ${ST_TYPE} -exact_value ${EXACT_VALUE} -test_tol ${TEST_TOL} -degree ${DEGREE}
 done
 
 echo All done!

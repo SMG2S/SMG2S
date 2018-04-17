@@ -211,14 +211,16 @@ void parVector<T,S>::VecView()
 template<typename T, typename S>
 void parVector<T,S>::ReadExtVec()
 {
-	std::ifstream file("vector.vec");
+	std::ifstream file("vector.txt");
 	std::string line;
 
 	S lower_bound = GetLowerBound();
 	S upper_bound = GetUpperBound();
 
-	S val1, dummy;
-	T val2;
+	S val1;
+#if defined(__USE_COMPLEX__)
+	double val2, val3;
+	T val;
 
 	//int quit;
 
@@ -228,8 +230,8 @@ void parVector<T,S>::ReadExtVec()
 		val1 = 0; 
 		val2 = 0.0;
 		std::stringstream linestream ( line ) ; 
-		linestream >> val1 >> dummy >> val2;
-		if (dummy!= 0&&val1!= 0&&val2!= 0.0) 
+		linestream >> val1 >> val2 >> val3;
+		if (val1!= 0&&val2!= 0.0&&val3!= 0.0) 
 		{
 			break ;
 		} 
@@ -239,17 +241,51 @@ void parVector<T,S>::ReadExtVec()
 
 	while(std::getline(file, line))
 	{
-		val1 = 0; val2 = 0.0;
+		val1 = 0; val2 = 0.0; val3 = 0.0;
 
 		std::stringstream linestream(line);
 
-		linestream >> val1 >> dummy >> val2;
+		linestream >> val1 >> val2 >> val3;
 		val1 = val1 - 1;
-		
+		val.real(val2);val.imag(val3);
 		if((val1 >= lower_bound) && (val1 < upper_bound)){
-			AddValueLocal(index_map->Glob2Loc(val1),val2);
+			AddValueLocal(index_map->Glob2Loc(val1),val);
 		}
 
-	}	
+	}
+#else
+	T val;
+
+	//int quit;
+
+	// Read past first few lines of input file that are not numbers
+
+	while (std::getline(file,line)) {
+		val1 = 0; 
+		val2 = 0.0;
+		std::stringstream linestream ( line ) ; 
+		linestream >> val1 >> val;
+		if (val1!= 0&&val != 0.0) 
+		{
+			break ;
+		} 
+	}
+
+	// Start reading in coordinates and if local  > add to vector
+
+	while(std::getline(file, line))
+	{
+		val1 = 0; val = 0.0;
+
+		std::stringstream linestream(line);
+
+		linestream >> val1 >> val;
+		val1 = val1 - 1;
+		if((val1 >= lower_bound) && (val1 < upper_bound)){
+			AddValueLocal(index_map->Glob2Loc(val1),val);
+		}
+
+	}
+#endif	
 }
 
