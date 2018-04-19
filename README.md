@@ -15,19 +15,24 @@ The SpMV functionality implemented inside is a hypergraph based version which ai
 
 ## Example
 ### Creation
-
+Generate the Nilpotent Matrix for operation:
 ```cpp
 Nilpotency<int> nilp;
-
 nilp.NilpType1(length,probSize);
-
+```
+Create the parallel Sparse Matrix Object Mt:
+```cpp
 parMatrixSparse<std::complex<float>,int> *Mt;
-
+```
+Generate a new matrix:
+```cpp
 Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth);
 
 ```
 
-![Matrix Generation Pattern](figure/matgen.pdf)
+![Matrix Generation Pattern](figure/matgen.png)
 
 ## Verification
+
+![Comparison of generated spectrum with given spectrum](figure/vector.png)
 
