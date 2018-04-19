@@ -1,3 +1,24 @@
+/*
+   This file is part of SMG2S.
+   Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
+        Date: 2018-04-20
+   Copyright (C) 2018-     Xinzhe WU
+   
+   SMG2S is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published
+   by the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   SMG2S is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   You should have received a copy of the GNU Lesser General Public License
+   along with SMG2S.  If not, see <http://www.gnu.org/licenses/>.
+
+   Part of basic data structures' implementation of this file refers to this technical report 
+   (http://orbit.dtu.dk/files/51272329/tr12_10_Alexandersen_Lazarov_Dammann_1.pdf)
+*/
+
 #include <mpi.h>
 #include <iostream> 
 #include <fstream> 
@@ -222,9 +243,6 @@ void parVector<T,S>::ReadExtVec()
 	double val2, val3;
 	T val;
 
-	//int quit;
-
-	// Read past first few lines of input file that are not numbers
 
 	while (std::getline(file,line)) {
 		val1 = 0; 
@@ -236,8 +254,6 @@ void parVector<T,S>::ReadExtVec()
 			break ;
 		} 
 	}
-
-	// Start reading in coordinates and if local  > add to vector
 
 	while(std::getline(file, line))
 	{
@@ -256,10 +272,6 @@ void parVector<T,S>::ReadExtVec()
 #else
 	T val;
 
-	//int quit;
-
-	// Read past first few lines of input file that are not numbers
-
 	while (std::getline(file,line)) {
 		val1 = 0; 
 		val2 = 0.0;
@@ -271,7 +283,6 @@ void parVector<T,S>::ReadExtVec()
 		} 
 	}
 
-	// Start reading in coordinates and if local  > add to vector
 
 	while(std::getline(file, line))
 	{

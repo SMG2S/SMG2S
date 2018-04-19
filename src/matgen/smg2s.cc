@@ -1,3 +1,20 @@
+/*
+   This file is part of SMG2S.
+   Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
+        Date: 2018-04-20
+   Copyright (C) 2018-     Xinzhe WU
+   
+   SMG2S is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published
+   by the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   SMG2S is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   You should have received a copy of the GNU Lesser General Public License
+   along with SMG2S.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #include "smg2s.h"
 
@@ -18,7 +35,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
 
     span = S(floor(double(probSize)/double(world_size)));
 
-    printf("span = %d\n", span);
+//    printf("span = %d\n", span);
 
 
     if(world_rank == world_size - 1){
@@ -29,7 +46,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
 		upper_b = (world_rank + 1) * span - 1 + 1;
     }
 
-    printf("Proc. %d   Lower bound = %d   Upper bound = %d \n",world_rank, lower_b , upper_b );
+//    printf("Proc. %d   Lower bound = %d   Upper bound = %d \n",world_rank, lower_b , upper_b );
 
 
 	parVector<T,S> *vec = new parVector<T,S>(MPI_COMM_WORLD, lower_b, upper_b);
@@ -63,7 +80,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
     for(S i = 0; i < probSize; i++){
         for(S j = i - lbandwidth; j < i; j++){
             if(j >= 0){
-            	rnd = 0.00005*random<T,S>(0,10);
+            	rnd = 0.00001*random<T,S>(0,10);
 //		rnd = 0.00001*(i+j);
             	//if(world_rank == 0) printf("rnd = %f\n", rnd);
                 Am->Loc_SetValue(i,j,rnd);   
@@ -93,7 +110,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
 
     my_factorielle_bornes = factorial(1,2*nilp.nbOne);
 
-    printf("my_factorielle_bornes = %d\n", my_factorielle_bornes);
+//    printf("my_factorielle_bornes = %d\n", my_factorielle_bornes);
     
     Am->Loc_MatScale((T)my_factorielle_bornes);
     double in;
@@ -110,7 +127,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
   	my_factorielle_bornes = factorial(k+1,2*nilp.nbOne);
 //        Am->Loc_MatAXPY(matAop, in);
     	Am->Loc_MatAXPY(matAop, (double)my_factorielle_bornes);
-	printf("k = %d ------%d-----\n",k, my_factorielle_bornes);
+//	printf("k = %d ------%d-----\n",k, my_factorielle_bornes);
 //	matAop->LOC_MatView();
     	MA->Loc_ZeroEntries();
     	AM->Loc_ZeroEntries();
@@ -129,7 +146,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
     float inv = 1/fac;
 #endif
 
-	printf("%f = = = = = = inv\n", inv);
+//	printf("%f = = = = = = inv\n", inv);
 	Am->Loc_MatScale(inv);
 
 

@@ -1,3 +1,25 @@
+/*
+   This file is part of SMG2S.
+   Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
+        Date: 2018-04-20
+   Copyright (C) 2018-     Xinzhe WU
+   
+   SMG2S is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published
+   by the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   SMG2S is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   You should have received a copy of the GNU Lesser General Public License
+   along with SMG2S.  If not, see <http://www.gnu.org/licenses/>.
+
+   Part of basic data structures' implementation of this file refers to this technical report 
+   (http://orbit.dtu.dk/files/51272329/tr12_10_Alexandersen_Lazarov_Dammann_1.pdf)
+*/
+
+
 #include "parMatrixSparse.h"
 
 template<typename T, typename S>
@@ -752,8 +774,6 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	MPI_Comm_rank(MPI_COMM_WORLD, &ProcID);
 	MPI_Comm_size(MPI_COMM_WORLD, &nProcs);
 
-	//Initialise vector containing numer of entries to send and recv on each procss, number of vectors
-
 	VNumRecv = new S [nProcs];
 	for(i = 0; i < nProcs; i++){
 		VNumRecv[i] = 0;
@@ -782,29 +802,13 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 				if(vit == Rrows.end()){
 					Rrows[j] = x_index_map->GetOwner(j);
 					VNumRecv[Rrows[j]] = VNumRecv[Rrows[j]] + 1;
-					//printf("Proc %d: Rrows[%d] = %d ---- %d ----------\n", ProcID,j,Rrows[j],VNumRecv[Rrows[j]]);
 					count++;
 				}
 			}
 		}
 
 		nRecv = count;
-		//printf("Proc %d: nRecv = %d, VNumRecv[%d] = %d\n", ProcID,count, ProcID, VNumRecv[ProcID]);
 	}
-//	printf("Proc : %d, %d\n\n\n", ProcID, VNumRecv[0]);
-/*
-	for(i = 0; i < nProcs; i++){
-		printf("Proc %d: -------VNumRecv[%d] = %d\n", ProcID, i,VNumRecv[i]);
-	}
-*/
-	/*
-	else{
-		printf("fucking check 2\n\n\n\n");
-		for(i = 0; i < nProcs; i++){
-			VNumRecv[i] = 0;
-		}
-	}
-	*/
 
 	//MPI non-blocking requests and status
 	Rreqs = new MPI_Request [nProcs - 1];
@@ -831,11 +835,6 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	//wait for receives to finish
 	MPI_Waitall(nProcs-1,Rreqs,Rstat);
 
-/*
-	for(i = 0; i < nProcs; i++){
-		printf("Proc %d: +++++VNumSend[%d] = %d\n", ProcID, i,VNumSend[i]);
-	}
-*/
 
 	//find max num to send
 	for(i = 0; i < nProcs; i++){
@@ -914,29 +913,24 @@ void parMatrixSparse<T,S>::SetupDataTypes()
 
 	for(i = 0; i < nProcs; i++){
 		count = VNumSend[i];
-//		printf("!!!!!!>>>Proc %d::: VNumSend[%d] = %d\n", ProcID, i, count);
 		blength = new S [count];
 		displac = new S [count];
 
 		for(j = 0; j < count; j++){
-//			printf("Rbuffer[i][j] = %d\n", Rbuffer[i][j]);
 			blength[j] = 1;
 			displac[j] = x_index_map->Glob2Loc(Rbuffer[i][j]);
-//			printf("!!!!!!>>>Proc %d: DTypeSend %d //// Rbuffer[i][%d] = %d \n", ProcID, displac[j], j, Rbuffer[i][j]);
 		}
 
 		MPI_Type_indexed(count, blength, displac, MPI_DOUBLE, &DTypeSend[i]);
 		MPI_Type_commit(&DTypeSend[i]);
 
 		count = VNumRecv[i];
-//		printf("VNumRecv[%d] = %d\n", i, count);
 		blength = new S [count];
 		displac = new S [count];
 
 		for(j = 0; j < count; j++){
 			blength[j] = 1;
 			displac[j] = Sbuffer[i][j];
-//			printf("@@@>>>Proc %d: DTypeRecv %d //// Sbuffer[i][%d] = %d\n", ProcID, displac[j], j,Sbuffer[i][j] );
 		}
 
 		MPI_Type_indexed(count, blength, displac, MPI_DOUBLE, &DTypeRecv[i]);
@@ -963,8 +957,6 @@ void parMatrixSparse<T,S>::TestCommunication(parVector<T,S> *XVec, parVector<T,S
 
 	k = XVec->GetLocalSize();
 	l = XVec->GetGlobalSize();
-
-	//printf("##### k = %d, l = %d\n", k,l);
 
 	rBuf = new T [l];
 	for(i = 0; i < l; i++){
@@ -1000,13 +992,6 @@ void parMatrixSparse<T,S>::TestCommunication(parVector<T,S> *XVec, parVector<T,S
             printf("rBuf[%d] = %f \n", i, rBuf[i]);
 		}
 	}
-/*
-	if(ProcID == receiver){
-		for( i = 0; i < l; i++){
-            printf("rBuf[%d] = %f \n", i, rBuf[i]);
-		}
-	}	
-	*/
 }
 
 template<typename T,typename S>
@@ -1479,29 +1464,7 @@ void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	T v;
 
 	typename std::map<S,T>::iterator it;
-/*
 
-	if(nilp.setup == true && y_index_map->GetGlobalSize() == nilp.matrix_size){
-		if(ProcID == 0){
-			std::cout << "INFO ]>: Nilpotent matrix diagPostion = " << nilp.diagPosition << std::endl;
-			std::cout << "INFO ]>: Nilpotent matrix nbOne = " << nilp.nbOne << std::endl;
-			std::cout << "INFO ]>: Nilpotent matrix size = " << nilp.matrix_size << std::endl;
-			std::cout << "INFO ]>: Nilpotent matrix setup = " << nilp.setup << std::endl;
-		}
-	}
-	else if(nilp.setup == false){
-		if(ProcID == 0){
-			std::cout << "ERROR ]>: Nilpotent Matrix is not setup." << std::endl;
-		}
-		return;
-	}
-	else if(y_index_map->GetGlobalSize() != nilp.matrix_size){
-		if(ProcID == 0){
-			std::cout << "ERROR ]>: Nilpotent Matrix dimension do not equal to given matrix size." << std::endl;
-		}
-		return;
-	}
-*/
 	//use the given nilpotency matrix, MA operation will make elements of matrix right move diaPosition-1 offset.
 	//And the positions of 0: pos = nbOne*integer - 1
 
@@ -1556,43 +1519,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	bool sendflg = true, recvflag = true;
 
 	typename std::map<S,T>::iterator it;
-/*
-	if(nilp.setup == true && y_index_map->GetGlobalSize() == nilp.matrix_size){
-		if(ProcID == 0){
-			std::cout << "INFO ]>: Nilpotent matrix diagPostion = " << nilp.diagPosition << std::endl;
-			std::cout << "INFO ]>: Nilpotent matrix nbOne = " << nilp.nbOne << std::endl;
-			std::cout << "INFO ]>: Nilpotent matrix size = " << nilp.matrix_size << std::endl;
-			std::cout << "INFO ]>: Nilpotent matrix setup = " << nilp.setup << std::endl;
-		}
-	}
-	else if(nilp.setup == false){
-		if(ProcID == 0){
-			std::cout << "ERROR ]>: Nilpotent Matrix is not setup." << std::endl;
-		}
-		return;
-	}
-	else if(y_index_map->GetGlobalSize() != nilp.matrix_size){
-		if(ProcID == 0){
-			std::cout << "ERROR ]>: Nilpotent Matrix dimension do not equal to given matrix size." << std::endl;
-		}
-		return;
-	}
-*/
-	//use the given nilpotency matrix, AM operation will make elements of matrix up move diaPosition-1 offset.
-	//And the positions of 0: pos = nbOne*integer - 1
 
-/*
-	if((nilp.diagPosition - 1) > nrows){
-		if(ProcID == 0){
-			std::cout << "INFO ]>: Nilpotent matrix diagPostion - 1 is larger than local rows number," << std::endl << "         sending should be divided into block"  << std::endl;
-		}
-	}
-	else{
-		if(ProcID == 0){
-			std::cout << "INFO ]>: The MPI sending and receiving row num = " << nilp.diagPosition - 1 << std::endl;
-		}
-	}
-*/
 	MPI_Request	*Rreqs, *Sreqs, rtypereq, stypereq, *idxRreqs, *idxSreqs;
 
 	MPI_Status	*Rstat, *Sstat, typestat, *idxRstat, *idxSstat;
@@ -1641,12 +1568,6 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		MPI_Wait(&rtypereq,&typestat);
 	}
 
-/*
-	if(ProcID != nProcs - 1){
-		std::cout << "s-s-s--s-s-s-s-s-s-s----->" << rsize[0] << std::endl;
-	}
-
-*/
 	Rtag = 0; Stag = 1;
 
 	//MPI non-blocking requests and status
@@ -1664,19 +1585,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	if(dynmat_loc == NULL){
 		return;
 	}
-/*
-	if(std::is_same<T,std::complex<double> >::value){
-		if(ProcID == 0){
-			std::cout << "INFO ]>: Using Complex Double values" << std::endl; 
-		}
-	}
 
-	if(std::is_same<T,std::complex<float> >::value){
-		if(ProcID == 0){
-			std::cout << "INFO ]>: Using Complex Single values" << std::endl; 
-		}
-	}
-*/
 	for(p = nilp.diagPosition - 1; p < nrows; p++){
 		if(prod->dynmat_loc == NULL){
 			prod->dynmat_loc = new std::map<S,T> [nrows];
@@ -1693,7 +1602,6 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 			if(i >= 0 && i < nrows && k != 0){
 				prod->dynmat_loc[i][j] = it->second;
-				//std::cout << "ProcID = " << ProcID << ": i = " << i << ", j = " << j << std::endl;
 			}
 		}
 		
@@ -1766,7 +1674,6 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		if(ProcID != nProcs - 1){
 			if(recvflag == true){
 				for(S tt = 0; tt < rsize[b]; tt++){
-						//std::cout << " ===> rBuf[" << tt << "] = " << rBuf[tt] << "   rIndx[" << tt << "] = " << rIndx[tt] << std::endl;
 						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).real(rBuf[2*tt]);
 						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).imag(rBuf[2*tt + 1]);
 				}
@@ -1840,7 +1747,6 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		if(ProcID != nProcs - 1){
 			if(recvflag == true){
 				for(S tt = 0; tt < rsize[b]; tt++){
-						//std::cout << " ===> rBuf[" << tt << "] = " << rBuf[tt] << "   rIndx[" << tt << "] = " << rIndx[tt] << std::endl;
 						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).real(rBuf[2*tt]);
 						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).imag(rBuf[2*tt + 1]);
 				}
@@ -1874,8 +1780,6 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 				recvflag = false;
 			}
 		}
-
-//		std::cout << "ProcID :" << ProcID << ", sendflg = " << sendflg << ", recvflg = " << recvflag << std::endl;
 		
 		if(ProcID != 0){
 			if(sendflg == true){
@@ -1909,9 +1813,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		if(ProcID != nProcs - 1){
 			if(recvflag == true){
 				for(S tt = 0; tt < rsize[b]; tt++){
-						//std::cout << " ===> rBuf[" << tt << "] = " << rBuf[tt] << "   rIndx[" << tt << "] = " << rIndx[tt] << std::endl;
 						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
-//						std::cout << "ProcID : " << ProcID << ", rows number = " << nrows - nilp.diagPosition + 1 + b << std::endl;
 				}
 			}
 		

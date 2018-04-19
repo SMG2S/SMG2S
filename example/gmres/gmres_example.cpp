@@ -1,3 +1,22 @@
+/*
+   This file is part of SMG2S.
+   Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
+        Date: 2018-04-20
+   Copyright (C) 2018-     Xinzhe WU
+   
+   SMG2S is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published
+   by the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   SMG2S is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   You should have received a copy of the GNU Lesser General Public License
+   along with SMG2S.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
 #include "gmres_example.h"
 
 
@@ -136,88 +155,6 @@ int main(int argc, char **argv){
 
 	return 0;
 }
-
-
-PetscErrorCode loadInputs(Mat * A, Vec * b, Vec * x){
-	PetscErrorCode ierr;
-	PetscInt sizex,sizey;
-	char bfile[]="-bfile";
-	char xfile[]="-xfile";
-	
-	//load data files
-	ierr=loadMatrix(A);CHKERRQ(ierr);
-	ierr=loadVector(bfile,b);CHKERRQ(ierr);
-	if(*b==NULL) {
-		PetscPrintf(PETSC_COMM_WORLD,"]> Creating vector b\n");
-		ierr=MatGetSize(*A,&sizex,&sizey);CHKERRQ(ierr);
-		ierr=generateVectorRandom(sizex,b);CHKERRQ(ierr);
-	}
-	ierr=loadVector(xfile,x);CHKERRQ(ierr);
-	if(*x==NULL) {
-		PetscPrintf(PETSC_COMM_WORLD,"]> Creating vector x\n");
-		ierr=MatGetSize(*A,&sizex,&sizey);CHKERRQ(ierr);
-		ierr=generateVectorRandom(sizex,x);CHKERRQ(ierr);
-	}
-
-	return 0;
-}
-
-
-PetscErrorCode loadMatrix(Mat * A){
-	char file[PETSC_MAX_PATH_LEN];
-	char err[PETSC_MAX_PATH_LEN];
-	PetscErrorCode ierr;
-	PetscBool flag;
-	PetscViewer fd;
-	PetscInt sizex,sizey;
-
-	/*check args, if no matrix then no work... matrix file is mandatory*/
-	ierr=PetscOptionsGetString(NULL,PETSC_NULL,"-mfile",file,PETSC_MAX_PATH_LEN-1,&flag);CHKERRQ(ierr);
-	if (!flag) {		
-		sprintf(err,"Error : mfile is not properly set -> %s\n",file);
-		SETERRQ(PETSC_COMM_WORLD,(PetscErrorCode)83,err);
-	}
-
-	/* read matrix file */
-	PetscPrintf(PETSC_COMM_WORLD,"Loading Matrix : %s\n",file);
-
-	ierr=MatCreate(PETSC_COMM_WORLD,A);CHKERRQ(ierr);
-	ierr=MatSetType(*A,MATAIJ);CHKERRQ(ierr);
-
-	ierr=PetscViewerBinaryOpen(PETSC_COMM_WORLD,file,FILE_MODE_READ,&fd);CHKERRQ(ierr);
-	ierr=MatLoad(*A,fd);CHKERRQ(ierr);
-	ierr=PetscViewerDestroy(&fd);CHKERRQ(ierr);
-	ierr=MatGetSize(*A,&sizex,&sizey);CHKERRQ(ierr);
-	PetscPrintf(PETSC_COMM_WORLD,"Loaded Matrix of size : %d %d\n",sizex,sizey);
-
-	return 0;
-}
-
-
-PetscErrorCode loadVector(char * type_v,Vec * b){
-	char file[PETSC_MAX_PATH_LEN];
-	PetscErrorCode ierr;
-	PetscBool flag;
-	PetscViewer fd;
-	PetscInt size;
-
-	// check if there is a vec file, vector is not mandatory
-	ierr=PetscOptionsGetString(NULL,PETSC_NULL,type_v,file,PETSC_MAX_PATH_LEN-1,&flag);CHKERRQ(ierr);
-	if (!flag) {		
-		PetscPrintf(PETSC_COMM_WORLD,"Error : %s is not properly set\n",type_v);
-		*b = NULL;
-	}else{
-		PetscPrintf(PETSC_COMM_WORLD,"Loading Vector : %s\n",file);
-		ierr=PetscViewerBinaryOpen(PETSC_COMM_WORLD,file,FILE_MODE_READ,&fd);CHKERRQ(ierr);
-		ierr=VecLoad(*b,fd);CHKERRQ(ierr);
-		ierr=PetscViewerDestroy(&fd);CHKERRQ(ierr);
-		ierr=VecGetSize(*b,&size);CHKERRQ(ierr);
-		PetscPrintf(PETSC_COMM_WORLD,"Loaded Vector of size : %d\n",size);
-	}
-
-	return 0;
-}
-
 
 PetscErrorCode generateVectorRandom(int size, Vec * v){
 	PetscErrorCode ierr;

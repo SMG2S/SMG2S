@@ -7,12 +7,17 @@
 
 #SBATCH --time=02:30:00
 
-#SBATCH -n 4
-#SBATCH -N 1
-#SBATCH --gres=gpu:2
+#SBATCH -n 16
 
 
 #./ex12 -ksp_monitor_true_residual -pc_type none -m 200 -n 200 -log_summary
 #./ex7 -ksp_monitor_true_residual -log_summary
 
-make runb
+#make runa
+#srun -n 1 ./powerInverse.exe  -n 100 -l 10 -eps_monitor_conv -eps_power_shift_type constant \
+#	-st_type sinvert -exact_value 14.4167+5.3509i -test_tol 0.00001 -degree 8
+
+
+srun -n 16 ./a.out -SIZE 400000 -L 10 -C 8
+
+

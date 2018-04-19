@@ -33,25 +33,6 @@ int main(int argc, char** argv){
 
 	int maxCount = 500;
 
-//	        printf("HELLO\n");
-
-/*
-	if (argc>=2){
-		for (int i =0; i < argc; i++){
-			if (strcasecmp(argv[i],"-comm")){
-				commMethod = atoi(argv[i+1]) ;
-			}
-                        if (strcasecmp(argv[i],"-size")==0){
-                                probSize = atoi(argv[i+1]) ;
-                        }
-                        if (strcasecmp(argv[i],"-count")==0){
-                                maxCount = atoi(argv[i+1]) ;
-                        }
-
-		}
-	}
-*/
-//	printf("HELLO\n");
 #ifndef _OPENMP
 
 	MPI_Init(&argc,&argv) ;

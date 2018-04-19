@@ -14,7 +14,7 @@
 #./ex7 -ksp_monitor_true_residual -log_summary
 
 #make runa
-srun -n 1 ./powerInverse.exe  -n 10 -l 5 -eps_monitor_conv -eps_power_shift_type constant \
-	-st_type sinvert -exact_value 1.0+3i -test_tol 0.00001 -degree 4
+srun -n 1 ./powerInverse.exe  -n 100 -l 10 -eps_monitor_conv -eps_power_shift_type constant \
+	-st_type sinvert -exact_value 14.4167+5.3509i -test_tol 0.00001 -degree 8
 
 
