@@ -9,4 +9,3 @@ link_directories(${SMG2S_SOURCE_FILE}/${DIR_PARVEC_SRC} ${SMG2S_SOURCE_FILE}/${D
 target_link_libraries(run.exe PRIVATE ${MPI_CXX_LIBRARIES} parvec parmat)
 
 target_include_directories(run.exe PRIVATE ${MPI_CXX_INCLUDE_PATH})
-
