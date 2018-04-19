@@ -27,7 +27,7 @@ Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth);
 
 ```
 
-![Matrix Generation Pattern](figure/matgen.eps)
+![Matrix Generation Pattern](figure/matgen.pdf)
 
 ## Verification
 
