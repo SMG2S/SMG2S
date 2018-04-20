@@ -1,13 +1,11 @@
 # SMG2S
 Sparse Matrix Generator with Given Spectrum
 
-
 ===============================================================================
 
 
-It is underdevelopment by @[Xinzhe Wu](https://brunowu.github.io)...
+Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http://www.maisondelasimulation.fr), France.
 
-The SpMV functionality implemented inside is a hypergraph based version which aims at avoiding the communicationi based on the paper [[Chen2014](https://link.springer.com/chapter/10.1007/978-3-319-17353-5_1)].
 
 ## Installation
 
@@ -49,6 +47,13 @@ mpicxx example.cpp -I${INSTALL_DIRECTORY}/include
 
 ## Example
 ### Creation
+
+Include header file
+
+```cpp
+#include <smg2s/smg2s.h>
+```
+
 Generate the Nilpotent Matrix for operation:
 ```cpp
 Nilpotency<int> nilp;
@@ -63,6 +68,46 @@ Generate a new matrix:
 Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth);
 
 ```
+
+## Interface
+The cmake will check if PETSc is installed in the platfrom, if yes, header file to interface will also be copied to ${INSTALL_DIRECTORY}/include when installing SMG2S.
+
+### Interface to PETSc
+
+Include header file
+
+```cpp
+#include <interface/PETSc/petsc_interface.h>
+```
+
+Create parMatrixSparse type matrix
+
+```cpp
+parMatrixSparse<std::complex<double>,int> *Mt;
+```
+
+Restore this matrix into CSR format
+
+```cpp
+Mt->Loc_ConvertToCSR();
+```
+
+Create PETSc MAT type
+```cpp
+MatCreate(PETSC_COMM_WORLD,&A);
+```
+
+Convert to PETSc MAT format
+```cpp
+A = ConvertToPETSCMat(Mt);
+```
+
+More information: [PETSc GMRES example](https://github.com/brunowu/SMG2S/tree/master/example/gmres) and [PETSc Arnoldi example](https://github.com/brunowu/SMG2S/tree/master/example/arnoldi)
+
+### Interface to Trilinos and other libraries
+
+Coming soon.
+
 
 ![Matrix Generation Pattern](figure/matgen.png)
 
