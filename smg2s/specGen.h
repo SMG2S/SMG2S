@@ -23,26 +23,33 @@
 #include "../parMatrix/parMatrixSparse.h"
 #include "complex"
 #include "../utils/utils.h"
+#include <string>
 
 template<typename T, typename S>
-void specGen(parVector<T,S> *vec){
+void specGen(parVector<T,S> *vec, std::string spectrum){
 
 	S    size;
 	size = vec->GetGlobalSize();
 	T    val;
 	double    rx, ry, r;
 
-/*
+   if (spectrum.compare(" ") == 0){
+      if(vec->GetVecMap()->GetRank() == 0){
+         printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
+      }
 
-	for(S i=0; i < size; i++){
-		val.real((i+1)*10);
-		val.imag(10+i*10);
-		vec->SetValueGlobal(i, val);
-	}
-*/
+      for(S i=0; i < size; i++){
+         val.real(i*10+1);
+         val.imag(i*10+1);
+         vec->SetValueGlobal(i, val);
+      }
+   }
+   else{
 
-	vec->ReadExtVec();
-//	vec->VecView();
+      vec->ReadExtVec(spectrum);
+
+      //vec->VecView();
+   }
 
 
 }

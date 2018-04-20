@@ -25,6 +25,7 @@ TEST_TOL = 0.00001
 DEGREE = 2
 SIZE = 10
 LBANDWIDTH = 3
+SPECTRUM = -sptr vector.txt
 #LOG_VIEW = -log_view
 
 include ${PETSC_DIR}/lib/petsc/conf/variables
@@ -54,7 +55,7 @@ exec: powerInverse.o
 	-@echo "========================================="
 
 runa:
-	-@${MPIEXEC} -np ${MPI_NODES} ./powerInverse.exe ${LOG_VIEW} ${EPS_MONITOR} -eps_power_shift_type ${SHIFT_TYPE} -st_type ${ST_TYPE} -exact_value ${TEST_VALUE} -test_tol ${TEST_TOL} -degree ${DEGREE} -n ${SIZE} -l ${LBANDWIDTH}
+	-@${MPIEXEC} -np ${MPI_NODES} ./powerInverse.exe ${LOG_VIEW} ${EPS_MONITOR} -eps_power_shift_type ${SHIFT_TYPE} -st_type ${ST_TYPE} -exact_value ${TEST_VALUE} -test_tol ${TEST_TOL} -degree ${DEGREE} -n ${SIZE} -l ${LBANDWIDTH} ${SPECTRUM}
 
 
 

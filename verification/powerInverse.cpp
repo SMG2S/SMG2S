@@ -17,6 +17,7 @@
 */
 
 #include "powerInverse.h"
+#include "string"
 
 
 static const char help[] = "Solve Non-Hermitian eigenvalues problem by Power Iterative method, options array_in_received_buffer\n\
@@ -45,6 +46,13 @@ int main(int argc, char **argv){
 	PetscInt  degree, n,lbandwidth;
 	PetscInt sizex, sizey;
 
+
+    std::string spec;
+    PetscBool sptr_flg;
+
+	char	spectrum[PETSC_MAX_PATH_LEN]=" ";
+
+
     // Get the number of processes
     int world_size;
 
@@ -61,6 +69,8 @@ int main(int argc, char **argv){
     ierr = PetscOptionsGetReal(NULL, PETSC_NULL, "-test_tol", &test_tol, &tol_flg);
     ierr = PetscOptionsGetInt(NULL, PETSC_NULL, "-degree", &degree, &degree_flg);
     ierr = PetscOptionsGetInt(NULL, PETSC_NULL, "-l", &lbandwidth, &l_flg);
+        ierr = PetscOptionsGetString(NULL,NULL,"-sptr",spectrum,sizeof(spectrum),&sptr_flg);
+
 
 
 	if(!n_flg){
@@ -80,6 +90,7 @@ int main(int argc, char **argv){
         PetscPrintf(PETSC_COMM_WORLD, " @>Remainder: Not set the tolerance for validation, use the defaut value tol =  %.2e ...\n",test_tol);
 	}
 
+    spec.assign(spectrum);
 
 #if defined (PETSC_USE_COMPLEX)
 
@@ -91,7 +102,7 @@ int main(int argc, char **argv){
 
     parMatrixSparse<std::complex<double>,int> *Mt;
     
-    Mt =  smg2s<std::complex<double>,int> (n, nilp,lbandwidth);
+    Mt =  smg2s<std::complex<double>,int> (n, nilp,lbandwidth, spec);
 
     if(world_rank == 0){
         printf ( "------------------------------------\n" );

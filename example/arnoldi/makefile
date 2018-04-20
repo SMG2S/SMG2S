@@ -15,9 +15,9 @@ ARNOLDI_MONITOR = -eps_monitor_conv
 ARNOLDI_NCV = 100
 LOG_VIEW = -log_view
 DEGREE = 2
-N = 1000
+N = 100
 L = 3
-
+SPECTRUM = -sptr vector.txt
 
 include ${PETSC_DIR}/lib/petsc/conf/variables
 include ${PETSC_DIR}/lib/petsc/conf/rules
@@ -48,5 +48,7 @@ exec: arnoldi_example.o
 #-ksp_monitor_true_residual -eps_monitor
 
 runa:
-	-@${MPIEXEC} -np ${MPI_NODES} ./slepcbench.exe -eps_ncv ${ARNOLDI_NCV} -eps_type arnoldi -eps_true_residual -eps_largest_imaginary -eps_nev ${ARNOLDI_NBEIGEN} -eps_tol ${ARNOLDI_PRECISION} ${ARNOLDI_MONITOR} -eps_max_it 50 -degree ${DEGREE} -n ${N} -l ${L} -log_view 
+	-@${MPIEXEC} -np ${MPI_NODES} ./slepcbench.exe -eps_ncv ${ARNOLDI_NCV} -eps_type arnoldi -eps_true_residual -eps_largest_imaginary -eps_nev ${ARNOLDI_NBEIGEN} -eps_tol ${ARNOLDI_PRECISION} ${ARNOLDI_MONITOR} -eps_max_it 50 -degree ${DEGREE} -n ${N} -l ${L} -log_view ${SPECTRUM}
+
+
 

@@ -13,14 +13,13 @@ GMRES_RESTART=200
 KSP_MONITOR=-ksp_monitor_true_residual
 RTOL=1e-100
 DIVTOL=1e1000
-MAX_ITE=20000
+MAX_ITE=200
 PC=none
 ATOL=1e-10
-MAT=utm300_300x300.dat
 DEGREE = 2
-N = 1000
+N = 100
 L = 3
-
+SPECTRUM = -sptr vector.txt
 
 include ${PETSC_DIR}/lib/petsc/conf/variables
 include ${PETSC_DIR}/lib/petsc/conf/rules
@@ -51,5 +50,5 @@ exec: gmres_example.o
 
 runa:
 	-@${MPIEXEC} -np ${MPI_NODES} ./gmres.exe -ksp_gmres_restart ${GMRES_RESTART} ${KSP_MONITOR} -ksp_rtol ${RTOL} \
-		-ksp_divtol ${DIVTOL} -ksp_max_it ${MAX_ITE} -pc_type ${PC} -ksp_atol ${ATOL} -degree ${DEGREE} -n ${N} -l ${L} -log_view 
+		-ksp_divtol ${DIVTOL} -ksp_max_it ${MAX_ITE} -pc_type ${PC} -ksp_atol ${ATOL} -degree ${DEGREE} -n ${N} -l ${L} ${SPECTRUM} -log_view 
 

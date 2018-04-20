@@ -24,6 +24,7 @@
 #include "specGen.h"
 #include <math.h>
 #include <complex.h>
+#include <string>
 
 #ifdef __APPLE__
 #include <sys/malloc.h>
@@ -32,7 +33,7 @@
 #endif
 
 template<typename T, typename S>
-parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
+parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum){
 
 	int world_size;
 	int world_rank;
@@ -62,13 +63,13 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
 //    printf("Proc. %d   Lower bound = %d   Upper bound = %d \n",world_rank, lower_b , upper_b );
 
 
-	parVector<T,S> *vec = new parVector<T,S>(MPI_COMM_WORLD, lower_b, upper_b);
+	  parVector<T,S> *vec = new parVector<T,S>(MPI_COMM_WORLD, lower_b, upper_b);
     parVector<T,S> *prod = new parVector<T,S>(MPI_COMM_WORLD, lower_b, upper_b);
 
     MPI_Barrier(MPI_COMM_WORLD);
 
     //generate vec containing the given spectra
-    specGen<T,S>(vec);
+    specGen<T,S>(vec, spectrum);
 
     //vec->VecView();
 
@@ -79,8 +80,6 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth){
     parMatrixSparse<T,S> *AM = new parMatrixSparse<T,S>(vec,prod);
 
     parMatrixSparse<T,S> *matAop = new parMatrixSparse<T,S>(vec,prod);
-
-    if(world_rank == 0){printf("Matrix Initialized\n");}
 
     MPI_Barrier(MPI_COMM_WORLD);
 

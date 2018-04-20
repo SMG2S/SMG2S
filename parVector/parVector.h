@@ -72,7 +72,7 @@ class parVector{
 		void VecAdd(parVector *v);
 		void VecScale(T scale);
 		T    VecDot(parVector *v);
-		void ReadExtVec();
+		void ReadExtVec(std::string spectrum);
                 void VecView();
 
 		void RestoreArray(){};
@@ -281,19 +281,19 @@ void parVector<T,S>::VecView()
 	}
 }
 template<typename T, typename S>
-void parVector<T,S>::ReadExtVec()
+void parVector<T,S>::ReadExtVec(std::string spectrum)
 {
-	std::ifstream file("vector.txt");
+	std::ifstream file(spectrum);
 	std::string line;
 
 	S lower_bound = GetLowerBound();
 	S upper_bound = GetUpperBound();
 
 	S val1;
+
 #if defined(__USE_COMPLEX__)
 	double val2, val3;
 	T val;
-
 
 	while (std::getline(file,line)) {
 		val1 = 0; 

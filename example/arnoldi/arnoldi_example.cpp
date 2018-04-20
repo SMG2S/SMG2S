@@ -17,7 +17,7 @@
 */
 
 #include "arnoldi_example.h"
-
+#include "string"
 
 static const char help[] = "Solve Non-Hermitian eigenvalues problem by Arnoldi, options array_in_received_buffer\n\
 \t-mfile matrix_file (matrix file in PETSc bin format, this is mandatory)\n\
@@ -32,10 +32,13 @@ int main(int argc, char **argv){
 	PetscErrorCode ierr;
 	Mat A;
 	PetscInt degree, n, lbandwidth;
-	PetscBool degree_flg, n_flg, l_flg;	
+	PetscBool degree_flg, n_flg, l_flg, sptr_flg;	
 	PetscInt its, nev, nconv;
 	EPS eps;
 	EPSType type;
+    std::string spec;
+
+	char	spectrum[PETSC_MAX_PATH_LEN]=" ";
 
 	ierr=SlepcInitialize(&argc,&argv,PETSC_NULL,help);CHKERRQ(ierr);
 	PetscPrintf(PETSC_COMM_WORLD,"]> Initializing PETSc/SLEPc\n");
@@ -68,6 +71,7 @@ int main(int argc, char **argv){
 	ierr = PetscOptionsGetInt(NULL, PETSC_NULL, "-n", &n, &n_flg);
     ierr = PetscOptionsGetInt(NULL, PETSC_NULL, "-degree", &degree, &degree_flg);
     ierr = PetscOptionsGetInt(NULL, PETSC_NULL, "-l", &lbandwidth, &l_flg);
+    ierr = PetscOptionsGetString(NULL,NULL,"-sptr",spectrum,sizeof(spectrum),&sptr_flg);
 
     if(!n_flg){
 	  	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Set Matrix dimension to generate... \n");
@@ -86,6 +90,8 @@ int main(int argc, char **argv){
       	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");	
     }
 
+    spec.assign(spectrum);
+
 	Nilpotency<int> nilp;
  	nilp.NilpType1(degree,n);
 
@@ -93,13 +99,13 @@ int main(int argc, char **argv){
 
  	parMatrixSparse<std::complex<double>,int> *Mt;
 
- 	Mt =  smg2s<std::complex<double>,int> (n, nilp,lbandwidth);
+ 	Mt =  smg2s<std::complex<double>,int> (n, nilp,lbandwidth,spec);
 
 #else
 
  	parMatrixSparse<double,int> *Mt;
 
- 	Mt =  smg2s<double,int> (n, nilp,lbandwidth);
+ 	Mt =  smg2s<double,int> (n, nilp,lbandwidth,spec);
 
 #endif
   

@@ -25,8 +25,10 @@ make
 Execution
 
 ```bash
-mpirun -np ${PROCS} ./smg2s.exe -SIZE ${MAT_SIZE} -L ${LOW_BANDWIDTH} -C ${CONTINUOUS_ONES}
+mpirun -np ${PROCS} ./smg2s.exe -SIZE ${MAT_SIZE} -L ${LOW_BANDWIDTH} -C ${CONTINUOUS_ONES} -SPTR ${GIVEN_SPECTRUM_FILE}
 ```
+
+If ${GIVEN_SPECTRUM_FILE} is not given, SMG2S will use the internal eigenvalue generation method to generate a default spectrum.
 
 ### Include files
 
@@ -65,7 +67,7 @@ parMatrixSparse<std::complex<float>,int> *Mt;
 ```
 Generate a new matrix:
 ```cpp
-Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth);
+Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth, spectrum);
 
 ```
 
