@@ -18,7 +18,7 @@
 
 //#include "parVectorMap.cc"
 //#include "../parMatrix/parMatrixSparse.cc"
-#include "src/matgen/smg2s.cc"
+#include "smg2s/smg2s.h"
 #include <math.h>
 #include <complex>
 #include <cstdlib>

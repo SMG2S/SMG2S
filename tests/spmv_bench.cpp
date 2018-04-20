@@ -1,4 +1,4 @@
-#include "../parMatrix/parMatrixSparse.cc"
+#include "../parMatrix/parMatrixSparse.h"
 #include <math.h>
 #include <complex.h>
 #include <string.h>

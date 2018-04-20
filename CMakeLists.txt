@@ -7,9 +7,6 @@ message([STATUS] "Root File is ${SMG2S_SOURCE_DIR}")
 
 list (APPEND CMAKE_MODULE_PATH "${SMG2S_SOURCE_DIR}/cmake-modules")
 
-#SET(CMAKE_C_FLAGS /apps/intel/2017.1/bin/icc)
-#SET(CMAKE_CXX_FLAGS /apps/intel/2017.1/bin/icpc)
-
 # MPI compiler
 find_package(MPI REQUIRED)
 
@@ -55,44 +52,40 @@ else()
      message([FATAL_ERROR] "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")  
 endif()
 
-
-# Add parVec subdirectory
-add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/parVector)
-
-# Add parMat subdirectory
-add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/parMatrix)
-
 # Add utils and config include 
-include_directories(${CMAKE_CURRENT_LIST_DIR}/utils ${CMAKE_CURRENT_LIST_DIR}/config)
-
-# Add src subdirectory
-add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/src/matgen)
+include_directories(${SMG2S_SOURCE_FILE}/utils ${SMG2S_SOURCE_FILE}/config ${SMG2S_SOURCE_FILE}/parVector ${SMG2S_SOURCE_FILE}/parMatrix)
 
 # Generate SMG2S file
 message([STATUS] "We use MPICXX Compiler as ${CMAKE_CXX_COMPILER} to generate
 the the SMG2S executable")
+
 add_executable(smg2s.exe main.cpp)
 
-link_directories(${SMG2S_SOURCE_FILE}/${DIR_PARVEC_SRC} ${SMG2S_SOURCE_FILE}/${DIR_PARMAT_SRC} ${SMG2S_SOURCE_FILE}/${DIR_MATGEN_SRC})
-
-target_link_libraries(smg2s.exe PRIVATE ${MPI_CXX_LIBRARIES} parvec parmat matgen)
+target_link_libraries(smg2s.exe PRIVATE ${MPI_CXX_LIBRARIES})
 
 target_include_directories(smg2s.exe PRIVATE ${MPI_CXX_INCLUDE_PATH})
 
-#option(USE_SHARED_LIBRARY "Need to generate Shared Library?" ON)
+option(INSTALL_TO_USE "Install SMG2S include files?" ON)
 
-#if(USE_SHARED_LIBRARY)
-#message([STATUS] "Generate Shared library smg2s: ${USE_SHARED_LIBRARY}")
-#add_library(smg2s SHARED ${MPI_CXX_LIBRARIES} ${SMG2S_SOURCE_FILE}/${DIR_PARVEC_SRC} ${SMG2S_SOURCE_FILE}/${DIR_PARMAT_SRC} ${SMG2S_SOURCE_FILE}/${DIR_MATGEN_SRC})
-#target_include_directories(smg2s PRIVATE ${MPI_CXX_INCLUDE_PATH} ${CMAKE_CURRENT_LIST_DIR}/utils ${CMAKE_CURRENT_LIST_DIR}/config)
-
-#SET_TARGET_PROPERTIES(smg2s PROPERTIES LINKER_LANGUAGE CXX)
-#endif()
+if(INSTALL_TO_USE)
+message([STATUS] "Copy the SMG2S include files: ${INSTALL_TO_USE}")
+install(TARGETS smg2s.exe DESTINATION bin)
+INSTALL (
+    DIRECTORY ${CMAKE_SOURCE_DIR}/utils ${CMAKE_SOURCE_DIR}/config ${CMAKE_SOURCE_DIR}/smg2s ${CMAKE_SOURCE_DIR}/parMatrix ${CMAKE_SOURCE_DIR}/parVector
+    DESTINATION include)
+endif()
 
 find_package (PETSc REQUIRED)
 
 if(PETSC_FOUND)
 message([STATUS] "PETSC is provided, thus one can use the interface of SMG2S to PETSc.")
+if(INSTALL_TO_USE)
+INSTALL (
+    DIRECTORY ${CMAKE_SOURCE_DIR}/interface/PETSc/
+    DESTINATION include/interface/PETSc
+    FILES_MATCHING PATTERN "*.h*")
+message([STATUS] "PETSc interface file is copied to include/interface/PETSc.")
+endif()
 else()
 message([STATUS] "PETSC is not provided, the interface of SMG2S to PETSc can not be used.")
 endif()

@@ -16,22 +16,35 @@
    along with SMG2S.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef __SMG2S_H__
-#define __SMG2S_H__
+#ifndef __SPECGEN_H__
+#define __SPECGEN_H__
 
 //#include "../parVector/parVector.cc"
-//#include "../../parMatrix/parMatrixSparse.cc"
-#include "specGen.h"
-#include <math.h>
-#include <complex.h>
-
-#ifdef __APPLE__
-#include <sys/malloc.h>
-#else
-#include <malloc.h>
-#endif
+#include "../parMatrix/parMatrixSparse.h"
+#include "complex"
+#include "../utils/utils.h"
 
 template<typename T, typename S>
-parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth);
+void specGen(parVector<T,S> *vec){
+
+	S    size;
+	size = vec->GetGlobalSize();
+	T    val;
+	double    rx, ry, r;
+
+/*
+
+	for(S i=0; i < size; i++){
+		val.real((i+1)*10);
+		val.imag(10+i*10);
+		vec->SetValueGlobal(i, val);
+	}
+*/
+
+	vec->ReadExtVec();
+//	vec->VecView();
+
+
+}
 
 #endif

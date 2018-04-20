@@ -17,10 +17,10 @@
 */
 
 #ifndef __PETSC_INTERFACE_H__
-#define __PETSC_INTERFACE_H_
+#define __PETSC_INTERFACE_H__
 
 #include "petscmat.h"
-#include "../../src/matgen/smg2s.cc"
+#include "../../smg2s/smg2s.h"
 #include <complex>
 #include <map>
 
