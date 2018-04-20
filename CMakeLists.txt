@@ -23,18 +23,38 @@ SET(CMAKE_CXX_COMPILER mpicxx)
 
 message([STATUS] "MPICXX Compiler is ${CMAKE_CXX_COMPILER}")
 
+option(USE_OPENMP "Do we use OpenMP for Compiler?" OFF)
+
 include(CheckCXXCompilerFlag)  
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)  
-CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)  
-if(COMPILER_SUPPORTS_CXX11)  
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-        message([STATUS] "MPICXX Compiler found CXX11 Flags -std=c++11") 
-elseif(COMPILER_SUPPORTS_CXX0X)  
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-        message([STATUS] "MPICXX Compiler found CXX11 Flags -std=c++0x") 
-else()  
+CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X) 
+
+if(USE_OPENMP AND COMPILER_SUPPORTS_CXX11)
+    message([STATUS] "USE OpenMP: ${USE_OPENMP} and CXX 11 Flags -std=c++11")
+    find_package(OpenMP REQUIRED)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ${OpenMP_CXX_FLAGS}")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+
+elseif(USE_OPENMP AND COMPILER_SUPPORTS_CXX0X)
+    message([STATUS] "USE OpenMP: ${USE_OPENMP} and CXX 11 Flags -std=c++0x")
+    find_package(OpenMP REQUIRED)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x ${OpenMP_CXX_FLAGS}")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+
+elseif(COMPILER_SUPPORTS_CXX11)
+    message([STATUS] "DO NOT use OpenMP, and CXX 11 Flags -std=c++11 is found") 
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
+
+elseif(COMPILER_SUPPORTS_CXX0X)
+    message([STATUS] "DO NOT use OpenMP, and CXX 11 Flags -std=c++0x is found") 
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
+
+else()
      message([FATAL_ERROR] "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")  
-endif() 
+endif()
+
 
 # Add parVec subdirectory
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/parVector)
@@ -59,15 +79,16 @@ target_link_libraries(smg2s.exe PRIVATE ${MPI_CXX_LIBRARIES} parvec parmat matge
 
 target_include_directories(smg2s.exe PRIVATE ${MPI_CXX_INCLUDE_PATH})
 
-option(USE_SHARED_LIBRARY "Do we use OpenMP for Compiler?" ON)
+#option(USE_SHARED_LIBRARY "Need to generate Shared Library?" ON)
 
-if(USE_SHARED_LIBRARY)
-message([STATUS] "Generate Shared library smg2s: ${USE_SHARED_LIBRARY}")
-add_library(smg2s SHARED ${MPI_CXX_LIBRARIES} ${SMG2S_SOURCE_FILE}/${DIR_PARVEC_SRC} ${SMG2S_SOURCE_FILE}/${DIR_PARMAT_SRC} ${SMG2S_SOURCE_FILE}/${DIR_MATGEN_SRC})
-target_include_directories(smg2s PRIVATE ${MPI_CXX_INCLUDE_PATH} ${CMAKE_CURRENT_LIST_DIR}/utils ${CMAKE_CURRENT_LIST_DIR}/config)
+#if(USE_SHARED_LIBRARY)
+#message([STATUS] "Generate Shared library smg2s: ${USE_SHARED_LIBRARY}")
+#add_library(smg2s SHARED ${MPI_CXX_LIBRARIES} ${SMG2S_SOURCE_FILE}/${DIR_PARVEC_SRC} ${SMG2S_SOURCE_FILE}/${DIR_PARMAT_SRC} ${SMG2S_SOURCE_FILE}/${DIR_MATGEN_SRC})
+#target_include_directories(smg2s PRIVATE ${MPI_CXX_INCLUDE_PATH} ${CMAKE_CURRENT_LIST_DIR}/utils ${CMAKE_CURRENT_LIST_DIR}/config)
 
-SET_TARGET_PROPERTIES(smg2s PROPERTIES LINKER_LANGUAGE CXX)
-endif()
+#SET_TARGET_PROPERTIES(smg2s PROPERTIES LINKER_LANGUAGE CXX)
+#endif()
+
 find_package (PETSc REQUIRED)
 
 if(PETSC_FOUND)

@@ -135,9 +135,12 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
-        printf ( "------------------------------------\n" );
-                printf ( "---- SMG2S Time is %f seconds --------\n", time );
-                printf ( "------------------------------------\n" );
+            printf ( "----------------------------------------------------\n" );
+            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+                            printf ( "----------------------------------------------------\n" );
+
+                printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+                printf ( "----------------------------------------------------\n" );
     }
 
 #elif defined (__USE_COMPLEX__) && defined(__USE_64BIT__)
@@ -214,9 +217,13 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
-        printf ( "------------------------------------\n" );
-                printf ( "---- SMG2S Time is %f seconds --------\n", time );
-                printf ( "------------------------------------\n" );
+
+        	printf ( "----------------------------------------------------\n" );
+	        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+                            printf ( "----------------------------------------------------\n" );
+
+                printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+                printf ( "----------------------------------------------------\n" );
     }
 
    // Mt->LOC_MatView();

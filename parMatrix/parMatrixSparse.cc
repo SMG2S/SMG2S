@@ -574,7 +574,7 @@ void parMatrixSparse<T,S>::SetDiagonal(parVector<T,S> *diag)
 		lbound = diag->GetLowerBound();
 		ubound = diag->GetUpperBound();
 
-		std::cout << "local size  = " << local_size << "  lower bound = " << lbound << "  upper bound = " << ubound << std::endl;
+		//std::cout << "local size  = " << local_size << "  lower bound = " << lbound << "  upper bound = " << ubound << std::endl;
 		for(S i = 0; i < local_size; i++){
 			SetValueLocal(i,diag->Loc2Glob(i),a[i]);
 		}
@@ -600,7 +600,7 @@ void parMatrixSparse<T,S>::Loc_SetDiagonal(parVector<T,S> *diag)
 		lbound = diag->GetLowerBound();
 		ubound = diag->GetUpperBound();
 
-		std::cout << "local size  = " << local_size << "  lower bound = " << lbound << "  upper bound = " << ubound << std::endl;
+		//std::cout << "local size  = " << local_size << "  lower bound = " << lbound << "  upper bound = " << ubound << std::endl;
 		for(S i = 0; i < local_size; i++){
 			Loc_SetValueLocal(i,diag->Loc2Glob(i),a[i]);
 		}
@@ -1468,6 +1468,7 @@ void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	//use the given nilpotency matrix, MA operation will make elements of matrix right move diaPosition-1 offset.
 	//And the positions of 0: pos = nbOne*integer - 1
 
+#ifndef _OPENMP
 	for(i = 0; i < nrows; i++){
 		if(dynmat_loc == NULL) {
 			return;
@@ -1484,32 +1485,29 @@ void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 			}
 		}
 	}
+
+#else
+
+	if(dynmat_loc == NULL) {
+		return;
+	}
+	else if (dynmat_loc != NULL && prod->dynmat_loc == NULL){
+		prod->dynmat_loc = new std::map<S,T> [nrows];
+	}
+#pragma omp parallel for
+	for(i = 0; i < nrows; i++){
+		for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+			j = it->first + nilp.diagPosition - 1;
+			k = (j+1)%(nilp.nbOne + 1);
+			if(j < ncols && k != 0){
+				prod->dynmat_loc[i][j] = it->second;
+			}
+		}
+	}
+#endif
+
 }
 
-template<typename T,typename S>
-void parMatrixSparse<T,S>::AM_SetUpDataTypes(Nilpotency<S> nilp){
-	
-	if(nilp.setup == true && y_index_map->GetGlobalSize() == nilp.matrix_size){
-		if(ProcID == 0){
-			std::cout << "INFO ]>: Nilpotent matrix diagPostion = " << nilp.diagPosition << std::endl;
-			std::cout << "INFO ]>: Nilpotent matrix nbOne = " << nilp.nbOne << std::endl;
-			std::cout << "INFO ]>: Nilpotent matrix size = " << nilp.matrix_size << std::endl;
-			std::cout << "INFO ]>: Nilpotent matrix setup = " << nilp.setup << std::endl;
-		}
-	}
-	else if(nilp.setup == false){
-		if(ProcID == 0){
-			std::cout << "ERROR ]>: Nilpotent Matrix is not setup." << std::endl;
-		}
-		return;
-	}
-	else if(y_index_map->GetGlobalSize() != nilp.matrix_size){
-		if(ProcID == 0){
-			std::cout << "ERROR ]>: Nilpotent Matrix dimension do not equal to given matrix size." << std::endl;
-		}
-		return;
-	}
-}
 //special nilpotent matrix multiple another matrix
 template<typename T,typename S>
 void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
