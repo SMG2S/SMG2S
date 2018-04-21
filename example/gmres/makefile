@@ -13,8 +13,8 @@ GMRES_RESTART=200
 KSP_MONITOR=-ksp_monitor_true_residual
 RTOL=1e-100
 DIVTOL=1e1000
-MAX_ITE=200
-PC=none
+MAX_ITE=2000
+PC=sor
 ATOL=1e-10
 DEGREE = 2
 N = 100
@@ -49,6 +49,6 @@ exec: gmres_example.o
 #-ksp_monitor_true_residual -eps_monitor
 
 runa:
-	-@${MPIEXEC} -np ${MPI_NODES} ./gmres.exe -ksp_gmres_restart ${GMRES_RESTART} ${KSP_MONITOR} -ksp_rtol ${RTOL} \
+	-@${MPIEXEC} -np ${MPI_NODES} ./gmres.exe -ksp_compute_eigenvalues -ksp_gmres_restart ${GMRES_RESTART} ${KSP_MONITOR} -ksp_rtol ${RTOL} \
 		-ksp_divtol ${DIVTOL} -ksp_max_it ${MAX_ITE} -pc_type ${PC} -ksp_atol ${ATOL} -degree ${DEGREE} -n ${N} -l ${L} ${SPECTRUM} -log_view 
 
