@@ -1,11 +1,11 @@
 # SMG2S
 Sparse Matrix Generator with Given Spectrum
 
-===============================================================================
-
+-------------------------------------------------------------------------------
 
 Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http://www.maisondelasimulation.fr), France.
 
+![Matrix Generation Pattern](figure/matgen.png)
 
 ## Installation
 
@@ -110,8 +110,6 @@ More information: [PETSc GMRES example](https://github.com/brunowu/SMG2S/tree/ma
 
 Coming soon.
 
-
-![Matrix Generation Pattern](figure/matgen.png)
 
 ## Verification
 
