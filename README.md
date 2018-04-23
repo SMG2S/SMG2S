@@ -71,6 +71,26 @@ Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth, spectrum);
 
 ```
 
+### Given Spectra file in pseudo-Matrix Market Vector Format
+
+#### Complex values
+For the complex values, the given spectrum is stored in three columns, the first column is the coordinates, the second column is the real part of complex values, and the third column is the imaginary part of complex values.
+
+    %%MatrixMarket matrix coordinate real general
+    3 3 3
+    1 10 6.5154
+    2 10.6288 3.4790
+    3 10.7621 5.0540
+
+#### Real Values
+For the real values, the given spectrum is stored in two columns, the first column is the coordinates, the second column is related values.
+
+    %%MatrixMarket matrix coordinate real general
+    3 3
+    1 10
+    2 10.6288    
+    3 10.7621
+
 ## Interface
 The cmake will check if PETSc is installed in the platfrom, if yes, header file to interface will also be copied to ${INSTALL_DIRECTORY}/include when installing SMG2S.
 

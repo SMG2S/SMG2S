@@ -44,9 +44,9 @@ p1.scatter(xr,yr, marker='+', c='r',label='Computed Eigenvalues',s=30);
 
 p1.set_xlabel('Real Axis', size='15')
 p1.set_ylabel('Imaginary Axis', size='15')
-
+p1.tick_params(axis='y', labelsize=11.,which='both')
 p1.legend(loc='upper right', prop={'size':10},ncol=1,frameon=True)
-p1.set_ylim(0,11)
+p1.set_ylim(-0.12,0.12)
 
 
 plt.savefig("vector1.eps",dpi=500)

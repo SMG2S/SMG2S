@@ -46,7 +46,7 @@ p1.set_xlabel('Real Axis', size='15')
 p1.set_ylabel('Imaginary Axis', size='15')
 
 p1.legend(loc='upper right', prop={'size':10},ncol=1,frameon=True)
-p1.set_ylim(0,11)
+p1.set_ylim(-11,11)
 
 
 plt.savefig("vector1.eps",dpi=500)
