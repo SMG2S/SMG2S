@@ -76,7 +76,7 @@ Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth, spectrum);
 #### Complex values
 For the complex values, the given spectrum is stored in three columns, the first column is the coordinates, the second column is the real part of complex values, and the third column is the imaginary part of complex values.
 
-    %%MatrixMarket matrix coordinate real general
+    %%MatrixMarket matrix coordinate complex general
     3 3 3
     1 10 6.5154
     2 10.6288 3.4790
