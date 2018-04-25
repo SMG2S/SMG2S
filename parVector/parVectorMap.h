@@ -33,9 +33,11 @@
 template<typename S>
 class parVectorMap
 {
+
 	private:
 		MPI_Comm  comm;
 		int	  nproc;
+
 		int	  rank;
 
 		S	  lower_bound;
@@ -52,7 +54,6 @@ class parVectorMap
 		std::map<S,S> glob2loc;
 
 		int users;
-
 
 	public:
 		//constructor
@@ -73,11 +74,13 @@ class parVectorMap
 		S GetGlobalSize(){return global_size;};
 		S GetLocTotSize(){return loctot_size;};
 
+
 		//Active usrs
 
 		int AddUser(){users++; return users;};
 		int DeleteUser(){users--;return users;};
 		int GetUser(){return users;};
+		
 };
 
 

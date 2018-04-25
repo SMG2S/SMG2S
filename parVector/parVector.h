@@ -67,7 +67,6 @@ class parVector{
 
 		void SetTovalue(T value);
 		void SetToZero();
-		void SetRandomValues(T min, T max);
 		
 		void VecAdd(parVector *v);
 		void VecScale(T scale);
@@ -227,13 +226,7 @@ void parVector<T,S>::SetToZero()
 	SetTovalue(val);
 }
 
-template<typename T,typename S>
-void parVector<T,S>::SetRandomValues(T min, T max)
-{
-        for(S i= 0; i < array_size; i++) {
-                array[i] = random_unint(min, max);
-        }
-}
+
 
 
 template<typename T, typename S>
@@ -325,7 +318,6 @@ void parVector<T,S>::ReadExtVec(std::string spectrum)
 
 	while (std::getline(file,line)) {
 		val1 = 0; 
-		val2 = 0.0;
 		std::stringstream linestream ( line ) ; 
 		linestream >> val1 >> val;
 		if (val1!= 0&&val != 0.0) 

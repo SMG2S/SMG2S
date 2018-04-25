@@ -34,11 +34,14 @@
 //#include "../utils/utils.h"
 #include "MatrixCSR.h"
 
+#ifdef __USE_COMPLEX__
 #include <complex>
+#endif
 
 template<typename T, typename S>
 class parMatrixSparse
 {
+
 	private:
 		std::map<S, T> *dynmat_lloc, *dynmat_gloc;
 
@@ -67,10 +70,11 @@ class parMatrixSparse
 
 		MatrixCSR<T,S> *CSR_lloc, *CSR_gloc, *CSR_loc;
 
-
 		std::map<S, T> *dynmat_loc;
+
 		//constructor
 		parMatrixSparse();
+
 		parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec);
 		//deconstructor
 		~parMatrixSparse();
@@ -144,6 +148,7 @@ class parMatrixSparse
 		T		Loc_GetLocalValue(S row, S col);
 		T		Loc_GetValue(S row, S col);
 
+
 		//set mat diagonal by vector given 
 		void	SetDiagonal(parVector<T,S> *diag);
 
@@ -168,14 +173,10 @@ class parMatrixSparse
 		//Loc AYPX
 		void    Loc_MatAYPX(parMatrixSparse<T,S> *X, T scale);
 
-
-		void 	CSRMatView();
-
 		//Reader
 		void	ReadExtMat();
 
 		//Writer
-		void	WriteExtMat();
 
 		// convert from dyn to csr
 		void	ConvertToCSR();
@@ -189,6 +190,7 @@ class parMatrixSparse
 		// Loc: Zeros all entries with keeping the previous matrix pattern
 		void	Loc_ZeroEntries();
 
+
 		void	FindColsToRecv();
 
 		void	SetupDataTypes();
@@ -198,9 +200,6 @@ class parMatrixSparse
 		//spmv
 		void	CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec);
 
-		void	ELL_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec);
-		//spgmm
-		void	MatMatProd(parVector<T,S> *XVec, parVector<T,S> *YVec, parVector<T,S> *ZVec);
 		
 		//matrix multiple a special nilpotent matrix
 		void	MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod);
@@ -208,7 +207,9 @@ class parMatrixSparse
 		//special nilpotent matrix multiple another matrix
 		void	AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod);
 
+
 };
+
 
 template<typename T, typename S>
 parMatrixSparse<T,S>::parMatrixSparse()
@@ -237,8 +238,8 @@ parMatrixSparse<T,S>::parMatrixSparse()
 	x_index_map = NULL;
 	y_index_map = NULL;
 
-	MPI_Comm_rank(MPI_COMM_WORLD, &ProcID);
-	MPI_Comm_size(MPI_COMM_WORLD, &nProcs);
+//	MPI_Comm_rank(MPI_COMM_WORLD, &ProcID);
+//	MPI_Comm_size(MPI_COMM_WORLD, &nProcs);
 
 	VNumRecv = NULL;
 	VNumSend = NULL;
@@ -380,6 +381,7 @@ parMatrixSparse<T,S>::~parMatrixSparse()
 		delete [] DTypeSend;
 	}
 }
+
 
 template<typename T, typename S>
 S parMatrixSparse<T,S>::GetXLowerBound(){
@@ -937,10 +939,7 @@ void parMatrixSparse<T,S>::ReadExtMat()
 	if(ProcID == 0) printf("The matrix is readed !!!!\n");
 }
 
-template<typename T,typename S>
-void parMatrixSparse<T,S>::WriteExtMat(){
 
-}
 
 
 template<typename T,typename S>
@@ -1182,6 +1181,7 @@ void parMatrixSparse<T,S>::TestCommunication(parVector<T,S> *XVec, parVector<T,S
 	}
 }
 
+
 template<typename T,typename S>
 void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec){
 	S	i,j,k,l;
@@ -1251,11 +1251,7 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 
 	MPI_Waitall(nProcs-1, Rreqs, Rstat);
 
-/*
-	for (i = 0; i < glength; i++){
-		printf("rBuf[%d] = %f\n", i, rBuf[i]);
-	}
-*/
+
 	//calculate local-global product
 	if(CSR_gloc != NULL){
 		for(i = 0; i < nrows; i++){

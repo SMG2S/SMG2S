@@ -18,6 +18,6 @@
 #	-st_type sinvert -exact_value 14.4167+5.3509i -test_tol 0.00001 -degree 8
 
 
-srun -n 16 ./a.out -SIZE 400000 -L 10 -C 8
+srun -n 16 ./smg2s.exe -SIZE 400000 -L 10 -C 8
 
 

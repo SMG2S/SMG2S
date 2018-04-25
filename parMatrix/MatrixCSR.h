@@ -38,9 +38,9 @@ struct MatrixCSR
 	MatrixCSR()
 	{
 		nnz = 0;
-		rows = NULL;
-		cols = NULL; 
-		vals = NULL;
+//		rows = NULL;
+//		cols = NULL; 
+//		vals = NULL;
 	};
 
 	MatrixCSR(S nnz_in, S nrows_in)
@@ -97,8 +97,8 @@ struct MatrixCSR
 	void InsertValue(S row, S col, T val)
 	{
 		S currCol, prevCol;
-		typename std::vector<S>::iterator it;
-		typename std::vector<T>::iterator itv;
+		typename std::vector<S>::iterator it=cols.begin();
+		typename std::vector<T>::iterator itv=vals.begin();
 
 		for(S pos = rows[row - 1] - 1; pos < rows[row] - 1; ++pos){
 			currCol = cols[pos];
@@ -106,8 +106,10 @@ struct MatrixCSR
 			if (currCol == col){
 				SetValue(row, col, val);
 			} else if((currCol > col) && (prevCol < col)){
-				it = currCol;
-				itv = currCol;
+//				it = currCol;
+//				itv = currCol;		
+				std::advance(it,currCol);
+				std::advance(itv,currCol);
 				cols.insert(it,col);
 				vals.insert(itv, val);
 				nnz++;
@@ -147,9 +149,9 @@ struct MatrixCSR
 			std::vector<T>().swap(vals);
 			
 			nnz = 0;
-			rows = NULL;
-			cols = NULL;
-			vals = NULL;
+//			rows = NULL;
+//			cols = NULL;
+//			vals = NULL;
 		}
 	};
 
