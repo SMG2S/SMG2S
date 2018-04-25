@@ -137,7 +137,7 @@ int main(int argc, char **argv){
 	/*Create the KSP context and setup*/
 
 	ierr = KSPCreate(PETSC_COMM_WORLD,&ksp);CHKERRQ(ierr);	
-	ierr = KSPSetType(ksp, KSPTFQMR );CHKERRQ(ierr);	
+	//ierr = KSPSetType(ksp, KSPTFQMR);CHKERRQ(ierr);	
 	ierr = KSPSetOperators(ksp,A,A);CHKERRQ(ierr);	
 	ierr = KSPSetFromOptions(ksp);CHKERRQ(ierr);	
 	ierr = KSPSetUp(ksp);CHKERRQ(ierr);	
