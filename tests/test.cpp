@@ -61,7 +61,6 @@ int main(int argc, char** argv) {
     parVector<double,int> *prod = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
     parVector<double,int> *prod2 = new parVector<double,int>(MPI_COMM_WORLD, lower_b, upper_b);
 
-
     vec->SetTovalue(a); //1.0,1.0...1.0
 
     prod->SetTovalue(0.0);

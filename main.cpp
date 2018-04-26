@@ -232,7 +232,7 @@ int main(int argc, char** argv) {
                 printf ( "----------------------------------------------------\n" );
     }
 
-   // Mt->LOC_MatView();
+//    Mt->LOC_MatView();
 
 #elif defined (__USE_64BIT__)
 //real single long int

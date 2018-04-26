@@ -126,6 +126,54 @@ A = ConvertToPETSCMat(Mt);
 
 More information: [PETSc GMRES example](https://github.com/brunowu/SMG2S/tree/master/example/gmres) and [PETSc Arnoldi example](https://github.com/brunowu/SMG2S/tree/master/example/arnoldi)
 
+### Interface to Python
+Generate the shared library and install the python module of smg2s
+```bash
+cd ./interface/python
+mpicxx -fpic -c smg2s_wrap.cxx  -I/apps/python/3/include/python3.5m -std=c++0x
+mpicxx -shared smg2s_wrap.o -o _smg2s.so
+python setup.py install
+```
+
+Before the utilisation, make sure that [mpi4py](http://mpi4py.scipy.org/docs/) installed.
+
+A little example of usge:
+```python
+from mpi4py import MPI
+import smg2s
+import sys
+
+size = MPI.COMM_WORLD.Get_size()
+rank = MPI.COMM_WORLD.Get_rank()
+name = MPI.Get_processor_name()
+
+sys.stdout.write(
+    "Hello, World! I am process %d of %d on %s.\n"
+    % (rank, size, name))
+
+if rank == 0:
+        print ('INFO ]> Starting ...')
+        print("INFO ]> The MPI Comm World Size is %d" %size)
+
+#bandwidth for the lower band of initial matrix
+lbandwidth = 3
+
+#create the nilpotent matrix
+nilp = smg2s.NilpotencyInt()
+
+#setup the nilpotent matrix: 2 = continous 1 nb, 10 = matrix size
+nilp.NilpType1(2,10)
+
+if rank == 0:
+        print("Nilptency matrix continuous one nb = %d" %nilp.nbOne)
+
+Mt = smg2s.parMatrixSparseDoubleInt()
+
+#Generate Mt by SMG2S
+#vector.txt is the file that stores the given spectral distribution in local filesystem.
+Mt=smg2s.smg2sDoubleInt(10,nilp,lbandwidth,"vector.txt") 
+```
+
 ### Interface to Trilinos and other libraries
 
 Coming soon.
