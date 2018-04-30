@@ -19,11 +19,16 @@
 #ifndef __C_WRAPPER_H__
 #define __C_WRAPPER_H__
 
+#include "../../config/config.h"
+
 struct NilpotencyInt;
 
 struct parVectorMapInt;
 
 struct parMatrixSparseDoubleInt;
+
+struct parMatrixSparseComplexDoubleInt;
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -40,15 +45,24 @@ void showNilpotencyInt(struct NilpotencyInt *n);
 /*parVectorMap C wrapper*/
 struct parVectorMapInt *newparVectorMapInt(void);
 
-/*parMatrixSparse C wrapper*/
+#if defined (__USE_COMPLEX__)
+/*parMatrixSparse complex<double> int C wrapper*/
+struct parMatrixSparseComplexDoubleInt *newParMatrixSparseComplexDoubleInt(void);
+void ReleaseParMatrixSparseComplexDoubleInt(struct parMatrixSparseComplexDoubleInt **ppInstance);
+void LOC_MatViewComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m);
+/*SMG2S C wrapper*/
+void smg2sComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum);
+
+#else
+/*parMatrixSparse double int C wrapper*/
 struct parMatrixSparseDoubleInt *newParMatrixSparseDoubleInt(void);
 void ReleaseParMatrixSparseDoubleInt(struct parMatrixSparseDoubleInt **ppInstance);
-
-extern void LOC_MatView(struct parMatrixSparseDoubleInt *n);
+void LOC_MatViewDoubleInt(struct parMatrixSparseDoubleInt *m);
 
 /*SMG2S C wrapper*/
-//extern parMatrixSparse<double,int> *smg2s(int probSize, NilpotencyInt nilp, int lbandwidth, " "){
-void smg2s(struct parMatrixSparseDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum);
+void smg2sDoubleInt(struct parMatrixSparseDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum);
+
+#endif
 
 #ifdef __cplusplus
 };

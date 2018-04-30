@@ -60,7 +60,26 @@ struct parVectorMapInt{
   parVectorMap<int> parMatrixMap;
 };
 
-/*parMatrixSparse C wrapper*/
+#if defined (__USE_COMPLEX__)
+/*parMatrixSparse complex<double> int C wrapper*/
+struct parMatrixSparseComplexDoubleInt{
+  parMatrixSparse<std::complex<double>,int> parMatrix;
+};
+struct parMatrixSparseComplexDoubleInt *newParMatrixSparseComplexDoubleInt(void){
+  return new struct parMatrixSparseComplexDoubleInt;
+}
+void ReleaseParMatrixSparseComplexDoubleInt(struct parMatrixSparseComplexDoubleInt **ppInstance){
+  delete *ppInstance;
+  *ppInstance = 0;
+}
+extern void LOC_MatViewComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m){
+  m->parMatrix.LOC_MatView();
+}
+void smg2sComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum){
+  m->parMatrix = *smg2s<std::complex<double>,int>(probSize, nilp->nilp, lbandwidth,spectrum);
+}
+#else
+/*parMatrixSparse double int C wrapper*/
 struct parMatrixSparseDoubleInt{
   parMatrixSparse<double,int> parMatrix;
 };
@@ -74,13 +93,14 @@ void ReleaseParMatrixSparseDoubleInt(struct parMatrixSparseDoubleInt **ppInstanc
   *ppInstance = 0;
 }
 
-void LOC_MatView(struct parMatrixSparseDoubleInt *m){
+void LOC_MatViewDoubleInt(struct parMatrixSparseDoubleInt *m){
   m->parMatrix.LOC_MatView();
 }
-
-void smg2s(struct parMatrixSparseDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum){
+void smg2sDoubleInt(struct parMatrixSparseDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum){
   m->parMatrix = *smg2s<double,int>(probSize, nilp->nilp, lbandwidth,spectrum);
 }
+#endif
+
 #ifdef __cplusplus
 };
 #endif

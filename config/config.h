@@ -3,7 +3,7 @@
    Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
         Date: 2018-04-20
    Copyright (C) 2018-     Xinzhe WU
-   
+
    SMG2S is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published
    by the Free Software Foundation, either version 3 of the License, or
@@ -23,9 +23,9 @@
 #define DEBUG 0
 #endif
 
-//#define __USE_COMPLEX__ 
+#define __USE_COMPLEX__ 
 
-#define __USE_DOUBLE__ 
+#define __USE_DOUBLE__
 
 //#define __USE_64BIT__
 

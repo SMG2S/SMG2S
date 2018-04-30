@@ -86,8 +86,8 @@ class parMatrixSparse
 		S	GetXLowerBound();
 		S	GetYLowerBound();
 
-	  S   GetXUpperBound();
-    S   GetYUpperBound();
+	    S   GetXUpperBound();
+        S   GetYUpperBound();
 
 		void	GetTrueLocalSize(S &rs, S &cs){
 			rs = nrows;

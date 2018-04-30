@@ -16,13 +16,30 @@ int main(int argc, char* argv[]) {
 	if(rank == 0){
 		showNilpotencyInt(n);
 	}
+	#if defined (__USE_COMPLEX__)
+
+	struct parMatrixSparseComplexDoubleInt *m;
+	m = newParMatrixSparseComplexDoubleInt();
+	smg2sComplexDoubleInt(m, 10, n, 3 ," ");
+	LOC_MatViewComplexDoubleInt(m);
+
+	ReleaseParMatrixSparseComplexDoubleInt(&m);
+
+	#else
+
 	struct parMatrixSparseDoubleInt *m;
 	m = newParMatrixSparseDoubleInt();
-	smg2s(m, 10, n, 3 ," ");
-	LOC_MatView(m);
+	smg2sDoubleInt(m, 10, n, 3 ," ");
+	LOC_MatViewDoubleInt(m);
+
+	ReleaseParMatrixSparseDoubleInt(&m);
+
+	#endif
+
+
 
 	ReleaseNilpotencyInt(&n);
-	ReleaseParMatrixSparseDoubleInt(&m);
+
 	MPI_Finalize();
 	return 0;
 }

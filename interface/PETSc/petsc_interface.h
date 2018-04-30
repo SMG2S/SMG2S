@@ -3,7 +3,7 @@
    Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
         Date: 2018-04-20
    Copyright (C) 2018-     Xinzhe WU
-   
+
    SMG2S is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published
    by the Free Software Foundation, either version 3 of the License, or
@@ -52,8 +52,6 @@
 		m = (PetscInt)g;
 		n = (PetscInt)m;
 
-		//printf("Proc: %d, m = %d, n = %d\n", rank, m, n);
-
 		int count = 0;
 		int count2 = 0;
 
@@ -66,10 +64,7 @@
 				count2++;
 			}
 		}
-
-//			printf("Proc: %d, c = %d, d = %d\n",rank, c, d);
-
-
+		
 		PetscMalloc1((PetscInt)count, &i);
 		PetscMalloc1((PetscInt)count2, &j);
 		PetscMalloc1((PetscInt)count2, &a);
@@ -159,7 +154,7 @@
 #elif defined (PETSC_USE_REAL_SINGLE) && defined (PETSC_USE_64BIT_INDICES)
 //real long int single
 
-#elif defined (PETSC_USE_REAL_DOUBLE) 
+#elif defined (PETSC_USE_REAL_DOUBLE)
 
 	Mat ConvertToPETSCMat(parMatrixSparse<double, int > *M){
 

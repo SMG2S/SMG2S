@@ -3,7 +3,7 @@
    Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
         Date: 2018-04-20
    Copyright (C) 2018-     Xinzhe WU
-   
+
    SMG2S is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published
    by the Free Software Foundation, either version 3 of the License, or
@@ -15,7 +15,7 @@
    You should have received a copy of the GNU Lesser General Public License
    along with SMG2S.  If not, see <http://www.gnu.org/licenses/>.
 
-   Part of basic data structures' implementation of this file refers to this technical report 
+   Part of basic data structures' implementation of this file refers to this technical report
    (http://orbit.dtu.dk/files/51272329/tr12_10_Alexandersen_Lazarov_Dammann_1.pdf)
 */
 
@@ -23,9 +23,9 @@
 #define __PAR_VECTOR_H__
 
 #include <mpi.h> // Input/output
-#include <iostream> 
-#include <fstream> 
-#include <sstream> 
+#include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
 
 #include "parVectorMap.h"
@@ -56,7 +56,7 @@ class parVector{
 
 		S Loc2Glob(S local_index);
 		S Glob2Loc(S global_index);
-		
+
 		void AddValueLocal(S row, T value);
 		void AddValuesLocal(S nindex, S *rows, T *values);
 
@@ -67,7 +67,7 @@ class parVector{
 
 		void SetTovalue(T value);
 		void SetToZero();
-		
+
 		void VecAdd(parVector *v);
 		void VecScale(T scale);
 		T    VecDot(parVector *v);
@@ -237,7 +237,7 @@ void parVector<T,S>::VecAdd(parVector<T,S> *v)
 		for(S i = 0; i < array_size; i++){
 			array[i] = array[i] + v->array[i];
 		}
-	}	
+	}
 }
 
 template<typename T, typename S>
@@ -289,14 +289,14 @@ void parVector<T,S>::ReadExtVec(std::string spectrum)
 	T val;
 
 	while (std::getline(file,line)) {
-		val1 = 0; 
+		val1 = 0;
 		val2 = 0.0;
-		std::stringstream linestream ( line ) ; 
+		std::stringstream linestream ( line ) ;
 		linestream >> val1 >> val2 >> val3;
-		if (val1!= 0&&val2!= 0.0&&val3!= 0.0) 
+		if (val1!= 0&&val2!= 0.0&&val3!= 0.0)
 		{
 			break ;
-		} 
+		}
 	}
 
 	while(std::getline(file, line))
@@ -317,13 +317,13 @@ void parVector<T,S>::ReadExtVec(std::string spectrum)
 	T val;
 
 	while (std::getline(file,line)) {
-		val1 = 0; 
-		std::stringstream linestream ( line ) ; 
+		val1 = 0;
+		std::stringstream linestream ( line ) ;
 		linestream >> val1 >> val;
-		if (val1!= 0&&val != 0.0) 
+		if (val1!= 0&&val != 0.0)
 		{
 			break ;
-		} 
+		}
 	}
 
 
@@ -340,7 +340,7 @@ void parVector<T,S>::ReadExtVec(std::string spectrum)
 		}
 
 	}
-#endif	
+#endif
 }
 
 
