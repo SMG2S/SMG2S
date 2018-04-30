@@ -3,7 +3,7 @@
    Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
         Date: 2018-04-20
    Copyright (C) 2018-     Xinzhe WU
-   
+
    SMG2S is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published
    by the Free Software Foundation, either version 3 of the License, or
@@ -15,7 +15,7 @@
    You should have received a copy of the GNU Lesser General Public License
    along with SMG2S.  If not, see <http://www.gnu.org/licenses/>.
 
-   Part of basic data structures' implementation of this file refers to this technical report 
+   Part of basic data structures' implementation of this file refers to this technical report
    (http://orbit.dtu.dk/files/51272329/tr12_10_Alexandersen_Lazarov_Dammann_1.pdf)
 */
 
@@ -23,11 +23,11 @@
 #ifndef __PAR_MATRIX_SPARSE_H__
 #define __PAR_MATRIX_SPARSE_H__
 
-#include <mpi.h> 
-#include <iostream> 
-#include <fstream> 
-#include <sstream> 
-#include <string> 
+#include <mpi.h>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 #include <vector>
 #include "../utils/MPI_DataType.h"
 #include "../parVector/parVector.h"
@@ -47,25 +47,25 @@ class parMatrixSparse
 
 		//size of local matrix
 		S	ncols, nrows;
-				
+
 		S	nnz_lloc, nnz_gloc, nnz_loc;
-		
+
 		parVectorMap<S>	*x_index_map;
 		parVectorMap<S>	*y_index_map;
 
 		S	njloc;
 		S	lower_x, lower_y, upper_x, upper_y;
 
-		// mpi size and rank 
+		// mpi size and rank
 		int ProcID, nProcs;
-		
+
 		// pointers and buffers for setting up communications
 		S	*VNumRecv, *VNumSend;
 		S	maxRecv, maxSend;
 		S	**Rbuffer, **Sbuffer;
 
 		MPI_Datatype *DTypeRecv , *DTypeSend ;
-			
+
 	public:
 
 		MatrixCSR<T,S> *CSR_lloc, *CSR_gloc, *CSR_loc;
@@ -86,9 +86,9 @@ class parMatrixSparse
 		S	GetXLowerBound();
 		S	GetYLowerBound();
 
-	    S   GetXUpperBound();
-        S   GetYUpperBound();
-		
+	  S   GetXUpperBound();
+    S   GetYUpperBound();
+
 		void	GetTrueLocalSize(S &rs, S &cs){
 			rs = nrows;
 			cs = njloc;
@@ -149,15 +149,15 @@ class parMatrixSparse
 		T		Loc_GetValue(S row, S col);
 
 
-		//set mat diagonal by vector given 
+		//set mat diagonal by vector given
 		void	SetDiagonal(parVector<T,S> *diag);
 
-		//Loc set mat diagonal by vector given 
+		//Loc set mat diagonal by vector given
 		void	Loc_SetDiagonal(parVector<T,S> *diag);
 
 		//Mat Scala
 		void	MatScale(T scale);
-		
+
 		//AXPY
 		void	MatAXPY(parMatrixSparse<T,S> *X, T scale);
 
@@ -166,7 +166,7 @@ class parMatrixSparse
 
 		//Loc Mat Scala
 		void	Loc_MatScale(T scale);
-		
+
 		//Loc AXPY
 		void	Loc_MatAXPY(parMatrixSparse<T,S> *X, T scale);
 
@@ -200,7 +200,7 @@ class parMatrixSparse
 		//spmv
 		void	CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *YVec);
 
-		
+
 		//matrix multiple a special nilpotent matrix
 		void	MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod);
 
@@ -218,7 +218,7 @@ parMatrixSparse<T,S>::parMatrixSparse()
 	dynmat_gloc = NULL;
 	dynmat_loc  = NULL;
 
-	CSR_lloc = NULL; 
+	CSR_lloc = NULL;
 	CSR_gloc = NULL;
 	CSR_loc = NULL;
 
@@ -259,7 +259,7 @@ parMatrixSparse<T,S>::parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec
 	CSR_lloc = NULL;
 	CSR_gloc = NULL;
     CSR_loc = NULL;
-	
+
 	nnz_lloc = 0;
 	nnz_gloc = 0;
 	nnz_loc  = 0;
@@ -293,7 +293,7 @@ parMatrixSparse<T,S>::parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec
 	x_index_map->AddUser();
 	y_index_map = YVec->GetVecMap();
 	y_index_map->AddUser();
-	
+
 	if(x_index_map != NULL && y_index_map != NULL){
 		//get num of rows and cols in this mpi procs
 		ncols = x_index_map->GetGlobalSize();
@@ -313,7 +313,7 @@ parMatrixSparse<T,S>::~parMatrixSparse()
 	//if index map is defined
 	if(x_index_map != NULL){
 		x_index_map->DeleteUser();
-		
+
 //		if(x_index_map->GetUser() == 0){
 			delete x_index_map;
 //		}
@@ -461,7 +461,7 @@ template<typename T,typename S>
 T parMatrixSparse<T,S>::GetLocalValue(S row, S col)
 {
 	if((row < nrows && row >= 0) && (col < upper_x && col >= lower_x && col >= 0)){
-		return dynmat_lloc[row][col]; 
+		return dynmat_lloc[row][col];
 	}
 	else if ((row < nrows && row >= 0) && (col >= upper_x || col < lower_x) && (col >= 0)){
 		return dynmat_gloc[row][col];
@@ -473,7 +473,7 @@ template<typename T,typename S>
 void parMatrixSparse<T,S>::AddValuesLocal(S nindex, S *rows, S *cols, T *values)
 {
 	typename std::map<S,T>::iterator it;
-	
+
 	for( S i = 0; i < nindex; i++){
 		AddValueLocal(rows[i],cols[i],values[i]);
 	}
@@ -529,7 +529,7 @@ template<typename T,typename S>
 void parMatrixSparse<T,S>::SetValuesLocal( S nindex, S *rows, S *cols, T *values)
 {
 	typename std::map<S,T>::iterator it;
-	
+
 	for( S i = 0; i < nindex; i++){
 		SetValueLocal(rows[i],cols[i],values[i]);
 	}
@@ -558,7 +558,7 @@ T parMatrixSparse<T,S>::GetValue(S row, S col)
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::glocPlusLloc(){
-	
+
 	S i,j;
 	T v;
 	typename std::map<S,T>::iterator it;
@@ -603,7 +603,7 @@ void parMatrixSparse<T,S>::llocToGlocLoc()
 			dynmat_gloc = new std::map<S,T> [nrows];
 		}
 
-		for(S i = 0; i < nrows; i++){		
+		for(S i = 0; i < nrows; i++){
 			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
 				col = it->first;
 				if(col < upper_x && col >= lower_x && col >= 0){
@@ -619,7 +619,7 @@ void parMatrixSparse<T,S>::llocToGlocLoc()
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::MatView(){
-	
+
 	S i, j;
 	T v;
 	typename std::map<S,T>::iterator it;
@@ -633,7 +633,7 @@ void parMatrixSparse<T,S>::MatView(){
 		if((dynmat_gloc != NULL) && (dynmat_lloc != NULL)){
 			merge.insert(dynmat_lloc[i].begin(),dynmat_lloc[i].end());
 			merge.insert(dynmat_gloc[i].begin(),dynmat_gloc[i].end());
-	
+
 			for(it = merge.begin(); it != merge.end(); ++it){
 				std::cout <<"("<<it->first << "," << it->second << "); ";
 			}
@@ -656,7 +656,7 @@ void parMatrixSparse<T,S>::MatView(){
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::LOC_MatView(){
-	
+
 	S i;
 	T v;
 	typename std::map<S,T>::iterator it;
@@ -700,14 +700,14 @@ void parMatrixSparse<T,S>::Loc_SetValueLocal( S row, S col, T value)
 	}
 	else{
 		it->second = value;
-	}	
+	}
 }
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::Loc_SetValuesLocal( S nindex, S *rows, S *cols, T *values)
 {
 	typename std::map<S,T>::iterator it;
-	
+
 	for( S i = 0; i < nindex; i++){
 		Loc_SetValueLocal(rows[i],cols[i],values[i]);
 	}
@@ -729,7 +729,7 @@ template<typename T,typename S>
 T parMatrixSparse<T,S>::Loc_GetLocalValue(S row, S col)
 {
 	if(dynmat_loc != NULL){
-		return dynmat_loc[row][col]; 
+		return dynmat_loc[row][col];
 	}
 	else return 0.0;
 }
@@ -804,7 +804,7 @@ void parMatrixSparse<T,S>::ConvertToCSR()
 	S 	count, i, j;
 	T	v;
 	typename std::map<S,T>::iterator it;
-	
+
 	if(dynmat_lloc != NULL){
 		//allocate csr matrix
 
@@ -860,7 +860,7 @@ void parMatrixSparse<T,S>::Loc_ConvertToCSR()
 	S 	count, i, j;
 	T	v;
 	typename std::map<S,T>::iterator it;
-	
+
 	if(dynmat_loc != NULL){
 		//allocate csr matrix
 
@@ -925,7 +925,7 @@ void parMatrixSparse<T,S>::ReadExtMat()
 			break;
 		}
 	}
-		
+
 	//read values and add them to matrix
 	while(std::getline(file,line)){
 		std::stringstream linestream(line);
@@ -1006,7 +1006,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	count = 0;
 	maxRecv = 0;
 	maxSend = 0;
-	
+
 
 	for(i = 0; i < nProcs; i++){
 		if(VNumRecv[i] >maxRecv){
@@ -1018,7 +1018,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 			count++;
 		}
 	}
-	
+
 	//wait for receives to finish
 	MPI_Waitall(nProcs-1,Rreqs,Rstat);
 
@@ -1033,7 +1033,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	//Initialisation of send and receive buffers
 	Rbuffer = new int * [nProcs];
 	Sbuffer = new int * [nProcs];
-	
+
 	for(i = 0; i < nProcs; i++){
 		Rbuffer[i] = NULL;
 	}
@@ -1041,10 +1041,10 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 		Sbuffer[i] = NULL;
 	}
 
-	//MPI NON-BLOCKING 
+	//MPI NON-BLOCKING
 	count = 0;
 	count1 = 0;
-	
+
 	for(i = 0; i < nProcs; i++){
 		count = 0;
 		if(ProcID != i){
@@ -1065,7 +1065,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	}
 
 	count1 = 0;
-	
+
 	for(i = 0; i < nProcs; i++){
 		if(ProcID != i){
 			Rbuffer[i] = new S [VNumSend[i]];
@@ -1073,7 +1073,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 		}
 		else{
 			Rbuffer[i] = new S [1];
-			Rbuffer[i][0] = 0;	
+			Rbuffer[i][0] = 0;
 		}
 	}
 
@@ -1081,7 +1081,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	MPI_Waitall(nProcs-1, Rreqs, Rstat);
 
 	printf ("Found the cols to recv\n");
-	delete [] Rreqs;	
+	delete [] Rreqs;
 	delete [] Sreqs;
 	delete [] Rstat;
 	delete [] Sstat;
@@ -1124,7 +1124,7 @@ void parMatrixSparse<T,S>::SetupDataTypes()
         MPI_Type_commit(&DTypeRecv[i]);
 	}
 
-	printf("Setup data types finished\n");	
+	printf("Setup data types finished\n");
 
 	delete [] blength;
 	delete [] displac;
@@ -1137,7 +1137,7 @@ void parMatrixSparse<T,S>::TestCommunication(parVector<T,S> *XVec, parVector<T,S
 	S	sender, receiver;
 	sender = 0;
 	receiver = 1;
-	
+
 	MPI_Status Rstat;
 
 	T	*rBuf, *sBuf;
@@ -1147,9 +1147,9 @@ void parMatrixSparse<T,S>::TestCommunication(parVector<T,S> *XVec, parVector<T,S
 
 	rBuf = new T [l];
 	for(i = 0; i < l; i++){
-		rBuf[i] = 0;	
+		rBuf[i] = 0;
 	}
-	
+
 	sBuf = XVec->GetArray();
 
 	if(ProcID == sender){
@@ -1242,10 +1242,10 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 			for(k = CSR_lloc->rows[i]; k < CSR_lloc->rows[i+1]; k++){
 				j = x_index_map->Glob2Loc(CSR_lloc->cols[k]);
 				v += CSR_lloc->vals[k]*sBuf[j];
-			}	
+			}
 			YVec->AddValueLocal(i,v);
 //				printf("v[%d] = %f\n", i,v);
-			
+
 		}
 	}
 
@@ -1261,10 +1261,10 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 				v += CSR_gloc->vals[k]*rBuf[j];
 //				printf("CSR_gloc->cols[%d] = %d\n", k, CSR_gloc->cols[k]);
 //				printf("i = %d, v = %f\n",i, v);
-			}	
+			}
 			YVec->AddValueLocal(i,v);
 //				printf("vv[%d] = %f\n", i, v);
-			
+
 		}
 	}
 
@@ -1281,7 +1281,7 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
                         	for(k = CSR_lloc->rows[i]; k < CSR_lloc->rows[i+1]; k++){
                                 	j = x_index_map->Glob2Loc(CSR_lloc->cols[k]);
                                 	v += CSR_lloc->vals[k]*sBuf[j];
-                         
+
                         	}
 				YVec->AddValueLocal(i,v);
                 	}
@@ -1299,7 +1299,7 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 	#pragma omp parallel default (shared) private (i,j,k)
         {
 	if(CSR_gloc != NULL){
-        #pragma omp for schedule(static) 
+        #pragma omp for schedule(static)
 	#pragma vector aligned
 	        for(i = 0; i < nrows; i++){
 			v = 0;
@@ -1307,12 +1307,12 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
                         for(k = CSR_gloc->rows[i]; k < CSR_gloc->rows[i+1];k++){
                                 j = CSR_gloc->cols[k];
                                 v += CSR_gloc->vals[k]*rBuf[j];
-                	}        
+                	}
 		        YVec->AddValueLocal(i,v);
-                        
+
                 }
         }
-	
+
 	}
 
 #endif
@@ -1322,7 +1322,7 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 	delete [] Sreqs;
 	delete [] Rstat;
 	delete [] Sstat;
-}	
+}
 
 
 template<typename T,typename S>
@@ -1660,7 +1660,7 @@ void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		if(dynmat_loc != NULL && prod->dynmat_loc == NULL){
 			prod->dynmat_loc = new std::map<S,T> [nrows];
 		}
-		
+
 		for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
 			j = it->first + nilp.diagPosition - 1;
 			k = (j+1)%(nilp.nbOne + 1);
@@ -1715,7 +1715,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	count = 0;
 	count1 = 0;
 
-	up = ProcID - 1; 
+	up = ProcID - 1;
 	down =ProcID + 1;
 	S size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
 
@@ -1745,7 +1745,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	if(ProcID != nProcs - 1){
 		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, MPI_COMM_WORLD, &rtypereq);
 	}
-	
+
 	if(ProcID != nProcs - 1){
 		MPI_Wait(&rtypereq,&typestat);
 	}
@@ -1753,7 +1753,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	Rtag = 0; Stag = 1;
 
 	//MPI non-blocking requests and status
-	
+
 	Rreqs = new MPI_Request [nilp.diagPosition - 1];
 	Sreqs = new MPI_Request [nilp.diagPosition - 1];
 	Rstat = new MPI_Status [nilp.diagPosition - 1];
@@ -1777,16 +1777,16 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		q = y_index_map->Loc2Glob(i);
 
 		k = (q + 1)%(nilp.nbOne + 1);
-		
+
 		for(it = dynmat_loc[p].begin(); it != dynmat_loc[p].end(); ++it){
-			
+
 			j = it->first;
 
 			if(i >= 0 && i < nrows && k != 0){
 				prod->dynmat_loc[i][j] = it->second;
 			}
 		}
-		
+
 	}
 
 	MPI_Datatype MPI_SCALAR = MPI_Scalar<T>();
@@ -1816,7 +1816,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 				recvflag = false;
 			}
 		}
-		
+
 		if(ProcID != 0){
 			if(sendflg == true){
 				sBuf  = new double [2*size[b]];
@@ -1846,8 +1846,8 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 				for(S tt =0; tt < rsize[b]; tt++){
 					rIndx[tt] = 0;
 				}
-				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);	
-				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], MPI_COMM_WORLD, &idxRreqs[b]);	
+				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);
+				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], MPI_COMM_WORLD, &idxRreqs[b]);
 				MPI_Wait(&Rreqs[b],&Rstat[b]);
 				MPI_Wait(&idxRreqs[b],&idxRstat[b]);
 			}
@@ -1888,7 +1888,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 				recvflag = false;
 			}
 		}
-		
+
 		if(ProcID != 0){
 			if(sendflg == true){
 				sBuf  = new float [2*size[b]];
@@ -1918,11 +1918,11 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 					rIndx[tt] = 0;
 				}
 
-				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);	
+				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);
 				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], MPI_COMM_WORLD, &idxRreqs[b]);
 				MPI_Wait(&Rreqs[b],&Rstat[b]);
 				MPI_Wait(&idxRreqs[b],&idxRstat[b]);
-			}	
+			}
 
 		}
 
@@ -1933,7 +1933,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).imag(rBuf[2*tt + 1]);
 				}
 			}
-		
+
 		}
 
 	}
@@ -1962,7 +1962,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 				recvflag = false;
 			}
 		}
-		
+
 		if(ProcID != 0){
 			if(sendflg == true){
 				sBuf  = new T [size[b]];
@@ -1973,7 +1973,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 					cnt++;
 			    }
 			    MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], MPI_COMM_WORLD, &Sreqs[b]);
-			    MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], MPI_COMM_WORLD, &idxSreqs[b]);    
+			    MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], MPI_COMM_WORLD, &idxSreqs[b]);
 			}
 		}
 
@@ -1985,11 +1985,11 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 					rBuf[tt] = 0.0;
 					rIndx[tt] = 0;
 				}
-				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);	
+				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);
 				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], MPI_COMM_WORLD, &idxRreqs[b]);
 				MPI_Wait(&Rreqs[b],&Rstat[b]);
 				MPI_Wait(&idxRreqs[b],&idxRstat[b]);
-			}	
+			}
 		}
 
 		if(ProcID != nProcs - 1){
@@ -1998,13 +1998,13 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
 				}
 			}
-		
+
 		}
 
 	}
 
 #endif
-	
+
 }
 
 

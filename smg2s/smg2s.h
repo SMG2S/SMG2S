@@ -3,7 +3,7 @@
    Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
         Date: 2018-04-20
    Copyright (C) 2018-     Xinzhe WU
-   
+
    SMG2S is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published
    by the Free Software Foundation, either version 3 of the License, or
@@ -57,8 +57,6 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 		upper_b = (world_rank + 1) * span - 1 + 1;
     }
 
-
-
 	  parVector<T,S> *vec = new parVector<T,S>(MPI_COMM_WORLD, lower_b, upper_b);
     parVector<T,S> *prod = new parVector<T,S>(MPI_COMM_WORLD, lower_b, upper_b);
 
@@ -87,18 +85,15 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
         for(S j = i - lbandwidth; j < i; j++){
             if(j >= 0){
             	rnd = 0.00001*random<T,S>(0,10);
-//		rnd = 0.00001*(i+j);
-            	//if(world_rank == 0) printf("rnd = %f\n", rnd);
-                Am->Loc_SetValue(i,j,rnd);   
-                matAop->Loc_SetValue(i,j,rnd);   
-
+              Am->Loc_SetValue(i,j,rnd);
+              matAop->Loc_SetValue(i,j,rnd);
             }
         }
     }
 
     Am->Loc_SetDiagonal(vec);
     matAop->Loc_SetDiagonal(vec);
-  
+
     end = MPI_Wtime();
 
     double t2 = end - start;
@@ -111,7 +106,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     my_factorielle_bornes = factorial(1,2*nilp.nbOne);
 
-    
+
     Am->Loc_MatScale((T)my_factorielle_bornes);
     double in;
 
@@ -126,7 +121,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
     	MA->Loc_ZeroEntries();
     	AM->Loc_ZeroEntries();
     }
-    
+
 	my_factorielle_bornes = factorial(1,2*(nilp.nbOne));
 
 #ifdef __USE_DOUBLE__

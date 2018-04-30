@@ -18,11 +18,14 @@
 
 #include "c_wrapper.h"
 #include "../../utils/utils.h"
+#include "../../parMatrix/parMatrixSparse.h"
+#include "../../smg2s/smg2s.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+/*Nilpotency Matrix C Wrapper*/
 struct NilpotencyInt{
   Nilpotency<int> nilp;
 };
@@ -52,6 +55,32 @@ void showNilpotencyInt(struct NilpotencyInt *n){
   printf("        nilpotency = %d\n",n->nilp.nilpotency);
 }
 
+/*parVectorMap C wrapper*/
+struct parVectorMapInt{
+  parVectorMap<int> parMatrixMap;
+};
+
+/*parMatrixSparse C wrapper*/
+struct parMatrixSparseDoubleInt{
+  parMatrixSparse<double,int> parMatrix;
+};
+
+struct parMatrixSparseDoubleInt *newParMatrixSparseDoubleInt(void){
+  return new struct parMatrixSparseDoubleInt;
+}
+
+void ReleaseParMatrixSparseDoubleInt(struct parMatrixSparseDoubleInt **ppInstance){
+  delete *ppInstance;
+  *ppInstance = 0;
+}
+
+void LOC_MatView(struct parMatrixSparseDoubleInt *m){
+  m->parMatrix.LOC_MatView();
+}
+
+void smg2s(struct parMatrixSparseDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum){
+  m->parMatrix = *smg2s<double,int>(probSize, nilp->nilp, lbandwidth,spectrum);
+}
 #ifdef __cplusplus
 };
 #endif

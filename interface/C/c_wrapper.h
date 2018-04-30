@@ -21,6 +21,10 @@
 
 struct NilpotencyInt;
 
+struct parVectorMapInt;
+
+struct parMatrixSparseDoubleInt;
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -33,6 +37,18 @@ extern void NilpType1(struct NilpotencyInt *n, int num, int size);
 extern void NilpType2(struct NilpotencyInt *n, int num, int size);
 void showNilpotencyInt(struct NilpotencyInt *n);
 
+/*parVectorMap C wrapper*/
+struct parVectorMapInt *newparVectorMapInt(void);
+
+/*parMatrixSparse C wrapper*/
+struct parMatrixSparseDoubleInt *newParMatrixSparseDoubleInt(void);
+void ReleaseParMatrixSparseDoubleInt(struct parMatrixSparseDoubleInt **ppInstance);
+
+extern void LOC_MatView(struct parMatrixSparseDoubleInt *n);
+
+/*SMG2S C wrapper*/
+//extern parMatrixSparse<double,int> *smg2s(int probSize, NilpotencyInt nilp, int lbandwidth, " "){
+void smg2s(struct parMatrixSparseDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum);
 
 #ifdef __cplusplus
 };
