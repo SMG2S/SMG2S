@@ -196,17 +196,27 @@ int main(int argc, char* argv[]) {
 	MPI_Comm_size(MPI_COMM_WORLD, &size);
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
+  /*create Nilpotency object*/
 	struct NilpotencyInt *n;
+  /*create Instance*/
 	n = newNilpotencyInt();
+  /*setup Nilpotency object*/
 	NilpType1(n, 2, 10);
 	if(rank == 0){
 		showNilpotencyInt(n);
 	}
+
+  /*Create parMatrixSparse Object*/
 	struct parMatrixSparseDoubleInt *m;
+  /*create Instance*/
 	m = newParMatrixSparseDoubleInt();
+  /*Generate by SMG2S*/
 	smg2s(m, 10, n, 3 ," ");
+  /*Matrix View*/
 	LOC_MatView(m);
 
+  /*Release Nilpotency Object
+  Release parMatrixSparse Object*/
 	ReleaseNilpotencyInt(&n);
 	ReleaseParMatrixSparseDoubleInt(&m);
 
@@ -214,6 +224,7 @@ int main(int argc, char* argv[]) {
 	return 0;
 }
 ```
+
 ### Interface to Trilinos and other libraries
 
 Coming soon.
