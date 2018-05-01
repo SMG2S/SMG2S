@@ -50,6 +50,13 @@ struct parVectorMapInt *newparVectorMapInt(void);
 struct parMatrixSparseComplexDoubleInt *newParMatrixSparseComplexDoubleInt(void);
 void ReleaseParMatrixSparseComplexDoubleInt(struct parMatrixSparseComplexDoubleInt **ppInstance);
 void LOC_MatViewComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m);
+void GetLocalSizeComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int *rs, int *cs);
+void Loc_ConvertToCSRComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m);
+void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexDoubleInt *m, int *size, int *size2);
+void Loc_CSRGetRowsArrays(struct parMatrixSparseComplexDoubleInt *m, int size, int **rows, int size2, int **cols, double **real, double **imag);
+
+void Loc_CSRGetColsArray(struct parMatrixSparseComplexDoubleInt *m, int **cols, int *size);
+
 /*SMG2S C wrapper*/
 void smg2sComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum);
 
@@ -58,7 +65,8 @@ void smg2sComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int probSi
 struct parMatrixSparseDoubleInt *newParMatrixSparseDoubleInt(void);
 void ReleaseParMatrixSparseDoubleInt(struct parMatrixSparseDoubleInt **ppInstance);
 void LOC_MatViewDoubleInt(struct parMatrixSparseDoubleInt *m);
-
+void GetLocalSizeDoubleInt(struct parMatrixSparseDoubleInt *m, int *rs, int *cs);
+void Loc_ConvertToCSRDoubleInt(struct parMatrixSparseDoubleInt *m);
 /*SMG2S C wrapper*/
 void smg2sDoubleInt(struct parMatrixSparseDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum);
 

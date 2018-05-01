@@ -1,4 +1,4 @@
-ALL: blib exec 
+ALL: blib exec2
 
 #compilation and various flags
 DIRS    = 
@@ -29,13 +29,12 @@ distclean :
 	-@echo "Finised cleaning application and libraries"
 	-@echo "========================================="	
 
-exec: petsc_test.o
+exec2: c_test.o
 	-@echo "BEGINNING TO COMPILE APPLICATION "
 	-@echo "========================================="
-	-@${CLINKER} -o ${EXEC} petsc_test.o ${PETSC_LIB}
+	-@${CLINKER} -o ${EXEC} c_test.o ../C/c_wrapper.o ${PETSC_LIB}
 	-@echo "Completed building application"
 	-@echo "========================================="
-
 #-ksp_monitor_true_residual -eps_monitor
 
 

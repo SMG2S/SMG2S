@@ -75,9 +75,97 @@ void ReleaseParMatrixSparseComplexDoubleInt(struct parMatrixSparseComplexDoubleI
 extern void LOC_MatViewComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m){
   m->parMatrix.LOC_MatView();
 }
+
+void GetLocalSizeComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int *rs, int *cs){
+  int a, b;
+  m->parMatrix.GetLocalSize(a, b);
+  *rs =a; *cs = b;
+}
+
+void Loc_ConvertToCSRComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m){
+  m->parMatrix.Loc_ConvertToCSR();
+}
+
+
+void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexDoubleInt *m, int *size,int *size2){
+  std::vector<int>::iterator it;
+  int count = 0;
+  for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
+      count++;
+  }
+  *size = count;
+
+  std::vector<std::complex<double> >::iterator itm;
+  int count2 = 0;
+  for(itm =  m->parMatrix.CSR_loc->vals.begin(); itm !=  m->parMatrix.CSR_loc->vals.end(); ++itm){
+    if(itm->imag() !=0 || itm->real() != 0){
+      count2++;
+    }
+  }
+
+  *size2 = count2;
+/*
+  *rows = (int *)malloc(count*sizeof(int));
+//  *rows = new int [count];
+  for(int i = 0; i < count; i++){
+//    *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
+    *(*rows+i) = 1;
+
+  }
+
+  *size = count;
+
+  std::vector<std::complex<double> >::iterator itm;
+  int count2 = 0;
+  for(itm =  m->parMatrix.CSR_loc->vals.begin(); itm !=  m->parMatrix.CSR_loc->vals.end(); ++itm){
+    if(itm->imag() !=0 || itm->real() != 0){
+      count2++;
+    }
+  }
+
+
+  *cols = (int *)malloc(count2);
+  *real = (double *)malloc(count2);
+  *imag = (double *)malloc(count2);
+
+  for(int i = 0; i < count2; i++){
+    *(*cols+i) = m->parMatrix.CSR_loc->cols[i];
+    *(*real+i) = m->parMatrix.CSR_loc->vals[i].real();
+    *(*imag+i) = m->parMatrix.CSR_loc->vals[i].imag();
+  }
+*/
+}
+
+void Loc_CSRGetRowsArrays(struct parMatrixSparseComplexDoubleInt *m, int size, int **rows,int size2, int **cols, double **real, double **imag){
+  for(int i = 0; i < size; i++){
+    *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
+  }
+
+  for(int i = 0; i < size2; i++){
+    *(*cols+i) = m->parMatrix.CSR_loc->cols[i];
+    *(*real+i) = m->parMatrix.CSR_loc->vals[i].real();
+    *(*imag+i) = m->parMatrix.CSR_loc->vals[i].imag();
+  }
+}
+
+void Loc_CSRGetColsArray(struct parMatrixSparseComplexDoubleInt *m, int **cols, int *size){
+  std::vector<int>::iterator it;
+  int count = 0;
+  for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
+      count++;
+  }
+
+  *cols = (int *)malloc(count);
+  for(int i = 0; i < count; i++){
+    *(*cols+i) = m->parMatrix.CSR_loc->cols[i];
+  }
+  *size = count;
+}
+
 void smg2sComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum){
   m->parMatrix = *smg2s<std::complex<double>,int>(probSize, nilp->nilp, lbandwidth,spectrum);
 }
+
 #else
 /*parMatrixSparse double int C wrapper*/
 struct parMatrixSparseDoubleInt{
@@ -96,6 +184,17 @@ void ReleaseParMatrixSparseDoubleInt(struct parMatrixSparseDoubleInt **ppInstanc
 void LOC_MatViewDoubleInt(struct parMatrixSparseDoubleInt *m){
   m->parMatrix.LOC_MatView();
 }
+
+void GetLocalSizeDoubleInt(struct parMatrixSparseDoubleInt *m, int *rs, int *cs){
+  int a, b;
+  m->parMatrix.GetLocalSize(a, b);
+  *rs =a; *cs = b;
+}
+
+void Loc_ConvertToCSRDoubleInt(struct parMatrixSparseDoubleInt *m){
+  m->parMatrix.Loc_ConvertToCSR();
+}
+
 void smg2sDoubleInt(struct parMatrixSparseDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum){
   m->parMatrix = *smg2s<double,int>(probSize, nilp->nilp, lbandwidth,spectrum);
 }

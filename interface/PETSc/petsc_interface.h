@@ -52,6 +52,8 @@
 		m = (PetscInt)g;
 		n = (PetscInt)m;
 
+		//printf("Proc: %d, m = %d, n = %d\n", rank, m, n);
+
 		int count = 0;
 		int count2 = 0;
 
@@ -64,7 +66,10 @@
 				count2++;
 			}
 		}
-		
+
+//			printf("Proc: %d, c = %d, d = %d\n",rank, c, d);
+
+
 		PetscMalloc1((PetscInt)count, &i);
 		PetscMalloc1((PetscInt)count2, &j);
 		PetscMalloc1((PetscInt)count2, &a);
@@ -75,8 +80,8 @@
 
 		for(PetscInt q = 0; q < count2; q++){
 			j[q] = M->CSR_loc->cols[q];
-			a[q] = M->CSR_loc->vals[q];
-//			printf("Proc: %d, j[%d] = %d, a[%d] = %f\n", rank, q, j[q],q, M->CSR_loc->vals[q]);
+			a[q] = M->CSR_loc->vals[q].real() + PETSC_i*M->CSR_loc->vals[q].imag();
+//				a[q] = M->CSR_loc->vals[q];
 			}
 
 		MatCreateMPIAIJWithArrays(PETSC_COMM_WORLD, count-1, count-1, PETSC_DETERMINE, PETSC_DETERMINE,  i, j, a, &A);

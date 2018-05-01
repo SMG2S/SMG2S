@@ -1,11 +1,14 @@
-#include "c_wrapper.h"
+#include "../C/c_wrapper.h"
 #include <stdio.h>
 #include <mpi.h>
 #include <stdlib.h>
+#include "petscmat.h"
 
 int main(int argc, char* argv[]) {
 
 	MPI_Init(&argc, &argv);
+
+        PetscInitialize(&argc,&argv,(char *)0,NULL);
 
 	int size,rank;
 	MPI_Comm_size(MPI_COMM_WORLD, &size);
@@ -45,6 +48,31 @@ int main(int argc, char* argv[]) {
 	//Loc_CSRGetColsArray(m, &cols, &size_col);
 	//ReleaseParMatrixSparseComplexDoubleInt(&m);
 
+	PetscInt *i, *j, q;
+        PetscScalar *a;
+
+        Mat A;
+
+        PetscMalloc1((PetscInt)size_row, &i);
+        PetscMalloc1((PetscInt)size_col, &j);
+        PetscMalloc1((PetscScalar)size_col, &a);
+
+
+        for(q =0; q < size_row; q++){
+                i[q] = rows[q];
+//		printf("proc %d, i[%d] = %d\n", rank, q, i[q]);
+        }
+
+        for(q = 0; q < size_col; q++){
+                j[q] = cols[q];
+                a[q] = real[q] + PETSC_i * imag[q];
+//		printf("proc %d, cols[%d] = %d\n", rank, q, cols[q]);
+    //            printf("proc %d, j[%d] = %d, a[%d] = %f+%f \n", rank, q, j[q], q, real[q], imag[q]);
+        }
+
+	MatCreate(PETSC_COMM_WORLD, &A);
+	MatCreateMPIAIJWithArrays(PETSC_COMM_WORLD, size_row-1, size_row-1, PETSC_DETERMINE, PETSC_DETERMINE,  i, j, a, &A);
+
 	#else
 
 	struct parMatrixSparseDoubleInt *m;
@@ -58,6 +86,11 @@ int main(int argc, char* argv[]) {
 	#endif
 	ReleaseNilpotencyInt(&n);
 
+	MatView(A, PETSC_VIEWER_STDOUT_WORLD);
+        PetscFree(A);
+        PetscFinalize();
+
 	MPI_Finalize();
+
 	return 0;
 }

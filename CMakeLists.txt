@@ -65,6 +65,9 @@ target_link_libraries(smg2s.exe PRIVATE ${MPI_CXX_LIBRARIES})
 
 target_include_directories(smg2s.exe PRIVATE ${MPI_CXX_INCLUDE_PATH})
 
+file(GLOB C_WRAPPERS "interface/C/*.cc")
+add_library(smg2s2c SHARED ${C_WRAPPERS})
+
 option(INSTALL_TO_USE "Install SMG2S include files?" ON)
 
 if(INSTALL_TO_USE)
@@ -73,6 +76,8 @@ install(TARGETS smg2s.exe DESTINATION bin)
 INSTALL (
     DIRECTORY ${CMAKE_SOURCE_DIR}/utils ${CMAKE_SOURCE_DIR}/config ${CMAKE_SOURCE_DIR}/smg2s ${CMAKE_SOURCE_DIR}/parMatrix ${CMAKE_SOURCE_DIR}/parVector
     DESTINATION include)
+INSTALL(TARGETS smg2s2c DESTINATION lib)
+
 endif()
 
 find_package (PETSc REQUIRED)
