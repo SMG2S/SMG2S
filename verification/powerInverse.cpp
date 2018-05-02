@@ -3,7 +3,7 @@
    Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
         Date: 2018-04-20
    Copyright (C) 2018-     Xinzhe WU
-   
+
    SMG2S is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published
    by the Free Software Foundation, either version 3 of the License, or
@@ -38,7 +38,7 @@ int main(int argc, char **argv){
 	PetscInt its, nev, nconv;
 	EPSType type;
 	PetscScalar vtest, target, eigr, eigi;
-	PetscBool   vtest_flg, tol_flg, degree_flg, n_flg, l_flg;	
+	PetscBool   vtest_flg, tol_flg, degree_flg, n_flg, l_flg;
 	Vec Ax;
 	Vec xr, xi, eigenvector;
 	PetscReal norm, vnorm, residual;
@@ -77,13 +77,13 @@ int main(int argc, char **argv){
 	  	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Set Matrix dimension to generate... \n");
         PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");
 	  return 0;
-    } 
+    }
 
 	if(!vtest_flg){
 	  	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Please set the exact expacted eigenvalues to test... \n");
       	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");
 	  return 0;
-    } 
+    }
 
 	if(!tol_flg){
 		test_tol = 1e-8;
@@ -95,14 +95,14 @@ int main(int argc, char **argv){
 #if defined (PETSC_USE_COMPLEX)
 
     Nilpotency<int> nilp;
-    
+
     nilp.NilpType1(degree,n);
 
     printf("degree = %d, n = %d\n", degree, n);
 
     parMatrixSparse<std::complex<double>,int> *Mt;
-    
-    Mt =  smg2s<std::complex<double>,int> (n, nilp,lbandwidth, spec);
+
+    Mt =  smg2s<std::complex<double>,int> (n, nilp,lbandwidth, spec, MPI_COMM_WORLD);
 
     if(world_rank == 0){
         printf ( "------------------------------------\n" );
@@ -223,7 +223,7 @@ int main(int argc, char **argv){
 	}else{
         PetscPrintf(PETSC_COMM_WORLD," @> Residual:= %.5e > test_tol %.2e, not validated!!!\n\n", residual, test_tol);
 	}
-	
+
 	/*Clean*/
 	ierr = EPSDestroy(&eps);CHKERRQ(ierr);
 	ierr = VecDestroy(&x);CHKERRQ(ierr);
@@ -236,7 +236,7 @@ int main(int argc, char **argv){
 	PetscPrintf(PETSC_COMM_WORLD,"]> Cleaned structures, finalized ... \n\n");
 
 	/*Finalize SLEPc*/
-	SlepcFinalize(); 
+	SlepcFinalize();
 
 	MPI_Finalize();
 
@@ -250,7 +250,7 @@ PetscErrorCode generateVectorRandom(int size, Vec * v){
 	ierr=PetscPrintf(PETSC_COMM_WORLD,"Generating Vector \n");CHKERRQ(ierr);
 	ierr=generateVector(size,v);CHKERRQ(ierr);
 	ierr=VecSetRandom(*v,PETSC_NULL);CHKERRQ(ierr);
-	PetscPrintf(PETSC_COMM_WORLD,"Generated Random Vector of size : %d\n",size);	
+	PetscPrintf(PETSC_COMM_WORLD,"Generated Random Vector of size : %d\n",size);
 
 	return 0;
 }
@@ -264,7 +264,7 @@ PetscErrorCode generateVectorNorm(int size, Vec * v){
 	ierr=generateVector(size,v);CHKERRQ(ierr);
 	scal=1.0/size;
 	ierr=VecSet(*v,scal);CHKERRQ(ierr);
-	PetscPrintf(PETSC_COMM_WORLD,"Generated Norm Vector of size : %d\n",size);	
+	PetscPrintf(PETSC_COMM_WORLD,"Generated Norm Vector of size : %d\n",size);
 
 	return 0;
 }
@@ -286,11 +286,11 @@ PetscInt factorial(PetscInt low, PetscInt up){
 	PetscInt       fac = 1, size, k;
 
 	size = up -low + 1;
-	
+
 	for(k = 0; k < size; k++){
 		fac = fac * (low + k);
 	}
-	
+
 	return fac;
 
-}	
+}

@@ -52,8 +52,6 @@ void specGen(parVector<T,S> *vec, std::string spectrum){
 
       vec->ReadExtVec(spectrum);
    }
-
-
 }
 
 #endif

@@ -27,21 +27,14 @@ int main(int argc, char* argv[]) {
 
 	struct parMatrixSparseComplexDoubleInt *m;
 	m = newParMatrixSparseComplexDoubleInt();
-	smg2sComplexDoubleInt(m, 10, n, 3 ," ");
+	smg2sComplexDoubleInt(m, 10, n, 3 ," ", MPI_COMM_WORLD);
 	LOC_MatViewComplexDoubleInt(m);
 	GetLocalSizeComplexDoubleInt(m,&rs, &cs);
 	Loc_ConvertToCSRComplexDoubleInt(m);
 	MPI_Barrier(MPI_COMM_WORLD);
 	Loc_CSRGetRowsArraySizes(m, &size_row, &size_col);
 	printf("size 1 = %d, SIZE 2 = %d\n", size_row,size_col);
-	rows = (int *) malloc(size_row*sizeof(int));
-        cols = (int *) malloc(size_col*sizeof(int));
-
-        real = (double *) malloc(size_col*sizeof(double));
-        imag = (double *) malloc(size_col*sizeof(double));
-
-        Loc_CSRGetRowsArrays(m, size_row, &rows, size_col, &cols, &real, &imag);
-	printf("row = %d, cols = %d real = %f, imag = %f\n", rows[0], cols[0], real[0],imag[0]);
+	//Loc_CSRGetRowsArray2(m, size_row, &rows);
 	//Loc_CSRGetColsArray(m, &cols, &size_col);
 	//ReleaseParMatrixSparseComplexDoubleInt(&m);
 

@@ -33,17 +33,17 @@
 #endif
 
 template<typename T, typename S>
-parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum){
+parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum, MPI_Comm comm){
 
 	int world_size;
 	int world_rank;
 
 	double start, end;
 
-	MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+	MPI_Comm_size(comm, &world_size);
 
 	 // Get the rank of the process
-    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+    MPI_Comm_rank(comm, &world_rank);
 
     S span, lower_b, upper_b;
 
@@ -59,10 +59,10 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
 
 
-	  parVector<T,S> *vec = new parVector<T,S>(MPI_COMM_WORLD, lower_b, upper_b);
-    parVector<T,S> *prod = new parVector<T,S>(MPI_COMM_WORLD, lower_b, upper_b);
+	  parVector<T,S> *vec = new parVector<T,S>(comm, lower_b, upper_b);
+    parVector<T,S> *prod = new parVector<T,S>(comm, lower_b, upper_b);
 
-    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(comm);
 
     //generate vec containing the given spectra
     specGen<T,S>(vec, spectrum);
@@ -75,7 +75,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     parMatrixSparse<T,S> *matAop = new parMatrixSparse<T,S>(vec,prod);
 
-    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(comm);
 
     //setup the lower part of initial matrix
 
@@ -102,7 +102,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     if(world_rank == 0) {printf("Initial matrix generation time = %1.6f\n", t2);}
 
-    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(comm);
 
     S my_factorielle_bornes = 1;
 

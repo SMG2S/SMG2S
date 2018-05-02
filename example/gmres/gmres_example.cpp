@@ -3,7 +3,7 @@
    Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
         Date: 2018-04-20
    Copyright (C) 2018-     Xinzhe WU
-   
+
    SMG2S is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published
    by the Free Software Foundation, either version 3 of the License, or
@@ -30,14 +30,14 @@ static const char help[] = "Solve Ax=b using GMRES, options array_in_received_bu
 int main(int argc, char **argv){
 
 	MPI_Init(&argc, &argv);
-	
+
 	PetscErrorCode ierr;
 	Vec x,b;
 	Mat A;
 	KSP ksp;
 	PetscInt degree, n, lbandwidth;
-	PetscBool degree_flg, n_flg, l_flg;	
-    
+	PetscBool degree_flg, n_flg, l_flg;
+
     std::string spec;
     PetscBool sptr_flg;
 
@@ -45,7 +45,7 @@ int main(int argc, char **argv){
 
 	ierr=PetscInitialize(&argc,&argv,PETSC_NULL,help);CHKERRQ(ierr);
 	PetscPrintf(PETSC_COMM_WORLD,"]> Initializing PETSc/SLEPc\n");
-	
+
 	int world_size;
 
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
@@ -60,7 +60,7 @@ int main(int argc, char **argv){
     MPI_Get_processor_name(processor_name, &name_len);
 
     //MPI_Barrier(MPI_COMM_WORLD);
-    
+
     // Print off a hello world message
     printf("Hello world from processor %s, rank %d"
            " out of %d processors\n",
@@ -81,17 +81,17 @@ int main(int argc, char **argv){
 	  	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Set Matrix dimension to generate... \n");
         PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");
 	  return 0;
-    } 
+    }
 
 	if(!degree_flg){
 	  	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Please set the parameter degree to test... \n");
       	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");
 	  return 0;
-    } 
+    }
 
 	if(!l_flg){
 	  	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Please set the parameter lbandwidth to test... \n");
-      	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");	
+      	PetscPrintf(PETSC_COMM_WORLD, "ERROR: Exit with errors ... \n\n");
     }
 
     spec.assign(spectrum);
@@ -103,16 +103,16 @@ int main(int argc, char **argv){
 
  	parMatrixSparse<std::complex<double>,int> *Mt;
 
- 	Mt =  smg2s<std::complex<double>,int> (n, nilp,lbandwidth,spec);
+ 	Mt =  smg2s<std::complex<double>,int> (n, nilp,lbandwidth,spec,MPI_COMM_WORLD);
 
 #else
 
  	parMatrixSparse<double,int> *Mt;
 
- 	Mt =  smg2s<double,int> (n, nilp,lbandwidth,spec);
+ 	Mt =  smg2s<double,int> (n, nilp,lbandwidth,spec,MPI_COMM_WORLD);
 
 #endif
-  
+
     Mt->LOC_MatView();
 
     Mt->Loc_ConvertToCSR();
@@ -136,11 +136,11 @@ int main(int argc, char **argv){
 
 	/*Create the KSP context and setup*/
 
-	ierr = KSPCreate(PETSC_COMM_WORLD,&ksp);CHKERRQ(ierr);	
-	//ierr = KSPSetType(ksp, KSPTFQMR);CHKERRQ(ierr);	
-	ierr = KSPSetOperators(ksp,A,A);CHKERRQ(ierr);	
-	ierr = KSPSetFromOptions(ksp);CHKERRQ(ierr);	
-	ierr = KSPSetUp(ksp);CHKERRQ(ierr);	
+	ierr = KSPCreate(PETSC_COMM_WORLD,&ksp);CHKERRQ(ierr);
+	//ierr = KSPSetType(ksp, KSPTFQMR);CHKERRQ(ierr);
+	ierr = KSPSetOperators(ksp,A,A);CHKERRQ(ierr);
+	ierr = KSPSetFromOptions(ksp);CHKERRQ(ierr);
+	ierr = KSPSetUp(ksp);CHKERRQ(ierr);
 	PetscPrintf(PETSC_COMM_WORLD,"]> Krylov Solver settings done\n");
 
 	/*Solve the system*/
@@ -156,7 +156,7 @@ int main(int argc, char **argv){
 	PetscPrintf(PETSC_COMM_WORLD,"]> Cleaned structures, finalizing\n");
 
 	/*Finalize PETSc*/
-	PetscFinalize(); 
+	PetscFinalize();
 
 	delete Mt;
 
@@ -171,7 +171,7 @@ PetscErrorCode generateVectorRandom(int size, Vec * v){
 	ierr=PetscPrintf(PETSC_COMM_WORLD,"Generating Vector \n");CHKERRQ(ierr);
 	ierr=generateVector(size,v);CHKERRQ(ierr);
 	ierr=VecSetRandom(*v,PETSC_NULL);CHKERRQ(ierr);
-	PetscPrintf(PETSC_COMM_WORLD,"Generated Random Vector of size : %d\n",size);	
+	PetscPrintf(PETSC_COMM_WORLD,"Generated Random Vector of size : %d\n",size);
 
 	return 0;
 }
@@ -185,7 +185,7 @@ PetscErrorCode generateVectorNorm(int size, Vec * v){
 	ierr=generateVector(size,v);CHKERRQ(ierr);
 	scal=1.0/size;
 	ierr=VecSet(*v,scal);CHKERRQ(ierr);
-	PetscPrintf(PETSC_COMM_WORLD,"Generated Norm Vector of size : %d\n",size);	
+	PetscPrintf(PETSC_COMM_WORLD,"Generated Norm Vector of size : %d\n",size);
 
 	return 0;
 }
@@ -201,5 +201,3 @@ PetscErrorCode generateVector(int size, Vec * v){
 
 	return 0;
 }
-
-

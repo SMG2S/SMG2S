@@ -3,7 +3,7 @@
    Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
         Date: 2018-04-20
    Copyright (C) 2018-     Xinzhe WU
-   
+
    SMG2S is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published
    by the Free Software Foundation, either version 3 of the License, or
@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
 
     //MPI_Barrier(MPI_COMM_WORLD);
     if(rank == 0) printf("INFO ]> Starting ... \n");
-    
+
     // Print off a hello world message
     if(rank == 0) printf("INFO ]> The MPI Comm World Size is %d\n", size);
 
@@ -108,12 +108,12 @@ int main(int argc, char** argv) {
     length = atoll(c);
 
     Nilpotency<__int64_t> nilp;
-    
+
     nilp.NilpType1(length,probSize);
 
     parMatrixSparse<std::complex<double>,__int64_t> *Mt;
 
-    Mt = smg2s<std::complex<double>,__int64_t>(probSize, nilp, lbandwidth,spectrum);
+    Mt = smg2s<std::complex<double>,__int64_t>(probSize, nilp, lbandwidth,spectrum, MPI_COMM_WORLD);
 
 
 #elif defined (__USE_COMPLEX__) && defined(__USE_DOUBLE__)
@@ -126,15 +126,15 @@ int main(int argc, char** argv) {
     length = atoi(c);
 
     Nilpotency<int> nilp;
-    
+
     nilp.NilpType1(length,probSize);
 
     parMatrixSparse<std::complex<double>,int> *Mt;
 
 //    smg2s<std::complex<double>,int> (probSize, nilp, lbandwidth);
     start = MPI_Wtime();
-    
-    Mt =  smg2s<std::complex<double>,int> (probSize, nilp,lbandwidth, spectrum);
+
+    Mt =  smg2s<std::complex<double>,int> (probSize, nilp,lbandwidth, spectrum,MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 
@@ -159,12 +159,12 @@ int main(int argc, char** argv) {
     length = atoll(c);
 
     Nilpotency<__int64_t> nilp;
-    
+
     nilp.NilpType1(length,probSize);
 
     parMatrixSparse<std::complex<float>,__int64_t> *Mt;
 
-    Mt = smg2s<std::complex<float>,__int64_t>(probSize, nilp, lbandwidth,spectrum);
+    Mt = smg2s<std::complex<float>,__int64_t>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
 
 #elif defined (__USE_COMPLEX__)
 //complex single int
@@ -176,12 +176,12 @@ int main(int argc, char** argv) {
     length = atoi(c);
 
     Nilpotency<int> nilp;
-    
+
     nilp.NilpType1(length,probSize);
 
     parMatrixSparse<std::complex<float>,int> *Mt;
 
-    Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth,spectrum);
+    Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
 
 #elif defined (__USE_DOUBLE__) && defined(__USE_64BIT__)
 //real double long int
@@ -193,12 +193,12 @@ int main(int argc, char** argv) {
     length = atoll(c);
 
     Nilpotency<__int64_t> nilp;
-    
+
     nilp.NilpType1(length,probSize);
 
     parMatrixSparse<double,__int64_t> *Mt;
 
-    Mt = smg2s<double,__int64_t>(probSize, nilp, lbandwidth,spectrum);
+    Mt = smg2s<double,__int64_t>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
 
 #elif defined (__USE_DOUBLE__)
 //real double int
@@ -210,13 +210,13 @@ int main(int argc, char** argv) {
     length = atoi(c);
 
     Nilpotency<int> nilp;
-    
+
     nilp.NilpType1(length,probSize);
 
     parMatrixSparse<double,int> *Mt;
 
     start = MPI_Wtime();
-    Mt = smg2s<double,int>(probSize, nilp, lbandwidth,spectrum);
+    Mt = smg2s<double,int>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
     end = MPI_Wtime();
 
 
@@ -244,12 +244,12 @@ int main(int argc, char** argv) {
     length = atoll(c);
 
     Nilpotency<__int64_t> nilp;
-    
+
     nilp.NilpType1(length,probSize);
 
     parMatrixSparse<float,__int64_t> *Mt;
 
-    Mt = smg2s<float,__int64_t>(probSize, nilp, lbandwidth,spectrum);
+    Mt = smg2s<float,__int64_t>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
 else
 //real single int
     int probSize, lbandwidth, length;
@@ -260,20 +260,19 @@ else
 
 
     Nilpotency<int> nilp;
-    
+
     nilp.NilpType1(length,probSize);
 
     parMatrixSparse<float,int> *Mt;
 
 
-    Mt = smg2s<float,int>(probSize, nilp, lbandwidth,spectrum);
+    Mt = smg2s<float,int>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
 
 #endif
 
-    delete Mt;
+    //delete Mt;
 
     MPI_Finalize();
 
     return 0;
 }
-

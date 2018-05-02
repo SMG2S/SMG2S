@@ -1,4 +1,4 @@
-#include "../C/c_wrapper.h"
+#include <interface/C/c_wrapper.h>
 #include <stdio.h>
 #include <mpi.h>
 #include <stdlib.h>
@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
 
 	struct parMatrixSparseComplexDoubleInt *m;
 	m = newParMatrixSparseComplexDoubleInt();
-	smg2sComplexDoubleInt(m, 10, n, 3 ," ");
+	smg2sComplexDoubleInt(m, 10, n, 3 ," ", MPI_COMM_WORLD);
 	LOC_MatViewComplexDoubleInt(m);
 	GetLocalSizeComplexDoubleInt(m,&rs, &cs);
 	Loc_ConvertToCSRComplexDoubleInt(m);
@@ -77,7 +77,7 @@ int main(int argc, char* argv[]) {
 
 	struct parMatrixSparseDoubleInt *m;
 	m = newParMatrixSparseDoubleInt();
-	smg2sDoubleInt(m, 10, n, 3 ," ");
+	smg2sDoubleInt(m, 10, n, 3 ," ", MPI_COMM_WORLD);
 	LOC_MatViewDoubleInt(m);
 	GetLocalSizeDoubleInt(m,&rs, &cs);
 	Loc_ConvertToCSRDoubleInt(m);

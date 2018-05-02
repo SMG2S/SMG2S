@@ -1,15 +1,17 @@
 ALL: blib exec2
 
 #compilation and various flags
+
+#SMG2S = SMG2S INSTALL PATH, which is already set to .bashrc
+
 DIRS    = 
 EXEC    = view
-CFLAGS	= 
+CFLAGS	= -L${SMG2S}/lib -I${SMG2S}/include -lsmg2s2c
 FFLAGS	= 
-CXXFLAGS	=  -std=c++0x
+CXXFLAGS	=
 FPPFLAGS	=
 CLEANFILES  = ${EXEC}
 OFILES= ${wildcard ./*.o}
-
 
 include ${PETSC_DIR}/lib/petsc/conf/variables
 include ${PETSC_DIR}/lib/petsc/conf/rules
@@ -32,7 +34,7 @@ distclean :
 exec2: c_test.o
 	-@echo "BEGINNING TO COMPILE APPLICATION "
 	-@echo "========================================="
-	-@${CLINKER} -o ${EXEC} c_test.o ../C/c_wrapper.o ${PETSC_LIB}
+	-@${CLINKER} -o ${EXEC} c_test.o ${PETSC_LIB}
 	-@echo "Completed building application"
 	-@echo "========================================="
 #-ksp_monitor_true_residual -eps_monitor

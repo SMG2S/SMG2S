@@ -56,6 +56,8 @@ class parMatrixSparse
 		S	njloc;
 		S	lower_x, lower_y, upper_x, upper_y;
 
+		MPI_Comm comm;
+
 		// mpi size and rank
 		int ProcID, nProcs;
 
@@ -83,6 +85,9 @@ class parMatrixSparse
 		parVectorMap<S> *GetXMap(){return x_index_map;};
 		parVectorMap<S> *GetYMap(){return y_index_map;};
 
+		MPI_Comm GetComm(){
+			return x_index_map->GetCurrentComm();
+		}
 		S	GetXLowerBound();
 		S	GetYLowerBound();
 
@@ -277,9 +282,6 @@ parMatrixSparse<T,S>::parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec
 	upper_x = 0;
 	upper_y = 0;
 
-	MPI_Comm_rank(MPI_COMM_WORLD, &ProcID);
-	MPI_Comm_size(MPI_COMM_WORLD, &nProcs);
-
 	VNumRecv = NULL;
 	VNumSend = NULL;
 	Rbuffer = NULL;
@@ -305,6 +307,13 @@ parMatrixSparse<T,S>::parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec
 		upper_x = x_index_map->GetUpperBound();
 		upper_y = y_index_map->GetUpperBound();
 	}
+
+	comm = GetComm();
+	MPI_Comm_rank(comm, &ProcID);
+	MPI_Comm_size(comm, &nProcs);
+
+//	printf("ProId = %d, ProcsSize = %d\n",ProcID,nProcs);
+
 }
 
 template<typename T, typename S>
@@ -958,8 +967,8 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 
 	S	nRecv;
 
-	MPI_Comm_rank(MPI_COMM_WORLD, &ProcID);
-	MPI_Comm_size(MPI_COMM_WORLD, &nProcs);
+	MPI_Comm_rank(comm, &ProcID);
+	MPI_Comm_size(comm, &nProcs);
 
 	VNumRecv = new S [nProcs];
 	for(i = 0; i < nProcs; i++){
@@ -1013,8 +1022,8 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 			maxRecv = VNumRecv[i];
 		}
 		if(i != ProcID){
-			MPI_Isend(&VNumRecv[i],1,MPI_INT,i,tag1,MPI_COMM_WORLD,&Sreqs[count]);
-			MPI_Irecv(&VNumSend[i],1,MPI_INT,i,tag1,MPI_COMM_WORLD,&Rreqs[count]);
+			MPI_Isend(&VNumRecv[i],1,MPI_INT,i,tag1,comm,&Sreqs[count]);
+			MPI_Irecv(&VNumSend[i],1,MPI_INT,i,tag1,comm,&Rreqs[count]);
 			count++;
 		}
 	}
@@ -1055,7 +1064,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 					count++;
 				}
 			}
-			MPI_Isend(Sbuffer[i],VNumRecv[i], MPI_INT,i,tag1,MPI_COMM_WORLD, &Sreqs[count1]);
+			MPI_Isend(Sbuffer[i],VNumRecv[i], MPI_INT,i,tag1,comm, &Sreqs[count1]);
 			count++;
 		}
 		else{
@@ -1069,7 +1078,7 @@ void parMatrixSparse<T,S>::FindColsToRecv()
 	for(i = 0; i < nProcs; i++){
 		if(ProcID != i){
 			Rbuffer[i] = new S [VNumSend[i]];
-			MPI_Irecv(Rbuffer[i],VNumSend[i],MPI_INT,i,tag1,MPI_COMM_WORLD,&Rreqs[count1]);
+			MPI_Irecv(Rbuffer[i],VNumSend[i],MPI_INT,i,tag1,comm,&Rreqs[count1]);
 		}
 		else{
 			Rbuffer[i] = new S [1];
@@ -1154,12 +1163,12 @@ void parMatrixSparse<T,S>::TestCommunication(parVector<T,S> *XVec, parVector<T,S
 
 	if(ProcID == sender){
 		for(i = 0; i < k; i++){printf("=> sBuf[%d] = %f \n",i, sBuf[i] );}
-		MPI_Send(sBuf, 1, DTypeSend[receiver], receiver, 1, MPI_COMM_WORLD);
+		MPI_Send(sBuf, 1, DTypeSend[receiver], receiver, 1, comm);
 		printf("sending done! \n");
 	}
 	else{
 		for(i = 0; i < l; i++){printf("*> rBuf[%d] = %f \n",i, rBuf[i] );}
-		MPI_Recv(&rBuf,1,DTypeRecv[sender],sender,1,MPI_COMM_WORLD,&Rstat);
+		MPI_Recv(&rBuf,1,DTypeRecv[sender],sender,1,comm,&Rstat);
 		for(i = 0; i < l; i++){printf("@> rBuf[%d] = %f \n",i, rBuf[i] );}
 
 //		MPI_Get_count(&Rstat, DTypeRecv[sender], &number_amount);
@@ -1218,13 +1227,13 @@ void parMatrixSparse<T,S>::CSR_MatVecProd(parVector<T,S> *XVec, parVector<T,S> *
 	for(i = 0; i < nProcs; i++){
 		if(i != ProcID){
 			if(DTypeSend[i] != MPI_DATATYPE_NULL){
-				MPI_Isend(sBuf,1,DTypeSend[i],i,tag1,MPI_COMM_WORLD,&Sreqs[count]);
+				MPI_Isend(sBuf,1,DTypeSend[i],i,tag1,comm,&Sreqs[count]);
 			}
 			else{
 				Sreqs[count] = MPI_REQUEST_NULL;
 			}
 			if(DTypeRecv[i] != MPI_DATATYPE_NULL){
-				MPI_Irecv(rBuf,1,DTypeRecv[i],i,tag1,MPI_COMM_WORLD,&Rreqs[count]);
+				MPI_Irecv(rBuf,1,DTypeRecv[i],i,tag1,comm,&Rreqs[count]);
 			}
 			else{
 				Rreqs[count] = MPI_REQUEST_NULL;
@@ -1739,11 +1748,11 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 
 	if(ProcID != 0){
-		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, MPI_COMM_WORLD, &stypereq);
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
 	}
 
 	if(ProcID != nProcs - 1){
-		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, MPI_COMM_WORLD, &rtypereq);
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
 	}
 
 	if(ProcID != nProcs - 1){
@@ -1791,7 +1800,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 	MPI_Datatype MPI_SCALAR = MPI_Scalar<T>();
 
-	MPI_Barrier(MPI_COMM_WORLD);
+	MPI_Barrier(comm);
 
 #if defined (__USE_COMPLEX__) && defined(__USE_DOUBLE__)
 //complex double
@@ -1829,8 +1838,8 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 					cnt2++;
 				}
 
-				MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], MPI_COMM_WORLD, &Sreqs[b]);
-				MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], MPI_COMM_WORLD, &idxSreqs[b]);
+				MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], comm, &Sreqs[b]);
+				MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], comm, &idxSreqs[b]);
 
 			}
 		}
@@ -1846,8 +1855,8 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 				for(S tt =0; tt < rsize[b]; tt++){
 					rIndx[tt] = 0;
 				}
-				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);
-				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], MPI_COMM_WORLD, &idxRreqs[b]);
+				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], comm, &Rreqs[b]);
+				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], comm, &idxRreqs[b]);
 				MPI_Wait(&Rreqs[b],&Rstat[b]);
 				MPI_Wait(&idxRreqs[b],&idxRstat[b]);
 			}
@@ -1901,8 +1910,8 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 					cnt2++;
 				}
 
-				MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], MPI_COMM_WORLD, &Sreqs[b]);
-				MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], MPI_COMM_WORLD, &idxSreqs[b]);
+				MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], comm, &Sreqs[b]);
+				MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], comm, &idxSreqs[b]);
 			}
 		}
 
@@ -1918,8 +1927,8 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 					rIndx[tt] = 0;
 				}
 
-				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);
-				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], MPI_COMM_WORLD, &idxRreqs[b]);
+				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], comm, &Rreqs[b]);
+				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], comm, &idxRreqs[b]);
 				MPI_Wait(&Rreqs[b],&Rstat[b]);
 				MPI_Wait(&idxRreqs[b],&idxRstat[b]);
 			}
@@ -1972,8 +1981,8 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 					sIndx[cnt] = it->first;
 					cnt++;
 			    }
-			    MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], MPI_COMM_WORLD, &Sreqs[b]);
-			    MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], MPI_COMM_WORLD, &idxSreqs[b]);
+			    MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], comm, &Sreqs[b]);
+			    MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], comm, &idxSreqs[b]);
 			}
 		}
 
@@ -1985,8 +1994,8 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 					rBuf[tt] = 0.0;
 					rIndx[tt] = 0;
 				}
-				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], MPI_COMM_WORLD, &Rreqs[b]);
-				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], MPI_COMM_WORLD, &idxRreqs[b]);
+				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], comm, &Rreqs[b]);
+				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], comm, &idxRreqs[b]);
 				MPI_Wait(&Rreqs[b],&Rstat[b]);
 				MPI_Wait(&idxRreqs[b],&idxRstat[b]);
 			}

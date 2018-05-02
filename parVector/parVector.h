@@ -37,7 +37,6 @@ class parVector{
 		T	*array;
 		S	array_size;
 		S	local_size;
-
 		parVectorMap<S> *index_map;
 
 	public:

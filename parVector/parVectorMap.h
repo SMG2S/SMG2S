@@ -3,7 +3,7 @@
    Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
         Date: 2018-04-20
    Copyright (C) 2018-     Xinzhe WU
-   
+
    SMG2S is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published
    by the Free Software Foundation, either version 3 of the License, or
@@ -15,7 +15,7 @@
    You should have received a copy of the GNU Lesser General Public License
    along with SMG2S.  If not, see <http://www.gnu.org/licenses/>.
 
-   Part of basic data structures' implementation of this file refers to this technical report 
+   Part of basic data structures' implementation of this file refers to this technical report
    (http://orbit.dtu.dk/files/51272329/tr12_10_Alexandersen_Lazarov_Dammann_1.pdf)
 */
 
@@ -42,7 +42,7 @@ class parVectorMap
 
 		S	  lower_bound;
 		S	  upper_bound;
-	
+
 		S	  local_size;
 		S	  loctot_size;
 		S     global_size;
@@ -60,6 +60,8 @@ class parVectorMap
 		parVectorMap(MPI_Comm ncomm, S lbound, S ubound);
 		//destroyer
 		~parVectorMap();
+
+		MPI_Comm GetCurrentComm(){return comm;};
 
 		S Loc2Glob(S local_index);
 		S Glob2Loc(S global_index);
@@ -80,7 +82,7 @@ class parVectorMap
 		int AddUser(){users++; return users;};
 		int DeleteUser(){users--;return users;};
 		int GetUser(){return users;};
-		
+
 };
 
 
@@ -103,7 +105,7 @@ parVectorMap<S>::parVectorMap(MPI_Comm ncomm, S lbound, S ubound)
 	uprocbound_map = NULL;
 
 	{
-		lprocbound_map = new int[nproc] ; 
+		lprocbound_map = new int[nproc] ;
 		uprocbound_map = new int [nproc] ;
 		// Gather all lower bounds and all upper bounds
 		MPI_Allgather(&lower_bound , 1 , MPI_INT , lprocbound_map , 1 , MPI_INT, comm ) ;
@@ -112,12 +114,12 @@ parVectorMap<S>::parVectorMap(MPI_Comm ncomm, S lbound, S ubound)
 		for (int i=0; i<nproc; i++) {
 			vectormap [i] = uprocbound_map [i] ;
 			if ( uprocbound_map [ i ] > global_size ) {
-				global_size = uprocbound_map[i]; 
+				global_size = uprocbound_map[i];
 			}
 	        }
-	
+
 	}
- 
+
 	loctot_size = local_size;
 }
 
@@ -127,7 +129,7 @@ parVectorMap<S>::~parVectorMap(){
 	if(lprocbound_map!=NULL){
 		delete [] lprocbound_map;
 	}
-	
+
         if(uprocbound_map!=NULL){
                 delete [] uprocbound_map;
         }
@@ -141,11 +143,11 @@ S parVectorMap<S>::Loc2Glob(S local_index){
 		{return -1;}
 }
 
-template<typename S> 
+template<typename S>
 S parVectorMap<S>::Glob2Loc(S global_index){
 	if((global_index >= lower_bound) && (global_index < upper_bound))
 		{return global_index - lower_bound;}
-	else 
+	else
 		{
 			return -1;
 		}
@@ -167,7 +169,7 @@ int parVectorMap<S>::GetOwner(S index)
 			}
 		}
 	}
-	else{ 
+	else{
 		m = -1;
 	}
 	return m;

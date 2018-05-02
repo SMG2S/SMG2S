@@ -67,7 +67,8 @@ parMatrixSparse<std::complex<float>,int> *Mt;
 ```
 Generate a new matrix:
 ```cpp
-Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth, spectrum);
+MPI_Comm comm; //working MPI Communicator
+Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth, spectrum, comm);
 
 ```
 
@@ -171,7 +172,7 @@ Mt = smg2s.parMatrixSparseDoubleInt()
 
 #Generate Mt by SMG2S
 #vector.txt is the file that stores the given spectral distribution in local filesystem.
-Mt=smg2s.smg2sDoubleInt(10,nilp,lbandwidth,"vector.txt")
+Mt=smg2s.smg2sDoubleInt(10,nilp,lbandwidth,"vector.txt", MPI.COMM_WORLD)
 ```
 
 ### Interface to C
@@ -213,7 +214,7 @@ int main(int argc, char* argv[]) {
   /*create Instance*/
 	m = newParMatrixSparseDoubleInt();
   /*Generate by SMG2S*/
-	smg2s(m, 10, n, 3 ," ");
+	smg2s(m, 10, n, 3 ," ",MPI_COMM_WORLD);
   /*Matrix View*/
 	LOC_MatView(m);
 
