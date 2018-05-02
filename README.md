@@ -176,15 +176,17 @@ Mt=smg2s.smg2sDoubleInt(10,nilp,lbandwidth,"vector.txt")
 
 ### Interface to C
 
+The make install command will generate a shared library `libsmg2s2c.so` into `${INSTALL_DIRECTORY}/lib`. It can be used to profit the C wrapper of SMG2S.
+
+The compile command:
+
 ```bash
-mpicxx -c c_wrapper.cc
-mpicc -c main.c
-mpicxx -o test.exe main.o c_wrapper.o
+ mpicc -L${INSTALL_DIRECTORY}/lib -I${INSTALL_DIRECTORY}/include -Wall -o test.exe main.c -lsmg2s2c
 ```
-A little example of usge:
+A basic example of usge:
 
 ```c
-#include "c_wrapper.h"
+#include "interface/C/c_wrapper.h"
 #include <stdio.h>
 #include <mpi.h>
 

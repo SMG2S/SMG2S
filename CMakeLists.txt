@@ -77,7 +77,10 @@ INSTALL (
     DIRECTORY ${CMAKE_SOURCE_DIR}/utils ${CMAKE_SOURCE_DIR}/config ${CMAKE_SOURCE_DIR}/smg2s ${CMAKE_SOURCE_DIR}/parMatrix ${CMAKE_SOURCE_DIR}/parVector
     DESTINATION include)
 INSTALL(TARGETS smg2s2c DESTINATION lib)
-
+INSTALL (
+    DIRECTORY ${CMAKE_SOURCE_DIR}/interface/C/
+    DESTINATION include/interface/C
+    FILES_MATCHING PATTERN "*.h*")
 endif()
 
 find_package (PETSc REQUIRED)
