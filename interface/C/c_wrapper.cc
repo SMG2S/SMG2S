@@ -136,27 +136,16 @@ void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexDoubleInt *m, int *si
 */
 }
 
-void Loc_CSRGetRowsArray2(struct parMatrixSparseComplexDoubleInt *m, int size, int **rows){
-  std::vector<int>::iterator it;
+void Loc_CSRGetRowsArrays(struct parMatrixSparseComplexDoubleInt *m, int size, int **rows, int size2, int **cols, double **real, double **imag){
   for(int i = 0; i < size; i++){
-//    *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
-    *(*rows+i) = 1;
-
-  }
-}
-
-void Loc_CSRGetColsArray(struct parMatrixSparseComplexDoubleInt *m, int **cols, int *size){
-  std::vector<int>::iterator it;
-  int count = 0;
-  for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
-      count++;
+    *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
 
-  *cols = (int *)malloc(count);
-  for(int i = 0; i < count; i++){
+  for(int i = 0; i < size2; i++){
     *(*cols+i) = m->parMatrix.CSR_loc->cols[i];
+    *(*real+i) = m->parMatrix.CSR_loc->vals[i].real();
+    *(*imag+i) = m->parMatrix.CSR_loc->vals[i].imag();
   }
-  *size = count;
 }
 
 void smg2sComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){

@@ -54,7 +54,7 @@ void LOC_MatViewComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m);
 void GetLocalSizeComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int *rs, int *cs);
 void Loc_ConvertToCSRComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m);
 void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexDoubleInt *m, int *size, int *size2);
-void Loc_CSRGetRowsArray2(struct parMatrixSparseComplexDoubleInt *m, int size, int **rows);
+void Loc_CSRGetRowsArrays(struct parMatrixSparseComplexDoubleInt *m, int size, int **rows, int size2, int **cols, double **real, double **imag);
 
 void Loc_CSRGetColsArray(struct parMatrixSparseComplexDoubleInt *m, int **cols, int *size);
 
