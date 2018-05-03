@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
 
         PetscMalloc1((PetscInt)size_row, &i);
         PetscMalloc1((PetscInt)size_col, &j);
-        PetscMalloc1((PetscScalar)size_col, &a);
+        PetscMalloc1((PetscInt)size_col, &a);
 
 
         for(q =0; q < size_row; q++){
