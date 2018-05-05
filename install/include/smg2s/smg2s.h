@@ -3,7 +3,7 @@
    Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
         Date: 2018-04-20
    Copyright (C) 2018-     Xinzhe WU
-   
+
    SMG2S is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published
    by the Free Software Foundation, either version 3 of the License, or
@@ -33,17 +33,17 @@
 #endif
 
 template<typename T, typename S>
-parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum){
+parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum, MPI_Comm comm){
 
 	int world_size;
 	int world_rank;
 
 	double start, end;
 
-	MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+	MPI_Comm_size(comm, &world_size);
 
 	 // Get the rank of the process
-    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+    MPI_Comm_rank(comm, &world_rank);
 
     S span, lower_b, upper_b;
 
@@ -59,10 +59,10 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
 
 
-	  parVector<T,S> *vec = new parVector<T,S>(MPI_COMM_WORLD, lower_b, upper_b);
-    parVector<T,S> *prod = new parVector<T,S>(MPI_COMM_WORLD, lower_b, upper_b);
+	  parVector<T,S> *vec = new parVector<T,S>(comm, lower_b, upper_b);
+    parVector<T,S> *prod = new parVector<T,S>(comm, lower_b, upper_b);
 
-    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(comm);
 
     //generate vec containing the given spectra
     specGen<T,S>(vec, spectrum);
@@ -75,7 +75,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     parMatrixSparse<T,S> *matAop = new parMatrixSparse<T,S>(vec,prod);
 
-    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(comm);
 
     //setup the lower part of initial matrix
 
@@ -87,31 +87,28 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
         for(S j = i - lbandwidth; j < i; j++){
             if(j >= 0){
             	rnd = 0.00001*random<T,S>(0,10);
-//		rnd = 0.00001*(i+j);
-            	//if(world_rank == 0) printf("rnd = %f\n", rnd);
-                Am->Loc_SetValue(i,j,rnd);   
-                matAop->Loc_SetValue(i,j,rnd);   
-
+              Am->Loc_SetValue(i,j,rnd);
+              matAop->Loc_SetValue(i,j,rnd);
             }
         }
     }
 
     Am->Loc_SetDiagonal(vec);
     matAop->Loc_SetDiagonal(vec);
-  
+
     end = MPI_Wtime();
 
     double t2 = end - start;
 
     if(world_rank == 0) {printf("Initial matrix generation time = %1.6f\n", t2);}
 
-    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(comm);
 
     S my_factorielle_bornes = 1;
 
     my_factorielle_bornes = factorial(1,2*nilp.nbOne);
 
-    
+
     Am->Loc_MatScale((T)my_factorielle_bornes);
     double in;
 
@@ -126,7 +123,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
     	MA->Loc_ZeroEntries();
     	AM->Loc_ZeroEntries();
     }
-    
+
 	my_factorielle_bornes = factorial(1,2*(nilp.nbOne));
 
 #ifdef __USE_DOUBLE__

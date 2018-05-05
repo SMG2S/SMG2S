@@ -3,7 +3,7 @@
    Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
         Date: 2018-04-20
    Copyright (C) 2018-     Xinzhe WU
-   
+
    SMG2S is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published
    by the Free Software Foundation, either version 3 of the License, or
@@ -80,78 +80,13 @@
 
 		for(PetscInt q = 0; q < count2; q++){
 			j[q] = M->CSR_loc->cols[q];
-			a[q] = M->CSR_loc->vals[q];
-//			printf("Proc: %d, j[%d] = %d, a[%d] = %f\n", rank, q, j[q],q, M->CSR_loc->vals[q]);
+			a[q] = M->CSR_loc->vals[q].real() + PETSC_i*M->CSR_loc->vals[q].imag();
+//				a[q] = M->CSR_loc->vals[q];
 			}
 
 		MatCreateMPIAIJWithArrays(PETSC_COMM_WORLD, count-1, count-1, PETSC_DETERMINE, PETSC_DETERMINE,  i, j, a, &A);
 
 		return A;
-
-/*
-		int rank, size;
-
-		MPI_Comm_size(MPI_COMM_WORLD, &size);
-		MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-
-		int g, b;
-		PetscInt m, n;
-		PetscInt *j;
-		PetscScalar *a;
-		PetscInt rindx;
-
-		Mat A;
-
-		typename std::map<int,std::complex<double> >::iterator it;
-		parVectorMap<int>	*y_index_map = M->GetYMap();
-
-
-		M->GetLocalSize(g, b);
-
-		m = (PetscInt)g;
-		n = (PetscInt)b;
-
-		MatCreate(PETSC_COMM_WORLD,&A);
-		MatSetSizes(A,PETSC_DECIDE,PETSC_DECIDE,n,n);
-		MatSetType(A,MATMPIAIJ);
-		MatSetFromOptions(A);
-		MatSetUp(A);
-
-
-		PetscInt count, count2;
-
-
-		for(PetscInt ii = 0; ii < g; ii++){
-			count = 0;
-			count2 = 0;
-			rindx = (PetscInt)y_index_map->Loc2Glob(ii);
-
-			for(it = M->dynmat_loc[ii].begin(); it != M->dynmat_loc[ii].end(); ++it){
-				if(it->second.real() != 0 || it->second.imag() != 0){
-					count2++;
-				}
-		    }
-
-			PetscMalloc1(count2, &j);
-		    PetscMalloc1(count2, &a);
-		    for(it = M->dynmat_loc[ii].begin(); it != M->dynmat_loc[ii].end(); ++it){
-		    	if(it->second.real() != 0 || it->second.imag() != 0){
-		    		j[count] = (PetscInt)it->first;
-			    	a[count] = (PetscReal)it->second.real()+PETSC_i*(PetscReal)it->second.imag();
-			    	count++;
-		    	}
-		    }
-			//std::cout << rank << "   " << rindx << "    " << s << std::endl;
-			MatSetValues(A,1, &rindx, count2, j, a, INSERT_VALUES);
-
-		}
-
-		MatAssemblyBegin(A,MAT_FINAL_ASSEMBLY);
-		MatAssemblyEnd(A,MAT_FINAL_ASSEMBLY);
-
-		return A;
-		*/
-
 	}
 
 #elif defined (PETSC_USE_REAL_DOUBLE) && defined (PETSC_USE_64BIT_INDICES)
@@ -159,7 +94,7 @@
 #elif defined (PETSC_USE_REAL_SINGLE) && defined (PETSC_USE_64BIT_INDICES)
 //real long int single
 
-#elif defined (PETSC_USE_REAL_DOUBLE) 
+#elif defined (PETSC_USE_REAL_DOUBLE)
 
 	Mat ConvertToPETSCMat(parMatrixSparse<double, int > *M){
 

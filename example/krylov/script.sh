@@ -7,8 +7,8 @@
 
 #SBATCH --time=02:30:00
 
-#SBATCH -N 1
-#SBATCH -n 2
+#SBATCH -N 2
+#SBATCH -n 32
 
 
 #make runexec

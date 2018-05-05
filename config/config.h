@@ -1,32 +1,3 @@
-/*
-   This file is part of SMG2S.
-   Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
-        Date: 2018-04-20
-   Copyright (C) 2018-     Xinzhe WU
-
-   SMG2S is free software: you can redistribute it and/or modify
-   it under the terms of the GNU Lesser General Public License as published
-   by the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-   SMG2S is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU Lesser General Public License for more details.
-   You should have received a copy of the GNU Lesser General Public License
-   along with SMG2S.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-#ifndef __CONFIG_H__
-#define __CONFIG_H__
-
-#ifndef DEBUG
-#define DEBUG 0
-#endif
-
-#define __USE_COMPLEX__ 
-
+/* #undef __USE_COMPLEX__ */
 #define __USE_DOUBLE__
-
-//#define __USE_64BIT__
-
-#endif
+/* #undef __USE_64BIT__ */

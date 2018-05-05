@@ -1,0 +1,3 @@
+#cmakedefine __USE_COMPLEX__
+#cmakedefine __USE_DOUBLE__
+#cmakedefine __USE_64BIT__

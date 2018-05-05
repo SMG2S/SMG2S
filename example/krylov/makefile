@@ -11,28 +11,29 @@ NTIMES = 1
 #################      SMG2S Flags       ########################
 SMG2S = -smg2s
 LBANDWIDTH = -lbandwidth 4
-SIZE=-size 200
+SIZE=-size 6000000
 NBONE=-continous1 3
-#SPECTRA= -sptr vector.txt
+#SPECTRA= -sptr vector1.txt
 SMG2S_FLAGS = ${SMG2S} ${LBANDWIDTH} ${SIZE} ${NBONE} ${SPECTRA}
 
 #################       MPI Flags        ########################
-MPI_NODES = 2
+MPI_NODES = 32
 
 #################       GMRES Flags       ########################
 
 RESTART_MAX =40
 GMRES_PRECISION= 1e-10
-GMRES_RESTART= ${RESTART_MAX}
-GMRES_MONITOR= -ksp_monitor_true_residual
-KSP_MAX_ITS = 20000
+#GMRES_RESTART= -ksp_gmres_restart ${RESTART_MAX}
+#GMRES_MONITOR= -ksp_monitor_true_residual
+KSP_MAX_ITS = 400
 PC_TYPE = none
+PC_TYPE = none -ksp_type fgmres
 #PC_TYPE=jacobi -pc_jacobi_type rowmax -pc_jacobi_abs
 #PC_TYPE = asm -pc_asm_block 2 -pc_asm_type none
 #PC_TYPE = sor -pc_sor_its 5 -pc_sor_omega 0.179
 #CUDA_TYPE = -mat_type aijcusparse -vec_type cuda
 #GMRES_FT = -GMRES_FT
-GMRES_FLAGS= -ksp_rtol 1e-100 -ksp_divtol 1e1000 -ksp_max_it ${KSP_MAX_ITS} -pc_type ${PC_TYPE} -ksp_atol ${GMRES_PRECISION} -ksp_gmres_restart ${GMRES_RESTART}\
+GMRES_FLAGS= -ksp_rtol 1e-100 -ksp_divtol 1e1000 -ksp_max_it ${KSP_MAX_ITS} -pc_type ${PC_TYPE} -ksp_atol ${GMRES_PRECISION} ${GMRES_RESTART}\
 		${GMRES_MONITOR} ${LSA_GMRES} ${GMRES_NB_NODES} -ntimes ${NTIMES} ${CUDA_TYPE}\
 		${GMRES_FT} ${INITIAL_GUESS_SEQ_RHS} -initial_guess_power ${INITIAL_GUESS_POWER}
 

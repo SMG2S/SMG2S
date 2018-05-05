@@ -1,3 +1,21 @@
+/*
+   This file is part of SMG2S.
+   Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
+        Date: 2018-04-20
+   Copyright (C) 2018-     Xinzhe WU
+
+   SMG2S is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published
+   by the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   SMG2S is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   You should have received a copy of the GNU Lesser General Public License
+   along with SMG2S.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #include "petscmat.h"
 #include "petscerror.h"
 #include <string.h>
@@ -53,8 +71,8 @@ PetscErrorCode mat_generate(Mat * A, MPI_Comm comm){
 	PetscInt lbandwidth, size, nbOne;
 	ierr= PetscOptionsHasName(NULL,NULL,"-smg2s",&flgsmg2s);CHKERRQ(ierr);
 	ierr= PetscOptionsGetInt(NULL,NULL,"-lbandwidth",&lbandwidth,&flglb);CHKERRQ(ierr);
-  ierr= PetscOptionsGetInt(NULL,NULL,"-size",&size,&flgsize);CHKERRQ(ierr);
-  ierr= PetscOptionsGetInt(NULL,NULL,"-continous1",&nbOne,&flgno);CHKERRQ(ierr);
+	ierr= PetscOptionsGetInt(NULL,NULL,"-size",&size,&flgsize);CHKERRQ(ierr);
+  	ierr= PetscOptionsGetInt(NULL,NULL,"-continous1",&nbOne,&flgno);CHKERRQ(ierr);
 	ierr=PetscOptionsGetString(NULL,PETSC_NULL,"-sptr",spectra,PETSC_MAX_PATH_LEN-1,&flgsptr);CHKERRQ(ierr);
 	if(flgsmg2s) PetscPrintf(comm, "Info ]> Using SMG2S to generate test matrices\n");
 	if(!flglb){
@@ -80,13 +98,15 @@ PetscErrorCode mat_generate(Mat * A, MPI_Comm comm){
 	struct NilpotencyInt *n;
         n = newNilpotencyInt();
         NilpType1(n, nbOne, size);
-        showNilpotencyInt(n);
+//        showNilpotencyInt(n);
 
         struct parMatrixSparseComplexDoubleInt *m;
         m = newParMatrixSparseComplexDoubleInt();
 
+	double t1 = MPI_Wtime();
 	smg2sComplexDoubleInt(m, size, n, lbandwidth ,spectra, comm);
-
+        double t2 = MPI_Wtime();
+	PetscPrintf(comm, "SMG2S time = %f\n", t2-t1);
         Loc_ConvertToCSRComplexDoubleInt(m);
         Loc_CSRGetRowsArraySizes(m, &size_row, &size_col);
 
@@ -149,7 +169,7 @@ PetscErrorCode read_matrix_vector(Mat * A, Vec * v){
 		}
 		else{
 			PetscPrintf(PETSC_COMM_WORLD,"Remainder ]> USING SMG2S to generate test matrix\n");
-			mat_generate(A, PETSC_COMM_WORLD);
+			mat_generate(A, MPI_COMM_WORLD);
 		}
 	}
 	else{
@@ -203,7 +223,7 @@ PetscErrorCode classicalGMRES(Vec * b, Mat * A){
 	ierr = VecSet(x, 0.0); CHKERRQ(ierr);
 	ierr = PetscOptionsGetInt(NULL,PETSC_NULL,"-ksp_ls_nopc",&nols,&flagls);CHKERRQ(ierr);
 	ierr = KSPCreate(PETSC_COMM_WORLD, &ksp);CHKERRQ(ierr);
-	ierr = KSPSetType(ksp,KSPFGMRES);CHKERRQ(ierr);
+//	ierr = KSPSetType(ksp,KSPFGMRES);CHKERRQ(ierr);
 //	KSPSetInitialGuessNonzero(ksp, PETSC_TRUE);
 	ierr = KSPSetOperators(ksp, *A, *A);CHKERRQ(ierr);
 	ierr = KSPSetFromOptions(ksp);CHKERRQ(ierr);
@@ -235,7 +255,7 @@ PetscErrorCode classicalGMRES(Vec * b, Mat * A){
 		}
 		else {
 			KSPGetIterationNumber(ksp,&its);
-			PetscPrintf(PETSC_COMM_WORLD,"\nResolution %d: Convergence in %f seconds / %d iterations. \n", i, cost_time, its);
+			PetscPrintf(PETSC_COMM_WORLD,"\nResolution %d: Convergence in %d iterations. \n", i, its);
 		}
 	}
 //	int exit_type=666;
@@ -251,6 +271,8 @@ int main(int argc, char ** argv){
 	PetscErrorCode ierr;
 	PetscBool flag, gft_flg;
 	int	size, rank;
+	PetscLogDouble st, ed;
+
 	/* init of MPI and MPI Utils */
 	MPI_Init(&argc,&argv);
 
@@ -260,15 +282,21 @@ int main(int argc, char ** argv){
   MPI_Comm_size(MPI_COMM_WORLD, &size);
 
   PetscPrintf(PETSC_COMM_WORLD,"MPI WORLD SIZE = %d \n", size);
+  PetscTime(&st);
 	read_matrix_vector(&A, &v);
+  PetscTime(&ed);
+  PetscPrintf(PETSC_COMM_WORLD, "The test matrix generation time is %f \n", ed-st);
+  PetscTime(&st);
 	classicalGMRES(&v, &A);
+  PetscTime(&ed);
+  PetscPrintf(PETSC_COMM_WORLD, "The Krylov method resolving time is %f \n", ed-st);
   MPI_Barrier(MPI_COMM_WORLD);
   VecDestroy(&v);
   MatDestroy(&A);
   MPI_Barrier(MPI_COMM_WORLD); //wait for all
   PetscFinalize(); //finalize petsc
 
-	
+
 
 	MPI_Finalize(); //finalize
 
