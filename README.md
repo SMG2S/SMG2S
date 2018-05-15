@@ -1,6 +1,8 @@
 # SMG2S
 Sparse Matrix Generator with Given Spectrum
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1247326.svg)](https://doi.org/10.5281/zenodo.1247326)
+
 -------------------------------------------------------------------------------
 
 Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http://www.maisondelasimulation.fr), France.
