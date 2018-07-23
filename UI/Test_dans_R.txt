@@ -1,0 +1,5 @@
+%%MatrixMarket matrix coordinate real general
+3 3
+1 10
+2 10.6288    
+3 10.7621
