@@ -117,7 +117,6 @@ int main(int argc, char **argv){
 
     Mt->Loc_ConvertToCSR();
 
-
     MatCreate(PETSC_COMM_WORLD,&A);
 
     A = ConvertToPETSCMat(Mt);
