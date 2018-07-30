@@ -1,3 +1,24 @@
+/*
+   This file is part of SMG2S.
+   Author(s): Xinzhe WU <xinzhe.wu@ed.univ-lille1.fr or xinzhe.wu1990@gmail.com>
+        Date: 2018-04-20
+   Copyright (C) 2018-     Xinzhe WU
+
+   SMG2S is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published
+   by the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   SMG2S is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   You should have received a copy of the GNU Lesser General Public License
+   along with SMG2S.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#ifndef __TRILINOS_INTERFACE_H__
+#define __TRILINOS_INTERFACE_H__
+
 #include "../../parMatrix/parMatrixSparse.h"
 #include <math.h>
 #include <complex.h>
@@ -30,56 +51,95 @@ using Teuchos::tuple;
 using std::cout;
 using std::endl;
 
-#if defined(__USE_COMPLEX__)
+#if defined(__USE_COMPLEX__) && defined(__USE_DOUBLE__) && defined (__USE_64BIT__)
 typedef std::complex<double>               ST;
 typedef Teuchos::ScalarTraits<ST>          SCT;
+typedef int 							   local_ordinal_type;
+typedef long 							   global_ordinal_type;
+
+#elif defined(__USE_COMPLEX__) && defined(__USE_DOUBLE__)
+typedef std::complex<double>               ST;
+typedef Teuchos::ScalarTraits<ST>          SCT;
+typedef int 							   local_ordinal_type;
+typedef int 							   global_ordinal_type;
+
+#elif defined (__USE_COMPLEX__) && defined(__USE_64BIT__)
+typedef std::complex<float>               ST;
+typedef Teuchos::ScalarTraits<ST>          SCT;
+typedef int 							   local_ordinal_type;
+typedef long 							   global_ordinal_type;
+
+#elif defined (__USE_COMPLEX__)
+typedef std::complex<float>               ST;
+typedef Teuchos::ScalarTraits<ST>          SCT;
+typedef int 							   local_ordinal_type;
+typedef int 							   global_ordinal_type;
+
+#elif defined (__USE_DOUBLE__) && defined(__USE_64BIT__)
+typedef double               ST;
+typedef Teuchos::ScalarTraits<ST>          SCT;
+typedef int 							   local_ordinal_type;
+typedef long 							   global_ordinal_type;
+
+#elif defined (__USE_DOUBLE__)
+typedef double               ST;
+typedef Teuchos::ScalarTraits<ST>          SCT;
+typedef int 							   local_ordinal_type;
+typedef int 							   global_ordinal_type;
+
+#elif defined (__USE_64BIT__)
+typedef float               ST;
+typedef Teuchos::ScalarTraits<ST>          SCT;
+typedef int 							   local_ordinal_type;
+typedef long 							   global_ordinal_type;
 
 #else
-
-typedef double                			   ST;
+typedef float               ST;
 typedef Teuchos::ScalarTraits<ST>          SCT;
+typedef int 							   local_ordinal_type;
+typedef int 							   global_ordinal_type;
 
 #endif
 
-RCP<CrsMatrix<ST> > ConvertToTrilinosMat(parMatrixSparse<ST, int > *M){
+RCP<CrsMatrix<ST> > ConvertToTrilinosMat(parMatrixSparse<ST, global_ordinal_type > *M){
 
 	RCP<const Teuchos::Comm<int> > comm =	
     	Tpetra::DefaultPlatform::getDefaultPlatform ().getComm ();
 
-	parVectorMap<int> *pmap = M->GetYMap();
+	parVectorMap<global_ordinal_type> *pmap = M->GetYMap();
 
-	int gsize = pmap->GetGlobalSize();
+	global_ordinal_type gsize = pmap->GetGlobalSize();
 
 	RCP<const Map<> > map = rcp (new Map<> (gsize, 0, comm));
 
     RCP<CrsMatrix<ST> > K = rcp (new CrsMatrix<ST> (map, 0,  Tpetra::DynamicProfile));
 
-    const int numMyElements = map->getNodeNumElements();
+    const local_ordinal_type numMyElements = map->getNodeNumElements();
     
-    ArrayView<const int> myGlobalElements = map->getNodeElementList ();
+    ArrayView<const global_ordinal_type> myGlobalElements = map->getNodeElementList ();
 
-    int i, j;
+    global_ordinal_type i;
 
-    int col;
+    global_ordinal_type col;
+
  	ST val;
 
  	typename std::map<int ,ST>::iterator it;
 
- 	std::map<int,ST> *dynloc;
+ 	std::map<global_ordinal_type,ST> *dynloc;
  	dynloc = M->GetDynMatLoc();
- 	int container_size;
  	for(i = 0; i < numMyElements; i++){
  		for(it = dynloc[i].begin(); it != dynloc[i].end(); ++it){
  			col = it->first;
  			val = it->second;
 
-	 		K->insertGlobalValues(myGlobalElements[i],tuple<int>(col),tuple<ST>(val));
+	 		K->insertGlobalValues(myGlobalElements[i],tuple<global_ordinal_type>(col),tuple<ST>(val));
  		}
  	}
 
  	K->fillComplete ();
 
  	return K;
-
-
 }
+
+#endif

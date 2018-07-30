@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
     // Get the number of processes
     int world_size;
 
-    int probSize = 11;
+    int probSize = 100;
 
     double start, end;
 

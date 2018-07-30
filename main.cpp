@@ -113,8 +113,22 @@ int main(int argc, char** argv) {
 
     parMatrixSparse<std::complex<double>,__int64_t> *Mt;
 
+    start = MPI_Wtime();
+
     Mt = smg2s<std::complex<double>,__int64_t>(probSize, nilp, lbandwidth,spectrum, MPI_COMM_WORLD);
 
+    end = MPI_Wtime();
+
+    time = end - start ;
+
+    if(rank == 0){
+            printf ( "----------------------------------------------------\n" );
+            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+                            printf ( "----------------------------------------------------\n" );
+
+            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+            printf ( "----------------------------------------------------\n" );
+    }
 
 #elif defined (__USE_COMPLEX__) && defined(__USE_DOUBLE__)
 //complex double int
@@ -164,7 +178,22 @@ int main(int argc, char** argv) {
 
     parMatrixSparse<std::complex<float>,__int64_t> *Mt;
 
+    start = MPI_Wtime();
+
     Mt = smg2s<std::complex<float>,__int64_t>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
+
+    end = MPI_Wtime();
+
+    time = end - start ;
+
+    if(rank == 0){
+            printf ( "----------------------------------------------------\n" );
+            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+                            printf ( "----------------------------------------------------\n" );
+
+            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+            printf ( "----------------------------------------------------\n" );
+    }
 
 #elif defined (__USE_COMPLEX__)
 //complex single int
@@ -181,7 +210,23 @@ int main(int argc, char** argv) {
 
     parMatrixSparse<std::complex<float>,int> *Mt;
 
+    start = MPI_Wtime();
+
     Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
+
+    end = MPI_Wtime();
+
+    time = end - start ;
+
+    if(rank == 0){
+            printf ( "----------------------------------------------------\n" );
+            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+                            printf ( "----------------------------------------------------\n" );
+
+            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+            printf ( "----------------------------------------------------\n" );
+    }
+
 
 #elif defined (__USE_DOUBLE__) && defined(__USE_64BIT__)
 //real double long int
@@ -198,7 +243,23 @@ int main(int argc, char** argv) {
 
     parMatrixSparse<double,__int64_t> *Mt;
 
+    start = MPI_Wtime();
+
     Mt = smg2s<double,__int64_t>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
+
+    end = MPI_Wtime();
+
+    time = end - start ;
+
+    if(rank == 0){
+            printf ( "----------------------------------------------------\n" );
+            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+                            printf ( "----------------------------------------------------\n" );
+
+            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+            printf ( "----------------------------------------------------\n" );
+    }
+
 
 #elif defined (__USE_DOUBLE__)
 //real double int
@@ -249,8 +310,24 @@ int main(int argc, char** argv) {
 
     parMatrixSparse<float,__int64_t> *Mt;
 
+    start = MPI_Wtime();
+
     Mt = smg2s<float,__int64_t>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
-else
+
+    end = MPI_Wtime();
+
+    time = end - start ;
+
+    if(rank == 0){
+            printf ( "----------------------------------------------------\n" );
+            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+                            printf ( "----------------------------------------------------\n" );
+
+            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+            printf ( "----------------------------------------------------\n" );
+    }
+
+#else
 //real single int
     int probSize, lbandwidth, length;
 
@@ -265,8 +342,23 @@ else
 
     parMatrixSparse<float,int> *Mt;
 
+    start = MPI_Wtime();
 
     Mt = smg2s<float,int>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
+
+    end = MPI_Wtime();
+
+    time = end - start ;
+    
+    if(rank == 0){
+            printf ( "----------------------------------------------------\n" );
+            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+                            printf ( "----------------------------------------------------\n" );
+
+            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+            printf ( "----------------------------------------------------\n" );
+    }
+
 
 #endif
 
