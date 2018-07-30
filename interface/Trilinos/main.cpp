@@ -15,6 +15,8 @@
 #include <Tpetra_DefaultPlatform.hpp>
 #include <Tpetra_CrsMatrix.hpp>
 
+#include "trilinos_interface.hpp"
+
 using Tpetra::CrsMatrix;
 using Tpetra::global_size_t;
 using Teuchos::Array;
@@ -125,53 +127,7 @@ int main(int argc, char** argv) {
 
     Am->LOC_MatView();
 
-    RCP<CrsMatrix<ST> > K = rcp (new CrsMatrix<ST> (map, 0,  Tpetra::DynamicProfile));
-
-    const int numMyElements = map->getNodeNumElements();
-    
-    ArrayView<const int> myGlobalElements = map->getNodeElementList ();
-
-/*
-    int dd = 3, m;
-    int *ind = new int[dd];
-    double *vv = new double[dd];
-    for(m = 0; m < dd; m++){
-    	ind[m] = m;
-    	vv[m] = 1.0;
-    }
-
-    ArrayView<const int> cols(ind, dd);
-    ArrayView<const double> vals(vv, dd);
-*/
-
-    printf("myProcId = %d: numMyElements = %d\n", MyPID, numMyElements);
-
-    int i, j;
-/*
-    for(i = 0; i < numMyElements; i++){
-    	//K->insertGlobalValues(myGlobalElements[i],tuple<int>(myGlobalElements[i]),tuple<double>(1.0));
-    	K->insertGlobalValues(myGlobalElements[i],cols,vals);
-    }
- */	
- 
- 	int col;
- 	double val;
-
- 	typename std::map<int ,double>::iterator it;
-
- 	std::map<int,double> *dynloc;
- 	dynloc = Am->GetDynMatLoc();
- 	int container_size;
- 	for(i = 0; i < numMyElements; i++){
- 		for(it = dynloc[i].begin(); it != dynloc[i].end(); ++it){
- 			col = it->first;
- 			val = it->second;
-
-	 		K->insertGlobalValues(myGlobalElements[i],tuple<int>(col),tuple<double>(val));
- 		}
- 	}
-
- 	K->fillComplete ();
+    RCP<CrsMatrix<ST> > K = ConvertToTrilinosMat(Am);
 
  	K->describe(*fos, Teuchos::VERB_EXTREME);
 
