@@ -144,7 +144,7 @@ class parMatrixSparse
 
   		//LOC set
 		void	Loc_SetValueLocal( S row, S col, T value);
-  		void 	Loc_SetValuesLocal( S nindex, S *rows, S *cols, T *values);
+  	void 	Loc_SetValuesLocal( S nindex, S *rows, S *cols, T *values);
 
 		//LOC global set
 		void	Loc_SetValue(S row, S col, T value);
@@ -160,10 +160,10 @@ class parMatrixSparse
 		//Loc set mat diagonal by vector given
 		void	Loc_SetDiagonal(parVector<T,S> *diag);
 
-		//Mat Scala
+		//Mat Scale
 		void	MatScale(T scale);
 
-		//Loc Mat Scala
+		//Loc Mat Scale
 		void	Loc_MatScale(T scale);
 
 		//Loc AXPY

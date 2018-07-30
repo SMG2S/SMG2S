@@ -30,7 +30,7 @@ if rank == 0:
 
 Mt = smg2s.parMatrixSparseDoubleInt()
 
-Mt=smg2s.smg2sDoubleInt(10,nilp,lbandwidth," ")
+Mt=smg2s.smg2sDoubleInt(10,nilp,lbandwidth," ", MPI.COMM_WORLD)
 
 Mt.LOC_MatView()
 

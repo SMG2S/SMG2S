@@ -34,9 +34,6 @@ int main(int argc, char* argv[]) {
 	MPI_Barrier(MPI_COMM_WORLD);
 	Loc_CSRGetRowsArraySizes(m, &size_row, &size_col);
 	printf("size 1 = %d, SIZE 2 = %d\n", size_row,size_col);
-	//Loc_CSRGetRowsArray2(m, size_row, &rows);
-	//Loc_CSRGetColsArray(m, &cols, &size_col);
-	//ReleaseParMatrixSparseComplexDoubleInt(&m);
 
 	#else
 

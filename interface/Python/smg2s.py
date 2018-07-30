@@ -159,7 +159,6 @@ class SwigPyIterator(_object):
 SwigPyIterator_swigregister = _smg2s.SwigPyIterator_swigregister
 SwigPyIterator_swigregister(SwigPyIterator)
 
-DEBUG = _smg2s.DEBUG
 class NilpotencyInt(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, NilpotencyInt, name, value)
@@ -276,6 +275,9 @@ class parVectorMapInt(_object):
             self.this = this
     __swig_destroy__ = _smg2s.delete_parVectorMapInt
     __del__ = lambda self: None
+
+    def GetCurrentComm(self):
+        return _smg2s.parVectorMapInt_GetCurrentComm(self)
 
     def Loc2Glob(self, local_index):
         return _smg2s.parVectorMapInt_Loc2Glob(self, local_index)
@@ -440,6 +442,9 @@ class parMatrixSparseDoubleInt(_object):
     def GetYMap(self):
         return _smg2s.parMatrixSparseDoubleInt_GetYMap(self)
 
+    def GetComm(self):
+        return _smg2s.parMatrixSparseDoubleInt_GetComm(self)
+
     def GetXLowerBound(self):
         return _smg2s.parMatrixSparseDoubleInt_GetXLowerBound(self)
 
@@ -533,12 +538,6 @@ class parMatrixSparseDoubleInt(_object):
     def MatScale(self, scale):
         return _smg2s.parMatrixSparseDoubleInt_MatScale(self, scale)
 
-    def MatAXPY(self, X, scale):
-        return _smg2s.parMatrixSparseDoubleInt_MatAXPY(self, X, scale)
-
-    def MatAYPX(self, X, scale):
-        return _smg2s.parMatrixSparseDoubleInt_MatAYPX(self, X, scale)
-
     def Loc_MatScale(self, scale):
         return _smg2s.parMatrixSparseDoubleInt_Loc_MatScale(self, scale)
 
@@ -563,18 +562,6 @@ class parMatrixSparseDoubleInt(_object):
     def Loc_ZeroEntries(self):
         return _smg2s.parMatrixSparseDoubleInt_Loc_ZeroEntries(self)
 
-    def FindColsToRecv(self):
-        return _smg2s.parMatrixSparseDoubleInt_FindColsToRecv(self)
-
-    def SetupDataTypes(self):
-        return _smg2s.parMatrixSparseDoubleInt_SetupDataTypes(self)
-
-    def TestCommunication(self, XVec, YVec):
-        return _smg2s.parMatrixSparseDoubleInt_TestCommunication(self, XVec, YVec)
-
-    def CSR_MatVecProd(self, XVec, YVec):
-        return _smg2s.parMatrixSparseDoubleInt_CSR_MatVecProd(self, XVec, YVec)
-
     def MA(self, nilp, prod):
         return _smg2s.parMatrixSparseDoubleInt_MA(self, nilp, prod)
 
@@ -584,8 +571,8 @@ parMatrixSparseDoubleInt_swigregister = _smg2s.parMatrixSparseDoubleInt_swigregi
 parMatrixSparseDoubleInt_swigregister(parMatrixSparseDoubleInt)
 
 
-def smg2sDoubleInt(probSize, nilp, lbandwidth, spectrum):
-    return _smg2s.smg2sDoubleInt(probSize, nilp, lbandwidth, spectrum)
+def smg2sDoubleInt(probSize, nilp, lbandwidth, spectrum, comm):
+    return _smg2s.smg2sDoubleInt(probSize, nilp, lbandwidth, spectrum, comm)
 smg2sDoubleInt = _smg2s.smg2sDoubleInt
 # This file is compatible with both classic and new-style classes.
 

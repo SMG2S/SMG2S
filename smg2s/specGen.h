@@ -38,6 +38,7 @@ void specGen(parVector<T,S> *vec, std::string spectrum){
          printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
       }
 
+/*This part can be replaced by users provded func*/
       for(S i=0; i < size; i++){
 #ifdef __USE_COMPLEX__
          val.real(i*10+1);
@@ -52,6 +53,23 @@ void specGen(parVector<T,S> *vec, std::string spectrum){
 
       vec->ReadExtVec(spectrum);
    }
+}
+
+template<typename T, typename S>
+void matInit(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth){
+
+    T rnd;
+/*This part can be replaced by users provded func*/
+
+    for(S i = 0; i < probSize; i++){
+        for(S j = i - lbandwidth; j < i; j++){
+            if(j >= 0){
+               rnd = 0.00001*random<T,S>(0,10);
+              Am->Loc_SetValue(i,j,rnd);
+              matAop->Loc_SetValue(i,j,rnd);
+            }
+        }
+    }
 }
 
 #endif

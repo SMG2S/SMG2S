@@ -58,7 +58,6 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
     }
 
 
-
 	  parVector<T,S> *vec = new parVector<T,S>(comm, lower_b, upper_b);
     parVector<T,S> *prod = new parVector<T,S>(comm, lower_b, upper_b);
 
@@ -81,17 +80,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     start = MPI_Wtime();
 
-    T rnd;
-
-    for(S i = 0; i < probSize; i++){
-        for(S j = i - lbandwidth; j < i; j++){
-            if(j >= 0){
-            	rnd = 0.00001*random<T,S>(0,10);
-              Am->Loc_SetValue(i,j,rnd);
-              matAop->Loc_SetValue(i,j,rnd);
-            }
-        }
-    }
+    matInit(Am, matAop, probSize, lbandwidth);
 
     Am->Loc_SetDiagonal(vec);
     matAop->Loc_SetDiagonal(vec);
