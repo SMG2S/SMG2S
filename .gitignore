@@ -39,10 +39,17 @@ view
 # Matrix file
 *.mat
 
-#cmake files
+# CMake files
 CMakeCache.txt
-CMakeLists.txt
-CMakeFiles/
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
 cmake_install.cmake
-
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+DartConfiguration.tcl
 
