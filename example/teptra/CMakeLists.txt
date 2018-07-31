@@ -103,7 +103,7 @@ set(LINK_LIBRARIES_ARNOLDI ${Tpetra_LIBRARIES} ${Anasazi_LIBRARIES} ${Amesos_LIB
 set(LINK_LIBRARIES_GMRES ${Tpetra_LIBRARIES} ${Teuchos_LIBRARIES} ${Belos_LIBRARIES})
 
 #add executable
-add_executable(test.exe main.cpp)
+add_executable(test.exe teptra_example.cpp)
 target_link_libraries(test.exe ${LINK_LIBRARIES})
 
 include(Dart)

@@ -47,7 +47,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     S span, lower_b, upper_b;
 
-    span = S(floor(double(probSize)/double(world_size)));
+    span = S(ceil(double(probSize)/double(world_size)));
 
     if(world_rank == world_size - 1){
 		lower_b = world_rank * span;

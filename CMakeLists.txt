@@ -109,6 +109,10 @@ INSTALL (
 		DIRECTORY ${CMAKE_SOURCE_DIR}/config/
 		DESTINATION include/config
 		FILES_MATCHING PATTERN "*.h")
+INSTALL (
+        DIRECTORY ${CMAKE_SOURCE_DIR}/interface/Trilinos/
+        DESTINATION include/interface/Trilinos
+        FILES_MATCHING PATTERN "trilinos_interface.hpp")
 endif()
 
 find_package (PETSc REQUIRED)

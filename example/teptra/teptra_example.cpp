@@ -15,7 +15,7 @@
 #include <Tpetra_DefaultPlatform.hpp>
 #include <Tpetra_CrsMatrix.hpp>
 
-#include "trilinos_interface.hpp"
+#include "../../interface/Trilinos/trilinos_interface.hpp"
 
 using Tpetra::CrsMatrix;
 using Tpetra::global_size_t;

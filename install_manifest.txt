@@ -12,4 +12,5 @@
 /Users/xwu/phd_xwu/SMG2S/install/lib/libsmg2s2c.dylib
 /Users/xwu/phd_xwu/SMG2S/install/include/interface/C/c_wrapper.h
 /Users/xwu/phd_xwu/SMG2S/install/include/config/config.h
+/Users/xwu/phd_xwu/SMG2S/install/include/interface/Trilinos/trilinos_interface.hpp
 /Users/xwu/phd_xwu/SMG2S/install/include/interface/PETSc/petsc_interface.h
