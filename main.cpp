@@ -122,13 +122,13 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
-            printf ( "----------------------------------------------------\n" );
-            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-                            printf ( "----------------------------------------------------\n" );
-
-            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-            printf ( "----------------------------------------------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+        printf ( "----------------------------------------------------\n" );
     }
+
 
 #elif defined (__USE_COMPLEX__) && defined(__USE_DOUBLE__)
 //complex double int
@@ -155,12 +155,11 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
-            printf ( "----------------------------------------------------\n" );
-            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-                            printf ( "----------------------------------------------------\n" );
-
-            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-            printf ( "----------------------------------------------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+        printf ( "----------------------------------------------------\n" );
     }
 
 #elif defined (__USE_COMPLEX__) && defined(__USE_64BIT__)
@@ -187,13 +186,13 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
-            printf ( "----------------------------------------------------\n" );
-            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-                            printf ( "----------------------------------------------------\n" );
-
-            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-            printf ( "----------------------------------------------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+        printf ( "----------------------------------------------------\n" );
     }
+
 
 #elif defined (__USE_COMPLEX__)
 //complex single int
@@ -219,12 +218,11 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
-            printf ( "----------------------------------------------------\n" );
-            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-                            printf ( "----------------------------------------------------\n" );
-
-            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-            printf ( "----------------------------------------------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+        printf ( "----------------------------------------------------\n" );
     }
 
 
@@ -252,12 +250,11 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
-            printf ( "----------------------------------------------------\n" );
-            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-                            printf ( "----------------------------------------------------\n" );
-
-            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-            printf ( "----------------------------------------------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+        printf ( "----------------------------------------------------\n" );
     }
 
 
@@ -277,20 +274,19 @@ int main(int argc, char** argv) {
     parMatrixSparse<double,int> *Mt;
 
     start = MPI_Wtime();
-    Mt = smg2s<double,int>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
-    end = MPI_Wtime();
 
+    Mt = smg2s<double,int>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
+
+    end = MPI_Wtime();
 
     time = end - start ;
 
     if(rank == 0){
-
-        	printf ( "----------------------------------------------------\n" );
-	        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-                            printf ( "----------------------------------------------------\n" );
-
-                printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-                printf ( "----------------------------------------------------\n" );
+    	printf ( "----------------------------------------------------\n" );
+        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+        printf ( "----------------------------------------------------\n" );
     }
 
 //    Mt->LOC_MatView();
@@ -319,15 +315,14 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
-            printf ( "----------------------------------------------------\n" );
-            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-                            printf ( "----------------------------------------------------\n" );
-
-            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-            printf ( "----------------------------------------------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+        printf ( "----------------------------------------------------\n" );
     }
 
-#else
+else
 //real single int
     int probSize, lbandwidth, length;
 
@@ -349,14 +344,13 @@ int main(int argc, char** argv) {
     end = MPI_Wtime();
 
     time = end - start ;
-    
-    if(rank == 0){
-            printf ( "----------------------------------------------------\n" );
-            printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-                            printf ( "----------------------------------------------------\n" );
 
-            printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-            printf ( "----------------------------------------------------\n" );
+    if(rank == 0){
+        printf ( "----------------------------------------------------\n" );
+        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+        printf ( "----------------------------------------------------\n" );
+        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
+        printf ( "----------------------------------------------------\n" );
     }
 
 
@@ -368,4 +362,3 @@ int main(int argc, char** argv) {
 
     return 0;
 }
-
