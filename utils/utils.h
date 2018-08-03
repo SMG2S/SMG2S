@@ -23,6 +23,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <map>
+#include "../config/config.h"
 
 template<class T>
 T random_unint(T min, T max)
@@ -38,27 +39,28 @@ T random_unint(T min, T max)
 template<class T, class S>
 T random(S min, S max)
 {
-	return (min + (rand()%(max - min + 1)));
+
+	return static_cast<T>(min + (rand()%(max - min + 1)));
 
 }
 
-template<class S>
-S factorial(S start, S end)
+
+__int64_t factorial(__int64_t start, __int64_t end)
 {
-	S i;
-	S value;
+        __int64_t i;
+        __int64_t value;
 
-	if(start > end){
-		value = 1;
-	}
-	else{
-		value = start;
-		for(i = start + 1; i <= end; i++){
-			value *= i;
-		}
-	}
+        if(start > end){
+                value = 1;
+        }
+        else{
+                value = start;
+                for(i = start + 1; i <= end; i++){
+                        value *= i;
+                }
+        }
 
-	return value;
+        return value;
 }
 
 template<typename S>

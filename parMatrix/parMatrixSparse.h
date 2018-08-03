@@ -1395,7 +1395,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 		}
 
 	}
-}
+
 
 #else
 //real

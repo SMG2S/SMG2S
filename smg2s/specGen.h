@@ -59,12 +59,23 @@ template<typename T, typename S>
 void matInit(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth){
 
     T rnd;
+
+#ifdef __USE_COMPLEX__
+    T scale;
+
+    scale.real(0.00001);
+    scale.imag(0.0);
+    
+#else
+    T scale = 0.00001;
+#endif
+
 /*This part can be replaced by users provded func*/
 
     for(S i = 0; i < probSize; i++){
         for(S j = i - lbandwidth; j < i; j++){
             if(j >= 0){
-               rnd = 0.00001*random<T,S>(0,10);
+              rnd = scale * random<T,S>(0,10);
               Am->Loc_SetValue(i,j,rnd);
               matAop->Loc_SetValue(i,j,rnd);
             }
