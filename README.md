@@ -230,7 +230,36 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-### Interface to Trilinos and other libraries
+### Interface to Trilinos/Teptra CSR matrix
+
+```cpp
+
+#include <interface/Trilinos/trilinos_interface.hpp>
+#include <parMatrix/parMatrixSparse.h>
+
+/* 
+...
+Include the headers of Trilinos/Teptra 
+...
+*/
+
+/* 
+...
+Generate matrix Am by SMG2S function
+...
+*/
+
+/* Trilinos outstream */
+Teuchos::RCP<Teuchos::FancyOStream> fos = Teuchos::fancyOStream(Teuchos::rcpFromRef(out));
+
+/* Convert Am to Teptra Matrix format */
+
+Teuchos::RCP<Teptra::CsrMatrix<Scalar Type>> K = ConvertToTrilinosMat(Am);
+
+/* Shown the matrix K by describe function in Trilinos*/
+K->describe(*fos, Teuchos::VERB_EXTREME);
+
+```
 
 Coming soon.
 
