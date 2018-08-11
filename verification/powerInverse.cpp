@@ -20,9 +20,7 @@
 #include "string"
 
 
-static const char help[] = "Solve Non-Hermitian eigenvalues problem by Power Iterative method, options array_in_received_buffer\n\
-\t-mfile matrix_file (matrix file in PETSc bin format, this is mandatory)\n\
-\t-xfile initial_guess_file (in PETSc bin format)\n";
+static const char help[] = "SMG2S verfication\n";
 
 int main(int argc, char **argv){
 
@@ -248,49 +246,12 @@ PetscErrorCode generateVectorRandom(int size, Vec * v){
 	PetscErrorCode ierr;
 
 	ierr=PetscPrintf(PETSC_COMM_WORLD,"Generating Vector \n");CHKERRQ(ierr);
-	ierr=generateVector(size,v);CHKERRQ(ierr);
+	ierr=VecCreate(PETSC_COMM_WORLD,v);CHKERRQ(ierr);
+	ierr=VecSetSizes(*v,PETSC_DECIDE,size);CHKERRQ(ierr);
+	ierr=VecSetFromOptions(*v);CHKERRQ(ierr);
 	ierr=VecSetRandom(*v,PETSC_NULL);CHKERRQ(ierr);
 	PetscPrintf(PETSC_COMM_WORLD,"Generated Random Vector of size : %d\n",size);
 
 	return 0;
 }
 
-
-PetscErrorCode generateVectorNorm(int size, Vec * v){
-	PetscScalar scal;
-	PetscErrorCode ierr;
-
-	ierr=PetscPrintf(PETSC_COMM_WORLD,"Generating Vector \n");CHKERRQ(ierr);
-	ierr=generateVector(size,v);CHKERRQ(ierr);
-	scal=1.0/size;
-	ierr=VecSet(*v,scal);CHKERRQ(ierr);
-	PetscPrintf(PETSC_COMM_WORLD,"Generated Norm Vector of size : %d\n",size);
-
-	return 0;
-}
-
-
-PetscErrorCode generateVector(int size, Vec * v){
-	PetscErrorCode ierr;
-
-	ierr=VecCreate(PETSC_COMM_WORLD,v);CHKERRQ(ierr);
-	ierr=VecSetSizes(*v,PETSC_DECIDE,size);CHKERRQ(ierr);
-	ierr=VecSetFromOptions(*v);CHKERRQ(ierr);
-	/*initiate the vector to its norm*/
-
-	return 0;
-}
-
-PetscInt factorial(PetscInt low, PetscInt up){
-
-	PetscInt       fac = 1, size, k;
-
-	size = up -low + 1;
-
-	for(k = 0; k < size; k++){
-		fac = fac * (low + k);
-	}
-
-	return fac;
-
-}
