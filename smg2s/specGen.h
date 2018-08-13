@@ -31,7 +31,6 @@ void specGen(parVector<T,S> *vec, std::string spectrum){
 	S    size;
 	size = vec->GetGlobalSize();
 	T    val;
-	double    rx, ry, r;
 
    if (spectrum.compare(" ") == 0){
       if(vec->GetVecMap()->GetRank() == 0){
@@ -65,7 +64,7 @@ void matInit(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize,
 
     scale.real(0.00001);
     scale.imag(0.0);
-    
+
 #else
     T scale = 0.00001;
 #endif

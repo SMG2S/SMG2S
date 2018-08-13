@@ -40,9 +40,9 @@
 		MPI_Comm_size(MPI_COMM_WORLD, &size);
 		MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-		int g, b, c, d;
+		int g, b;
 		PetscInt m, n;
-		PetscInt *i, *j, ii;
+		PetscInt *i, *j;
 		PetscScalar *a;
 
 		Mat A;
