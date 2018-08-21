@@ -115,17 +115,23 @@ INSTALL (
         FILES_MATCHING PATTERN "trilinos_interface.hpp")
 endif()
 
-find_package (PETSc REQUIRED)
+# Find PETSc and SLEPc for verification
+option(USE_PETSC "Find PETSc and SLEPc for verification?" ON)
 
-if(PETSC_FOUND)
-message([STATUS] "PETSC is provided, thus one can use the interface of SMG2S to PETSc.")
-if(INSTALL_TO_USE)
-INSTALL (
-    DIRECTORY ${CMAKE_SOURCE_DIR}/interface/PETSc/
-    DESTINATION include/interface/PETSc
-    FILES_MATCHING PATTERN "*.h*")
-message([STATUS] "PETSc interface file is copied to include/interface/PETSc.")
-endif()
-else()
-message([STATUS] "PETSC is not provided, the interface of SMG2S to PETSc can not be used.")
+if(USE_PETSC)
+message([STATUS] "Find PETSc and SLEPc for verification: ${USE_PETSC}")
+    find_package (PETSc REQUIRED)
+
+    if(PETSC_FOUND)
+    message([STATUS] "PETSC is provided, thus one can use the interface of SMG2S to PETSc.")
+    if(INSTALL_TO_USE)
+    INSTALL (
+        DIRECTORY ${CMAKE_SOURCE_DIR}/interface/PETSc/
+        DESTINATION include/interface/PETSc
+        FILES_MATCHING PATTERN "*.h*")
+    message([STATUS] "PETSc interface file is copied to include/interface/PETSc.")
+    endif()
+    else()
+    message([STATUS] "PETSC is not provided, the interface of SMG2S to PETSc can not be used.")
+    endif()
 endif()

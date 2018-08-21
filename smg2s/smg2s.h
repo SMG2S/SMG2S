@@ -93,13 +93,12 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     MPI_Barrier(comm);
 
-    S my_factorielle_bornes = 1;
+    __int64_t my_factorielle_bornes = 1;
 
     my_factorielle_bornes = factorial(1,2*nilp.nbOne);
 
 
     Am->Loc_MatScale((T)my_factorielle_bornes);
-    double in;
 
     for (S k=1; k<=2*nilp.nbOne; k++){
     	matAop->MA(nilp, MA);

@@ -30,7 +30,5 @@
 
 PetscErrorCode generateVector(int size, Vec * v);
 PetscErrorCode generateVectorRandom(int size, Vec * v);
-PetscErrorCode generateVectorNorm(int size, Vec * v);
-PetscInt factorial(PetscInt low, PetscInt up);
 
 
