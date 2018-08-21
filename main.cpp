@@ -122,6 +122,7 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
+    	printf ( "__USE_COMPLEX__ & __USE_DOUBLE__ & __USE_64BIT__\n");
         printf ( "----------------------------------------------------\n" );
         printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
         printf ( "----------------------------------------------------\n" );
@@ -155,6 +156,7 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
+    	printf ( "__USE_COMPLEX__ & __USE_DOUBLE__\n");
         printf ( "----------------------------------------------------\n" );
         printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
         printf ( "----------------------------------------------------\n" );
@@ -186,6 +188,7 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
+    	printf ( "__USE_COMPLEX__ & __USE_64BIT__\n");
         printf ( "----------------------------------------------------\n" );
         printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
         printf ( "----------------------------------------------------\n" );
@@ -218,6 +221,7 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
+    	printf ( "__USE_COMPLEX__\n");
         printf ( "----------------------------------------------------\n" );
         printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
         printf ( "----------------------------------------------------\n" );
@@ -250,6 +254,7 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
+    	printf ( "__USE_DOUBLE__ & __USE_64BIT__\n");
         printf ( "----------------------------------------------------\n" );
         printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
         printf ( "----------------------------------------------------\n" );
@@ -282,6 +287,7 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
+    	printf ( "__USE_DOUBLE__\n");
     	printf ( "----------------------------------------------------\n" );
         printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
         printf ( "----------------------------------------------------\n" );
@@ -315,6 +321,7 @@ int main(int argc, char** argv) {
     time = end - start ;
 
     if(rank == 0){
+    	printf ( "__USE_64BIT__\n");
         printf ( "----------------------------------------------------\n" );
         printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
         printf ( "----------------------------------------------------\n" );
@@ -322,36 +329,11 @@ int main(int argc, char** argv) {
         printf ( "----------------------------------------------------\n" );
     }
 
-else
+#else
 //real single int
-    int probSize, lbandwidth, length;
-
-    probSize = atoi(dim);
-    lbandwidth = atoi(l);
-    length = atoi(c);
-
-
-    Nilpotency<int> nilp;
-
-    nilp.NilpType1(length,probSize);
-
-    parMatrixSparse<float,int> *Mt;
-
-    start = MPI_Wtime();
-
-    Mt = smg2s<float,int>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
-
-    end = MPI_Wtime();
-
-    time = end - start ;
-
-    if(rank == 0){
-        printf ( "----------------------------------------------------\n" );
-        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-        printf ( "----------------------------------------------------\n" );
-        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-        printf ( "----------------------------------------------------\n" );
-    }
+    
+    printf ( "\nConfig variable problem. Please try to check the config/config.h file to solve it.\n" );
+        
 
 
 #endif
