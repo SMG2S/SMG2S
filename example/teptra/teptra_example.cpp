@@ -127,7 +127,7 @@ int main(int argc, char** argv) {
 
     Am->LOC_MatView();
 
-    RCP<CrsMatrix<ST> > K = ConvertToTrilinosMat(Am);
+    RCP<CrsMatrix<ST> > K = ConvertToTrilinosMat<double, int>(Am);
 
  	K->describe(*fos, Teuchos::VERB_EXTREME);
 

@@ -646,12 +646,12 @@ void parMatrixSparse<T,S>::MatView(){
 	}
 }
 
-template<typename T,typename S>
-void parMatrixSparse<T,S>::LOC_MatView(){
+template<>
+void parMatrixSparse<std::complex<double>, int>::LOC_MatView(){
 
-	S i;
-	T v;
-	typename std::map<S,T>::iterator it;
+	int i;
+	std::complex<double> v;
+	typename std::map<int,std::complex<double>>::iterator it;
 
 	if(ProcID == 0) {std::cout << "LOC MODE Parallel MatView: " << std::endl;}
 
@@ -659,15 +659,164 @@ void parMatrixSparse<T,S>::LOC_MatView(){
 		if(dynmat_loc != NULL){
 			std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
 			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
-#if defined (__USE_COMPLEX__)
 				if(it->second.real() != 0 || it->second.imag() != 0){
 					std::cout <<"("<<it->first << "," << it->second << "); ";
-				}
-#else
+				}	
+			}
+		}
+	std::cout << std::endl;
+	}
+}
+
+template<>
+void parMatrixSparse<std::complex<double>, __int64_t>::LOC_MatView(){
+
+	__int64_t i;
+	std::complex<double> v;
+	typename std::map<__int64_t,std::complex<double>>::iterator it;
+
+	if(ProcID == 0) {std::cout << "LOC MODE Parallel MatView: " << std::endl;}
+
+	for (i = 0; i < nrows; i++){
+		if(dynmat_loc != NULL){
+			std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+				if(it->second.real() != 0 || it->second.imag() != 0){
+					std::cout <<"("<<it->first << "," << it->second << "); ";
+				}	
+			}
+		}
+	std::cout << std::endl;
+	}
+}
+
+template<>
+void parMatrixSparse<std::complex<float>, int>::LOC_MatView(){
+
+	int i;
+	std::complex<float> v;
+	typename std::map<int,std::complex<float>>::iterator it;
+
+	if(ProcID == 0) {std::cout << "LOC MODE Parallel MatView: " << std::endl;}
+
+	for (i = 0; i < nrows; i++){
+		if(dynmat_loc != NULL){
+			std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+				if(it->second.real() != 0 || it->second.imag() != 0){
+					std::cout <<"("<<it->first << "," << it->second << "); ";
+				}	
+			}
+		}
+	std::cout << std::endl;
+	}
+}
+
+template<>
+void parMatrixSparse<std::complex<float>, __int64_t>::LOC_MatView(){
+
+	__int64_t i;
+	std::complex<float> v;
+	typename std::map<__int64_t,std::complex<float>>::iterator it;
+
+	if(ProcID == 0) {std::cout << "LOC MODE Parallel MatView: " << std::endl;}
+
+	for (i = 0; i < nrows; i++){
+		if(dynmat_loc != NULL){
+			std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+				if(it->second.real() != 0 || it->second.imag() != 0){
+					std::cout <<"("<<it->first << "," << it->second << "); ";
+				}	
+			}
+		}
+	std::cout << std::endl;
+	}
+}
+
+template<>
+void parMatrixSparse<double, int>::LOC_MatView(){
+
+	int i;
+	double v;
+	typename std::map<int,double>::iterator it;
+
+	if(ProcID == 0) {std::cout << "LOC MODE Parallel MatView: " << std::endl;}
+
+	for (i = 0; i < nrows; i++){
+		if(dynmat_loc != NULL){
+			std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
 				if(it->second != 0){
 					std::cout <<"("<<it->first << "," << it->second << "); ";
+				}	
+			}
+		}
+	std::cout << std::endl;
+	}
+}
+
+template<>
+void parMatrixSparse<double, __int64_t>::LOC_MatView(){
+
+	__int64_t i;
+	double v;
+	typename std::map<__int64_t,double>::iterator it;
+
+	if(ProcID == 0) {std::cout << "LOC MODE Parallel MatView: " << std::endl;}
+
+	for (i = 0; i < nrows; i++){
+		if(dynmat_loc != NULL){
+			std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+				if(it->second != 0){
+						std::cout <<"("<<it->first << "," << it->second << "); ";
 				}
-#endif
+			}
+		}
+	std::cout << std::endl;
+	}
+}
+
+
+template<>
+void parMatrixSparse<float, int>::LOC_MatView(){
+
+	int i;
+	float v;
+	typename std::map<int,float>::iterator it;
+
+	if(ProcID == 0) {std::cout << "LOC MODE Parallel MatView: " << std::endl;}
+
+	for (i = 0; i < nrows; i++){
+		if(dynmat_loc != NULL){
+			std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+				if(it->second != 0){
+					std::cout <<"("<<it->first << "," << it->second << "); ";
+				}	
+			}
+		}
+	std::cout << std::endl;
+	}
+}
+
+template<>
+void parMatrixSparse<float, __int64_t>::LOC_MatView(){
+
+	__int64_t i;
+	float v;
+	typename std::map<__int64_t,float>::iterator it;
+
+	if(ProcID == 0) {std::cout << "LOC MODE Parallel MatView: " << std::endl;}
+
+	for (i = 0; i < nrows; i++){
+		if(dynmat_loc != NULL){
+			std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+				if(it->second != 0){
+						std::cout <<"("<<it->first << "," << it->second << "); ";
+				}
 			}
 		}
 	std::cout << std::endl;
@@ -845,29 +994,23 @@ void parMatrixSparse<T,S>::ConvertToCSR()
 	}
 }
 
+template<>
+void parMatrixSparse<std::complex<double>, int>::Loc_ConvertToCSR(){
+	int 	count, i, j;
+	std::complex<double>	v;
 
-template<typename T,typename S>
-void parMatrixSparse<T,S>::Loc_ConvertToCSR()
-{
-	S 	count, i, j;
-	T	v;
-	typename std::map<S,T>::iterator it;
+	typename std::map<int,std::complex<double>>::iterator it;
 
 	if(dynmat_loc != NULL){
 		//allocate csr matrix
 
-
-		CSR_loc = new MatrixCSR<T,S>(nnz_loc, nrows);
-
-//		CSR_lloc = new MatrixCSR<T,S>(nrows);
+		CSR_loc = new MatrixCSR<std::complex<double>,int>(nnz_loc, nrows);
 
 		count = 0;
-		//CSR_lloc->rows.push_back(0);
 
 		for(i = 0; i < nrows; i++){
 			CSR_loc->rows.push_back(count);
 			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
-#if defined (__USE_COMPLEX__)
 				if(it->second.imag() != 0 || it->second.real() != 0){
 					j = it->first;
 					v = it->second;
@@ -875,7 +1018,124 @@ void parMatrixSparse<T,S>::Loc_ConvertToCSR()
 					CSR_loc->cols.push_back(j);
 					count++;
 				}
-#else
+			}
+		}
+		CSR_loc->rows.push_back(count);
+	}
+}
+
+
+template<>
+void parMatrixSparse<std::complex<double>, __int64_t>::Loc_ConvertToCSR(){
+	__int64_t 	count, i, j;
+	std::complex<double>	v;
+
+	typename std::map<__int64_t,std::complex<double>>::iterator it;
+
+	if(dynmat_loc != NULL){
+		//allocate csr matrix
+
+		CSR_loc = new MatrixCSR<std::complex<double>,__int64_t>(nnz_loc, nrows);
+
+		count = 0;
+
+		for(i = 0; i < nrows; i++){
+			CSR_loc->rows.push_back(count);
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+				if(it->second.imag() != 0 || it->second.real() != 0){
+					j = it->first;
+					v = it->second;
+					CSR_loc->vals.push_back(v);
+					CSR_loc->cols.push_back(j);
+					count++;
+				}
+			}
+		}
+		CSR_loc->rows.push_back(count);
+	}
+}
+
+
+template<>
+void parMatrixSparse<std::complex<float>, int>::Loc_ConvertToCSR(){
+	int 	count, i, j;
+	std::complex<float>	v;
+
+	typename std::map<int,std::complex<float>>::iterator it;
+
+	if(dynmat_loc != NULL){
+		//allocate csr matrix
+
+		CSR_loc = new MatrixCSR<std::complex<float>,int>(nnz_loc, nrows);
+
+		count = 0;
+
+		for(i = 0; i < nrows; i++){
+			CSR_loc->rows.push_back(count);
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+				if(it->second.imag() != 0 || it->second.real() != 0){
+					j = it->first;
+					v = it->second;
+					CSR_loc->vals.push_back(v);
+					CSR_loc->cols.push_back(j);
+					count++;
+				}
+			}
+		}
+		CSR_loc->rows.push_back(count);
+	}
+}
+
+template<>
+void parMatrixSparse<std::complex<float>, __int64_t>::Loc_ConvertToCSR(){
+	__int64_t 	count, i, j;
+	std::complex<float>	v;
+
+	typename std::map<__int64_t,std::complex<float>>::iterator it;
+
+	if(dynmat_loc != NULL){
+		//allocate csr matrix
+
+		CSR_loc = new MatrixCSR<std::complex<float>,__int64_t>(nnz_loc, nrows);
+
+		count = 0;
+
+		for(i = 0; i < nrows; i++){
+			CSR_loc->rows.push_back(count);
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+				if(it->second.imag() != 0 || it->second.real() != 0){
+					j = it->first;
+					v = it->second;
+					CSR_loc->vals.push_back(v);
+					CSR_loc->cols.push_back(j);
+					count++;
+				}
+			}
+		}
+		CSR_loc->rows.push_back(count);
+	}
+}
+
+
+
+
+template<>
+void parMatrixSparse<double, int>::Loc_ConvertToCSR(){
+	int 	count, i, j;
+	double	v;
+
+	typename std::map<int,double>::iterator it;
+
+	if(dynmat_loc != NULL){
+		//allocate csr matrix
+
+		CSR_loc = new MatrixCSR<double,int>(nnz_loc, nrows);
+
+		count = 0;
+
+		for(i = 0; i < nrows; i++){
+			CSR_loc->rows.push_back(count);
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
 				if(it->second != 0){
 					j = it->first;
 					v = it->second;
@@ -883,14 +1143,107 @@ void parMatrixSparse<T,S>::Loc_ConvertToCSR()
 					CSR_loc->cols.push_back(j);
 					count++;
 				}
-#endif
-
 			}
 		}
 		CSR_loc->rows.push_back(count);
 	}
 }
 
+template<>
+void parMatrixSparse<double, __int64_t>::Loc_ConvertToCSR(){
+	__int64_t 	count, i, j;
+	double	v;
+
+	typename std::map<__int64_t,double >::iterator it;
+
+	if(dynmat_loc != NULL){
+		//allocate csr matrix
+
+		CSR_loc = new MatrixCSR<double,__int64_t>(nnz_loc, nrows);
+
+		count = 0;
+
+		for(i = 0; i < nrows; i++){
+			CSR_loc->rows.push_back(count);
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+				if(it->second != 0){
+					j = it->first;
+					v = it->second;
+					CSR_loc->vals.push_back(v);
+					CSR_loc->cols.push_back(j);
+					count++;
+				}
+			}
+		}
+		CSR_loc->rows.push_back(count);
+	}
+}
+
+
+
+
+
+template<>
+void parMatrixSparse<float, int>::Loc_ConvertToCSR(){
+	int 	count, i, j;
+	float	v;
+
+	typename std::map<int,float>::iterator it;
+
+	if(dynmat_loc != NULL){
+		//allocate csr matrix
+
+		CSR_loc = new MatrixCSR<float,int>(nnz_loc, nrows);
+
+		count = 0;
+
+		for(i = 0; i < nrows; i++){
+			CSR_loc->rows.push_back(count);
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+				if(it->second != 0){
+					j = it->first;
+					v = it->second;
+					CSR_loc->vals.push_back(v);
+					CSR_loc->cols.push_back(j);
+					count++;
+				}
+			}
+		}
+		CSR_loc->rows.push_back(count);
+	}
+}
+
+template<>
+void parMatrixSparse<float, __int64_t>::Loc_ConvertToCSR(){
+	__int64_t 	count, i, j;
+	float	v;
+
+	typename std::map<__int64_t,float >::iterator it;
+
+	if(dynmat_loc != NULL){
+		//allocate csr matrix
+
+		CSR_loc = new MatrixCSR<float,__int64_t>(nnz_loc, nrows);
+
+		count = 0;
+
+		for(i = 0; i < nrows; i++){
+			CSR_loc->rows.push_back(count);
+			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+				if(it->second != 0){
+					j = it->first;
+					v = it->second;
+					CSR_loc->vals.push_back(v);
+					CSR_loc->cols.push_back(j);
+					count++;
+				}
+			}
+		}
+		CSR_loc->rows.push_back(count);
+	}
+}
+
+///////////////////////////////
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::ReadExtMat()
@@ -930,8 +1283,6 @@ void parMatrixSparse<T,S>::ReadExtMat()
 	}
 	if(ProcID == 0) printf("The matrix is readed !!!!\n");
 }
-
-
 
 
 
@@ -1110,7 +1461,6 @@ void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	//use the given nilpotency matrix, MA operation will make elements of matrix right move diaPosition-1 offset.
 	//And the positions of 0: pos = nbOne*integer - 1
 
-#ifndef _OPENMP
 	for(i = 0; i < nrows; i++){
 		if(dynmat_loc == NULL) {
 			return;
@@ -1127,73 +1477,52 @@ void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 			}
 		}
 	}
-
-#else
-
-	if(dynmat_loc == NULL) {
-		return;
-	}
-	else if (dynmat_loc != NULL && prod->dynmat_loc == NULL){
-		prod->dynmat_loc = new std::map<S,T> [nrows];
-	}
-#pragma omp parallel for
-	for(i = 0; i < nrows; i++){
-		for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
-			j = it->first + nilp.diagPosition - 1;
-			k = (j+1)%(nilp.nbOne + 1);
-			if(j < ncols && k != 0){
-				prod->dynmat_loc[i][j] = it->second;
-			}
-		}
-	}
-#endif
-
 }
 
-//special nilpotent matrix multiple another matrix
-template<typename T,typename S>
-void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
+/////////////////
+
+template<>
+void parMatrixSparse<std::complex<double>,int>::AM(Nilpotency<int> nilp, parMatrixSparse<std::complex<double>,int> *prod)
 {
-	S i, j, k, p, q, loc;
-	T v;
+	int i, j, k, p, q, loc;
+
 	bool sendflg = true, recvflag = true;
 
-	typename std::map<S,T>::iterator it;
+	typename std::map<int,std::complex<double> >::iterator it;
 
-	MPI_Request	*Rreqs, *Sreqs, rtypereq, stypereq, *idxRreqs, *idxSreqs;
+	MPI_Request	rtypereq, stypereq;
 
-	MPI_Status	*Rstat, *Sstat, typestat, *idxRstat, *idxSstat;
+	MPI_Status	typestat;
 
 	int up, down;
+	int	tagtype = nilp.diagPosition - 1 + nilp.diagPosition ;
+	int	Rtag, Stag;
 
-	int			tag1[nilp.diagPosition - 1], tag2[nilp.diagPosition - 1], tagtype = nilp.diagPosition - 1 + nilp.diagPosition ;
-	int			Rtag, Stag;
-	S           count, count1;
+	int *sIndx, *rIndx;
+	int gSize = 0, gRsize = 0;
+	int cnt = 0, cnt2 = 0;
+	MPI_Request	indSReqs, indRReqs, valSReqs, valRReqs;
+	MPI_Status indRStats, valRStats;
 
-	count = 0;
-	count1 = 0;
+	int tagv = 0;
+	int tagi = 1;
 
 	up = ProcID - 1;
-	down =ProcID + 1;
-	S size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
+	down = ProcID + 1;
 
-	for(S a = 0; a < nilp.diagPosition - 1; a++){
-		tag1[a] = a;
-		tag2[a] = nilp.diagPosition - 1 + a;
-	}
+	int size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
 
 	if(ProcID != 0){
-		for(S a = 0; a < nilp.diagPosition - 1; a++){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
 			size[a] = dynmat_loc[a].size();
 		}
 	}
 
 	if(ProcID != nProcs - 1){
-		for(S a = 0; a < nilp.diagPosition - 1; a++){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
 			rsize[a] = 0;
 		}
 	}
-
 
 
 	if(ProcID != 0){
@@ -1202,25 +1531,10 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 	if(ProcID != nProcs - 1){
 		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
-	}
-
-	if(ProcID != nProcs - 1){
 		MPI_Wait(&rtypereq,&typestat);
 	}
 
-	Rtag = 0; Stag = 1;
-
-	//MPI non-blocking requests and status
-
-	Rreqs = new MPI_Request [nilp.diagPosition - 1];
-	Sreqs = new MPI_Request [nilp.diagPosition - 1];
-	Rstat = new MPI_Status [nilp.diagPosition - 1];
-	Sstat = new MPI_Status [nilp.diagPosition - 1];
-
-	idxRreqs = new MPI_Request [nilp.diagPosition - 1];
-	idxSreqs = new MPI_Request [nilp.diagPosition - 1];
-	idxRstat = new MPI_Status [nilp.diagPosition - 1];
-	idxSstat = new MPI_Status [nilp.diagPosition - 1];
+	Rtag = 2; Stag = 3;
 
 	if(dynmat_loc == NULL){
 		return;
@@ -1228,7 +1542,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 	for(p = nilp.diagPosition - 1; p < nrows; p++){
 		if(prod->dynmat_loc == NULL){
-			prod->dynmat_loc = new std::map<S,T> [nrows];
+			prod->dynmat_loc = new std::map<int,std::complex<double> > [nrows];
 		}
 
 		i = p - nilp.diagPosition + 1;
@@ -1247,223 +1561,1287 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 
 	}
 
-	MPI_Datatype MPI_SCALAR = MPI_Scalar<T>();
+	MPI_Datatype MPI_SCALAR = MPI_Scalar<std::complex<double>>();
 
 	MPI_Barrier(comm);
 
-#if defined (__USE_COMPLEX__) && defined(__USE_DOUBLE__)
-//complex double
+	// sending and receving
+
+	if(ProcID != 0){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != 0){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			gSize += size[b];
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			gRsize += rsize[b];
+		}
+	}
+
+
 	double *sBuf, *rBuf;
 
-	S *sIndx, *rIndx;
-	S cnt = 0, cnt2 = 0;
-
-	for(S b = 0; b < nilp.diagPosition -1; b++){
-
-		if(ProcID != 0){
-			loc = y_index_map->Loc2Glob(b);
-			q = loc - nilp.diagPosition + 1 + b;
-			if((q + 1)%(nilp.nbOne + 1) == 0){
-				sendflg = false;
-			}
-		}
-
-		if(ProcID != nProcs - 1){
-			loc = y_index_map->Loc2Glob(nrows - b - 1);
-			if((loc + 1)%(nilp.nbOne + 1) == 0){
-				recvflag = false;
-			}
-		}
-
-		if(ProcID != 0){
-			if(sendflg == true){
-				sBuf  = new double [2*size[b]];
-				sIndx  = new S [size[b]];
-				for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
-					sBuf[cnt] = (it->second).real();
-					sBuf[cnt+1] = (it->second).imag();
-					sIndx[cnt2] = it->first;
-					cnt = cnt + 2;
-					cnt2++;
-				}
-
-				MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], comm, &Sreqs[b]);
-				MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], comm, &idxSreqs[b]);
-
-			}
-		}
-
-		if(ProcID != nProcs - 1){
-			if(recvflag == true){
-				rBuf = new double [2*rsize[b]];
-				rIndx = new S [2*rsize[b]];
-				for(S tt =0; tt < 2*rsize[b]; tt++){
-					rBuf[tt] = 0.0;
-				}
-
-				for(S tt =0; tt < rsize[b]; tt++){
-					rIndx[tt] = 0;
-				}
-				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], comm, &Rreqs[b]);
-				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], comm, &idxRreqs[b]);
-				MPI_Wait(&Rreqs[b],&Rstat[b]);
-				MPI_Wait(&idxRreqs[b],&idxRstat[b]);
-			}
-		}
-
-		if(ProcID != nProcs - 1){
-			if(recvflag == true){
-				for(S tt = 0; tt < rsize[b]; tt++){
-						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).real(rBuf[2*tt]);
-						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).imag(rBuf[2*tt + 1]);
-				}
-			}
-		}
-
+	if(ProcID != 0){
+		sBuf  = new double [2*gSize];
+		sIndx  = new int [gSize];
 	}
 
-#elif defined (__USE_COMPLEX__)
-//complex single
-
-	float *sBuf, *rBuf;
-
-	S *sIndx, *rIndx;
-	S cnt = 0, cnt2 = 0;
-
-	for(S b = 0; b < nilp.diagPosition -1; b++){
-
-		if(ProcID != 0){
-			loc = y_index_map->Loc2Glob(b);
-			q = loc - nilp.diagPosition + 1 + b;
-			if((q + 1)%(nilp.nbOne + 1) == 0){
-				sendflg = false;
-			}
-		}
-
-		if(ProcID != nProcs - 1){
-			loc = y_index_map->Loc2Glob(nrows - b - 1);
-			if((loc + 1)%(nilp.nbOne + 1) == 0){
-				recvflag = false;
-			}
-		}
-
-		if(ProcID != 0){
-			if(sendflg == true){
-				sBuf  = new float [2*size[b]];
-				sIndx  = new S [size[b]];
-				for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
-					sBuf[cnt] = (it->second).real();
-					sBuf[cnt+1] = (it->second).imag();
-					sIndx[cnt2] = it->first;
-					cnt = cnt + 2;
-					cnt2++;
-				}
-
-				MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], comm, &Sreqs[b]);
-				MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], comm, &idxSreqs[b]);
-			}
-		}
-
-		if(ProcID != nProcs - 1){
-			if(recvflag == true){
-				rBuf = new float [2*rsize[b]];
-				rIndx = new S [2*rsize[b]];
-				for(S tt =0; tt < 2*rsize[b]; tt++){
-					rBuf[tt] = 0.0;
-				}
-
-				for(S tt =0; tt < rsize[b]; tt++){
-					rIndx[tt] = 0;
-				}
-
-				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], comm, &Rreqs[b]);
-				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], comm, &idxRreqs[b]);
-				MPI_Wait(&Rreqs[b],&Rstat[b]);
-				MPI_Wait(&idxRreqs[b],&idxRstat[b]);
-			}
-
-		}
-
-		if(ProcID != nProcs - 1){
-			if(recvflag == true){
-				for(S tt = 0; tt < rsize[b]; tt++){
-						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).real(rBuf[2*tt]);
-						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).imag(rBuf[2*tt + 1]);
-				}
-			}
-
-		}
-
+	if(ProcID != nProcs - 1){
+		rBuf = new double [2*gRsize];
+		rIndx = new int [gRsize];
 	}
 
 
-#else
-//real
-
-	T *sBuf, *rBuf;
-	S *sIndx, *rIndx;
-	S cnt = 0;
-
-	for(S b = 0; b < nilp.diagPosition -1; b++){
-
-		if(ProcID != 0){
-			loc = y_index_map->Loc2Glob(b);
-			q = loc - nilp.diagPosition + 1 + b;
-			if((q + 1)%(nilp.nbOne + 1) == 0){
-				sendflg = false;
+	if(ProcID != 0){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
+				sBuf[cnt] = (it->second).real();
+				sBuf[cnt+1] = (it->second).imag();
+				sIndx[cnt2] = it->first;
+				cnt = cnt + 2;
+				cnt2++;
 			}
 		}
 
-		if(ProcID != nProcs - 1){
-			loc = y_index_map->Loc2Glob(nrows - b - 1);
-			if((loc + 1)%(nilp.nbOne + 1) == 0){
-				recvflag = false;
-			}
+		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int tt = 0; tt < 2*gRsize; tt++){
+			rBuf[tt] = 0.0;
 		}
 
-		if(ProcID != 0){
-			if(sendflg == true){
-				sBuf  = new T [size[b]];
-				sIndx  = new S [size[b]];
-				for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
-					sBuf[cnt] = it->second;
-					sIndx[cnt] = it->first;
-					cnt++;
-			    }
-			    MPI_Isend(sBuf, size[b], MPI_SCALAR, up, tag1[b], comm, &Sreqs[b]);
-			    MPI_Isend(sIndx, size[b], MPI_INT, up, tag2[b], comm, &idxSreqs[b]);
-			}
+		for(int tt = 0; tt < gRsize; tt++){
+			rIndx[tt] = 0;
 		}
+		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
+		
+		MPI_Wait(&indRReqs,&indRStats);
+		MPI_Wait(&valRReqs,&valRStats);
 
-		if(ProcID != nProcs - 1){
-			if(recvflag == true){
-				rBuf = new T [rsize[b]];
-				rIndx = new S [rsize[b]];
-				for(S tt =0; tt < rsize[b]; tt++){
-					rBuf[tt] = 0.0;
-					rIndx[tt] = 0;
-				}
-				MPI_Irecv(rBuf,rsize[b], MPI_SCALAR, down, tag1[b], comm, &Rreqs[b]);
-				MPI_Irecv(rIndx,rsize[b], MPI_INT, down, tag2[b], comm, &idxRreqs[b]);
-				MPI_Wait(&Rreqs[b],&Rstat[b]);
-				MPI_Wait(&idxRreqs[b],&idxRstat[b]);
-			}
-		}
+	}
 
-		if(ProcID != nProcs - 1){
-			if(recvflag == true){
-				for(S tt = 0; tt < rsize[b]; tt++){
+	if(ProcID != nProcs - 1){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			loc = y_index_map->Loc2Glob(nrows - nilp.diagPosition + 1 + b);
+			if((loc + 1)%(nilp.nbOne + 1) != 0){
+				if(b == 0){
+					for(int tt = 0; tt < rsize[b]; tt++){
 						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				} else{
+					for(int tt = rsize[b - 1]; tt < rsize[b] + rsize[b - 1]; tt++){
+						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).real(rBuf[2*tt]);
+						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).imag(rBuf[2*tt + 1]);
+					}
 				}
 			}
-
 		}
-
 	}
-
-#endif
 
 }
 
+
+
+
+template<>
+void parMatrixSparse<std::complex<double>,__int64_t>::AM(Nilpotency<__int64_t> nilp, parMatrixSparse<std::complex<double>,__int64_t> *prod)
+{
+	__int64_t i, j, k, p, q, loc;
+
+	bool sendflg = true, recvflag = true;
+
+	typename std::map<__int64_t,std::complex<double> >::iterator it;
+
+	MPI_Request	rtypereq, stypereq;
+
+	MPI_Status	typestat;
+
+	int up, down;
+	int	tagtype = nilp.diagPosition - 1 + nilp.diagPosition ;
+	int	Rtag, Stag;
+
+
+	__int64_t *sIndx, *rIndx;
+	__int64_t gSize = 0, gRsize = 0;
+	__int64_t cnt = 0, cnt2 = 0;
+
+	MPI_Request	indSReqs, indRReqs, valSReqs, valRReqs;
+	MPI_Status indRStats, valRStats;
+
+	int tagv = 0;
+	int tagi = 1;
+
+	up = ProcID - 1;
+	down = ProcID + 1;
+
+	__int64_t size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
+
+	if(ProcID != 0){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			rsize[a] = 0;
+		}
+	}
+
+
+	if(ProcID != 0){
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
+	}
+
+	if(ProcID != nProcs - 1){
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
+		MPI_Wait(&rtypereq,&typestat);
+	}
+
+	Rtag = 2; Stag = 3;
+
+	if(dynmat_loc == NULL){
+		return;
+	}
+
+	for(p = nilp.diagPosition - 1; p < nrows; p++){
+		if(prod->dynmat_loc == NULL){
+			prod->dynmat_loc = new std::map<__int64_t,std::complex<double> > [nrows];
+		}
+
+		i = p - nilp.diagPosition + 1;
+		q = y_index_map->Loc2Glob(i);
+
+		k = (q + 1)%(nilp.nbOne + 1);
+
+		for(it = dynmat_loc[p].begin(); it != dynmat_loc[p].end(); ++it){
+
+			j = it->first;
+
+			if(i >= 0 && i < nrows && k != 0){
+				prod->dynmat_loc[i][j] = it->second;
+			}
+		}
+
+	}
+
+	MPI_Datatype MPI_SCALAR = MPI_Scalar<std::complex<double>>();
+
+	MPI_Barrier(comm);
+
+	// sending and receving
+
+	if(ProcID != 0){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != 0){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			gSize += size[b];
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			gRsize += rsize[b];
+		}
+	}
+
+
+	double *sBuf, *rBuf;
+
+	if(ProcID != 0){
+		sBuf  = new double [2*gSize];
+		sIndx  = new __int64_t [gSize];
+	}
+
+	if(ProcID != nProcs - 1){
+		rBuf = new double [2*gRsize];
+		rIndx = new __int64_t [gRsize];
+	}
+
+	if(ProcID != 0){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
+				sBuf[cnt] = (it->second).real();
+				sBuf[cnt+1] = (it->second).imag();
+				sIndx[cnt2] = it->first;
+				cnt = cnt + 2;
+				cnt2++;
+			}
+		}
+
+		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t tt = 0; tt < 2*gRsize; tt++){
+			rBuf[tt] = 0.0;
+		}
+
+		for(__int64_t tt = 0; tt < gRsize; tt++){
+			rIndx[tt] = 0;
+		}
+		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
+		
+		MPI_Wait(&indRReqs,&indRStats);
+		MPI_Wait(&valRReqs,&valRStats);
+
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			loc = y_index_map->Loc2Glob(nrows - nilp.diagPosition + 1 + b);
+			if((loc + 1)%(nilp.nbOne + 1) != 0){
+				if(b == 0){
+					for(__int64_t tt = 0; tt < rsize[b]; tt++){
+						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				} else{
+					for(__int64_t tt = rsize[b - 1]; tt < rsize[b] + rsize[b - 1]; tt++){
+						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).real(rBuf[2*tt]);
+						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).imag(rBuf[2*tt + 1]);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+//////////
+
+
+template<>
+void parMatrixSparse<std::complex<float>,int>::AM(Nilpotency<int> nilp, parMatrixSparse<std::complex<float>,int> *prod)
+{
+	int i, j, k, p, q, loc;
+
+	bool sendflg = true, recvflag = true;
+
+	typename std::map<int,std::complex<float> >::iterator it;
+
+	MPI_Request	rtypereq, stypereq;
+
+	MPI_Status	typestat;
+
+	int up, down;
+	int	tagtype = nilp.diagPosition - 1 + nilp.diagPosition ;
+	int	Rtag, Stag;
+
+
+	int *sIndx, *rIndx;
+	int gSize = 0, gRsize = 0;
+	int cnt = 0, cnt2 = 0;
+	MPI_Request	indSReqs, indRReqs, valSReqs, valRReqs;
+	MPI_Status indRStats, valRStats;
+
+	int tagv = 0;
+	int tagi = 1;
+
+	up = ProcID - 1;
+	down = ProcID + 1;
+
+	int size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
+
+	if(ProcID != 0){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
+			rsize[a] = 0;
+		}
+	}
+
+
+	if(ProcID != 0){
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
+	}
+
+	if(ProcID != nProcs - 1){
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
+		MPI_Wait(&rtypereq,&typestat);
+	}
+
+	Rtag = 2; Stag = 3;
+
+	if(dynmat_loc == NULL){
+		return;
+	}
+
+	for(p = nilp.diagPosition - 1; p < nrows; p++){
+		if(prod->dynmat_loc == NULL){
+			prod->dynmat_loc = new std::map<int,std::complex<float> > [nrows];
+		}
+
+		i = p - nilp.diagPosition + 1;
+		q = y_index_map->Loc2Glob(i);
+
+		k = (q + 1)%(nilp.nbOne + 1);
+
+		for(it = dynmat_loc[p].begin(); it != dynmat_loc[p].end(); ++it){
+
+			j = it->first;
+
+			if(i >= 0 && i < nrows && k != 0){
+				prod->dynmat_loc[i][j] = it->second;
+			}
+		}
+
+	}
+
+	MPI_Datatype MPI_SCALAR = MPI_Scalar<std::complex<float>>();
+
+	MPI_Barrier(comm);
+
+	// sending and receving
+
+	if(ProcID != 0){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != 0){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			gSize += size[b];
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			gRsize += rsize[b];
+		}
+	}
+
+
+	float *sBuf, *rBuf;
+
+	if(ProcID != 0){
+		sBuf  = new float [2*gSize];
+		sIndx  = new int [gSize];
+	}
+
+	if(ProcID != nProcs - 1){
+		rBuf = new float [2*gRsize];
+		rIndx = new int [gRsize];
+	}
+
+	if(ProcID != 0){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
+				sBuf[cnt] = (it->second).real();
+				sBuf[cnt+1] = (it->second).imag();
+				sIndx[cnt2] = it->first;
+				cnt = cnt + 2;
+				cnt2++;
+			}
+		}
+
+		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int tt = 0; tt < 2*gRsize; tt++){
+			rBuf[tt] = 0.0;
+		}
+
+		for(int tt = 0; tt < gRsize; tt++){
+			rIndx[tt] = 0;
+		}
+		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
+		
+		MPI_Wait(&indRReqs,&indRStats);
+		MPI_Wait(&valRReqs,&valRStats);
+
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			loc = y_index_map->Loc2Glob(nrows - nilp.diagPosition + 1 + b);
+			if((loc + 1)%(nilp.nbOne + 1) != 0){
+				if(b == 0){
+					for(int tt = 0; tt < rsize[b]; tt++){
+						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				} else{
+					for(int tt = rsize[b - 1]; tt < rsize[b] + rsize[b - 1]; tt++){
+						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).real(rBuf[2*tt]);
+						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).imag(rBuf[2*tt + 1]);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+////////////
+
+template<>
+void parMatrixSparse<std::complex<float>,__int64_t>::AM(Nilpotency<__int64_t> nilp, parMatrixSparse<std::complex<float>,__int64_t> *prod)
+{
+	__int64_t i, j, k, p, q, loc;
+
+	bool sendflg = true, recvflag = true;
+
+	typename std::map<__int64_t,std::complex<float> >::iterator it;
+
+	MPI_Request	rtypereq, stypereq;
+
+	MPI_Status	typestat;
+
+	int up, down;
+	int	tagtype = nilp.diagPosition - 1 + nilp.diagPosition ;
+	int	Rtag, Stag;
+
+
+	__int64_t *sIndx, *rIndx;
+	__int64_t gSize = 0, gRsize = 0;
+	__int64_t cnt = 0, cnt2 = 0;
+	MPI_Request	indSReqs, indRReqs, valSReqs, valRReqs;
+	MPI_Status indRStats, valRStats;
+
+	int tagv = 0;
+	int tagi = 1;
+
+	up = ProcID - 1;
+	down = ProcID + 1;
+
+	__int64_t size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
+
+	if(ProcID != 0){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			rsize[a] = 0;
+		}
+	}
+
+
+	if(ProcID != 0){
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
+	}
+
+	if(ProcID != nProcs - 1){
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
+		MPI_Wait(&rtypereq,&typestat);
+	}
+
+	Rtag = 2; Stag = 3;
+
+	if(dynmat_loc == NULL){
+		return;
+	}
+
+	for(p = nilp.diagPosition - 1; p < nrows; p++){
+		if(prod->dynmat_loc == NULL){
+			prod->dynmat_loc = new std::map<__int64_t,std::complex<float> > [nrows];
+		}
+
+		i = p - nilp.diagPosition + 1;
+		q = y_index_map->Loc2Glob(i);
+
+		k = (q + 1)%(nilp.nbOne + 1);
+
+		for(it = dynmat_loc[p].begin(); it != dynmat_loc[p].end(); ++it){
+
+			j = it->first;
+
+			if(i >= 0 && i < nrows && k != 0){
+				prod->dynmat_loc[i][j] = it->second;
+			}
+		}
+
+	}
+
+	MPI_Datatype MPI_SCALAR = MPI_Scalar<std::complex<float>>();
+
+	MPI_Barrier(comm);
+
+	// sending and receving
+
+	if(ProcID != 0){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != 0){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			gSize += size[b];
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			gRsize += rsize[b];
+		}
+	}
+
+
+	float *sBuf, *rBuf;
+
+	if(ProcID != 0){
+		sBuf  = new float [2*gSize];
+		sIndx  = new __int64_t [gSize];
+	}
+
+	if(ProcID != nProcs - 1){
+		rBuf = new float [2*gRsize];
+		rIndx = new __int64_t [gRsize];
+	}
+
+	if(ProcID != 0){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
+				sBuf[cnt] = (it->second).real();
+				sBuf[cnt+1] = (it->second).imag();
+				sIndx[cnt2] = it->first;
+				cnt = cnt + 2;
+				cnt2++;
+			}
+		}
+
+		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t tt = 0; tt < 2*gRsize; tt++){
+			rBuf[tt] = 0.0;
+		}
+
+		for(__int64_t tt = 0; tt < gRsize; tt++){
+			rIndx[tt] = 0;
+		}
+		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
+		
+		MPI_Wait(&indRReqs,&indRStats);
+		MPI_Wait(&valRReqs,&valRStats);
+
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			loc = y_index_map->Loc2Glob(nrows - nilp.diagPosition + 1 + b);
+			if((loc + 1)%(nilp.nbOne + 1) != 0){
+				if(b == 0){
+					for(__int64_t tt = 0; tt < rsize[b]; tt++){
+						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				} else{
+					for(__int64_t tt = rsize[b - 1]; tt < rsize[b] + rsize[b - 1]; tt++){
+						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).real(rBuf[2*tt]);
+						(prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]]).imag(rBuf[2*tt + 1]);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+////////////////////////
+
+
+template<>
+void parMatrixSparse<double,int>::AM(Nilpotency<int> nilp, parMatrixSparse<double,int> *prod)
+{
+	int i, j, k, p, q, loc;
+
+	bool sendflg = true, recvflag = true;
+
+	typename std::map<int,double >::iterator it;
+
+	MPI_Request	rtypereq, stypereq;
+
+	MPI_Status	typestat;
+
+	int up, down;
+	int	tagtype = nilp.diagPosition - 1 + nilp.diagPosition ;
+	int	Rtag, Stag;
+
+
+	int *sIndx, *rIndx;
+	int gSize = 0, gRsize = 0;
+	int cnt = 0, cnt2 = 0;
+	MPI_Request	indSReqs, indRReqs, valSReqs, valRReqs;
+	MPI_Status indRStats, valRStats;
+
+	int tagv = 0;
+	int tagi = 1;
+
+	up = ProcID - 1;
+	down = ProcID + 1;
+
+	int size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
+
+	if(ProcID != 0){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
+			rsize[a] = 0;
+		}
+	}
+
+
+	if(ProcID != 0){
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
+	}
+
+	if(ProcID != nProcs - 1){
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
+		MPI_Wait(&rtypereq,&typestat);
+	}
+
+	Rtag = 2; Stag = 3;
+
+	if(dynmat_loc == NULL){
+		return;
+	}
+
+	for(p = nilp.diagPosition - 1; p < nrows; p++){
+		if(prod->dynmat_loc == NULL){
+			prod->dynmat_loc = new std::map<int,double > [nrows];
+		}
+
+		i = p - nilp.diagPosition + 1;
+		q = y_index_map->Loc2Glob(i);
+
+		k = (q + 1)%(nilp.nbOne + 1);
+
+		for(it = dynmat_loc[p].begin(); it != dynmat_loc[p].end(); ++it){
+
+			j = it->first;
+
+			if(i >= 0 && i < nrows && k != 0){
+				prod->dynmat_loc[i][j] = it->second;
+			}
+		}
+
+	}
+
+	MPI_Datatype MPI_SCALAR = MPI_Scalar<double>();
+
+	MPI_Barrier(comm);
+
+	// sending and receving
+
+	if(ProcID != 0){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != 0){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			gSize += size[b];
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			gRsize += rsize[b];
+		}
+	}
+
+
+	double *sBuf, *rBuf;
+
+	if(ProcID != 0){
+		sBuf  = new double [gSize];
+		sIndx  = new int [gSize];
+	}
+
+	if(ProcID != nProcs - 1){
+		rBuf = new double [gRsize];
+		rIndx = new int [gRsize];
+	}
+
+	if(ProcID != 0){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
+				sBuf[cnt] = it->second;
+				sIndx[cnt] = it->first;
+				cnt++;
+			}
+		}
+
+		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
+
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int tt = 0; tt < gRsize; tt++){
+			rBuf[tt] = 0.0;
+			rIndx[tt] = 0;
+		}
+		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
+		
+		MPI_Wait(&indRReqs,&indRStats);
+		MPI_Wait(&valRReqs,&valRStats);
+
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			loc = y_index_map->Loc2Glob(nrows - nilp.diagPosition + 1 + b);
+			if((loc + 1)%(nilp.nbOne + 1) != 0){
+				if(b == 0){
+					for(int tt = 0; tt < rsize[b]; tt++){
+						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				} else{
+					for(int tt = rsize[b - 1]; tt < rsize[b] + rsize[b - 1]; tt++){
+						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+////////
+
+
+
+template<>
+void parMatrixSparse<double,__int64_t>::AM(Nilpotency<__int64_t> nilp, parMatrixSparse<double,__int64_t> *prod)
+{
+	__int64_t i, j, k, p, q, loc;
+
+	bool sendflg = true, recvflag = true;
+
+	typename std::map<__int64_t,double >::iterator it;
+
+	MPI_Request	rtypereq, stypereq;
+
+	MPI_Status	typestat;
+
+	int up, down;
+	int	tagtype = nilp.diagPosition - 1 + nilp.diagPosition ;
+	int	Rtag, Stag;
+
+
+	__int64_t *sIndx, *rIndx;
+	__int64_t gSize = 0, gRsize = 0;
+	__int64_t cnt = 0, cnt2 = 0;
+	MPI_Request	indSReqs, indRReqs, valSReqs, valRReqs;
+	MPI_Status indRStats, valRStats;
+
+	int tagv = 0;
+	int tagi = 1;
+
+	up = ProcID - 1;
+	down = ProcID + 1;
+
+	__int64_t size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
+
+	if(ProcID != 0){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			rsize[a] = 0;
+		}
+	}
+
+
+	if(ProcID != 0){
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
+	}
+
+	if(ProcID != nProcs - 1){
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
+		MPI_Wait(&rtypereq,&typestat);
+	}
+
+	Rtag = 2; Stag = 3;
+
+	if(dynmat_loc == NULL){
+		return;
+	}
+
+	for(p = nilp.diagPosition - 1; p < nrows; p++){
+		if(prod->dynmat_loc == NULL){
+			prod->dynmat_loc = new std::map<__int64_t,double > [nrows];
+		}
+
+		i = p - nilp.diagPosition + 1;
+		q = y_index_map->Loc2Glob(i);
+
+		k = (q + 1)%(nilp.nbOne + 1);
+
+		for(it = dynmat_loc[p].begin(); it != dynmat_loc[p].end(); ++it){
+
+			j = it->first;
+
+			if(i >= 0 && i < nrows && k != 0){
+				prod->dynmat_loc[i][j] = it->second;
+			}
+		}
+
+	}
+
+	MPI_Datatype MPI_SCALAR = MPI_Scalar<double>();
+
+	MPI_Barrier(comm);
+
+	// sending and receving
+
+	if(ProcID != 0){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != 0){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			gSize += size[b];
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			gRsize += rsize[b];
+		}
+	}
+
+
+	double *sBuf, *rBuf;
+
+	if(ProcID != 0){
+		sBuf  = new double [gSize];
+		sIndx  = new __int64_t [gSize];
+	}
+
+	if(ProcID != nProcs - 1){
+		rBuf = new double [gRsize];
+		rIndx = new __int64_t [gRsize];
+	}
+
+	if(ProcID != 0){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
+				sBuf[cnt] = it->second;
+				sIndx[cnt] = it->first;
+				cnt++;
+			}
+		}
+
+		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
+
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t tt = 0; tt < gRsize; tt++){
+			rBuf[tt] = 0.0;
+			rIndx[tt] = 0;
+		}
+		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
+		
+		MPI_Wait(&indRReqs,&indRStats);
+		MPI_Wait(&valRReqs,&valRStats);
+
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			loc = y_index_map->Loc2Glob(nrows - nilp.diagPosition + 1 + b);
+			if((loc + 1)%(nilp.nbOne + 1) != 0){
+				if(b == 0){
+					for(__int64_t tt = 0; tt < rsize[b]; tt++){
+						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				} else{
+					for(__int64_t tt = rsize[b - 1]; tt < rsize[b] + rsize[b - 1]; tt++){
+						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+//////////////////////////
+
+
+template<>
+void parMatrixSparse<float,int>::AM(Nilpotency<int> nilp, parMatrixSparse<float,int> *prod)
+{
+	int i, j, k, p, q, loc;
+
+	bool sendflg = true, recvflag = true;
+
+	typename std::map<int,float >::iterator it;
+
+	MPI_Request	rtypereq, stypereq;
+
+	MPI_Status	typestat;
+
+	int up, down;
+	int	tagtype = nilp.diagPosition - 1 + nilp.diagPosition ;
+	int	Rtag, Stag;
+
+
+	int *sIndx, *rIndx;
+	int gSize = 0, gRsize = 0;
+	int cnt = 0, cnt2 = 0;
+	MPI_Request	indSReqs, indRReqs, valSReqs, valRReqs;
+	MPI_Status indRStats, valRStats;
+
+	int tagv = 0;
+	int tagi = 1;
+
+	up = ProcID - 1;
+	down = ProcID + 1;
+
+	int size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
+
+	if(ProcID != 0){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
+			rsize[a] = 0;
+		}
+	}
+
+
+	if(ProcID != 0){
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
+	}
+
+	if(ProcID != nProcs - 1){
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
+		MPI_Wait(&rtypereq,&typestat);
+	}
+
+	Rtag = 2; Stag = 3;
+
+	if(dynmat_loc == NULL){
+		return;
+	}
+
+	for(p = nilp.diagPosition - 1; p < nrows; p++){
+		if(prod->dynmat_loc == NULL){
+			prod->dynmat_loc = new std::map<int,float > [nrows];
+		}
+
+		i = p - nilp.diagPosition + 1;
+		q = y_index_map->Loc2Glob(i);
+
+		k = (q + 1)%(nilp.nbOne + 1);
+
+		for(it = dynmat_loc[p].begin(); it != dynmat_loc[p].end(); ++it){
+
+			j = it->first;
+
+			if(i >= 0 && i < nrows && k != 0){
+				prod->dynmat_loc[i][j] = it->second;
+			}
+		}
+
+	}
+
+	MPI_Datatype MPI_SCALAR = MPI_Scalar<float>();
+
+	MPI_Barrier(comm);
+
+	// sending and receving
+
+	if(ProcID != 0){
+		for(int a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != 0){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			gSize += size[b];
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			gRsize += rsize[b];
+		}
+	}
+
+
+	float *sBuf, *rBuf;
+
+	if(ProcID != 0){
+		sBuf  = new float [gSize];
+		sIndx  = new int [gSize];
+	}
+
+	if(ProcID != nProcs - 1){
+		rBuf = new float [gRsize];
+		rIndx = new int [gRsize];
+	}
+
+	if(ProcID != 0){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
+				sBuf[cnt] = it->second;
+				sIndx[cnt] = it->first;
+				cnt++;
+			}
+		}
+
+		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
+
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int tt = 0; tt < gRsize; tt++){
+			rBuf[tt] = 0.0;
+			rIndx[tt] = 0;
+		}
+		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
+		
+		MPI_Wait(&indRReqs,&indRStats);
+		MPI_Wait(&valRReqs,&valRStats);
+
+	}
+
+	if(ProcID != nProcs - 1){
+		for(int b = 0; b < nilp.diagPosition - 1; b++){
+			loc = y_index_map->Loc2Glob(nrows - nilp.diagPosition + 1 + b);
+			if((loc + 1)%(nilp.nbOne + 1) != 0){
+				if(b == 0){
+					for(int tt = 0; tt < rsize[b]; tt++){
+						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				} else{
+					for(int tt = rsize[b - 1]; tt < rsize[b] + rsize[b - 1]; tt++){
+						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+////////
+
+
+template<>
+void parMatrixSparse<float,__int64_t>::AM(Nilpotency<__int64_t> nilp, parMatrixSparse<float,__int64_t> *prod)
+{
+	__int64_t i, j, k, p, q, loc;
+
+	bool sendflg = true, recvflag = true;
+
+	typename std::map<__int64_t,float >::iterator it;
+
+	MPI_Request	rtypereq, stypereq;
+
+	MPI_Status	typestat;
+
+	int up, down;
+	int	tagtype = nilp.diagPosition - 1 + nilp.diagPosition ;
+	int	Rtag, Stag;
+
+
+	__int64_t *sIndx, *rIndx;
+	__int64_t gSize = 0, gRsize = 0;
+	__int64_t cnt = 0, cnt2 = 0;
+	MPI_Request	indSReqs, indRReqs, valSReqs, valRReqs;
+	MPI_Status indRStats, valRStats;
+
+	int tagv = 0;
+	int tagi = 1;
+
+	up = ProcID - 1;
+	down = ProcID + 1;
+
+	__int64_t size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
+
+	if(ProcID != 0){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			rsize[a] = 0;
+		}
+	}
+
+
+	if(ProcID != 0){
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
+	}
+
+	if(ProcID != nProcs - 1){
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
+		MPI_Wait(&rtypereq,&typestat);
+	}
+
+	Rtag = 2; Stag = 3;
+
+	if(dynmat_loc == NULL){
+		return;
+	}
+
+	for(p = nilp.diagPosition - 1; p < nrows; p++){
+		if(prod->dynmat_loc == NULL){
+			prod->dynmat_loc = new std::map<__int64_t,float > [nrows];
+		}
+
+		i = p - nilp.diagPosition + 1;
+		q = y_index_map->Loc2Glob(i);
+
+		k = (q + 1)%(nilp.nbOne + 1);
+
+		for(it = dynmat_loc[p].begin(); it != dynmat_loc[p].end(); ++it){
+
+			j = it->first;
+
+			if(i >= 0 && i < nrows && k != 0){
+				prod->dynmat_loc[i][j] = it->second;
+			}
+		}
+
+	}
+
+	MPI_Datatype MPI_SCALAR = MPI_Scalar<float>();
+
+	MPI_Barrier(comm);
+
+	// sending and receving
+
+	if(ProcID != 0){
+		for(__int64_t a = 0; a < nilp.diagPosition - 1; a++){
+			size[a] = dynmat_loc[a].size();
+		}
+	}
+
+	if(ProcID != 0){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			gSize += size[b];
+		}
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			gRsize += rsize[b];
+		}
+	}
+
+
+	float *sBuf, *rBuf;
+
+	if(ProcID != 0){
+		sBuf  = new float [gSize];
+		sIndx  = new __int64_t [gSize];
+	}
+
+	if(ProcID != nProcs - 1){
+		rBuf = new float [gRsize];
+		rIndx = new __int64_t [gRsize];
+	}
+
+	if(ProcID != 0){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
+				sBuf[cnt] = it->second;
+				sIndx[cnt] = it->first;
+				cnt++;
+			}
+		}
+
+		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
+
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t tt = 0; tt < gRsize; tt++){
+			rBuf[tt] = 0.0;
+			rIndx[tt] = 0;
+		}
+		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
+		
+		MPI_Wait(&indRReqs,&indRStats);
+		MPI_Wait(&valRReqs,&valRStats);
+
+	}
+
+	if(ProcID != nProcs - 1){
+		for(__int64_t b = 0; b < nilp.diagPosition - 1; b++){
+			loc = y_index_map->Loc2Glob(nrows - nilp.diagPosition + 1 + b);
+			if((loc + 1)%(nilp.nbOne + 1) != 0){
+				if(b == 0){
+					for(__int64_t tt = 0; tt < rsize[b]; tt++){
+						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				} else{
+					for(__int64_t tt = rsize[b - 1]; tt < rsize[b] + rsize[b - 1]; tt++){
+						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
+					}
+				}
+			}
+		}
+	}
+}
 
 #endif

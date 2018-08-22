@@ -27,6 +27,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <complex>
 
 #include "parVectorMap.h"
 #include "../utils/utils.h"
@@ -71,9 +72,11 @@ class parVector{
 		void VecScale(T scale);
 		T    VecDot(parVector *v);
 		void ReadExtVec(std::string spectrum);
-                void VecView();
+        void VecView();
 
 		void RestoreArray(){};
+
+		void specGen(std::string spectrum);
 };
 
 template<typename T,typename S>
@@ -272,20 +275,25 @@ void parVector<T,S>::VecView()
 		std::cout << "[" << global << "]: " << array[i] << std::endl;
 	}
 }
-template<typename T, typename S>
-void parVector<T,S>::ReadExtVec(std::string spectrum)
+
+
+
+
+/////
+template<>
+void parVector<std::complex<double>,int>::ReadExtVec(std::string spectrum)
 {
 	std::ifstream file(spectrum);
 	std::string line;
 
-	S lower_bound = GetLowerBound();
-	S upper_bound = GetUpperBound();
+	int lower_bound = GetLowerBound();
+	int upper_bound = GetUpperBound();
 
-	S val1;
+	int val1;
 
-#if defined(__USE_COMPLEX__)
+		
 	double val2, val3;
-	T val;
+	std::complex<double> val;
 
 	while (std::getline(file,line)) {
 		val1 = 0;
@@ -310,16 +318,164 @@ void parVector<T,S>::ReadExtVec(std::string spectrum)
 		if((val1 >= lower_bound) && (val1 < upper_bound)){
 			AddValueLocal(index_map->Glob2Loc(val1),val);
 		}
+	}	
+}
 
+/////////
+
+template<>
+void parVector<std::complex<double>,__int64_t>::ReadExtVec(std::string spectrum)
+{
+	std::ifstream file(spectrum);
+	std::string line;
+
+	__int64_t lower_bound = GetLowerBound();
+	__int64_t upper_bound = GetUpperBound();
+
+	__int64_t val1;
+
+		
+	double val2, val3;
+	std::complex<double> val;
+
+	while (std::getline(file,line)) {
+		val1 = 0;
+		val2 = 0.0;
+		std::stringstream linestream ( line ) ;
+		linestream >> val1 >> val2 >> val3;
+		if (val1!= 0&&val2!= 0.0&&val3!= 0.0)
+		{
+			break ;
+		}
 	}
-#else
-	T val;
+
+	while(std::getline(file, line))
+	{
+		val1 = 0; val2 = 0.0; val3 = 0.0;
+
+		std::stringstream linestream(line);
+
+		linestream >> val1 >> val2 >> val3;
+		val1 = val1 - 1;
+		val.real(val2);val.imag(val3);
+		if((val1 >= lower_bound) && (val1 < upper_bound)){
+			AddValueLocal(index_map->Glob2Loc(val1),val);
+		}
+	}	
+}
+
+///////////////
+
+
+template<>
+void parVector<std::complex<float>,int>::ReadExtVec(std::string spectrum)
+{
+	std::ifstream file(spectrum);
+	std::string line;
+
+	int lower_bound = GetLowerBound();
+	int upper_bound = GetUpperBound();
+
+	int val1;
+
+		
+	float val2, val3;
+	std::complex<float> val;
+
+	while (std::getline(file,line)) {
+		val1 = 0;
+		val2 = 0.0;
+		std::stringstream linestream ( line ) ;
+		linestream >> val1 >> val2 >> val3;
+		if (val1!= 0&&val2!= 0.0&&val3!= 0.0)
+		{
+			break ;
+		}
+	}
+
+	while(std::getline(file, line))
+	{
+		val1 = 0; val2 = 0.0; val3 = 0.0;
+
+		std::stringstream linestream(line);
+
+		linestream >> val1 >> val2 >> val3;
+		val1 = val1 - 1;
+		val.real(val2);val.imag(val3);
+		if((val1 >= lower_bound) && (val1 < upper_bound)){
+			AddValueLocal(index_map->Glob2Loc(val1),val);
+		}
+	}	
+}
+
+
+
+template<>
+void parVector<std::complex<float>,__int64_t>::ReadExtVec(std::string spectrum)
+{
+	std::ifstream file(spectrum);
+	std::string line;
+
+	__int64_t lower_bound = GetLowerBound();
+	__int64_t upper_bound = GetUpperBound();
+
+	__int64_t val1;
+
+		
+	float val2, val3;
+	std::complex<float> val;
+
+	while (std::getline(file,line)) {
+		val1 = 0;
+		val2 = 0.0;
+		std::stringstream linestream ( line ) ;
+		linestream >> val1 >> val2 >> val3;
+		if (val1!= 0&&val2!= 0.0&&val3!= 0.0)
+		{
+			break ;
+		}
+	}
+
+	while(std::getline(file, line))
+	{
+		val1 = 0; val2 = 0.0; val3 = 0.0;
+
+		std::stringstream linestream(line);
+
+		linestream >> val1 >> val2 >> val3;
+		val1 = val1 - 1;
+		val.real(val2);val.imag(val3);
+		if((val1 >= lower_bound) && (val1 < upper_bound)){
+			AddValueLocal(index_map->Glob2Loc(val1),val);
+		}
+	}	
+}
+
+
+
+
+
+
+/////
+template<>
+void parVector<double,int>::ReadExtVec(std::string spectrum)
+{
+	std::ifstream file(spectrum);
+	std::string line;
+
+	int lower_bound = GetLowerBound();
+	int upper_bound = GetUpperBound();
+
+	int val1;
+
+		
+	double val;
 
 	while (std::getline(file,line)) {
 		val1 = 0;
 		std::stringstream linestream ( line ) ;
 		linestream >> val1 >> val;
-		if (val1!= 0&&val != 0.0)
+		if (val1!= 0 &&val != 0.0)
 		{
 			break ;
 		}
@@ -338,9 +494,136 @@ void parVector<T,S>::ReadExtVec(std::string spectrum)
 			AddValueLocal(index_map->Glob2Loc(val1),val);
 		}
 
-	}
-#endif
+	}	
 }
 
+/////////
+
+template<>
+void parVector<double,__int64_t>::ReadExtVec(std::string spectrum)
+{
+	std::ifstream file(spectrum);
+	std::string line;
+
+	__int64_t lower_bound = GetLowerBound();
+	__int64_t upper_bound = GetUpperBound();
+
+	__int64_t val1;
+
+		
+	double val;
+
+	while (std::getline(file,line)) {
+		val1 = 0;
+		std::stringstream linestream ( line ) ;
+		linestream >> val1 >> val;
+		if (val1!= 0 &&val != 0.0)
+		{
+			break ;
+		}
+	}
+
+
+	while(std::getline(file, line))
+	{
+		val1 = 0; val = 0.0;
+
+		std::stringstream linestream(line);
+
+		linestream >> val1 >> val;
+		val1 = val1 - 1;
+		if((val1 >= lower_bound) && (val1 < upper_bound)){
+			AddValueLocal(index_map->Glob2Loc(val1),val);
+		}
+
+	}	
+}
+
+
+
+
+
+/////
+template<>
+void parVector<float,int>::ReadExtVec(std::string spectrum)
+{
+	std::ifstream file(spectrum);
+	std::string line;
+
+	int lower_bound = GetLowerBound();
+	int upper_bound = GetUpperBound();
+
+	int val1;
+
+		
+	float val;
+
+	while (std::getline(file,line)) {
+		val1 = 0;
+		std::stringstream linestream ( line ) ;
+		linestream >> val1 >> val;
+		if (val1!= 0 &&val != 0.0)
+		{
+			break ;
+		}
+	}
+
+
+	while(std::getline(file, line))
+	{
+		val1 = 0; val = 0.0;
+
+		std::stringstream linestream(line);
+
+		linestream >> val1 >> val;
+		val1 = val1 - 1;
+		if((val1 >= lower_bound) && (val1 < upper_bound)){
+			AddValueLocal(index_map->Glob2Loc(val1),val);
+		}
+
+	}	
+}
+
+/////////
+
+template<>
+void parVector<float,__int64_t>::ReadExtVec(std::string spectrum)
+{
+	std::ifstream file(spectrum);
+	std::string line;
+
+	__int64_t lower_bound = GetLowerBound();
+	__int64_t upper_bound = GetUpperBound();
+
+	__int64_t val1;
+
+		
+	float val;
+
+	while (std::getline(file,line)) {
+		val1 = 0;
+		std::stringstream linestream ( line ) ;
+		linestream >> val1 >> val;
+		if (val1!= 0 &&val != 0.0)
+		{
+			break ;
+		}
+	}
+
+
+	while(std::getline(file, line))
+	{
+		val1 = 0; val = 0.0;
+
+		std::stringstream linestream(line);
+
+		linestream >> val1 >> val;
+		val1 = val1 - 1;
+		if((val1 >= lower_bound) && (val1 < upper_bound)){
+			AddValueLocal(index_map->Glob2Loc(val1),val);
+		}
+
+	}	
+}
 
 #endif

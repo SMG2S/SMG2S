@@ -49,19 +49,19 @@ def display_graph_ext(dimension, b=False):
     
     if dimension == 2:
         if fichier1 != "":
-            a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Original solution")
+            a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Initial Eigenvalues")
             graphique = True
         if fichier2 != "":
-            a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Final solution")
+            a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Computed Eigenvalues")
             graphique = True
         
     elif dimension == 1:
             
             if fichier1 != "":
-                a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Original solution")
+                a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Initial Eigenvalues")
                 graphique = True
             if fichier2 != "":
-                a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Final solution")
+                a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Computed Eigenvalues")
                 graphique = True
     else: 
         Tk.messagebox.showerror("Error", "Impossible to generate the graph, the dimension is incorrect")
@@ -71,6 +71,7 @@ def display_graph_ext(dimension, b=False):
             u = loadtxt(r'data/custom/axe.vec')
             a.set_xlim(u[0], u[1])
             a.set_ylim(u[2], u[3])
+        a.legend(bbox_to_anchor=(0, 1.02, 1, .102), loc=3, ncol=2, borderaxespad=0)
         show()
     
     
@@ -131,19 +132,19 @@ def display_graph_int(dimension, root, canvas, b=False):
     
     if dimension == 2:
         if fichier1 != "":
-            a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Original solution")
+            a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Initial Eigenvalues")
             graphique = True
         if fichier2 != "":
-            a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Final solution")
+            a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Computed Eigenvalues")
             graphique = True
         
     elif dimension == 1:
             
             if fichier1 != "":
-                a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Original solution")
+                a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Initial Eigenvalues")
                 graphique = True
             if fichier2 != "":
-                a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Final solution")
+                a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Computed Eigenvalues")
                 graphique = True
     else: 
         Tk.messagebox.showerror("Error", "Impossible to generate the graph, the dimension is incorrect")
@@ -153,6 +154,7 @@ def display_graph_int(dimension, root, canvas, b=False):
             u = loadtxt(r'data/custom/axe.vec')
             a.set_xlim(u[0], u[1])
             a.set_ylim(u[2], u[3])
+        a.legend(bbox_to_anchor=(0, 1.02, 1, .102), loc=3, ncol=2, borderaxespad=0)
         show()
     
     
@@ -181,9 +183,6 @@ def display_graph_int(dimension, root, canvas, b=False):
         for w in root.winfo_children():
             w.destroy()
     
-    button = Tk.Button(master=root, text='Quit', command=_quit)
     button.pack(side=Tk.BOTTOM)
     
     Tk.mainloop()
-# If you put root.destroy() here, it will cause an error if
-# the window is closed with the window manager.

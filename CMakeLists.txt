@@ -52,30 +52,6 @@ else()
      message([FATAL_ERROR] "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
-configure_file (
-  "${PROJECT_SOURCE_DIR}/config/config.h.in"
-  "${PROJECT_SOURCE_DIR}/config/config.h"
-  )
-
-option (__USE_COMPLEX__ "Use the complex scalar type" ON)
-
-if(__USE_COMPLEX__)
-	message([STATUS] "USE the complex scalar to compile the SMG2S")
-endif()
-
-option (__USE_DOUBLE__ "Use the double precision" ON)
-
-if(__USE_DOUBLE__)
-	message([STATUS] "USE the double precision to compile the SMG2S")
-endif()
-
-option (__USE_64BIT__ "Use the long integer" OFF)
-
-if(__USE_64BIT__)
-	message([STATUS] "USE the long integer to compile the SMG2S")
-endif()
-
-
 # Add utils and config include
 include_directories(${SMG2S_SOURCE_FILE}/utils ${SMG2S_SOURCE_FILE}/config ${SMG2S_SOURCE_FILE}/parVector ${SMG2S_SOURCE_FILE}/parMatrix)
 
@@ -115,6 +91,11 @@ INSTALL (
         FILES_MATCHING PATTERN "trilinos_interface.hpp")
 endif()
 
+#config file for tests
+message([STATUS] "Remainder: SMG2S provides a basic example to show the usage,
+        which is the main.cpp in Main directory. User can configure in the
+        file config/config.h to specify different data types.")
+
 # Find PETSc and SLEPc for verification
 option(USE_PETSC "Find PETSc and SLEPc for verification?" ON)
 
@@ -135,3 +116,12 @@ message([STATUS] "Find PETSc and SLEPc for verification: ${USE_PETSC}")
     message([STATUS] "PETSC is not provided, the interface of SMG2S to PETSc can not be used.")
     endif()
 endif()
+
+
+# SMG2S test
+enable_testing()
+add_test(Test_Size_10000_w_proc1 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 1 ${CMAKE_SOURCE_DIR}/smg2s.exe -SIZE 10000 -L 5 -C 2)
+add_test(Test_Size_20000_w_proc2 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 2 ${CMAKE_SOURCE_DIR}/smg2s.exe -SIZE 20000 -L 5 -C 2)
+
+add_test(Test_Size_10000_s_proc1 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 1 ${CMAKE_SOURCE_DIR}/smg2s.exe -SIZE 10000 -L 5 -C 2)
+add_test(Test_Size_10000_s_proc2 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 2 ${CMAKE_SOURCE_DIR}/smg2s.exe -SIZE 10000 -L 5 -C 2)

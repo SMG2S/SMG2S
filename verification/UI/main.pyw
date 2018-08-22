@@ -6,21 +6,13 @@ Created on Mon Jul  2 15:42:00 2018
 @author: qpetit
 """
 
-#For MacOSx
-from sys import platform as sys_pf
-if sys_pf == 'darwin':
-    import matplotlib
-    matplotlib.use("tkAgg")
-
+import PIL.Image
+import PIL.ImageTk
 import numpy as np
-
-import sys
-if sys.version_info[0] < 3:
-    from Tkinter import *
-    import tkMessageBox as messagebox
-else:
-    from tkinter import *
-    from tkinter import messagebox
+from tkinter import *
+from tkinter import messagebox
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 
 
 #Importation des fichiers .py présent dans le dossier 
@@ -30,20 +22,26 @@ from reset import reset_window
 from settings import setting_save
 from interactif import display_graph_ext, display_graph_int
 
-#Action qui vérifie les informations avant de lancer la sauvergarde lorsque l'utilisateur à cliqué sur sauvegarder  
+
+def alert():
+    messagebox.showinfo("Say Hello", "Hello World")
+    
 def save_file_launcher():
     global var_custom
+    print(var_custom)
     if var_custom.get() == 0:
         save_file(False)
     else:
         b = stockage_custom_axe()
         save_file(b)
 
-#Met à jour l'interface (la partie gauche de la fenêtre)
 def mise_a_jour_interface():
     fichier1 = read_file_path(1)
     fichier2 = read_file_path(2)
    
+    
+    #Nettoyage du canves affichant les adresses
+#    can.delete(ALL)
     
     #Ici, on regarde si le chemin du fichier est vide, si c'est le cas, on affiche un message d'attention, sinon on affiche le chemin du fichier.
     if fichier1 != "":
@@ -87,23 +85,34 @@ def affichage_fichier():
         return
     else:
         global var_custom
+        print(var_custom)
         if var_custom.get() == 0:
             display_graph_int(dimension, dynamic_screen, canvas, False)
         else:
             b = stockage_custom_axe()
             display_graph_int(dimension, dynamic_screen, canvas, b)
     
-    #On force la mise à jour la fenêtre
+#        graph_origin = PIL.Image.open('data/graphic_brut.png')
+#        graph_reduit = graph_origin.resize((h,l))        
+#        img = PIL.ImageTk.PhotoImage(graph_reduit)
+#        dic['image']= img
+#        item = can_plot.create_image(h/2, l/2, image=img)
+#        mon_image=PhotoImage(file=r"smiley.gif")
+#        dic['image']= mon_image
+#        img=can_plot.create_image(250,250,image=mon_image)
+    
     fenetre.update_idletasks()
     fenetre.update()
         
         
-#Launcher de la sélection du fichier 1
+    
 def ouvrir_fichier1():
     open_file(1)
     mise_a_jour_interface()
-   
-#Launcher de la sélection du fichier 2
+    
+    
+    
+    
 def ouvrir_fichier2():
     open_file(2)
     mise_a_jour_interface()
@@ -111,27 +120,25 @@ def ouvrir_fichier2():
 
 
 
-#Fonction qui réinitialise la fenêtre à son état d'origine
+
 def reset_window_launcher():
     global dic
     reset_window(dynamic_screen, dic, input_xmin, input_xmax, input_ymin, input_ymax, check_custom, button_display, button_save, button_file1, button_file2, menubar, button_display_windows)
     
-#Action qui affiche une fenêtre avec les informations sur le programme
 def about():
     messagebox.showinfo("About...", "Implementation of a user interface for the SMG2S project: https://github.com/brunowu/SMG2S")
     return
 
-#Lance la fenêtre de paramétrage de la taille des images de sauvegarde
 def set_canvas_launcher():
     setting_save(fenetre)
 
-#Action qui lance l'affichage du graphique en fonction des paramêtres séléctionnés par l'utilisateur
 def display_graph_launcher():
     dimension = read_files()
     if dimension < 1 :
         return
     else:
         global var_custom
+        print(var_custom)
         if var_custom.get() == 0:
             display_graph_ext(dimension, False)
         else:
@@ -142,17 +149,22 @@ def display_graph_launcher():
                 messagebox.showerror("Error", "The coordinates entered are not valid")
                 display_graph_ext(dimension, False)
    
-#On vérifie que les coordonnées saisies sont correctes, si c'est le cas, on les enregistre dans le fichier axe.vec
 def stockage_custom_axe():
     global input_xmin
     global input_xmax
     global input_ymin
     global input_ymax
+    print(input_xmin.get())
+    print(input_xmax.get())
+    print(input_ymin.get())
+    print(input_ymax.get())
+    ####################ERREUR HERE#######################
     
     try:
         if float(input_xmin.get()) < float(input_xmax.get()) and float(input_ymin.get()) < float(input_ymax.get()):
             u = [float(input_xmin.get()), float(input_xmax.get()), float(input_ymin.get()), float(input_ymax.get())]
             np.savetxt(r'data/custom/axe.vec', u)
+            print("on est là")
             return True
         else:
             messagebox.showerror("Error", "Interval problem. Please check the values ​​entered in the entries")
@@ -163,9 +175,10 @@ def stockage_custom_axe():
         
     
         
-#Permet de mettre à jour l'affichage en fonction du choix de l'utilisateur à propos des bornes personnalisées
+        
 def custom():
     global var_custom
+    print(var_custom)
     if var_custom.get() == 0:
         input_xmin.configure(state="disabled")
         input_xmax.configure(state="disabled")
@@ -176,11 +189,6 @@ def custom():
         input_xmax.configure(state="normal")
         input_ymin.configure(state="normal")
         input_ymax.configure(state="normal")
-
-##########################################################
-###########        PROGRAMME PRINCIPALE        ###########
-##########################################################
-
 
 #On ouvre la fenetre graphique de TKinter
 fenetre = Tk()
@@ -202,7 +210,7 @@ dic={}
 
 
 menubar = Menu(fenetre)
-#On créé le menu déroulant 1 : File
+#On créé le menu déroulant 1 : Fichier
 menu1 = Menu(menubar, tearoff=0)
 menu1.add_command(label="Open original file", command=ouvrir_fichier1)
 menu1.add_command(label="Open final file", command=ouvrir_fichier2)
@@ -213,22 +221,20 @@ menu1.add_command(label="Reset", command=reset_window_launcher)
 menu1.add_command(label="Exit", command=fenetre.quit)
 menubar.add_cascade(label="File", menu=menu1)
 
-#On créé le menu déroulant 2 : Display
 menu2 = Menu(menubar, tearoff=0)
 menu2.add_command(label="Open in a new window", command=display_graph_launcher)
 menubar.add_cascade(label="Display", menu=menu2)
 
-#On créé le menu déroulant 2 : Save
 menu3 = Menu(menubar, tearoff=0)
 menu3.add_command(label="Save", command=save_file_launcher)
 menubar.add_cascade(label="Save", menu=menu3)
 
-#On créé le menu déroulant 4 : Settings
+#On créé le menu déroulant 3 : paramètres
 menu4 = Menu(menubar, tearoff=0)
 menu4.add_command(label="Canvas", command=set_canvas_launcher)
 menubar.add_cascade(label="Settings", menu=menu4)
 
-#On créé le menu déroulant 5 : Help
+#On créé le menu déroulant 4 : Aide
 menu5 = Menu(menubar, tearoff=0)
 menu5.add_command(label="About...", command=about)
 menubar.add_cascade(label="Help", menu=menu5)
@@ -237,11 +243,10 @@ fenetre.config(menu=menubar)
 
 
 
-# Création du bandereau de gauche de la fenêtre
+
 left_tab = Frame(fenetre, bg="white")
 left_tab.grid(row=0, column=0, sticky="N")
 
-# On remplit de dernier avec des widgets
 title_files = Label(left_tab, text="Files", bg="white", font="bold 18")
 title_files.grid(row=0, column=0, columnspan = 4, sticky="w")
 
@@ -303,6 +308,8 @@ text_ymax.grid(row = 9, column = 0, sticky="")
 button_display = Button(left_tab, text="Display",command=affichage_fichier)
 button_display.grid(row=10, column=0, columnspan = 2, sticky="")
 
+
+
 button_display_windows = Button(left_tab, text="New window",command=display_graph_launcher)
 button_display_windows.grid(row=10, column=2, columnspan = 2, sticky="")
 
@@ -321,15 +328,14 @@ button_save.grid(row=13, column=0, columnspan = 4, sticky="")
 dynamic_screen = Frame(fenetre, bg="white")
 dynamic_screen.grid(row=0, column=1, sticky="NSEW")
 
+
 fenetre.grid_columnconfigure(1, weight=1)
 fenetre.grid_rowconfigure(0, weight=1)
 
 canvas = Canvas(dynamic_screen,width=800, height=600, bg='white')
 canvas.grid(sticky="NSEW")
 
-#On appelle l'action de réinitialisation à l'ouverture pour initialiser l'affichage de la fenêtre
 reset_window_launcher()
-#On force l'actualisation de la fenêtre
 fenetre.update_idletasks()
 fenetre.update()
 

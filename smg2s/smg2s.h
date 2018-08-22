@@ -64,7 +64,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
     MPI_Barrier(comm);
 
     //generate vec containing the given spectra
-    specGen<T,S>(vec, spectrum);
+    vec->specGen(spectrum);
 
     //Matrix Initialization
 
@@ -97,10 +97,10 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     my_factorielle_bornes = factorial(1,2*nilp.nbOne);
 
-
     Am->Loc_MatScale((T)my_factorielle_bornes);
 
     for (S k=1; k<=2*nilp.nbOne; k++){
+
     	matAop->MA(nilp, MA);
   	  matAop->AM(nilp, AM);
     	matAop->Loc_MatAYPX(AM, 0);
@@ -110,20 +110,18 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
     	Am->Loc_MatAXPY(matAop, (double)my_factorielle_bornes);
     	MA->Loc_ZeroEntries();
     	AM->Loc_ZeroEntries();
+
     }
+
 
 	my_factorielle_bornes = factorial(1,2*(nilp.nbOne));
 
-#ifdef __USE_DOUBLE__
-    double fac = (double)my_factorielle_bornes;
-    double inv = 1/fac;
-#else
-    float fac = (float)my_factorielle_bornes;
-    float inv = 1/fac;
-#endif
+  double fac = (double)my_factorielle_bornes;
+  double inv = 1/fac;
 
-	Am->Loc_MatScale(inv);
+	Am->Loc_MatScale((T)inv);
 
+  //Am->LOC_MatView();
 
     return Am;
 }

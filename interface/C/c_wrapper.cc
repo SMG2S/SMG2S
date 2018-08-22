@@ -78,10 +78,10 @@ void showNilpotencyInt(struct NilpotencyInt *n){
 
 void showNilpotencyLongInt(struct NilpotencyLongInt *n){
   printf("Info ]> Show Nilptent Matrix Informations\n");
-  printf("        diagPosition = %li\n",n->nilp.diagPosition);
-  printf("        nbOne = %li\n",n->nilp.nbOne);
-  printf("        matrix_size = %li\n",n->nilp.matrix_size);
-  printf("        nilpotency = %li\n",n->nilp.nilpotency);
+  printf("        diagPosition = %lli\n",n->nilp.diagPosition);
+  printf("        nbOne = %lli\n",n->nilp.nbOne);
+  printf("        matrix_size = %lli\n",n->nilp.matrix_size);
+  printf("        nilpotency = %lli\n",n->nilp.nilpotency);
 }
 
 /*parVectorMap C wrapper*/
@@ -89,7 +89,6 @@ struct parVectorMapInt{
   parVectorMap<int> parMatrixMap;
 };
 
-#if defined(__USE_COMPLEX__) && defined(__USE_DOUBLE__) && defined (__USE_64BIT__)
 //complex double long int
 
 /*parMatrixSparse complex<double> int C wrapper*/
@@ -118,7 +117,7 @@ void Loc_ConvertToCSRComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLon
 }
 
 
-void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexDoubleLongInt *m, __int64_t *size,__int64_t *size2){
+void Loc_CSRGetRowsArraySizesComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt *m, __int64_t *size,__int64_t *size2){
   std::vector<__int64_t>::iterator it;
   __int64_t count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -137,7 +136,7 @@ void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexDoubleLongInt *m, __i
   *size2 = count2;
 }
 
-void Loc_CSRGetRowsArrays(struct parMatrixSparseComplexDoubleLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **real, double **imag){
+void Loc_CSRGetRowsArraysComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **real, double **imag){
   for(__int64_t i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -153,7 +152,6 @@ void smg2sComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt *m, __
   m->parMatrix = *smg2s<std::complex<double>,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
-#elif defined (__USE_COMPLEX__) && defined(__USE_DOUBLE__)
 //complex double int
 
 /*parMatrixSparse complex<double> int C wrapper*/
@@ -182,7 +180,7 @@ void Loc_ConvertToCSRComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m)
 }
 
 
-void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexDoubleInt *m, int *size,int *size2){
+void Loc_CSRGetRowsArraySizesComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int *size,int *size2){
   std::vector<int>::iterator it;
   int count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -201,7 +199,7 @@ void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexDoubleInt *m, int *si
   *size2 = count2;
 }
 
-void Loc_CSRGetRowsArrays(struct parMatrixSparseComplexDoubleInt *m, int size, int **rows, int size2, int **cols, double **real, double **imag){
+void Loc_CSRGetRowsArraysComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int size, int **rows, int size2, int **cols, double **real, double **imag){
   for(int i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -217,12 +215,11 @@ void smg2sComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int probSi
   m->parMatrix = *smg2s<std::complex<double>,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
-#elif defined (__USE_COMPLEX__) && defined(__USE_64BIT__)
 //complex  single long int
 
 /*parMatrixSparse complex<double> int C wrapper*/
 struct parMatrixSparseComplexLongInt{
-  parMatrixSparse<std::complex<int>,__int64_t> parMatrix;
+  parMatrixSparse<std::complex<float>,__int64_t> parMatrix;
 };
 struct parMatrixSparseComplexLongInt *newParMatrixSparseComplexLongInt(void){
   return new struct parMatrixSparseComplexLongInt;
@@ -246,7 +243,7 @@ void Loc_ConvertToCSRComplexLongInt(struct parMatrixSparseComplexLongInt *m){
 }
 
 
-void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexLongInt *m, __int64_t *size,__int64_t *size2){
+void Loc_CSRGetRowsArraySizesComplexLongInt(struct parMatrixSparseComplexLongInt *m, __int64_t *size,__int64_t *size2){
   std::vector<__int64_t>::iterator it;
   __int64_t count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -254,7 +251,7 @@ void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexLongInt *m, __int64_t
   }
   *size = count;
 
-  std::vector<std::complex<int> >::iterator itm;
+  std::vector<std::complex<float> >::iterator itm;
   __int64_t count2 = 0;
   for(itm =  m->parMatrix.CSR_loc->vals.begin(); itm !=  m->parMatrix.CSR_loc->vals.end(); ++itm){
     if(itm->imag() !=0 || itm->real() != 0){
@@ -265,7 +262,7 @@ void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexLongInt *m, __int64_t
   *size2 = count2;
 }
 
-void Loc_CSRGetRowsArrays(struct parMatrixSparseComplexLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **real, double **imag){
+void Loc_CSRGetRowsArraysComplexLongInt(struct parMatrixSparseComplexLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **real, double **imag){
   for(__int64_t i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -278,10 +275,9 @@ void Loc_CSRGetRowsArrays(struct parMatrixSparseComplexLongInt *m, __int64_t siz
 }
 
 void smg2sComplexLongInt(struct parMatrixSparseComplexLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm){
-  m->parMatrix = *smg2s<std::complex<int>,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
+  m->parMatrix = *smg2s<std::complex<float>,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
-#elif defined (__USE_DOUBLE__) && defined(__USE_64BIT__)
 //real double long int
 
 /*parMatrixSparse complex<double> int C wrapper*/
@@ -310,7 +306,7 @@ void Loc_ConvertToCSRDoubleLongInt(struct parMatrixSparseDoubleLongInt *m){
 }
 
 
-void Loc_CSRGetRowsArraySizes(struct parMatrixSparseDoubleLongInt *m, __int64_t *size,__int64_t *size2){
+void Loc_CSRGetRowsArraySizesDoubleLongInt(struct parMatrixSparseDoubleLongInt *m, __int64_t *size,__int64_t *size2){
   std::vector<__int64_t>::iterator it;
   __int64_t count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -329,7 +325,7 @@ void Loc_CSRGetRowsArraySizes(struct parMatrixSparseDoubleLongInt *m, __int64_t 
   *size2 = count2;
 }
 
-void Loc_CSRGetRowsArrays(struct parMatrixSparseDoubleLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **vals){
+void Loc_CSRGetRowsArraysDoubleLongInt(struct parMatrixSparseDoubleLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **vals){
   for(__int64_t i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -344,12 +340,11 @@ void smg2sDoubleLongInt(struct parMatrixSparseDoubleLongInt *m, __int64_t probSi
   m->parMatrix = *smg2s<double,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
-#elif defined (__USE_COMPLEX__)
 //complex single int
 
 /*parMatrixSparse complex<double> int C wrapper*/
 struct parMatrixSparseComplexInt{
-  parMatrixSparse<std::complex<int>,int> parMatrix;
+  parMatrixSparse<std::complex<float>,int> parMatrix;
 };
 struct parMatrixSparseComplexInt *newParMatrixSparseComplexInt(void){
   return new struct parMatrixSparseComplexInt;
@@ -373,7 +368,7 @@ void Loc_ConvertToCSRComplexInt(struct parMatrixSparseComplexInt *m){
 }
 
 
-void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexInt *m, int *size,int *size2){
+void Loc_CSRGetRowsArraySizesComplexInt(struct parMatrixSparseComplexInt *m, int *size,int *size2){
   std::vector<int>::iterator it;
   int count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -381,7 +376,7 @@ void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexInt *m, int *size,int
   }
   *size = count;
 
-  std::vector<std::complex<int>>::iterator itm;
+  std::vector<std::complex<float>>::iterator itm;
   int count2 = 0;
   for(itm =  m->parMatrix.CSR_loc->vals.begin(); itm !=  m->parMatrix.CSR_loc->vals.end(); ++itm){
     if(itm->imag() !=0 || itm->real() != 0){
@@ -392,7 +387,7 @@ void Loc_CSRGetRowsArraySizes(struct parMatrixSparseComplexInt *m, int *size,int
   *size2 = count2;
 }
 
-void Loc_CSRGetRowsArrays(struct parMatrixSparseComplexInt *m, int size, int **rows, int size2, int **cols, double **real, double **imag){
+void Loc_CSRGetRowsArraysComplexInt(struct parMatrixSparseComplexInt *m, int size, int **rows, int size2, int **cols, double **real, double **imag){
   for(int i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -405,10 +400,9 @@ void Loc_CSRGetRowsArrays(struct parMatrixSparseComplexInt *m, int size, int **r
 }
 
 void smg2sComplexInt(struct parMatrixSparseComplexInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
-  m->parMatrix = *smg2s<std::complex<int>,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
+  m->parMatrix = *smg2s<std::complex<float>,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
-#elif defined (__USE_DOUBLE__)
 //real double int
 /*parMatrixSparse double int C wrapper*/
 struct parMatrixSparseDoubleInt{
@@ -438,7 +432,7 @@ void Loc_ConvertToCSRDoubleInt(struct parMatrixSparseDoubleInt *m){
   m->parMatrix.Loc_ConvertToCSR();
 }
 
-void Loc_RealCSRGetRowsArraySizes(struct parMatrixSparseDoubleInt *m, int *size, int *size2){
+void Loc_RealCSRGetRowsArraySizesDoubleInt(struct parMatrixSparseDoubleInt *m, int *size, int *size2){
   std::vector<int>::iterator it;
   int count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -456,7 +450,7 @@ void Loc_RealCSRGetRowsArraySizes(struct parMatrixSparseDoubleInt *m, int *size,
 
   *size2 = count2;
 }
-void Loc_RealCSRGetRowsArrays(struct parMatrixSparseDoubleInt *m, int size, int **rows, int size2, int **cols, double **vals){
+void Loc_RealCSRGetRowsArraysDoubleInt(struct parMatrixSparseDoubleInt *m, int size, int **rows, int size2, int **cols, double **vals){
   for(int i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -472,13 +466,12 @@ void smg2sDoubleInt(struct parMatrixSparseDoubleInt *m, int probSize, struct Nil
   m->parMatrix = *smg2s<double,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
-#elif defined (__USE_64BIT__)
 //real single long int
 
 
 /*parMatrixSparse long int C wrapper*/
 struct parMatrixSparseLongInt{
-  parMatrixSparse<long,int> parMatrix;
+  parMatrixSparse<float,__int64_t> parMatrix;
 };
 
 struct parMatrixSparseLongInt *newParMatrixSparseLongInt(void){
@@ -494,8 +487,8 @@ void LOC_MatViewLongInt(struct parMatrixSparseLongInt *m){
   m->parMatrix.LOC_MatView();
 }
 
-void GetLocalSizeLongInt(struct parMatrixSparseLongInt *m, int *rs, int *cs){
-  int a, b;
+void GetLocalSizeLongInt(struct parMatrixSparseLongInt *m, __int64_t *rs, __int64_t *cs){
+  __int64_t a, b;
   m->parMatrix.GetLocalSize(a, b);
   *rs =a; *cs = b;
 }
@@ -504,16 +497,16 @@ void Loc_ConvertToCSRLongInt(struct parMatrixSparseLongInt *m){
   m->parMatrix.Loc_ConvertToCSR();
 }
 
-void Loc_LongCSRGetRowsArraySizes(struct parMatrixSparseLongInt *m, int *size, int *size2){
-  std::vector<int>::iterator it;
-  int count = 0;
+void Loc_LongCSRGetRowsArraySizesLongInt(struct parMatrixSparseLongInt *m, __int64_t *size, __int64_t *size2){
+  std::vector<__int64_t>::iterator it;
+  __int64_t count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
       count++;
   }
   *size = count;
 
-  std::vector<long>::iterator itm;
-  int count2 = 0;
+  std::vector<float>::iterator itm;
+  __int64_t count2 = 0;
   for(itm =  m->parMatrix.CSR_loc->vals.begin(); itm !=  m->parMatrix.CSR_loc->vals.end(); ++itm){
     if(*itm!= 0){
       count2++;
@@ -522,27 +515,25 @@ void Loc_LongCSRGetRowsArraySizes(struct parMatrixSparseLongInt *m, int *size, i
 
   *size2 = count2;
 }
-void Loc_RealCSRGetRowsArrays(struct parMatrixSparseLongInt *m, int size, int **rows, int size2, int **cols, double **vals){
-  for(int i = 0; i < size; i++){
+void Loc_RealCSRGetRowsArraysLongInt(struct parMatrixSparseLongInt *m, __int64_t size, __int64_t **rows, __int64_t size2, __int64_t **cols, double **vals){
+  for(__int64_t i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
 
-  for(int i = 0; i < size2; i++){
+  for(__int64_t i = 0; i < size2; i++){
     *(*cols+i) = m->parMatrix.CSR_loc->cols[i];
     *(*vals+i) = m->parMatrix.CSR_loc->vals[i];
   }
 }
 
 
-void smg2sLongInt(struct parMatrixSparseLongInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
-  m->parMatrix = *smg2s<long,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
+void smg2sLongInt(struct parMatrixSparseLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm){
+  m->parMatrix = *smg2s<float,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
-
-#else
 
 /*parMatrixSparse int C wrapper*/
 struct parMatrixSparseInt{
-  parMatrixSparse<int,int> parMatrix;
+  parMatrixSparse<float,int> parMatrix;
 };
 
 struct parMatrixSparseInt *newParMatrixSparseInt(void){
@@ -568,7 +559,7 @@ void Loc_ConvertToCSRInt(struct parMatrixSparseInt *m){
   m->parMatrix.Loc_ConvertToCSR();
 }
 
-void Loc_RealCSRGetRowsArraySizes(struct parMatrixSparseInt *m, int *size, int *size2){
+void Loc_RealCSRGetRowsArraySizesInt(struct parMatrixSparseInt *m, int *size, int *size2){
   std::vector<int>::iterator it;
   int count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -576,7 +567,7 @@ void Loc_RealCSRGetRowsArraySizes(struct parMatrixSparseInt *m, int *size, int *
   }
   *size = count;
 
-  std::vector<int>::iterator itm;
+  std::vector<float>::iterator itm;
   int count2 = 0;
   for(itm =  m->parMatrix.CSR_loc->vals.begin(); itm !=  m->parMatrix.CSR_loc->vals.end(); ++itm){
     if(*itm!= 0){
@@ -586,7 +577,7 @@ void Loc_RealCSRGetRowsArraySizes(struct parMatrixSparseInt *m, int *size, int *
 
   *size2 = count2;
 }
-void Loc_RealCSRGetRowsArrays(struct parMatrixSparseInt *m, int size, int **rows, int size2, int **cols, double **vals){
+void Loc_RealCSRGetRowsArraysInt(struct parMatrixSparseInt *m, int size, int **rows, int size2, int **cols, double **vals){
   for(int i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -599,9 +590,8 @@ void Loc_RealCSRGetRowsArrays(struct parMatrixSparseInt *m, int size, int **rows
 
 
 void smg2sInt(struct parMatrixSparseInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
-  m->parMatrix = *smg2s<int,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
+  m->parMatrix = *smg2s<float,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
-#endif
 
 #ifdef __cplusplus
 };

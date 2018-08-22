@@ -51,60 +51,17 @@ using Teuchos::tuple;
 using std::cout;
 using std::endl;
 
-#if defined(__USE_COMPLEX__) && defined(__USE_DOUBLE__) && defined (__USE_64BIT__)
-typedef std::complex<double>               ST;
-typedef Teuchos::ScalarTraits<ST>          SCT;
-typedef int 							   local_ordinal_type;
-typedef long 							   global_ordinal_type;
+template<typename T, typename S>
+RCP<CrsMatrix<T> > ConvertToTrilinosMat(parMatrixSparse<T, S > *M){
 
-#elif defined(__USE_COMPLEX__) && defined(__USE_DOUBLE__)
-typedef std::complex<double>               ST;
-typedef Teuchos::ScalarTraits<ST>          SCT;
-typedef int 							   local_ordinal_type;
-typedef int 							   global_ordinal_type;
 
-#elif defined (__USE_COMPLEX__) && defined(__USE_64BIT__)
-typedef std::complex<float>               ST;
-typedef Teuchos::ScalarTraits<ST>          SCT;
-typedef int 							   local_ordinal_type;
-typedef long 							   global_ordinal_type;
-
-#elif defined (__USE_COMPLEX__)
-typedef std::complex<float>               ST;
-typedef Teuchos::ScalarTraits<ST>          SCT;
-typedef int 							   local_ordinal_type;
-typedef int 							   global_ordinal_type;
-
-#elif defined (__USE_DOUBLE__) && defined(__USE_64BIT__)
-typedef double               ST;
-typedef Teuchos::ScalarTraits<ST>          SCT;
-typedef int 							   local_ordinal_type;
-typedef long 							   global_ordinal_type;
-
-#elif defined (__USE_DOUBLE__)
-typedef double               ST;
-typedef Teuchos::ScalarTraits<ST>          SCT;
-typedef int 							   local_ordinal_type;
-typedef int 							   global_ordinal_type;
-
-#elif defined (__USE_64BIT__)
-typedef float               ST;
-typedef Teuchos::ScalarTraits<ST>          SCT;
-typedef int 							   local_ordinal_type;
-typedef long 							   global_ordinal_type;
-
-#else
-typedef float               ST;
-typedef Teuchos::ScalarTraits<ST>          SCT;
-typedef int 							   local_ordinal_type;
-typedef int 							   global_ordinal_type;
-
-#endif
-
-RCP<CrsMatrix<ST> > ConvertToTrilinosMat(parMatrixSparse<ST, global_ordinal_type > *M){
+  typedef T               ST;
+  typedef Teuchos::ScalarTraits<ST>          SCT;
+  typedef int                  local_ordinal_type;
+  typedef S                 global_ordinal_type;
 
 	RCP<const Teuchos::Comm<int> > comm =	
-    	Tpetra::DefaultPlatform::getDefaultPlatform ().getComm ();
+  Tpetra::DefaultPlatform::getDefaultPlatform ().getComm ();
 
 	parVectorMap<global_ordinal_type> *pmap = M->GetYMap();
 
@@ -112,15 +69,15 @@ RCP<CrsMatrix<ST> > ConvertToTrilinosMat(parMatrixSparse<ST, global_ordinal_type
 
 	RCP<const Map<> > map = rcp (new Map<> (gsize, 0, comm));
 
-    RCP<CrsMatrix<ST> > K = rcp (new CrsMatrix<ST> (map, 0,  Tpetra::DynamicProfile));
+  RCP<CrsMatrix<ST> > K = rcp (new CrsMatrix<ST> (map, 0,  Tpetra::DynamicProfile));
 
-    const local_ordinal_type numMyElements = map->getNodeNumElements();
-    
-    ArrayView<const global_ordinal_type> myGlobalElements = map->getNodeElementList ();
+  const local_ordinal_type numMyElements = map->getNodeNumElements();
+  
+  ArrayView<const global_ordinal_type> myGlobalElements = map->getNodeElementList ();
 
-    global_ordinal_type i;
+  global_ordinal_type i;
 
-    global_ordinal_type col;
+  global_ordinal_type col;
 
  	ST val;
 
