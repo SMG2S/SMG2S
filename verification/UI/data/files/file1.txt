@@ -1,1 +1,1 @@
-/Users/xwu/phd_xwu/SMG2S/verification/tests/vector1_results.txt
+/home/qpetit/SMG2S/SMG2S/verification/UI/Test_dans_C.txt

@@ -183,6 +183,7 @@ def display_graph_int(dimension, root, canvas, b=False):
         for w in root.winfo_children():
             w.destroy()
     
+    button = Tk.Button(master=root, text='Quit', command=_quit)
     button.pack(side=Tk.BOTTOM)
     
     Tk.mainloop()
