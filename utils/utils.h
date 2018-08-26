@@ -114,6 +114,24 @@ struct Nilpotency
 		} 
 	}
 
+	void NilpType3(S diagP, S num, S size)
+	{
+		S d_p;
+		S e, f;
+		
+		if(num % (diagP - 1) != 0){
+			setup = false;
+			printf("Please choose the right parameter num = %d, for NilpType3 with diagP = %d, it should be divisible by diagP - 1 = %d \n", num, diagP, diagP - 1);	
+		}
+		else{
+			diagPosition = 3;
+			nbOne = num;
+			matrix_size = size;
+			nilpotency = num+1;
+			setup = true;
+		}
+	}
+
 	~Nilpotency()
 	{
 
