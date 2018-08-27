@@ -118,13 +118,17 @@ struct Nilpotency
 	{
 		S d_p;
 		S e, f;
-		
-		if(num % (diagP - 1) != 0){
+
+		if (2*(diagP - 1)*num - 1 > size){
 			setup = false;
-			printf("Please choose the right parameter num = %d, for NilpType3 with diagP = %d, it should be divisible by diagP - 1 = %d \n", num, diagP, diagP - 1);	
+			printf("Please choose the right parameter diaP, num and Size to satisfy the relation: 2* 2*(diagP - 1)*num - 1 <= size\n");
+		}
+		else if(num % (diagP - 1) != 0){
+			setup = false;
+			printf("Please choose the right parameter num = %d, for NilpType3 with diagP = %d, it should be divisible by diagP - 1 = %d \n", num, diagP, diagP - 1);
 		}
 		else{
-			diagPosition = 3;
+			diagPosition = diagP;
 			nbOne = num;
 			matrix_size = size;
 			nilpotency = num+1;
