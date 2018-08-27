@@ -218,32 +218,32 @@ void smg2sComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int probSi
 //complex  single long int
 
 /*parMatrixSparse complex<double> int C wrapper*/
-struct parMatrixSparseComplexLongInt{
+struct parMatrixSparseComplexSingleLongInt{
   parMatrixSparse<std::complex<float>,__int64_t> parMatrix;
 };
-struct parMatrixSparseComplexLongInt *newParMatrixSparseComplexLongInt(void){
-  return new struct parMatrixSparseComplexLongInt;
+struct parMatrixSparseComplexSingleLongInt *newParMatrixSparseComplexSingleLongInt(void){
+  return new struct parMatrixSparseComplexSingleLongInt;
 }
-void ReleaseParMatrixSparseComplexLongInt(struct parMatrixSparseComplexLongInt **ppInstance){
+void ReleaseParMatrixSparseComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt **ppInstance){
   delete *ppInstance;
   *ppInstance = 0;
 }
-extern void LOC_MatViewComplexLongInt(struct parMatrixSparseComplexLongInt *m){
+extern void LOC_MatViewComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m){
   m->parMatrix.LOC_MatView();
 }
 
-void GetLocalSizeComplexLongInt(struct parMatrixSparseComplexLongInt *m, __int64_t *rs, __int64_t *cs){
+void GetLocalSizeComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m, __int64_t *rs, __int64_t *cs){
   __int64_t a, b;
   m->parMatrix.GetLocalSize(a, b);
   *rs =a; *cs = b;
 }
 
-void Loc_ConvertToCSRComplexLongInt(struct parMatrixSparseComplexLongInt *m){
+void Loc_ConvertToCSRComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m){
   m->parMatrix.Loc_ConvertToCSR();
 }
 
 
-void Loc_CSRGetRowsArraySizesComplexLongInt(struct parMatrixSparseComplexLongInt *m, __int64_t *size,__int64_t *size2){
+void Loc_CSRGetRowsArraySizesComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m, __int64_t *size,__int64_t *size2){
   std::vector<__int64_t>::iterator it;
   __int64_t count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -262,7 +262,7 @@ void Loc_CSRGetRowsArraySizesComplexLongInt(struct parMatrixSparseComplexLongInt
   *size2 = count2;
 }
 
-void Loc_CSRGetRowsArraysComplexLongInt(struct parMatrixSparseComplexLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **real, double **imag){
+void Loc_CSRGetRowsArraysComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **real, double **imag){
   for(__int64_t i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -274,39 +274,39 @@ void Loc_CSRGetRowsArraysComplexLongInt(struct parMatrixSparseComplexLongInt *m,
   }
 }
 
-void smg2sComplexLongInt(struct parMatrixSparseComplexLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm){
+void smg2sComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm){
   m->parMatrix = *smg2s<std::complex<float>,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
 //real double long int
 
 /*parMatrixSparse complex<double> int C wrapper*/
-struct parMatrixSparseDoubleLongInt{
+struct parMatrixSparseRealDoubleLongInt{
   parMatrixSparse<double,__int64_t> parMatrix;
 };
-struct parMatrixSparseDoubleLongInt *newParMatrixSparseDoubleLongInt(void){
-  return new struct parMatrixSparseDoubleLongInt;
+struct parMatrixSparseRealDoubleLongInt *newParMatrixSparseRealDoubleLongInt(void){
+  return new struct parMatrixSparseRealDoubleLongInt;
 }
-void ReleaseParMatrixSparseDoubleLongInt(struct parMatrixSparseDoubleLongInt **ppInstance){
+void ReleaseParMatrixSparseRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt **ppInstance){
   delete *ppInstance;
   *ppInstance = 0;
 }
-extern void LOC_MatViewDoubleLongInt(struct parMatrixSparseDoubleLongInt *m){
+extern void LOC_MatViewRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m){
   m->parMatrix.LOC_MatView();
 }
 
-void GetLocalSizeDoubleLongInt(struct parMatrixSparseDoubleLongInt *m, __int64_t *rs, __int64_t *cs){
+void GetLocalSizeRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m, __int64_t *rs, __int64_t *cs){
   __int64_t a, b;
   m->parMatrix.GetLocalSize(a, b);
   *rs =a; *cs = b;
 }
 
-void Loc_ConvertToCSRDoubleLongInt(struct parMatrixSparseDoubleLongInt *m){
+void Loc_ConvertToCSRRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m){
   m->parMatrix.Loc_ConvertToCSR();
 }
 
 
-void Loc_CSRGetRowsArraySizesDoubleLongInt(struct parMatrixSparseDoubleLongInt *m, __int64_t *size,__int64_t *size2){
+void Loc_CSRGetRowsArraySizesRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m, __int64_t *size,__int64_t *size2){
   std::vector<__int64_t>::iterator it;
   __int64_t count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -325,7 +325,7 @@ void Loc_CSRGetRowsArraySizesDoubleLongInt(struct parMatrixSparseDoubleLongInt *
   *size2 = count2;
 }
 
-void Loc_CSRGetRowsArraysDoubleLongInt(struct parMatrixSparseDoubleLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **vals){
+void Loc_CSRGetRowsArraysRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **vals){
   for(__int64_t i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -336,39 +336,39 @@ void Loc_CSRGetRowsArraysDoubleLongInt(struct parMatrixSparseDoubleLongInt *m, _
   }
 }
 
-void smg2sDoubleLongInt(struct parMatrixSparseDoubleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm){
+void smg2sRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm){
   m->parMatrix = *smg2s<double,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
 //complex single int
 
 /*parMatrixSparse complex<double> int C wrapper*/
-struct parMatrixSparseComplexInt{
+struct parMatrixSparseComplexSingleInt{
   parMatrixSparse<std::complex<float>,int> parMatrix;
 };
-struct parMatrixSparseComplexInt *newParMatrixSparseComplexInt(void){
-  return new struct parMatrixSparseComplexInt;
+struct parMatrixSparseComplexSingleInt *newParMatrixSparseComplexSingleInt(void){
+  return new struct parMatrixSparseComplexSingleInt;
 }
-void ReleaseParMatrixSparseComplexInt(struct parMatrixSparseComplexInt **ppInstance){
+void ReleaseParMatrixSparseComplexSingleInt(struct parMatrixSparseComplexSingleInt **ppInstance){
   delete *ppInstance;
   *ppInstance = 0;
 }
-extern void LOC_MatViewComplexInt(struct parMatrixSparseComplexInt *m){
+extern void LOC_MatViewComplexInt(struct parMatrixSparseComplexSingleInt *m){
   m->parMatrix.LOC_MatView();
 }
 
-void GetLocalSizeComplexInt(struct parMatrixSparseComplexInt *m, int *rs, int *cs){
+void GetLocalSizeComplexInt(struct parMatrixSparseComplexSingleInt *m, int *rs, int *cs){
   int a, b;
   m->parMatrix.GetLocalSize(a, b);
   *rs =a; *cs = b;
 }
 
-void Loc_ConvertToCSRComplexInt(struct parMatrixSparseComplexInt *m){
+void Loc_ConvertToCSRComplexInt(struct parMatrixSparseComplexSingleInt *m){
   m->parMatrix.Loc_ConvertToCSR();
 }
 
 
-void Loc_CSRGetRowsArraySizesComplexInt(struct parMatrixSparseComplexInt *m, int *size,int *size2){
+void Loc_CSRGetRowsArraySizesComplexSingleInt(struct parMatrixSparseComplexSingleInt *m, int *size,int *size2){
   std::vector<int>::iterator it;
   int count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -387,7 +387,7 @@ void Loc_CSRGetRowsArraySizesComplexInt(struct parMatrixSparseComplexInt *m, int
   *size2 = count2;
 }
 
-void Loc_CSRGetRowsArraysComplexInt(struct parMatrixSparseComplexInt *m, int size, int **rows, int size2, int **cols, double **real, double **imag){
+void Loc_CSRGetRowsArraysComplexSingleInt(struct parMatrixSparseComplexSingleInt *m, int size, int **rows, int size2, int **cols, double **real, double **imag){
   for(int i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -399,40 +399,40 @@ void Loc_CSRGetRowsArraysComplexInt(struct parMatrixSparseComplexInt *m, int siz
   }
 }
 
-void smg2sComplexInt(struct parMatrixSparseComplexInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
+void smg2sComplexSingleInt(struct parMatrixSparseComplexSingleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
   m->parMatrix = *smg2s<std::complex<float>,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
 //real double int
 /*parMatrixSparse double int C wrapper*/
-struct parMatrixSparseDoubleInt{
+struct parMatrixSparseRealDoubleInt{
   parMatrixSparse<double,int> parMatrix;
 };
 
-struct parMatrixSparseDoubleInt *newParMatrixSparseDoubleInt(void){
-  return new struct parMatrixSparseDoubleInt;
+struct parMatrixSparseRealDoubleInt *newParMatrixSparseRealDoubleInt(void){
+  return new struct parMatrixSparseRealDoubleInt;
 }
 
-void ReleaseParMatrixSparseDoubleInt(struct parMatrixSparseDoubleInt **ppInstance){
+void ReleaseParMatrixSparseRealDoubleInt(struct parMatrixSparseRealDoubleInt **ppInstance){
   delete *ppInstance;
   *ppInstance = 0;
 }
 
-void LOC_MatViewDoubleInt(struct parMatrixSparseDoubleInt *m){
+void LOC_MatViewRealDoubleInt(struct parMatrixSparseRealDoubleInt *m){
   m->parMatrix.LOC_MatView();
 }
 
-void GetLocalSizeDoubleInt(struct parMatrixSparseDoubleInt *m, int *rs, int *cs){
+void GetLocalSizeRealDoubleInt(struct parMatrixSparseRealDoubleInt *m, int *rs, int *cs){
   int a, b;
   m->parMatrix.GetLocalSize(a, b);
   *rs =a; *cs = b;
 }
 
-void Loc_ConvertToCSRDoubleInt(struct parMatrixSparseDoubleInt *m){
+void Loc_ConvertToCSRRealDoubleInt(struct parMatrixSparseRealDoubleInt *m){
   m->parMatrix.Loc_ConvertToCSR();
 }
 
-void Loc_RealCSRGetRowsArraySizesDoubleInt(struct parMatrixSparseDoubleInt *m, int *size, int *size2){
+void Loc_RealCSRGetRowsArraySizesRealDoubleInt(struct parMatrixSparseRealDoubleInt *m, int *size, int *size2){
   std::vector<int>::iterator it;
   int count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -450,7 +450,7 @@ void Loc_RealCSRGetRowsArraySizesDoubleInt(struct parMatrixSparseDoubleInt *m, i
 
   *size2 = count2;
 }
-void Loc_RealCSRGetRowsArraysDoubleInt(struct parMatrixSparseDoubleInt *m, int size, int **rows, int size2, int **cols, double **vals){
+void Loc_RealCSRGetRowsArraysRealDoubleInt(struct parMatrixSparseRealDoubleInt *m, int size, int **rows, int size2, int **cols, double **vals){
   for(int i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -462,7 +462,7 @@ void Loc_RealCSRGetRowsArraysDoubleInt(struct parMatrixSparseDoubleInt *m, int s
 }
 
 
-void smg2sDoubleInt(struct parMatrixSparseDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
+void smg2sRealDoubleInt(struct parMatrixSparseRealDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
   m->parMatrix = *smg2s<double,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
@@ -470,34 +470,34 @@ void smg2sDoubleInt(struct parMatrixSparseDoubleInt *m, int probSize, struct Nil
 
 
 /*parMatrixSparse long int C wrapper*/
-struct parMatrixSparseLongInt{
+struct parMatrixSparseRealSingleLongInt{
   parMatrixSparse<float,__int64_t> parMatrix;
 };
 
-struct parMatrixSparseLongInt *newParMatrixSparseLongInt(void){
-  return new struct parMatrixSparseLongInt;
+struct parMatrixSparseRealSingleLongInt *newParMatrixSparseRealSingleLongInt(void){
+  return new struct parMatrixSparseRealSingleLongInt;
 }
 
-void ReleaseParMatrixSparseLongInt(struct parMatrixSparseLongInt **ppInstance){
+void ReleaseParMatrixSparseRealSingleLongInt(struct parMatrixSparseRealSingleLongInt **ppInstance){
   delete *ppInstance;
   *ppInstance = 0;
 }
 
-void LOC_MatViewLongInt(struct parMatrixSparseLongInt *m){
+void LOC_MatViewRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m){
   m->parMatrix.LOC_MatView();
 }
 
-void GetLocalSizeLongInt(struct parMatrixSparseLongInt *m, __int64_t *rs, __int64_t *cs){
+void GetLocalSizeRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m, __int64_t *rs, __int64_t *cs){
   __int64_t a, b;
   m->parMatrix.GetLocalSize(a, b);
   *rs =a; *cs = b;
 }
 
-void Loc_ConvertToCSRLongInt(struct parMatrixSparseLongInt *m){
+void Loc_ConvertToCSRRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m){
   m->parMatrix.Loc_ConvertToCSR();
 }
 
-void Loc_LongCSRGetRowsArraySizesLongInt(struct parMatrixSparseLongInt *m, __int64_t *size, __int64_t *size2){
+void Loc_LongCSRGetRowsArraySizesRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m, __int64_t *size, __int64_t *size2){
   std::vector<__int64_t>::iterator it;
   __int64_t count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -515,7 +515,7 @@ void Loc_LongCSRGetRowsArraySizesLongInt(struct parMatrixSparseLongInt *m, __int
 
   *size2 = count2;
 }
-void Loc_RealCSRGetRowsArraysLongInt(struct parMatrixSparseLongInt *m, __int64_t size, __int64_t **rows, __int64_t size2, __int64_t **cols, double **vals){
+void Loc_RealCSRGetRowsArraysRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m, __int64_t size, __int64_t **rows, __int64_t size2, __int64_t **cols, double **vals){
   for(__int64_t i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -527,39 +527,39 @@ void Loc_RealCSRGetRowsArraysLongInt(struct parMatrixSparseLongInt *m, __int64_t
 }
 
 
-void smg2sLongInt(struct parMatrixSparseLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm){
+void smg2sRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm){
   m->parMatrix = *smg2s<float,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
 /*parMatrixSparse int C wrapper*/
-struct parMatrixSparseInt{
+struct parMatrixSparseRealSingleInt{
   parMatrixSparse<float,int> parMatrix;
 };
 
-struct parMatrixSparseInt *newParMatrixSparseInt(void){
-  return new struct parMatrixSparseInt;
+struct parMatrixSparseRealSingleInt *newParMatrixSparseRealSingleInt(void){
+  return new struct parMatrixSparseRealSingleInt;
 }
 
-void ReleaseParMatrixSparseInt(struct parMatrixSparseInt **ppInstance){
+void ReleaseParMatrixSparseRealSingleInt(struct parMatrixSparseRealSingleInt **ppInstance){
   delete *ppInstance;
   *ppInstance = 0;
 }
 
-void LOC_MatViewInt(struct parMatrixSparseInt *m){
+void LOC_MatViewRealSingleInt(struct parMatrixSparseRealSingleInt *m){
   m->parMatrix.LOC_MatView();
 }
 
-void GetLocalSizeInt(struct parMatrixSparseInt *m, int *rs, int *cs){
+void GetLocalSizeRealSingleInt(struct parMatrixSparseRealSingleInt *m, int *rs, int *cs){
   int a, b;
   m->parMatrix.GetLocalSize(a, b);
   *rs =a; *cs = b;
 }
 
-void Loc_ConvertToCSRInt(struct parMatrixSparseInt *m){
+void Loc_ConvertToCSRRealSingleInt(struct parMatrixSparseRealSingleInt *m){
   m->parMatrix.Loc_ConvertToCSR();
 }
 
-void Loc_RealCSRGetRowsArraySizesInt(struct parMatrixSparseInt *m, int *size, int *size2){
+void Loc_RealCSRGetRowsArraySizesRealSingleInt(struct parMatrixSparseRealSingleInt *m, int *size, int *size2){
   std::vector<int>::iterator it;
   int count = 0;
   for(it = m->parMatrix.CSR_loc->rows.begin(); it != m->parMatrix.CSR_loc->rows.end(); ++it){
@@ -577,7 +577,7 @@ void Loc_RealCSRGetRowsArraySizesInt(struct parMatrixSparseInt *m, int *size, in
 
   *size2 = count2;
 }
-void Loc_RealCSRGetRowsArraysInt(struct parMatrixSparseInt *m, int size, int **rows, int size2, int **cols, double **vals){
+void Loc_RealCSRGetRowsArraysRealSingleInt(struct parMatrixSparseRealSingleInt *m, int size, int **rows, int size2, int **cols, double **vals){
   for(int i = 0; i < size; i++){
     *(*rows+i) = m->parMatrix.CSR_loc->rows[i];
   }
@@ -589,7 +589,7 @@ void Loc_RealCSRGetRowsArraysInt(struct parMatrixSparseInt *m, int size, int **r
 }
 
 
-void smg2sInt(struct parMatrixSparseInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
+void smg2sRealSingleInt(struct parMatrixSparseRealSingleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
   m->parMatrix = *smg2s<float,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
