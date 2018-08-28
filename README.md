@@ -133,13 +133,9 @@ More information: [PETSc GMRES example](https://github.com/brunowu/SMG2S/tree/ma
 Generate the shared library and install the python module of smg2s
 ```bash
 cd ./interface/python
-PYTHON=python
-export MPI4PY_INCLUDE=${shell ${PYTHON} -c 'import mpi4py; print( mpi4py.get_include() )'}
+CC=mpicxx python setup.py build
+python setup.py install
 
-swig -c++ -python -I${MPI4PY_INCLUDE}
-mpicxx -fpic -c smg2s_wrap.cxx -I/usr/include/python2.7 -std=c++0x -I${MPI4PY_INCLUDE}
-mpicxx -shared smg2s_wrap.o -o _smg2s.so
-python setup.py build_ext --inplace
 mpirun -np 2 python generate.py
 
 ```
