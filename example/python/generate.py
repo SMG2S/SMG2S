@@ -28,9 +28,9 @@ nilp.NilpType1(2,10)
 if rank == 0:
 	print("Nilptency matrix continuous one nb = %d" %nilp.nbOne)
 
-Mt = smg2s.parMatrixSparseRealDoubleInt()
+Mt = smg2s.parMatrixSparseComplexDoubleInt()
 
-Mt=smg2s.smg2sRealDoubleInt(10,nilp,lbandwidth," ", MPI.COMM_WORLD)
+Mt=smg2s.smg2sComplexDoubleInt(20,nilp,lbandwidth," ", MPI.COMM_WORLD)
 
 Mt.LOC_MatView()
 

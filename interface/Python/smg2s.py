@@ -159,6 +159,14 @@ class SwigPyIterator(_object):
 SwigPyIterator_swigregister = _smg2s.SwigPyIterator_swigregister
 SwigPyIterator_swigregister(SwigPyIterator)
 
+
+def factorial(start, end):
+    return _smg2s.factorial(start, end)
+factorial = _smg2s.factorial
+
+def import_mpi4py():
+    return _smg2s.import_mpi4py()
+import_mpi4py = _smg2s.import_mpi4py
 class NilpotencyInt(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, NilpotencyInt, name, value)
@@ -198,382 +206,1350 @@ class NilpotencyInt(_object):
 
     def NilpType2(self, num, size):
         return _smg2s.NilpotencyInt_NilpType2(self, num, size)
+
+    def NilpType3(self, diagP, num, size):
+        return _smg2s.NilpotencyInt_NilpType3(self, diagP, num, size)
     __swig_destroy__ = _smg2s.delete_NilpotencyInt
     __del__ = lambda self: None
 NilpotencyInt_swigregister = _smg2s.NilpotencyInt_swigregister
 NilpotencyInt_swigregister(NilpotencyInt)
 
-class MatrixCSRDoubleInt(_object):
+class parMatrixSparseRealDoubleInt(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, MatrixCSRDoubleInt, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, parMatrixSparseRealDoubleInt, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, MatrixCSRDoubleInt, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, parMatrixSparseRealDoubleInt, name)
     __repr__ = _swig_repr
-    __swig_setmethods__["nrows"] = _smg2s.MatrixCSRDoubleInt_nrows_set
-    __swig_getmethods__["nrows"] = _smg2s.MatrixCSRDoubleInt_nrows_get
+    __swig_setmethods__["CSR_lloc"] = _smg2s.parMatrixSparseRealDoubleInt_CSR_lloc_set
+    __swig_getmethods__["CSR_lloc"] = _smg2s.parMatrixSparseRealDoubleInt_CSR_lloc_get
     if _newclass:
-        nrows = _swig_property(_smg2s.MatrixCSRDoubleInt_nrows_get, _smg2s.MatrixCSRDoubleInt_nrows_set)
-    __swig_setmethods__["nnz"] = _smg2s.MatrixCSRDoubleInt_nnz_set
-    __swig_getmethods__["nnz"] = _smg2s.MatrixCSRDoubleInt_nnz_get
+        CSR_lloc = _swig_property(_smg2s.parMatrixSparseRealDoubleInt_CSR_lloc_get, _smg2s.parMatrixSparseRealDoubleInt_CSR_lloc_set)
+    __swig_setmethods__["CSR_gloc"] = _smg2s.parMatrixSparseRealDoubleInt_CSR_gloc_set
+    __swig_getmethods__["CSR_gloc"] = _smg2s.parMatrixSparseRealDoubleInt_CSR_gloc_get
     if _newclass:
-        nnz = _swig_property(_smg2s.MatrixCSRDoubleInt_nnz_get, _smg2s.MatrixCSRDoubleInt_nnz_set)
-    __swig_setmethods__["ncols"] = _smg2s.MatrixCSRDoubleInt_ncols_set
-    __swig_getmethods__["ncols"] = _smg2s.MatrixCSRDoubleInt_ncols_get
+        CSR_gloc = _swig_property(_smg2s.parMatrixSparseRealDoubleInt_CSR_gloc_get, _smg2s.parMatrixSparseRealDoubleInt_CSR_gloc_set)
+    __swig_setmethods__["CSR_loc"] = _smg2s.parMatrixSparseRealDoubleInt_CSR_loc_set
+    __swig_getmethods__["CSR_loc"] = _smg2s.parMatrixSparseRealDoubleInt_CSR_loc_get
     if _newclass:
-        ncols = _swig_property(_smg2s.MatrixCSRDoubleInt_ncols_get, _smg2s.MatrixCSRDoubleInt_ncols_set)
-    __swig_setmethods__["rows"] = _smg2s.MatrixCSRDoubleInt_rows_set
-    __swig_getmethods__["rows"] = _smg2s.MatrixCSRDoubleInt_rows_get
+        CSR_loc = _swig_property(_smg2s.parMatrixSparseRealDoubleInt_CSR_loc_get, _smg2s.parMatrixSparseRealDoubleInt_CSR_loc_set)
+    __swig_setmethods__["dynmat_loc"] = _smg2s.parMatrixSparseRealDoubleInt_dynmat_loc_set
+    __swig_getmethods__["dynmat_loc"] = _smg2s.parMatrixSparseRealDoubleInt_dynmat_loc_get
     if _newclass:
-        rows = _swig_property(_smg2s.MatrixCSRDoubleInt_rows_get, _smg2s.MatrixCSRDoubleInt_rows_set)
-    __swig_setmethods__["cols"] = _smg2s.MatrixCSRDoubleInt_cols_set
-    __swig_getmethods__["cols"] = _smg2s.MatrixCSRDoubleInt_cols_get
-    if _newclass:
-        cols = _swig_property(_smg2s.MatrixCSRDoubleInt_cols_get, _smg2s.MatrixCSRDoubleInt_cols_set)
-    __swig_setmethods__["vals"] = _smg2s.MatrixCSRDoubleInt_vals_set
-    __swig_getmethods__["vals"] = _smg2s.MatrixCSRDoubleInt_vals_get
-    if _newclass:
-        vals = _swig_property(_smg2s.MatrixCSRDoubleInt_vals_get, _smg2s.MatrixCSRDoubleInt_vals_set)
+        dynmat_loc = _swig_property(_smg2s.parMatrixSparseRealDoubleInt_dynmat_loc_get, _smg2s.parMatrixSparseRealDoubleInt_dynmat_loc_set)
 
     def __init__(self, *args):
-        this = _smg2s.new_MatrixCSRDoubleInt(*args)
+        this = _smg2s.new_parMatrixSparseRealDoubleInt(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
-    __swig_destroy__ = _smg2s.delete_MatrixCSRDoubleInt
-    __del__ = lambda self: None
-
-    def GetValue(self, row, col):
-        return _smg2s.MatrixCSRDoubleInt_GetValue(self, row, col)
-
-    def SetValue(self, row, col, val):
-        return _smg2s.MatrixCSRDoubleInt_SetValue(self, row, col, val)
-
-    def InsertValue(self, row, col, val):
-        return _smg2s.MatrixCSRDoubleInt_InsertValue(self, row, col, val)
-
-    def Add(self, m):
-        return _smg2s.MatrixCSRDoubleInt_Add(self, m)
-
-    def Free(self):
-        return _smg2s.MatrixCSRDoubleInt_Free(self)
-MatrixCSRDoubleInt_swigregister = _smg2s.MatrixCSRDoubleInt_swigregister
-MatrixCSRDoubleInt_swigregister(MatrixCSRDoubleInt)
-
-class parVectorMapInt(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, parVectorMapInt, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, parVectorMapInt, name)
-    __repr__ = _swig_repr
-
-    def __init__(self, ncomm, lbound, ubound):
-        this = _smg2s.new_parVectorMapInt(ncomm, lbound, ubound)
-        try:
-            self.this.append(this)
-        except __builtin__.Exception:
-            self.this = this
-    __swig_destroy__ = _smg2s.delete_parVectorMapInt
-    __del__ = lambda self: None
-
-    def GetCurrentComm(self):
-        return _smg2s.parVectorMapInt_GetCurrentComm(self)
-
-    def Loc2Glob(self, local_index):
-        return _smg2s.parVectorMapInt_Loc2Glob(self, local_index)
-
-    def Glob2Loc(self, global_index):
-        return _smg2s.parVectorMapInt_Glob2Loc(self, global_index)
-
-    def GetOwner(self, index):
-        return _smg2s.parVectorMapInt_GetOwner(self, index)
-
-    def GetRank(self):
-        return _smg2s.parVectorMapInt_GetRank(self)
-
-    def GetLowerBound(self):
-        return _smg2s.parVectorMapInt_GetLowerBound(self)
-
-    def GetUpperBound(self):
-        return _smg2s.parVectorMapInt_GetUpperBound(self)
-
-    def GetLocalSize(self):
-        return _smg2s.parVectorMapInt_GetLocalSize(self)
-
-    def GetGlobalSize(self):
-        return _smg2s.parVectorMapInt_GetGlobalSize(self)
-
-    def GetLocTotSize(self):
-        return _smg2s.parVectorMapInt_GetLocTotSize(self)
-
-    def AddUser(self):
-        return _smg2s.parVectorMapInt_AddUser(self)
-
-    def DeleteUser(self):
-        return _smg2s.parVectorMapInt_DeleteUser(self)
-
-    def GetUser(self):
-        return _smg2s.parVectorMapInt_GetUser(self)
-parVectorMapInt_swigregister = _smg2s.parVectorMapInt_swigregister
-parVectorMapInt_swigregister(parVectorMapInt)
-
-class parVectorDoubleInt(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, parVectorDoubleInt, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, parVectorDoubleInt, name)
-    __repr__ = _swig_repr
-
-    def __init__(self, *args):
-        this = _smg2s.new_parVectorDoubleInt(*args)
-        try:
-            self.this.append(this)
-        except __builtin__.Exception:
-            self.this = this
-    __swig_destroy__ = _smg2s.delete_parVectorDoubleInt
-    __del__ = lambda self: None
-
-    def GetVecMap(self):
-        return _smg2s.parVectorDoubleInt_GetVecMap(self)
-
-    def GetLowerBound(self):
-        return _smg2s.parVectorDoubleInt_GetLowerBound(self)
-
-    def GetUpperBound(self):
-        return _smg2s.parVectorDoubleInt_GetUpperBound(self)
-
-    def GetGlobalSize(self):
-        return _smg2s.parVectorDoubleInt_GetGlobalSize(self)
-
-    def GetLocalSize(self):
-        return _smg2s.parVectorDoubleInt_GetLocalSize(self)
-
-    def GetArraySize(self):
-        return _smg2s.parVectorDoubleInt_GetArraySize(self)
-
-    def GetArray(self):
-        return _smg2s.parVectorDoubleInt_GetArray(self)
-
-    def Loc2Glob(self, local_index):
-        return _smg2s.parVectorDoubleInt_Loc2Glob(self, local_index)
-
-    def Glob2Loc(self, global_index):
-        return _smg2s.parVectorDoubleInt_Glob2Loc(self, global_index)
-
-    def AddValueLocal(self, row, value):
-        return _smg2s.parVectorDoubleInt_AddValueLocal(self, row, value)
-
-    def AddValuesLocal(self, nindex, rows, values):
-        return _smg2s.parVectorDoubleInt_AddValuesLocal(self, nindex, rows, values)
-
-    def SetValueLocal(self, row, value):
-        return _smg2s.parVectorDoubleInt_SetValueLocal(self, row, value)
-
-    def SetValuesLocal(self, nindex, rows, values):
-        return _smg2s.parVectorDoubleInt_SetValuesLocal(self, nindex, rows, values)
-
-    def SetValueGlobal(self, index, value):
-        return _smg2s.parVectorDoubleInt_SetValueGlobal(self, index, value)
-
-    def SetValuesGlobal(self, nindex, rows, values):
-        return _smg2s.parVectorDoubleInt_SetValuesGlobal(self, nindex, rows, values)
-
-    def SetTovalue(self, value):
-        return _smg2s.parVectorDoubleInt_SetTovalue(self, value)
-
-    def SetToZero(self):
-        return _smg2s.parVectorDoubleInt_SetToZero(self)
-
-    def VecAdd(self, v):
-        return _smg2s.parVectorDoubleInt_VecAdd(self, v)
-
-    def VecScale(self, scale):
-        return _smg2s.parVectorDoubleInt_VecScale(self, scale)
-
-    def VecDot(self, v):
-        return _smg2s.parVectorDoubleInt_VecDot(self, v)
-
-    def ReadExtVec(self, spectrum):
-        return _smg2s.parVectorDoubleInt_ReadExtVec(self, spectrum)
-
-    def VecView(self):
-        return _smg2s.parVectorDoubleInt_VecView(self)
-
-    def RestoreArray(self):
-        return _smg2s.parVectorDoubleInt_RestoreArray(self)
-parVectorDoubleInt_swigregister = _smg2s.parVectorDoubleInt_swigregister
-parVectorDoubleInt_swigregister(parVectorDoubleInt)
-
-class parMatrixSparseDoubleInt(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, parMatrixSparseDoubleInt, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, parMatrixSparseDoubleInt, name)
-    __repr__ = _swig_repr
-    __swig_setmethods__["CSR_lloc"] = _smg2s.parMatrixSparseDoubleInt_CSR_lloc_set
-    __swig_getmethods__["CSR_lloc"] = _smg2s.parMatrixSparseDoubleInt_CSR_lloc_get
-    if _newclass:
-        CSR_lloc = _swig_property(_smg2s.parMatrixSparseDoubleInt_CSR_lloc_get, _smg2s.parMatrixSparseDoubleInt_CSR_lloc_set)
-    __swig_setmethods__["CSR_gloc"] = _smg2s.parMatrixSparseDoubleInt_CSR_gloc_set
-    __swig_getmethods__["CSR_gloc"] = _smg2s.parMatrixSparseDoubleInt_CSR_gloc_get
-    if _newclass:
-        CSR_gloc = _swig_property(_smg2s.parMatrixSparseDoubleInt_CSR_gloc_get, _smg2s.parMatrixSparseDoubleInt_CSR_gloc_set)
-    __swig_setmethods__["CSR_loc"] = _smg2s.parMatrixSparseDoubleInt_CSR_loc_set
-    __swig_getmethods__["CSR_loc"] = _smg2s.parMatrixSparseDoubleInt_CSR_loc_get
-    if _newclass:
-        CSR_loc = _swig_property(_smg2s.parMatrixSparseDoubleInt_CSR_loc_get, _smg2s.parMatrixSparseDoubleInt_CSR_loc_set)
-    __swig_setmethods__["dynmat_loc"] = _smg2s.parMatrixSparseDoubleInt_dynmat_loc_set
-    __swig_getmethods__["dynmat_loc"] = _smg2s.parMatrixSparseDoubleInt_dynmat_loc_get
-    if _newclass:
-        dynmat_loc = _swig_property(_smg2s.parMatrixSparseDoubleInt_dynmat_loc_get, _smg2s.parMatrixSparseDoubleInt_dynmat_loc_set)
-
-    def __init__(self, *args):
-        this = _smg2s.new_parMatrixSparseDoubleInt(*args)
-        try:
-            self.this.append(this)
-        except __builtin__.Exception:
-            self.this = this
-    __swig_destroy__ = _smg2s.delete_parMatrixSparseDoubleInt
+    __swig_destroy__ = _smg2s.delete_parMatrixSparseRealDoubleInt
     __del__ = lambda self: None
 
     def GetXMap(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetXMap(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetXMap(self)
 
     def GetYMap(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetYMap(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetYMap(self)
 
     def GetComm(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetComm(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetComm(self)
 
     def GetXLowerBound(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetXLowerBound(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetXLowerBound(self)
 
     def GetYLowerBound(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetYLowerBound(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetYLowerBound(self)
 
     def GetXUpperBound(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetXUpperBound(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetXUpperBound(self)
 
     def GetYUpperBound(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetYUpperBound(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetYUpperBound(self)
 
     def GetTrueLocalSize(self, rs, cs):
-        return _smg2s.parMatrixSparseDoubleInt_GetTrueLocalSize(self, rs, cs)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetTrueLocalSize(self, rs, cs)
 
     def GetLocalSize(self, rs, cs):
-        return _smg2s.parMatrixSparseDoubleInt_GetLocalSize(self, rs, cs)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetLocalSize(self, rs, cs)
 
     def GetDynMatGLobLoc(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetDynMatGLobLoc(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetDynMatGLobLoc(self)
 
     def GetDynMatGlobLoc(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetDynMatGlobLoc(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetDynMatGlobLoc(self)
 
     def GetDynMatLoc(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetDynMatLoc(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetDynMatLoc(self)
 
     def GetCSRLocLoc(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetCSRLocLoc(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetCSRLocLoc(self)
 
     def GetCSRGlobLoc(self):
-        return _smg2s.parMatrixSparseDoubleInt_GetCSRGlobLoc(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetCSRGlobLoc(self)
 
     def AddValueLocal(self, row, col, value):
-        return _smg2s.parMatrixSparseDoubleInt_AddValueLocal(self, row, col, value)
+        return _smg2s.parMatrixSparseRealDoubleInt_AddValueLocal(self, row, col, value)
 
     def AddValuesLocal(self, nindex, rows, cols, values):
-        return _smg2s.parMatrixSparseDoubleInt_AddValuesLocal(self, nindex, rows, cols, values)
+        return _smg2s.parMatrixSparseRealDoubleInt_AddValuesLocal(self, nindex, rows, cols, values)
 
     def AddValue(self, row, col, value):
-        return _smg2s.parMatrixSparseDoubleInt_AddValue(self, row, col, value)
+        return _smg2s.parMatrixSparseRealDoubleInt_AddValue(self, row, col, value)
 
     def SetValueLocal(self, row, col, value):
-        return _smg2s.parMatrixSparseDoubleInt_SetValueLocal(self, row, col, value)
+        return _smg2s.parMatrixSparseRealDoubleInt_SetValueLocal(self, row, col, value)
 
     def SetValuesLocal(self, nindex, rows, cols, values):
-        return _smg2s.parMatrixSparseDoubleInt_SetValuesLocal(self, nindex, rows, cols, values)
+        return _smg2s.parMatrixSparseRealDoubleInt_SetValuesLocal(self, nindex, rows, cols, values)
 
     def SetValue(self, row, col, value):
-        return _smg2s.parMatrixSparseDoubleInt_SetValue(self, row, col, value)
+        return _smg2s.parMatrixSparseRealDoubleInt_SetValue(self, row, col, value)
 
     def GetLocalValue(self, row, col):
-        return _smg2s.parMatrixSparseDoubleInt_GetLocalValue(self, row, col)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetLocalValue(self, row, col)
 
     def GetValue(self, row, col):
-        return _smg2s.parMatrixSparseDoubleInt_GetValue(self, row, col)
+        return _smg2s.parMatrixSparseRealDoubleInt_GetValue(self, row, col)
 
     def glocPlusLloc(self):
-        return _smg2s.parMatrixSparseDoubleInt_glocPlusLloc(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_glocPlusLloc(self)
 
     def llocToGlocLoc(self):
-        return _smg2s.parMatrixSparseDoubleInt_llocToGlocLoc(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_llocToGlocLoc(self)
 
     def MatView(self):
-        return _smg2s.parMatrixSparseDoubleInt_MatView(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_MatView(self)
 
     def LOC_MatView(self):
-        return _smg2s.parMatrixSparseDoubleInt_LOC_MatView(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_LOC_MatView(self)
 
     def Loc_SetValueLocal(self, row, col, value):
-        return _smg2s.parMatrixSparseDoubleInt_Loc_SetValueLocal(self, row, col, value)
+        return _smg2s.parMatrixSparseRealDoubleInt_Loc_SetValueLocal(self, row, col, value)
 
     def Loc_SetValuesLocal(self, nindex, rows, cols, values):
-        return _smg2s.parMatrixSparseDoubleInt_Loc_SetValuesLocal(self, nindex, rows, cols, values)
+        return _smg2s.parMatrixSparseRealDoubleInt_Loc_SetValuesLocal(self, nindex, rows, cols, values)
 
     def Loc_SetValue(self, row, col, value):
-        return _smg2s.parMatrixSparseDoubleInt_Loc_SetValue(self, row, col, value)
+        return _smg2s.parMatrixSparseRealDoubleInt_Loc_SetValue(self, row, col, value)
 
     def Loc_GetLocalValue(self, row, col):
-        return _smg2s.parMatrixSparseDoubleInt_Loc_GetLocalValue(self, row, col)
+        return _smg2s.parMatrixSparseRealDoubleInt_Loc_GetLocalValue(self, row, col)
 
     def Loc_GetValue(self, row, col):
-        return _smg2s.parMatrixSparseDoubleInt_Loc_GetValue(self, row, col)
+        return _smg2s.parMatrixSparseRealDoubleInt_Loc_GetValue(self, row, col)
 
     def SetDiagonal(self, diag):
-        return _smg2s.parMatrixSparseDoubleInt_SetDiagonal(self, diag)
+        return _smg2s.parMatrixSparseRealDoubleInt_SetDiagonal(self, diag)
 
     def Loc_SetDiagonal(self, diag):
-        return _smg2s.parMatrixSparseDoubleInt_Loc_SetDiagonal(self, diag)
+        return _smg2s.parMatrixSparseRealDoubleInt_Loc_SetDiagonal(self, diag)
 
     def MatScale(self, scale):
-        return _smg2s.parMatrixSparseDoubleInt_MatScale(self, scale)
+        return _smg2s.parMatrixSparseRealDoubleInt_MatScale(self, scale)
 
     def Loc_MatScale(self, scale):
-        return _smg2s.parMatrixSparseDoubleInt_Loc_MatScale(self, scale)
+        return _smg2s.parMatrixSparseRealDoubleInt_Loc_MatScale(self, scale)
 
     def Loc_MatAXPY(self, X, scale):
-        return _smg2s.parMatrixSparseDoubleInt_Loc_MatAXPY(self, X, scale)
+        return _smg2s.parMatrixSparseRealDoubleInt_Loc_MatAXPY(self, X, scale)
 
     def Loc_MatAYPX(self, X, scale):
-        return _smg2s.parMatrixSparseDoubleInt_Loc_MatAYPX(self, X, scale)
-
-    def ReadExtMat(self):
-        return _smg2s.parMatrixSparseDoubleInt_ReadExtMat(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_Loc_MatAYPX(self, X, scale)
 
     def ConvertToCSR(self):
-        return _smg2s.parMatrixSparseDoubleInt_ConvertToCSR(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_ConvertToCSR(self)
 
     def Loc_ConvertToCSR(self):
-        return _smg2s.parMatrixSparseDoubleInt_Loc_ConvertToCSR(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_Loc_ConvertToCSR(self)
 
     def ZeroEntries(self):
-        return _smg2s.parMatrixSparseDoubleInt_ZeroEntries(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_ZeroEntries(self)
 
     def Loc_ZeroEntries(self):
-        return _smg2s.parMatrixSparseDoubleInt_Loc_ZeroEntries(self)
+        return _smg2s.parMatrixSparseRealDoubleInt_Loc_ZeroEntries(self)
 
     def MA(self, nilp, prod):
-        return _smg2s.parMatrixSparseDoubleInt_MA(self, nilp, prod)
+        return _smg2s.parMatrixSparseRealDoubleInt_MA(self, nilp, prod)
 
     def AM(self, nilp, prod):
-        return _smg2s.parMatrixSparseDoubleInt_AM(self, nilp, prod)
-parMatrixSparseDoubleInt_swigregister = _smg2s.parMatrixSparseDoubleInt_swigregister
-parMatrixSparseDoubleInt_swigregister(parMatrixSparseDoubleInt)
+        return _smg2s.parMatrixSparseRealDoubleInt_AM(self, nilp, prod)
+parMatrixSparseRealDoubleInt_swigregister = _smg2s.parMatrixSparseRealDoubleInt_swigregister
+parMatrixSparseRealDoubleInt_swigregister(parMatrixSparseRealDoubleInt)
 
 
-def smg2sDoubleInt(probSize, nilp, lbandwidth, spectrum, comm):
-    return _smg2s.smg2sDoubleInt(probSize, nilp, lbandwidth, spectrum, comm)
-smg2sDoubleInt = _smg2s.smg2sDoubleInt
+def smg2sRealDoubleInt(probSize, nilp, lbandwidth, spectrum, comm):
+    return _smg2s.smg2sRealDoubleInt(probSize, nilp, lbandwidth, spectrum, comm)
+smg2sRealDoubleInt = _smg2s.smg2sRealDoubleInt
+class parMatrixSparseRealDoubleLongInt(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, parMatrixSparseRealDoubleLongInt, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, parMatrixSparseRealDoubleLongInt, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["CSR_lloc"] = _smg2s.parMatrixSparseRealDoubleLongInt_CSR_lloc_set
+    __swig_getmethods__["CSR_lloc"] = _smg2s.parMatrixSparseRealDoubleLongInt_CSR_lloc_get
+    if _newclass:
+        CSR_lloc = _swig_property(_smg2s.parMatrixSparseRealDoubleLongInt_CSR_lloc_get, _smg2s.parMatrixSparseRealDoubleLongInt_CSR_lloc_set)
+    __swig_setmethods__["CSR_gloc"] = _smg2s.parMatrixSparseRealDoubleLongInt_CSR_gloc_set
+    __swig_getmethods__["CSR_gloc"] = _smg2s.parMatrixSparseRealDoubleLongInt_CSR_gloc_get
+    if _newclass:
+        CSR_gloc = _swig_property(_smg2s.parMatrixSparseRealDoubleLongInt_CSR_gloc_get, _smg2s.parMatrixSparseRealDoubleLongInt_CSR_gloc_set)
+    __swig_setmethods__["CSR_loc"] = _smg2s.parMatrixSparseRealDoubleLongInt_CSR_loc_set
+    __swig_getmethods__["CSR_loc"] = _smg2s.parMatrixSparseRealDoubleLongInt_CSR_loc_get
+    if _newclass:
+        CSR_loc = _swig_property(_smg2s.parMatrixSparseRealDoubleLongInt_CSR_loc_get, _smg2s.parMatrixSparseRealDoubleLongInt_CSR_loc_set)
+    __swig_setmethods__["dynmat_loc"] = _smg2s.parMatrixSparseRealDoubleLongInt_dynmat_loc_set
+    __swig_getmethods__["dynmat_loc"] = _smg2s.parMatrixSparseRealDoubleLongInt_dynmat_loc_get
+    if _newclass:
+        dynmat_loc = _swig_property(_smg2s.parMatrixSparseRealDoubleLongInt_dynmat_loc_get, _smg2s.parMatrixSparseRealDoubleLongInt_dynmat_loc_set)
+
+    def __init__(self, *args):
+        this = _smg2s.new_parMatrixSparseRealDoubleLongInt(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _smg2s.delete_parMatrixSparseRealDoubleLongInt
+    __del__ = lambda self: None
+
+    def GetXMap(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetXMap(self)
+
+    def GetYMap(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetYMap(self)
+
+    def GetComm(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetComm(self)
+
+    def GetXLowerBound(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetXLowerBound(self)
+
+    def GetYLowerBound(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetYLowerBound(self)
+
+    def GetXUpperBound(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetXUpperBound(self)
+
+    def GetYUpperBound(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetYUpperBound(self)
+
+    def GetTrueLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetTrueLocalSize(self, rs, cs)
+
+    def GetLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetLocalSize(self, rs, cs)
+
+    def GetDynMatGLobLoc(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetDynMatGLobLoc(self)
+
+    def GetDynMatGlobLoc(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetDynMatGlobLoc(self)
+
+    def GetDynMatLoc(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetDynMatLoc(self)
+
+    def GetCSRLocLoc(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetCSRLocLoc(self)
+
+    def GetCSRGlobLoc(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetCSRGlobLoc(self)
+
+    def AddValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_AddValueLocal(self, row, col, value)
+
+    def AddValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_AddValuesLocal(self, nindex, rows, cols, values)
+
+    def AddValue(self, row, col, value):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_AddValue(self, row, col, value)
+
+    def SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_SetValueLocal(self, row, col, value)
+
+    def SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_SetValue(self, row, col, value)
+
+    def GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetLocalValue(self, row, col)
+
+    def GetValue(self, row, col):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_GetValue(self, row, col)
+
+    def glocPlusLloc(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_glocPlusLloc(self)
+
+    def llocToGlocLoc(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_llocToGlocLoc(self)
+
+    def MatView(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_MatView(self)
+
+    def LOC_MatView(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_LOC_MatView(self)
+
+    def Loc_SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_Loc_SetValueLocal(self, row, col, value)
+
+    def Loc_SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_Loc_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def Loc_SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_Loc_SetValue(self, row, col, value)
+
+    def Loc_GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_Loc_GetLocalValue(self, row, col)
+
+    def Loc_GetValue(self, row, col):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_Loc_GetValue(self, row, col)
+
+    def SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_SetDiagonal(self, diag)
+
+    def Loc_SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_Loc_SetDiagonal(self, diag)
+
+    def MatScale(self, scale):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_MatScale(self, scale)
+
+    def Loc_MatScale(self, scale):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_Loc_MatScale(self, scale)
+
+    def Loc_MatAXPY(self, X, scale):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_Loc_MatAXPY(self, X, scale)
+
+    def Loc_MatAYPX(self, X, scale):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_Loc_MatAYPX(self, X, scale)
+
+    def ConvertToCSR(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_ConvertToCSR(self)
+
+    def Loc_ConvertToCSR(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_Loc_ConvertToCSR(self)
+
+    def ZeroEntries(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_ZeroEntries(self)
+
+    def Loc_ZeroEntries(self):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_Loc_ZeroEntries(self)
+
+    def MA(self, nilp, prod):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_MA(self, nilp, prod)
+
+    def AM(self, nilp, prod):
+        return _smg2s.parMatrixSparseRealDoubleLongInt_AM(self, nilp, prod)
+parMatrixSparseRealDoubleLongInt_swigregister = _smg2s.parMatrixSparseRealDoubleLongInt_swigregister
+parMatrixSparseRealDoubleLongInt_swigregister(parMatrixSparseRealDoubleLongInt)
+
+
+def smg2sRealDoubleLongInt(probSize, nilp, lbandwidth, spectrum, comm):
+    return _smg2s.smg2sRealDoubleLongInt(probSize, nilp, lbandwidth, spectrum, comm)
+smg2sRealDoubleLongInt = _smg2s.smg2sRealDoubleLongInt
+class parMatrixSparseRealSingleInt(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, parMatrixSparseRealSingleInt, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, parMatrixSparseRealSingleInt, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["CSR_lloc"] = _smg2s.parMatrixSparseRealSingleInt_CSR_lloc_set
+    __swig_getmethods__["CSR_lloc"] = _smg2s.parMatrixSparseRealSingleInt_CSR_lloc_get
+    if _newclass:
+        CSR_lloc = _swig_property(_smg2s.parMatrixSparseRealSingleInt_CSR_lloc_get, _smg2s.parMatrixSparseRealSingleInt_CSR_lloc_set)
+    __swig_setmethods__["CSR_gloc"] = _smg2s.parMatrixSparseRealSingleInt_CSR_gloc_set
+    __swig_getmethods__["CSR_gloc"] = _smg2s.parMatrixSparseRealSingleInt_CSR_gloc_get
+    if _newclass:
+        CSR_gloc = _swig_property(_smg2s.parMatrixSparseRealSingleInt_CSR_gloc_get, _smg2s.parMatrixSparseRealSingleInt_CSR_gloc_set)
+    __swig_setmethods__["CSR_loc"] = _smg2s.parMatrixSparseRealSingleInt_CSR_loc_set
+    __swig_getmethods__["CSR_loc"] = _smg2s.parMatrixSparseRealSingleInt_CSR_loc_get
+    if _newclass:
+        CSR_loc = _swig_property(_smg2s.parMatrixSparseRealSingleInt_CSR_loc_get, _smg2s.parMatrixSparseRealSingleInt_CSR_loc_set)
+    __swig_setmethods__["dynmat_loc"] = _smg2s.parMatrixSparseRealSingleInt_dynmat_loc_set
+    __swig_getmethods__["dynmat_loc"] = _smg2s.parMatrixSparseRealSingleInt_dynmat_loc_get
+    if _newclass:
+        dynmat_loc = _swig_property(_smg2s.parMatrixSparseRealSingleInt_dynmat_loc_get, _smg2s.parMatrixSparseRealSingleInt_dynmat_loc_set)
+
+    def __init__(self, *args):
+        this = _smg2s.new_parMatrixSparseRealSingleInt(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _smg2s.delete_parMatrixSparseRealSingleInt
+    __del__ = lambda self: None
+
+    def GetXMap(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetXMap(self)
+
+    def GetYMap(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetYMap(self)
+
+    def GetComm(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetComm(self)
+
+    def GetXLowerBound(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetXLowerBound(self)
+
+    def GetYLowerBound(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetYLowerBound(self)
+
+    def GetXUpperBound(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetXUpperBound(self)
+
+    def GetYUpperBound(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetYUpperBound(self)
+
+    def GetTrueLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseRealSingleInt_GetTrueLocalSize(self, rs, cs)
+
+    def GetLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseRealSingleInt_GetLocalSize(self, rs, cs)
+
+    def GetDynMatGLobLoc(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetDynMatGLobLoc(self)
+
+    def GetDynMatGlobLoc(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetDynMatGlobLoc(self)
+
+    def GetDynMatLoc(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetDynMatLoc(self)
+
+    def GetCSRLocLoc(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetCSRLocLoc(self)
+
+    def GetCSRGlobLoc(self):
+        return _smg2s.parMatrixSparseRealSingleInt_GetCSRGlobLoc(self)
+
+    def AddValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleInt_AddValueLocal(self, row, col, value)
+
+    def AddValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseRealSingleInt_AddValuesLocal(self, nindex, rows, cols, values)
+
+    def AddValue(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleInt_AddValue(self, row, col, value)
+
+    def SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleInt_SetValueLocal(self, row, col, value)
+
+    def SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseRealSingleInt_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleInt_SetValue(self, row, col, value)
+
+    def GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseRealSingleInt_GetLocalValue(self, row, col)
+
+    def GetValue(self, row, col):
+        return _smg2s.parMatrixSparseRealSingleInt_GetValue(self, row, col)
+
+    def glocPlusLloc(self):
+        return _smg2s.parMatrixSparseRealSingleInt_glocPlusLloc(self)
+
+    def llocToGlocLoc(self):
+        return _smg2s.parMatrixSparseRealSingleInt_llocToGlocLoc(self)
+
+    def MatView(self):
+        return _smg2s.parMatrixSparseRealSingleInt_MatView(self)
+
+    def LOC_MatView(self):
+        return _smg2s.parMatrixSparseRealSingleInt_LOC_MatView(self)
+
+    def Loc_SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleInt_Loc_SetValueLocal(self, row, col, value)
+
+    def Loc_SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseRealSingleInt_Loc_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def Loc_SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleInt_Loc_SetValue(self, row, col, value)
+
+    def Loc_GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseRealSingleInt_Loc_GetLocalValue(self, row, col)
+
+    def Loc_GetValue(self, row, col):
+        return _smg2s.parMatrixSparseRealSingleInt_Loc_GetValue(self, row, col)
+
+    def SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseRealSingleInt_SetDiagonal(self, diag)
+
+    def Loc_SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseRealSingleInt_Loc_SetDiagonal(self, diag)
+
+    def MatScale(self, scale):
+        return _smg2s.parMatrixSparseRealSingleInt_MatScale(self, scale)
+
+    def Loc_MatScale(self, scale):
+        return _smg2s.parMatrixSparseRealSingleInt_Loc_MatScale(self, scale)
+
+    def Loc_MatAXPY(self, X, scale):
+        return _smg2s.parMatrixSparseRealSingleInt_Loc_MatAXPY(self, X, scale)
+
+    def Loc_MatAYPX(self, X, scale):
+        return _smg2s.parMatrixSparseRealSingleInt_Loc_MatAYPX(self, X, scale)
+
+    def ConvertToCSR(self):
+        return _smg2s.parMatrixSparseRealSingleInt_ConvertToCSR(self)
+
+    def Loc_ConvertToCSR(self):
+        return _smg2s.parMatrixSparseRealSingleInt_Loc_ConvertToCSR(self)
+
+    def ZeroEntries(self):
+        return _smg2s.parMatrixSparseRealSingleInt_ZeroEntries(self)
+
+    def Loc_ZeroEntries(self):
+        return _smg2s.parMatrixSparseRealSingleInt_Loc_ZeroEntries(self)
+
+    def MA(self, nilp, prod):
+        return _smg2s.parMatrixSparseRealSingleInt_MA(self, nilp, prod)
+
+    def AM(self, nilp, prod):
+        return _smg2s.parMatrixSparseRealSingleInt_AM(self, nilp, prod)
+parMatrixSparseRealSingleInt_swigregister = _smg2s.parMatrixSparseRealSingleInt_swigregister
+parMatrixSparseRealSingleInt_swigregister(parMatrixSparseRealSingleInt)
+
+
+def smg2sRealSingleInt(probSize, nilp, lbandwidth, spectrum, comm):
+    return _smg2s.smg2sRealSingleInt(probSize, nilp, lbandwidth, spectrum, comm)
+smg2sRealSingleInt = _smg2s.smg2sRealSingleInt
+class parMatrixSparseRealSingleLongInt(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, parMatrixSparseRealSingleLongInt, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, parMatrixSparseRealSingleLongInt, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["CSR_lloc"] = _smg2s.parMatrixSparseRealSingleLongInt_CSR_lloc_set
+    __swig_getmethods__["CSR_lloc"] = _smg2s.parMatrixSparseRealSingleLongInt_CSR_lloc_get
+    if _newclass:
+        CSR_lloc = _swig_property(_smg2s.parMatrixSparseRealSingleLongInt_CSR_lloc_get, _smg2s.parMatrixSparseRealSingleLongInt_CSR_lloc_set)
+    __swig_setmethods__["CSR_gloc"] = _smg2s.parMatrixSparseRealSingleLongInt_CSR_gloc_set
+    __swig_getmethods__["CSR_gloc"] = _smg2s.parMatrixSparseRealSingleLongInt_CSR_gloc_get
+    if _newclass:
+        CSR_gloc = _swig_property(_smg2s.parMatrixSparseRealSingleLongInt_CSR_gloc_get, _smg2s.parMatrixSparseRealSingleLongInt_CSR_gloc_set)
+    __swig_setmethods__["CSR_loc"] = _smg2s.parMatrixSparseRealSingleLongInt_CSR_loc_set
+    __swig_getmethods__["CSR_loc"] = _smg2s.parMatrixSparseRealSingleLongInt_CSR_loc_get
+    if _newclass:
+        CSR_loc = _swig_property(_smg2s.parMatrixSparseRealSingleLongInt_CSR_loc_get, _smg2s.parMatrixSparseRealSingleLongInt_CSR_loc_set)
+    __swig_setmethods__["dynmat_loc"] = _smg2s.parMatrixSparseRealSingleLongInt_dynmat_loc_set
+    __swig_getmethods__["dynmat_loc"] = _smg2s.parMatrixSparseRealSingleLongInt_dynmat_loc_get
+    if _newclass:
+        dynmat_loc = _swig_property(_smg2s.parMatrixSparseRealSingleLongInt_dynmat_loc_get, _smg2s.parMatrixSparseRealSingleLongInt_dynmat_loc_set)
+
+    def __init__(self, *args):
+        this = _smg2s.new_parMatrixSparseRealSingleLongInt(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _smg2s.delete_parMatrixSparseRealSingleLongInt
+    __del__ = lambda self: None
+
+    def GetXMap(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetXMap(self)
+
+    def GetYMap(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetYMap(self)
+
+    def GetComm(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetComm(self)
+
+    def GetXLowerBound(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetXLowerBound(self)
+
+    def GetYLowerBound(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetYLowerBound(self)
+
+    def GetXUpperBound(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetXUpperBound(self)
+
+    def GetYUpperBound(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetYUpperBound(self)
+
+    def GetTrueLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetTrueLocalSize(self, rs, cs)
+
+    def GetLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetLocalSize(self, rs, cs)
+
+    def GetDynMatGLobLoc(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetDynMatGLobLoc(self)
+
+    def GetDynMatGlobLoc(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetDynMatGlobLoc(self)
+
+    def GetDynMatLoc(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetDynMatLoc(self)
+
+    def GetCSRLocLoc(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetCSRLocLoc(self)
+
+    def GetCSRGlobLoc(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetCSRGlobLoc(self)
+
+    def AddValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleLongInt_AddValueLocal(self, row, col, value)
+
+    def AddValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseRealSingleLongInt_AddValuesLocal(self, nindex, rows, cols, values)
+
+    def AddValue(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleLongInt_AddValue(self, row, col, value)
+
+    def SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleLongInt_SetValueLocal(self, row, col, value)
+
+    def SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseRealSingleLongInt_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleLongInt_SetValue(self, row, col, value)
+
+    def GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetLocalValue(self, row, col)
+
+    def GetValue(self, row, col):
+        return _smg2s.parMatrixSparseRealSingleLongInt_GetValue(self, row, col)
+
+    def glocPlusLloc(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_glocPlusLloc(self)
+
+    def llocToGlocLoc(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_llocToGlocLoc(self)
+
+    def MatView(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_MatView(self)
+
+    def LOC_MatView(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_LOC_MatView(self)
+
+    def Loc_SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleLongInt_Loc_SetValueLocal(self, row, col, value)
+
+    def Loc_SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseRealSingleLongInt_Loc_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def Loc_SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseRealSingleLongInt_Loc_SetValue(self, row, col, value)
+
+    def Loc_GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseRealSingleLongInt_Loc_GetLocalValue(self, row, col)
+
+    def Loc_GetValue(self, row, col):
+        return _smg2s.parMatrixSparseRealSingleLongInt_Loc_GetValue(self, row, col)
+
+    def SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseRealSingleLongInt_SetDiagonal(self, diag)
+
+    def Loc_SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseRealSingleLongInt_Loc_SetDiagonal(self, diag)
+
+    def MatScale(self, scale):
+        return _smg2s.parMatrixSparseRealSingleLongInt_MatScale(self, scale)
+
+    def Loc_MatScale(self, scale):
+        return _smg2s.parMatrixSparseRealSingleLongInt_Loc_MatScale(self, scale)
+
+    def Loc_MatAXPY(self, X, scale):
+        return _smg2s.parMatrixSparseRealSingleLongInt_Loc_MatAXPY(self, X, scale)
+
+    def Loc_MatAYPX(self, X, scale):
+        return _smg2s.parMatrixSparseRealSingleLongInt_Loc_MatAYPX(self, X, scale)
+
+    def ConvertToCSR(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_ConvertToCSR(self)
+
+    def Loc_ConvertToCSR(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_Loc_ConvertToCSR(self)
+
+    def ZeroEntries(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_ZeroEntries(self)
+
+    def Loc_ZeroEntries(self):
+        return _smg2s.parMatrixSparseRealSingleLongInt_Loc_ZeroEntries(self)
+
+    def MA(self, nilp, prod):
+        return _smg2s.parMatrixSparseRealSingleLongInt_MA(self, nilp, prod)
+
+    def AM(self, nilp, prod):
+        return _smg2s.parMatrixSparseRealSingleLongInt_AM(self, nilp, prod)
+parMatrixSparseRealSingleLongInt_swigregister = _smg2s.parMatrixSparseRealSingleLongInt_swigregister
+parMatrixSparseRealSingleLongInt_swigregister(parMatrixSparseRealSingleLongInt)
+
+
+def smg2sRealSingleLongInt(probSize, nilp, lbandwidth, spectrum, comm):
+    return _smg2s.smg2sRealSingleLongInt(probSize, nilp, lbandwidth, spectrum, comm)
+smg2sRealSingleLongInt = _smg2s.smg2sRealSingleLongInt
+class parMatrixSparseComplexDoubleInt(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, parMatrixSparseComplexDoubleInt, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, parMatrixSparseComplexDoubleInt, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["CSR_lloc"] = _smg2s.parMatrixSparseComplexDoubleInt_CSR_lloc_set
+    __swig_getmethods__["CSR_lloc"] = _smg2s.parMatrixSparseComplexDoubleInt_CSR_lloc_get
+    if _newclass:
+        CSR_lloc = _swig_property(_smg2s.parMatrixSparseComplexDoubleInt_CSR_lloc_get, _smg2s.parMatrixSparseComplexDoubleInt_CSR_lloc_set)
+    __swig_setmethods__["CSR_gloc"] = _smg2s.parMatrixSparseComplexDoubleInt_CSR_gloc_set
+    __swig_getmethods__["CSR_gloc"] = _smg2s.parMatrixSparseComplexDoubleInt_CSR_gloc_get
+    if _newclass:
+        CSR_gloc = _swig_property(_smg2s.parMatrixSparseComplexDoubleInt_CSR_gloc_get, _smg2s.parMatrixSparseComplexDoubleInt_CSR_gloc_set)
+    __swig_setmethods__["CSR_loc"] = _smg2s.parMatrixSparseComplexDoubleInt_CSR_loc_set
+    __swig_getmethods__["CSR_loc"] = _smg2s.parMatrixSparseComplexDoubleInt_CSR_loc_get
+    if _newclass:
+        CSR_loc = _swig_property(_smg2s.parMatrixSparseComplexDoubleInt_CSR_loc_get, _smg2s.parMatrixSparseComplexDoubleInt_CSR_loc_set)
+    __swig_setmethods__["dynmat_loc"] = _smg2s.parMatrixSparseComplexDoubleInt_dynmat_loc_set
+    __swig_getmethods__["dynmat_loc"] = _smg2s.parMatrixSparseComplexDoubleInt_dynmat_loc_get
+    if _newclass:
+        dynmat_loc = _swig_property(_smg2s.parMatrixSparseComplexDoubleInt_dynmat_loc_get, _smg2s.parMatrixSparseComplexDoubleInt_dynmat_loc_set)
+
+    def __init__(self, *args):
+        this = _smg2s.new_parMatrixSparseComplexDoubleInt(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _smg2s.delete_parMatrixSparseComplexDoubleInt
+    __del__ = lambda self: None
+
+    def GetXMap(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetXMap(self)
+
+    def GetYMap(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetYMap(self)
+
+    def GetComm(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetComm(self)
+
+    def GetXLowerBound(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetXLowerBound(self)
+
+    def GetYLowerBound(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetYLowerBound(self)
+
+    def GetXUpperBound(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetXUpperBound(self)
+
+    def GetYUpperBound(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetYUpperBound(self)
+
+    def GetTrueLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetTrueLocalSize(self, rs, cs)
+
+    def GetLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetLocalSize(self, rs, cs)
+
+    def GetDynMatGLobLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetDynMatGLobLoc(self)
+
+    def GetDynMatGlobLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetDynMatGlobLoc(self)
+
+    def GetDynMatLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetDynMatLoc(self)
+
+    def GetCSRLocLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetCSRLocLoc(self)
+
+    def GetCSRGlobLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetCSRGlobLoc(self)
+
+    def AddValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleInt_AddValueLocal(self, row, col, value)
+
+    def AddValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexDoubleInt_AddValuesLocal(self, nindex, rows, cols, values)
+
+    def AddValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleInt_AddValue(self, row, col, value)
+
+    def SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleInt_SetValueLocal(self, row, col, value)
+
+    def SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexDoubleInt_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleInt_SetValue(self, row, col, value)
+
+    def GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetLocalValue(self, row, col)
+
+    def GetValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexDoubleInt_GetValue(self, row, col)
+
+    def glocPlusLloc(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_glocPlusLloc(self)
+
+    def llocToGlocLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_llocToGlocLoc(self)
+
+    def MatView(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_MatView(self)
+
+    def LOC_MatView(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_LOC_MatView(self)
+
+    def Loc_SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleInt_Loc_SetValueLocal(self, row, col, value)
+
+    def Loc_SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexDoubleInt_Loc_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def Loc_SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleInt_Loc_SetValue(self, row, col, value)
+
+    def Loc_GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexDoubleInt_Loc_GetLocalValue(self, row, col)
+
+    def Loc_GetValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexDoubleInt_Loc_GetValue(self, row, col)
+
+    def SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseComplexDoubleInt_SetDiagonal(self, diag)
+
+    def Loc_SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseComplexDoubleInt_Loc_SetDiagonal(self, diag)
+
+    def MatScale(self, scale):
+        return _smg2s.parMatrixSparseComplexDoubleInt_MatScale(self, scale)
+
+    def Loc_MatScale(self, scale):
+        return _smg2s.parMatrixSparseComplexDoubleInt_Loc_MatScale(self, scale)
+
+    def Loc_MatAXPY(self, X, scale):
+        return _smg2s.parMatrixSparseComplexDoubleInt_Loc_MatAXPY(self, X, scale)
+
+    def Loc_MatAYPX(self, X, scale):
+        return _smg2s.parMatrixSparseComplexDoubleInt_Loc_MatAYPX(self, X, scale)
+
+    def ConvertToCSR(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_ConvertToCSR(self)
+
+    def Loc_ConvertToCSR(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_Loc_ConvertToCSR(self)
+
+    def ZeroEntries(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_ZeroEntries(self)
+
+    def Loc_ZeroEntries(self):
+        return _smg2s.parMatrixSparseComplexDoubleInt_Loc_ZeroEntries(self)
+
+    def MA(self, nilp, prod):
+        return _smg2s.parMatrixSparseComplexDoubleInt_MA(self, nilp, prod)
+
+    def AM(self, nilp, prod):
+        return _smg2s.parMatrixSparseComplexDoubleInt_AM(self, nilp, prod)
+parMatrixSparseComplexDoubleInt_swigregister = _smg2s.parMatrixSparseComplexDoubleInt_swigregister
+parMatrixSparseComplexDoubleInt_swigregister(parMatrixSparseComplexDoubleInt)
+
+
+def smg2sComplexDoubleInt(probSize, nilp, lbandwidth, spectrum, comm):
+    return _smg2s.smg2sComplexDoubleInt(probSize, nilp, lbandwidth, spectrum, comm)
+smg2sComplexDoubleInt = _smg2s.smg2sComplexDoubleInt
+class parMatrixSparseComplexDoubleLongInt(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, parMatrixSparseComplexDoubleLongInt, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, parMatrixSparseComplexDoubleLongInt, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["CSR_lloc"] = _smg2s.parMatrixSparseComplexDoubleLongInt_CSR_lloc_set
+    __swig_getmethods__["CSR_lloc"] = _smg2s.parMatrixSparseComplexDoubleLongInt_CSR_lloc_get
+    if _newclass:
+        CSR_lloc = _swig_property(_smg2s.parMatrixSparseComplexDoubleLongInt_CSR_lloc_get, _smg2s.parMatrixSparseComplexDoubleLongInt_CSR_lloc_set)
+    __swig_setmethods__["CSR_gloc"] = _smg2s.parMatrixSparseComplexDoubleLongInt_CSR_gloc_set
+    __swig_getmethods__["CSR_gloc"] = _smg2s.parMatrixSparseComplexDoubleLongInt_CSR_gloc_get
+    if _newclass:
+        CSR_gloc = _swig_property(_smg2s.parMatrixSparseComplexDoubleLongInt_CSR_gloc_get, _smg2s.parMatrixSparseComplexDoubleLongInt_CSR_gloc_set)
+    __swig_setmethods__["CSR_loc"] = _smg2s.parMatrixSparseComplexDoubleLongInt_CSR_loc_set
+    __swig_getmethods__["CSR_loc"] = _smg2s.parMatrixSparseComplexDoubleLongInt_CSR_loc_get
+    if _newclass:
+        CSR_loc = _swig_property(_smg2s.parMatrixSparseComplexDoubleLongInt_CSR_loc_get, _smg2s.parMatrixSparseComplexDoubleLongInt_CSR_loc_set)
+    __swig_setmethods__["dynmat_loc"] = _smg2s.parMatrixSparseComplexDoubleLongInt_dynmat_loc_set
+    __swig_getmethods__["dynmat_loc"] = _smg2s.parMatrixSparseComplexDoubleLongInt_dynmat_loc_get
+    if _newclass:
+        dynmat_loc = _swig_property(_smg2s.parMatrixSparseComplexDoubleLongInt_dynmat_loc_get, _smg2s.parMatrixSparseComplexDoubleLongInt_dynmat_loc_set)
+
+    def __init__(self, *args):
+        this = _smg2s.new_parMatrixSparseComplexDoubleLongInt(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _smg2s.delete_parMatrixSparseComplexDoubleLongInt
+    __del__ = lambda self: None
+
+    def GetXMap(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetXMap(self)
+
+    def GetYMap(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetYMap(self)
+
+    def GetComm(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetComm(self)
+
+    def GetXLowerBound(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetXLowerBound(self)
+
+    def GetYLowerBound(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetYLowerBound(self)
+
+    def GetXUpperBound(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetXUpperBound(self)
+
+    def GetYUpperBound(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetYUpperBound(self)
+
+    def GetTrueLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetTrueLocalSize(self, rs, cs)
+
+    def GetLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetLocalSize(self, rs, cs)
+
+    def GetDynMatGLobLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetDynMatGLobLoc(self)
+
+    def GetDynMatGlobLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetDynMatGlobLoc(self)
+
+    def GetDynMatLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetDynMatLoc(self)
+
+    def GetCSRLocLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetCSRLocLoc(self)
+
+    def GetCSRGlobLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetCSRGlobLoc(self)
+
+    def AddValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_AddValueLocal(self, row, col, value)
+
+    def AddValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_AddValuesLocal(self, nindex, rows, cols, values)
+
+    def AddValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_AddValue(self, row, col, value)
+
+    def SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_SetValueLocal(self, row, col, value)
+
+    def SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_SetValue(self, row, col, value)
+
+    def GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetLocalValue(self, row, col)
+
+    def GetValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_GetValue(self, row, col)
+
+    def glocPlusLloc(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_glocPlusLloc(self)
+
+    def llocToGlocLoc(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_llocToGlocLoc(self)
+
+    def MatView(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_MatView(self)
+
+    def LOC_MatView(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_LOC_MatView(self)
+
+    def Loc_SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal(self, row, col, value)
+
+    def Loc_SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_Loc_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def Loc_SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_Loc_SetValue(self, row, col, value)
+
+    def Loc_GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_Loc_GetLocalValue(self, row, col)
+
+    def Loc_GetValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_Loc_GetValue(self, row, col)
+
+    def SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_SetDiagonal(self, diag)
+
+    def Loc_SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_Loc_SetDiagonal(self, diag)
+
+    def MatScale(self, scale):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_MatScale(self, scale)
+
+    def Loc_MatScale(self, scale):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_Loc_MatScale(self, scale)
+
+    def Loc_MatAXPY(self, X, scale):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_Loc_MatAXPY(self, X, scale)
+
+    def Loc_MatAYPX(self, X, scale):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_Loc_MatAYPX(self, X, scale)
+
+    def ConvertToCSR(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_ConvertToCSR(self)
+
+    def Loc_ConvertToCSR(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_Loc_ConvertToCSR(self)
+
+    def ZeroEntries(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_ZeroEntries(self)
+
+    def Loc_ZeroEntries(self):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_Loc_ZeroEntries(self)
+
+    def MA(self, nilp, prod):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_MA(self, nilp, prod)
+
+    def AM(self, nilp, prod):
+        return _smg2s.parMatrixSparseComplexDoubleLongInt_AM(self, nilp, prod)
+parMatrixSparseComplexDoubleLongInt_swigregister = _smg2s.parMatrixSparseComplexDoubleLongInt_swigregister
+parMatrixSparseComplexDoubleLongInt_swigregister(parMatrixSparseComplexDoubleLongInt)
+
+
+def smg2sComplexDoubleLongInt(probSize, nilp, lbandwidth, spectrum, comm):
+    return _smg2s.smg2sComplexDoubleLongInt(probSize, nilp, lbandwidth, spectrum, comm)
+smg2sComplexDoubleLongInt = _smg2s.smg2sComplexDoubleLongInt
+class parMatrixSparseComplexSingleInt(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, parMatrixSparseComplexSingleInt, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, parMatrixSparseComplexSingleInt, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["CSR_lloc"] = _smg2s.parMatrixSparseComplexSingleInt_CSR_lloc_set
+    __swig_getmethods__["CSR_lloc"] = _smg2s.parMatrixSparseComplexSingleInt_CSR_lloc_get
+    if _newclass:
+        CSR_lloc = _swig_property(_smg2s.parMatrixSparseComplexSingleInt_CSR_lloc_get, _smg2s.parMatrixSparseComplexSingleInt_CSR_lloc_set)
+    __swig_setmethods__["CSR_gloc"] = _smg2s.parMatrixSparseComplexSingleInt_CSR_gloc_set
+    __swig_getmethods__["CSR_gloc"] = _smg2s.parMatrixSparseComplexSingleInt_CSR_gloc_get
+    if _newclass:
+        CSR_gloc = _swig_property(_smg2s.parMatrixSparseComplexSingleInt_CSR_gloc_get, _smg2s.parMatrixSparseComplexSingleInt_CSR_gloc_set)
+    __swig_setmethods__["CSR_loc"] = _smg2s.parMatrixSparseComplexSingleInt_CSR_loc_set
+    __swig_getmethods__["CSR_loc"] = _smg2s.parMatrixSparseComplexSingleInt_CSR_loc_get
+    if _newclass:
+        CSR_loc = _swig_property(_smg2s.parMatrixSparseComplexSingleInt_CSR_loc_get, _smg2s.parMatrixSparseComplexSingleInt_CSR_loc_set)
+    __swig_setmethods__["dynmat_loc"] = _smg2s.parMatrixSparseComplexSingleInt_dynmat_loc_set
+    __swig_getmethods__["dynmat_loc"] = _smg2s.parMatrixSparseComplexSingleInt_dynmat_loc_get
+    if _newclass:
+        dynmat_loc = _swig_property(_smg2s.parMatrixSparseComplexSingleInt_dynmat_loc_get, _smg2s.parMatrixSparseComplexSingleInt_dynmat_loc_set)
+
+    def __init__(self, *args):
+        this = _smg2s.new_parMatrixSparseComplexSingleInt(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _smg2s.delete_parMatrixSparseComplexSingleInt
+    __del__ = lambda self: None
+
+    def GetXMap(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetXMap(self)
+
+    def GetYMap(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetYMap(self)
+
+    def GetComm(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetComm(self)
+
+    def GetXLowerBound(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetXLowerBound(self)
+
+    def GetYLowerBound(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetYLowerBound(self)
+
+    def GetXUpperBound(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetXUpperBound(self)
+
+    def GetYUpperBound(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetYUpperBound(self)
+
+    def GetTrueLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetTrueLocalSize(self, rs, cs)
+
+    def GetLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetLocalSize(self, rs, cs)
+
+    def GetDynMatGLobLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetDynMatGLobLoc(self)
+
+    def GetDynMatGlobLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetDynMatGlobLoc(self)
+
+    def GetDynMatLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetDynMatLoc(self)
+
+    def GetCSRLocLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetCSRLocLoc(self)
+
+    def GetCSRGlobLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetCSRGlobLoc(self)
+
+    def AddValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleInt_AddValueLocal(self, row, col, value)
+
+    def AddValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexSingleInt_AddValuesLocal(self, nindex, rows, cols, values)
+
+    def AddValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleInt_AddValue(self, row, col, value)
+
+    def SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleInt_SetValueLocal(self, row, col, value)
+
+    def SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexSingleInt_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleInt_SetValue(self, row, col, value)
+
+    def GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetLocalValue(self, row, col)
+
+    def GetValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexSingleInt_GetValue(self, row, col)
+
+    def glocPlusLloc(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_glocPlusLloc(self)
+
+    def llocToGlocLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_llocToGlocLoc(self)
+
+    def MatView(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_MatView(self)
+
+    def LOC_MatView(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_LOC_MatView(self)
+
+    def Loc_SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleInt_Loc_SetValueLocal(self, row, col, value)
+
+    def Loc_SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexSingleInt_Loc_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def Loc_SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleInt_Loc_SetValue(self, row, col, value)
+
+    def Loc_GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexSingleInt_Loc_GetLocalValue(self, row, col)
+
+    def Loc_GetValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexSingleInt_Loc_GetValue(self, row, col)
+
+    def SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseComplexSingleInt_SetDiagonal(self, diag)
+
+    def Loc_SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseComplexSingleInt_Loc_SetDiagonal(self, diag)
+
+    def MatScale(self, scale):
+        return _smg2s.parMatrixSparseComplexSingleInt_MatScale(self, scale)
+
+    def Loc_MatScale(self, scale):
+        return _smg2s.parMatrixSparseComplexSingleInt_Loc_MatScale(self, scale)
+
+    def Loc_MatAXPY(self, X, scale):
+        return _smg2s.parMatrixSparseComplexSingleInt_Loc_MatAXPY(self, X, scale)
+
+    def Loc_MatAYPX(self, X, scale):
+        return _smg2s.parMatrixSparseComplexSingleInt_Loc_MatAYPX(self, X, scale)
+
+    def ConvertToCSR(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_ConvertToCSR(self)
+
+    def Loc_ConvertToCSR(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_Loc_ConvertToCSR(self)
+
+    def ZeroEntries(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_ZeroEntries(self)
+
+    def Loc_ZeroEntries(self):
+        return _smg2s.parMatrixSparseComplexSingleInt_Loc_ZeroEntries(self)
+
+    def MA(self, nilp, prod):
+        return _smg2s.parMatrixSparseComplexSingleInt_MA(self, nilp, prod)
+
+    def AM(self, nilp, prod):
+        return _smg2s.parMatrixSparseComplexSingleInt_AM(self, nilp, prod)
+parMatrixSparseComplexSingleInt_swigregister = _smg2s.parMatrixSparseComplexSingleInt_swigregister
+parMatrixSparseComplexSingleInt_swigregister(parMatrixSparseComplexSingleInt)
+
+
+def smg2sComplexSingleInt(probSize, nilp, lbandwidth, spectrum, comm):
+    return _smg2s.smg2sComplexSingleInt(probSize, nilp, lbandwidth, spectrum, comm)
+smg2sComplexSingleInt = _smg2s.smg2sComplexSingleInt
+class parMatrixSparseComplexSingleLongInt(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, parMatrixSparseComplexSingleLongInt, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, parMatrixSparseComplexSingleLongInt, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["CSR_lloc"] = _smg2s.parMatrixSparseComplexSingleLongInt_CSR_lloc_set
+    __swig_getmethods__["CSR_lloc"] = _smg2s.parMatrixSparseComplexSingleLongInt_CSR_lloc_get
+    if _newclass:
+        CSR_lloc = _swig_property(_smg2s.parMatrixSparseComplexSingleLongInt_CSR_lloc_get, _smg2s.parMatrixSparseComplexSingleLongInt_CSR_lloc_set)
+    __swig_setmethods__["CSR_gloc"] = _smg2s.parMatrixSparseComplexSingleLongInt_CSR_gloc_set
+    __swig_getmethods__["CSR_gloc"] = _smg2s.parMatrixSparseComplexSingleLongInt_CSR_gloc_get
+    if _newclass:
+        CSR_gloc = _swig_property(_smg2s.parMatrixSparseComplexSingleLongInt_CSR_gloc_get, _smg2s.parMatrixSparseComplexSingleLongInt_CSR_gloc_set)
+    __swig_setmethods__["CSR_loc"] = _smg2s.parMatrixSparseComplexSingleLongInt_CSR_loc_set
+    __swig_getmethods__["CSR_loc"] = _smg2s.parMatrixSparseComplexSingleLongInt_CSR_loc_get
+    if _newclass:
+        CSR_loc = _swig_property(_smg2s.parMatrixSparseComplexSingleLongInt_CSR_loc_get, _smg2s.parMatrixSparseComplexSingleLongInt_CSR_loc_set)
+    __swig_setmethods__["dynmat_loc"] = _smg2s.parMatrixSparseComplexSingleLongInt_dynmat_loc_set
+    __swig_getmethods__["dynmat_loc"] = _smg2s.parMatrixSparseComplexSingleLongInt_dynmat_loc_get
+    if _newclass:
+        dynmat_loc = _swig_property(_smg2s.parMatrixSparseComplexSingleLongInt_dynmat_loc_get, _smg2s.parMatrixSparseComplexSingleLongInt_dynmat_loc_set)
+
+    def __init__(self, *args):
+        this = _smg2s.new_parMatrixSparseComplexSingleLongInt(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _smg2s.delete_parMatrixSparseComplexSingleLongInt
+    __del__ = lambda self: None
+
+    def GetXMap(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetXMap(self)
+
+    def GetYMap(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetYMap(self)
+
+    def GetComm(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetComm(self)
+
+    def GetXLowerBound(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetXLowerBound(self)
+
+    def GetYLowerBound(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetYLowerBound(self)
+
+    def GetXUpperBound(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetXUpperBound(self)
+
+    def GetYUpperBound(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetYUpperBound(self)
+
+    def GetTrueLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetTrueLocalSize(self, rs, cs)
+
+    def GetLocalSize(self, rs, cs):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetLocalSize(self, rs, cs)
+
+    def GetDynMatGLobLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetDynMatGLobLoc(self)
+
+    def GetDynMatGlobLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetDynMatGlobLoc(self)
+
+    def GetDynMatLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetDynMatLoc(self)
+
+    def GetCSRLocLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetCSRLocLoc(self)
+
+    def GetCSRGlobLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetCSRGlobLoc(self)
+
+    def AddValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_AddValueLocal(self, row, col, value)
+
+    def AddValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_AddValuesLocal(self, nindex, rows, cols, values)
+
+    def AddValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_AddValue(self, row, col, value)
+
+    def SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_SetValueLocal(self, row, col, value)
+
+    def SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_SetValue(self, row, col, value)
+
+    def GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetLocalValue(self, row, col)
+
+    def GetValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_GetValue(self, row, col)
+
+    def glocPlusLloc(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_glocPlusLloc(self)
+
+    def llocToGlocLoc(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_llocToGlocLoc(self)
+
+    def MatView(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_MatView(self)
+
+    def LOC_MatView(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_LOC_MatView(self)
+
+    def Loc_SetValueLocal(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal(self, row, col, value)
+
+    def Loc_SetValuesLocal(self, nindex, rows, cols, values):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_Loc_SetValuesLocal(self, nindex, rows, cols, values)
+
+    def Loc_SetValue(self, row, col, value):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_Loc_SetValue(self, row, col, value)
+
+    def Loc_GetLocalValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_Loc_GetLocalValue(self, row, col)
+
+    def Loc_GetValue(self, row, col):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_Loc_GetValue(self, row, col)
+
+    def SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_SetDiagonal(self, diag)
+
+    def Loc_SetDiagonal(self, diag):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_Loc_SetDiagonal(self, diag)
+
+    def MatScale(self, scale):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_MatScale(self, scale)
+
+    def Loc_MatScale(self, scale):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_Loc_MatScale(self, scale)
+
+    def Loc_MatAXPY(self, X, scale):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_Loc_MatAXPY(self, X, scale)
+
+    def Loc_MatAYPX(self, X, scale):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_Loc_MatAYPX(self, X, scale)
+
+    def ConvertToCSR(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_ConvertToCSR(self)
+
+    def Loc_ConvertToCSR(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_Loc_ConvertToCSR(self)
+
+    def ZeroEntries(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_ZeroEntries(self)
+
+    def Loc_ZeroEntries(self):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_Loc_ZeroEntries(self)
+
+    def MA(self, nilp, prod):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_MA(self, nilp, prod)
+
+    def AM(self, nilp, prod):
+        return _smg2s.parMatrixSparseComplexSingleLongInt_AM(self, nilp, prod)
+parMatrixSparseComplexSingleLongInt_swigregister = _smg2s.parMatrixSparseComplexSingleLongInt_swigregister
+parMatrixSparseComplexSingleLongInt_swigregister(parMatrixSparseComplexSingleLongInt)
+
+
+def smg2sComplexSingleLongInt(probSize, nilp, lbandwidth, spectrum, comm):
+    return _smg2s.smg2sComplexSingleLongInt(probSize, nilp, lbandwidth, spectrum, comm)
+smg2sComplexSingleLongInt = _smg2s.smg2sComplexSingleLongInt
 # This file is compatible with both classic and new-style classes.
 
 

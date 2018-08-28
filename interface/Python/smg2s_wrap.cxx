@@ -3007,21 +3007,53 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 /* -------- TYPES TABLE (BEGIN) -------- */
 
 #define SWIGTYPE_p_MPI_Comm swig_types[0]
-#define SWIGTYPE_p_MatrixCSRT_double_int_t swig_types[1]
-#define SWIGTYPE_p_NilpotencyT_int_t swig_types[2]
-#define SWIGTYPE_p_char swig_types[3]
-#define SWIGTYPE_p_double swig_types[4]
-#define SWIGTYPE_p_int swig_types[5]
-#define SWIGTYPE_p_parMatrixSparseT_double_int_t swig_types[6]
-#define SWIGTYPE_p_parVectorMapT_int_t swig_types[7]
-#define SWIGTYPE_p_parVectorT_double_int_t swig_types[8]
-#define SWIGTYPE_p_std__invalid_argument swig_types[9]
-#define SWIGTYPE_p_std__mapT_int_double_std__lessT_int_t_std__allocatorT_std__pairT_int_const_double_t_t_t swig_types[10]
-#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[11]
-#define SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t swig_types[12]
-#define SWIGTYPE_p_swig__SwigPyIterator swig_types[13]
-static swig_type_info *swig_types[15];
-static swig_module_info swig_module = {swig_types, 14, 0, 0, 0, 0};
+#define SWIGTYPE_p_MatrixCSRT_double___int64_t_t swig_types[1]
+#define SWIGTYPE_p_MatrixCSRT_double_int_t swig_types[2]
+#define SWIGTYPE_p_MatrixCSRT_float___int64_t_t swig_types[3]
+#define SWIGTYPE_p_MatrixCSRT_float_int_t swig_types[4]
+#define SWIGTYPE_p_MatrixCSRT_std__complexT_double_t___int64_t_t swig_types[5]
+#define SWIGTYPE_p_MatrixCSRT_std__complexT_double_t_int_t swig_types[6]
+#define SWIGTYPE_p_MatrixCSRT_std__complexT_float_t___int64_t_t swig_types[7]
+#define SWIGTYPE_p_MatrixCSRT_std__complexT_float_t_int_t swig_types[8]
+#define SWIGTYPE_p_NilpotencyT___int64_t_t swig_types[9]
+#define SWIGTYPE_p_NilpotencyT_int_t swig_types[10]
+#define SWIGTYPE_p___int64_t swig_types[11]
+#define SWIGTYPE_p_char swig_types[12]
+#define SWIGTYPE_p_double swig_types[13]
+#define SWIGTYPE_p_float swig_types[14]
+#define SWIGTYPE_p_int swig_types[15]
+#define SWIGTYPE_p_parMatrixSparseT_double___int64_t_t swig_types[16]
+#define SWIGTYPE_p_parMatrixSparseT_double_int_t swig_types[17]
+#define SWIGTYPE_p_parMatrixSparseT_float___int64_t_t swig_types[18]
+#define SWIGTYPE_p_parMatrixSparseT_float_int_t swig_types[19]
+#define SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t swig_types[20]
+#define SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t swig_types[21]
+#define SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t swig_types[22]
+#define SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t swig_types[23]
+#define SWIGTYPE_p_parVectorMapT___int64_t_t swig_types[24]
+#define SWIGTYPE_p_parVectorMapT_int_t swig_types[25]
+#define SWIGTYPE_p_parVectorT_double___int64_t_t swig_types[26]
+#define SWIGTYPE_p_parVectorT_double_int_t swig_types[27]
+#define SWIGTYPE_p_parVectorT_float___int64_t_t swig_types[28]
+#define SWIGTYPE_p_parVectorT_float_int_t swig_types[29]
+#define SWIGTYPE_p_parVectorT_std__complexT_double_t___int64_t_t swig_types[30]
+#define SWIGTYPE_p_parVectorT_std__complexT_double_t_int_t swig_types[31]
+#define SWIGTYPE_p_parVectorT_std__complexT_float_t___int64_t_t swig_types[32]
+#define SWIGTYPE_p_parVectorT_std__complexT_float_t_int_t swig_types[33]
+#define SWIGTYPE_p_std__complexT_double_t swig_types[34]
+#define SWIGTYPE_p_std__complexT_float_t swig_types[35]
+#define SWIGTYPE_p_std__invalid_argument swig_types[36]
+#define SWIGTYPE_p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t swig_types[37]
+#define SWIGTYPE_p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t swig_types[38]
+#define SWIGTYPE_p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t swig_types[39]
+#define SWIGTYPE_p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t swig_types[40]
+#define SWIGTYPE_p_std__mapT_int_double_std__lessT_int_t_std__allocatorT_std__pairT_int_const_double_t_t_t swig_types[41]
+#define SWIGTYPE_p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t swig_types[42]
+#define SWIGTYPE_p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t swig_types[43]
+#define SWIGTYPE_p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t swig_types[44]
+#define SWIGTYPE_p_swig__SwigPyIterator swig_types[45]
+static swig_type_info *swig_types[47];
+static swig_module_info swig_module = {swig_types, 46, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3132,20 +3164,20 @@ namespace swig {
 #include <sstream> 
 #include <string>
 #include <map>
-#include "../../utils/utils.h"
-#include "../../parVector/parVectorMap.h"
+#include "include/utils/utils.h"
+#include "include/parVector/parVectorMap.h"
 #include <mpi.h>
 #include <fstream>
-#include "../../config/config.h"
+#include "include/config/config.h"
 #include <vector>
-#include "../../parMatrix/MatrixCSR.h"
-#include "../../parVector/parVectorMap.h"
-#include "../../parVector/parVector.h"
-#include "../../config/config.h"
-#include "../../utils/MPI_DataType.h"
-#include "../../parMatrix/parMatrixSparse.h"
-#include "../../smg2s/specGen.h"
-#include "../../smg2s/smg2s.h"
+#include "include/parMatrix/MatrixCSR.h"
+#include "include/parVector/parVectorMap.h"
+#include "include/parVector/parVector.h"
+#include "include/config/config.h"
+#include "include/utils/MPI_DataType.h"
+#include "include/parMatrix/parMatrixSparse.h"
+#include "include/smg2s/specGen.h"
+#include "include/smg2s/smg2s.h"
 
 
 #include <typeinfo>
@@ -3665,6 +3697,16 @@ SWIG_AsVal_ptrdiff_t (PyObject * obj, ptrdiff_t *val)
 #include <algorithm>
 
 
+#include "mpi4py/mpi4py.h"
+
+
+SWIGINTERNINLINE PyObject*
+  SWIG_From_int  (int value)
+{
+  return PyInt_FromLong((long) value);
+}
+
+
 SWIGINTERN int
 SWIG_AsVal_int (PyObject * obj, int *val)
 {
@@ -3681,13 +3723,6 @@ SWIG_AsVal_int (PyObject * obj, int *val)
 }
 
 
-SWIGINTERNINLINE PyObject*
-  SWIG_From_int  (int value)
-{
-  return PyInt_FromLong((long) value);
-}
-
-
 SWIGINTERN int
 SWIG_AsVal_bool (PyObject *obj, bool *val)
 {
@@ -3699,6 +3734,12 @@ SWIG_AsVal_bool (PyObject *obj, bool *val)
     return SWIG_ERROR;
   if (val) *val = r ? true : false;
   return SWIG_OK;
+}
+
+
+SWIGINTERN PyObject *
+SWIG_From_MPI_Comm  (MPI_Comm v) {
+  return PyMPIComm_New(v);
 }
 
 
@@ -3859,6 +3900,86 @@ SWIG_AsPtr_std_string (PyObject * obj, std::string **val)
     }
   }
   return SWIG_ERROR;
+}
+
+
+SWIGINTERN int
+SWIG_AsPtr_MPI_Comm (PyObject * input, MPI_Comm **p) {
+  if (input == Py_None) {
+    if (p) *p = NULL;
+    return SWIG_OK;
+  } else if (PyObject_TypeCheck(input,&PyMPIComm_Type)) {
+    if (p) *p = PyMPIComm_Get(input);
+    return SWIG_OK;
+  } else {
+    void *argp = NULL;
+    int res = SWIG_ConvertPtr(input,&argp,SWIGTYPE_p_MPI_Comm, 0);
+    if (!SWIG_IsOK(res)) return res;
+    if (!argp) return SWIG_ValueError;
+    if (p) *p = static_cast< MPI_Comm* >(argp);
+    return SWIG_OK;
+  }
+}
+
+
+/* Getting isfinite working pre C99 across multiple platforms is non-trivial. Users can provide SWIG_isfinite on older platforms. */
+#ifndef SWIG_isfinite
+/* isfinite() is a macro for C99 */
+# if defined(isfinite)
+#  define SWIG_isfinite(X) (isfinite(X))
+# elif defined __cplusplus && __cplusplus >= 201103L
+/* Use a template so that this works whether isfinite() is std::isfinite() or
+ * in the global namespace.  The reality seems to vary between compiler
+ * versions.
+ *
+ * Make sure namespace std exists to avoid compiler warnings.
+ *
+ * extern "C++" is required as this fragment can end up inside an extern "C" { } block
+ */
+namespace std { }
+extern "C++" template<typename T>
+inline int SWIG_isfinite_func(T x) {
+  using namespace std;
+  return isfinite(x);
+}
+#  define SWIG_isfinite(X) (SWIG_isfinite_func(X))
+# elif defined(_MSC_VER)
+#  define SWIG_isfinite(X) (_finite(X))
+# elif defined(__sun) && defined(__SVR4)
+#  include <ieeefp.h>
+#  define SWIG_isfinite(X) (finite(X))
+# endif
+#endif
+
+
+/* Accept infinite as a valid float value unless we are unable to check if a value is finite */
+#ifdef SWIG_isfinite
+# define SWIG_Float_Overflow_Check(X) ((X < -FLT_MAX || X > FLT_MAX) && SWIG_isfinite(X))
+#else
+# define SWIG_Float_Overflow_Check(X) ((X < -FLT_MAX || X > FLT_MAX))
+#endif
+
+
+SWIGINTERN int
+SWIG_AsVal_float (PyObject * obj, float *val)
+{
+  double v;
+  int res = SWIG_AsVal_double (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if (SWIG_Float_Overflow_Check(v)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = static_cast< float >(v);
+    }
+  }  
+  return res;
+}
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_From_float  (float value)
+{    
+  return SWIG_From_double  (value);
 }
 
 #ifdef __cplusplus
@@ -4714,6 +4835,66 @@ SWIGINTERN PyObject *SwigPyIterator_swigregister(PyObject *SWIGUNUSEDPARM(self),
   return SWIG_Py_Void();
 }
 
+SWIGINTERN PyObject *_wrap_factorial(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  __int64_t arg1 ;
+  __int64_t arg2 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:factorial",&obj0,&obj1)) SWIG_fail;
+  {
+    res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "factorial" "', argument " "1"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "factorial" "', argument " "1"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp1);
+      arg1 = *temp;
+      if (SWIG_IsNewObj(res1)) delete temp;
+    }
+  }
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "factorial" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "factorial" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  result = factorial(arg1,arg2);
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_import_mpi4py(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)":import_mpi4py")) SWIG_fail;
+  result = (int)import_mpi4py();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_NilpotencyInt_diagPosition_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Nilpotency< int > *arg1 = (Nilpotency< int > *) 0 ;
@@ -5167,6 +5348,54 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_NilpotencyInt_NilpType3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Nilpotency< int > *arg1 = (Nilpotency< int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  int arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:NilpotencyInt_NilpType3",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_NilpotencyT_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NilpotencyInt_NilpType3" "', argument " "1"" of type '" "Nilpotency< int > *""'"); 
+  }
+  arg1 = reinterpret_cast< Nilpotency< int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "NilpotencyInt_NilpType3" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "NilpotencyInt_NilpType3" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "NilpotencyInt_NilpType3" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = static_cast< int >(val4);
+  (arg1)->NilpType3(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_delete_NilpotencyInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Nilpotency< int > *arg1 = (Nilpotency< int > *) 0 ;
@@ -5195,1843 +5424,7 @@ SWIGINTERN PyObject *NilpotencyInt_swigregister(PyObject *SWIGUNUSEDPARM(self), 
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_nrows_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:MatrixCSRDoubleInt_nrows_set",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_nrows_set" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MatrixCSRDoubleInt_nrows_set" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  if (arg1) (arg1)->nrows = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_nrows_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:MatrixCSRDoubleInt_nrows_get",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_nrows_get" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  result = (int) ((arg1)->nrows);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_nnz_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:MatrixCSRDoubleInt_nnz_set",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_nnz_set" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MatrixCSRDoubleInt_nnz_set" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  if (arg1) (arg1)->nnz = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_nnz_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:MatrixCSRDoubleInt_nnz_get",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_nnz_get" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  result = (int) ((arg1)->nnz);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_ncols_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:MatrixCSRDoubleInt_ncols_set",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_ncols_set" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MatrixCSRDoubleInt_ncols_set" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  if (arg1) (arg1)->ncols = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_ncols_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:MatrixCSRDoubleInt_ncols_get",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_ncols_get" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  result = (int) ((arg1)->ncols);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_rows_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  std::vector< int,std::allocator< int > > *arg2 = (std::vector< int,std::allocator< int > > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:MatrixCSRDoubleInt_rows_set",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_rows_set" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MatrixCSRDoubleInt_rows_set" "', argument " "2"" of type '" "std::vector< int,std::allocator< int > > *""'"); 
-  }
-  arg2 = reinterpret_cast< std::vector< int,std::allocator< int > > * >(argp2);
-  if (arg1) (arg1)->rows = *arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_rows_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  std::vector< int,std::allocator< int > > *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:MatrixCSRDoubleInt_rows_get",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_rows_get" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  result = (std::vector< int,std::allocator< int > > *)& ((arg1)->rows);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_cols_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  std::vector< int,std::allocator< int > > *arg2 = (std::vector< int,std::allocator< int > > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:MatrixCSRDoubleInt_cols_set",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_cols_set" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MatrixCSRDoubleInt_cols_set" "', argument " "2"" of type '" "std::vector< int,std::allocator< int > > *""'"); 
-  }
-  arg2 = reinterpret_cast< std::vector< int,std::allocator< int > > * >(argp2);
-  if (arg1) (arg1)->cols = *arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_cols_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  std::vector< int,std::allocator< int > > *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:MatrixCSRDoubleInt_cols_get",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_cols_get" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  result = (std::vector< int,std::allocator< int > > *)& ((arg1)->cols);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_vals_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  std::vector< double,std::allocator< double > > *arg2 = (std::vector< double,std::allocator< double > > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:MatrixCSRDoubleInt_vals_set",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_vals_set" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MatrixCSRDoubleInt_vals_set" "', argument " "2"" of type '" "std::vector< double,std::allocator< double > > *""'"); 
-  }
-  arg2 = reinterpret_cast< std::vector< double,std::allocator< double > > * >(argp2);
-  if (arg1) (arg1)->vals = *arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_vals_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  std::vector< double,std::allocator< double > > *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:MatrixCSRDoubleInt_vals_get",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_vals_get" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  result = (std::vector< double,std::allocator< double > > *)& ((arg1)->vals);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_MatrixCSRDoubleInt__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)":new_MatrixCSRDoubleInt")) SWIG_fail;
-  result = (MatrixCSR< double,int > *)new MatrixCSR< double,int >();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_double_int_t, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_MatrixCSRDoubleInt__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  int arg1 ;
-  int arg2 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  MatrixCSR< double,int > *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:new_MatrixCSRDoubleInt",&obj0,&obj1)) SWIG_fail;
-  ecode1 = SWIG_AsVal_int(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_MatrixCSRDoubleInt" "', argument " "1"" of type '" "int""'");
-  } 
-  arg1 = static_cast< int >(val1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_MatrixCSRDoubleInt" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  result = (MatrixCSR< double,int > *)new MatrixCSR< double,int >(arg1,arg2);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_double_int_t, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_MatrixCSRDoubleInt(PyObject *self, PyObject *args) {
-  Py_ssize_t argc;
-  PyObject *argv[3] = {
-    0
-  };
-  Py_ssize_t ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 0) {
-    return _wrap_new_MatrixCSRDoubleInt__SWIG_0(self, args);
-  }
-  if (argc == 2) {
-    int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      {
-        int res = SWIG_AsVal_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        return _wrap_new_MatrixCSRDoubleInt__SWIG_1(self, args);
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_MatrixCSRDoubleInt'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    MatrixCSR< double,int >::MatrixCSR()\n"
-    "    MatrixCSR< double,int >::MatrixCSR(int,int)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_MatrixCSRDoubleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_MatrixCSRDoubleInt",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_MatrixCSRDoubleInt" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  delete arg1;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:MatrixCSRDoubleInt_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_GetValue" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MatrixCSRDoubleInt_GetValue" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "MatrixCSRDoubleInt_GetValue" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  result = (double)(arg1)->GetValue(arg2,arg3);
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  double arg4 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  double val4 ;
-  int ecode4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:MatrixCSRDoubleInt_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_SetValue" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MatrixCSRDoubleInt_SetValue" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "MatrixCSRDoubleInt_SetValue" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  ecode4 = SWIG_AsVal_double(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "MatrixCSRDoubleInt_SetValue" "', argument " "4"" of type '" "double""'");
-  } 
-  arg4 = static_cast< double >(val4);
-  (arg1)->SetValue(arg2,arg3,arg4);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_InsertValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  double arg4 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  double val4 ;
-  int ecode4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:MatrixCSRDoubleInt_InsertValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_InsertValue" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MatrixCSRDoubleInt_InsertValue" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "MatrixCSRDoubleInt_InsertValue" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  ecode4 = SWIG_AsVal_double(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "MatrixCSRDoubleInt_InsertValue" "', argument " "4"" of type '" "double""'");
-  } 
-  arg4 = static_cast< double >(val4);
-  (arg1)->InsertValue(arg2,arg3,arg4);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_Add(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  MatrixCSR< double,int > arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:MatrixCSRDoubleInt_Add",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_Add" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  {
-    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_MatrixCSRT_double_int_t,  0  | 0);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MatrixCSRDoubleInt_Add" "', argument " "2"" of type '" "MatrixCSR< double,int >""'"); 
-    }  
-    if (!argp2) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "MatrixCSRDoubleInt_Add" "', argument " "2"" of type '" "MatrixCSR< double,int >""'");
-    } else {
-      MatrixCSR< double,int > * temp = reinterpret_cast< MatrixCSR< double,int > * >(argp2);
-      arg2 = *temp;
-      if (SWIG_IsNewObj(res2)) delete temp;
-    }
-  }
-  (arg1)->Add(arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MatrixCSRDoubleInt_Free(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MatrixCSR< double,int > *arg1 = (MatrixCSR< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:MatrixCSRDoubleInt_Free",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MatrixCSRT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MatrixCSRDoubleInt_Free" "', argument " "1"" of type '" "MatrixCSR< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< MatrixCSR< double,int > * >(argp1);
-  (arg1)->Free();
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *MatrixCSRDoubleInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_MatrixCSRT_double_int_t, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *_wrap_new_parVectorMapInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MPI_Comm arg1 ;
-  int arg2 ;
-  int arg3 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  parVectorMap< int > *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:new_parVectorMapInt",&obj0,&obj1,&obj2)) SWIG_fail;
-  {
-    res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_MPI_Comm,  0  | 0);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_parVectorMapInt" "', argument " "1"" of type '" "MPI_Comm""'"); 
-    }  
-    if (!argp1) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_parVectorMapInt" "', argument " "1"" of type '" "MPI_Comm""'");
-    } else {
-      MPI_Comm * temp = reinterpret_cast< MPI_Comm * >(argp1);
-      arg1 = *temp;
-      if (SWIG_IsNewObj(res1)) delete temp;
-    }
-  }
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_parVectorMapInt" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_parVectorMapInt" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  result = (parVectorMap< int > *)new parVectorMap< int >(arg1,arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT_int_t, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_parVectorMapInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_parVectorMapInt",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_parVectorMapInt" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  delete arg1;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_GetCurrentComm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  MPI_Comm result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorMapInt_GetCurrentComm",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_GetCurrentComm" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  result = (arg1)->GetCurrentComm();
-  resultobj = SWIG_NewPointerObj((new MPI_Comm(static_cast< const MPI_Comm& >(result))), SWIGTYPE_p_MPI_Comm, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_Loc2Glob(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:parVectorMapInt_Loc2Glob",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_Loc2Glob" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorMapInt_Loc2Glob" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  result = (int)(arg1)->Loc2Glob(arg2);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_Glob2Loc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:parVectorMapInt_Glob2Loc",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_Glob2Loc" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorMapInt_Glob2Loc" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  result = (int)(arg1)->Glob2Loc(arg2);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_GetOwner(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:parVectorMapInt_GetOwner",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_GetOwner" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorMapInt_GetOwner" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  result = (int)(arg1)->GetOwner(arg2);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_GetRank(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorMapInt_GetRank",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_GetRank" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  result = (int)(arg1)->GetRank();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_GetLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorMapInt_GetLowerBound",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_GetLowerBound" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  result = (int)(arg1)->GetLowerBound();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_GetUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorMapInt_GetUpperBound",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_GetUpperBound" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  result = (int)(arg1)->GetUpperBound();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_GetLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorMapInt_GetLocalSize",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_GetLocalSize" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  result = (int)(arg1)->GetLocalSize();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_GetGlobalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorMapInt_GetGlobalSize",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_GetGlobalSize" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  result = (int)(arg1)->GetGlobalSize();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_GetLocTotSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorMapInt_GetLocTotSize",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_GetLocTotSize" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  result = (int)(arg1)->GetLocTotSize();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_AddUser(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorMapInt_AddUser",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_AddUser" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  result = (int)(arg1)->AddUser();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_DeleteUser(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorMapInt_DeleteUser",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_DeleteUser" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  result = (int)(arg1)->DeleteUser();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorMapInt_GetUser(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVectorMap< int > *arg1 = (parVectorMap< int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorMapInt_GetUser",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorMapInt_GetUser" "', argument " "1"" of type '" "parVectorMap< int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVectorMap< int > * >(argp1);
-  result = (int)(arg1)->GetUser();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *parVectorMapInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_parVectorMapT_int_t, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *_wrap_new_parVectorDoubleInt__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)":new_parVectorDoubleInt")) SWIG_fail;
-  result = (parVector< double,int > *)new parVector< double,int >();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorT_double_int_t, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_parVectorDoubleInt__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  MPI_Comm arg1 ;
-  int arg2 ;
-  int arg3 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  parVector< double,int > *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:new_parVectorDoubleInt",&obj0,&obj1,&obj2)) SWIG_fail;
-  {
-    res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_MPI_Comm,  0  | 0);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_parVectorDoubleInt" "', argument " "1"" of type '" "MPI_Comm""'"); 
-    }  
-    if (!argp1) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_parVectorDoubleInt" "', argument " "1"" of type '" "MPI_Comm""'");
-    } else {
-      MPI_Comm * temp = reinterpret_cast< MPI_Comm * >(argp1);
-      arg1 = *temp;
-      if (SWIG_IsNewObj(res1)) delete temp;
-    }
-  }
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_parVectorDoubleInt" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_parVectorDoubleInt" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  result = (parVector< double,int > *)new parVector< double,int >(arg1,arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorT_double_int_t, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_parVectorDoubleInt(PyObject *self, PyObject *args) {
-  Py_ssize_t argc;
-  PyObject *argv[4] = {
-    0
-  };
-  Py_ssize_t ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 0) {
-    return _wrap_new_parVectorDoubleInt__SWIG_0(self, args);
-  }
-  if (argc == 3) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_MPI_Comm, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        {
-          int res = SWIG_AsVal_int(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          return _wrap_new_parVectorDoubleInt__SWIG_1(self, args);
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_parVectorDoubleInt'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    parVector< double,int >::parVector()\n"
-    "    parVector< double,int >::parVector(MPI_Comm,int,int)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_parVectorDoubleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_parVectorDoubleInt",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_parVectorDoubleInt" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  delete arg1;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_GetVecMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  parVectorMap< int > *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorDoubleInt_GetVecMap",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_GetVecMap" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  result = (parVectorMap< int > *)(arg1)->GetVecMap();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_GetLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorDoubleInt_GetLowerBound",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_GetLowerBound" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  result = (int)(arg1)->GetLowerBound();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_GetUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorDoubleInt_GetUpperBound",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_GetUpperBound" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  result = (int)(arg1)->GetUpperBound();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_GetGlobalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorDoubleInt_GetGlobalSize",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_GetGlobalSize" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  result = (int)(arg1)->GetGlobalSize();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_GetLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorDoubleInt_GetLocalSize",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_GetLocalSize" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  result = (int)(arg1)->GetLocalSize();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_GetArraySize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorDoubleInt_GetArraySize",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_GetArraySize" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  result = (int)(arg1)->GetArraySize();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_GetArray(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorDoubleInt_GetArray",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_GetArray" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  result = (double *)(arg1)->GetArray();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_Loc2Glob(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:parVectorDoubleInt_Loc2Glob",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_Loc2Glob" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorDoubleInt_Loc2Glob" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  result = (int)(arg1)->Loc2Glob(arg2);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_Glob2Loc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:parVectorDoubleInt_Glob2Loc",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_Glob2Loc" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorDoubleInt_Glob2Loc" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  result = (int)(arg1)->Glob2Loc(arg2);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_AddValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  int arg2 ;
-  double arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  double val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parVectorDoubleInt_AddValueLocal",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_AddValueLocal" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorDoubleInt_AddValueLocal" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parVectorDoubleInt_AddValueLocal" "', argument " "3"" of type '" "double""'");
-  } 
-  arg3 = static_cast< double >(val3);
-  (arg1)->AddValueLocal(arg2,arg3);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_AddValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  int arg2 ;
-  int *arg3 = (int *) 0 ;
-  double *arg4 = (double *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:parVectorDoubleInt_AddValuesLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_AddValuesLocal" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorDoubleInt_AddValuesLocal" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parVectorDoubleInt_AddValuesLocal" "', argument " "3"" of type '" "int *""'"); 
-  }
-  arg3 = reinterpret_cast< int * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_double, 0 |  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parVectorDoubleInt_AddValuesLocal" "', argument " "4"" of type '" "double *""'"); 
-  }
-  arg4 = reinterpret_cast< double * >(argp4);
-  (arg1)->AddValuesLocal(arg2,arg3,arg4);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  int arg2 ;
-  double arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  double val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parVectorDoubleInt_SetValueLocal",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_SetValueLocal" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorDoubleInt_SetValueLocal" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parVectorDoubleInt_SetValueLocal" "', argument " "3"" of type '" "double""'");
-  } 
-  arg3 = static_cast< double >(val3);
-  (arg1)->SetValueLocal(arg2,arg3);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  int arg2 ;
-  int *arg3 = (int *) 0 ;
-  double *arg4 = (double *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:parVectorDoubleInt_SetValuesLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_SetValuesLocal" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorDoubleInt_SetValuesLocal" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parVectorDoubleInt_SetValuesLocal" "', argument " "3"" of type '" "int *""'"); 
-  }
-  arg3 = reinterpret_cast< int * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_double, 0 |  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parVectorDoubleInt_SetValuesLocal" "', argument " "4"" of type '" "double *""'"); 
-  }
-  arg4 = reinterpret_cast< double * >(argp4);
-  (arg1)->SetValuesLocal(arg2,arg3,arg4);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_SetValueGlobal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  int arg2 ;
-  double arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  double val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parVectorDoubleInt_SetValueGlobal",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_SetValueGlobal" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorDoubleInt_SetValueGlobal" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parVectorDoubleInt_SetValueGlobal" "', argument " "3"" of type '" "double""'");
-  } 
-  arg3 = static_cast< double >(val3);
-  (arg1)->SetValueGlobal(arg2,arg3);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_SetValuesGlobal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  int arg2 ;
-  int *arg3 = (int *) 0 ;
-  double *arg4 = (double *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:parVectorDoubleInt_SetValuesGlobal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_SetValuesGlobal" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorDoubleInt_SetValuesGlobal" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parVectorDoubleInt_SetValuesGlobal" "', argument " "3"" of type '" "int *""'"); 
-  }
-  arg3 = reinterpret_cast< int * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_double, 0 |  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parVectorDoubleInt_SetValuesGlobal" "', argument " "4"" of type '" "double *""'"); 
-  }
-  arg4 = reinterpret_cast< double * >(argp4);
-  (arg1)->SetValuesGlobal(arg2,arg3,arg4);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_SetTovalue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  double arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:parVectorDoubleInt_SetTovalue",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_SetTovalue" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorDoubleInt_SetTovalue" "', argument " "2"" of type '" "double""'");
-  } 
-  arg2 = static_cast< double >(val2);
-  (arg1)->SetTovalue(arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_SetToZero(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorDoubleInt_SetToZero",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_SetToZero" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  (arg1)->SetToZero();
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_VecAdd(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  parVector< double,int > *arg2 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:parVectorDoubleInt_VecAdd",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_VecAdd" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parVectorDoubleInt_VecAdd" "', argument " "2"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg2 = reinterpret_cast< parVector< double,int > * >(argp2);
-  (arg1)->VecAdd(arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_VecScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  double arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:parVectorDoubleInt_VecScale",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_VecScale" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parVectorDoubleInt_VecScale" "', argument " "2"" of type '" "double""'");
-  } 
-  arg2 = static_cast< double >(val2);
-  (arg1)->VecScale(arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_VecDot(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  parVector< double,int > *arg2 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:parVectorDoubleInt_VecDot",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_VecDot" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parVectorDoubleInt_VecDot" "', argument " "2"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg2 = reinterpret_cast< parVector< double,int > * >(argp2);
-  result = (double)(arg1)->VecDot(arg2);
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_ReadExtVec(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  std::string arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:parVectorDoubleInt_ReadExtVec",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_ReadExtVec" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    int res = SWIG_AsPtr_std_string(obj1, &ptr);
-    if (!SWIG_IsOK(res) || !ptr) {
-      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "parVectorDoubleInt_ReadExtVec" "', argument " "2"" of type '" "std::string""'"); 
-    }
-    arg2 = *ptr;
-    if (SWIG_IsNewObj(res)) delete ptr;
-  }
-  (arg1)->ReadExtVec(arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_VecView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorDoubleInt_VecView",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_VecView" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  (arg1)->VecView();
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parVectorDoubleInt_RestoreArray(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parVectorDoubleInt_RestoreArray",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parVectorDoubleInt_RestoreArray" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
-  (arg1)->RestoreArray();
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *parVectorDoubleInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_parVectorT_double_int_t, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_lloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_CSR_lloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   MatrixCSR< double,int > *arg2 = (MatrixCSR< double,int > *) 0 ;
@@ -7042,15 +5435,15 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_lloc_set(PyObject *SWIGU
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseDoubleInt_CSR_lloc_set",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleInt_CSR_lloc_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_CSR_lloc_set" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_CSR_lloc_set" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_double_int_t, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_CSR_lloc_set" "', argument " "2"" of type '" "MatrixCSR< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_CSR_lloc_set" "', argument " "2"" of type '" "MatrixCSR< double,int > *""'"); 
   }
   arg2 = reinterpret_cast< MatrixCSR< double,int > * >(argp2);
   if (arg1) (arg1)->CSR_lloc = arg2;
@@ -7061,7 +5454,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_lloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_CSR_lloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7069,10 +5462,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_lloc_get(PyObject *SWIGU
   PyObject * obj0 = 0 ;
   MatrixCSR< double,int > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_CSR_lloc_get",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_CSR_lloc_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_CSR_lloc_get" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_CSR_lloc_get" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (MatrixCSR< double,int > *) ((arg1)->CSR_lloc);
@@ -7083,7 +5476,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_gloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_CSR_gloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   MatrixCSR< double,int > *arg2 = (MatrixCSR< double,int > *) 0 ;
@@ -7094,15 +5487,15 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_gloc_set(PyObject *SWIGU
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseDoubleInt_CSR_gloc_set",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleInt_CSR_gloc_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_CSR_gloc_set" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_CSR_gloc_set" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_double_int_t, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_CSR_gloc_set" "', argument " "2"" of type '" "MatrixCSR< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_CSR_gloc_set" "', argument " "2"" of type '" "MatrixCSR< double,int > *""'"); 
   }
   arg2 = reinterpret_cast< MatrixCSR< double,int > * >(argp2);
   if (arg1) (arg1)->CSR_gloc = arg2;
@@ -7113,7 +5506,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_gloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_CSR_gloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7121,10 +5514,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_gloc_get(PyObject *SWIGU
   PyObject * obj0 = 0 ;
   MatrixCSR< double,int > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_CSR_gloc_get",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_CSR_gloc_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_CSR_gloc_get" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_CSR_gloc_get" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (MatrixCSR< double,int > *) ((arg1)->CSR_gloc);
@@ -7135,7 +5528,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_CSR_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   MatrixCSR< double,int > *arg2 = (MatrixCSR< double,int > *) 0 ;
@@ -7146,15 +5539,15 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_loc_set(PyObject *SWIGUN
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseDoubleInt_CSR_loc_set",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleInt_CSR_loc_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_CSR_loc_set" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_CSR_loc_set" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_double_int_t, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_CSR_loc_set" "', argument " "2"" of type '" "MatrixCSR< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_CSR_loc_set" "', argument " "2"" of type '" "MatrixCSR< double,int > *""'"); 
   }
   arg2 = reinterpret_cast< MatrixCSR< double,int > * >(argp2);
   if (arg1) (arg1)->CSR_loc = arg2;
@@ -7165,7 +5558,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_CSR_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7173,10 +5566,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_CSR_loc_get(PyObject *SWIGUN
   PyObject * obj0 = 0 ;
   MatrixCSR< double,int > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_CSR_loc_get",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_CSR_loc_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_CSR_loc_get" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_CSR_loc_get" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (MatrixCSR< double,int > *) ((arg1)->CSR_loc);
@@ -7187,7 +5580,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_dynmat_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_dynmat_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *arg2 = (std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *) 0 ;
@@ -7198,15 +5591,15 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_dynmat_loc_set(PyObject *SWI
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseDoubleInt_dynmat_loc_set",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleInt_dynmat_loc_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_dynmat_loc_set" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_dynmat_loc_set" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_std__mapT_int_double_std__lessT_int_t_std__allocatorT_std__pairT_int_const_double_t_t_t, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_dynmat_loc_set" "', argument " "2"" of type '" "std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_dynmat_loc_set" "', argument " "2"" of type '" "std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *""'"); 
   }
   arg2 = reinterpret_cast< std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > * >(argp2);
   if (arg1) (arg1)->dynmat_loc = arg2;
@@ -7217,7 +5610,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_dynmat_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_dynmat_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7225,10 +5618,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_dynmat_loc_get(PyObject *SWI
   PyObject * obj0 = 0 ;
   std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_dynmat_loc_get",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_dynmat_loc_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_dynmat_loc_get" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_dynmat_loc_get" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *) ((arg1)->dynmat_loc);
@@ -7239,11 +5632,11 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_parMatrixSparseDoubleInt__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealDoubleInt__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)":new_parMatrixSparseDoubleInt")) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)":new_parMatrixSparseRealDoubleInt")) SWIG_fail;
   result = (parMatrixSparse< double,int > *)new parMatrixSparse< double,int >();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_double_int_t, SWIG_POINTER_NEW |  0 );
   return resultobj;
@@ -7252,7 +5645,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_parMatrixSparseDoubleInt__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealDoubleInt__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parVector< double,int > *arg1 = (parVector< double,int > *) 0 ;
   parVector< double,int > *arg2 = (parVector< double,int > *) 0 ;
@@ -7264,15 +5657,15 @@ SWIGINTERN PyObject *_wrap_new_parMatrixSparseDoubleInt__SWIG_1(PyObject *SWIGUN
   PyObject * obj1 = 0 ;
   parMatrixSparse< double,int > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:new_parMatrixSparseDoubleInt",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_parMatrixSparseRealDoubleInt",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_parMatrixSparseDoubleInt" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_parMatrixSparseRealDoubleInt" "', argument " "1"" of type '" "parVector< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parVector< double,int > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_parMatrixSparseDoubleInt" "', argument " "2"" of type '" "parVector< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_parMatrixSparseRealDoubleInt" "', argument " "2"" of type '" "parVector< double,int > *""'"); 
   }
   arg2 = reinterpret_cast< parVector< double,int > * >(argp2);
   result = (parMatrixSparse< double,int > *)new parMatrixSparse< double,int >(arg1,arg2);
@@ -7283,7 +5676,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_parMatrixSparseDoubleInt(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealDoubleInt(PyObject *self, PyObject *args) {
   Py_ssize_t argc;
   PyObject *argv[3] = {
     0
@@ -7296,7 +5689,7 @@ SWIGINTERN PyObject *_wrap_new_parMatrixSparseDoubleInt(PyObject *self, PyObject
     argv[ii] = PyTuple_GET_ITEM(args,ii);
   }
   if (argc == 0) {
-    return _wrap_new_parMatrixSparseDoubleInt__SWIG_0(self, args);
+    return _wrap_new_parMatrixSparseRealDoubleInt__SWIG_0(self, args);
   }
   if (argc == 2) {
     int _v;
@@ -7308,13 +5701,13 @@ SWIGINTERN PyObject *_wrap_new_parMatrixSparseDoubleInt(PyObject *self, PyObject
       int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_parVectorT_double_int_t, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
-        return _wrap_new_parMatrixSparseDoubleInt__SWIG_1(self, args);
+        return _wrap_new_parMatrixSparseRealDoubleInt__SWIG_1(self, args);
       }
     }
   }
   
 fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_parMatrixSparseDoubleInt'.\n"
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_parMatrixSparseRealDoubleInt'.\n"
     "  Possible C/C++ prototypes are:\n"
     "    parMatrixSparse< double,int >::parMatrixSparse()\n"
     "    parMatrixSparse< double,int >::parMatrixSparse(parVector< double,int > *,parVector< double,int > *)\n");
@@ -7322,17 +5715,17 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_parMatrixSparseDoubleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_parMatrixSparseRealDoubleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_parMatrixSparseDoubleInt",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_parMatrixSparseRealDoubleInt",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_parMatrixSparseDoubleInt" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_parMatrixSparseRealDoubleInt" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   delete arg1;
@@ -7343,7 +5736,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetXMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetXMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7351,10 +5744,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetXMap(PyObject *SWIGUNUSED
   PyObject * obj0 = 0 ;
   parVectorMap< int > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetXMap",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetXMap",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetXMap" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetXMap" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (parVectorMap< int > *)(arg1)->GetXMap();
@@ -7365,7 +5758,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetYMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetYMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7373,10 +5766,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetYMap(PyObject *SWIGUNUSED
   PyObject * obj0 = 0 ;
   parVectorMap< int > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetYMap",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetYMap",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetYMap" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetYMap" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (parVectorMap< int > *)(arg1)->GetYMap();
@@ -7387,7 +5780,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetComm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetComm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7395,21 +5788,21 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetComm(PyObject *SWIGUNUSED
   PyObject * obj0 = 0 ;
   MPI_Comm result;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetComm",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetComm",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetComm" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetComm" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (arg1)->GetComm();
-  resultobj = SWIG_NewPointerObj((new MPI_Comm(static_cast< const MPI_Comm& >(result))), SWIGTYPE_p_MPI_Comm, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_From_MPI_Comm(static_cast< MPI_Comm >(result));
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetXLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetXLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7417,10 +5810,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetXLowerBound(PyObject *SWI
   PyObject * obj0 = 0 ;
   int result;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetXLowerBound",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetXLowerBound",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetXLowerBound" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetXLowerBound" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (int)(arg1)->GetXLowerBound();
@@ -7431,7 +5824,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetYLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetYLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7439,10 +5832,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetYLowerBound(PyObject *SWI
   PyObject * obj0 = 0 ;
   int result;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetYLowerBound",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetYLowerBound",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetYLowerBound" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetYLowerBound" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (int)(arg1)->GetYLowerBound();
@@ -7453,7 +5846,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetXUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetXUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7461,10 +5854,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetXUpperBound(PyObject *SWI
   PyObject * obj0 = 0 ;
   int result;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetXUpperBound",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetXUpperBound",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetXUpperBound" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetXUpperBound" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (int)(arg1)->GetXUpperBound();
@@ -7475,7 +5868,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetYUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetYUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7483,10 +5876,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetYUpperBound(PyObject *SWI
   PyObject * obj0 = 0 ;
   int result;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetYUpperBound",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetYUpperBound",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetYUpperBound" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetYUpperBound" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (int)(arg1)->GetYUpperBound();
@@ -7497,7 +5890,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetTrueLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetTrueLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int *arg2 = 0 ;
@@ -7512,26 +5905,26 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetTrueLocalSize(PyObject *S
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseDoubleInt_GetTrueLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleInt_GetTrueLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetTrueLocalSize" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetTrueLocalSize" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_int,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_GetTrueLocalSize" "', argument " "2"" of type '" "int &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_GetTrueLocalSize" "', argument " "2"" of type '" "int &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseDoubleInt_GetTrueLocalSize" "', argument " "2"" of type '" "int &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleInt_GetTrueLocalSize" "', argument " "2"" of type '" "int &""'"); 
   }
   arg2 = reinterpret_cast< int * >(argp2);
   res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_int,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseDoubleInt_GetTrueLocalSize" "', argument " "3"" of type '" "int &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleInt_GetTrueLocalSize" "', argument " "3"" of type '" "int &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseDoubleInt_GetTrueLocalSize" "', argument " "3"" of type '" "int &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleInt_GetTrueLocalSize" "', argument " "3"" of type '" "int &""'"); 
   }
   arg3 = reinterpret_cast< int * >(argp3);
   (arg1)->GetTrueLocalSize(*arg2,*arg3);
@@ -7542,7 +5935,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int *arg2 = 0 ;
@@ -7557,26 +5950,26 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetLocalSize(PyObject *SWIGU
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseDoubleInt_GetLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleInt_GetLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetLocalSize" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetLocalSize" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_int,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_GetLocalSize" "', argument " "2"" of type '" "int &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_GetLocalSize" "', argument " "2"" of type '" "int &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseDoubleInt_GetLocalSize" "', argument " "2"" of type '" "int &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleInt_GetLocalSize" "', argument " "2"" of type '" "int &""'"); 
   }
   arg2 = reinterpret_cast< int * >(argp2);
   res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_int,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseDoubleInt_GetLocalSize" "', argument " "3"" of type '" "int &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleInt_GetLocalSize" "', argument " "3"" of type '" "int &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseDoubleInt_GetLocalSize" "', argument " "3"" of type '" "int &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleInt_GetLocalSize" "', argument " "3"" of type '" "int &""'"); 
   }
   arg3 = reinterpret_cast< int * >(argp3);
   (arg1)->GetLocalSize(*arg2,*arg3);
@@ -7587,7 +5980,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetDynMatGLobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetDynMatGLobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7595,10 +5988,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetDynMatGLobLoc(PyObject *S
   PyObject * obj0 = 0 ;
   std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetDynMatGLobLoc",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetDynMatGLobLoc",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetDynMatGLobLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetDynMatGLobLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *)(arg1)->GetDynMatGLobLoc();
@@ -7609,7 +6002,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetDynMatGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetDynMatGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7617,10 +6010,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetDynMatGlobLoc(PyObject *S
   PyObject * obj0 = 0 ;
   std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetDynMatGlobLoc",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetDynMatGlobLoc",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetDynMatGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetDynMatGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *)(arg1)->GetDynMatGlobLoc();
@@ -7631,7 +6024,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetDynMatLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetDynMatLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7639,10 +6032,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetDynMatLoc(PyObject *SWIGU
   PyObject * obj0 = 0 ;
   std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetDynMatLoc",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetDynMatLoc",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetDynMatLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetDynMatLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *)(arg1)->GetDynMatLoc();
@@ -7653,7 +6046,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetCSRLocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetCSRLocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7661,10 +6054,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetCSRLocLoc(PyObject *SWIGU
   PyObject * obj0 = 0 ;
   MatrixCSR< double,int > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetCSRLocLoc",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetCSRLocLoc",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetCSRLocLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetCSRLocLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (MatrixCSR< double,int > *)(arg1)->GetCSRLocLoc();
@@ -7675,7 +6068,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetCSRGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetCSRGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
@@ -7683,10 +6076,10 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetCSRGlobLoc(PyObject *SWIG
   PyObject * obj0 = 0 ;
   MatrixCSR< double,int > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_GetCSRGlobLoc",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_GetCSRGlobLoc",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetCSRGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetCSRGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   result = (MatrixCSR< double,int > *)(arg1)->GetCSRGlobLoc();
@@ -7697,7 +6090,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_AddValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_AddValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -7716,25 +6109,25 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_AddValueLocal(PyObject *SWIG
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseDoubleInt_AddValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleInt_AddValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_AddValueLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_AddValueLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_AddValueLocal" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_AddValueLocal" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_AddValueLocal" "', argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_AddValueLocal" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
   ecode4 = SWIG_AsVal_double(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseDoubleInt_AddValueLocal" "', argument " "4"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleInt_AddValueLocal" "', argument " "4"" of type '" "double""'");
   } 
   arg4 = static_cast< double >(val4);
   (arg1)->AddValueLocal(arg2,arg3,arg4);
@@ -7745,7 +6138,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_AddValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_AddValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -7768,30 +6161,30 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_AddValuesLocal(PyObject *SWI
   PyObject * obj3 = 0 ;
   PyObject * obj4 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseDoubleInt_AddValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealDoubleInt_AddValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_AddValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_AddValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_AddValuesLocal" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_AddValuesLocal" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseDoubleInt_AddValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleInt_AddValuesLocal" "', argument " "3"" of type '" "int *""'"); 
   }
   arg3 = reinterpret_cast< int * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseDoubleInt_AddValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealDoubleInt_AddValuesLocal" "', argument " "4"" of type '" "int *""'"); 
   }
   arg4 = reinterpret_cast< int * >(argp4);
   res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_double, 0 |  0 );
   if (!SWIG_IsOK(res5)) {
-    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseDoubleInt_AddValuesLocal" "', argument " "5"" of type '" "double *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealDoubleInt_AddValuesLocal" "', argument " "5"" of type '" "double *""'"); 
   }
   arg5 = reinterpret_cast< double * >(argp5);
   (arg1)->AddValuesLocal(arg2,arg3,arg4,arg5);
@@ -7802,7 +6195,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_AddValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_AddValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -7821,25 +6214,25 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_AddValue(PyObject *SWIGUNUSE
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseDoubleInt_AddValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleInt_AddValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_AddValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_AddValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_AddValue" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_AddValue" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_AddValue" "', argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_AddValue" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
   ecode4 = SWIG_AsVal_double(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseDoubleInt_AddValue" "', argument " "4"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleInt_AddValue" "', argument " "4"" of type '" "double""'");
   } 
   arg4 = static_cast< double >(val4);
   (arg1)->AddValue(arg2,arg3,arg4);
@@ -7850,7 +6243,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -7869,25 +6262,25 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_SetValueLocal(PyObject *SWIG
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseDoubleInt_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleInt_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_SetValueLocal" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_SetValueLocal" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_SetValueLocal" "', argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_SetValueLocal" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
   ecode4 = SWIG_AsVal_double(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseDoubleInt_SetValueLocal" "', argument " "4"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleInt_SetValueLocal" "', argument " "4"" of type '" "double""'");
   } 
   arg4 = static_cast< double >(val4);
   (arg1)->SetValueLocal(arg2,arg3,arg4);
@@ -7898,7 +6291,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -7921,30 +6314,30 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_SetValuesLocal(PyObject *SWI
   PyObject * obj3 = 0 ;
   PyObject * obj4 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseDoubleInt_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealDoubleInt_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_SetValuesLocal" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_SetValuesLocal" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseDoubleInt_SetValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleInt_SetValuesLocal" "', argument " "3"" of type '" "int *""'"); 
   }
   arg3 = reinterpret_cast< int * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseDoubleInt_SetValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealDoubleInt_SetValuesLocal" "', argument " "4"" of type '" "int *""'"); 
   }
   arg4 = reinterpret_cast< int * >(argp4);
   res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_double, 0 |  0 );
   if (!SWIG_IsOK(res5)) {
-    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseDoubleInt_SetValuesLocal" "', argument " "5"" of type '" "double *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealDoubleInt_SetValuesLocal" "', argument " "5"" of type '" "double *""'"); 
   }
   arg5 = reinterpret_cast< double * >(argp5);
   (arg1)->SetValuesLocal(arg2,arg3,arg4,arg5);
@@ -7955,7 +6348,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -7974,25 +6367,25 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_SetValue(PyObject *SWIGUNUSE
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseDoubleInt_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleInt_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_SetValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_SetValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_SetValue" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_SetValue" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_SetValue" "', argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_SetValue" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
   ecode4 = SWIG_AsVal_double(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseDoubleInt_SetValue" "', argument " "4"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleInt_SetValue" "', argument " "4"" of type '" "double""'");
   } 
   arg4 = static_cast< double >(val4);
   (arg1)->SetValue(arg2,arg3,arg4);
@@ -8003,7 +6396,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -8019,20 +6412,20 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetLocalValue(PyObject *SWIG
   PyObject * obj2 = 0 ;
   double result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseDoubleInt_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleInt_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_GetLocalValue" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_GetLocalValue" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_GetLocalValue" "', argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_GetLocalValue" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
   result = (double)(arg1)->GetLocalValue(arg2,arg3);
@@ -8043,7 +6436,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -8059,20 +6452,20 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_GetValue(PyObject *SWIGUNUSE
   PyObject * obj2 = 0 ;
   double result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseDoubleInt_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleInt_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_GetValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_GetValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_GetValue" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_GetValue" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_GetValue" "', argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_GetValue" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
   result = (double)(arg1)->GetValue(arg2,arg3);
@@ -8083,17 +6476,17 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_glocPlusLloc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_glocPlusLloc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_glocPlusLloc",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_glocPlusLloc",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_glocPlusLloc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_glocPlusLloc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   (arg1)->glocPlusLloc();
@@ -8104,17 +6497,17 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_llocToGlocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_llocToGlocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_llocToGlocLoc",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_llocToGlocLoc",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_llocToGlocLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_llocToGlocLoc" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   (arg1)->llocToGlocLoc();
@@ -8125,17 +6518,17 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_MatView",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_MatView",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_MatView" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_MatView" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   (arg1)->MatView();
@@ -8146,17 +6539,17 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_LOC_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_LOC_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_LOC_MatView",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_LOC_MatView",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_LOC_MatView" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_LOC_MatView" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   (arg1)->LOC_MatView();
@@ -8167,7 +6560,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_Loc_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -8186,25 +6579,25 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_SetValueLocal(PyObject *
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseDoubleInt_Loc_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleInt_Loc_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_Loc_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_Loc_SetValueLocal" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValueLocal" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_Loc_SetValueLocal" "', argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValueLocal" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
   ecode4 = SWIG_AsVal_double(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseDoubleInt_Loc_SetValueLocal" "', argument " "4"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValueLocal" "', argument " "4"" of type '" "double""'");
   } 
   arg4 = static_cast< double >(val4);
   (arg1)->Loc_SetValueLocal(arg2,arg3,arg4);
@@ -8215,7 +6608,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_Loc_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -8238,30 +6631,30 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_SetValuesLocal(PyObject 
   PyObject * obj3 = 0 ;
   PyObject * obj4 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseDoubleInt_Loc_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealDoubleInt_Loc_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_Loc_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseDoubleInt_Loc_SetValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValuesLocal" "', argument " "3"" of type '" "int *""'"); 
   }
   arg3 = reinterpret_cast< int * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseDoubleInt_Loc_SetValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValuesLocal" "', argument " "4"" of type '" "int *""'"); 
   }
   arg4 = reinterpret_cast< int * >(argp4);
   res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_double, 0 |  0 );
   if (!SWIG_IsOK(res5)) {
-    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseDoubleInt_Loc_SetValuesLocal" "', argument " "5"" of type '" "double *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValuesLocal" "', argument " "5"" of type '" "double *""'"); 
   }
   arg5 = reinterpret_cast< double * >(argp5);
   (arg1)->Loc_SetValuesLocal(arg2,arg3,arg4,arg5);
@@ -8272,7 +6665,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_Loc_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -8291,25 +6684,25 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_SetValue(PyObject *SWIGU
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseDoubleInt_Loc_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleInt_Loc_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_Loc_SetValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_Loc_SetValue" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValue" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_Loc_SetValue" "', argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValue" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
   ecode4 = SWIG_AsVal_double(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseDoubleInt_Loc_SetValue" "', argument " "4"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetValue" "', argument " "4"" of type '" "double""'");
   } 
   arg4 = static_cast< double >(val4);
   (arg1)->Loc_SetValue(arg2,arg3,arg4);
@@ -8320,7 +6713,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_Loc_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -8336,20 +6729,20 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_GetLocalValue(PyObject *
   PyObject * obj2 = 0 ;
   double result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseDoubleInt_Loc_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleInt_Loc_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_Loc_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_Loc_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_Loc_GetLocalValue" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_Loc_GetLocalValue" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_Loc_GetLocalValue" "', argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_Loc_GetLocalValue" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
   result = (double)(arg1)->Loc_GetLocalValue(arg2,arg3);
@@ -8360,7 +6753,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_Loc_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   int arg2 ;
@@ -8376,20 +6769,20 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_GetValue(PyObject *SWIGU
   PyObject * obj2 = 0 ;
   double result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseDoubleInt_Loc_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleInt_Loc_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_Loc_GetValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_Loc_GetValue" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_Loc_GetValue" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_Loc_GetValue" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_Loc_GetValue" "', argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_Loc_GetValue" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
   result = (double)(arg1)->Loc_GetValue(arg2,arg3);
@@ -8400,7 +6793,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   parVector< double,int > *arg2 = (parVector< double,int > *) 0 ;
@@ -8411,15 +6804,15 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_SetDiagonal(PyObject *SWIGUN
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseDoubleInt_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleInt_SetDiagonal",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_SetDiagonal" "', argument " "2"" of type '" "parVector< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_SetDiagonal" "', argument " "2"" of type '" "parVector< double,int > *""'"); 
   }
   arg2 = reinterpret_cast< parVector< double,int > * >(argp2);
   (arg1)->SetDiagonal(arg2);
@@ -8430,7 +6823,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_Loc_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   parVector< double,int > *arg2 = (parVector< double,int > *) 0 ;
@@ -8441,15 +6834,15 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_SetDiagonal(PyObject *SW
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseDoubleInt_Loc_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleInt_Loc_SetDiagonal",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_Loc_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_Loc_SetDiagonal" "', argument " "2"" of type '" "parVector< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_Loc_SetDiagonal" "', argument " "2"" of type '" "parVector< double,int > *""'"); 
   }
   arg2 = reinterpret_cast< parVector< double,int > * >(argp2);
   (arg1)->Loc_SetDiagonal(arg2);
@@ -8460,7 +6853,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   double arg2 ;
@@ -8471,15 +6864,15 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_MatScale(PyObject *SWIGUNUSE
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseDoubleInt_MatScale",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleInt_MatScale",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_MatScale" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_MatScale" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_double(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_MatScale" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_MatScale" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = static_cast< double >(val2);
   (arg1)->MatScale(arg2);
@@ -8490,7 +6883,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_Loc_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   double arg2 ;
@@ -8501,15 +6894,15 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_MatScale(PyObject *SWIGU
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseDoubleInt_Loc_MatScale",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleInt_Loc_MatScale",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_Loc_MatScale" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_Loc_MatScale" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   ecode2 = SWIG_AsVal_double(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseDoubleInt_Loc_MatScale" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleInt_Loc_MatScale" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = static_cast< double >(val2);
   (arg1)->Loc_MatScale(arg2);
@@ -8520,7 +6913,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_MatAXPY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_Loc_MatAXPY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   parMatrixSparse< double,int > *arg2 = (parMatrixSparse< double,int > *) 0 ;
@@ -8535,20 +6928,20 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_MatAXPY(PyObject *SWIGUN
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseDoubleInt_Loc_MatAXPY",&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleInt_Loc_MatAXPY",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_Loc_MatAXPY" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_Loc_MatAXPY" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_Loc_MatAXPY" "', argument " "2"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_Loc_MatAXPY" "', argument " "2"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg2 = reinterpret_cast< parMatrixSparse< double,int > * >(argp2);
   ecode3 = SWIG_AsVal_double(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_Loc_MatAXPY" "', argument " "3"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_Loc_MatAXPY" "', argument " "3"" of type '" "double""'");
   } 
   arg3 = static_cast< double >(val3);
   (arg1)->Loc_MatAXPY(arg2,arg3);
@@ -8559,7 +6952,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_MatAYPX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_Loc_MatAYPX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   parMatrixSparse< double,int > *arg2 = (parMatrixSparse< double,int > *) 0 ;
@@ -8574,20 +6967,20 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_MatAYPX(PyObject *SWIGUN
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseDoubleInt_Loc_MatAYPX",&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleInt_Loc_MatAYPX",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_Loc_MatAYPX" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_Loc_MatAYPX" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_Loc_MatAYPX" "', argument " "2"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_Loc_MatAYPX" "', argument " "2"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg2 = reinterpret_cast< parMatrixSparse< double,int > * >(argp2);
   ecode3 = SWIG_AsVal_double(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseDoubleInt_Loc_MatAYPX" "', argument " "3"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleInt_Loc_MatAYPX" "', argument " "3"" of type '" "double""'");
   } 
   arg3 = static_cast< double >(val3);
   (arg1)->Loc_MatAYPX(arg2,arg3);
@@ -8598,38 +6991,17 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_ReadExtMat(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_ReadExtMat",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_ConvertToCSR",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_ReadExtMat" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
-  }
-  arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
-  (arg1)->ReadExtMat();
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_ConvertToCSR",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   (arg1)->ConvertToCSR();
@@ -8640,17 +7012,17 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_Loc_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_Loc_ConvertToCSR",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_Loc_ConvertToCSR",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_Loc_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_Loc_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   (arg1)->Loc_ConvertToCSR();
@@ -8661,17 +7033,17 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_ZeroEntries",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_ZeroEntries",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   (arg1)->ZeroEntries();
@@ -8682,17 +7054,17 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_Loc_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_Loc_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseDoubleInt_Loc_ZeroEntries",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleInt_Loc_ZeroEntries",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_Loc_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_Loc_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   (arg1)->Loc_ZeroEntries();
@@ -8703,7 +7075,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_MA(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_MA(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   Nilpotency< int > arg2 ;
@@ -8718,19 +7090,19 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_MA(PyObject *SWIGUNUSEDPARM(
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseDoubleInt_MA",&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleInt_MA",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_MA" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_MA" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   {
     res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
     if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_MA" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_MA" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
     }  
     if (!argp2) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseDoubleInt_MA" "', argument " "2"" of type '" "Nilpotency< int >""'");
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleInt_MA" "', argument " "2"" of type '" "Nilpotency< int >""'");
     } else {
       Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
       arg2 = *temp;
@@ -8739,7 +7111,7 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_MA(PyObject *SWIGUNUSEDPARM(
   }
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseDoubleInt_MA" "', argument " "3"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleInt_MA" "', argument " "3"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg3 = reinterpret_cast< parMatrixSparse< double,int > * >(argp3);
   (arg1)->MA(arg2,arg3);
@@ -8750,7 +7122,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_AM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleInt_AM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   parMatrixSparse< double,int > *arg1 = (parMatrixSparse< double,int > *) 0 ;
   Nilpotency< int > arg2 ;
@@ -8765,19 +7137,19 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_AM(PyObject *SWIGUNUSEDPARM(
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseDoubleInt_AM",&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleInt_AM",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseDoubleInt_AM" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleInt_AM" "', argument " "1"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg1 = reinterpret_cast< parMatrixSparse< double,int > * >(argp1);
   {
     res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
     if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseDoubleInt_AM" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleInt_AM" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
     }  
     if (!argp2) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseDoubleInt_AM" "', argument " "2"" of type '" "Nilpotency< int >""'");
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleInt_AM" "', argument " "2"" of type '" "Nilpotency< int >""'");
     } else {
       Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
       arg2 = *temp;
@@ -8786,7 +7158,7 @@ SWIGINTERN PyObject *_wrap_parMatrixSparseDoubleInt_AM(PyObject *SWIGUNUSEDPARM(
   }
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseDoubleInt_AM" "', argument " "3"" of type '" "parMatrixSparse< double,int > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleInt_AM" "', argument " "3"" of type '" "parMatrixSparse< double,int > *""'"); 
   }
   arg3 = reinterpret_cast< parMatrixSparse< double,int > * >(argp3);
   (arg1)->AM(arg2,arg3);
@@ -8797,14 +7169,14 @@ fail:
 }
 
 
-SWIGINTERN PyObject *parMatrixSparseDoubleInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *parMatrixSparseRealDoubleInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
   SWIG_TypeNewClientData(SWIGTYPE_p_parMatrixSparseT_double_int_t, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_smg2sDoubleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_smg2sRealDoubleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   int arg1 ;
   Nilpotency< int > arg2 ;
@@ -8817,8 +7189,6 @@ SWIGINTERN PyObject *_wrap_smg2sDoubleInt(PyObject *SWIGUNUSEDPARM(self), PyObje
   int res2 = 0 ;
   int val3 ;
   int ecode3 = 0 ;
-  void *argp5 ;
-  int res5 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -8826,19 +7196,19 @@ SWIGINTERN PyObject *_wrap_smg2sDoubleInt(PyObject *SWIGUNUSEDPARM(self), PyObje
   PyObject * obj4 = 0 ;
   parMatrixSparse< double,int > *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOOO:smg2sDoubleInt",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:smg2sRealDoubleInt",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(obj0, &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "smg2sDoubleInt" "', argument " "1"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "smg2sRealDoubleInt" "', argument " "1"" of type '" "int""'");
   } 
   arg1 = static_cast< int >(val1);
   {
     res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
     if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "smg2sDoubleInt" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "smg2sRealDoubleInt" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
     }  
     if (!argp2) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sDoubleInt" "', argument " "2"" of type '" "Nilpotency< int >""'");
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sRealDoubleInt" "', argument " "2"" of type '" "Nilpotency< int >""'");
     } else {
       Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
       arg2 = *temp;
@@ -8847,33 +7217,13903 @@ SWIGINTERN PyObject *_wrap_smg2sDoubleInt(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "smg2sDoubleInt" "', argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "smg2sRealDoubleInt" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
   {
     std::string *ptr = (std::string *)0;
     int res = SWIG_AsPtr_std_string(obj3, &ptr);
     if (!SWIG_IsOK(res) || !ptr) {
-      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sDoubleInt" "', argument " "4"" of type '" "std::string""'"); 
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sRealDoubleInt" "', argument " "4"" of type '" "std::string""'"); 
     }
     arg4 = *ptr;
     if (SWIG_IsNewObj(res)) delete ptr;
   }
   {
-    res5 = SWIG_ConvertPtr(obj4, &argp5, SWIGTYPE_p_MPI_Comm,  0  | 0);
-    if (!SWIG_IsOK(res5)) {
-      SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "smg2sDoubleInt" "', argument " "5"" of type '" "MPI_Comm""'"); 
-    }  
-    if (!argp5) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sDoubleInt" "', argument " "5"" of type '" "MPI_Comm""'");
-    } else {
-      MPI_Comm * temp = reinterpret_cast< MPI_Comm * >(argp5);
-      arg5 = *temp;
-      if (SWIG_IsNewObj(res5)) delete temp;
+    MPI_Comm *ptr = (MPI_Comm *)0;
+    int res = SWIG_AsPtr_MPI_Comm(obj4, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sRealDoubleInt" "', argument " "5"" of type '" "MPI_Comm""'"); 
     }
+    arg5 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
   }
   result = (parMatrixSparse< double,int > *)smg2s< double,int >(arg1,arg2,arg3,arg4,arg5);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_double_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_CSR_lloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  MatrixCSR< double,__int64_t > *arg2 = (MatrixCSR< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleLongInt_CSR_lloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_CSR_lloc_set" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_double___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_CSR_lloc_set" "', argument " "2"" of type '" "MatrixCSR< double,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< double,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_lloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_CSR_lloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< double,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_CSR_lloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_CSR_lloc_get" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (MatrixCSR< double,__int64_t > *) ((arg1)->CSR_lloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_double___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_CSR_gloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  MatrixCSR< double,__int64_t > *arg2 = (MatrixCSR< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleLongInt_CSR_gloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_CSR_gloc_set" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_double___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_CSR_gloc_set" "', argument " "2"" of type '" "MatrixCSR< double,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< double,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_gloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_CSR_gloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< double,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_CSR_gloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_CSR_gloc_get" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (MatrixCSR< double,__int64_t > *) ((arg1)->CSR_gloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_double___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_CSR_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  MatrixCSR< double,__int64_t > *arg2 = (MatrixCSR< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleLongInt_CSR_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_CSR_loc_set" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_double___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_CSR_loc_set" "', argument " "2"" of type '" "MatrixCSR< double,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< double,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_CSR_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< double,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_CSR_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_CSR_loc_get" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (MatrixCSR< double,__int64_t > *) ((arg1)->CSR_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_double___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_dynmat_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *arg2 = (std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleLongInt_dynmat_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_dynmat_loc_set" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_dynmat_loc_set" "', argument " "2"" of type '" "std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > * >(argp2);
+  if (arg1) (arg1)->dynmat_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_dynmat_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_dynmat_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_dynmat_loc_get" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *) ((arg1)->dynmat_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealDoubleLongInt__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_parMatrixSparseRealDoubleLongInt")) SWIG_fail;
+  result = (parMatrixSparse< double,__int64_t > *)new parMatrixSparse< double,__int64_t >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealDoubleLongInt__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parVector< double,__int64_t > *arg1 = (parVector< double,__int64_t > *) 0 ;
+  parVector< double,__int64_t > *arg2 = (parVector< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  parMatrixSparse< double,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_parMatrixSparseRealDoubleLongInt",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_parMatrixSparseRealDoubleLongInt" "', argument " "1"" of type '" "parVector< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parVector< double,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_parMatrixSparseRealDoubleLongInt" "', argument " "2"" of type '" "parVector< double,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< double,__int64_t > * >(argp2);
+  result = (parMatrixSparse< double,__int64_t > *)new parMatrixSparse< double,__int64_t >(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealDoubleLongInt(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  Py_ssize_t ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_parMatrixSparseRealDoubleLongInt__SWIG_0(self, args);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_parVectorT_double___int64_t_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_parVectorT_double___int64_t_t, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_parMatrixSparseRealDoubleLongInt__SWIG_1(self, args);
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_parMatrixSparseRealDoubleLongInt'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    parMatrixSparse< double,__int64_t >::parMatrixSparse()\n"
+    "    parMatrixSparse< double,__int64_t >::parMatrixSparse(parVector< double,__int64_t > *,parVector< double,__int64_t > *)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_parMatrixSparseRealDoubleLongInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_parMatrixSparseRealDoubleLongInt",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_parMatrixSparseRealDoubleLongInt" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetXMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< __int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetXMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetXMap" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (parVectorMap< __int64_t > *)(arg1)->GetXMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetYMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< __int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetYMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetYMap" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (parVectorMap< __int64_t > *)(arg1)->GetYMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetComm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MPI_Comm result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetComm",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetComm" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (arg1)->GetComm();
+  resultobj = SWIG_From_MPI_Comm(static_cast< MPI_Comm >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetXLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetXLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetXLowerBound" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (arg1)->GetXLowerBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetYLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetYLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetYLowerBound" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (arg1)->GetYLowerBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetXUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetXUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetXUpperBound" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (arg1)->GetXUpperBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetYUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetYUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetYUpperBound" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (arg1)->GetYUpperBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetTrueLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t *arg2 = 0 ;
+  __int64_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleLongInt_GetTrueLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetTrueLocalSize" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_GetTrueLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_GetTrueLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  arg2 = reinterpret_cast< __int64_t * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_GetTrueLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_GetTrueLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  (arg1)->GetTrueLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t *arg2 = 0 ;
+  __int64_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleLongInt_GetLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetLocalSize" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_GetLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_GetLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  arg2 = reinterpret_cast< __int64_t * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_GetLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_GetLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  (arg1)->GetLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetDynMatGLobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetDynMatGLobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetDynMatGLobLoc" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *)(arg1)->GetDynMatGLobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetDynMatGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetDynMatGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetDynMatGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *)(arg1)->GetDynMatGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetDynMatLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetDynMatLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetDynMatLoc" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *)(arg1)->GetDynMatLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetCSRLocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< double,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetCSRLocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetCSRLocLoc" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (MatrixCSR< double,__int64_t > *)(arg1)->GetCSRLocLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_double___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetCSRGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< double,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_GetCSRGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetCSRGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  result = (MatrixCSR< double,__int64_t > *)(arg1)->GetCSRGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_double___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_AddValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  double arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleLongInt_AddValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_AddValueLocal" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_AddValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_AddValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_AddValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_AddValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleLongInt_AddValueLocal" "', argument " "4"" of type '" "double""'");
+  } 
+  arg4 = static_cast< double >(val4);
+  (arg1)->AddValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_AddValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  double *arg5 = (double *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealDoubleLongInt_AddValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_AddValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_AddValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_AddValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_AddValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealDoubleLongInt_AddValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_double, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealDoubleLongInt_AddValuesLocal" "', argument " "5"" of type '" "double *""'"); 
+  }
+  arg5 = reinterpret_cast< double * >(argp5);
+  (arg1)->AddValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_AddValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  double arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleLongInt_AddValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_AddValue" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_AddValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_AddValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_AddValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_AddValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleLongInt_AddValue" "', argument " "4"" of type '" "double""'");
+  } 
+  arg4 = static_cast< double >(val4);
+  (arg1)->AddValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  double arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleLongInt_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleLongInt_SetValueLocal" "', argument " "4"" of type '" "double""'");
+  } 
+  arg4 = static_cast< double >(val4);
+  (arg1)->SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  double *arg5 = (double *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealDoubleLongInt_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_SetValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealDoubleLongInt_SetValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_double, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealDoubleLongInt_SetValuesLocal" "', argument " "5"" of type '" "double *""'"); 
+  }
+  arg5 = reinterpret_cast< double * >(argp5);
+  (arg1)->SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  double arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleLongInt_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_SetValue" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_SetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_SetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_SetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_SetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleLongInt_SetValue" "', argument " "4"" of type '" "double""'");
+  } 
+  arg4 = static_cast< double >(val4);
+  (arg1)->SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleLongInt_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (double)(arg1)->GetLocalValue(arg2,arg3);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleLongInt_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_GetValue" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_GetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_GetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_GetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_GetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (double)(arg1)->GetValue(arg2,arg3);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_glocPlusLloc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_glocPlusLloc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_glocPlusLloc" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  (arg1)->glocPlusLloc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_llocToGlocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_llocToGlocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_llocToGlocLoc" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  (arg1)->llocToGlocLoc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_MatView" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  (arg1)->MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_LOC_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_LOC_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_LOC_MatView" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  (arg1)->LOC_MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_Loc_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  double arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleLongInt_Loc_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValueLocal" "', argument " "4"" of type '" "double""'");
+  } 
+  arg4 = static_cast< double >(val4);
+  (arg1)->Loc_SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_Loc_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  double *arg5 = (double *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealDoubleLongInt_Loc_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_double, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValuesLocal" "', argument " "5"" of type '" "double *""'"); 
+  }
+  arg5 = reinterpret_cast< double * >(argp5);
+  (arg1)->Loc_SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_Loc_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  double arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealDoubleLongInt_Loc_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValue" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetValue" "', argument " "4"" of type '" "double""'");
+  } 
+  arg4 = static_cast< double >(val4);
+  (arg1)->Loc_SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_Loc_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleLongInt_Loc_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_Loc_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_Loc_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (double)(arg1)->Loc_GetLocalValue(arg2,arg3);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_Loc_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleLongInt_Loc_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_GetValue" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_GetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_Loc_GetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_GetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_Loc_GetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (double)(arg1)->Loc_GetValue(arg2,arg3);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  parVector< double,__int64_t > *arg2 = (parVector< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleLongInt_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_SetDiagonal" "', argument " "2"" of type '" "parVector< double,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< double,__int64_t > * >(argp2);
+  (arg1)->SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_Loc_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  parVector< double,__int64_t > *arg2 = (parVector< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleLongInt_Loc_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_SetDiagonal" "', argument " "2"" of type '" "parVector< double,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< double,__int64_t > * >(argp2);
+  (arg1)->Loc_SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleLongInt_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_MatScale" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleLongInt_MatScale" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = static_cast< double >(val2);
+  (arg1)->MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_Loc_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealDoubleLongInt_Loc_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_MatScale" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_MatScale" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = static_cast< double >(val2);
+  (arg1)->Loc_MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_Loc_MatAXPY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  parMatrixSparse< double,__int64_t > *arg2 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  double arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleLongInt_Loc_MatAXPY",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_MatAXPY" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_MatAXPY" "', argument " "2"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp2);
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_MatAXPY" "', argument " "3"" of type '" "double""'");
+  } 
+  arg3 = static_cast< double >(val3);
+  (arg1)->Loc_MatAXPY(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_Loc_MatAYPX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  parMatrixSparse< double,__int64_t > *arg2 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  double arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleLongInt_Loc_MatAYPX",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_MatAYPX" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_MatAYPX" "', argument " "2"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp2);
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_MatAYPX" "', argument " "3"" of type '" "double""'");
+  } 
+  arg3 = static_cast< double >(val3);
+  (arg1)->Loc_MatAYPX(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  (arg1)->ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_Loc_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_Loc_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  (arg1)->Loc_ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  (arg1)->ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_Loc_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealDoubleLongInt_Loc_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_Loc_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  (arg1)->Loc_ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_MA(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  parMatrixSparse< double,__int64_t > *arg3 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleLongInt_MA",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_MA" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_MA" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_MA" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_MA" "', argument " "3"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp3);
+  (arg1)->MA(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealDoubleLongInt_AM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< double,__int64_t > *arg1 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  parMatrixSparse< double,__int64_t > *arg3 = (parMatrixSparse< double,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealDoubleLongInt_AM",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealDoubleLongInt_AM" "', argument " "1"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealDoubleLongInt_AM" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealDoubleLongInt_AM" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealDoubleLongInt_AM" "', argument " "3"" of type '" "parMatrixSparse< double,__int64_t > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< double,__int64_t > * >(argp3);
+  (arg1)->AM(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *parMatrixSparseRealDoubleLongInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_smg2sRealDoubleLongInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  __int64_t arg1 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  __int64_t arg3 ;
+  std::string arg4 ;
+  MPI_Comm arg5 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  parMatrixSparse< double,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:smg2sRealDoubleLongInt",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  {
+    res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "smg2sRealDoubleLongInt" "', argument " "1"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sRealDoubleLongInt" "', argument " "1"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp1);
+      arg1 = *temp;
+      if (SWIG_IsNewObj(res1)) delete temp;
+    }
+  }
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "smg2sRealDoubleLongInt" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sRealDoubleLongInt" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "smg2sRealDoubleLongInt" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sRealDoubleLongInt" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(obj3, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sRealDoubleLongInt" "', argument " "4"" of type '" "std::string""'"); 
+    }
+    arg4 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  {
+    MPI_Comm *ptr = (MPI_Comm *)0;
+    int res = SWIG_AsPtr_MPI_Comm(obj4, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sRealDoubleLongInt" "', argument " "5"" of type '" "MPI_Comm""'"); 
+    }
+    arg5 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (parMatrixSparse< double,__int64_t > *)smg2s< double,__int64_t >(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_double___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_CSR_lloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  MatrixCSR< float,int > *arg2 = (MatrixCSR< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleInt_CSR_lloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_CSR_lloc_set" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_float_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_CSR_lloc_set" "', argument " "2"" of type '" "MatrixCSR< float,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< float,int > * >(argp2);
+  if (arg1) (arg1)->CSR_lloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_CSR_lloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< float,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_CSR_lloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_CSR_lloc_get" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (MatrixCSR< float,int > *) ((arg1)->CSR_lloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_float_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_CSR_gloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  MatrixCSR< float,int > *arg2 = (MatrixCSR< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleInt_CSR_gloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_CSR_gloc_set" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_float_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_CSR_gloc_set" "', argument " "2"" of type '" "MatrixCSR< float,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< float,int > * >(argp2);
+  if (arg1) (arg1)->CSR_gloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_CSR_gloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< float,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_CSR_gloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_CSR_gloc_get" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (MatrixCSR< float,int > *) ((arg1)->CSR_gloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_float_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_CSR_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  MatrixCSR< float,int > *arg2 = (MatrixCSR< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleInt_CSR_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_CSR_loc_set" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_float_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_CSR_loc_set" "', argument " "2"" of type '" "MatrixCSR< float,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< float,int > * >(argp2);
+  if (arg1) (arg1)->CSR_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_CSR_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< float,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_CSR_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_CSR_loc_get" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (MatrixCSR< float,int > *) ((arg1)->CSR_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_float_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_dynmat_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *arg2 = (std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleInt_dynmat_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_dynmat_loc_set" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_dynmat_loc_set" "', argument " "2"" of type '" "std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > * >(argp2);
+  if (arg1) (arg1)->dynmat_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_dynmat_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_dynmat_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_dynmat_loc_get" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *) ((arg1)->dynmat_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealSingleInt__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_parMatrixSparseRealSingleInt")) SWIG_fail;
+  result = (parMatrixSparse< float,int > *)new parMatrixSparse< float,int >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_float_int_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealSingleInt__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parVector< float,int > *arg1 = (parVector< float,int > *) 0 ;
+  parVector< float,int > *arg2 = (parVector< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  parMatrixSparse< float,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_parMatrixSparseRealSingleInt",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_parMatrixSparseRealSingleInt" "', argument " "1"" of type '" "parVector< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parVector< float,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_parMatrixSparseRealSingleInt" "', argument " "2"" of type '" "parVector< float,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< float,int > * >(argp2);
+  result = (parMatrixSparse< float,int > *)new parMatrixSparse< float,int >(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_float_int_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealSingleInt(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  Py_ssize_t ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_parMatrixSparseRealSingleInt__SWIG_0(self, args);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_parVectorT_float_int_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_parVectorT_float_int_t, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_parMatrixSparseRealSingleInt__SWIG_1(self, args);
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_parMatrixSparseRealSingleInt'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    parMatrixSparse< float,int >::parMatrixSparse()\n"
+    "    parMatrixSparse< float,int >::parMatrixSparse(parVector< float,int > *,parVector< float,int > *)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_parMatrixSparseRealSingleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_parMatrixSparseRealSingleInt",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_parMatrixSparseRealSingleInt" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetXMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetXMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetXMap" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (parVectorMap< int > *)(arg1)->GetXMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetYMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetYMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetYMap" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (parVectorMap< int > *)(arg1)->GetYMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetComm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MPI_Comm result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetComm",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetComm" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (arg1)->GetComm();
+  resultobj = SWIG_From_MPI_Comm(static_cast< MPI_Comm >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetXLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetXLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetXLowerBound" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (int)(arg1)->GetXLowerBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetYLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetYLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetYLowerBound" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (int)(arg1)->GetYLowerBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetXUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetXUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetXUpperBound" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (int)(arg1)->GetXUpperBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetYUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetYUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetYUpperBound" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (int)(arg1)->GetYUpperBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetTrueLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int *arg2 = 0 ;
+  int *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleInt_GetTrueLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetTrueLocalSize" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_GetTrueLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleInt_GetTrueLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  arg2 = reinterpret_cast< int * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleInt_GetTrueLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleInt_GetTrueLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  (arg1)->GetTrueLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int *arg2 = 0 ;
+  int *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleInt_GetLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetLocalSize" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_GetLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleInt_GetLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  arg2 = reinterpret_cast< int * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleInt_GetLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleInt_GetLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  (arg1)->GetLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetDynMatGLobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetDynMatGLobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetDynMatGLobLoc" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *)(arg1)->GetDynMatGLobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetDynMatGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetDynMatGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetDynMatGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *)(arg1)->GetDynMatGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetDynMatLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetDynMatLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetDynMatLoc" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *)(arg1)->GetDynMatLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetCSRLocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< float,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetCSRLocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetCSRLocLoc" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (MatrixCSR< float,int > *)(arg1)->GetCSRLocLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_float_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetCSRGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< float,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_GetCSRGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetCSRGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  result = (MatrixCSR< float,int > *)(arg1)->GetCSRGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_float_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_AddValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleInt_AddValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_AddValueLocal" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_AddValueLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_AddValueLocal" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleInt_AddValueLocal" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->AddValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_AddValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int *arg3 = (int *) 0 ;
+  int *arg4 = (int *) 0 ;
+  float *arg5 = (float *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealSingleInt_AddValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_AddValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_AddValuesLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleInt_AddValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealSingleInt_AddValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+  }
+  arg4 = reinterpret_cast< int * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_float, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealSingleInt_AddValuesLocal" "', argument " "5"" of type '" "float *""'"); 
+  }
+  arg5 = reinterpret_cast< float * >(argp5);
+  (arg1)->AddValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_AddValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleInt_AddValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_AddValue" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_AddValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_AddValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleInt_AddValue" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->AddValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleInt_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_SetValueLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_SetValueLocal" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleInt_SetValueLocal" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int *arg3 = (int *) 0 ;
+  int *arg4 = (int *) 0 ;
+  float *arg5 = (float *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealSingleInt_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_SetValuesLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleInt_SetValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealSingleInt_SetValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+  }
+  arg4 = reinterpret_cast< int * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_float, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealSingleInt_SetValuesLocal" "', argument " "5"" of type '" "float *""'"); 
+  }
+  arg5 = reinterpret_cast< float * >(argp5);
+  (arg1)->SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleInt_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_SetValue" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_SetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_SetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleInt_SetValue" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleInt_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_GetLocalValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_GetLocalValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (float)(arg1)->GetLocalValue(arg2,arg3);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleInt_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_GetValue" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_GetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_GetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (float)(arg1)->GetValue(arg2,arg3);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_glocPlusLloc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_glocPlusLloc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_glocPlusLloc" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  (arg1)->glocPlusLloc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_llocToGlocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_llocToGlocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_llocToGlocLoc" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  (arg1)->llocToGlocLoc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_MatView" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  (arg1)->MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_LOC_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_LOC_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_LOC_MatView" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  (arg1)->LOC_MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_Loc_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleInt_Loc_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValueLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValueLocal" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValueLocal" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->Loc_SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_Loc_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int *arg3 = (int *) 0 ;
+  int *arg4 = (int *) 0 ;
+  float *arg5 = (float *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealSingleInt_Loc_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+  }
+  arg4 = reinterpret_cast< int * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_float, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValuesLocal" "', argument " "5"" of type '" "float *""'"); 
+  }
+  arg5 = reinterpret_cast< float * >(argp5);
+  (arg1)->Loc_SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_Loc_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleInt_Loc_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValue" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleInt_Loc_SetValue" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->Loc_SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_Loc_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleInt_Loc_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_Loc_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_Loc_GetLocalValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_Loc_GetLocalValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (float)(arg1)->Loc_GetLocalValue(arg2,arg3);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_Loc_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleInt_Loc_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_Loc_GetValue" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_Loc_GetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_Loc_GetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (float)(arg1)->Loc_GetValue(arg2,arg3);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  parVector< float,int > *arg2 = (parVector< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleInt_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_SetDiagonal" "', argument " "2"" of type '" "parVector< float,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< float,int > * >(argp2);
+  (arg1)->SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_Loc_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  parVector< float,int > *arg2 = (parVector< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleInt_Loc_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_Loc_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_Loc_SetDiagonal" "', argument " "2"" of type '" "parVector< float,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< float,int > * >(argp2);
+  (arg1)->Loc_SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  float arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  float val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleInt_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_MatScale" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_float(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_MatScale" "', argument " "2"" of type '" "float""'");
+  } 
+  arg2 = static_cast< float >(val2);
+  (arg1)->MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_Loc_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  float arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  float val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleInt_Loc_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_Loc_MatScale" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  ecode2 = SWIG_AsVal_float(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleInt_Loc_MatScale" "', argument " "2"" of type '" "float""'");
+  } 
+  arg2 = static_cast< float >(val2);
+  (arg1)->Loc_MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_Loc_MatAXPY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  parMatrixSparse< float,int > *arg2 = (parMatrixSparse< float,int > *) 0 ;
+  float arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  float val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleInt_Loc_MatAXPY",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_Loc_MatAXPY" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_Loc_MatAXPY" "', argument " "2"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< float,int > * >(argp2);
+  ecode3 = SWIG_AsVal_float(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_Loc_MatAXPY" "', argument " "3"" of type '" "float""'");
+  } 
+  arg3 = static_cast< float >(val3);
+  (arg1)->Loc_MatAXPY(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_Loc_MatAYPX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  parMatrixSparse< float,int > *arg2 = (parMatrixSparse< float,int > *) 0 ;
+  float arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  float val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleInt_Loc_MatAYPX",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_Loc_MatAYPX" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_Loc_MatAYPX" "', argument " "2"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< float,int > * >(argp2);
+  ecode3 = SWIG_AsVal_float(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleInt_Loc_MatAYPX" "', argument " "3"" of type '" "float""'");
+  } 
+  arg3 = static_cast< float >(val3);
+  (arg1)->Loc_MatAYPX(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  (arg1)->ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_Loc_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_Loc_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_Loc_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  (arg1)->Loc_ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  (arg1)->ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_Loc_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleInt_Loc_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_Loc_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  (arg1)->Loc_ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_MA(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  Nilpotency< int > arg2 ;
+  parMatrixSparse< float,int > *arg3 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleInt_MA",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_MA" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_MA" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleInt_MA" "', argument " "2"" of type '" "Nilpotency< int >""'");
+    } else {
+      Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleInt_MA" "', argument " "3"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< float,int > * >(argp3);
+  (arg1)->MA(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleInt_AM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,int > *arg1 = (parMatrixSparse< float,int > *) 0 ;
+  Nilpotency< int > arg2 ;
+  parMatrixSparse< float,int > *arg3 = (parMatrixSparse< float,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleInt_AM",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleInt_AM" "', argument " "1"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,int > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleInt_AM" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleInt_AM" "', argument " "2"" of type '" "Nilpotency< int >""'");
+    } else {
+      Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleInt_AM" "', argument " "3"" of type '" "parMatrixSparse< float,int > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< float,int > * >(argp3);
+  (arg1)->AM(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *parMatrixSparseRealSingleInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_parMatrixSparseT_float_int_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_smg2sRealSingleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  Nilpotency< int > arg2 ;
+  int arg3 ;
+  std::string arg4 ;
+  MPI_Comm arg5 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  parMatrixSparse< float,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:smg2sRealSingleInt",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "smg2sRealSingleInt" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "smg2sRealSingleInt" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sRealSingleInt" "', argument " "2"" of type '" "Nilpotency< int >""'");
+    } else {
+      Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "smg2sRealSingleInt" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(obj3, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sRealSingleInt" "', argument " "4"" of type '" "std::string""'"); 
+    }
+    arg4 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  {
+    MPI_Comm *ptr = (MPI_Comm *)0;
+    int res = SWIG_AsPtr_MPI_Comm(obj4, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sRealSingleInt" "', argument " "5"" of type '" "MPI_Comm""'"); 
+    }
+    arg5 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (parMatrixSparse< float,int > *)smg2s< float,int >(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_float_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_CSR_lloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  MatrixCSR< float,__int64_t > *arg2 = (MatrixCSR< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleLongInt_CSR_lloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_CSR_lloc_set" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_float___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_CSR_lloc_set" "', argument " "2"" of type '" "MatrixCSR< float,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< float,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_lloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_CSR_lloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< float,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_CSR_lloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_CSR_lloc_get" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (MatrixCSR< float,__int64_t > *) ((arg1)->CSR_lloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_float___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_CSR_gloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  MatrixCSR< float,__int64_t > *arg2 = (MatrixCSR< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleLongInt_CSR_gloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_CSR_gloc_set" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_float___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_CSR_gloc_set" "', argument " "2"" of type '" "MatrixCSR< float,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< float,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_gloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_CSR_gloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< float,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_CSR_gloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_CSR_gloc_get" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (MatrixCSR< float,__int64_t > *) ((arg1)->CSR_gloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_float___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_CSR_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  MatrixCSR< float,__int64_t > *arg2 = (MatrixCSR< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleLongInt_CSR_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_CSR_loc_set" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_float___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_CSR_loc_set" "', argument " "2"" of type '" "MatrixCSR< float,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< float,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_CSR_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< float,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_CSR_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_CSR_loc_get" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (MatrixCSR< float,__int64_t > *) ((arg1)->CSR_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_float___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_dynmat_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *arg2 = (std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleLongInt_dynmat_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_dynmat_loc_set" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_dynmat_loc_set" "', argument " "2"" of type '" "std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > * >(argp2);
+  if (arg1) (arg1)->dynmat_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_dynmat_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_dynmat_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_dynmat_loc_get" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *) ((arg1)->dynmat_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealSingleLongInt__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_parMatrixSparseRealSingleLongInt")) SWIG_fail;
+  result = (parMatrixSparse< float,__int64_t > *)new parMatrixSparse< float,__int64_t >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealSingleLongInt__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parVector< float,__int64_t > *arg1 = (parVector< float,__int64_t > *) 0 ;
+  parVector< float,__int64_t > *arg2 = (parVector< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  parMatrixSparse< float,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_parMatrixSparseRealSingleLongInt",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_parMatrixSparseRealSingleLongInt" "', argument " "1"" of type '" "parVector< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parVector< float,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_parMatrixSparseRealSingleLongInt" "', argument " "2"" of type '" "parVector< float,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< float,__int64_t > * >(argp2);
+  result = (parMatrixSparse< float,__int64_t > *)new parMatrixSparse< float,__int64_t >(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseRealSingleLongInt(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  Py_ssize_t ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_parMatrixSparseRealSingleLongInt__SWIG_0(self, args);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_parVectorT_float___int64_t_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_parVectorT_float___int64_t_t, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_parMatrixSparseRealSingleLongInt__SWIG_1(self, args);
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_parMatrixSparseRealSingleLongInt'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    parMatrixSparse< float,__int64_t >::parMatrixSparse()\n"
+    "    parMatrixSparse< float,__int64_t >::parMatrixSparse(parVector< float,__int64_t > *,parVector< float,__int64_t > *)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_parMatrixSparseRealSingleLongInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_parMatrixSparseRealSingleLongInt",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_parMatrixSparseRealSingleLongInt" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetXMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< __int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetXMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetXMap" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (parVectorMap< __int64_t > *)(arg1)->GetXMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetYMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< __int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetYMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetYMap" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (parVectorMap< __int64_t > *)(arg1)->GetYMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetComm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MPI_Comm result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetComm",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetComm" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (arg1)->GetComm();
+  resultobj = SWIG_From_MPI_Comm(static_cast< MPI_Comm >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetXLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetXLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetXLowerBound" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (arg1)->GetXLowerBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetYLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetYLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetYLowerBound" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (arg1)->GetYLowerBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetXUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetXUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetXUpperBound" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (arg1)->GetXUpperBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetYUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetYUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetYUpperBound" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (arg1)->GetYUpperBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetTrueLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t *arg2 = 0 ;
+  __int64_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleLongInt_GetTrueLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetTrueLocalSize" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_GetTrueLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_GetTrueLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  arg2 = reinterpret_cast< __int64_t * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_GetTrueLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_GetTrueLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  (arg1)->GetTrueLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t *arg2 = 0 ;
+  __int64_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleLongInt_GetLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetLocalSize" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_GetLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_GetLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  arg2 = reinterpret_cast< __int64_t * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_GetLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_GetLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  (arg1)->GetLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetDynMatGLobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetDynMatGLobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetDynMatGLobLoc" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *)(arg1)->GetDynMatGLobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetDynMatGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetDynMatGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetDynMatGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *)(arg1)->GetDynMatGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetDynMatLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetDynMatLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetDynMatLoc" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *)(arg1)->GetDynMatLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetCSRLocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< float,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetCSRLocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetCSRLocLoc" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (MatrixCSR< float,__int64_t > *)(arg1)->GetCSRLocLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_float___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetCSRGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< float,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_GetCSRGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetCSRGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  result = (MatrixCSR< float,__int64_t > *)(arg1)->GetCSRGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_float___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_AddValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleLongInt_AddValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_AddValueLocal" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_AddValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_AddValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_AddValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_AddValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleLongInt_AddValueLocal" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->AddValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_AddValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  float *arg5 = (float *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealSingleLongInt_AddValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_AddValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_AddValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_AddValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_AddValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealSingleLongInt_AddValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_float, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealSingleLongInt_AddValuesLocal" "', argument " "5"" of type '" "float *""'"); 
+  }
+  arg5 = reinterpret_cast< float * >(argp5);
+  (arg1)->AddValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_AddValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleLongInt_AddValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_AddValue" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_AddValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_AddValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_AddValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_AddValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleLongInt_AddValue" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->AddValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleLongInt_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleLongInt_SetValueLocal" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  float *arg5 = (float *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealSingleLongInt_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_SetValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealSingleLongInt_SetValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_float, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealSingleLongInt_SetValuesLocal" "', argument " "5"" of type '" "float *""'"); 
+  }
+  arg5 = reinterpret_cast< float * >(argp5);
+  (arg1)->SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleLongInt_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_SetValue" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_SetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_SetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_SetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_SetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleLongInt_SetValue" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleLongInt_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (float)(arg1)->GetLocalValue(arg2,arg3);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleLongInt_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_GetValue" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_GetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_GetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_GetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_GetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (float)(arg1)->GetValue(arg2,arg3);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_glocPlusLloc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_glocPlusLloc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_glocPlusLloc" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  (arg1)->glocPlusLloc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_llocToGlocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_llocToGlocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_llocToGlocLoc" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  (arg1)->llocToGlocLoc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_MatView" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  (arg1)->MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_LOC_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_LOC_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_LOC_MatView" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  (arg1)->LOC_MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_Loc_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleLongInt_Loc_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValueLocal" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->Loc_SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_Loc_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  float *arg5 = (float *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseRealSingleLongInt_Loc_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_float, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValuesLocal" "', argument " "5"" of type '" "float *""'"); 
+  }
+  arg5 = reinterpret_cast< float * >(argp5);
+  (arg1)->Loc_SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_Loc_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  float arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  float val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseRealSingleLongInt_Loc_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValue" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  ecode4 = SWIG_AsVal_float(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetValue" "', argument " "4"" of type '" "float""'");
+  } 
+  arg4 = static_cast< float >(val4);
+  (arg1)->Loc_SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_Loc_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleLongInt_Loc_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_Loc_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_Loc_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_Loc_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_Loc_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_Loc_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (float)(arg1)->Loc_GetLocalValue(arg2,arg3);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_Loc_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleLongInt_Loc_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_Loc_GetValue" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_Loc_GetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_Loc_GetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_Loc_GetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_Loc_GetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (float)(arg1)->Loc_GetValue(arg2,arg3);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  parVector< float,__int64_t > *arg2 = (parVector< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleLongInt_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_SetDiagonal" "', argument " "2"" of type '" "parVector< float,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< float,__int64_t > * >(argp2);
+  (arg1)->SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_Loc_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  parVector< float,__int64_t > *arg2 = (parVector< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleLongInt_Loc_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_Loc_SetDiagonal" "', argument " "2"" of type '" "parVector< float,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< float,__int64_t > * >(argp2);
+  (arg1)->Loc_SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  float arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  float val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleLongInt_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_MatScale" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  ecode2 = SWIG_AsVal_float(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleLongInt_MatScale" "', argument " "2"" of type '" "float""'");
+  } 
+  arg2 = static_cast< float >(val2);
+  (arg1)->MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_Loc_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  float arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  float val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseRealSingleLongInt_Loc_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_Loc_MatScale" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  ecode2 = SWIG_AsVal_float(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseRealSingleLongInt_Loc_MatScale" "', argument " "2"" of type '" "float""'");
+  } 
+  arg2 = static_cast< float >(val2);
+  (arg1)->Loc_MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_Loc_MatAXPY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  parMatrixSparse< float,__int64_t > *arg2 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  float arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  float val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleLongInt_Loc_MatAXPY",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_Loc_MatAXPY" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_Loc_MatAXPY" "', argument " "2"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp2);
+  ecode3 = SWIG_AsVal_float(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleLongInt_Loc_MatAXPY" "', argument " "3"" of type '" "float""'");
+  } 
+  arg3 = static_cast< float >(val3);
+  (arg1)->Loc_MatAXPY(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_Loc_MatAYPX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  parMatrixSparse< float,__int64_t > *arg2 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  float arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  float val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleLongInt_Loc_MatAYPX",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_Loc_MatAYPX" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_Loc_MatAYPX" "', argument " "2"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp2);
+  ecode3 = SWIG_AsVal_float(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseRealSingleLongInt_Loc_MatAYPX" "', argument " "3"" of type '" "float""'");
+  } 
+  arg3 = static_cast< float >(val3);
+  (arg1)->Loc_MatAYPX(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  (arg1)->ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_Loc_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_Loc_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_Loc_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  (arg1)->Loc_ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  (arg1)->ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_Loc_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseRealSingleLongInt_Loc_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_Loc_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  (arg1)->Loc_ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_MA(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  parMatrixSparse< float,__int64_t > *arg3 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleLongInt_MA",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_MA" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_MA" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_MA" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_MA" "', argument " "3"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp3);
+  (arg1)->MA(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseRealSingleLongInt_AM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< float,__int64_t > *arg1 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  parMatrixSparse< float,__int64_t > *arg3 = (parMatrixSparse< float,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseRealSingleLongInt_AM",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseRealSingleLongInt_AM" "', argument " "1"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseRealSingleLongInt_AM" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseRealSingleLongInt_AM" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseRealSingleLongInt_AM" "', argument " "3"" of type '" "parMatrixSparse< float,__int64_t > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< float,__int64_t > * >(argp3);
+  (arg1)->AM(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *parMatrixSparseRealSingleLongInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_smg2sRealSingleLongInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  __int64_t arg1 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  __int64_t arg3 ;
+  std::string arg4 ;
+  MPI_Comm arg5 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  parMatrixSparse< float,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:smg2sRealSingleLongInt",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  {
+    res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "smg2sRealSingleLongInt" "', argument " "1"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sRealSingleLongInt" "', argument " "1"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp1);
+      arg1 = *temp;
+      if (SWIG_IsNewObj(res1)) delete temp;
+    }
+  }
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "smg2sRealSingleLongInt" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sRealSingleLongInt" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "smg2sRealSingleLongInt" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sRealSingleLongInt" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(obj3, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sRealSingleLongInt" "', argument " "4"" of type '" "std::string""'"); 
+    }
+    arg4 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  {
+    MPI_Comm *ptr = (MPI_Comm *)0;
+    int res = SWIG_AsPtr_MPI_Comm(obj4, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sRealSingleLongInt" "', argument " "5"" of type '" "MPI_Comm""'"); 
+    }
+    arg5 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (parMatrixSparse< float,__int64_t > *)smg2s< float,__int64_t >(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_float___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_CSR_lloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  MatrixCSR< std::complex< double >,int > *arg2 = (MatrixCSR< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleInt_CSR_lloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_CSR_lloc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_double_t_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_CSR_lloc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< double >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< double >,int > * >(argp2);
+  if (arg1) (arg1)->CSR_lloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_CSR_lloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< double >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_CSR_lloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_CSR_lloc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (MatrixCSR< std::complex< double >,int > *) ((arg1)->CSR_lloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_double_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_CSR_gloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  MatrixCSR< std::complex< double >,int > *arg2 = (MatrixCSR< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleInt_CSR_gloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_CSR_gloc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_double_t_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_CSR_gloc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< double >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< double >,int > * >(argp2);
+  if (arg1) (arg1)->CSR_gloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_CSR_gloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< double >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_CSR_gloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_CSR_gloc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (MatrixCSR< std::complex< double >,int > *) ((arg1)->CSR_gloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_double_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_CSR_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  MatrixCSR< std::complex< double >,int > *arg2 = (MatrixCSR< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleInt_CSR_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_CSR_loc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_double_t_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_CSR_loc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< double >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< double >,int > * >(argp2);
+  if (arg1) (arg1)->CSR_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_CSR_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< double >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_CSR_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_CSR_loc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (MatrixCSR< std::complex< double >,int > *) ((arg1)->CSR_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_double_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_dynmat_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *arg2 = (std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleInt_dynmat_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_dynmat_loc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_dynmat_loc_set" "', argument " "2"" of type '" "std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > * >(argp2);
+  if (arg1) (arg1)->dynmat_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_dynmat_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_dynmat_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_dynmat_loc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *) ((arg1)->dynmat_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexDoubleInt__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_parMatrixSparseComplexDoubleInt")) SWIG_fail;
+  result = (parMatrixSparse< std::complex< double >,int > *)new parMatrixSparse< std::complex< double >,int >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexDoubleInt__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parVector< std::complex< double >,int > *arg1 = (parVector< std::complex< double >,int > *) 0 ;
+  parVector< std::complex< double >,int > *arg2 = (parVector< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  parMatrixSparse< std::complex< double >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_parMatrixSparseComplexDoubleInt",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_parMatrixSparseComplexDoubleInt" "', argument " "1"" of type '" "parVector< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parVector< std::complex< double >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_parMatrixSparseComplexDoubleInt" "', argument " "2"" of type '" "parVector< std::complex< double >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< double >,int > * >(argp2);
+  result = (parMatrixSparse< std::complex< double >,int > *)new parMatrixSparse< std::complex< double >,int >(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexDoubleInt(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  Py_ssize_t ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_parMatrixSparseComplexDoubleInt__SWIG_0(self, args);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_parVectorT_std__complexT_double_t_int_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_parVectorT_std__complexT_double_t_int_t, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_parMatrixSparseComplexDoubleInt__SWIG_1(self, args);
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_parMatrixSparseComplexDoubleInt'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    parMatrixSparse< std::complex< double >,int >::parMatrixSparse()\n"
+    "    parMatrixSparse< std::complex< double >,int >::parMatrixSparse(parVector< std::complex< double >,int > *,parVector< std::complex< double >,int > *)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_parMatrixSparseComplexDoubleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_parMatrixSparseComplexDoubleInt",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_parMatrixSparseComplexDoubleInt" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetXMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetXMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetXMap" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (parVectorMap< int > *)(arg1)->GetXMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetYMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetYMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetYMap" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (parVectorMap< int > *)(arg1)->GetYMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetComm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MPI_Comm result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetComm",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetComm" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (arg1)->GetComm();
+  resultobj = SWIG_From_MPI_Comm(static_cast< MPI_Comm >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetXLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetXLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetXLowerBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (int)(arg1)->GetXLowerBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetYLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetYLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetYLowerBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (int)(arg1)->GetYLowerBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetXUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetXUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetXUpperBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (int)(arg1)->GetXUpperBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetYUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetYUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetYUpperBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (int)(arg1)->GetYUpperBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetTrueLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int *arg2 = 0 ;
+  int *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleInt_GetTrueLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetTrueLocalSize" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_GetTrueLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_GetTrueLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  arg2 = reinterpret_cast< int * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleInt_GetTrueLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_GetTrueLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  (arg1)->GetTrueLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int *arg2 = 0 ;
+  int *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleInt_GetLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetLocalSize" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_GetLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_GetLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  arg2 = reinterpret_cast< int * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleInt_GetLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_GetLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  (arg1)->GetLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetDynMatGLobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetDynMatGLobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetDynMatGLobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *)(arg1)->GetDynMatGLobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetDynMatGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetDynMatGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetDynMatGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *)(arg1)->GetDynMatGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetDynMatLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetDynMatLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetDynMatLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *)(arg1)->GetDynMatLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetCSRLocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< double >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetCSRLocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetCSRLocLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (MatrixCSR< std::complex< double >,int > *)(arg1)->GetCSRLocLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_double_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetCSRGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< double >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_GetCSRGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetCSRGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  result = (MatrixCSR< std::complex< double >,int > *)(arg1)->GetCSRGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_double_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_AddValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleInt_AddValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_AddValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_AddValueLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexDoubleInt_AddValueLocal" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleInt_AddValueLocal" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_AddValueLocal" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->AddValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_AddValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int *arg3 = (int *) 0 ;
+  int *arg4 = (int *) 0 ;
+  std::complex< double > *arg5 = (std::complex< double > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexDoubleInt_AddValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_AddValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_AddValuesLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleInt_AddValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleInt_AddValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+  }
+  arg4 = reinterpret_cast< int * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_double_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexDoubleInt_AddValuesLocal" "', argument " "5"" of type '" "std::complex< double > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< double > * >(argp5);
+  (arg1)->AddValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_AddValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleInt_AddValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_AddValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_AddValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexDoubleInt_AddValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleInt_AddValue" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_AddValue" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->AddValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleInt_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_SetValueLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexDoubleInt_SetValueLocal" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleInt_SetValueLocal" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_SetValueLocal" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int *arg3 = (int *) 0 ;
+  int *arg4 = (int *) 0 ;
+  std::complex< double > *arg5 = (std::complex< double > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexDoubleInt_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_SetValuesLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleInt_SetValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleInt_SetValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+  }
+  arg4 = reinterpret_cast< int * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_double_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexDoubleInt_SetValuesLocal" "', argument " "5"" of type '" "std::complex< double > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< double > * >(argp5);
+  (arg1)->SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleInt_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_SetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_SetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexDoubleInt_SetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleInt_SetValue" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_SetValue" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< double > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleInt_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_GetLocalValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexDoubleInt_GetLocalValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (arg1)->GetLocalValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< double >(static_cast< const std::complex< double >& >(result))), SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< double > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleInt_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_GetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_GetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexDoubleInt_GetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (arg1)->GetValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< double >(static_cast< const std::complex< double >& >(result))), SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_glocPlusLloc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_glocPlusLloc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_glocPlusLloc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  (arg1)->glocPlusLloc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_llocToGlocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_llocToGlocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_llocToGlocLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  (arg1)->llocToGlocLoc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_MatView" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  (arg1)->MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_LOC_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_LOC_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_LOC_MatView" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  (arg1)->LOC_MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_Loc_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleInt_Loc_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValueLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValueLocal" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValueLocal" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValueLocal" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->Loc_SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_Loc_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int *arg3 = (int *) 0 ;
+  int *arg4 = (int *) 0 ;
+  std::complex< double > *arg5 = (std::complex< double > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexDoubleInt_Loc_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+  }
+  arg4 = reinterpret_cast< int * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_double_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValuesLocal" "', argument " "5"" of type '" "std::complex< double > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< double > * >(argp5);
+  (arg1)->Loc_SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_Loc_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleInt_Loc_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValue" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetValue" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->Loc_SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_Loc_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< double > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleInt_Loc_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_Loc_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_Loc_GetLocalValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexDoubleInt_Loc_GetLocalValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (arg1)->Loc_GetLocalValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< double >(static_cast< const std::complex< double >& >(result))), SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_Loc_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< double > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleInt_Loc_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_Loc_GetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexDoubleInt_Loc_GetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexDoubleInt_Loc_GetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (arg1)->Loc_GetValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< double >(static_cast< const std::complex< double >& >(result))), SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  parVector< std::complex< double >,int > *arg2 = (parVector< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleInt_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_SetDiagonal" "', argument " "2"" of type '" "parVector< std::complex< double >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< double >,int > * >(argp2);
+  (arg1)->SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_Loc_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  parVector< std::complex< double >,int > *arg2 = (parVector< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleInt_Loc_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_Loc_SetDiagonal" "', argument " "2"" of type '" "parVector< std::complex< double >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< double >,int > * >(argp2);
+  (arg1)->Loc_SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  std::complex< double > arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleInt_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_MatScale" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_MatScale" "', argument " "2"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_MatScale" "', argument " "2"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  (arg1)->MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_Loc_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  std::complex< double > arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleInt_Loc_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_Loc_MatScale" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_Loc_MatScale" "', argument " "2"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_Loc_MatScale" "', argument " "2"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_Loc_MatAXPY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  parMatrixSparse< std::complex< double >,int > *arg2 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  std::complex< double > arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleInt_Loc_MatAXPY",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_Loc_MatAXPY" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_Loc_MatAXPY" "', argument " "2"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp2);
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleInt_Loc_MatAXPY" "', argument " "3"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_Loc_MatAXPY" "', argument " "3"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatAXPY(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_Loc_MatAYPX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  parMatrixSparse< std::complex< double >,int > *arg2 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  std::complex< double > arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleInt_Loc_MatAYPX",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_Loc_MatAYPX" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_Loc_MatAYPX" "', argument " "2"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp2);
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleInt_Loc_MatAYPX" "', argument " "3"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_Loc_MatAYPX" "', argument " "3"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatAYPX(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  (arg1)->ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_Loc_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_Loc_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_Loc_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  (arg1)->Loc_ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  (arg1)->ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_Loc_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleInt_Loc_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_Loc_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  (arg1)->Loc_ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_MA(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  Nilpotency< int > arg2 ;
+  parMatrixSparse< std::complex< double >,int > *arg3 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleInt_MA",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_MA" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_MA" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_MA" "', argument " "2"" of type '" "Nilpotency< int >""'");
+    } else {
+      Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleInt_MA" "', argument " "3"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp3);
+  (arg1)->MA(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleInt_AM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,int > *arg1 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  Nilpotency< int > arg2 ;
+  parMatrixSparse< std::complex< double >,int > *arg3 = (parMatrixSparse< std::complex< double >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleInt_AM",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleInt_AM" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleInt_AM" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleInt_AM" "', argument " "2"" of type '" "Nilpotency< int >""'");
+    } else {
+      Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleInt_AM" "', argument " "3"" of type '" "parMatrixSparse< std::complex< double >,int > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< std::complex< double >,int > * >(argp3);
+  (arg1)->AM(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *parMatrixSparseComplexDoubleInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_smg2sComplexDoubleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  Nilpotency< int > arg2 ;
+  int arg3 ;
+  std::string arg4 ;
+  MPI_Comm arg5 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  parMatrixSparse< std::complex< double >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:smg2sComplexDoubleInt",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "smg2sComplexDoubleInt" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "smg2sComplexDoubleInt" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sComplexDoubleInt" "', argument " "2"" of type '" "Nilpotency< int >""'");
+    } else {
+      Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "smg2sComplexDoubleInt" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(obj3, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sComplexDoubleInt" "', argument " "4"" of type '" "std::string""'"); 
+    }
+    arg4 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  {
+    MPI_Comm *ptr = (MPI_Comm *)0;
+    int res = SWIG_AsPtr_MPI_Comm(obj4, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sComplexDoubleInt" "', argument " "5"" of type '" "MPI_Comm""'"); 
+    }
+    arg5 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (parMatrixSparse< std::complex< double >,int > *)smg2s< std::complex< double >,int >(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_CSR_lloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  MatrixCSR< std::complex< double >,__int64_t > *arg2 = (MatrixCSR< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleLongInt_CSR_lloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_CSR_lloc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_double_t___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_CSR_lloc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< double >,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_lloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_CSR_lloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< double >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_CSR_lloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_CSR_lloc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (MatrixCSR< std::complex< double >,__int64_t > *) ((arg1)->CSR_lloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_CSR_gloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  MatrixCSR< std::complex< double >,__int64_t > *arg2 = (MatrixCSR< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleLongInt_CSR_gloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_CSR_gloc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_double_t___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_CSR_gloc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< double >,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_gloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_CSR_gloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< double >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_CSR_gloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_CSR_gloc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (MatrixCSR< std::complex< double >,__int64_t > *) ((arg1)->CSR_gloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_CSR_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  MatrixCSR< std::complex< double >,__int64_t > *arg2 = (MatrixCSR< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleLongInt_CSR_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_CSR_loc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_double_t___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_CSR_loc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< double >,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_CSR_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< double >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_CSR_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_CSR_loc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (MatrixCSR< std::complex< double >,__int64_t > *) ((arg1)->CSR_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_dynmat_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *arg2 = (std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleLongInt_dynmat_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_dynmat_loc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_dynmat_loc_set" "', argument " "2"" of type '" "std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > * >(argp2);
+  if (arg1) (arg1)->dynmat_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_dynmat_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_dynmat_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_dynmat_loc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *) ((arg1)->dynmat_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexDoubleLongInt__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_parMatrixSparseComplexDoubleLongInt")) SWIG_fail;
+  result = (parMatrixSparse< std::complex< double >,__int64_t > *)new parMatrixSparse< std::complex< double >,__int64_t >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexDoubleLongInt__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parVector< std::complex< double >,__int64_t > *arg1 = (parVector< std::complex< double >,__int64_t > *) 0 ;
+  parVector< std::complex< double >,__int64_t > *arg2 = (parVector< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  parMatrixSparse< std::complex< double >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_parMatrixSparseComplexDoubleLongInt",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_parMatrixSparseComplexDoubleLongInt" "', argument " "1"" of type '" "parVector< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parVector< std::complex< double >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_parMatrixSparseComplexDoubleLongInt" "', argument " "2"" of type '" "parVector< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< double >,__int64_t > * >(argp2);
+  result = (parMatrixSparse< std::complex< double >,__int64_t > *)new parMatrixSparse< std::complex< double >,__int64_t >(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexDoubleLongInt(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  Py_ssize_t ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_parMatrixSparseComplexDoubleLongInt__SWIG_0(self, args);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_parVectorT_std__complexT_double_t___int64_t_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_parVectorT_std__complexT_double_t___int64_t_t, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_parMatrixSparseComplexDoubleLongInt__SWIG_1(self, args);
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_parMatrixSparseComplexDoubleLongInt'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    parMatrixSparse< std::complex< double >,__int64_t >::parMatrixSparse()\n"
+    "    parMatrixSparse< std::complex< double >,__int64_t >::parMatrixSparse(parVector< std::complex< double >,__int64_t > *,parVector< std::complex< double >,__int64_t > *)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_parMatrixSparseComplexDoubleLongInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_parMatrixSparseComplexDoubleLongInt",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_parMatrixSparseComplexDoubleLongInt" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetXMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< __int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetXMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetXMap" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (parVectorMap< __int64_t > *)(arg1)->GetXMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetYMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< __int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetYMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetYMap" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (parVectorMap< __int64_t > *)(arg1)->GetYMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetComm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MPI_Comm result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetComm",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetComm" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (arg1)->GetComm();
+  resultobj = SWIG_From_MPI_Comm(static_cast< MPI_Comm >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetXLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetXLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetXLowerBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (arg1)->GetXLowerBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetYLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetYLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetYLowerBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (arg1)->GetYLowerBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetXUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetXUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetXUpperBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (arg1)->GetXUpperBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetYUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetYUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetYUpperBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (arg1)->GetYUpperBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetTrueLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t *arg2 = 0 ;
+  __int64_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleLongInt_GetTrueLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetTrueLocalSize" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_GetTrueLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_GetTrueLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  arg2 = reinterpret_cast< __int64_t * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_GetTrueLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_GetTrueLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  (arg1)->GetTrueLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t *arg2 = 0 ;
+  __int64_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleLongInt_GetLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetLocalSize" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_GetLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_GetLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  arg2 = reinterpret_cast< __int64_t * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_GetLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_GetLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  (arg1)->GetLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetDynMatGLobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetDynMatGLobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetDynMatGLobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *)(arg1)->GetDynMatGLobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetDynMatGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetDynMatGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetDynMatGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *)(arg1)->GetDynMatGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetDynMatLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetDynMatLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetDynMatLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *)(arg1)->GetDynMatLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetCSRLocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< double >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetCSRLocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetCSRLocLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (MatrixCSR< std::complex< double >,__int64_t > *)(arg1)->GetCSRLocLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetCSRGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< double >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_GetCSRGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetCSRGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  result = (MatrixCSR< std::complex< double >,__int64_t > *)(arg1)->GetCSRGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_AddValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleLongInt_AddValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_AddValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_AddValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValueLocal" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_AddValueLocal" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->AddValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_AddValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  std::complex< double > *arg5 = (std::complex< double > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexDoubleLongInt_AddValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_AddValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_double_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValuesLocal" "', argument " "5"" of type '" "std::complex< double > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< double > * >(argp5);
+  (arg1)->AddValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_AddValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleLongInt_AddValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_AddValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_AddValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleLongInt_AddValue" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_AddValue" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->AddValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleLongInt_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValueLocal" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_SetValueLocal" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  std::complex< double > *arg5 = (std::complex< double > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexDoubleLongInt_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_double_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValuesLocal" "', argument " "5"" of type '" "std::complex< double > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< double > * >(argp5);
+  (arg1)->SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleLongInt_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_SetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_SetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleLongInt_SetValue" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_SetValue" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< double > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleLongInt_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (arg1)->GetLocalValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< double >(static_cast< const std::complex< double >& >(result))), SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< double > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleLongInt_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_GetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_GetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_GetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_GetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_GetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (arg1)->GetValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< double >(static_cast< const std::complex< double >& >(result))), SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_glocPlusLloc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_glocPlusLloc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_glocPlusLloc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  (arg1)->glocPlusLloc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_llocToGlocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_llocToGlocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_llocToGlocLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  (arg1)->llocToGlocLoc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_MatView" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  (arg1)->MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_LOC_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_LOC_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_LOC_MatView" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  (arg1)->LOC_MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->Loc_SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_Loc_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  std::complex< double > *arg5 = (std::complex< double > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexDoubleLongInt_Loc_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_double_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValuesLocal" "', argument " "5"" of type '" "std::complex< double > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< double > * >(argp5);
+  (arg1)->Loc_SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_Loc_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< double > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexDoubleLongInt_Loc_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValue" "', argument " "4"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetValue" "', argument " "4"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->Loc_SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_Loc_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< double > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleLongInt_Loc_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (arg1)->Loc_GetLocalValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< double >(static_cast< const std::complex< double >& >(result))), SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_Loc_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< double > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleLongInt_Loc_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_GetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_GetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_GetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_GetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_GetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (arg1)->Loc_GetValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< double >(static_cast< const std::complex< double >& >(result))), SWIGTYPE_p_std__complexT_double_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  parVector< std::complex< double >,__int64_t > *arg2 = (parVector< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleLongInt_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_SetDiagonal" "', argument " "2"" of type '" "parVector< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< double >,__int64_t > * >(argp2);
+  (arg1)->SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_Loc_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  parVector< std::complex< double >,__int64_t > *arg2 = (parVector< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleLongInt_Loc_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_SetDiagonal" "', argument " "2"" of type '" "parVector< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< double >,__int64_t > * >(argp2);
+  (arg1)->Loc_SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  std::complex< double > arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleLongInt_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_MatScale" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_MatScale" "', argument " "2"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_MatScale" "', argument " "2"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  (arg1)->MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_Loc_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  std::complex< double > arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexDoubleLongInt_Loc_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_MatScale" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_MatScale" "', argument " "2"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_MatScale" "', argument " "2"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_Loc_MatAXPY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg2 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  std::complex< double > arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleLongInt_Loc_MatAXPY",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_MatAXPY" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_MatAXPY" "', argument " "2"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp2);
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_MatAXPY" "', argument " "3"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_MatAXPY" "', argument " "3"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatAXPY(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_Loc_MatAYPX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg2 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  std::complex< double > arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleLongInt_Loc_MatAYPX",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_MatAYPX" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_MatAYPX" "', argument " "2"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp2);
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_std__complexT_double_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_MatAYPX" "', argument " "3"" of type '" "std::complex< double >""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_MatAYPX" "', argument " "3"" of type '" "std::complex< double >""'");
+    } else {
+      std::complex< double > * temp = reinterpret_cast< std::complex< double > * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatAYPX(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  (arg1)->ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_Loc_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_Loc_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  (arg1)->Loc_ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  (arg1)->ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_Loc_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexDoubleLongInt_Loc_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_Loc_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  (arg1)->Loc_ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_MA(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg3 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleLongInt_MA",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_MA" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_MA" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_MA" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_MA" "', argument " "3"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp3);
+  (arg1)->MA(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexDoubleLongInt_AM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg1 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  parMatrixSparse< std::complex< double >,__int64_t > *arg3 = (parMatrixSparse< std::complex< double >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexDoubleLongInt_AM",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexDoubleLongInt_AM" "', argument " "1"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexDoubleLongInt_AM" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexDoubleLongInt_AM" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexDoubleLongInt_AM" "', argument " "3"" of type '" "parMatrixSparse< std::complex< double >,__int64_t > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< std::complex< double >,__int64_t > * >(argp3);
+  (arg1)->AM(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *parMatrixSparseComplexDoubleLongInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_smg2sComplexDoubleLongInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  __int64_t arg1 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  __int64_t arg3 ;
+  std::string arg4 ;
+  MPI_Comm arg5 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  parMatrixSparse< std::complex< double >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:smg2sComplexDoubleLongInt",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  {
+    res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "smg2sComplexDoubleLongInt" "', argument " "1"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sComplexDoubleLongInt" "', argument " "1"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp1);
+      arg1 = *temp;
+      if (SWIG_IsNewObj(res1)) delete temp;
+    }
+  }
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "smg2sComplexDoubleLongInt" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sComplexDoubleLongInt" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "smg2sComplexDoubleLongInt" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sComplexDoubleLongInt" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(obj3, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sComplexDoubleLongInt" "', argument " "4"" of type '" "std::string""'"); 
+    }
+    arg4 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  {
+    MPI_Comm *ptr = (MPI_Comm *)0;
+    int res = SWIG_AsPtr_MPI_Comm(obj4, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sComplexDoubleLongInt" "', argument " "5"" of type '" "MPI_Comm""'"); 
+    }
+    arg5 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (parMatrixSparse< std::complex< double >,__int64_t > *)smg2s< std::complex< double >,__int64_t >(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_CSR_lloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  MatrixCSR< std::complex< float >,int > *arg2 = (MatrixCSR< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleInt_CSR_lloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_CSR_lloc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_float_t_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_CSR_lloc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< float >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< float >,int > * >(argp2);
+  if (arg1) (arg1)->CSR_lloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_CSR_lloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< float >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_CSR_lloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_CSR_lloc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (MatrixCSR< std::complex< float >,int > *) ((arg1)->CSR_lloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_float_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_CSR_gloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  MatrixCSR< std::complex< float >,int > *arg2 = (MatrixCSR< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleInt_CSR_gloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_CSR_gloc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_float_t_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_CSR_gloc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< float >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< float >,int > * >(argp2);
+  if (arg1) (arg1)->CSR_gloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_CSR_gloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< float >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_CSR_gloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_CSR_gloc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (MatrixCSR< std::complex< float >,int > *) ((arg1)->CSR_gloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_float_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_CSR_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  MatrixCSR< std::complex< float >,int > *arg2 = (MatrixCSR< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleInt_CSR_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_CSR_loc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_float_t_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_CSR_loc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< float >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< float >,int > * >(argp2);
+  if (arg1) (arg1)->CSR_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_CSR_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< float >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_CSR_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_CSR_loc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (MatrixCSR< std::complex< float >,int > *) ((arg1)->CSR_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_float_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_dynmat_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *arg2 = (std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleInt_dynmat_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_dynmat_loc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_dynmat_loc_set" "', argument " "2"" of type '" "std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > * >(argp2);
+  if (arg1) (arg1)->dynmat_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_dynmat_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_dynmat_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_dynmat_loc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *) ((arg1)->dynmat_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexSingleInt__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_parMatrixSparseComplexSingleInt")) SWIG_fail;
+  result = (parMatrixSparse< std::complex< float >,int > *)new parMatrixSparse< std::complex< float >,int >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexSingleInt__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parVector< std::complex< float >,int > *arg1 = (parVector< std::complex< float >,int > *) 0 ;
+  parVector< std::complex< float >,int > *arg2 = (parVector< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  parMatrixSparse< std::complex< float >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_parMatrixSparseComplexSingleInt",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_parMatrixSparseComplexSingleInt" "', argument " "1"" of type '" "parVector< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parVector< std::complex< float >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_parMatrixSparseComplexSingleInt" "', argument " "2"" of type '" "parVector< std::complex< float >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< float >,int > * >(argp2);
+  result = (parMatrixSparse< std::complex< float >,int > *)new parMatrixSparse< std::complex< float >,int >(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexSingleInt(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  Py_ssize_t ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_parMatrixSparseComplexSingleInt__SWIG_0(self, args);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_parVectorT_std__complexT_float_t_int_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_parVectorT_std__complexT_float_t_int_t, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_parMatrixSparseComplexSingleInt__SWIG_1(self, args);
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_parMatrixSparseComplexSingleInt'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    parMatrixSparse< std::complex< float >,int >::parMatrixSparse()\n"
+    "    parMatrixSparse< std::complex< float >,int >::parMatrixSparse(parVector< std::complex< float >,int > *,parVector< std::complex< float >,int > *)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_parMatrixSparseComplexSingleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_parMatrixSparseComplexSingleInt",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_parMatrixSparseComplexSingleInt" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetXMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetXMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetXMap" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (parVectorMap< int > *)(arg1)->GetXMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetYMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetYMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetYMap" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (parVectorMap< int > *)(arg1)->GetYMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetComm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MPI_Comm result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetComm",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetComm" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (arg1)->GetComm();
+  resultobj = SWIG_From_MPI_Comm(static_cast< MPI_Comm >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetXLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetXLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetXLowerBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (int)(arg1)->GetXLowerBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetYLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetYLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetYLowerBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (int)(arg1)->GetYLowerBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetXUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetXUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetXUpperBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (int)(arg1)->GetXUpperBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetYUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetYUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetYUpperBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (int)(arg1)->GetYUpperBound();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetTrueLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int *arg2 = 0 ;
+  int *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleInt_GetTrueLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetTrueLocalSize" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_GetTrueLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_GetTrueLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  arg2 = reinterpret_cast< int * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleInt_GetTrueLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_GetTrueLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  (arg1)->GetTrueLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int *arg2 = 0 ;
+  int *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleInt_GetLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetLocalSize" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_GetLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_GetLocalSize" "', argument " "2"" of type '" "int &""'"); 
+  }
+  arg2 = reinterpret_cast< int * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleInt_GetLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_GetLocalSize" "', argument " "3"" of type '" "int &""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  (arg1)->GetLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetDynMatGLobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetDynMatGLobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetDynMatGLobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *)(arg1)->GetDynMatGLobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetDynMatGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetDynMatGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetDynMatGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *)(arg1)->GetDynMatGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetDynMatLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetDynMatLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetDynMatLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *)(arg1)->GetDynMatLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetCSRLocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< float >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetCSRLocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetCSRLocLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (MatrixCSR< std::complex< float >,int > *)(arg1)->GetCSRLocLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_float_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetCSRGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< float >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_GetCSRGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetCSRGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  result = (MatrixCSR< std::complex< float >,int > *)(arg1)->GetCSRGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_float_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_AddValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleInt_AddValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_AddValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_AddValueLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexSingleInt_AddValueLocal" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleInt_AddValueLocal" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_AddValueLocal" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->AddValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_AddValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int *arg3 = (int *) 0 ;
+  int *arg4 = (int *) 0 ;
+  std::complex< float > *arg5 = (std::complex< float > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexSingleInt_AddValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_AddValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_AddValuesLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleInt_AddValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleInt_AddValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+  }
+  arg4 = reinterpret_cast< int * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_float_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexSingleInt_AddValuesLocal" "', argument " "5"" of type '" "std::complex< float > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< float > * >(argp5);
+  (arg1)->AddValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_AddValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleInt_AddValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_AddValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_AddValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexSingleInt_AddValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleInt_AddValue" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_AddValue" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->AddValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleInt_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_SetValueLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexSingleInt_SetValueLocal" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleInt_SetValueLocal" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_SetValueLocal" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int *arg3 = (int *) 0 ;
+  int *arg4 = (int *) 0 ;
+  std::complex< float > *arg5 = (std::complex< float > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexSingleInt_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_SetValuesLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleInt_SetValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleInt_SetValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+  }
+  arg4 = reinterpret_cast< int * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_float_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexSingleInt_SetValuesLocal" "', argument " "5"" of type '" "std::complex< float > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< float > * >(argp5);
+  (arg1)->SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleInt_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_SetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_SetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexSingleInt_SetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleInt_SetValue" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_SetValue" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< float > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleInt_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_GetLocalValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexSingleInt_GetLocalValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (arg1)->GetLocalValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< float >(static_cast< const std::complex< float >& >(result))), SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< float > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleInt_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_GetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_GetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexSingleInt_GetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (arg1)->GetValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< float >(static_cast< const std::complex< float >& >(result))), SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_glocPlusLloc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_glocPlusLloc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_glocPlusLloc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  (arg1)->glocPlusLloc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_llocToGlocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_llocToGlocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_llocToGlocLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  (arg1)->llocToGlocLoc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_MatView" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  (arg1)->MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_LOC_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_LOC_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_LOC_MatView" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  (arg1)->LOC_MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_Loc_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleInt_Loc_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValueLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValueLocal" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValueLocal" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValueLocal" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->Loc_SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_Loc_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int *arg3 = (int *) 0 ;
+  int *arg4 = (int *) 0 ;
+  std::complex< float > *arg5 = (std::complex< float > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexSingleInt_Loc_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValuesLocal" "', argument " "3"" of type '" "int *""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValuesLocal" "', argument " "4"" of type '" "int *""'"); 
+  }
+  arg4 = reinterpret_cast< int * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_float_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValuesLocal" "', argument " "5"" of type '" "std::complex< float > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< float > * >(argp5);
+  (arg1)->Loc_SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_Loc_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleInt_Loc_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValue" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_Loc_SetValue" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->Loc_SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_Loc_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< float > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleInt_Loc_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_Loc_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_Loc_GetLocalValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexSingleInt_Loc_GetLocalValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (arg1)->Loc_GetLocalValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< float >(static_cast< const std::complex< float >& >(result))), SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_Loc_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< float > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleInt_Loc_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_Loc_GetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "parMatrixSparseComplexSingleInt_Loc_GetValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "parMatrixSparseComplexSingleInt_Loc_GetValue" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (arg1)->Loc_GetValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< float >(static_cast< const std::complex< float >& >(result))), SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  parVector< std::complex< float >,int > *arg2 = (parVector< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleInt_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_SetDiagonal" "', argument " "2"" of type '" "parVector< std::complex< float >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< float >,int > * >(argp2);
+  (arg1)->SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_Loc_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  parVector< std::complex< float >,int > *arg2 = (parVector< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleInt_Loc_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_Loc_SetDiagonal" "', argument " "2"" of type '" "parVector< std::complex< float >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< float >,int > * >(argp2);
+  (arg1)->Loc_SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  std::complex< float > arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleInt_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_MatScale" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_MatScale" "', argument " "2"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_MatScale" "', argument " "2"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  (arg1)->MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_Loc_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  std::complex< float > arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleInt_Loc_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_Loc_MatScale" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_Loc_MatScale" "', argument " "2"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_Loc_MatScale" "', argument " "2"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_Loc_MatAXPY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  parMatrixSparse< std::complex< float >,int > *arg2 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  std::complex< float > arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleInt_Loc_MatAXPY",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_Loc_MatAXPY" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_Loc_MatAXPY" "', argument " "2"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp2);
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleInt_Loc_MatAXPY" "', argument " "3"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_Loc_MatAXPY" "', argument " "3"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatAXPY(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_Loc_MatAYPX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  parMatrixSparse< std::complex< float >,int > *arg2 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  std::complex< float > arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleInt_Loc_MatAYPX",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_Loc_MatAYPX" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_Loc_MatAYPX" "', argument " "2"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp2);
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleInt_Loc_MatAYPX" "', argument " "3"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_Loc_MatAYPX" "', argument " "3"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatAYPX(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  (arg1)->ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_Loc_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_Loc_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_Loc_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  (arg1)->Loc_ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  (arg1)->ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_Loc_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleInt_Loc_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_Loc_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  (arg1)->Loc_ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_MA(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  Nilpotency< int > arg2 ;
+  parMatrixSparse< std::complex< float >,int > *arg3 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleInt_MA",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_MA" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_MA" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_MA" "', argument " "2"" of type '" "Nilpotency< int >""'");
+    } else {
+      Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleInt_MA" "', argument " "3"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp3);
+  (arg1)->MA(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleInt_AM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,int > *arg1 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  Nilpotency< int > arg2 ;
+  parMatrixSparse< std::complex< float >,int > *arg3 = (parMatrixSparse< std::complex< float >,int > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleInt_AM",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleInt_AM" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleInt_AM" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleInt_AM" "', argument " "2"" of type '" "Nilpotency< int >""'");
+    } else {
+      Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleInt_AM" "', argument " "3"" of type '" "parMatrixSparse< std::complex< float >,int > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< std::complex< float >,int > * >(argp3);
+  (arg1)->AM(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *parMatrixSparseComplexSingleInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_smg2sComplexSingleInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  Nilpotency< int > arg2 ;
+  int arg3 ;
+  std::string arg4 ;
+  MPI_Comm arg5 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  parMatrixSparse< std::complex< float >,int > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:smg2sComplexSingleInt",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "smg2sComplexSingleInt" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT_int_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "smg2sComplexSingleInt" "', argument " "2"" of type '" "Nilpotency< int >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sComplexSingleInt" "', argument " "2"" of type '" "Nilpotency< int >""'");
+    } else {
+      Nilpotency< int > * temp = reinterpret_cast< Nilpotency< int > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "smg2sComplexSingleInt" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(obj3, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sComplexSingleInt" "', argument " "4"" of type '" "std::string""'"); 
+    }
+    arg4 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  {
+    MPI_Comm *ptr = (MPI_Comm *)0;
+    int res = SWIG_AsPtr_MPI_Comm(obj4, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sComplexSingleInt" "', argument " "5"" of type '" "MPI_Comm""'"); 
+    }
+    arg5 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (parMatrixSparse< std::complex< float >,int > *)smg2s< std::complex< float >,int >(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t_int_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_CSR_lloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  MatrixCSR< std::complex< float >,__int64_t > *arg2 = (MatrixCSR< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleLongInt_CSR_lloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_CSR_lloc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_float_t___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_CSR_lloc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< float >,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_lloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_CSR_lloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< float >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_CSR_lloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_CSR_lloc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (MatrixCSR< std::complex< float >,__int64_t > *) ((arg1)->CSR_lloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_CSR_gloc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  MatrixCSR< std::complex< float >,__int64_t > *arg2 = (MatrixCSR< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleLongInt_CSR_gloc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_CSR_gloc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_float_t___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_CSR_gloc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< float >,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_gloc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_CSR_gloc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< float >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_CSR_gloc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_CSR_gloc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (MatrixCSR< std::complex< float >,__int64_t > *) ((arg1)->CSR_gloc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_CSR_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  MatrixCSR< std::complex< float >,__int64_t > *arg2 = (MatrixCSR< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleLongInt_CSR_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_CSR_loc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_MatrixCSRT_std__complexT_float_t___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_CSR_loc_set" "', argument " "2"" of type '" "MatrixCSR< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< MatrixCSR< std::complex< float >,__int64_t > * >(argp2);
+  if (arg1) (arg1)->CSR_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_CSR_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< float >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_CSR_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_CSR_loc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (MatrixCSR< std::complex< float >,__int64_t > *) ((arg1)->CSR_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_dynmat_loc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *arg2 = (std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleLongInt_dynmat_loc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_dynmat_loc_set" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_dynmat_loc_set" "', argument " "2"" of type '" "std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > * >(argp2);
+  if (arg1) (arg1)->dynmat_loc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_dynmat_loc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_dynmat_loc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_dynmat_loc_get" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *) ((arg1)->dynmat_loc);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexSingleLongInt__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_parMatrixSparseComplexSingleLongInt")) SWIG_fail;
+  result = (parMatrixSparse< std::complex< float >,__int64_t > *)new parMatrixSparse< std::complex< float >,__int64_t >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexSingleLongInt__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parVector< std::complex< float >,__int64_t > *arg1 = (parVector< std::complex< float >,__int64_t > *) 0 ;
+  parVector< std::complex< float >,__int64_t > *arg2 = (parVector< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  parMatrixSparse< std::complex< float >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_parMatrixSparseComplexSingleLongInt",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parVectorT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_parMatrixSparseComplexSingleLongInt" "', argument " "1"" of type '" "parVector< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parVector< std::complex< float >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_parMatrixSparseComplexSingleLongInt" "', argument " "2"" of type '" "parVector< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< float >,__int64_t > * >(argp2);
+  result = (parMatrixSparse< std::complex< float >,__int64_t > *)new parMatrixSparse< std::complex< float >,__int64_t >(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_parMatrixSparseComplexSingleLongInt(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  Py_ssize_t ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_parMatrixSparseComplexSingleLongInt__SWIG_0(self, args);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_parVectorT_std__complexT_float_t___int64_t_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_parVectorT_std__complexT_float_t___int64_t_t, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_parMatrixSparseComplexSingleLongInt__SWIG_1(self, args);
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_parMatrixSparseComplexSingleLongInt'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    parMatrixSparse< std::complex< float >,__int64_t >::parMatrixSparse()\n"
+    "    parMatrixSparse< std::complex< float >,__int64_t >::parMatrixSparse(parVector< std::complex< float >,__int64_t > *,parVector< std::complex< float >,__int64_t > *)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_parMatrixSparseComplexSingleLongInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_parMatrixSparseComplexSingleLongInt",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_parMatrixSparseComplexSingleLongInt" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetXMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< __int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetXMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetXMap" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (parVectorMap< __int64_t > *)(arg1)->GetXMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetYMap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  parVectorMap< __int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetYMap",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetYMap" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (parVectorMap< __int64_t > *)(arg1)->GetYMap();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parVectorMapT___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetComm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MPI_Comm result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetComm",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetComm" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (arg1)->GetComm();
+  resultobj = SWIG_From_MPI_Comm(static_cast< MPI_Comm >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetXLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetXLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetXLowerBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (arg1)->GetXLowerBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetYLowerBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetYLowerBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetYLowerBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (arg1)->GetYLowerBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetXUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetXUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetXUpperBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (arg1)->GetXUpperBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetYUpperBound(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  __int64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetYUpperBound",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetYUpperBound" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (arg1)->GetYUpperBound();
+  resultobj = SWIG_NewPointerObj((new __int64_t(static_cast< const __int64_t& >(result))), SWIGTYPE_p___int64_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetTrueLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t *arg2 = 0 ;
+  __int64_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleLongInt_GetTrueLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetTrueLocalSize" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_GetTrueLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_GetTrueLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  arg2 = reinterpret_cast< __int64_t * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_GetTrueLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_GetTrueLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  (arg1)->GetTrueLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetLocalSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t *arg2 = 0 ;
+  __int64_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleLongInt_GetLocalSize",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetLocalSize" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_GetLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_GetLocalSize" "', argument " "2"" of type '" "__int64_t &""'"); 
+  }
+  arg2 = reinterpret_cast< __int64_t * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_GetLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_GetLocalSize" "', argument " "3"" of type '" "__int64_t &""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  (arg1)->GetLocalSize(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetDynMatGLobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetDynMatGLobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetDynMatGLobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *)(arg1)->GetDynMatGLobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetDynMatGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetDynMatGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetDynMatGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *)(arg1)->GetDynMatGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetDynMatLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetDynMatLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetDynMatLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *)(arg1)->GetDynMatLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetCSRLocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< float >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetCSRLocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetCSRLocLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (MatrixCSR< std::complex< float >,__int64_t > *)(arg1)->GetCSRLocLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetCSRGlobLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  MatrixCSR< std::complex< float >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_GetCSRGlobLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetCSRGlobLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  result = (MatrixCSR< std::complex< float >,__int64_t > *)(arg1)->GetCSRGlobLoc();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MatrixCSRT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_AddValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleLongInt_AddValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_AddValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_AddValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_AddValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_AddValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_AddValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleLongInt_AddValueLocal" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_AddValueLocal" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->AddValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_AddValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  std::complex< float > *arg5 = (std::complex< float > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexSingleLongInt_AddValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_AddValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_AddValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_AddValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_AddValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleLongInt_AddValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_float_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexSingleLongInt_AddValuesLocal" "', argument " "5"" of type '" "std::complex< float > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< float > * >(argp5);
+  (arg1)->AddValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_AddValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleLongInt_AddValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_AddValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_AddValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_AddValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_AddValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_AddValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleLongInt_AddValue" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_AddValue" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->AddValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleLongInt_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleLongInt_SetValueLocal" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_SetValueLocal" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  std::complex< float > *arg5 = (std::complex< float > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexSingleLongInt_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_SetValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleLongInt_SetValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_float_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexSingleLongInt_SetValuesLocal" "', argument " "5"" of type '" "std::complex< float > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< float > * >(argp5);
+  (arg1)->SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleLongInt_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_SetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_SetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_SetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_SetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_SetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleLongInt_SetValue" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_SetValue" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< float > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleLongInt_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (arg1)->GetLocalValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< float >(static_cast< const std::complex< float >& >(result))), SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< float > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleLongInt_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_GetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_GetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_GetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_GetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_GetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (arg1)->GetValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< float >(static_cast< const std::complex< float >& >(result))), SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_glocPlusLloc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_glocPlusLloc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_glocPlusLloc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  (arg1)->glocPlusLloc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_llocToGlocLoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_llocToGlocLoc",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_llocToGlocLoc" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  (arg1)->llocToGlocLoc();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_MatView" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  (arg1)->MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_LOC_MatView(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_LOC_MatView",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_LOC_MatView" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  (arg1)->LOC_MatView();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->Loc_SetValueLocal(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_Loc_SetValuesLocal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t *arg3 = (__int64_t *) 0 ;
+  __int64_t *arg4 = (__int64_t *) 0 ;
+  std::complex< float > *arg5 = (std::complex< float > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:parMatrixSparseComplexSingleLongInt_Loc_SetValuesLocal",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValuesLocal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValuesLocal" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValuesLocal" "', argument " "3"" of type '" "__int64_t *""'"); 
+  }
+  arg3 = reinterpret_cast< __int64_t * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p___int64_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValuesLocal" "', argument " "4"" of type '" "__int64_t *""'"); 
+  }
+  arg4 = reinterpret_cast< __int64_t * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_std__complexT_float_t, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValuesLocal" "', argument " "5"" of type '" "std::complex< float > *""'"); 
+  }
+  arg5 = reinterpret_cast< std::complex< float > * >(argp5);
+  (arg1)->Loc_SetValuesLocal(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_Loc_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  std::complex< float > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:parMatrixSparseComplexSingleLongInt_Loc_SetValue",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValue" "', argument " "4"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetValue" "', argument " "4"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  (arg1)->Loc_SetValue(arg2,arg3,arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_Loc_GetLocalValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< float > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleLongInt_Loc_GetLocalValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_GetLocalValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_GetLocalValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_GetLocalValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (arg1)->Loc_GetLocalValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< float >(static_cast< const std::complex< float >& >(result))), SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_Loc_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  __int64_t arg2 ;
+  __int64_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  std::complex< float > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleLongInt_Loc_GetValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_GetValue" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_GetValue" "', argument " "2"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_GetValue" "', argument " "2"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_GetValue" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_GetValue" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (arg1)->Loc_GetValue(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new std::complex< float >(static_cast< const std::complex< float >& >(result))), SWIGTYPE_p_std__complexT_float_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  parVector< std::complex< float >,__int64_t > *arg2 = (parVector< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleLongInt_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_SetDiagonal" "', argument " "2"" of type '" "parVector< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< float >,__int64_t > * >(argp2);
+  (arg1)->SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_Loc_SetDiagonal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  parVector< std::complex< float >,__int64_t > *arg2 = (parVector< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleLongInt_Loc_SetDiagonal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetDiagonal" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parVectorT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_SetDiagonal" "', argument " "2"" of type '" "parVector< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parVector< std::complex< float >,__int64_t > * >(argp2);
+  (arg1)->Loc_SetDiagonal(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  std::complex< float > arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleLongInt_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_MatScale" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_MatScale" "', argument " "2"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_MatScale" "', argument " "2"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  (arg1)->MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_Loc_MatScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  std::complex< float > arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:parMatrixSparseComplexSingleLongInt_Loc_MatScale",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_MatScale" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_MatScale" "', argument " "2"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_MatScale" "', argument " "2"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatScale(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_Loc_MatAXPY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg2 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  std::complex< float > arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleLongInt_Loc_MatAXPY",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_MatAXPY" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_MatAXPY" "', argument " "2"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp2);
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_MatAXPY" "', argument " "3"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_MatAXPY" "', argument " "3"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatAXPY(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_Loc_MatAYPX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg2 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  std::complex< float > arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleLongInt_Loc_MatAYPX",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_MatAYPX" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_MatAYPX" "', argument " "2"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg2 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp2);
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_std__complexT_float_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_MatAYPX" "', argument " "3"" of type '" "std::complex< float >""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_Loc_MatAYPX" "', argument " "3"" of type '" "std::complex< float >""'");
+    } else {
+      std::complex< float > * temp = reinterpret_cast< std::complex< float > * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  (arg1)->Loc_MatAYPX(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  (arg1)->ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_Loc_ConvertToCSR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_Loc_ConvertToCSR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_ConvertToCSR" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  (arg1)->Loc_ConvertToCSR();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  (arg1)->ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_Loc_ZeroEntries(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:parMatrixSparseComplexSingleLongInt_Loc_ZeroEntries",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_Loc_ZeroEntries" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  (arg1)->Loc_ZeroEntries();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_MA(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg3 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleLongInt_MA",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_MA" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_MA" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_MA" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_MA" "', argument " "3"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp3);
+  (arg1)->MA(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_parMatrixSparseComplexSingleLongInt_AM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg1 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  parMatrixSparse< std::complex< float >,__int64_t > *arg3 = (parMatrixSparse< std::complex< float >,__int64_t > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:parMatrixSparseComplexSingleLongInt_AM",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "parMatrixSparseComplexSingleLongInt_AM" "', argument " "1"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg1 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "parMatrixSparseComplexSingleLongInt_AM" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "parMatrixSparseComplexSingleLongInt_AM" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "parMatrixSparseComplexSingleLongInt_AM" "', argument " "3"" of type '" "parMatrixSparse< std::complex< float >,__int64_t > *""'"); 
+  }
+  arg3 = reinterpret_cast< parMatrixSparse< std::complex< float >,__int64_t > * >(argp3);
+  (arg1)->AM(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *parMatrixSparseComplexSingleLongInt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_smg2sComplexSingleLongInt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  __int64_t arg1 ;
+  SwigValueWrapper< Nilpotency< __int64_t > > arg2 ;
+  __int64_t arg3 ;
+  std::string arg4 ;
+  MPI_Comm arg5 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  parMatrixSparse< std::complex< float >,__int64_t > *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:smg2sComplexSingleLongInt",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  {
+    res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "smg2sComplexSingleLongInt" "', argument " "1"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sComplexSingleLongInt" "', argument " "1"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp1);
+      arg1 = *temp;
+      if (SWIG_IsNewObj(res1)) delete temp;
+    }
+  }
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_NilpotencyT___int64_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "smg2sComplexSingleLongInt" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sComplexSingleLongInt" "', argument " "2"" of type '" "Nilpotency< __int64_t >""'");
+    } else {
+      Nilpotency< __int64_t > * temp = reinterpret_cast< Nilpotency< __int64_t > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p___int64_t,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "smg2sComplexSingleLongInt" "', argument " "3"" of type '" "__int64_t""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "smg2sComplexSingleLongInt" "', argument " "3"" of type '" "__int64_t""'");
+    } else {
+      __int64_t * temp = reinterpret_cast< __int64_t * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(obj3, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sComplexSingleLongInt" "', argument " "4"" of type '" "std::string""'"); 
+    }
+    arg4 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  {
+    MPI_Comm *ptr = (MPI_Comm *)0;
+    int res = SWIG_AsPtr_MPI_Comm(obj4, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "smg2sComplexSingleLongInt" "', argument " "5"" of type '" "MPI_Comm""'"); 
+    }
+    arg5 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (parMatrixSparse< std::complex< float >,__int64_t > *)smg2s< std::complex< float >,__int64_t >(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -8900,6 +21140,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SwigPyIterator___add__", _wrap_SwigPyIterator___add__, METH_VARARGS, NULL},
 	 { (char *)"SwigPyIterator___sub__", _wrap_SwigPyIterator___sub__, METH_VARARGS, NULL},
 	 { (char *)"SwigPyIterator_swigregister", SwigPyIterator_swigregister, METH_VARARGS, NULL},
+	 { (char *)"factorial", _wrap_factorial, METH_VARARGS, NULL},
+	 { (char *)"import_mpi4py", _wrap_import_mpi4py, METH_VARARGS, NULL},
 	 { (char *)"NilpotencyInt_diagPosition_set", _wrap_NilpotencyInt_diagPosition_set, METH_VARARGS, NULL},
 	 { (char *)"NilpotencyInt_diagPosition_get", _wrap_NilpotencyInt_diagPosition_get, METH_VARARGS, NULL},
 	 { (char *)"NilpotencyInt_nbOne_set", _wrap_NilpotencyInt_nbOne_set, METH_VARARGS, NULL},
@@ -8913,126 +21155,449 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_NilpotencyInt", _wrap_new_NilpotencyInt, METH_VARARGS, NULL},
 	 { (char *)"NilpotencyInt_NilpType1", _wrap_NilpotencyInt_NilpType1, METH_VARARGS, NULL},
 	 { (char *)"NilpotencyInt_NilpType2", _wrap_NilpotencyInt_NilpType2, METH_VARARGS, NULL},
+	 { (char *)"NilpotencyInt_NilpType3", _wrap_NilpotencyInt_NilpType3, METH_VARARGS, NULL},
 	 { (char *)"delete_NilpotencyInt", _wrap_delete_NilpotencyInt, METH_VARARGS, NULL},
 	 { (char *)"NilpotencyInt_swigregister", NilpotencyInt_swigregister, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_nrows_set", _wrap_MatrixCSRDoubleInt_nrows_set, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_nrows_get", _wrap_MatrixCSRDoubleInt_nrows_get, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_nnz_set", _wrap_MatrixCSRDoubleInt_nnz_set, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_nnz_get", _wrap_MatrixCSRDoubleInt_nnz_get, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_ncols_set", _wrap_MatrixCSRDoubleInt_ncols_set, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_ncols_get", _wrap_MatrixCSRDoubleInt_ncols_get, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_rows_set", _wrap_MatrixCSRDoubleInt_rows_set, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_rows_get", _wrap_MatrixCSRDoubleInt_rows_get, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_cols_set", _wrap_MatrixCSRDoubleInt_cols_set, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_cols_get", _wrap_MatrixCSRDoubleInt_cols_get, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_vals_set", _wrap_MatrixCSRDoubleInt_vals_set, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_vals_get", _wrap_MatrixCSRDoubleInt_vals_get, METH_VARARGS, NULL},
-	 { (char *)"new_MatrixCSRDoubleInt", _wrap_new_MatrixCSRDoubleInt, METH_VARARGS, NULL},
-	 { (char *)"delete_MatrixCSRDoubleInt", _wrap_delete_MatrixCSRDoubleInt, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_GetValue", _wrap_MatrixCSRDoubleInt_GetValue, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_SetValue", _wrap_MatrixCSRDoubleInt_SetValue, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_InsertValue", _wrap_MatrixCSRDoubleInt_InsertValue, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_Add", _wrap_MatrixCSRDoubleInt_Add, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_Free", _wrap_MatrixCSRDoubleInt_Free, METH_VARARGS, NULL},
-	 { (char *)"MatrixCSRDoubleInt_swigregister", MatrixCSRDoubleInt_swigregister, METH_VARARGS, NULL},
-	 { (char *)"new_parVectorMapInt", _wrap_new_parVectorMapInt, METH_VARARGS, NULL},
-	 { (char *)"delete_parVectorMapInt", _wrap_delete_parVectorMapInt, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_GetCurrentComm", _wrap_parVectorMapInt_GetCurrentComm, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_Loc2Glob", _wrap_parVectorMapInt_Loc2Glob, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_Glob2Loc", _wrap_parVectorMapInt_Glob2Loc, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_GetOwner", _wrap_parVectorMapInt_GetOwner, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_GetRank", _wrap_parVectorMapInt_GetRank, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_GetLowerBound", _wrap_parVectorMapInt_GetLowerBound, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_GetUpperBound", _wrap_parVectorMapInt_GetUpperBound, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_GetLocalSize", _wrap_parVectorMapInt_GetLocalSize, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_GetGlobalSize", _wrap_parVectorMapInt_GetGlobalSize, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_GetLocTotSize", _wrap_parVectorMapInt_GetLocTotSize, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_AddUser", _wrap_parVectorMapInt_AddUser, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_DeleteUser", _wrap_parVectorMapInt_DeleteUser, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_GetUser", _wrap_parVectorMapInt_GetUser, METH_VARARGS, NULL},
-	 { (char *)"parVectorMapInt_swigregister", parVectorMapInt_swigregister, METH_VARARGS, NULL},
-	 { (char *)"new_parVectorDoubleInt", _wrap_new_parVectorDoubleInt, METH_VARARGS, NULL},
-	 { (char *)"delete_parVectorDoubleInt", _wrap_delete_parVectorDoubleInt, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_GetVecMap", _wrap_parVectorDoubleInt_GetVecMap, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_GetLowerBound", _wrap_parVectorDoubleInt_GetLowerBound, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_GetUpperBound", _wrap_parVectorDoubleInt_GetUpperBound, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_GetGlobalSize", _wrap_parVectorDoubleInt_GetGlobalSize, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_GetLocalSize", _wrap_parVectorDoubleInt_GetLocalSize, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_GetArraySize", _wrap_parVectorDoubleInt_GetArraySize, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_GetArray", _wrap_parVectorDoubleInt_GetArray, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_Loc2Glob", _wrap_parVectorDoubleInt_Loc2Glob, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_Glob2Loc", _wrap_parVectorDoubleInt_Glob2Loc, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_AddValueLocal", _wrap_parVectorDoubleInt_AddValueLocal, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_AddValuesLocal", _wrap_parVectorDoubleInt_AddValuesLocal, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_SetValueLocal", _wrap_parVectorDoubleInt_SetValueLocal, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_SetValuesLocal", _wrap_parVectorDoubleInt_SetValuesLocal, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_SetValueGlobal", _wrap_parVectorDoubleInt_SetValueGlobal, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_SetValuesGlobal", _wrap_parVectorDoubleInt_SetValuesGlobal, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_SetTovalue", _wrap_parVectorDoubleInt_SetTovalue, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_SetToZero", _wrap_parVectorDoubleInt_SetToZero, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_VecAdd", _wrap_parVectorDoubleInt_VecAdd, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_VecScale", _wrap_parVectorDoubleInt_VecScale, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_VecDot", _wrap_parVectorDoubleInt_VecDot, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_ReadExtVec", _wrap_parVectorDoubleInt_ReadExtVec, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_VecView", _wrap_parVectorDoubleInt_VecView, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_RestoreArray", _wrap_parVectorDoubleInt_RestoreArray, METH_VARARGS, NULL},
-	 { (char *)"parVectorDoubleInt_swigregister", parVectorDoubleInt_swigregister, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_CSR_lloc_set", _wrap_parMatrixSparseDoubleInt_CSR_lloc_set, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_CSR_lloc_get", _wrap_parMatrixSparseDoubleInt_CSR_lloc_get, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_CSR_gloc_set", _wrap_parMatrixSparseDoubleInt_CSR_gloc_set, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_CSR_gloc_get", _wrap_parMatrixSparseDoubleInt_CSR_gloc_get, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_CSR_loc_set", _wrap_parMatrixSparseDoubleInt_CSR_loc_set, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_CSR_loc_get", _wrap_parMatrixSparseDoubleInt_CSR_loc_get, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_dynmat_loc_set", _wrap_parMatrixSparseDoubleInt_dynmat_loc_set, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_dynmat_loc_get", _wrap_parMatrixSparseDoubleInt_dynmat_loc_get, METH_VARARGS, NULL},
-	 { (char *)"new_parMatrixSparseDoubleInt", _wrap_new_parMatrixSparseDoubleInt, METH_VARARGS, NULL},
-	 { (char *)"delete_parMatrixSparseDoubleInt", _wrap_delete_parMatrixSparseDoubleInt, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetXMap", _wrap_parMatrixSparseDoubleInt_GetXMap, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetYMap", _wrap_parMatrixSparseDoubleInt_GetYMap, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetComm", _wrap_parMatrixSparseDoubleInt_GetComm, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetXLowerBound", _wrap_parMatrixSparseDoubleInt_GetXLowerBound, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetYLowerBound", _wrap_parMatrixSparseDoubleInt_GetYLowerBound, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetXUpperBound", _wrap_parMatrixSparseDoubleInt_GetXUpperBound, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetYUpperBound", _wrap_parMatrixSparseDoubleInt_GetYUpperBound, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetTrueLocalSize", _wrap_parMatrixSparseDoubleInt_GetTrueLocalSize, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetLocalSize", _wrap_parMatrixSparseDoubleInt_GetLocalSize, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetDynMatGLobLoc", _wrap_parMatrixSparseDoubleInt_GetDynMatGLobLoc, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetDynMatGlobLoc", _wrap_parMatrixSparseDoubleInt_GetDynMatGlobLoc, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetDynMatLoc", _wrap_parMatrixSparseDoubleInt_GetDynMatLoc, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetCSRLocLoc", _wrap_parMatrixSparseDoubleInt_GetCSRLocLoc, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetCSRGlobLoc", _wrap_parMatrixSparseDoubleInt_GetCSRGlobLoc, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_AddValueLocal", _wrap_parMatrixSparseDoubleInt_AddValueLocal, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_AddValuesLocal", _wrap_parMatrixSparseDoubleInt_AddValuesLocal, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_AddValue", _wrap_parMatrixSparseDoubleInt_AddValue, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_SetValueLocal", _wrap_parMatrixSparseDoubleInt_SetValueLocal, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_SetValuesLocal", _wrap_parMatrixSparseDoubleInt_SetValuesLocal, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_SetValue", _wrap_parMatrixSparseDoubleInt_SetValue, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetLocalValue", _wrap_parMatrixSparseDoubleInt_GetLocalValue, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_GetValue", _wrap_parMatrixSparseDoubleInt_GetValue, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_glocPlusLloc", _wrap_parMatrixSparseDoubleInt_glocPlusLloc, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_llocToGlocLoc", _wrap_parMatrixSparseDoubleInt_llocToGlocLoc, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_MatView", _wrap_parMatrixSparseDoubleInt_MatView, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_LOC_MatView", _wrap_parMatrixSparseDoubleInt_LOC_MatView, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_Loc_SetValueLocal", _wrap_parMatrixSparseDoubleInt_Loc_SetValueLocal, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_Loc_SetValuesLocal", _wrap_parMatrixSparseDoubleInt_Loc_SetValuesLocal, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_Loc_SetValue", _wrap_parMatrixSparseDoubleInt_Loc_SetValue, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_Loc_GetLocalValue", _wrap_parMatrixSparseDoubleInt_Loc_GetLocalValue, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_Loc_GetValue", _wrap_parMatrixSparseDoubleInt_Loc_GetValue, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_SetDiagonal", _wrap_parMatrixSparseDoubleInt_SetDiagonal, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_Loc_SetDiagonal", _wrap_parMatrixSparseDoubleInt_Loc_SetDiagonal, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_MatScale", _wrap_parMatrixSparseDoubleInt_MatScale, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_Loc_MatScale", _wrap_parMatrixSparseDoubleInt_Loc_MatScale, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_Loc_MatAXPY", _wrap_parMatrixSparseDoubleInt_Loc_MatAXPY, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_Loc_MatAYPX", _wrap_parMatrixSparseDoubleInt_Loc_MatAYPX, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_ReadExtMat", _wrap_parMatrixSparseDoubleInt_ReadExtMat, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_ConvertToCSR", _wrap_parMatrixSparseDoubleInt_ConvertToCSR, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_Loc_ConvertToCSR", _wrap_parMatrixSparseDoubleInt_Loc_ConvertToCSR, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_ZeroEntries", _wrap_parMatrixSparseDoubleInt_ZeroEntries, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_Loc_ZeroEntries", _wrap_parMatrixSparseDoubleInt_Loc_ZeroEntries, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_MA", _wrap_parMatrixSparseDoubleInt_MA, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_AM", _wrap_parMatrixSparseDoubleInt_AM, METH_VARARGS, NULL},
-	 { (char *)"parMatrixSparseDoubleInt_swigregister", parMatrixSparseDoubleInt_swigregister, METH_VARARGS, NULL},
-	 { (char *)"smg2sDoubleInt", _wrap_smg2sDoubleInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_CSR_lloc_set", _wrap_parMatrixSparseRealDoubleInt_CSR_lloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_CSR_lloc_get", _wrap_parMatrixSparseRealDoubleInt_CSR_lloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_CSR_gloc_set", _wrap_parMatrixSparseRealDoubleInt_CSR_gloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_CSR_gloc_get", _wrap_parMatrixSparseRealDoubleInt_CSR_gloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_CSR_loc_set", _wrap_parMatrixSparseRealDoubleInt_CSR_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_CSR_loc_get", _wrap_parMatrixSparseRealDoubleInt_CSR_loc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_dynmat_loc_set", _wrap_parMatrixSparseRealDoubleInt_dynmat_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_dynmat_loc_get", _wrap_parMatrixSparseRealDoubleInt_dynmat_loc_get, METH_VARARGS, NULL},
+	 { (char *)"new_parMatrixSparseRealDoubleInt", _wrap_new_parMatrixSparseRealDoubleInt, METH_VARARGS, NULL},
+	 { (char *)"delete_parMatrixSparseRealDoubleInt", _wrap_delete_parMatrixSparseRealDoubleInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetXMap", _wrap_parMatrixSparseRealDoubleInt_GetXMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetYMap", _wrap_parMatrixSparseRealDoubleInt_GetYMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetComm", _wrap_parMatrixSparseRealDoubleInt_GetComm, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetXLowerBound", _wrap_parMatrixSparseRealDoubleInt_GetXLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetYLowerBound", _wrap_parMatrixSparseRealDoubleInt_GetYLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetXUpperBound", _wrap_parMatrixSparseRealDoubleInt_GetXUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetYUpperBound", _wrap_parMatrixSparseRealDoubleInt_GetYUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetTrueLocalSize", _wrap_parMatrixSparseRealDoubleInt_GetTrueLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetLocalSize", _wrap_parMatrixSparseRealDoubleInt_GetLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetDynMatGLobLoc", _wrap_parMatrixSparseRealDoubleInt_GetDynMatGLobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetDynMatGlobLoc", _wrap_parMatrixSparseRealDoubleInt_GetDynMatGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetDynMatLoc", _wrap_parMatrixSparseRealDoubleInt_GetDynMatLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetCSRLocLoc", _wrap_parMatrixSparseRealDoubleInt_GetCSRLocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetCSRGlobLoc", _wrap_parMatrixSparseRealDoubleInt_GetCSRGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_AddValueLocal", _wrap_parMatrixSparseRealDoubleInt_AddValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_AddValuesLocal", _wrap_parMatrixSparseRealDoubleInt_AddValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_AddValue", _wrap_parMatrixSparseRealDoubleInt_AddValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_SetValueLocal", _wrap_parMatrixSparseRealDoubleInt_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_SetValuesLocal", _wrap_parMatrixSparseRealDoubleInt_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_SetValue", _wrap_parMatrixSparseRealDoubleInt_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetLocalValue", _wrap_parMatrixSparseRealDoubleInt_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_GetValue", _wrap_parMatrixSparseRealDoubleInt_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_glocPlusLloc", _wrap_parMatrixSparseRealDoubleInt_glocPlusLloc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_llocToGlocLoc", _wrap_parMatrixSparseRealDoubleInt_llocToGlocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_MatView", _wrap_parMatrixSparseRealDoubleInt_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_LOC_MatView", _wrap_parMatrixSparseRealDoubleInt_LOC_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_Loc_SetValueLocal", _wrap_parMatrixSparseRealDoubleInt_Loc_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_Loc_SetValuesLocal", _wrap_parMatrixSparseRealDoubleInt_Loc_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_Loc_SetValue", _wrap_parMatrixSparseRealDoubleInt_Loc_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_Loc_GetLocalValue", _wrap_parMatrixSparseRealDoubleInt_Loc_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_Loc_GetValue", _wrap_parMatrixSparseRealDoubleInt_Loc_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_SetDiagonal", _wrap_parMatrixSparseRealDoubleInt_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_Loc_SetDiagonal", _wrap_parMatrixSparseRealDoubleInt_Loc_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_MatScale", _wrap_parMatrixSparseRealDoubleInt_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_Loc_MatScale", _wrap_parMatrixSparseRealDoubleInt_Loc_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_Loc_MatAXPY", _wrap_parMatrixSparseRealDoubleInt_Loc_MatAXPY, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_Loc_MatAYPX", _wrap_parMatrixSparseRealDoubleInt_Loc_MatAYPX, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_ConvertToCSR", _wrap_parMatrixSparseRealDoubleInt_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_Loc_ConvertToCSR", _wrap_parMatrixSparseRealDoubleInt_Loc_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_ZeroEntries", _wrap_parMatrixSparseRealDoubleInt_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_Loc_ZeroEntries", _wrap_parMatrixSparseRealDoubleInt_Loc_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_MA", _wrap_parMatrixSparseRealDoubleInt_MA, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_AM", _wrap_parMatrixSparseRealDoubleInt_AM, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleInt_swigregister", parMatrixSparseRealDoubleInt_swigregister, METH_VARARGS, NULL},
+	 { (char *)"smg2sRealDoubleInt", _wrap_smg2sRealDoubleInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_CSR_lloc_set", _wrap_parMatrixSparseRealDoubleLongInt_CSR_lloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_CSR_lloc_get", _wrap_parMatrixSparseRealDoubleLongInt_CSR_lloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_CSR_gloc_set", _wrap_parMatrixSparseRealDoubleLongInt_CSR_gloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_CSR_gloc_get", _wrap_parMatrixSparseRealDoubleLongInt_CSR_gloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_CSR_loc_set", _wrap_parMatrixSparseRealDoubleLongInt_CSR_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_CSR_loc_get", _wrap_parMatrixSparseRealDoubleLongInt_CSR_loc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_dynmat_loc_set", _wrap_parMatrixSparseRealDoubleLongInt_dynmat_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_dynmat_loc_get", _wrap_parMatrixSparseRealDoubleLongInt_dynmat_loc_get, METH_VARARGS, NULL},
+	 { (char *)"new_parMatrixSparseRealDoubleLongInt", _wrap_new_parMatrixSparseRealDoubleLongInt, METH_VARARGS, NULL},
+	 { (char *)"delete_parMatrixSparseRealDoubleLongInt", _wrap_delete_parMatrixSparseRealDoubleLongInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetXMap", _wrap_parMatrixSparseRealDoubleLongInt_GetXMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetYMap", _wrap_parMatrixSparseRealDoubleLongInt_GetYMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetComm", _wrap_parMatrixSparseRealDoubleLongInt_GetComm, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetXLowerBound", _wrap_parMatrixSparseRealDoubleLongInt_GetXLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetYLowerBound", _wrap_parMatrixSparseRealDoubleLongInt_GetYLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetXUpperBound", _wrap_parMatrixSparseRealDoubleLongInt_GetXUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetYUpperBound", _wrap_parMatrixSparseRealDoubleLongInt_GetYUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetTrueLocalSize", _wrap_parMatrixSparseRealDoubleLongInt_GetTrueLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetLocalSize", _wrap_parMatrixSparseRealDoubleLongInt_GetLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetDynMatGLobLoc", _wrap_parMatrixSparseRealDoubleLongInt_GetDynMatGLobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetDynMatGlobLoc", _wrap_parMatrixSparseRealDoubleLongInt_GetDynMatGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetDynMatLoc", _wrap_parMatrixSparseRealDoubleLongInt_GetDynMatLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetCSRLocLoc", _wrap_parMatrixSparseRealDoubleLongInt_GetCSRLocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetCSRGlobLoc", _wrap_parMatrixSparseRealDoubleLongInt_GetCSRGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_AddValueLocal", _wrap_parMatrixSparseRealDoubleLongInt_AddValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_AddValuesLocal", _wrap_parMatrixSparseRealDoubleLongInt_AddValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_AddValue", _wrap_parMatrixSparseRealDoubleLongInt_AddValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_SetValueLocal", _wrap_parMatrixSparseRealDoubleLongInt_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_SetValuesLocal", _wrap_parMatrixSparseRealDoubleLongInt_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_SetValue", _wrap_parMatrixSparseRealDoubleLongInt_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetLocalValue", _wrap_parMatrixSparseRealDoubleLongInt_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_GetValue", _wrap_parMatrixSparseRealDoubleLongInt_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_glocPlusLloc", _wrap_parMatrixSparseRealDoubleLongInt_glocPlusLloc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_llocToGlocLoc", _wrap_parMatrixSparseRealDoubleLongInt_llocToGlocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_MatView", _wrap_parMatrixSparseRealDoubleLongInt_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_LOC_MatView", _wrap_parMatrixSparseRealDoubleLongInt_LOC_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_Loc_SetValueLocal", _wrap_parMatrixSparseRealDoubleLongInt_Loc_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_Loc_SetValuesLocal", _wrap_parMatrixSparseRealDoubleLongInt_Loc_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_Loc_SetValue", _wrap_parMatrixSparseRealDoubleLongInt_Loc_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_Loc_GetLocalValue", _wrap_parMatrixSparseRealDoubleLongInt_Loc_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_Loc_GetValue", _wrap_parMatrixSparseRealDoubleLongInt_Loc_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_SetDiagonal", _wrap_parMatrixSparseRealDoubleLongInt_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_Loc_SetDiagonal", _wrap_parMatrixSparseRealDoubleLongInt_Loc_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_MatScale", _wrap_parMatrixSparseRealDoubleLongInt_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_Loc_MatScale", _wrap_parMatrixSparseRealDoubleLongInt_Loc_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_Loc_MatAXPY", _wrap_parMatrixSparseRealDoubleLongInt_Loc_MatAXPY, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_Loc_MatAYPX", _wrap_parMatrixSparseRealDoubleLongInt_Loc_MatAYPX, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_ConvertToCSR", _wrap_parMatrixSparseRealDoubleLongInt_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_Loc_ConvertToCSR", _wrap_parMatrixSparseRealDoubleLongInt_Loc_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_ZeroEntries", _wrap_parMatrixSparseRealDoubleLongInt_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_Loc_ZeroEntries", _wrap_parMatrixSparseRealDoubleLongInt_Loc_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_MA", _wrap_parMatrixSparseRealDoubleLongInt_MA, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_AM", _wrap_parMatrixSparseRealDoubleLongInt_AM, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealDoubleLongInt_swigregister", parMatrixSparseRealDoubleLongInt_swigregister, METH_VARARGS, NULL},
+	 { (char *)"smg2sRealDoubleLongInt", _wrap_smg2sRealDoubleLongInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_CSR_lloc_set", _wrap_parMatrixSparseRealSingleInt_CSR_lloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_CSR_lloc_get", _wrap_parMatrixSparseRealSingleInt_CSR_lloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_CSR_gloc_set", _wrap_parMatrixSparseRealSingleInt_CSR_gloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_CSR_gloc_get", _wrap_parMatrixSparseRealSingleInt_CSR_gloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_CSR_loc_set", _wrap_parMatrixSparseRealSingleInt_CSR_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_CSR_loc_get", _wrap_parMatrixSparseRealSingleInt_CSR_loc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_dynmat_loc_set", _wrap_parMatrixSparseRealSingleInt_dynmat_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_dynmat_loc_get", _wrap_parMatrixSparseRealSingleInt_dynmat_loc_get, METH_VARARGS, NULL},
+	 { (char *)"new_parMatrixSparseRealSingleInt", _wrap_new_parMatrixSparseRealSingleInt, METH_VARARGS, NULL},
+	 { (char *)"delete_parMatrixSparseRealSingleInt", _wrap_delete_parMatrixSparseRealSingleInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetXMap", _wrap_parMatrixSparseRealSingleInt_GetXMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetYMap", _wrap_parMatrixSparseRealSingleInt_GetYMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetComm", _wrap_parMatrixSparseRealSingleInt_GetComm, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetXLowerBound", _wrap_parMatrixSparseRealSingleInt_GetXLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetYLowerBound", _wrap_parMatrixSparseRealSingleInt_GetYLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetXUpperBound", _wrap_parMatrixSparseRealSingleInt_GetXUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetYUpperBound", _wrap_parMatrixSparseRealSingleInt_GetYUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetTrueLocalSize", _wrap_parMatrixSparseRealSingleInt_GetTrueLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetLocalSize", _wrap_parMatrixSparseRealSingleInt_GetLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetDynMatGLobLoc", _wrap_parMatrixSparseRealSingleInt_GetDynMatGLobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetDynMatGlobLoc", _wrap_parMatrixSparseRealSingleInt_GetDynMatGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetDynMatLoc", _wrap_parMatrixSparseRealSingleInt_GetDynMatLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetCSRLocLoc", _wrap_parMatrixSparseRealSingleInt_GetCSRLocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetCSRGlobLoc", _wrap_parMatrixSparseRealSingleInt_GetCSRGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_AddValueLocal", _wrap_parMatrixSparseRealSingleInt_AddValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_AddValuesLocal", _wrap_parMatrixSparseRealSingleInt_AddValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_AddValue", _wrap_parMatrixSparseRealSingleInt_AddValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_SetValueLocal", _wrap_parMatrixSparseRealSingleInt_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_SetValuesLocal", _wrap_parMatrixSparseRealSingleInt_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_SetValue", _wrap_parMatrixSparseRealSingleInt_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetLocalValue", _wrap_parMatrixSparseRealSingleInt_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_GetValue", _wrap_parMatrixSparseRealSingleInt_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_glocPlusLloc", _wrap_parMatrixSparseRealSingleInt_glocPlusLloc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_llocToGlocLoc", _wrap_parMatrixSparseRealSingleInt_llocToGlocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_MatView", _wrap_parMatrixSparseRealSingleInt_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_LOC_MatView", _wrap_parMatrixSparseRealSingleInt_LOC_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_Loc_SetValueLocal", _wrap_parMatrixSparseRealSingleInt_Loc_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_Loc_SetValuesLocal", _wrap_parMatrixSparseRealSingleInt_Loc_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_Loc_SetValue", _wrap_parMatrixSparseRealSingleInt_Loc_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_Loc_GetLocalValue", _wrap_parMatrixSparseRealSingleInt_Loc_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_Loc_GetValue", _wrap_parMatrixSparseRealSingleInt_Loc_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_SetDiagonal", _wrap_parMatrixSparseRealSingleInt_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_Loc_SetDiagonal", _wrap_parMatrixSparseRealSingleInt_Loc_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_MatScale", _wrap_parMatrixSparseRealSingleInt_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_Loc_MatScale", _wrap_parMatrixSparseRealSingleInt_Loc_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_Loc_MatAXPY", _wrap_parMatrixSparseRealSingleInt_Loc_MatAXPY, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_Loc_MatAYPX", _wrap_parMatrixSparseRealSingleInt_Loc_MatAYPX, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_ConvertToCSR", _wrap_parMatrixSparseRealSingleInt_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_Loc_ConvertToCSR", _wrap_parMatrixSparseRealSingleInt_Loc_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_ZeroEntries", _wrap_parMatrixSparseRealSingleInt_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_Loc_ZeroEntries", _wrap_parMatrixSparseRealSingleInt_Loc_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_MA", _wrap_parMatrixSparseRealSingleInt_MA, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_AM", _wrap_parMatrixSparseRealSingleInt_AM, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleInt_swigregister", parMatrixSparseRealSingleInt_swigregister, METH_VARARGS, NULL},
+	 { (char *)"smg2sRealSingleInt", _wrap_smg2sRealSingleInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_CSR_lloc_set", _wrap_parMatrixSparseRealSingleLongInt_CSR_lloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_CSR_lloc_get", _wrap_parMatrixSparseRealSingleLongInt_CSR_lloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_CSR_gloc_set", _wrap_parMatrixSparseRealSingleLongInt_CSR_gloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_CSR_gloc_get", _wrap_parMatrixSparseRealSingleLongInt_CSR_gloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_CSR_loc_set", _wrap_parMatrixSparseRealSingleLongInt_CSR_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_CSR_loc_get", _wrap_parMatrixSparseRealSingleLongInt_CSR_loc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_dynmat_loc_set", _wrap_parMatrixSparseRealSingleLongInt_dynmat_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_dynmat_loc_get", _wrap_parMatrixSparseRealSingleLongInt_dynmat_loc_get, METH_VARARGS, NULL},
+	 { (char *)"new_parMatrixSparseRealSingleLongInt", _wrap_new_parMatrixSparseRealSingleLongInt, METH_VARARGS, NULL},
+	 { (char *)"delete_parMatrixSparseRealSingleLongInt", _wrap_delete_parMatrixSparseRealSingleLongInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetXMap", _wrap_parMatrixSparseRealSingleLongInt_GetXMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetYMap", _wrap_parMatrixSparseRealSingleLongInt_GetYMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetComm", _wrap_parMatrixSparseRealSingleLongInt_GetComm, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetXLowerBound", _wrap_parMatrixSparseRealSingleLongInt_GetXLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetYLowerBound", _wrap_parMatrixSparseRealSingleLongInt_GetYLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetXUpperBound", _wrap_parMatrixSparseRealSingleLongInt_GetXUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetYUpperBound", _wrap_parMatrixSparseRealSingleLongInt_GetYUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetTrueLocalSize", _wrap_parMatrixSparseRealSingleLongInt_GetTrueLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetLocalSize", _wrap_parMatrixSparseRealSingleLongInt_GetLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetDynMatGLobLoc", _wrap_parMatrixSparseRealSingleLongInt_GetDynMatGLobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetDynMatGlobLoc", _wrap_parMatrixSparseRealSingleLongInt_GetDynMatGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetDynMatLoc", _wrap_parMatrixSparseRealSingleLongInt_GetDynMatLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetCSRLocLoc", _wrap_parMatrixSparseRealSingleLongInt_GetCSRLocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetCSRGlobLoc", _wrap_parMatrixSparseRealSingleLongInt_GetCSRGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_AddValueLocal", _wrap_parMatrixSparseRealSingleLongInt_AddValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_AddValuesLocal", _wrap_parMatrixSparseRealSingleLongInt_AddValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_AddValue", _wrap_parMatrixSparseRealSingleLongInt_AddValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_SetValueLocal", _wrap_parMatrixSparseRealSingleLongInt_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_SetValuesLocal", _wrap_parMatrixSparseRealSingleLongInt_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_SetValue", _wrap_parMatrixSparseRealSingleLongInt_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetLocalValue", _wrap_parMatrixSparseRealSingleLongInt_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_GetValue", _wrap_parMatrixSparseRealSingleLongInt_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_glocPlusLloc", _wrap_parMatrixSparseRealSingleLongInt_glocPlusLloc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_llocToGlocLoc", _wrap_parMatrixSparseRealSingleLongInt_llocToGlocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_MatView", _wrap_parMatrixSparseRealSingleLongInt_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_LOC_MatView", _wrap_parMatrixSparseRealSingleLongInt_LOC_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_Loc_SetValueLocal", _wrap_parMatrixSparseRealSingleLongInt_Loc_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_Loc_SetValuesLocal", _wrap_parMatrixSparseRealSingleLongInt_Loc_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_Loc_SetValue", _wrap_parMatrixSparseRealSingleLongInt_Loc_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_Loc_GetLocalValue", _wrap_parMatrixSparseRealSingleLongInt_Loc_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_Loc_GetValue", _wrap_parMatrixSparseRealSingleLongInt_Loc_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_SetDiagonal", _wrap_parMatrixSparseRealSingleLongInt_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_Loc_SetDiagonal", _wrap_parMatrixSparseRealSingleLongInt_Loc_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_MatScale", _wrap_parMatrixSparseRealSingleLongInt_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_Loc_MatScale", _wrap_parMatrixSparseRealSingleLongInt_Loc_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_Loc_MatAXPY", _wrap_parMatrixSparseRealSingleLongInt_Loc_MatAXPY, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_Loc_MatAYPX", _wrap_parMatrixSparseRealSingleLongInt_Loc_MatAYPX, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_ConvertToCSR", _wrap_parMatrixSparseRealSingleLongInt_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_Loc_ConvertToCSR", _wrap_parMatrixSparseRealSingleLongInt_Loc_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_ZeroEntries", _wrap_parMatrixSparseRealSingleLongInt_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_Loc_ZeroEntries", _wrap_parMatrixSparseRealSingleLongInt_Loc_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_MA", _wrap_parMatrixSparseRealSingleLongInt_MA, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_AM", _wrap_parMatrixSparseRealSingleLongInt_AM, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseRealSingleLongInt_swigregister", parMatrixSparseRealSingleLongInt_swigregister, METH_VARARGS, NULL},
+	 { (char *)"smg2sRealSingleLongInt", _wrap_smg2sRealSingleLongInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_CSR_lloc_set", _wrap_parMatrixSparseComplexDoubleInt_CSR_lloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_CSR_lloc_get", _wrap_parMatrixSparseComplexDoubleInt_CSR_lloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_CSR_gloc_set", _wrap_parMatrixSparseComplexDoubleInt_CSR_gloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_CSR_gloc_get", _wrap_parMatrixSparseComplexDoubleInt_CSR_gloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_CSR_loc_set", _wrap_parMatrixSparseComplexDoubleInt_CSR_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_CSR_loc_get", _wrap_parMatrixSparseComplexDoubleInt_CSR_loc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_dynmat_loc_set", _wrap_parMatrixSparseComplexDoubleInt_dynmat_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_dynmat_loc_get", _wrap_parMatrixSparseComplexDoubleInt_dynmat_loc_get, METH_VARARGS, NULL},
+	 { (char *)"new_parMatrixSparseComplexDoubleInt", _wrap_new_parMatrixSparseComplexDoubleInt, METH_VARARGS, NULL},
+	 { (char *)"delete_parMatrixSparseComplexDoubleInt", _wrap_delete_parMatrixSparseComplexDoubleInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetXMap", _wrap_parMatrixSparseComplexDoubleInt_GetXMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetYMap", _wrap_parMatrixSparseComplexDoubleInt_GetYMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetComm", _wrap_parMatrixSparseComplexDoubleInt_GetComm, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetXLowerBound", _wrap_parMatrixSparseComplexDoubleInt_GetXLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetYLowerBound", _wrap_parMatrixSparseComplexDoubleInt_GetYLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetXUpperBound", _wrap_parMatrixSparseComplexDoubleInt_GetXUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetYUpperBound", _wrap_parMatrixSparseComplexDoubleInt_GetYUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetTrueLocalSize", _wrap_parMatrixSparseComplexDoubleInt_GetTrueLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetLocalSize", _wrap_parMatrixSparseComplexDoubleInt_GetLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetDynMatGLobLoc", _wrap_parMatrixSparseComplexDoubleInt_GetDynMatGLobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetDynMatGlobLoc", _wrap_parMatrixSparseComplexDoubleInt_GetDynMatGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetDynMatLoc", _wrap_parMatrixSparseComplexDoubleInt_GetDynMatLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetCSRLocLoc", _wrap_parMatrixSparseComplexDoubleInt_GetCSRLocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetCSRGlobLoc", _wrap_parMatrixSparseComplexDoubleInt_GetCSRGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_AddValueLocal", _wrap_parMatrixSparseComplexDoubleInt_AddValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_AddValuesLocal", _wrap_parMatrixSparseComplexDoubleInt_AddValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_AddValue", _wrap_parMatrixSparseComplexDoubleInt_AddValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_SetValueLocal", _wrap_parMatrixSparseComplexDoubleInt_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_SetValuesLocal", _wrap_parMatrixSparseComplexDoubleInt_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_SetValue", _wrap_parMatrixSparseComplexDoubleInt_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetLocalValue", _wrap_parMatrixSparseComplexDoubleInt_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_GetValue", _wrap_parMatrixSparseComplexDoubleInt_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_glocPlusLloc", _wrap_parMatrixSparseComplexDoubleInt_glocPlusLloc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_llocToGlocLoc", _wrap_parMatrixSparseComplexDoubleInt_llocToGlocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_MatView", _wrap_parMatrixSparseComplexDoubleInt_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_LOC_MatView", _wrap_parMatrixSparseComplexDoubleInt_LOC_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_Loc_SetValueLocal", _wrap_parMatrixSparseComplexDoubleInt_Loc_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_Loc_SetValuesLocal", _wrap_parMatrixSparseComplexDoubleInt_Loc_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_Loc_SetValue", _wrap_parMatrixSparseComplexDoubleInt_Loc_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_Loc_GetLocalValue", _wrap_parMatrixSparseComplexDoubleInt_Loc_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_Loc_GetValue", _wrap_parMatrixSparseComplexDoubleInt_Loc_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_SetDiagonal", _wrap_parMatrixSparseComplexDoubleInt_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_Loc_SetDiagonal", _wrap_parMatrixSparseComplexDoubleInt_Loc_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_MatScale", _wrap_parMatrixSparseComplexDoubleInt_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_Loc_MatScale", _wrap_parMatrixSparseComplexDoubleInt_Loc_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_Loc_MatAXPY", _wrap_parMatrixSparseComplexDoubleInt_Loc_MatAXPY, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_Loc_MatAYPX", _wrap_parMatrixSparseComplexDoubleInt_Loc_MatAYPX, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_ConvertToCSR", _wrap_parMatrixSparseComplexDoubleInt_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_Loc_ConvertToCSR", _wrap_parMatrixSparseComplexDoubleInt_Loc_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_ZeroEntries", _wrap_parMatrixSparseComplexDoubleInt_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_Loc_ZeroEntries", _wrap_parMatrixSparseComplexDoubleInt_Loc_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_MA", _wrap_parMatrixSparseComplexDoubleInt_MA, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_AM", _wrap_parMatrixSparseComplexDoubleInt_AM, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleInt_swigregister", parMatrixSparseComplexDoubleInt_swigregister, METH_VARARGS, NULL},
+	 { (char *)"smg2sComplexDoubleInt", _wrap_smg2sComplexDoubleInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_CSR_lloc_set", _wrap_parMatrixSparseComplexDoubleLongInt_CSR_lloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_CSR_lloc_get", _wrap_parMatrixSparseComplexDoubleLongInt_CSR_lloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_CSR_gloc_set", _wrap_parMatrixSparseComplexDoubleLongInt_CSR_gloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_CSR_gloc_get", _wrap_parMatrixSparseComplexDoubleLongInt_CSR_gloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_CSR_loc_set", _wrap_parMatrixSparseComplexDoubleLongInt_CSR_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_CSR_loc_get", _wrap_parMatrixSparseComplexDoubleLongInt_CSR_loc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_dynmat_loc_set", _wrap_parMatrixSparseComplexDoubleLongInt_dynmat_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_dynmat_loc_get", _wrap_parMatrixSparseComplexDoubleLongInt_dynmat_loc_get, METH_VARARGS, NULL},
+	 { (char *)"new_parMatrixSparseComplexDoubleLongInt", _wrap_new_parMatrixSparseComplexDoubleLongInt, METH_VARARGS, NULL},
+	 { (char *)"delete_parMatrixSparseComplexDoubleLongInt", _wrap_delete_parMatrixSparseComplexDoubleLongInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetXMap", _wrap_parMatrixSparseComplexDoubleLongInt_GetXMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetYMap", _wrap_parMatrixSparseComplexDoubleLongInt_GetYMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetComm", _wrap_parMatrixSparseComplexDoubleLongInt_GetComm, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetXLowerBound", _wrap_parMatrixSparseComplexDoubleLongInt_GetXLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetYLowerBound", _wrap_parMatrixSparseComplexDoubleLongInt_GetYLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetXUpperBound", _wrap_parMatrixSparseComplexDoubleLongInt_GetXUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetYUpperBound", _wrap_parMatrixSparseComplexDoubleLongInt_GetYUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetTrueLocalSize", _wrap_parMatrixSparseComplexDoubleLongInt_GetTrueLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetLocalSize", _wrap_parMatrixSparseComplexDoubleLongInt_GetLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetDynMatGLobLoc", _wrap_parMatrixSparseComplexDoubleLongInt_GetDynMatGLobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetDynMatGlobLoc", _wrap_parMatrixSparseComplexDoubleLongInt_GetDynMatGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetDynMatLoc", _wrap_parMatrixSparseComplexDoubleLongInt_GetDynMatLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetCSRLocLoc", _wrap_parMatrixSparseComplexDoubleLongInt_GetCSRLocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetCSRGlobLoc", _wrap_parMatrixSparseComplexDoubleLongInt_GetCSRGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_AddValueLocal", _wrap_parMatrixSparseComplexDoubleLongInt_AddValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_AddValuesLocal", _wrap_parMatrixSparseComplexDoubleLongInt_AddValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_AddValue", _wrap_parMatrixSparseComplexDoubleLongInt_AddValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_SetValueLocal", _wrap_parMatrixSparseComplexDoubleLongInt_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_SetValuesLocal", _wrap_parMatrixSparseComplexDoubleLongInt_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_SetValue", _wrap_parMatrixSparseComplexDoubleLongInt_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetLocalValue", _wrap_parMatrixSparseComplexDoubleLongInt_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_GetValue", _wrap_parMatrixSparseComplexDoubleLongInt_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_glocPlusLloc", _wrap_parMatrixSparseComplexDoubleLongInt_glocPlusLloc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_llocToGlocLoc", _wrap_parMatrixSparseComplexDoubleLongInt_llocToGlocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_MatView", _wrap_parMatrixSparseComplexDoubleLongInt_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_LOC_MatView", _wrap_parMatrixSparseComplexDoubleLongInt_LOC_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal", _wrap_parMatrixSparseComplexDoubleLongInt_Loc_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_Loc_SetValuesLocal", _wrap_parMatrixSparseComplexDoubleLongInt_Loc_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_Loc_SetValue", _wrap_parMatrixSparseComplexDoubleLongInt_Loc_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_Loc_GetLocalValue", _wrap_parMatrixSparseComplexDoubleLongInt_Loc_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_Loc_GetValue", _wrap_parMatrixSparseComplexDoubleLongInt_Loc_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_SetDiagonal", _wrap_parMatrixSparseComplexDoubleLongInt_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_Loc_SetDiagonal", _wrap_parMatrixSparseComplexDoubleLongInt_Loc_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_MatScale", _wrap_parMatrixSparseComplexDoubleLongInt_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_Loc_MatScale", _wrap_parMatrixSparseComplexDoubleLongInt_Loc_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_Loc_MatAXPY", _wrap_parMatrixSparseComplexDoubleLongInt_Loc_MatAXPY, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_Loc_MatAYPX", _wrap_parMatrixSparseComplexDoubleLongInt_Loc_MatAYPX, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_ConvertToCSR", _wrap_parMatrixSparseComplexDoubleLongInt_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_Loc_ConvertToCSR", _wrap_parMatrixSparseComplexDoubleLongInt_Loc_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_ZeroEntries", _wrap_parMatrixSparseComplexDoubleLongInt_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_Loc_ZeroEntries", _wrap_parMatrixSparseComplexDoubleLongInt_Loc_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_MA", _wrap_parMatrixSparseComplexDoubleLongInt_MA, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_AM", _wrap_parMatrixSparseComplexDoubleLongInt_AM, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexDoubleLongInt_swigregister", parMatrixSparseComplexDoubleLongInt_swigregister, METH_VARARGS, NULL},
+	 { (char *)"smg2sComplexDoubleLongInt", _wrap_smg2sComplexDoubleLongInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_CSR_lloc_set", _wrap_parMatrixSparseComplexSingleInt_CSR_lloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_CSR_lloc_get", _wrap_parMatrixSparseComplexSingleInt_CSR_lloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_CSR_gloc_set", _wrap_parMatrixSparseComplexSingleInt_CSR_gloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_CSR_gloc_get", _wrap_parMatrixSparseComplexSingleInt_CSR_gloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_CSR_loc_set", _wrap_parMatrixSparseComplexSingleInt_CSR_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_CSR_loc_get", _wrap_parMatrixSparseComplexSingleInt_CSR_loc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_dynmat_loc_set", _wrap_parMatrixSparseComplexSingleInt_dynmat_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_dynmat_loc_get", _wrap_parMatrixSparseComplexSingleInt_dynmat_loc_get, METH_VARARGS, NULL},
+	 { (char *)"new_parMatrixSparseComplexSingleInt", _wrap_new_parMatrixSparseComplexSingleInt, METH_VARARGS, NULL},
+	 { (char *)"delete_parMatrixSparseComplexSingleInt", _wrap_delete_parMatrixSparseComplexSingleInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetXMap", _wrap_parMatrixSparseComplexSingleInt_GetXMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetYMap", _wrap_parMatrixSparseComplexSingleInt_GetYMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetComm", _wrap_parMatrixSparseComplexSingleInt_GetComm, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetXLowerBound", _wrap_parMatrixSparseComplexSingleInt_GetXLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetYLowerBound", _wrap_parMatrixSparseComplexSingleInt_GetYLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetXUpperBound", _wrap_parMatrixSparseComplexSingleInt_GetXUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetYUpperBound", _wrap_parMatrixSparseComplexSingleInt_GetYUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetTrueLocalSize", _wrap_parMatrixSparseComplexSingleInt_GetTrueLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetLocalSize", _wrap_parMatrixSparseComplexSingleInt_GetLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetDynMatGLobLoc", _wrap_parMatrixSparseComplexSingleInt_GetDynMatGLobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetDynMatGlobLoc", _wrap_parMatrixSparseComplexSingleInt_GetDynMatGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetDynMatLoc", _wrap_parMatrixSparseComplexSingleInt_GetDynMatLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetCSRLocLoc", _wrap_parMatrixSparseComplexSingleInt_GetCSRLocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetCSRGlobLoc", _wrap_parMatrixSparseComplexSingleInt_GetCSRGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_AddValueLocal", _wrap_parMatrixSparseComplexSingleInt_AddValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_AddValuesLocal", _wrap_parMatrixSparseComplexSingleInt_AddValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_AddValue", _wrap_parMatrixSparseComplexSingleInt_AddValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_SetValueLocal", _wrap_parMatrixSparseComplexSingleInt_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_SetValuesLocal", _wrap_parMatrixSparseComplexSingleInt_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_SetValue", _wrap_parMatrixSparseComplexSingleInt_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetLocalValue", _wrap_parMatrixSparseComplexSingleInt_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_GetValue", _wrap_parMatrixSparseComplexSingleInt_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_glocPlusLloc", _wrap_parMatrixSparseComplexSingleInt_glocPlusLloc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_llocToGlocLoc", _wrap_parMatrixSparseComplexSingleInt_llocToGlocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_MatView", _wrap_parMatrixSparseComplexSingleInt_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_LOC_MatView", _wrap_parMatrixSparseComplexSingleInt_LOC_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_Loc_SetValueLocal", _wrap_parMatrixSparseComplexSingleInt_Loc_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_Loc_SetValuesLocal", _wrap_parMatrixSparseComplexSingleInt_Loc_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_Loc_SetValue", _wrap_parMatrixSparseComplexSingleInt_Loc_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_Loc_GetLocalValue", _wrap_parMatrixSparseComplexSingleInt_Loc_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_Loc_GetValue", _wrap_parMatrixSparseComplexSingleInt_Loc_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_SetDiagonal", _wrap_parMatrixSparseComplexSingleInt_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_Loc_SetDiagonal", _wrap_parMatrixSparseComplexSingleInt_Loc_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_MatScale", _wrap_parMatrixSparseComplexSingleInt_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_Loc_MatScale", _wrap_parMatrixSparseComplexSingleInt_Loc_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_Loc_MatAXPY", _wrap_parMatrixSparseComplexSingleInt_Loc_MatAXPY, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_Loc_MatAYPX", _wrap_parMatrixSparseComplexSingleInt_Loc_MatAYPX, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_ConvertToCSR", _wrap_parMatrixSparseComplexSingleInt_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_Loc_ConvertToCSR", _wrap_parMatrixSparseComplexSingleInt_Loc_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_ZeroEntries", _wrap_parMatrixSparseComplexSingleInt_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_Loc_ZeroEntries", _wrap_parMatrixSparseComplexSingleInt_Loc_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_MA", _wrap_parMatrixSparseComplexSingleInt_MA, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_AM", _wrap_parMatrixSparseComplexSingleInt_AM, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleInt_swigregister", parMatrixSparseComplexSingleInt_swigregister, METH_VARARGS, NULL},
+	 { (char *)"smg2sComplexSingleInt", _wrap_smg2sComplexSingleInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_CSR_lloc_set", _wrap_parMatrixSparseComplexSingleLongInt_CSR_lloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_CSR_lloc_get", _wrap_parMatrixSparseComplexSingleLongInt_CSR_lloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_CSR_gloc_set", _wrap_parMatrixSparseComplexSingleLongInt_CSR_gloc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_CSR_gloc_get", _wrap_parMatrixSparseComplexSingleLongInt_CSR_gloc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_CSR_loc_set", _wrap_parMatrixSparseComplexSingleLongInt_CSR_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_CSR_loc_get", _wrap_parMatrixSparseComplexSingleLongInt_CSR_loc_get, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_dynmat_loc_set", _wrap_parMatrixSparseComplexSingleLongInt_dynmat_loc_set, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_dynmat_loc_get", _wrap_parMatrixSparseComplexSingleLongInt_dynmat_loc_get, METH_VARARGS, NULL},
+	 { (char *)"new_parMatrixSparseComplexSingleLongInt", _wrap_new_parMatrixSparseComplexSingleLongInt, METH_VARARGS, NULL},
+	 { (char *)"delete_parMatrixSparseComplexSingleLongInt", _wrap_delete_parMatrixSparseComplexSingleLongInt, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetXMap", _wrap_parMatrixSparseComplexSingleLongInt_GetXMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetYMap", _wrap_parMatrixSparseComplexSingleLongInt_GetYMap, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetComm", _wrap_parMatrixSparseComplexSingleLongInt_GetComm, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetXLowerBound", _wrap_parMatrixSparseComplexSingleLongInt_GetXLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetYLowerBound", _wrap_parMatrixSparseComplexSingleLongInt_GetYLowerBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetXUpperBound", _wrap_parMatrixSparseComplexSingleLongInt_GetXUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetYUpperBound", _wrap_parMatrixSparseComplexSingleLongInt_GetYUpperBound, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetTrueLocalSize", _wrap_parMatrixSparseComplexSingleLongInt_GetTrueLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetLocalSize", _wrap_parMatrixSparseComplexSingleLongInt_GetLocalSize, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetDynMatGLobLoc", _wrap_parMatrixSparseComplexSingleLongInt_GetDynMatGLobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetDynMatGlobLoc", _wrap_parMatrixSparseComplexSingleLongInt_GetDynMatGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetDynMatLoc", _wrap_parMatrixSparseComplexSingleLongInt_GetDynMatLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetCSRLocLoc", _wrap_parMatrixSparseComplexSingleLongInt_GetCSRLocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetCSRGlobLoc", _wrap_parMatrixSparseComplexSingleLongInt_GetCSRGlobLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_AddValueLocal", _wrap_parMatrixSparseComplexSingleLongInt_AddValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_AddValuesLocal", _wrap_parMatrixSparseComplexSingleLongInt_AddValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_AddValue", _wrap_parMatrixSparseComplexSingleLongInt_AddValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_SetValueLocal", _wrap_parMatrixSparseComplexSingleLongInt_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_SetValuesLocal", _wrap_parMatrixSparseComplexSingleLongInt_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_SetValue", _wrap_parMatrixSparseComplexSingleLongInt_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetLocalValue", _wrap_parMatrixSparseComplexSingleLongInt_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_GetValue", _wrap_parMatrixSparseComplexSingleLongInt_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_glocPlusLloc", _wrap_parMatrixSparseComplexSingleLongInt_glocPlusLloc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_llocToGlocLoc", _wrap_parMatrixSparseComplexSingleLongInt_llocToGlocLoc, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_MatView", _wrap_parMatrixSparseComplexSingleLongInt_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_LOC_MatView", _wrap_parMatrixSparseComplexSingleLongInt_LOC_MatView, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal", _wrap_parMatrixSparseComplexSingleLongInt_Loc_SetValueLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_Loc_SetValuesLocal", _wrap_parMatrixSparseComplexSingleLongInt_Loc_SetValuesLocal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_Loc_SetValue", _wrap_parMatrixSparseComplexSingleLongInt_Loc_SetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_Loc_GetLocalValue", _wrap_parMatrixSparseComplexSingleLongInt_Loc_GetLocalValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_Loc_GetValue", _wrap_parMatrixSparseComplexSingleLongInt_Loc_GetValue, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_SetDiagonal", _wrap_parMatrixSparseComplexSingleLongInt_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_Loc_SetDiagonal", _wrap_parMatrixSparseComplexSingleLongInt_Loc_SetDiagonal, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_MatScale", _wrap_parMatrixSparseComplexSingleLongInt_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_Loc_MatScale", _wrap_parMatrixSparseComplexSingleLongInt_Loc_MatScale, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_Loc_MatAXPY", _wrap_parMatrixSparseComplexSingleLongInt_Loc_MatAXPY, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_Loc_MatAYPX", _wrap_parMatrixSparseComplexSingleLongInt_Loc_MatAYPX, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_ConvertToCSR", _wrap_parMatrixSparseComplexSingleLongInt_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_Loc_ConvertToCSR", _wrap_parMatrixSparseComplexSingleLongInt_Loc_ConvertToCSR, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_ZeroEntries", _wrap_parMatrixSparseComplexSingleLongInt_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_Loc_ZeroEntries", _wrap_parMatrixSparseComplexSingleLongInt_Loc_ZeroEntries, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_MA", _wrap_parMatrixSparseComplexSingleLongInt_MA, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_AM", _wrap_parMatrixSparseComplexSingleLongInt_AM, METH_VARARGS, NULL},
+	 { (char *)"parMatrixSparseComplexSingleLongInt_swigregister", parMatrixSparseComplexSingleLongInt_swigregister, METH_VARARGS, NULL},
+	 { (char *)"smg2sComplexSingleLongInt", _wrap_smg2sComplexSingleLongInt, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -9040,66 +21605,194 @@ static PyMethodDef SwigMethods[] = {
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
 static swig_type_info _swigt__p_MPI_Comm = {"_p_MPI_Comm", "MPI_Comm *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_MatrixCSRT_double___int64_t_t = {"_p_MatrixCSRT_double___int64_t_t", "MatrixCSR< double,__int64_t > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_MatrixCSRT_double_int_t = {"_p_MatrixCSRT_double_int_t", "MatrixCSR< double,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_MatrixCSRT_float___int64_t_t = {"_p_MatrixCSRT_float___int64_t_t", "MatrixCSR< float,__int64_t > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_MatrixCSRT_float_int_t = {"_p_MatrixCSRT_float_int_t", "MatrixCSR< float,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_MatrixCSRT_std__complexT_double_t___int64_t_t = {"_p_MatrixCSRT_std__complexT_double_t___int64_t_t", "MatrixCSR< std::complex< double >,__int64_t > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_MatrixCSRT_std__complexT_double_t_int_t = {"_p_MatrixCSRT_std__complexT_double_t_int_t", "MatrixCSR< std::complex< double >,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_MatrixCSRT_std__complexT_float_t___int64_t_t = {"_p_MatrixCSRT_std__complexT_float_t___int64_t_t", "MatrixCSR< std::complex< float >,__int64_t > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_MatrixCSRT_std__complexT_float_t_int_t = {"_p_MatrixCSRT_std__complexT_float_t_int_t", "MatrixCSR< std::complex< float >,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_NilpotencyT___int64_t_t = {"_p_NilpotencyT___int64_t_t", "Nilpotency< __int64_t > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_NilpotencyT_int_t = {"_p_NilpotencyT_int_t", "Nilpotency< int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p___int64_t = {"_p___int64_t", "__int64_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parMatrixSparseT_double___int64_t_t = {"_p_parMatrixSparseT_double___int64_t_t", "parMatrixSparse< double,__int64_t > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_parMatrixSparseT_double_int_t = {"_p_parMatrixSparseT_double_int_t", "parMatrixSparse< double,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parMatrixSparseT_float___int64_t_t = {"_p_parMatrixSparseT_float___int64_t_t", "parMatrixSparse< float,__int64_t > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parMatrixSparseT_float_int_t = {"_p_parMatrixSparseT_float_int_t", "parMatrixSparse< float,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parMatrixSparseT_std__complexT_double_t___int64_t_t = {"_p_parMatrixSparseT_std__complexT_double_t___int64_t_t", "parMatrixSparse< std::complex< double >,__int64_t > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parMatrixSparseT_std__complexT_double_t_int_t = {"_p_parMatrixSparseT_std__complexT_double_t_int_t", "parMatrixSparse< std::complex< double >,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parMatrixSparseT_std__complexT_float_t___int64_t_t = {"_p_parMatrixSparseT_std__complexT_float_t___int64_t_t", "parMatrixSparse< std::complex< float >,__int64_t > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parMatrixSparseT_std__complexT_float_t_int_t = {"_p_parMatrixSparseT_std__complexT_float_t_int_t", "parMatrixSparse< std::complex< float >,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parVectorMapT___int64_t_t = {"_p_parVectorMapT___int64_t_t", "parVectorMap< __int64_t > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_parVectorMapT_int_t = {"_p_parVectorMapT_int_t", "parVectorMap< int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parVectorT_double___int64_t_t = {"_p_parVectorT_double___int64_t_t", "parVector< double,__int64_t > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_parVectorT_double_int_t = {"_p_parVectorT_double_int_t", "parVector< double,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parVectorT_float___int64_t_t = {"_p_parVectorT_float___int64_t_t", "parVector< float,__int64_t > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parVectorT_float_int_t = {"_p_parVectorT_float_int_t", "parVector< float,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parVectorT_std__complexT_double_t___int64_t_t = {"_p_parVectorT_std__complexT_double_t___int64_t_t", "parVector< std::complex< double >,__int64_t > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parVectorT_std__complexT_double_t_int_t = {"_p_parVectorT_std__complexT_double_t_int_t", "parVector< std::complex< double >,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parVectorT_std__complexT_float_t___int64_t_t = {"_p_parVectorT_std__complexT_float_t___int64_t_t", "parVector< std::complex< float >,__int64_t > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_parVectorT_std__complexT_float_t_int_t = {"_p_parVectorT_std__complexT_float_t_int_t", "parVector< std::complex< float >,int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__complexT_double_t = {"_p_std__complexT_double_t", "std::complex< double > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__complexT_float_t = {"_p_std__complexT_float_t", "std::complex< float > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__invalid_argument = {"_p_std__invalid_argument", "std::invalid_argument *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t = {"_p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t", "std::map< __int64_t,double,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,double > > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t = {"_p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t", "std::map< __int64_t,float,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,float > > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t = {"_p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t", "std::map< __int64_t,std::complex< double >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< double > > > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t = {"_p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t", "std::map< __int64_t,std::complex< float >,std::less< __int64_t >,std::allocator< std::pair< __int64_t const,std::complex< float > > > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__mapT_int_double_std__lessT_int_t_std__allocatorT_std__pairT_int_const_double_t_t_t = {"_p_std__mapT_int_double_std__lessT_int_t_std__allocatorT_std__pairT_int_const_double_t_t_t", "std::map< int,double,std::less< int >,std::allocator< std::pair< int const,double > > > *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__vectorT_double_std__allocatorT_double_t_t = {"_p_std__vectorT_double_std__allocatorT_double_t_t", "std::vector< double,std::allocator< double > > *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__vectorT_int_std__allocatorT_int_t_t = {"_p_std__vectorT_int_std__allocatorT_int_t_t", "std::vector< int,std::allocator< int > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t = {"_p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t", "std::map< int,float,std::less< int >,std::allocator< std::pair< int const,float > > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t = {"_p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t", "std::map< int,std::complex< double >,std::less< int >,std::allocator< std::pair< int const,std::complex< double > > > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t = {"_p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t", "std::map< int,std::complex< float >,std::less< int >,std::allocator< std::pair< int const,std::complex< float > > > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_swig__SwigPyIterator = {"_p_swig__SwigPyIterator", "swig::SwigPyIterator *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_MPI_Comm,
+  &_swigt__p_MatrixCSRT_double___int64_t_t,
   &_swigt__p_MatrixCSRT_double_int_t,
+  &_swigt__p_MatrixCSRT_float___int64_t_t,
+  &_swigt__p_MatrixCSRT_float_int_t,
+  &_swigt__p_MatrixCSRT_std__complexT_double_t___int64_t_t,
+  &_swigt__p_MatrixCSRT_std__complexT_double_t_int_t,
+  &_swigt__p_MatrixCSRT_std__complexT_float_t___int64_t_t,
+  &_swigt__p_MatrixCSRT_std__complexT_float_t_int_t,
+  &_swigt__p_NilpotencyT___int64_t_t,
   &_swigt__p_NilpotencyT_int_t,
+  &_swigt__p___int64_t,
   &_swigt__p_char,
   &_swigt__p_double,
+  &_swigt__p_float,
   &_swigt__p_int,
+  &_swigt__p_parMatrixSparseT_double___int64_t_t,
   &_swigt__p_parMatrixSparseT_double_int_t,
+  &_swigt__p_parMatrixSparseT_float___int64_t_t,
+  &_swigt__p_parMatrixSparseT_float_int_t,
+  &_swigt__p_parMatrixSparseT_std__complexT_double_t___int64_t_t,
+  &_swigt__p_parMatrixSparseT_std__complexT_double_t_int_t,
+  &_swigt__p_parMatrixSparseT_std__complexT_float_t___int64_t_t,
+  &_swigt__p_parMatrixSparseT_std__complexT_float_t_int_t,
+  &_swigt__p_parVectorMapT___int64_t_t,
   &_swigt__p_parVectorMapT_int_t,
+  &_swigt__p_parVectorT_double___int64_t_t,
   &_swigt__p_parVectorT_double_int_t,
+  &_swigt__p_parVectorT_float___int64_t_t,
+  &_swigt__p_parVectorT_float_int_t,
+  &_swigt__p_parVectorT_std__complexT_double_t___int64_t_t,
+  &_swigt__p_parVectorT_std__complexT_double_t_int_t,
+  &_swigt__p_parVectorT_std__complexT_float_t___int64_t_t,
+  &_swigt__p_parVectorT_std__complexT_float_t_int_t,
+  &_swigt__p_std__complexT_double_t,
+  &_swigt__p_std__complexT_float_t,
   &_swigt__p_std__invalid_argument,
+  &_swigt__p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t,
+  &_swigt__p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t,
+  &_swigt__p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t,
+  &_swigt__p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t,
   &_swigt__p_std__mapT_int_double_std__lessT_int_t_std__allocatorT_std__pairT_int_const_double_t_t_t,
-  &_swigt__p_std__vectorT_double_std__allocatorT_double_t_t,
-  &_swigt__p_std__vectorT_int_std__allocatorT_int_t_t,
+  &_swigt__p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t,
+  &_swigt__p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t,
+  &_swigt__p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t,
   &_swigt__p_swig__SwigPyIterator,
 };
 
 static swig_cast_info _swigc__p_MPI_Comm[] = {  {&_swigt__p_MPI_Comm, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MatrixCSRT_double___int64_t_t[] = {  {&_swigt__p_MatrixCSRT_double___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MatrixCSRT_double_int_t[] = {  {&_swigt__p_MatrixCSRT_double_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MatrixCSRT_float___int64_t_t[] = {  {&_swigt__p_MatrixCSRT_float___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MatrixCSRT_float_int_t[] = {  {&_swigt__p_MatrixCSRT_float_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MatrixCSRT_std__complexT_double_t___int64_t_t[] = {  {&_swigt__p_MatrixCSRT_std__complexT_double_t___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MatrixCSRT_std__complexT_double_t_int_t[] = {  {&_swigt__p_MatrixCSRT_std__complexT_double_t_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MatrixCSRT_std__complexT_float_t___int64_t_t[] = {  {&_swigt__p_MatrixCSRT_std__complexT_float_t___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MatrixCSRT_std__complexT_float_t_int_t[] = {  {&_swigt__p_MatrixCSRT_std__complexT_float_t_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_NilpotencyT___int64_t_t[] = {  {&_swigt__p_NilpotencyT___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_NilpotencyT_int_t[] = {  {&_swigt__p_NilpotencyT_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p___int64_t[] = {  {&_swigt__p___int64_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_float[] = {  {&_swigt__p_float, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parMatrixSparseT_double___int64_t_t[] = {  {&_swigt__p_parMatrixSparseT_double___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_parMatrixSparseT_double_int_t[] = {  {&_swigt__p_parMatrixSparseT_double_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parMatrixSparseT_float___int64_t_t[] = {  {&_swigt__p_parMatrixSparseT_float___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parMatrixSparseT_float_int_t[] = {  {&_swigt__p_parMatrixSparseT_float_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parMatrixSparseT_std__complexT_double_t___int64_t_t[] = {  {&_swigt__p_parMatrixSparseT_std__complexT_double_t___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parMatrixSparseT_std__complexT_double_t_int_t[] = {  {&_swigt__p_parMatrixSparseT_std__complexT_double_t_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parMatrixSparseT_std__complexT_float_t___int64_t_t[] = {  {&_swigt__p_parMatrixSparseT_std__complexT_float_t___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parMatrixSparseT_std__complexT_float_t_int_t[] = {  {&_swigt__p_parMatrixSparseT_std__complexT_float_t_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parVectorMapT___int64_t_t[] = {  {&_swigt__p_parVectorMapT___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_parVectorMapT_int_t[] = {  {&_swigt__p_parVectorMapT_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parVectorT_double___int64_t_t[] = {  {&_swigt__p_parVectorT_double___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_parVectorT_double_int_t[] = {  {&_swigt__p_parVectorT_double_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parVectorT_float___int64_t_t[] = {  {&_swigt__p_parVectorT_float___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parVectorT_float_int_t[] = {  {&_swigt__p_parVectorT_float_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parVectorT_std__complexT_double_t___int64_t_t[] = {  {&_swigt__p_parVectorT_std__complexT_double_t___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parVectorT_std__complexT_double_t_int_t[] = {  {&_swigt__p_parVectorT_std__complexT_double_t_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parVectorT_std__complexT_float_t___int64_t_t[] = {  {&_swigt__p_parVectorT_std__complexT_float_t___int64_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_parVectorT_std__complexT_float_t_int_t[] = {  {&_swigt__p_parVectorT_std__complexT_float_t_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__complexT_double_t[] = {  {&_swigt__p_std__complexT_double_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__complexT_float_t[] = {  {&_swigt__p_std__complexT_float_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__invalid_argument[] = {  {&_swigt__p_std__invalid_argument, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t[] = {  {&_swigt__p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t[] = {  {&_swigt__p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t[] = {  {&_swigt__p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t[] = {  {&_swigt__p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__mapT_int_double_std__lessT_int_t_std__allocatorT_std__pairT_int_const_double_t_t_t[] = {  {&_swigt__p_std__mapT_int_double_std__lessT_int_t_std__allocatorT_std__pairT_int_const_double_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__vectorT_double_std__allocatorT_double_t_t[] = {  {&_swigt__p_std__vectorT_double_std__allocatorT_double_t_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__vectorT_int_std__allocatorT_int_t_t[] = {  {&_swigt__p_std__vectorT_int_std__allocatorT_int_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t[] = {  {&_swigt__p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t[] = {  {&_swigt__p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t[] = {  {&_swigt__p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_swig__SwigPyIterator[] = {  {&_swigt__p_swig__SwigPyIterator, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_MPI_Comm,
+  _swigc__p_MatrixCSRT_double___int64_t_t,
   _swigc__p_MatrixCSRT_double_int_t,
+  _swigc__p_MatrixCSRT_float___int64_t_t,
+  _swigc__p_MatrixCSRT_float_int_t,
+  _swigc__p_MatrixCSRT_std__complexT_double_t___int64_t_t,
+  _swigc__p_MatrixCSRT_std__complexT_double_t_int_t,
+  _swigc__p_MatrixCSRT_std__complexT_float_t___int64_t_t,
+  _swigc__p_MatrixCSRT_std__complexT_float_t_int_t,
+  _swigc__p_NilpotencyT___int64_t_t,
   _swigc__p_NilpotencyT_int_t,
+  _swigc__p___int64_t,
   _swigc__p_char,
   _swigc__p_double,
+  _swigc__p_float,
   _swigc__p_int,
+  _swigc__p_parMatrixSparseT_double___int64_t_t,
   _swigc__p_parMatrixSparseT_double_int_t,
+  _swigc__p_parMatrixSparseT_float___int64_t_t,
+  _swigc__p_parMatrixSparseT_float_int_t,
+  _swigc__p_parMatrixSparseT_std__complexT_double_t___int64_t_t,
+  _swigc__p_parMatrixSparseT_std__complexT_double_t_int_t,
+  _swigc__p_parMatrixSparseT_std__complexT_float_t___int64_t_t,
+  _swigc__p_parMatrixSparseT_std__complexT_float_t_int_t,
+  _swigc__p_parVectorMapT___int64_t_t,
   _swigc__p_parVectorMapT_int_t,
+  _swigc__p_parVectorT_double___int64_t_t,
   _swigc__p_parVectorT_double_int_t,
+  _swigc__p_parVectorT_float___int64_t_t,
+  _swigc__p_parVectorT_float_int_t,
+  _swigc__p_parVectorT_std__complexT_double_t___int64_t_t,
+  _swigc__p_parVectorT_std__complexT_double_t_int_t,
+  _swigc__p_parVectorT_std__complexT_float_t___int64_t_t,
+  _swigc__p_parVectorT_std__complexT_float_t_int_t,
+  _swigc__p_std__complexT_double_t,
+  _swigc__p_std__complexT_float_t,
   _swigc__p_std__invalid_argument,
+  _swigc__p_std__mapT___int64_t_double_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_double_t_t_t,
+  _swigc__p_std__mapT___int64_t_float_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_float_t_t_t,
+  _swigc__p_std__mapT___int64_t_std__complexT_double_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_double_t_t_t_t,
+  _swigc__p_std__mapT___int64_t_std__complexT_float_t_std__lessT___int64_t_t_std__allocatorT_std__pairT___int64_t_const_std__complexT_float_t_t_t_t,
   _swigc__p_std__mapT_int_double_std__lessT_int_t_std__allocatorT_std__pairT_int_const_double_t_t_t,
-  _swigc__p_std__vectorT_double_std__allocatorT_double_t_t,
-  _swigc__p_std__vectorT_int_std__allocatorT_int_t_t,
+  _swigc__p_std__mapT_int_float_std__lessT_int_t_std__allocatorT_std__pairT_int_const_float_t_t_t,
+  _swigc__p_std__mapT_int_std__complexT_double_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_double_t_t_t_t,
+  _swigc__p_std__mapT_int_std__complexT_float_t_std__lessT_int_t_std__allocatorT_std__pairT_int_const_std__complexT_float_t_t_t_t,
   _swigc__p_swig__SwigPyIterator,
 };
 
@@ -9790,6 +22483,14 @@ SWIG_init(void) {
 #endif
   
   SWIG_InstallConstants(d,swig_const_table);
+  
+  
+  if (import_mpi4py() < 0)
+#if PY_MAJOR_VERSION >= 3
+  return NULL;
+#else
+  return;
+#endif
   
 #if PY_VERSION_HEX >= 0x03000000
   return m;
