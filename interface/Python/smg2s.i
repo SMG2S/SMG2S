@@ -33,6 +33,10 @@
 %include "../../smg2s/specGen.h"
 %include "../../smg2s/smg2s.h"
 
+%include "mpi4py/mpi4py.i"
+%include "mpi4py/mpi4py.h"
+
+%mpi4py_typemap(Comm, MPI_Comm);
 %template(NilpotencyInt) Nilpotency<int>;
 %template(MatrixCSRDoubleInt) MatrixCSR<double,int>;
 %template(parVectorMapInt) parVectorMap<int>;
