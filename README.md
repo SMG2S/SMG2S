@@ -15,7 +15,7 @@ Website of SMG2S is [here](https://smg2s.github.io/), Developing repository is o
 
 [Documentation](https://smg2s.github.io/files/smg2s-manual.pdf) is avaiable.
 
-Python version is avaiable on [pyp](https://pypi.org/project/smg2s/), which can be installed by the command:
+Python version is avaiable on [Pypi](https://pypi.org/project/smg2s/), which can be installed by the command:
 
 ```bash
 CC=mpicxx pip install smg2s
