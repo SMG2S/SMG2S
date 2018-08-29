@@ -11,7 +11,7 @@ Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http:/
 
 ## Documentation
 
-Website of SMG2S is [here](https://github.com/SMG2S).
+Website of SMG2S is [here](https://smg2s.github.io/), Developing repository is on [Github](https://github.com/SMG2S).
 
 [Documentation](https://smg2s.github.io/files/smg2s-manual.pdf) is avaiable.
 
