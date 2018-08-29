@@ -132,10 +132,18 @@ More information: [PETSc GMRES example](https://github.com/brunowu/SMG2S/tree/ma
 ### Interface to Python
 Generate the shared library and install the python module of smg2s
 ```bash
-cd ./interface/python
-CC=mpicxx python setup.py build
-python setup.py install
+#install online from pypi
+CC=mpicxx pip install smg2s
 
+#bulid in local
+cd ./interface/Python
+CC=mpicxx python setup.py build_ext --inplace
+#or
+CC=mpicxx python setup.py build
+#or
+CC=mpicxx python setup.py install
+
+#run
 mpirun -np 2 python generate.py
 
 ```

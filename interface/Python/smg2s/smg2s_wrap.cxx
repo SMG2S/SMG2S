@@ -3164,20 +3164,20 @@ namespace swig {
 #include <sstream> 
 #include <string>
 #include <map>
-#include "include/utils/utils.h"
-#include "include/parVector/parVectorMap.h"
+#include "utils/utils.h"
+#include "parVector/parVectorMap.h"
 #include <mpi.h>
 #include <fstream>
-#include "include/config/config.h"
+#include "config/config.h"
 #include <vector>
-#include "include/parMatrix/MatrixCSR.h"
-#include "include/parVector/parVectorMap.h"
-#include "include/parVector/parVector.h"
-#include "include/config/config.h"
-#include "include/utils/MPI_DataType.h"
-#include "include/parMatrix/parMatrixSparse.h"
-#include "include/smg2s/specGen.h"
-#include "include/smg2s/smg2s.h"
+#include "parMatrix/MatrixCSR.h"
+#include "parVector/parVectorMap.h"
+#include "parVector/parVector.h"
+#include "config/config.h"
+#include "utils/MPI_DataType.h"
+#include "parMatrix/parMatrixSparse.h"
+#include "smg2s/specGen.h"
+#include "smg2s/smg2s.h"
 
 
 #include <typeinfo>
