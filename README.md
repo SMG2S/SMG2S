@@ -9,6 +9,18 @@ Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http:/
 
 ![Matrix Generation Pattern](figure/matgen.png)
 
+## Documentation
+
+Website of SMG2S is [here](https://pypi.org/project/smg2s/).
+
+[Documentation](https://smg2s.github.io/files/smg2s-manual.pdf) is avaiable.
+
+Python version is avaiable on [pyp](https://pypi.org/project/smg2s/), which can be installed by the command:
+
+```bash
+CC=mpicxx pip install smg2s
+```
+
 ## Installation
 
 ### Binary Executable file
