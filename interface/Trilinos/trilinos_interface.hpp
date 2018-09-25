@@ -94,7 +94,7 @@ RCP<CrsMatrix<T> > ConvertToTrilinosMat(parMatrixSparse<T, S > *M){
  		}
  	}
 
- 	K->fillComplete ();
+// 	K->fillComplete ();
 
  	return K;
 }

@@ -129,6 +129,8 @@ int main(int argc, char** argv) {
 
     RCP<CrsMatrix<ST> > K = ConvertToTrilinosMat<double, int>(Am);
 
+    K->fillComplete ();
+
  	K->describe(*fos, Teuchos::VERB_EXTREME);
 
     //MPI_Finalize();
