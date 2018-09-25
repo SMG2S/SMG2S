@@ -278,6 +278,9 @@ Teuchos::RCP<Teuchos::FancyOStream> fos = Teuchos::fancyOStream(Teuchos::rcpFrom
 
 Teuchos::RCP<Teptra::CsrMatrix<Scalar Type>> K = ConvertToTrilinosMat(Am);
 
+/* FIX the matrix allocation status, this function should be called after all the modifcations on matrix K are DONE! */
+K->fillComplete (); 
+
 /* Shown the matrix K by describe function in Trilinos*/
 K->describe(*fos, Teuchos::VERB_EXTREME);
 
