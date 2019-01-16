@@ -48,7 +48,7 @@ def generate_graph(dimension, fichier, b=False):
     
     if dimension == 2:
         if fichier1 != "":
-            plt.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Original solution")
+            plt.scatter(reel1, imaginaire1, c = '', marker = 'o', edgecolor='black',s = 200, label="Original solution")
             graphique = True
         if fichier2 != "":
             plt.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Final solution")
@@ -57,7 +57,7 @@ def generate_graph(dimension, fichier, b=False):
     elif dimension == 1:
             
             if fichier1 != "":
-                plt.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Original solution")
+                plt.scatter(reel1, imaginaire1, c = '', marker = 'o', edgecolor='black', s = 200, label="Original solution")
                 graphique = True
             if fichier2 != "":
                 plt.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Final solution")

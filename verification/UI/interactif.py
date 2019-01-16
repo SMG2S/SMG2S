@@ -49,19 +49,19 @@ def display_graph_ext(dimension, b=False):
     
     if dimension == 2:
         if fichier1 != "":
-            a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Initial Eigenvalues")
+            a.scatter(reel1, imaginaire1, c = '', marker = 'o', edgecolor='black',s = 60, label="Initial Eigenvalues")
             graphique = True
         if fichier2 != "":
-            a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Computed Eigenvalues")
+            a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 60, label="Computed Eigenvalues")
             graphique = True
         
     elif dimension == 1:
             
             if fichier1 != "":
-                a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Initial Eigenvalues")
+                a.scatter(reel1, imaginaire1, c = '', marker = 'o', edgecolor='black',s = 60, label="Initial Eigenvalues")
                 graphique = True
             if fichier2 != "":
-                a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Computed Eigenvalues")
+                a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 60, label="Computed Eigenvalues")
                 graphique = True
     else: 
         Tk.messagebox.showerror("Error", "Impossible to generate the graph, the dimension is incorrect")
@@ -132,19 +132,19 @@ def display_graph_int(dimension, root, canvas, b=False):
     
     if dimension == 2:
         if fichier1 != "":
-            a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Initial Eigenvalues")
+            a.scatter(reel1, imaginaire1, c = '', marker = 'o', edgecolor='black',s = 60, label="Initial Eigenvalues")
             graphique = True
         if fichier2 != "":
-            a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Computed Eigenvalues")
+            a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 60, label="Computed Eigenvalues")
             graphique = True
         
     elif dimension == 1:
             
             if fichier1 != "":
-                a.scatter(reel1, imaginaire1, c = 'black', marker = 'o', s = 200, label="Initial Eigenvalues")
+                a.scatter(reel1, imaginaire1, c = '', marker = 'o', edgecolor='black', s = 60, label="Initial Eigenvalues")
                 graphique = True
             if fichier2 != "":
-                a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 200, label="Computed Eigenvalues")
+                a.scatter(reel2, imaginaire2, c = 'red', marker = '+', s = 60, label="Computed Eigenvalues")
                 graphique = True
     else: 
         Tk.messagebox.showerror("Error", "Impossible to generate the graph, the dimension is incorrect")
