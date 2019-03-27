@@ -80,6 +80,9 @@ int main(int argc, char** argv) {
     char *dim, *l, *c;
 
     std::string spectrum = " ";
+    std::string mattype = "non-herm";
+    //std::string mattype = "non-sym";
+    //std::string mattype = "non-herms";
 
     for (int i =0; i < argc; i++){
 
@@ -120,7 +123,7 @@ int main(int argc, char** argv) {
 
     start = MPI_Wtime();
 
-    Mt = smg2s<std::complex<double>,__int64_t>(probSize, nilp, lbandwidth,spectrum, MPI_COMM_WORLD);
+    Mt = smg2s<std::complex<double>,__int64_t>(probSize, nilp, lbandwidth,spectrum, mattype,MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 
@@ -152,7 +155,7 @@ int main(int argc, char** argv) {
 
     start = MPI_Wtime();
 
-    Mt =  smg2s<std::complex<double>,int> (probSize, nilp,lbandwidth, spectrum,MPI_COMM_WORLD);
+    Mt =  smg2s<std::complex<double>,int> (probSize, nilp,lbandwidth, spectrum, mattype, MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 
@@ -183,7 +186,7 @@ int main(int argc, char** argv) {
 
     start = MPI_Wtime();
 
-    Mt = smg2s<std::complex<float>,__int64_t>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
+    Mt = smg2s<std::complex<float>,__int64_t>(probSize, nilp, lbandwidth,spectrum,mattype,MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 
@@ -215,7 +218,7 @@ int main(int argc, char** argv) {
 
     start = MPI_Wtime();
 
-    Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
+    Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth,spectrum,mattype, MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 
@@ -247,7 +250,7 @@ int main(int argc, char** argv) {
 
     start = MPI_Wtime();
 
-    Mt = smg2s<double,__int64_t>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
+    Mt = smg2s<double,__int64_t>(probSize, nilp, lbandwidth,spectrum,mattype, MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 
@@ -279,7 +282,7 @@ int main(int argc, char** argv) {
 
     start = MPI_Wtime();
 
-    Mt = smg2s<double,int>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
+    Mt = smg2s<double,int>(probSize, nilp, lbandwidth,spectrum,mattype, MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 
@@ -312,7 +315,7 @@ int main(int argc, char** argv) {
 
     start = MPI_Wtime();
 
-    Mt = smg2s<float,__int64_t>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
+    Mt = smg2s<float,__int64_t>(probSize, nilp, lbandwidth,spectrum,mattype, MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 
@@ -343,7 +346,7 @@ int main(int argc, char** argv) {
 
     start = MPI_Wtime();
 
-    Mt = smg2s<float,int>(probSize, nilp, lbandwidth,spectrum,MPI_COMM_WORLD);
+    Mt = smg2s<float,int>(probSize, nilp, lbandwidth,spectrum,mattype, MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 

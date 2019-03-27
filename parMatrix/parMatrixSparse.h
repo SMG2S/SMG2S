@@ -164,6 +164,9 @@ class parMatrixSparse
 		//Loc set mat diagonal by vector given
 		void	Loc_SetDiagonal(parVector<T,S> *diag);
 
+		//Loc set mat diagonal by vector given
+		void	Loc_SetDiagonal_index(parVector<T,S> *diag, S index);
+
 		//Mat Scale
 		void	MatScale(T scale);
 
@@ -922,6 +925,37 @@ void parMatrixSparse<T,S>::Loc_SetDiagonal(parVector<T,S> *diag)
 			Loc_SetValueLocal(i,diag->Loc2Glob(i),a[i]);
 		}
 
+	}
+}
+
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::Loc_SetDiagonal_index(parVector<T,S> *diag, S index)
+{
+
+	if (nrows != njloc ){
+		if(ProcID == 0){
+			printf("ERROR: cannot set diagonal for non-square matrix.");
+		}
+	}
+	else{
+		T *a = diag->GetArray();
+		S local_size = diag->GetArraySize();	
+		S global_index;
+
+		for(S i = 0; i < local_size; i++){
+			global_index = diag->Loc2Glob(i);
+			if(index >= 0){
+				if(global_index < diag->GetGlobalSize() - index){
+					Loc_SetValueLocal(i,global_index - index, a[i]);
+				}
+			}
+			else if(index <= 0){
+				if(global_index > -index){
+					Loc_SetValueLocal(i, global_index + index, a[i]);
+				}
+			}
+		}
 	}
 }
 

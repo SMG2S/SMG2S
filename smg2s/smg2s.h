@@ -40,7 +40,7 @@ SOFTWARE.
 #endif
 
 template<typename T, typename S>
-parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum, MPI_Comm comm){
+parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum, std::string mattype, MPI_Comm comm){
 
 	int world_size;
 	int world_rank;
@@ -67,11 +67,24 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
 	  parVector<T,S> *vec = new parVector<T,S>(comm, lower_b, upper_b);
     parVector<T,S> *prod = new parVector<T,S>(comm, lower_b, upper_b);
+    parVector<T,S> *low_diag = new parVector<T,S>(comm, lower_b, upper_b);
+    parVector<T,S> *up_diag = new parVector<T,S>(comm, lower_b, upper_b);
 
     MPI_Barrier(comm);
 
+    if (mattype.compare("non-herm") == 0){
+      if(world_rank == 0) {std::cout << "INFO ]> Type of matrix to be generated is : non-Hermitian" << std::endl;}
+    } else if(mattype.compare("non-sym") == 0){
+      if(world_rank == 0) {std::cout << "INFO ]> Type of matrix to be generated is : non-Symmetric" << std::endl;}
+    } else{
+      if(world_rank == 0) {std::cout << "ERROR ]> Input of matrix type is wrong, please check" << std::endl;}
+    }
+
+
     //generate vec containing the given spectra
     vec->specGen(spectrum);
+    low_diag->specGen(spectrum);
+    up_diag->specGen(spectrum);
 
     //Matrix Initialization
 
@@ -87,10 +100,19 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     start = MPI_Wtime();
 
-    matInit(Am, matAop, probSize, lbandwidth);
-
-    Am->Loc_SetDiagonal(vec);
-    matAop->Loc_SetDiagonal(vec);
+    if (mattype.compare("non-herm") == 0){
+      matInit(Am, matAop, probSize, lbandwidth);
+      Am->Loc_SetDiagonal(vec);
+      matAop->Loc_SetDiagonal(vec);
+    } else if(mattype.compare("non-sym") == 0){
+      matInit2(Am, matAop, probSize, lbandwidth);
+      Am->Loc_SetDiagonal(vec);
+      matAop->Loc_SetDiagonal(vec);
+      Am->Loc_SetDiagonal_index(low_diag, -1);
+      matAop->Loc_SetDiagonal_index(low_diag, -1);
+      Am->Loc_SetDiagonal_index(up_diag, 1);
+      matAop->Loc_SetDiagonal_index(up_diag, 1);
+    }
 
     end = MPI_Wtime();
 

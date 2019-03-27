@@ -166,19 +166,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named smg2s2c
-
-# Build rule for target.
-smg2s2c: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 smg2s2c
-.PHONY : smg2s2c
-
-# fast build rule for target.
-smg2s2c/fast:
-	$(MAKE) -f CMakeFiles/smg2s2c.dir/build.make CMakeFiles/smg2s2c.dir/build
-.PHONY : smg2s2c/fast
-
-#=============================================================================
 # Target rules for targets named smg2s.exe
 
 # Build rule for target.
@@ -190,33 +177,6 @@ smg2s.exe: cmake_check_build_system
 smg2s.exe/fast:
 	$(MAKE) -f CMakeFiles/smg2s.exe.dir/build.make CMakeFiles/smg2s.exe.dir/build
 .PHONY : smg2s.exe/fast
-
-interface/C/c_wrapper.o: interface/C/c_wrapper.cc.o
-
-.PHONY : interface/C/c_wrapper.o
-
-# target to build an object file
-interface/C/c_wrapper.cc.o:
-	$(MAKE) -f CMakeFiles/smg2s2c.dir/build.make CMakeFiles/smg2s2c.dir/interface/C/c_wrapper.cc.o
-.PHONY : interface/C/c_wrapper.cc.o
-
-interface/C/c_wrapper.i: interface/C/c_wrapper.cc.i
-
-.PHONY : interface/C/c_wrapper.i
-
-# target to preprocess a source file
-interface/C/c_wrapper.cc.i:
-	$(MAKE) -f CMakeFiles/smg2s2c.dir/build.make CMakeFiles/smg2s2c.dir/interface/C/c_wrapper.cc.i
-.PHONY : interface/C/c_wrapper.cc.i
-
-interface/C/c_wrapper.s: interface/C/c_wrapper.cc.s
-
-.PHONY : interface/C/c_wrapper.s
-
-# target to generate assembly for a file
-interface/C/c_wrapper.cc.s:
-	$(MAKE) -f CMakeFiles/smg2s2c.dir/build.make CMakeFiles/smg2s2c.dir/interface/C/c_wrapper.cc.s
-.PHONY : interface/C/c_wrapper.cc.s
 
 main.o: main.cpp.o
 
@@ -258,11 +218,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... install/strip"
-	@echo "... smg2s2c"
 	@echo "... smg2s.exe"
-	@echo "... interface/C/c_wrapper.o"
-	@echo "... interface/C/c_wrapper.i"
-	@echo "... interface/C/c_wrapper.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

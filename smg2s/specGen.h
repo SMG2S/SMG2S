@@ -253,4 +253,34 @@ void matInit(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize,
     }
 }
 
+template<typename T, typename S>
+void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth){
+
+    T rnd;
+
+    //T scale;
+
+/*This part can be replaced by users provded func*/
+
+/*
+    if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<float> >::value){
+      scale.real(0.00001);
+      scale.imag(0.0);      
+    }else{
+      scale = 0.00001;
+    }
+*/
+
+    for(S i = 0; i < probSize; i++){
+        for(S j = i - lbandwidth; j < i - 1; j++){
+            if(j >= 0){
+              //rnd = scale * random<T,S>(0,10);
+              rnd = 1;
+              Am->Loc_SetValue(i,j,rnd);
+              matAop->Loc_SetValue(i,j,rnd);
+            }
+        }
+    }
+}
+
 #endif
