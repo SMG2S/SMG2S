@@ -24,6 +24,7 @@ SOFTWARE.
 */
 
 #include "smg2s/smg2s.h"
+#include "smg2s/smg2s_nonsymmetric.h"
 #include <math.h>
 #include <complex>
 #include <cstdlib>
@@ -80,9 +81,8 @@ int main(int argc, char** argv) {
     char *dim, *l, *c;
 
     std::string spectrum = " ";
-    std::string mattype = "non-herm";
-    //std::string mattype = "non-sym";
-    //std::string mattype = "non-herms";
+    //std::string mattype = "non-herm";
+    std::string mattype = "non-sym";
 
     for (int i =0; i < argc; i++){
 
@@ -104,43 +104,6 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-
-
-#if defined(__USE_COMPLEX__) && defined(__USE_DOUBLE__) && defined (__USE_64BIT__)
-//complex double long int
-
-    __int64_t probSize, lbandwidth, length;
-
-    probSize = atoll(dim);
-    lbandwidth = atoll(l);
-    length = atoll(c);
-
-    Nilpotency<__int64_t> nilp;
-
-    nilp.NilpType1(length,probSize);
-
-    parMatrixSparse<std::complex<double>,__int64_t> *Mt;
-
-    start = MPI_Wtime();
-
-    Mt = smg2s<std::complex<double>,__int64_t>(probSize, nilp, lbandwidth,spectrum, mattype,MPI_COMM_WORLD);
-
-    end = MPI_Wtime();
-
-    time = end - start ;
-
-    if(rank == 0){
-        printf ( "----------------------------------------------------\n" );
-        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-        printf ( "----------------------------------------------------\n" );
-        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-        printf ( "----------------------------------------------------\n" );
-    }
-
-
-#elif defined (__USE_COMPLEX__) && defined(__USE_DOUBLE__)
-//complex double int
-
     int probSize, lbandwidth, length;
 
     probSize = atoi(dim);
@@ -151,11 +114,13 @@ int main(int argc, char** argv) {
 
     nilp.NilpType2(length,probSize);
 
-    parMatrixSparse<std::complex<double>,int> *Mt;
+/*Non symmetric case*/
+
+    parMatrixSparse<double,int> *Mt2;
 
     start = MPI_Wtime();
 
-    Mt =  smg2s<std::complex<double>,int> (probSize, nilp,lbandwidth, spectrum, mattype, MPI_COMM_WORLD);
+    Mt2 =  smg2s_nonsymmetric<double,int>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 
@@ -164,204 +129,13 @@ int main(int argc, char** argv) {
     if(rank == 0){
         printf ( "----------------------------------------------------\n" );
         printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-        printf ( "----------------------------------------------------\n" );
-        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-        printf ( "----------------------------------------------------\n" );
-    }
-
-#elif defined (__USE_COMPLEX__) && defined(__USE_64BIT__)
-//complex  single long int
-
-    __int64_t probSize, lbandwidth, length;
-
-    probSize = atoll(dim);
-    lbandwidth = atoll(l);
-    length = atoll(c);
-
-    Nilpotency<__int64_t> nilp;
-
-    nilp.NilpType1(length,probSize);
-
-    parMatrixSparse<std::complex<float>,__int64_t> *Mt;
-
-    start = MPI_Wtime();
-
-    Mt = smg2s<std::complex<float>,__int64_t>(probSize, nilp, lbandwidth,spectrum,mattype,MPI_COMM_WORLD);
-
-    end = MPI_Wtime();
-
-    time = end - start ;
-
-    if(rank == 0){
-        printf ( "----------------------------------------------------\n" );
-        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
+        printf ( "--------------- Non symmetric Matrix ---------------\n" );
         printf ( "----------------------------------------------------\n" );
         printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
         printf ( "----------------------------------------------------\n" );
     }
 
 
-#elif defined (__USE_COMPLEX__)
-//complex single int
-
-    int probSize, lbandwidth, length;
-
-    probSize = atoi(dim);
-    lbandwidth = atoi(l);
-    length = atoi(c);
-
-    Nilpotency<int> nilp;
-
-    nilp.NilpType1(length,probSize);
-
-    parMatrixSparse<std::complex<float>,int> *Mt;
-
-    start = MPI_Wtime();
-
-    Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth,spectrum,mattype, MPI_COMM_WORLD);
-
-    end = MPI_Wtime();
-
-    time = end - start ;
-
-    if(rank == 0){
-        printf ( "----------------------------------------------------\n" );
-        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-        printf ( "----------------------------------------------------\n" );
-        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-        printf ( "----------------------------------------------------\n" );
-    }
-
-
-#elif defined (__USE_DOUBLE__) && defined(__USE_64BIT__)
-//real double long int
-
-    __int64_t probSize, lbandwidth, length;
-
-    probSize = atoll(dim);
-    lbandwidth = atoll(l);
-    length = atoll(c);
-
-    Nilpotency<__int64_t> nilp;
-
-    nilp.NilpType1(length,probSize);
-
-    parMatrixSparse<double,__int64_t> *Mt;
-
-    start = MPI_Wtime();
-
-    Mt = smg2s<double,__int64_t>(probSize, nilp, lbandwidth,spectrum,mattype, MPI_COMM_WORLD);
-
-    end = MPI_Wtime();
-
-    time = end - start ;
-
-    if(rank == 0){
-        printf ( "----------------------------------------------------\n" );
-        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-        printf ( "----------------------------------------------------\n" );
-        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-        printf ( "----------------------------------------------------\n" );
-    }
-
-
-#elif defined (__USE_DOUBLE__)
-//real double int
-
-    int probSize, lbandwidth, length;
-
-    probSize = atoi(dim);
-    lbandwidth = atoi(l);
-    length = atoi(c);
-
-    Nilpotency<int> nilp;
-
-    nilp.NilpType2(length,probSize);
-
-    parMatrixSparse<double,int> *Mt;
-
-    start = MPI_Wtime();
-
-    Mt = smg2s<double,int>(probSize, nilp, lbandwidth,spectrum,mattype, MPI_COMM_WORLD);
-
-    end = MPI_Wtime();
-
-    time = end - start ;
-
-    if(rank == 0){
-    	printf ( "----------------------------------------------------\n" );
-        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-        printf ( "----------------------------------------------------\n" );
-        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-        printf ( "----------------------------------------------------\n" );
-    }
-
-//    Mt->LOC_MatView();
-
-#elif defined (__USE_64BIT__)
-//real single long int
-
-    __int64_t probSize, lbandwidth, length;
-
-    probSize = atoll(dim);
-    lbandwidth = atoll(l);
-    length = atoll(c);
-
-    Nilpotency<__int64_t> nilp;
-
-    nilp.NilpType1(length,probSize);
-
-    parMatrixSparse<float,__int64_t> *Mt;
-
-    start = MPI_Wtime();
-
-    Mt = smg2s<float,__int64_t>(probSize, nilp, lbandwidth,spectrum,mattype, MPI_COMM_WORLD);
-
-    end = MPI_Wtime();
-
-    time = end - start ;
-
-    if(rank == 0){
-        printf ( "----------------------------------------------------\n" );
-        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-        printf ( "----------------------------------------------------\n" );
-        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-        printf ( "----------------------------------------------------\n" );
-    }
-
-#else
-//real single int
-    int probSize, lbandwidth, length;
-
-    probSize = atoi(dim);
-    lbandwidth = atoi(l);
-    length = atoi(c);
-
-
-    Nilpotency<int> nilp;
-
-    nilp.NilpType1(length,probSize);
-
-    parMatrixSparse<float,int> *Mt;
-
-    start = MPI_Wtime();
-
-    Mt = smg2s<float,int>(probSize, nilp, lbandwidth,spectrum,mattype, MPI_COMM_WORLD);
-
-    end = MPI_Wtime();
-
-    time = end - start ;
-
-    if(rank == 0){
-        printf ( "----------------------------------------------------\n" );
-        printf ( "----- SMG2S Finish the Matrix Generation------------\n" );
-        printf ( "----------------------------------------------------\n" );
-        printf ( "---------- SMG2S Time is %f seconds ----------\n", time );
-        printf ( "----------------------------------------------------\n" );
-    }
-
-
-#endif
 
     //delete Mt;
 

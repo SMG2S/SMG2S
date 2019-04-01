@@ -10,8 +10,7 @@
 #SBATCH -n 2
 
 
-#./ex12 -ksp_monitor_true_residual -pc_type none -m 200 -n 200 -log_summary
-#./ex7 -ksp_monitor_true_residual -log_summary
+
 
 make runa
 #srun -n 1 ./powerInverse.exe  -n 1000 -l 10 -eps_monitor_conv -eps_power_shift_type constant \

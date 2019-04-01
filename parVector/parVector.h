@@ -81,6 +81,10 @@ class parVector{
 		void RestoreArray(){};
 
 		void specGen(std::string spectrum);
+		void specGen2(std::string spectrum);
+
+
+
 };
 
 template<typename T,typename S>
