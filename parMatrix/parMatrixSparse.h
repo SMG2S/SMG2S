@@ -1667,11 +1667,11 @@ void parMatrixSparse<std::complex<double>,__int64_t>::AM(Nilpotency<__int64_t> n
 
 
 	if(ProcID != 0){
-		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_LONG_LONG, up, tagtype, comm, &stypereq);
 	}
 
 	if(ProcID != nProcs - 1){
-		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_LONG_LONG, down, tagtype, comm, &rtypereq);
 		MPI_Wait(&rtypereq,&typestat);
 	}
 
@@ -1749,7 +1749,7 @@ void parMatrixSparse<std::complex<double>,__int64_t>::AM(Nilpotency<__int64_t> n
 			}
 		}
 
-		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sIndx, gSize, MPI_LONG_LONG, up, tagi, comm, &indSReqs);
 		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
 	}
 
@@ -1761,7 +1761,7 @@ void parMatrixSparse<std::complex<double>,__int64_t>::AM(Nilpotency<__int64_t> n
 		for(__int64_t tt = 0; tt < gRsize; tt++){
 			rIndx[tt] = 0;
 		}
-		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rIndx, gRsize, MPI_LONG_LONG, down, tagi, comm, &indRReqs);
 		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
 		
 		MPI_Wait(&indRReqs,&indRStats);
@@ -2005,11 +2005,11 @@ void parMatrixSparse<std::complex<float>,__int64_t>::AM(Nilpotency<__int64_t> ni
 
 
 	if(ProcID != 0){
-		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_LONG_LONG, up, tagtype, comm, &stypereq);
 	}
 
 	if(ProcID != nProcs - 1){
-		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_LONG_LONG, down, tagtype, comm, &rtypereq);
 		MPI_Wait(&rtypereq,&typestat);
 	}
 
@@ -2087,7 +2087,7 @@ void parMatrixSparse<std::complex<float>,__int64_t>::AM(Nilpotency<__int64_t> ni
 			}
 		}
 
-		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sIndx, gSize, MPI_LONG_LONG, up, tagi, comm, &indSReqs);
 		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
 	}
 
@@ -2099,7 +2099,7 @@ void parMatrixSparse<std::complex<float>,__int64_t>::AM(Nilpotency<__int64_t> ni
 		for(__int64_t tt = 0; tt < gRsize; tt++){
 			rIndx[tt] = 0;
 		}
-		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rIndx, gRsize, MPI_LONG_LONG, down, tagi, comm, &indRReqs);
 		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
 		
 		MPI_Wait(&indRReqs,&indRStats);
@@ -2342,11 +2342,11 @@ void parMatrixSparse<double,__int64_t>::AM(Nilpotency<__int64_t> nilp, parMatrix
 
 
 	if(ProcID != 0){
-		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_LONG_LONG, up, tagtype, comm, &stypereq);
 	}
 
 	if(ProcID != nProcs - 1){
-		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_LONG_LONG, down, tagtype, comm, &rtypereq);
 		MPI_Wait(&rtypereq,&typestat);
 	}
 
@@ -2422,7 +2422,7 @@ void parMatrixSparse<double,__int64_t>::AM(Nilpotency<__int64_t> nilp, parMatrix
 			}
 		}
 
-		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sIndx, gSize, MPI_LONG_LONG, up, tagi, comm, &indSReqs);
 		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
 
 	}
@@ -2432,7 +2432,7 @@ void parMatrixSparse<double,__int64_t>::AM(Nilpotency<__int64_t> nilp, parMatrix
 			rBuf[tt] = 0.0;
 			rIndx[tt] = 0;
 		}
-		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rIndx, gRsize, MPI_LONG_LONG, down, tagi, comm, &indRReqs);
 		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
 		
 		MPI_Wait(&indRReqs,&indRStats);
@@ -2676,11 +2676,11 @@ void parMatrixSparse<float,__int64_t>::AM(Nilpotency<__int64_t> nilp, parMatrixS
 
 
 	if(ProcID != 0){
-		MPI_Isend(size, nilp.diagPosition - 1, MPI_INT, up, tagtype, comm, &stypereq);
+		MPI_Isend(size, nilp.diagPosition - 1, MPI_LONG_LONG, up, tagtype, comm, &stypereq);
 	}
 
 	if(ProcID != nProcs - 1){
-		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_INT, down, tagtype, comm, &rtypereq);
+		MPI_Irecv(rsize,nilp.diagPosition - 1, MPI_LONG_LONG, down, tagtype, comm, &rtypereq);
 		MPI_Wait(&rtypereq,&typestat);
 	}
 
@@ -2756,7 +2756,7 @@ void parMatrixSparse<float,__int64_t>::AM(Nilpotency<__int64_t> nilp, parMatrixS
 			}
 		}
 
-		MPI_Isend(sIndx, gSize, MPI_INT, up, tagi, comm, &indSReqs);
+		MPI_Isend(sIndx, gSize, MPI_LONG_LONG, up, tagi, comm, &indSReqs);
 		MPI_Isend(sBuf, gSize, MPI_SCALAR, up, tagv, comm, &valSReqs);
 
 	}
@@ -2766,7 +2766,7 @@ void parMatrixSparse<float,__int64_t>::AM(Nilpotency<__int64_t> nilp, parMatrixS
 			rBuf[tt] = 0.0;
 			rIndx[tt] = 0;
 		}
-		MPI_Irecv(rIndx, gRsize, MPI_INT, down, tagi, comm, &indRReqs);
+		MPI_Irecv(rIndx, gRsize, MPI_LONG_LONG, down, tagi, comm, &indRReqs);
 		MPI_Irecv(rBuf, gRsize, MPI_SCALAR, down, tagv, comm, &valRReqs);
 		
 		MPI_Wait(&indRReqs,&indRStats);

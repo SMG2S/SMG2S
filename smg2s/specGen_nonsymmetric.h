@@ -179,10 +179,10 @@ void parVector<std::complex<float>,__int64_t>::specGen2(std::string spectrum){
 
 
 template<typename T, typename S>
-void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth, parVector<std::complex<double>,S> *spec){
+void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth, parVector<std::complex<T>,S> *spec){
 
     T rnd;
-    std::complex<double> *array;
+    std::complex<T> *array;
 
     array = spec->GetArray();
     S loc_indx;

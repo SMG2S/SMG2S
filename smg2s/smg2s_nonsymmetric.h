@@ -44,9 +44,6 @@ SOFTWARE.
 template<typename T, typename S>
 parMatrixSparse<T,S> *smg2s_nonsymmetric(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum, MPI_Comm comm){
 
-if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<float> >::value){
-  return 0;
-}
 
   int world_size;
 	int world_rank;
@@ -57,6 +54,13 @@ if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<f
 
 	 // Get the rank of the process
     MPI_Comm_rank(comm, &world_rank);
+
+    if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<float> >::value){
+        if(world_rank == 0){printf("ERROR ]: For the nonsymmetric case, the scalar type of matrix cannot be complex\n");}
+        return 0;
+    }
+
+    MPI_Barrier(comm);
 
     S span, lower_b, upper_b;
 
@@ -71,7 +75,7 @@ if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<f
     }
 
 
-    parVector<std::complex<T>,S> *spec = new parVector<std::complex<double>,S>(comm, lower_b, upper_b);
+    parVector<std::complex<T>,S> *spec = new parVector<std::complex<T>,S>(comm, lower_b, upper_b);
     parVector<T,S> *vec = new parVector<T,S>(comm, lower_b, upper_b);
 
 

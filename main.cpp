@@ -104,23 +104,23 @@ int main(int argc, char** argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    int probSize, lbandwidth, length;
+    __int64_t probSize, lbandwidth, length;
 
     probSize = atoi(dim);
     lbandwidth = atoi(l);
     length = atoi(c);
 
-    Nilpotency<int> nilp;
+    Nilpotency<__int64_t> nilp;
 
     nilp.NilpType2(length,probSize);
 
 /*Non symmetric case*/
 
-    parMatrixSparse<double,int> *Mt2;
+    parMatrixSparse<float,__int64_t> *Mt2;
 
     start = MPI_Wtime();
 
-    Mt2 =  smg2s_nonsymmetric<double,int>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
+    Mt2 =  smg2s_nonsymmetric<float,__int64_t>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 
