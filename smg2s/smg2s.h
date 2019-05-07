@@ -29,6 +29,7 @@ SOFTWARE.
 #include "../parVector/parVector.h"
 #include "../parMatrix/parMatrixSparse.h"
 #include "specGen.h"
+#include "specGen_nonsymmetric.h"
 #include <math.h>
 #include <complex.h>
 #include <string>
@@ -40,10 +41,12 @@ SOFTWARE.
 #endif
 
 template<typename T, typename S>
-parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum, MPI_Comm comm){
+parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum, std::string mattype, MPI_Comm comm){
 
 	int world_size;
 	int world_rank;
+
+    bool non_sym = false;
 
 	double start, end;
 
@@ -51,6 +54,12 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
 	 // Get the rank of the process
     MPI_Comm_rank(comm, &world_rank);
+
+
+    if (mattype.compare("non-sym") == 0){
+        non_sym = true;
+        if(world_rank == 0) {printf("INFO ]> To generate non symmetric matrix\n");}
+    }
 
     S span, lower_b, upper_b;
 
@@ -64,15 +73,22 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 		upper_b = (world_rank + 1) * span - 1 + 1;
     }
 
+    parVector<std::complex<T>,S> *spec;
 
-	  parVector<T,S> *vec = new parVector<T,S>(comm, lower_b, upper_b);
-    parVector<T,S> *low_diag = new parVector<T,S>(comm, lower_b, upper_b);
-    parVector<T,S> *up_diag = new parVector<T,S>(comm, lower_b, upper_b);
+	parVector<T,S> *vec = new parVector<T,S>(comm, lower_b, upper_b);
+
+    if(non_sym){
+        spec = new parVector<std::complex<T>,S>(comm, lower_b, upper_b);
+    }
 
     MPI_Barrier(comm);
 
     //generate vec containing the given spectra
-    vec->specGen(spectrum);
+    if(non_sym){
+        spec->specGen2(spectrum);
+    } else{
+        vec->specGen(spectrum);
+    }
 
     //Matrix Initialization
 
@@ -87,9 +103,13 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     start = MPI_Wtime();
 
-    matInit(Am, matAop, probSize, lbandwidth);
-    Am->Loc_SetDiagonal(vec);
-    matAop->Loc_SetDiagonal(vec);
+    if(non_sym){
+        matInit2(Am, matAop, probSize, lbandwidth, spec);
+    } else{
+        matInit(Am, matAop, probSize, lbandwidth);
+        Am->Loc_SetDiagonal(vec);
+        matAop->Loc_SetDiagonal(vec);
+    }
     
     end = MPI_Wtime();
 
@@ -109,11 +129,11 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
     for (S k=1; k<=2*nilp.nbOne; k++){
 
     	matAop->MA(nilp, MA);
-  	  matAop->AM(nilp, AM);
+  	    matAop->AM(nilp, AM);
     	matAop->Loc_MatAYPX(AM, 0);
     	matAop->Loc_MatAXPY(MA, -1);
 
-  	  my_factorielle_bornes = factorial(k+1,2*nilp.nbOne);
+  	    my_factorielle_bornes = factorial(k+1,2*nilp.nbOne);
     	Am->Loc_MatAXPY(matAop, (double)my_factorielle_bornes);
     	MA->Loc_ZeroEntries();
     	AM->Loc_ZeroEntries();
@@ -123,12 +143,12 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
 	my_factorielle_bornes = factorial(1,2*(nilp.nbOne));
 
-  double fac = (double)my_factorielle_bornes;
-  double inv = 1/fac;
+    double fac = (double)my_factorielle_bornes;
+    double inv = 1/fac;
 
 	Am->Loc_MatScale((T)inv);
 
-  Am->LOC_MatView();
+    Am->LOC_MatView();
   
 
     return Am;

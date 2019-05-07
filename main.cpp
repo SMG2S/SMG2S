@@ -24,7 +24,6 @@ SOFTWARE.
 */
 
 #include "smg2s/smg2s.h"
-#include "smg2s/smg2s_nonsymmetric.h"
 #include <math.h>
 #include <complex>
 #include <cstdlib>
@@ -82,7 +81,8 @@ int main(int argc, char** argv) {
 
     std::string spectrum = " ";
     //std::string mattype = "non-herm";
-    std::string mattype = "non-sym";
+    std::string mattype = " ";
+    //non-sym
 
     for (int i =0; i < argc; i++){
 
@@ -100,6 +100,11 @@ int main(int argc, char** argv) {
         if (strcasecmp(argv[i],"-SPTR")==0){
                 spectrum.assign(argv[i+1]);
         }
+
+        if (strcasecmp(argv[i],"-mattype")==0){
+                mattype.assign(argv[i+1]);
+        }
+
     }
 
     MPI_Barrier(MPI_COMM_WORLD);
@@ -120,7 +125,7 @@ int main(int argc, char** argv) {
 
     start = MPI_Wtime();
 
-    Mt2 =  smg2s_nonsymmetric<float,__int64_t>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
+    Mt2 =  smg2s<float,__int64_t>(probSize, nilp,lbandwidth, spectrum, mattype, MPI_COMM_WORLD);
 
     end = MPI_Wtime();
 
