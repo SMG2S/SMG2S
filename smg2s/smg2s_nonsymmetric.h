@@ -71,7 +71,7 @@ if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<f
     }
 
 
-    parVector<std::complex<T>,S> *spec = new parVector<std::complex<T>,S>(comm, lower_b, upper_b);
+    parVector<std::complex<T>,S> *spec = new parVector<std::complex<double>,S>(comm, lower_b, upper_b);
     parVector<T,S> *vec = new parVector<T,S>(comm, lower_b, upper_b);
 
 
@@ -80,6 +80,8 @@ if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<f
     //generate vec containing the given spectra
     spec->specGen2(spectrum);
     
+    //spec->VecView();
+
     //Matrix Initialization
 
     parMatrixSparse<T,S> *Am = new parMatrixSparse<T,S>(vec,vec);
@@ -96,7 +98,7 @@ if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<f
 
     matInit2(Am, matAop, probSize, lbandwidth, spec);
 
-//    Am->LOC_MatView();
+    //Am->LOC_MatView();
 
     end = MPI_Wtime();
 
@@ -106,20 +108,22 @@ if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<f
 
     MPI_Barrier(comm);
 
+    
     __int64_t my_factorielle_bornes = 1;
 
     my_factorielle_bornes = factorial(1,2*nilp.nbOne);
 
     Am->Loc_MatScale((double)my_factorielle_bornes);
 
-    for (int k=1; k<=2*nilp.nbOne; k++){
+
+    for (S k=1; k<=2*nilp.nbOne; k++){
 
     	matAop->MA(nilp, MA);
-  	  matAop->AM(nilp, AM);
+  	    matAop->AM(nilp, AM);
     	matAop->Loc_MatAYPX(AM, 0);
     	matAop->Loc_MatAXPY(MA, -1);
 
-  	  my_factorielle_bornes = factorial(k+1,2*nilp.nbOne);
+  	    my_factorielle_bornes = factorial(k+1,2*nilp.nbOne);
     	Am->Loc_MatAXPY(matAop, (double)my_factorielle_bornes);
     	MA->Loc_ZeroEntries();
     	AM->Loc_ZeroEntries();
@@ -128,12 +132,12 @@ if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<f
 
 	my_factorielle_bornes = factorial(1,2*(nilp.nbOne));
 
-  double fac = (double)my_factorielle_bornes;
-  double inv = 1/fac;
+    double fac = (double)my_factorielle_bornes;
+    double inv = 1/fac;
 
 	Am->Loc_MatScale((T)inv);
   
-  //Am->LOC_MatView();
+    //Am->LOC_MatView();
 
   return Am;
 }

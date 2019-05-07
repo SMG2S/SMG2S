@@ -48,12 +48,20 @@ void parVector<std::complex<double>,int>::specGen2(std::string spectrum){
       }
 
       for(int i=0; i < size; i=i+2){
-        val.real(i*1+3);
-        val.imag(i*2+1);
-        val2.real(i*1+3);
-        val2.imag(-i*2-1);
-        SetValueGlobal(i, val);
-        SetValueGlobal(i+1, val2);
+        if( i == 2 ){
+            val.real(i*1+3);
+            val.imag(0);
+            SetValueGlobal(i, val);
+            SetValueGlobal(i+1, -val);
+        }
+        else{
+          val.real(i*1+3);
+          val.imag(i*2+1);
+          val2.real(i*1+3);
+          val2.imag(-i*2-1);
+          SetValueGlobal(i, val);
+          SetValueGlobal(i+1, val2);
+        }
       }
    }
    else{
@@ -76,12 +84,20 @@ void parVector<std::complex<float>,int>::specGen2(std::string spectrum){
       }
 
       for(int i=0; i < size; i=i+2){
-        val.real(i*1+3);
-        val.imag(i*2+1);
-        val2.real(i*1+3);
-        val2.imag(-i*2-1);
-        SetValueGlobal(i, val);
-        SetValueGlobal(i+1, val2);
+        if( i == 2 ){
+            val.real(i*1+3);
+            val.imag(0);
+            SetValueGlobal(i, val);
+            SetValueGlobal(i+1, -val);
+        }
+        else{
+          val.real(i*1+3);
+          val.imag(i*2+1);
+          val2.real(i*1+3);
+          val2.imag(-i*2-1);
+          SetValueGlobal(i, val);
+          SetValueGlobal(i+1, val2);
+        }
       }
    }
    else{
@@ -103,13 +119,21 @@ void parVector<std::complex<double>,__int64_t>::specGen2(std::string spectrum){
          printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
       }
 
-      for(__int64_t i=0; i < size; i=i+2){
-        val.real(i*1+3);
-        val.imag(i*2+1);
-        val2.real(i*1+3);
-        val2.imag(-i*2-1);
-        SetValueGlobal(i, val);
-        SetValueGlobal(i+1, val2);
+      for(__int64_t i=0; i < size; i = i + 2){
+        if( i == 2 ){
+            val.real(i*1+3);
+            val.imag(0);
+            SetValueGlobal(i, val);
+            SetValueGlobal(i+1, -val);
+        }
+        else{
+          val.real(i*1+3);
+          val.imag(i*2+1);
+          val2.real(i*1+3);
+          val2.imag(-i*2-1);
+          SetValueGlobal(i, val);
+          SetValueGlobal(i+1, val2);
+        }
       }
    }
    else{
@@ -131,13 +155,21 @@ void parVector<std::complex<float>,__int64_t>::specGen2(std::string spectrum){
          printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
       }
 
-      for(__int64_t i=0; i < size; i=i+2){
-        val.real(i*1+3);
-        val.imag(i*2+1);
-        val2.real(i*1+3);
-        val2.imag(-i*2-1);
-        SetValueGlobal(i, val);
-        SetValueGlobal(i+1, val2);
+      for(int i=0; i < size; i=i+2){
+        if( i == 2 ){
+            val.real(i*1+3);
+            val.imag(0);
+            SetValueGlobal(i, val);
+            SetValueGlobal(i+1, -val);
+        }
+        else{
+          val.real(i*1+3);
+          val.imag(i*2+1);
+          val2.real(i*1+3);
+          val2.imag(-i*2-1);
+          SetValueGlobal(i, val);
+          SetValueGlobal(i+1, val2);
+        }
       }
    }
    else{
@@ -147,12 +179,13 @@ void parVector<std::complex<float>,__int64_t>::specGen2(std::string spectrum){
 
 
 template<typename T, typename S>
-void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth, parVector<std::complex<double>,int> *spec){
+void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth, parVector<std::complex<double>,S> *spec){
 
     T rnd;
     std::complex<double> *array;
 
     array = spec->GetArray();
+    S loc_indx;
 
     //T scale;
 
@@ -167,29 +200,40 @@ void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize
     }
 
 */
+    
     for(S i = 0; i < probSize; i++){
         for(S j = i - lbandwidth; j < i - 1; j++){
             if(j >= 0){
-              rnd = 1;
+              //rnd = scale * random<T,S>(0,10);
+              rnd = 0.01;
               Am->Loc_SetValue(i,j,rnd);
               matAop->Loc_SetValue(i,j,rnd);
             }
         }
-    }
+    }    
+
 
     for(S i = 0; i < probSize; i++){
-      Am->Loc_SetValue(i,i,array[i].real());
-      matAop->Loc_SetValue(i,i,array[i].real());
-    }
+      
+      loc_indx = spec->Glob2Loc(i);
 
+      Am->Loc_SetValue(i,i,array[loc_indx].real());
+      matAop->Loc_SetValue(i,i,array[loc_indx].real());
+
+    }
+    
     for(S i = 0; i < probSize - 1; i = i + 2){
-      if(array[i].imag() != 0){
-        Am->Loc_SetValue(i,i+1,std::abs(array[i].imag()));
-        matAop->Loc_SetValue(i,i+1,std::abs(array[i].imag()));
-        Am->Loc_SetValue(i+1,i,-std::abs(array[i].imag()));
-        matAop->Loc_SetValue(i+1,i,-std::abs(array[i].imag()));
+      
+      loc_indx = spec->Glob2Loc(i);
+      
+      if(array[loc_indx].imag() != 0){
+        Am->Loc_SetValue(i,i+1,std::abs(array[loc_indx].imag()));
+        matAop->Loc_SetValue(i,i+1,std::abs(array[loc_indx].imag()));
+        Am->Loc_SetValue(i+1,i,-std::abs(array[loc_indx].imag()));
+        matAop->Loc_SetValue(i+1,i,-std::abs(array[loc_indx].imag()));
       }
     }
+    
 }
 
 #endif

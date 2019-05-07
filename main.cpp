@@ -124,7 +124,7 @@ int main(int argc, char** argv) {
 
     end = MPI_Wtime();
 
-    time = end - start ;
+    time = end - start;
 
     if(rank == 0){
         printf ( "----------------------------------------------------\n" );
