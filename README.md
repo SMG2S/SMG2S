@@ -11,6 +11,10 @@ In the newest version (v1.1) of SMG2S, it supports the generation of nonsymmetri
 
 Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http://www.maisondelasimulation.fr), France.
 
+## What for ?
+
+SMG2S is able to generate large-scale non-Hermitian (non-Symmetric) methods in parallel with the spectral distribution functions or eigenvalues given by users. SMG2S can be used to benchmark the iterative linear and eigen solvers on supercomputers using the generated very large test matrices with customized spectral properties.
+
 ## Cite SMG2S
 
 1. Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." International Conference on Vector and Parallel Processing. Springer, Cham, 2018. [(DOI)](https://doi.org/10.1007/978-3-030-15996-2_16)
