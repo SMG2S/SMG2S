@@ -3,6 +3,10 @@ Sparse Matrix Generator with Given Spectrum
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1247326.svg)](https://doi.org/10.5281/zenodo.1247326)
 
+## Update !!!
+
+In the newest version (v1.1) of SMG2S, it supports the generation of nonsymmetric matrices that all the entries of matrices are real and the eigenvalues can be both real and complex.
+
 -------------------------------------------------------------------------------
 
 Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http://www.maisondelasimulation.fr), France.
@@ -12,8 +16,6 @@ Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http:/
 1. Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." International Conference on Vector and Parallel Processing. Springer, Cham, 2018. [(DOI)](https://doi.org/10.1007/978-3-030-15996-2_16)
 
 2. Wu, Xinzhe. SMG2S Manual v1. 0. Maison de la Simulation, 2018. [(PDF)](https://hal.archives-ouvertes.fr/hal-01874810/document)
-
-<font color=red>NEW!!!</font>.
 
 ![Matrix Generation Pattern](figure/matgen.png)
 
