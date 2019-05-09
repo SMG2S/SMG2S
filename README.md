@@ -88,11 +88,16 @@ nilp.NilpType1(length,probSize);
 Create the parallel Sparse Matrix Object Mt:
 ```cpp
 parMatrixSparse<std::complex<float>,int> *Mt;
+parMatrixSparse<std::complex<float>,int> *Mt2;
 ```
 Generate a new matrix:
 ```cpp
 MPI_Comm comm; //working MPI Communicator
+/*Generate Non Hermitian Matrices*/
 Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth, spectrum, comm);
+
+/*Generate Non Symmetric Matrices whose eigenvalues can be real and complex*/
+Mt2 = smg2s_nonsymmetric<std::complex<float>,int>(probSize, nilp, lbandwidth, spectrum, comm);
 
 ```
 
