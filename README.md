@@ -290,11 +290,14 @@ int main(int argc, char* argv[]) {
 
   /*Create parMatrixSparse Object*/
 	struct parMatrixSparseDoubleInt *m;
+
   struct parMatrixSparseDoubleInt *m2;
 
   /*create Instance*/
 	m = newParMatrixSparseDoubleInt();
+  
   m2 = newParMatrixSparseDoubleInt();
+  
   /*Generate non-Hermitian matrix by SMG2S*/
 	smg2s(m, 10, n, 3 ," ",MPI_COMM_WORLD);
   
@@ -303,6 +306,7 @@ int main(int argc, char* argv[]) {
   
   /*Matrix View*/
 	LOC_MatView(m);
+  
   LOC_MatView(m2);
 
   /*Release Nilpotency Object
