@@ -100,7 +100,9 @@ Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth, spectrum, comm);
 Mt2 = smg2s_nonsymmetric<float,int>(probSize, nilp, lbandwidth, spectrum, comm);
 ```
 
-#### ATTENTION: for generating non symmetric matrices with complex eigenvalues, the first typename in the template of can only be **double** or **float**.
+#### ATTENTION: 
+
+for generating non symmetric matrices with complex eigenvalues, the first typename in the template of can only be **double** or **float**.
 
 ### Given Spectra file in pseudo-Matrix Market Vector Format
 
