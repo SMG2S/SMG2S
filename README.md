@@ -3,6 +3,7 @@ Sparse Matrix Generator with Given Spectrum
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1247326.svg)](https://doi.org/10.5281/zenodo.1247326)
 
+
 ## Update !!!
 
 In the newest version (v1.1) of SMG2S, it supports the generation of nonsymmetric matrices that all the entries of matrices are real and the eigenvalues can be both real and complex.
