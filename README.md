@@ -128,6 +128,7 @@ For the complex values, the given spectrum is stored in three columns, the first
     3 10.7621 5.0540
 
 * Real Values
+
 For the real values, the given spectrum is stored in two columns, the first column is the coordinates, the second column is related values.
 
     %%MatrixMarket matrix coordinate real general
@@ -142,7 +143,7 @@ In order to generate non-Symmetric test matrices with given complex and real eig
 
 ##### Attention:
 
-For the non-Symmetric test matrices, if one eigenvalue is complex, there exits another value that they two are symmetric to the real axis in the real-imaginary plain. So when setting up the spectral file, one eigenvalue a+b*i should be closely followed by another eigenvalue a-b*i. For the real eigenvalues, they are stored with their imaginary part being 0. Here is an example
+For the non-Symmetric test matrices, if one eigenvalue is complex, there exits another value that they two are symmetric to the real axis in the real-imaginary plain. So when setting up the spectral file, one eigenvalue a+bi should be closely followed by another eigenvalue a-bi. For the real eigenvalues, they are stored with their imaginary part being 0. Here is an example
 
     %%MatrixMarket matrix coordinate complex general
     9 9 9
@@ -244,10 +245,13 @@ if rank == 0:
         print("Nilptency matrix continuous one nb = %d" %nilp.nbOne)
 
 Mt = smg2s.parMatrixSparseDoubleInt()
+Mt2 = smg2s.parMatrixSparseDoubleInt()
 
-#Generate Mt by SMG2S
+#Generate non-Hermitian matrix Mt by SMG2S
 #vector.txt is the file that stores the given spectral distribution in local filesystem.
 Mt=smg2s.smg2sDoubleInt(10,nilp,lbandwidth,"vector.txt", MPI.COMM_WORLD)
+#Generate non-Symmetric matrix Mt by SMG2S
+Mt2=smg2s.smg2sNonSymmetricDoubleInt(10,nilp,lbandwidth," ", MPI.COMM_WORLD)
 ```
 
 ### Interface to C
@@ -286,17 +290,27 @@ int main(int argc, char* argv[]) {
 
   /*Create parMatrixSparse Object*/
 	struct parMatrixSparseDoubleInt *m;
+  struct parMatrixSparseDoubleInt *m2;
+
   /*create Instance*/
 	m = newParMatrixSparseDoubleInt();
-  /*Generate by SMG2S*/
+  m2 = newParMatrixSparseDoubleInt();
+  /*Generate non-Hermitian matrix by SMG2S*/
 	smg2s(m, 10, n, 3 ," ",MPI_COMM_WORLD);
+  
+  /*Generate non-Symmetric matrix by SMG2S*/
+  smg2s(m2, 10, n, 3 ," ",MPI_COMM_WORLD);
+  
   /*Matrix View*/
 	LOC_MatView(m);
+  LOC_MatView(m2);
 
   /*Release Nilpotency Object
   Release parMatrixSparse Object*/
 	ReleaseNilpotencyInt(&n);
 	ReleaseParMatrixSparseDoubleInt(&m);
+  ReleaseParMatrixSparseDoubleInt(&m2);
+
 
 	MPI_Finalize();
 	return 0;
@@ -336,9 +350,6 @@ K->fillComplete ();
 K->describe(*fos, Teuchos::VERB_EXTREME);
 
 ```
-
-Coming soon.
-
 
 ## Verification
 
