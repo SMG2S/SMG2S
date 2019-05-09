@@ -13,10 +13,7 @@ Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http:/
 
 2. Wu, Xinzhe. SMG2S Manual v1. 0. Maison de la Simulation, 2018. [(PDF)](https://hal.archives-ouvertes.fr/hal-01874810/document)
 
-```diff
-+ this will be highlighted in green
-- this will be highlighted in red
-```
+<font color=red>NEW!!!</font>.
 
 ![Matrix Generation Pattern](figure/matgen.png)
 
