@@ -42,15 +42,20 @@
 
 %template(parMatrixSparseRealDoubleInt) parMatrixSparse<double,int>;
 %template(smg2sRealDoubleInt) smg2s<double,int>;
+%template(smg2sNonSymmetricRealDoubleInt) smg2s_nonsymmetric<double,int>;
+
 
 %template(parMatrixSparseRealDoubleLongInt) parMatrixSparse<double,__int64_t>;
 %template(smg2sRealDoubleLongInt) smg2s<double,__int64_t>;
+%template(smg2sNonSymmetricRealDoubleLongInt) smg2s_nonsymmetric<double,__int64_t>;
 
 %template(parMatrixSparseRealSingleInt) parMatrixSparse<float,int>;
 %template(smg2sRealSingleInt) smg2s<float,int>;
+%template(smg2sNonSymmetricRealSingleInt) smg2s_nonsymmetric<float,int>;
 
 %template(parMatrixSparseRealSingleLongInt) parMatrixSparse<float,__int64_t>;
 %template(smg2sRealSingleLongInt) smg2s<float,__int64_t>;
+%template(smg2sNonSymmetricRealSingleLongInt) smg2s_nonsymmetric<float,__int64_t>;
 
 %template(parMatrixSparseComplexDoubleInt) parMatrixSparse<std::complex<double>,int>;
 %template(smg2sComplexDoubleInt) smg2s<std::complex<double>,int>;

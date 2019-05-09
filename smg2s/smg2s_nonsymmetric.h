@@ -23,12 +23,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __SMG2S_H__
-#define __SMG2S_H__
+#ifndef __SMG2S__NONSYMMETRIC_H__
+#define __SMG2S__NONSYMMETRIC_H__
 
 #include "../parVector/parVector.h"
 #include "../parMatrix/parMatrixSparse.h"
-#include "specGen.h"
+#include "specGen_nonsymmetric.h"
 #include <math.h>
 #include <complex.h>
 #include <string>
@@ -41,7 +41,7 @@ SOFTWARE.
 #endif
 
 template<typename T, typename S>
-parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum, MPI_Comm comm){
+parMatrixSparse<T,S> *smg2s_nonsymmetric(S probSize, Nilpotency<S> nilp, S lbandwidth, std::string spectrum, MPI_Comm comm){
 
 	int world_size;
 	int world_rank;
@@ -52,6 +52,7 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
 	 // Get the rank of the process
     MPI_Comm_rank(comm, &world_rank);
+
 
     S span, lower_b, upper_b;
 
@@ -65,16 +66,14 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 		upper_b = (world_rank + 1) * span - 1 + 1;
     }
 
+    parVector<T,S> *vec = new parVector<T,S>(comm, lower_b, upper_b);
 
-	parVector<T,S> *vec = new parVector<T,S>(comm, lower_b, upper_b);
-
-
+    parVector<std::complex<T>,S> *spec = new parVector<std::complex<T>,S>(comm, lower_b, upper_b);
+    
     MPI_Barrier(comm);
 
     //generate vec containing the given spectra
-
-    vec->specGen(spectrum);
-    
+    spec->specGen2(spectrum);
 
     //Matrix Initialization
 
@@ -89,10 +88,8 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     start = MPI_Wtime();
 
-    matInit(Am, matAop, probSize, lbandwidth);
-    Am->Loc_SetDiagonal(vec);
-    matAop->Loc_SetDiagonal(vec);
- 
+    matInit2(Am, matAop, probSize, lbandwidth, spec);
+   
     end = MPI_Wtime();
 
     double t2 = end - start;

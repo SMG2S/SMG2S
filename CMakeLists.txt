@@ -65,8 +65,8 @@ target_link_libraries(smg2s.exe PRIVATE ${MPI_CXX_LIBRARIES})
 
 target_include_directories(smg2s.exe PRIVATE ${MPI_CXX_INCLUDE_PATH})
 
-# file(GLOB C_WRAPPERS "interface/C/*.cc")
-# add_library(smg2s2c SHARED ${C_WRAPPERS})
+file(GLOB C_WRAPPERS "interface/C/*.cc")
+add_library(smg2s2c SHARED ${C_WRAPPERS})
 
 option(INSTALL_TO_USE "Install SMG2S include files?" ON)
 
@@ -76,7 +76,9 @@ install(TARGETS smg2s.exe DESTINATION bin)
 INSTALL (
     DIRECTORY ${CMAKE_SOURCE_DIR}/utils ${CMAKE_SOURCE_DIR}/smg2s ${CMAKE_SOURCE_DIR}/parMatrix ${CMAKE_SOURCE_DIR}/parVector
     DESTINATION include)
-# INSTALL(TARGETS smg2s2c DESTINATION lib)
+
+#INSTALL(TARGETS smg2s2c DESTINATION lib)
+
 INSTALL (
     DIRECTORY ${CMAKE_SOURCE_DIR}/interface/C/
     DESTINATION include/interface/C
@@ -97,7 +99,7 @@ message([STATUS] "Remainder: SMG2S provides a basic example to show the usage,
         file config/config.h to specify different data types.")
 
 # Find PETSc and SLEPc for verification
-option(USE_PETSC "Find PETSc and SLEPc for verification?" ON)
+option(USE_PETSC "Find PETSc and SLEPc for verification?" OFF)
 
 if(USE_PETSC)
 message([STATUS] "Find PETSc and SLEPc for verification: ${USE_PETSC}")

@@ -35,14 +35,14 @@ void border_print(void)
 {
 	printf(
 	"==================================================================="
-	"=============\n");
+	"=======================================\n");
 }
 
 void border_print2(void)
 {
 	printf(
-	"-------------------------------------------------------------------"
-	"-------------\n");
+	"\n-------------------------------------------------------------------"
+	"---------------------------------------\n\n");
 }
 
 void center_print(const char *s, int width)
@@ -60,29 +60,19 @@ void center_print(const char *s, int width)
 void logo(float version)
 {
 	border_print();
-/*
-	printf(
-	"	 ________   ____  ____    _________   ________   ________                     \n"
-	"	||         ||   ||   ||  ||       ||         || ||                 \n"
-	"	||______   ||   ||   ||  ||            ______|| ||______     \n"    
-	"	|--------| ||   ||   ||  ||      ___ |------- | |--------|\n"
-	"	        || ||   --   ||  ||       || ||                 ||     				\n"
-	"	||______|| ||        ||  ||_______|| ||______|| ||______||\n"
-	"			\n"
-	);
-*/
+
 	printf("\n");
 	printf("\n");
 	printf("\n");
-	center_print("SMG2S: Scalable Matrix Generator with Given Spetrum", 79);
+	center_print("SMG2S: Scalable Matrix Generator with Given Spetrum", 100);
 	char v[100];
     sprintf(v, "Version: %.1f", version);
-	center_print(v, 79);
+	center_print(v, 100);
 	printf("\n");
 	printf("\n");
 	printf("\n");
 	border_print();
-    center_print("Developed by Xinzhe WU at Maison de la Simulation, France", 79);
+    center_print("Developed by Xinzhe WU at Maison de la Simulation, France", 100);
 	border_print();
 
 	printf("\n\n\n");

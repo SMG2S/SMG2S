@@ -30,7 +30,6 @@ SOFTWARE.
 #include <ctime>
 #include <cstdlib>
 #include <map>
-#include "../config/config.h"
 
 template<class T>
 T random_unint(T min, T max)
@@ -42,6 +41,45 @@ T random_unint(T min, T max)
 	return (min + static_cast<T>(max * rand() / static_cast<T>(RAND_MAX + 1)));
 
 }
+
+template<class T>
+int pw(T x)
+{
+	int stop = 0;
+	int count = 0;
+
+	while (!stop){
+		x = x / 10;
+		if(x >= 1){
+			count++;
+		}
+		else {
+			stop = 1;
+		}
+	}
+	return count;
+}
+
+template<class T>
+int demical(T x)
+{
+	int stop = 0;
+	int demical;
+	int count = 0;
+
+	while (!stop){
+		demical = (int)x;
+		x = x / 10;
+		if(x >= 1){
+			count++;
+		}
+		else {
+			stop = 1;
+		}
+	}
+	return demical;
+}
+
 
 template<class T, class S>
 T random(S min, S max)

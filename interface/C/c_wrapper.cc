@@ -27,6 +27,8 @@ SOFTWARE.
 #include "../../utils/utils.h"
 #include "../../parMatrix/parMatrixSparse.h"
 #include "../../smg2s/smg2s.h"
+#include "../../smg2s/smg2s_nonsymmetric.h"
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -347,6 +349,11 @@ void smg2sRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m, __int64_
   m->parMatrix = *smg2s<double,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
+
+void smg2sNonSymmetricRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm){
+  m->parMatrix = *smg2s_nonsymmetric<double,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
+}
+
 //complex single int
 
 /*parMatrixSparse complex<double> int C wrapper*/
@@ -473,6 +480,11 @@ void smg2sRealDoubleInt(struct parMatrixSparseRealDoubleInt *m, int probSize, st
   m->parMatrix = *smg2s<double,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
+
+void smg2sNonSymmetricRealDoubleInt(struct parMatrixSparseRealDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
+  m->parMatrix = *smg2s_nonsymmetric<double,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
+}
+
 //real single long int
 
 
@@ -538,6 +550,11 @@ void smg2sRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m, __int64_
   m->parMatrix = *smg2s<float,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
 
+void smg2sNonSymmetricRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm){
+  m->parMatrix = *smg2s_nonsymmetric<float,__int64_t>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
+}
+
+
 /*parMatrixSparse int C wrapper*/
 struct parMatrixSparseRealSingleInt{
   parMatrixSparse<float,int> parMatrix;
@@ -599,6 +616,13 @@ void Loc_RealCSRGetRowsArraysRealSingleInt(struct parMatrixSparseRealSingleInt *
 void smg2sRealSingleInt(struct parMatrixSparseRealSingleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
   m->parMatrix = *smg2s<float,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
 }
+
+
+void smg2sNonSymmetricRealSingleInt(struct parMatrixSparseRealSingleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm){
+  m->parMatrix = *smg2s_nonsymmetric<float,int>(probSize, nilp->nilp, lbandwidth,spectrum,comm);
+}
+
+
 
 #ifdef __cplusplus
 };

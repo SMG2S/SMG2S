@@ -9,9 +9,12 @@ Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http:/
 
 ## Cite SMG2S
 
-1. Wu, Xinzhe, Serge Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." VECPAR 2018: 13th International Meeting on High Performance Computing for Computational Science. 2018. [(pdf)](https://hal.archives-ouvertes.fr/hal-01867967)
+1. Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." International Conference on Vector and Parallel Processing. Springer, Cham, 2018. [DOI](https://doi.org/10.1007/978-3-030-15996-2_16)
 
-2. Wu, Xinzhe. SMG2S Manual v1. 0. Maison de la Simulation, 2018. [(pdf)](https://hal.archives-ouvertes.fr/hal-01874810/document)
+2. Wu, Xinzhe. SMG2S Manual v1. 0. Maison de la Simulation, 2018. [(PDF)](https://hal.archives-ouvertes.fr/hal-01874810/document)
+
+<span style="color:red">**NEW !!!** text</span>
+
 
 ![Matrix Generation Pattern](figure/matgen.png)
 
