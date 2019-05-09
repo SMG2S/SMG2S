@@ -67,7 +67,12 @@ make install
 
 Include the SMG2S header file
 ```cpp
+/*Generate Non Hermitian Matrices*/
 #include <smg2s/smg2s.h>
+
+/*Generate Non Symmetric Matrices whose eigenvalues can be real and complex*/
+#include <smg2s/smg2s_nonsymmetric.h>
+
 ```
 
 Include and Compile
@@ -104,13 +109,16 @@ Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth, spectrum, comm);
 Mt2 = smg2s_nonsymmetric<float,int>(probSize, nilp, lbandwidth, spectrum, comm);
 ```
 
-#### ATTENTION: 
+##### ATTENTION: 
 
-for generating non symmetric matrices with complex eigenvalues, the first typename in the template of can only be **double** or **float**.
+For generating non symmetric matrices with complex eigenvalues, the first typename in the template of can only be **double** or **float**.
 
 ### Given Spectra file in pseudo-Matrix Market Vector Format
 
-#### Complex values
+#### Non-Hermitian case
+
+* Complex values
+
 For the complex values, the given spectrum is stored in three columns, the first column is the coordinates, the second column is the real part of complex values, and the third column is the imaginary part of complex values.
 
     %%MatrixMarket matrix coordinate complex general
@@ -119,7 +127,7 @@ For the complex values, the given spectrum is stored in three columns, the first
     2 10.6288 3.4790
     3 10.7621 5.0540
 
-#### Real Values
+* Real Values
 For the real values, the given spectrum is stored in two columns, the first column is the coordinates, the second column is related values.
 
     %%MatrixMarket matrix coordinate real general
@@ -127,6 +135,27 @@ For the real values, the given spectrum is stored in two columns, the first colu
     1 10
     2 10.6288    
     3 10.7621
+
+#### Non-Symmetric case
+
+In order to generate non-Symmetric test matrices with given complex and real eigenvalues, the give spectrum are always stored in complex form, which has three columns.
+
+##### Attention:
+
+For the non-Symmetric test matrices, if one eigenvalue is complex, there exits another value that they two are symmetric to the real axis in the real-imaginary plain. So when setting up the spectral file, one eigenvalue a+b*i should be closely followed by another eigenvalue a-b*i. For the real eigenvalues, they are stored with their imaginary part being 0. Here is an example
+
+    %%MatrixMarket matrix coordinate complex general
+    9 9 9
+    1 10.6288 -3.4790
+    2 10.6288 3.4790
+    3 2.332 0
+    4 10.7621 5.0540
+    5 10.7621 -5.0540
+    6 -2.332 0
+    7 -11.02 0
+    8 21.21 4.4
+    9 21.21 -4.4
+
 
 ## Interface
 The cmake will check if PETSc is installed in the platfrom, if yes, header file to interface will also be copied to ${INSTALL_DIRECTORY}/include when installing SMG2S.
