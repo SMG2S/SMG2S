@@ -53,10 +53,19 @@ make
 Execution
 
 ```bash
-mpirun -np ${PROCS} ./smg2s.exe -SIZE ${MAT_SIZE} -L ${LOW_BANDWIDTH} -C ${CONTINUOUS_ONES} -SPTR ${GIVEN_SPECTRUM_FILE}
+mpirun -np ${PROCS} ./smg2s.exe -SIZE ${MAT_SIZE} -L ${LOW_BANDWIDTH} -C ${CONTINUOUS_ONES} -SPTR ${GIVEN_SPECTRUM_FILE} -mattype ${MATTYPE} -floattype ${FLOATTYPE} -integertype ${INTEGERTYPE}
 ```
 
 If ${GIVEN_SPECTRUM_FILE} is not given, SMG2S will use the internal eigenvalue generation method to generate a default spectrum.
+
+If ${MATTYPE} is not given, SMG2S will generate the non-Hermitian matrices. If the users want to generate non symmetric matrices, it should be set as "non-sym".
+
+${FLOATTYPE} and ${INTEGERTYPE} are used define the floating and integer type for the contruction of matrices.
+
+${FLOATTYPE} can be: DOUBLE, FLOAT, CPLX_DOUBLE and CPLX_FLOAT.
+
+${INTEGERTYPE} can be: INT and _INT64.
+
 
 ### Include files
 
