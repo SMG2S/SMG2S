@@ -1,0 +1,32 @@
+==========================================================================================================
+
+
+
+                         SMG2S: Scalable Matrix Generator with Given Spetrum
+                                             Version: 1.1
+
+
+
+==========================================================================================================
+                      Developed by Xinzhe WU at Maison de la Simulation, France
+==========================================================================================================
+
+
+
+INFO ]> Starting ... 
+INFO ]> The MPI Comm World Size is 4
+Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.
+Initial matrix generation time = 0.003059
+
+----------------------------------------------------------------------------------------------------------
+
+                         SMG2S Finish the Generation of Non Hermitian Matrix
+
+                              Size = 1e^3, L = 10, C = 4, Proc = 4
+
+                               Data Types for the test: CPLX_DOUBLE, INT
+
+                                  SMG2S Time is 0.126782 seconds 
+
+----------------------------------------------------------------------------------------------------------
+
