@@ -101,7 +101,6 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
     MPI_Barrier(comm);
 
-
     __int64_t my_factorielle_bornes = 1;
 
     my_factorielle_bornes = factorial(1,2*nilp.nbOne);
@@ -114,14 +113,12 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
   	    matAop->AM(nilp, AM);
     	matAop->Loc_MatAYPX(AM, 0);
     	matAop->Loc_MatAXPY(MA, -1);
-
-  	    my_factorielle_bornes = factorial(k+1,2*nilp.nbOne);
+  	my_factorielle_bornes = factorial(k+1,2*nilp.nbOne);
     	Am->Loc_MatAXPY(matAop, (double)my_factorielle_bornes);
     	MA->Loc_ZeroEntries();
     	AM->Loc_ZeroEntries();
 
     }
-
 
 	my_factorielle_bornes = factorial(1,2*(nilp.nbOne));
 

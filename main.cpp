@@ -31,6 +31,7 @@ SOFTWARE.
 #include <string.h>
 #include "utils/logo.h"
 #include "utils/utils.h"
+#include "utils/cmdline/cmdline.h"
 #include <string>
 #include <typeinfo>  
 
@@ -39,6 +40,8 @@ SOFTWARE.
 #else
 #include <malloc.h>
 #endif
+
+using S = int;
 
 int main(int argc, char** argv) {
 
@@ -65,384 +68,77 @@ int main(int argc, char** argv) {
     int name_len;
     MPI_Get_processor_name(processor_name, &name_len);
 
-    //MPI_Barrier(MPI_COMM_WORLD);
+    // Command Line parser
+    cmdline::parser parser;
+
+    parser.add<S>("dim", 'D', "Dimension of matrix to be generated", false, 1000);
+    parser.add<S>("lbandwidth", 'L', "low bandwidth of initial matrix", false, 5);
+    parser.add<S>("continous", 'C', "Continuous length in Nilpotent matrix", false, 2);
+    parser.add<std::string>("spectrum", 'S', "local file with given spectrum", false, " ");
+    parser.add<std::string>("mattype", 'M', "Matrix type to be generated: non-symmetric or non-Hermitian", false, "non-herm", cmdline::oneof<std::string>("non-herm", "non-sym"));
+
+    parser.parse_check(argc, argv);
+
+    //parser value from cmdline
+    S probSize = parser.get<S>("dim");
+    S lbandwidth = parser.get<S>("lbandwidth");
+    S length = parser.get<S>("continous");
+    std::string spectrum = parser.get<std::string>("spectrum");
+    std::string mattype = parser.get<std::string>("mattype");
+
     if(rank == 0) printf("INFO ]> Starting ... \n");
 
-    // Print off a hello world message
     if(rank == 0) printf("INFO ]> The MPI Comm World Size is %d\n", size);
 
-    if (argc < 5) {
-        // Tell the user how to run the program
-        if(rank == 0){
-            show_usage(argv[0]);
-        }
-        MPI_Finalize();
-        return 0;
-    }
+    Nilpotency<S> nilp;
+    nilp.NilpType1(length, probSize);
 
-    char *dim, *l, *c;
+    using T = std::complex<double>;
 
-    std::string spectrum = " ";
+    parMatrixSparse<T, S> *Mt;
 
-    std::string mattype = " ";
+    start = MPI_Wtime();
 
-    std::string floattype = " ";
+    Mt =  smg2s<T, S>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
 
-    std::string integertype = " ";    
+    end = MPI_Wtime();
 
-    for (int i =0; i < argc; i++){
+    time = end - start;
 
-        if (strcasecmp(argv[i],"-SIZE")==0){
-                dim = argv[i+1] ;
-        }
-        if (strcasecmp(argv[i],"-L")==0){
-                l = argv[i+1] ;
-        }
-
-        if (strcasecmp(argv[i],"-C")==0){
-                c = argv[i+1] ;
-        }
-
-        if (strcasecmp(argv[i],"-SPTR")==0){
-                spectrum.assign(argv[i+1]);
-        }
-
-        if (strcasecmp(argv[i],"-mattype")==0){
-                mattype.assign(argv[i+1]);
-        }
-
-        if (strcasecmp(argv[i],"-floattype")==0){
-                floattype.assign(argv[i+1]);
-        }
-
-        if (strcasecmp(argv[i],"-integertype")==0){
-                integertype.assign(argv[i+1]);
-        }
-    }
-
-    if (floattype.compare("FLOAT") != 0 && floattype.compare("DOUBLE") != 0 && floattype.compare("CPLX_DOUBLE") != 0 && floattype.compare("CPLX_FLOAT") != 0){
-        return 0;
-    }
-
-    if (integertype.compare("INT") != 0 && integertype.compare("_INT64") != 0){
-        return 0;
-    }
-
-
-    MPI_Barrier(MPI_COMM_WORLD);
-
-    if (mattype.compare("non-sym") == 0){
-        non_sym = true;
-    }
-
-    /*ONLY Non Hermitan cases*/
-
-    /*complex double + int*/
-
-
-    if (floattype.compare("CPLX_DOUBLE") + integertype.compare("INT") == 0){
-
-        int probSize, lbandwidth, length;
-
-        probSize = atoi(dim);
-        lbandwidth = atoi(l);
-        length = atoi(c);
-
-        Nilpotency<int> nilp;
-
-        nilp.NilpType1(length,probSize);
-
-        parMatrixSparse<std::complex<double>,int> *Mt2;
-
-        start = MPI_Wtime();
-
-        Mt2 =  smg2s<std::complex<double>,int>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-
-        end = MPI_Wtime();
-
-        time = end - start;
-
-        if(rank == 0){
-            border_print2();
-            center_print ( "SMG2S Finish the Generation of Non Hermitian Matrix",100 );
+    if(rank == 0){
+        border_print2();
+        center_print ( "SMG2S Finish the Generation of Non Hermitian Matrix",100 );
             
-            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << l << ", C = " << c << ", Proc = " << size << "\n" << std::endl;
-            std::cout <<  "                               Data Types for the test: " << floattype <<", "<< integertype <<  "\n" << std::endl;
-            printf ( "                                  SMG2S Time is %f seconds \n", time );
-            border_print2();
-        }
+        std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << lbandwidth << ", C = " << length << ", Proc = " << size << "\n" << std::endl;
+        std::cout <<  "                               Data Types for the test: " << typeid(T).name() <<", "<< typeid(S).name() <<  "\n" << std::endl;
+        printf ( "                                  SMG2S Time is %f seconds \n", time );
+        border_print2();
+   }
 
-    } else if (floattype.compare("CPLX_FLOAT") + integertype.compare("INT") == 0){
 
-        int probSize, lbandwidth, length;
+   using P = double;
 
-        probSize = atoi(dim);
-        lbandwidth = atoi(l);
-        length = atoi(c);
+   parMatrixSparse<P, S> *Mt2;
 
-        Nilpotency<int> nilp;
+   start = MPI_Wtime();
 
-        nilp.NilpType1(length,probSize);
+   Mt2 =  smg2s_nonsymmetric<P, S>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
 
-        parMatrixSparse<std::complex<float>,int> *Mt2;
+   end = MPI_Wtime();
 
-        start = MPI_Wtime();
+   time = end - start;
 
-        Mt2 =  smg2s<std::complex<float>,int>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
+   if(rank == 0){
+       border_print2();
+       center_print ( "SMG2S Finish the Generation of Non Symmetric Matrix",100 );
 
-        end = MPI_Wtime();
+       std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << lbandwidth << ", C = " << length << ", Proc = " << size << "\n" << std::endl;
+       std::cout <<  "                               Data Types for the test: " << typeid(P).name() <<", "<< typeid(S).name() <<  "\n" << std::endl;
+       printf ( "                                  SMG2S Time is %f seconds \n", time );
+       border_print2();
+   }
 
-        time = end - start;
-
-        if(rank == 0){
-            border_print2();
-            center_print ( "SMG2S Finish the Generation of Non Hermitian Matrix",100 );
-            
-            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << l << ", C = " << c << ", Proc = " << size << "\n" << std::endl;
-            std::cout <<  "                               Data Types for the test: " << floattype <<", "<< integertype <<  "\n" << std::endl;
-            printf ( "                                  SMG2S Time is %f seconds \n", time );
-            border_print2();
-        }
-
-    } else if (floattype.compare("CPLX_DOUBLE") + integertype.compare("_INT64") == 0){
-
-        __int64_t probSize, lbandwidth, length;
-
-        probSize = atoi(dim);
-        lbandwidth = atoi(l);
-        length = atoi(c);
-
-        Nilpotency<__int64_t> nilp;
-
-        nilp.NilpType1(length,probSize);
-
-        parMatrixSparse<std::complex<double>,__int64_t> *Mt2;
-
-        start = MPI_Wtime();
-
-        Mt2 =  smg2s<std::complex<double>,__int64_t>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-
-        end = MPI_Wtime();
-
-        time = end - start;
-
-        if(rank == 0){
-            border_print2();
-            center_print ( "SMG2S Finish the Generation of Non Hermitian Matrix",100 );
-            
-            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << l << ", C = " << c << ", Proc = " << size << "\n" << std::endl;
-            std::cout <<  "                               Data Types for the test: " << floattype <<", "<< integertype <<  "\n" << std::endl;
-            printf ( "                                  SMG2S Time is %f seconds \n", time );
-            border_print2();
-        }
-
-    } else if (floattype.compare("CPLX_FLOAT") + integertype.compare("_INT64") == 0){
-
-        __int64_t probSize, lbandwidth, length;
-
-        probSize = atoi(dim);
-        lbandwidth = atoi(l);
-        length = atoi(c);
-
-        Nilpotency<__int64_t> nilp;
-
-        nilp.NilpType1(length,probSize);
-
-        parMatrixSparse<std::complex<float>,__int64_t> *Mt2;
-
-        start = MPI_Wtime();
-
-        Mt2 =  smg2s<std::complex<float>,__int64_t>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-
-        end = MPI_Wtime();
-
-        time = end - start;
-
-        if(rank == 0){
-            border_print2();
-            center_print ( "SMG2S Finish the Generation of Non Hermitian Matrix",100 );
-            
-            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << l << ", C = " << c << ", Proc = " << size << "\n" << std::endl;
-            std::cout <<  "                               Data Types for the test: " << floattype <<", "<< integertype <<  "\n" << std::endl;
-            printf ( "                                  SMG2S Time is %f seconds \n", time );
-            border_print2();
-        }
-
-    } else if (floattype.compare("DOUBLE") + integertype.compare("INT") == 0){
-
-
-    /*Both Non symmetric and Non Hermitan cases*/
-    
-    /*double + int*/
-
-        std::cout << floattype.compare("DOUBLE") + integertype.compare("INT") << std::endl;
-
-        int probSize, lbandwidth, length;
-
-        probSize = atoi(dim);
-        lbandwidth = atoi(l);
-        length = atoi(c);
-
-        Nilpotency<int> nilp;
-
-        nilp.NilpType1(length,probSize);
-
-        parMatrixSparse<double,int> *Mt2;
-
-        start = MPI_Wtime();
-
-        if(non_sym){
-            Mt2 =  smg2s<double,int>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-        } else {
-            Mt2 =  smg2s_nonsymmetric<double,int>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-        }
-
-        end = MPI_Wtime();
-
-        time = end - start;
-
-         if(rank == 0){
-            border_print2();
-            if(non_sym){
-                center_print ( "SMG2S Finish the Generation of Non Symmetric Matrix",100 );
-            } else {
-                center_print ( "SMG2S Finish the Generation of Non Hermitian Matrix",100 );
-            }  
-            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << l << ", C = " << c << ", Proc = " << size << "\n" << std::endl;
-            std::cout <<  "                               Data Types for the test: " << floattype <<", "<< integertype <<  "\n" << std::endl;
-            printf ( "                                  SMG2S Time is %f seconds \n", time );
-            border_print2();
-        }
-
-    } else if (floattype.compare("FLOAT") + integertype.compare("INT") == 0){
-
-    /*float + int*/
-
-        int probSize, lbandwidth, length;
-
-        probSize = atoi(dim);
-        lbandwidth = atoi(l);
-        length = atoi(c);
-
-        Nilpotency<int> nilp;
-
-        nilp.NilpType1(length,probSize);
-
-        parMatrixSparse<float,int> *Mt2;
-
-        start = MPI_Wtime();
-
-        if(non_sym){
-            Mt2 =  smg2s<float,int>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-        } else {
-            Mt2 =  smg2s_nonsymmetric<float,int>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-        }
-
-        end = MPI_Wtime();
-
-        time = end - start;
-
-        if(rank == 0){
-            border_print2();
-            if(non_sym){
-                center_print ( "SMG2S Finish the Generation of Non Symmetric Matrix",100 );
-            } else {
-                center_print ( "SMG2S Finish the Generation of Non Hermitian Matrix",100 );
-            }  
-            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << l << ", C = " << c << ", Proc = " << size << "\n" << std::endl;
-            std::cout <<  "                               Data Types for the test: " << floattype <<", "<< integertype <<  "\n" << std::endl;
-            printf ( "                                  SMG2S Time is %f seconds \n", time );
-            border_print2();
-        }
-
-    } else if (floattype.compare("DOUBLE") + integertype.compare("_INT64") == 0){
-
-
-
-    /*double + int64*/
-
-        __int64_t probSize, lbandwidth, length;
-
-        probSize = atoi(dim);
-        lbandwidth = atoi(l);
-        length = atoi(c);
-
-        Nilpotency<__int64_t> nilp;
-
-        nilp.NilpType1(length,probSize);
-
-        parMatrixSparse<double,__int64_t> *Mt2;
-
-        start = MPI_Wtime();
-
-        if(non_sym){
-            Mt2 =  smg2s<double,__int64_t>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-        } else {
-            Mt2 =  smg2s_nonsymmetric<double,__int64_t>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-        }
-
-        end = MPI_Wtime();
-
-        time = end - start;
-
-        if(rank == 0){
-            border_print2();
-            if(non_sym){
-                center_print ( "SMG2S Finish the Generation of Non Symmetric Matrix",100 );
-            } else {
-                center_print ( "SMG2S Finish the Generation of Non Hermitian Matrix",100 );
-            }  
-            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << l << ", C = " << c << ", Proc = " << size << "\n" << std::endl;
-            std::cout <<  "                               Data Types for the test: " << floattype <<", "<< integertype <<  "\n" << std::endl;
-            printf ( "                                  SMG2S Time is %f seconds \n", time );
-            border_print2();
-        }
-
-    } else if (floattype.compare("FLOAT") + integertype.compare("_INT64") == 0){
-
-    /*float + int64*/
-
-        __int64_t probSize, lbandwidth, length;
-
-        probSize = atoi(dim);
-        lbandwidth = atoi(l);
-        length = atoi(c);
-
-        Nilpotency<__int64_t> nilp;
-
-        nilp.NilpType1(length,probSize);
-
-        parMatrixSparse<float,__int64_t> *Mt2;
-
-        start = MPI_Wtime();
-
-        if(non_sym){
-            Mt2 =  smg2s<float,__int64_t>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-        } else {
-            Mt2 =  smg2s_nonsymmetric<float,__int64_t>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-        }
-
-        end = MPI_Wtime();
-
-        time = end - start;
-
-        if(rank == 0){
-            border_print2();
-            if(non_sym){
-                center_print ( "SMG2S Finish the Generation of Non Symmetric Matrix",100 );
-            } else {
-                center_print ( "SMG2S Finish the Generation of Non Hermitian Matrix",100 );
-            }  
-            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << l << ", C = " << c << ", Proc = " << size << "\n" << std::endl;
-            std::cout <<  "                               Data Types for the test: " << floattype <<", "<< integertype <<  "\n" << std::endl;
-            printf ( "                                  SMG2S Time is %f seconds \n", time );
-            border_print2();
-        }
-
-    }
-    //delete Mt;
-
-    MPI_Finalize();
+   MPI_Finalize();
 
     return 0;
 }

@@ -58,5 +58,40 @@ MPI_Datatype MPI_Scalar(){
 
 }; 
 
+template <typename T>
+MPI_Datatype getMPI_Type();
+
+template <>
+MPI_Datatype getMPI_Type<float>() {
+  return MPI_FLOAT;
+}
+
+template <>
+MPI_Datatype getMPI_Type<double>() {
+  return MPI_DOUBLE;
+}
+
+template <>
+MPI_Datatype getMPI_Type<std::complex<float> >() {
+  return MPI_COMPLEX;
+}
+
+template <>
+MPI_Datatype getMPI_Type<std::complex<double> >() {
+  return MPI_DOUBLE_COMPLEX;
+}
+
+template <>
+MPI_Datatype getMPI_Type<int>() {
+  return MPI_INT;
+}
+
+template <>
+MPI_Datatype getMPI_Type<__int64_t>() {
+  return MPI_LONG_LONG;
+}
+
+
+
 
 #endif
