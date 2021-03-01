@@ -31,6 +31,20 @@ SOFTWARE.
 #include <cstdlib>
 #include <map>
 
+template <class Q>
+struct Base_Class {
+  typedef Q type;
+};
+
+template <class Q>
+struct Base_Class<std::complex<Q>> {
+  typedef Q type;
+};
+
+template <typename Q>
+using Base = typename Base_Class<Q>::type;
+
+
 template<class T>
 T random_unint(T min, T max)
 {

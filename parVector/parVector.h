@@ -285,8 +285,75 @@ void parVector<T,S>::VecView()
 }
 
 
+template<typename T, typename S>
+void parVector<T, S>::ReadExtVec(std::string spectrum)
+{
+        std::ifstream file(spectrum);
+        std::string line;
 
+        int lower_bound = GetLowerBound();
+        int upper_bound = GetUpperBound();
 
+	int size1 = sizeof(T) / sizeof(Base<T>);
+
+        S idx;
+
+        Base<T> in_vals[size1];
+
+        T val;
+
+        while (std::getline(file,line)) {
+                idx = 0;
+                for(int i = 0; i < size1; i++){
+		    in_vals[i] = 0.0;
+		}
+
+                std::stringstream linestream ( line ) ;
+                linestream >> idx;
+		for(int i = 0; i < size1; i++){
+                    linestream >> in_vals[i];
+                }
+
+		int cnt = 0;
+                if (idx!= 0)
+                {
+		    for(int i = 0; i < size1; i++){
+                        if(in_vals[i] != 0){
+			    cnt ++;
+			}
+                    }
+		    if(cnt == 2){
+                      break ;
+		    }
+                }
+        }
+
+	
+	while (std::getline(file,line)) {
+	    	idx = 0;
+                for(int i = 0; i < size1; i++){
+                    in_vals[i] = 0.0;
+                }
+
+                std::stringstream linestream ( line ) ;
+                linestream >> idx;
+                for(int i = 0; i < size1; i++){
+                    linestream >> in_vals[i];
+                }
+		idx = idx - 1;
+
+		for(int i = 0; i < size1; i++){
+ 			reinterpret_cast<Base<T>(&)[size1]>(val)[i] = in_vals[i];
+		}
+
+                if((idx >= lower_bound) && (idx < upper_bound)){
+                        AddValueLocal(index_map->Glob2Loc(idx),val);
+		}		
+	}
+
+}
+
+/*
 /////
 template<>
 void parVector<std::complex<double>,int>::ReadExtVec(std::string spectrum)
@@ -633,5 +700,5 @@ void parVector<float,__int64_t>::ReadExtVec(std::string spectrum)
 
 	}	
 }
-
+*/
 #endif

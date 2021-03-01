@@ -1200,7 +1200,7 @@ void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
 	}
 
 	if(ProcID != nProcs - 1){
-		for(S tt = 0; tt < 2*gRsize; tt++){
+		for(S tt = 0; tt < gRsize; tt++){
 			rBuf[tt] = 0.0;
 		}
 

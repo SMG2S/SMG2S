@@ -41,13 +41,12 @@ void parVector<std::complex<double>,int>::specGen2(std::string spectrum){
   std::complex<double>    val;
   std::complex<double>    val2;
 
-
    if (spectrum.compare(" ") == 0){
       if(GetVecMap()->GetRank() == 0){
          printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
       }
 
-      for(int i=0; i < size; i=i+2){
+      for(int i=0; i < size; i = i + 2){
         if( i == 2 ){
             val.real(i*1+3);
             val.imag(0);
@@ -177,9 +176,15 @@ void parVector<std::complex<float>,__int64_t>::specGen2(std::string spectrum){
    }
 }
 
-
 template<typename T, typename S>
 void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth, parVector<std::complex<T>,S> *spec){
+
+    int size1 = sizeof(T) / sizeof(Base<T>);
+
+    if(size1 == 2){
+        printf("Info ]> For generating non-Symmetric matrices, the matrices should be real\n");
+        return;
+    }
 
     T rnd;
     std::complex<T> *array;
@@ -211,7 +216,6 @@ void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize
             }
         }
     }    
-
 
     for(S i = 0; i < probSize; i++){
       

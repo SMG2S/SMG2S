@@ -31,22 +31,42 @@ SOFTWARE.
 #include "../utils/utils.h"
 #include <string>
 
-template<>
-void parVector<std::complex<double>,int>::specGen(std::string spectrum){
+template<typename T, typename S>
+void parVector<T, S>::specGen(std::string spectrum){
 
-  int    size;
-  size = GetGlobalSize();
-  std::complex<double>    val;
+  S    size = GetGlobalSize();
+  S lb = GetLowerBound();
+  S ub = GetUpperBound();
+
+  //complex values?
+  int size1 = sizeof(T) / sizeof(Base<T>);
+ 
+  std::vector<std::vector<Base<T>>> gen;
+
+  T* specs;
+  specs = new T[size];
 
    if (spectrum.compare(" ") == 0){
       if(GetVecMap()->GetRank() == 0){
          printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
       }
 
-      for(int i=0; i < size; i++){
-        val.real(i*10+1);
-        val.imag(i*10+1);
-        SetValueGlobal(i, val);
+      gen.resize(size1);
+      for(int i = 0; i < size1; i++){
+	gen[i].resize(size);
+	for(S j=0; j < size; j++){
+          gen[i][j] = j * 10 + 1;
+      	}
+      }	
+
+      for(int i = 0; i < size1; i++){
+        for(S j=0; j < size; j++){
+	  reinterpret_cast<Base<T>*>(specs)[ size1 * j + i] = gen[i][j];
+	}
+      }
+
+      for(S i=lb; i < ub; i++){
+        SetValueGlobal(i, specs[i]);
       }
    }
    else{
@@ -54,174 +74,6 @@ void parVector<std::complex<double>,int>::specGen(std::string spectrum){
       ReadExtVec(spectrum);
    }
 }
-
-
-template<>
-void parVector<std::complex<double>,__int64_t>::specGen(std::string spectrum){
-
-  __int64_t    size;
-  size = GetGlobalSize();
-  std::complex<double>    val;
-
-   if (spectrum.compare(" ") == 0){
-      if(GetVecMap()->GetRank() == 0){
-         printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
-      }
-
-      for(__int64_t i=0; i < size; i++){
-        val.real(i*10+1);
-        val.imag(i*10+1);
-        SetValueGlobal(i, val);
-      }
-   }
-   else{
-      ReadExtVec(spectrum);
-   }
-}
-
-
-
-template<>
-void parVector<double,int>::specGen(std::string spectrum){
-
-	int    size;
-	size = GetGlobalSize();
-	double    val;
-
-   if (spectrum.compare(" ") == 0){
-      if(GetVecMap()->GetRank() == 0){
-         printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
-      }
-
-      for(int i=0; i < size; i++){
-        val = i*10+1;
-        SetValueGlobal(i, val);
-      }
-   }
-   else{
-      ReadExtVec(spectrum);
-   }
-}
-
-
-template<>
-void parVector<double,__int64_t>::specGen(std::string spectrum){
-
-  __int64_t    size;
-  size = GetGlobalSize();
-  double    val;
-
-   if (spectrum.compare(" ") == 0){
-      if(GetVecMap()->GetRank() == 0){
-         printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
-      }
-
-      for(__int64_t i=0; i < size; i++){
-        val = i*10+1;
-        SetValueGlobal(i, val);
-      }
-   }
-   else{
-      ReadExtVec(spectrum);
-   }
-}
-
-
-template<>
-void parVector<float,int>::specGen(std::string spectrum){
-
-  int    size;
-  size = GetGlobalSize();
-  float    val;
-
-   if (spectrum.compare(" ") == 0){
-      if(GetVecMap()->GetRank() == 0){
-         printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
-      }
-
-      for(int i=0; i < size; i++){
-        val = i*10+1;
-        SetValueGlobal(i, val);
-      }
-   }
-   else{
-      ReadExtVec(spectrum);
-   }
-}
-
-
-template<>
-void parVector<float,__int64_t>::specGen(std::string spectrum){
-
-  __int64_t    size;
-  size = GetGlobalSize();
-  float    val;
-
-   if (spectrum.compare(" ") == 0){
-      if(GetVecMap()->GetRank() == 0){
-         printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
-      }
-
-      for(__int64_t i=0; i < size; i++){
-        val = i*10+1;
-        SetValueGlobal(i, val);
-      }
-   }
-   else{
-      ReadExtVec(spectrum);
-   }
-}
-
-
-template<>
-void parVector<std::complex<float>,int>::specGen(std::string spectrum){
-
-  int    size;
-  size = GetGlobalSize();
-  std::complex<float>    val;
-
-   if (spectrum.compare(" ") == 0){
-      if(GetVecMap()->GetRank() == 0){
-         printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
-      }
-
-      for(int i=0; i < size; i++){
-        val.real(i*10+1);
-        val.imag(i*10+1);
-        SetValueGlobal(i, val);
-      }
-   }
-   else{
-
-      ReadExtVec(spectrum);
-   }
-}
-
-
-template<>
-void parVector<std::complex<float>,__int64_t>::specGen(std::string spectrum){
-
-  __int64_t    size;
-  size = GetGlobalSize();
-  std::complex<float>    val;
-
-   if (spectrum.compare(" ") == 0){
-      if(GetVecMap()->GetRank() == 0){
-         printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
-      }
-
-      for(__int64_t i=0; i < size; i++){
-        val.real(i*10+1);
-        val.imag(i*10+1);
-        SetValueGlobal(i, val);
-      }
-   }
-   else{
-      ReadExtVec(spectrum);
-   }
-}
-
-
 
 template<typename T, typename S>
 void matInit(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth){
