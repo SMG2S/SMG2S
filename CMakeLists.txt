@@ -77,7 +77,7 @@ INSTALL (
     DIRECTORY ${CMAKE_SOURCE_DIR}/utils ${CMAKE_SOURCE_DIR}/smg2s ${CMAKE_SOURCE_DIR}/parMatrix ${CMAKE_SOURCE_DIR}/parVector
     DESTINATION include)
 
-#INSTALL(TARGETS smg2s2c DESTINATION lib)
+INSTALL(TARGETS smg2s2c DESTINATION lib)
 
 INSTALL (
     DIRECTORY ${CMAKE_SOURCE_DIR}/interface/C/
@@ -122,8 +122,8 @@ endif()
 
 # SMG2S test
 enable_testing()
-add_test(Test_Size_10000_w_proc1 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 1 ${CMAKE_SOURCE_DIR}/smg2s.exe -SIZE 10000 -L 5 -C 2)
-add_test(Test_Size_20000_w_proc2 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 2 ${CMAKE_SOURCE_DIR}/smg2s.exe -SIZE 20000 -L 5 -C 2)
+add_test(Test_Size_10000_w_proc1 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 1 ${CMAKE_CURRENT_BINARY_DIR}/smg2s.exe -D 10000 -L 5 -C 2)
+add_test(Test_Size_20000_w_proc2 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 2 ${CMAKE_CURRENT_BINARY_DIR}/smg2s.exe -D 20000 -L 5 -C 2)
 
-add_test(Test_Size_10000_s_proc1 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 1 ${CMAKE_SOURCE_DIR}/smg2s.exe -SIZE 10000 -L 5 -C 2)
-add_test(Test_Size_10000_s_proc2 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 2 ${CMAKE_SOURCE_DIR}/smg2s.exe -SIZE 10000 -L 5 -C 2)
+add_test(Test_Size_10000_s_proc1 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 1 ${CMAKE_CURRENT_BINARY_DIR}/smg2s.exe -D 10000 -L 5 -C 2)
+add_test(Test_Size_10000_s_proc2 ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} 2 ${CMAKE_CURRENT_BINARY_DIR}/smg2s.exe -D 10000 -L 5 -C 2)
