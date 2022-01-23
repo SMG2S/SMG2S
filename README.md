@@ -17,7 +17,7 @@ SMG2S is able to generate large-scale non-Hermitian (non-Symmetric) methods in p
 
 ## Cite SMG2S
 
-1. Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." International Conference on Vector and Parallel Processing. Springer, Cham, 2018. [(DOI)](https://doi.org/10.1007/978-3-030-15996-2_16)
+1. Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." Concurrency and Computation: Practice and Experience, 32(20), e5710, 2020. [(DOI)](https://doi.org/10.1002/cpe.5710)
 
 2. Wu, Xinzhe. SMG2S Manual v1. 0. Maison de la Simulation, 2018. [(PDF)](https://hal.archives-ouvertes.fr/hal-01874810/document)
 
@@ -276,7 +276,7 @@ The make install command will generate a shared library `libsmg2s2c.so` into `${
 The compile command:
 
 ```bash
- mpicc -L${INSTALL_DIRECTORY}/lib -I${INSTALL_DIRECTORY}/include -Wall -o test.exe main.c -lsmg2s2c
+ mpicxx -L${INSTALL_DIRECTORY}/lib -I${INSTALL_DIRECTORY}/include -Wall -o test.exe main.c -lsmg2s2c
 ```
 A basic example of usge:
 
