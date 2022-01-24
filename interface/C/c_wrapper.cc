@@ -53,12 +53,10 @@ struct NilpotencyLongInt *newNilpotencyLongInt(void){
 
 void ReleaseNilpotencyInt(struct NilpotencyInt **ppInstance){
   delete *ppInstance;
-  *ppInstance = 0;
 }
 
 void ReleaseNilpotencyLongInt(struct NilpotencyLongInt **ppInstance){
   delete *ppInstance;
-  *ppInstance = 0;
 }
 
 void NilpType1(struct NilpotencyInt *n, int num, int size){
@@ -109,7 +107,6 @@ struct parMatrixSparseComplexDoubleLongInt *newParMatrixSparseComplexDoubleLongI
 }
 void ReleaseParMatrixSparseComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt **ppInstance){
   delete *ppInstance;
-  *ppInstance = 0;
 }
 extern void LOC_MatViewComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt *m){
   m->parMatrix.LOC_MatView();
@@ -172,7 +169,6 @@ struct parMatrixSparseComplexDoubleInt *newParMatrixSparseComplexDoubleInt(void)
 }
 void ReleaseParMatrixSparseComplexDoubleInt(struct parMatrixSparseComplexDoubleInt **ppInstance){
   delete *ppInstance;
-  *ppInstance = 0;
 }
 extern void LOC_MatViewComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m){
   m->parMatrix.LOC_MatView();
@@ -235,7 +231,6 @@ struct parMatrixSparseComplexSingleLongInt *newParMatrixSparseComplexSingleLongI
 }
 void ReleaseParMatrixSparseComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt **ppInstance){
   delete *ppInstance;
-  *ppInstance = 0;
 }
 extern void LOC_MatViewComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m){
   m->parMatrix.LOC_MatView();
@@ -298,7 +293,6 @@ struct parMatrixSparseRealDoubleLongInt *newParMatrixSparseRealDoubleLongInt(voi
 }
 void ReleaseParMatrixSparseRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt **ppInstance){
   delete *ppInstance;
-  *ppInstance = 0;
 }
 extern void LOC_MatViewRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m){
   m->parMatrix.LOC_MatView();
@@ -365,7 +359,6 @@ struct parMatrixSparseComplexSingleInt *newParMatrixSparseComplexSingleInt(void)
 }
 void ReleaseParMatrixSparseComplexSingleInt(struct parMatrixSparseComplexSingleInt **ppInstance){
   delete *ppInstance;
-  *ppInstance = 0;
 }
 extern void LOC_MatViewComplexInt(struct parMatrixSparseComplexSingleInt *m){
   m->parMatrix.LOC_MatView();
@@ -429,7 +422,6 @@ struct parMatrixSparseRealDoubleInt *newParMatrixSparseRealDoubleInt(void){
 
 void ReleaseParMatrixSparseRealDoubleInt(struct parMatrixSparseRealDoubleInt **ppInstance){
   delete *ppInstance;
-  *ppInstance = 0;
 }
 
 void LOC_MatViewRealDoubleInt(struct parMatrixSparseRealDoubleInt *m){
@@ -499,7 +491,6 @@ struct parMatrixSparseRealSingleLongInt *newParMatrixSparseRealSingleLongInt(voi
 
 void ReleaseParMatrixSparseRealSingleLongInt(struct parMatrixSparseRealSingleLongInt **ppInstance){
   delete *ppInstance;
-  *ppInstance = 0;
 }
 
 void LOC_MatViewRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m){
@@ -566,7 +557,6 @@ struct parMatrixSparseRealSingleInt *newParMatrixSparseRealSingleInt(void){
 
 void ReleaseParMatrixSparseRealSingleInt(struct parMatrixSparseRealSingleInt **ppInstance){
   delete *ppInstance;
-  *ppInstance = 0;
 }
 
 void LOC_MatViewRealSingleInt(struct parMatrixSparseRealSingleInt *m){

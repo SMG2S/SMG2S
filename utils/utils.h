@@ -37,7 +37,7 @@ struct Base_Class {
 };
 
 template <class Q>
-struct Base_Class<std::complex<Q>> {
+struct Base_Class<std::complex<Q> > {
   typedef Q type;
 };
 
