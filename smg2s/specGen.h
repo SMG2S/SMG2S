@@ -32,6 +32,19 @@ SOFTWARE.
 #include <string>
 
 template<typename T, typename S>
+void specGen(parVector<T, S> *spec, T* spectrum){
+
+  S    size = spec->GetGlobalSize();
+  S lb = spec->GetLowerBound();
+  S ub = spec->GetUpperBound();
+  
+  for(S i=lb; i < ub; i++){
+    spec->SetValueGlobal(i, spectrum[i]);
+  }
+   
+}
+
+template<typename T, typename S>
 void specGen(parVector<T, S> *spec, std::string spectrum){
 
   S    size = spec->GetGlobalSize();
@@ -76,6 +89,25 @@ void specGen(parVector<T, S> *spec, std::string spectrum){
 }
 
 template<typename T, typename S>
+void matInit(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth, T *init){
+
+    S cnt = 0;
+
+    //T scale;
+
+/*This part can be replaced by users provded func*/
+    for(S i = 0; i < probSize; i++){
+        S start = 0 > i - lbandwidth ? 0 : i - lbandwidth;
+        for(S j = start; j < i; j++){
+            Am->Loc_SetValue(i,j,init[cnt]);
+            matAop->Loc_SetValue(i,j,init[cnt]);
+            cnt++;            
+        }
+    }
+}
+
+
+template<typename T, typename S>
 void matInit(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth){
 
     T rnd;
@@ -84,12 +116,11 @@ void matInit(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize,
 
 /*This part can be replaced by users provded func*/
     for(S i = 0; i < probSize; i++){
-        for(S j = i - lbandwidth; j < i; j++){
-            if(j >= 0){
-              rnd = 1;
-              Am->Loc_SetValue(i,j,rnd);
-              matAop->Loc_SetValue(i,j,rnd);
-            }
+        S start = 0 > i - lbandwidth ? 0 : i - lbandwidth;
+        for(S j = start; j < i; j++){
+            rnd = 0.01;
+            Am->Loc_SetValue(i,j,rnd);
+            matAop->Loc_SetValue(i,j,rnd);            
         }
     }
 }

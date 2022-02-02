@@ -35,6 +35,18 @@ SOFTWARE.
 
 
 template <typename T, typename S>
+void specGen2(parVector<std::complex<T>, S> *spec, std::complex<Base<T>> *spectrum){
+  S    size = spec->GetGlobalSize();
+  S lb = spec->GetLowerBound();
+  S ub = spec->GetUpperBound();
+  
+  for(S i=lb; i < ub; i++){
+    spec->SetValueGlobal(i, spectrum[i]);
+  }
+}
+
+
+template <typename T, typename S>
 void specGen2(parVector<std::complex<T>, S> *spec, std::string spectrum){
     int size;
     size = spec->GetGlobalSize();
@@ -76,7 +88,66 @@ void specGen2(parVector<std::complex<T>, S> *spec, std::string spectrum){
 
 
 template<typename T, typename S>
-void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth, parVector<std::complex<T>,S> *spec){
+void setSpectrum(parMatrixSparse<T,S> *Am, S probSize, parVector<std::complex<T>,S> *spec){
+
+    int size1 = sizeof(T) / sizeof(Base<T>);
+
+    if(size1 == 2){
+        printf("Info ]> For generating non-Symmetric matrices, the matrices should be real\n");
+        return;
+    }
+
+    std::complex<Base<T>> *array;
+
+    array = spec->GetArray();
+    S loc_indx;
+
+    for(S i = 0; i < probSize; i++){
+      
+      loc_indx = spec->Glob2Loc(i);
+
+      Am->Loc_SetValue(i,i,array[loc_indx].real());
+
+    }
+    
+    for(S i = 0; i < probSize - 1; i = i + 2){
+      
+      loc_indx = spec->Glob2Loc(i);
+      
+      if(array[loc_indx].imag() != 0){
+        Am->Loc_SetValue(i,i+1,std::abs(array[loc_indx].imag()));
+        Am->Loc_SetValue(i+1,i,-std::abs(array[loc_indx].imag()));
+      }
+    }
+}
+
+template<typename T, typename S>
+void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth, T *init){
+
+    int size1 = sizeof(T) / sizeof(Base<T>);
+
+    if(size1 == 2){
+        printf("Info ]> For generating non-Symmetric matrices, the matrices should be real\n");
+        return;
+    }
+
+    S cnt = 0;
+
+    
+    for(S i = 0; i < probSize; i++){
+        S start = 0 > i - lbandwidth ? 0 : i - lbandwidth;
+        for(S j = start; j < i - 1; j++){
+            Am->Loc_SetValue(i,j,init[cnt]);
+            matAop->Loc_SetValue(i,j,init[cnt]);
+            cnt++;
+        }
+    }    
+    
+}
+
+
+template<typename T, typename S>
+void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize, S lbandwidth){
 
     int size1 = sizeof(T) / sizeof(Base<T>);
 
@@ -86,14 +157,6 @@ void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize
     }
 
     T rnd;
-    std::complex<T> *array;
-
-    array = spec->GetArray();
-    S loc_indx;
-
-    //T scale;
-
-/*This part can be replaced by users provded func*/
     
     for(S i = 0; i < probSize; i++){
         for(S j = i - lbandwidth; j < i - 1; j++){
@@ -105,27 +168,6 @@ void matInit2(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize
             }
         }
     }    
-
-    for(S i = 0; i < probSize; i++){
-      
-      loc_indx = spec->Glob2Loc(i);
-
-      Am->Loc_SetValue(i,i,array[loc_indx].real());
-      matAop->Loc_SetValue(i,i,array[loc_indx].real());
-
-    }
-    
-    for(S i = 0; i < probSize - 1; i = i + 2){
-      
-      loc_indx = spec->Glob2Loc(i);
-      
-      if(array[loc_indx].imag() != 0){
-        Am->Loc_SetValue(i,i+1,std::abs(array[loc_indx].imag()));
-        matAop->Loc_SetValue(i,i+1,std::abs(array[loc_indx].imag()));
-        Am->Loc_SetValue(i+1,i,-std::abs(array[loc_indx].imag()));
-        matAop->Loc_SetValue(i+1,i,-std::abs(array[loc_indx].imag()));
-      }
-    }
     
 }
 

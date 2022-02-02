@@ -269,6 +269,47 @@ void parMatrixSparseDoubleInt_nonsym_smg2s(parMatrixSparseDoubleInt_t *mat, int 
   mat->obj = matobj;
 }
 
+void parMatrixSparseDoubleInt_smg2s_advanace(parMatrixSparseDoubleInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, double *spectrum, double *init, MPI_Comm comm){
+  parMatrixSparse<double,int> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<double,int> *>(mat->obj);
+
+  Nilpotency<int> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<int> *>(nilp->obj);
+
+  matobj = smg2s<double,int>(probSize, *nilpobj, lbandwidth,spectrum, init, comm);
+
+  mat->obj = matobj;
+
+}
+
+void parMatrixSparseDoubleInt_nonsym_smg2s_advance(parMatrixSparseDoubleInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, dcomplex_t *spectrum, double *init, MPI_Comm comm){
+  parMatrixSparse<double,int> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<double,int> *>(mat->obj);
+
+  Nilpotency<int> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<int> *>(nilp->obj);
+
+  std::complex<double> *spectrum2 = new std::complex<double>[probSize];
+  for(int i = 0; i < probSize; i++){
+    spectrum2[i].real(spectrum[i].real);
+    spectrum2[i].imag(spectrum[i].imag);    
+  }
+  matobj = smg2s_nonsymmetric<double,int>(probSize, *nilpobj, lbandwidth,spectrum2,init,comm);
+
+  mat->obj = matobj;
+}
 
 
 // double long
@@ -401,6 +442,50 @@ void parMatrixSparseDoubleLong_nonsym_smg2s(parMatrixSparseDoubleLong_t *mat, __
   mat->obj = matobj;  
 }
 
+
+
+void parMatrixSparseDoubleLong_smg2s_advance(parMatrixSparseDoubleLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, double *spectrum, double *init, MPI_Comm comm){
+  parMatrixSparse<double,__int64_t> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<double,__int64_t> *>(mat->obj);
+
+  Nilpotency<__int64_t> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<__int64_t> *>(nilp->obj);
+
+  matobj = smg2s<double,__int64_t>(probSize, *nilpobj, lbandwidth,spectrum,init, comm);
+
+  mat->obj = matobj;  
+}
+void parMatrixSparseDoubleLong_nonsym_smg2s_advance(parMatrixSparseDoubleLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, dcomplex_t *spectrum, double *init, MPI_Comm comm){
+  parMatrixSparse<double,__int64_t> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<double,__int64_t> *>(mat->obj);
+
+  Nilpotency<__int64_t> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<__int64_t> *>(nilp->obj);
+
+
+  std::complex<double> *spectrum2 = new std::complex<double>[probSize];
+  for(__int64_t i = 0; i < probSize; i++){
+    spectrum2[i].real(spectrum[i].real);
+    spectrum2[i].imag(spectrum[i].imag);    
+  }
+
+
+  matobj = smg2s_nonsymmetric<double,__int64_t>(probSize, *nilpobj, lbandwidth,spectrum2,init,comm);
+
+  mat->obj = matobj;  
+}
 
 
 
@@ -544,6 +629,49 @@ void parMatrixSparseFloatInt_nonsym_smg2s(parMatrixSparseFloatInt_t *mat, int pr
 }
 
 
+void parMatrixSparseFloatInt_smg2s_advance(parMatrixSparseFloatInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, float *spectrum, float *init, MPI_Comm comm){
+  parMatrixSparse<float,int> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<float,int> *>(mat->obj);
+
+  Nilpotency<int> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<int> *>(nilp->obj);
+
+  matobj = smg2s<float,int>(probSize, *nilpobj, lbandwidth,spectrum,init, comm);
+
+  mat->obj = matobj;
+
+}
+
+void parMatrixSparseFloatInt_nonsym_smg2s_advance(parMatrixSparseFloatInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, fcomplex_t *spectrum, float *init, MPI_Comm comm){
+  parMatrixSparse<float,int> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<float,int> *>(mat->obj);
+
+  Nilpotency<int> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<int> *>(nilp->obj);
+
+  std::complex<float> *spectrum2 = new std::complex<float>[probSize];
+  for(int i = 0; i < probSize; i++){
+    spectrum2[i].real(spectrum[i].real);
+    spectrum2[i].imag(spectrum[i].imag);    
+  }
+
+  matobj = smg2s_nonsymmetric<float,int>(probSize, *nilpobj, lbandwidth,spectrum2,init,comm);
+
+  mat->obj = matobj;
+}
+
 
 // float long
 struct parMatrixSparseFloatLong{
@@ -676,10 +804,50 @@ void parMatrixSparseFloatLong_nonsym_smg2s(parMatrixSparseFloatLong_t *mat, __in
 }
 
 
+void parMatrixSparseFloatLong_smg2s_advance(parMatrixSparseFloatLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, float *spectrum, float *init, MPI_Comm comm){
+  parMatrixSparse<float,__int64_t> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<float,__int64_t> *>(mat->obj);
+
+  Nilpotency<__int64_t> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<__int64_t> *>(nilp->obj);
+
+  matobj = smg2s<float,__int64_t>(probSize, *nilpobj, lbandwidth,spectrum,init,comm);
+
+  mat->obj = matobj;  
+}
+void parMatrixSparseFloatLong_nonsym_smg2s_advance(parMatrixSparseFloatLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, fcomplex_t *spectrum, float *init, MPI_Comm comm){
+  parMatrixSparse<float,__int64_t> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<float,__int64_t> *>(mat->obj);
+
+  Nilpotency<__int64_t> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<__int64_t> *>(nilp->obj);
+
+  std::complex<float> *spectrum2 = new std::complex<float>[probSize];
+  for(__int64_t i = 0; i < probSize; i++){
+    spectrum2[i].real(spectrum[i].real);
+    spectrum2[i].imag(spectrum[i].imag);    
+  }
+
+  matobj = smg2s_nonsymmetric<float,__int64_t>(probSize, *nilpobj, lbandwidth,spectrum2,init,comm);
+
+  mat->obj = matobj;  
+}
 
 //////
 
-//complex double int
+//double complex int
 struct parMatrixSparseCmplxDoubleInt{
   void *obj;
 };
@@ -760,7 +928,7 @@ void parMatrixSparseCmplxDoubleInt_LocGetCSRSize(parMatrixSparseCmplxDoubleInt *
   
 
 }
-void parMatrixSparseCmplxDoubleInt_LocGetCSRArrays(parMatrixSparseCmplxDoubleInt *mat, int size, int size2, int **rows, int **cols, std::complex<double> **vals){
+void parMatrixSparseCmplxDoubleInt_LocGetCSRArrays(parMatrixSparseCmplxDoubleInt *mat, int size, int size2, int **rows, int **cols, dcomplex_t **vals){
   
   parMatrixSparse<std::complex<double>,int> *obj;
   if(mat == NULL)
@@ -774,7 +942,7 @@ void parMatrixSparseCmplxDoubleInt_LocGetCSRArrays(parMatrixSparseCmplxDoubleInt
 
   for(int i = 0; i < size2; i++){
     *(*cols+i) = obj->CSR_loc->cols[i];
-    *(*vals+i) = obj->CSR_loc->vals[i];
+    *(*vals+i) = {(obj->CSR_loc->vals[i]).real(), (obj->CSR_loc->vals[i]).imag()};
   }
 
 }
@@ -799,9 +967,37 @@ void parMatrixSparseCmplxDoubleInt_smg2s(parMatrixSparseCmplxDoubleInt *mat, int
 }
 
 
+void parMatrixSparseCmplxDoubleInt_smg2s_advance(parMatrixSparseCmplxDoubleInt *mat, int probSize, struct NilpInt *nilp, int lbandwidth, dcomplex *spectrum, dcomplex *init, MPI_Comm comm){
+  parMatrixSparse<std::complex<double>,int> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<std::complex<double>,int> *>(mat->obj);
+
+  Nilpotency<int> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<int> *>(nilp->obj);
+
+  std::complex<double> *spectrum2 = new std::complex<double>[probSize];
+
+  std::complex<double> *init2 = new std::complex<double>[probSize];
+
+  for(int i = 0; i < probSize; i++){
+    spectrum2[i].real(spectrum[i].real);
+    spectrum2[i].imag(spectrum[i].imag);
+
+  }
+
+  matobj = smg2s<std::complex<double>,int>(probSize, *nilpobj, lbandwidth,spectrum2, init2,comm);
+
+  mat->obj = matobj;
+
+}
 
 
-// complex double long
+// double complex long
 struct parMatrixSparseCmplxDoubleLong{
   void *obj;
 };
@@ -892,7 +1088,7 @@ void parMatrixSparseCmplxDoubleLong_LocGetCSRArrays(parMatrixSparseCmplxDoubleLo
 
   for(__int64_t i = 0; i < size2; i++){
     *(*cols+i) = obj->CSR_loc->cols[i];
-    *(*vals+i) = obj->CSR_loc->vals[i];
+    *(*vals+i) = {(obj->CSR_loc->vals[i]).real(), (obj->CSR_loc->vals[i]).imag()};
   }
 
 }
@@ -910,6 +1106,36 @@ void parMatrixSparseCmplxDoubleLong_smg2s(parMatrixSparseCmplxDoubleLong_t *mat,
   nilpobj = static_cast<Nilpotency<__int64_t> *>(nilp->obj);
 
   matobj = smg2s<std::complex<double>,__int64_t>(probSize, *nilpobj, lbandwidth,spectrum,comm);
+
+  mat->obj = matobj;  
+}
+
+
+void parMatrixSparseCmplxDoubleLong_smg2s_advance(parMatrixSparseCmplxDoubleLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, dcomplex_t *spectrum, double *init, MPI_Comm comm){
+  parMatrixSparse<std::complex<double>,__int64_t> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<std::complex<double>,__int64_t> *>(mat->obj);
+
+  Nilpotency<__int64_t> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<__int64_t> *>(nilp->obj);
+
+
+  std::complex<double> *spectrum2 = new std::complex<double>[probSize];
+
+  std::complex<double> *init2 = new std::complex<double>[probSize];
+
+  for(__int64_t i = 0; i < probSize; i++){
+    spectrum2[i].real(spectrum[i].real);
+    spectrum2[i].imag(spectrum[i].imag);
+
+  }
+
+  matobj = smg2s<std::complex<double>,__int64_t>(probSize, *nilpobj, lbandwidth,spectrum2, init2,comm);
 
   mat->obj = matobj;  
 }
@@ -1012,7 +1238,7 @@ void parMatrixSparseCmplxFloatInt_LocGetCSRArrays(parMatrixSparseCmplxFloatInt_t
 
   for(int i = 0; i < size2; i++){
     *(*cols+i) = obj->CSR_loc->cols[i];
-    *(*vals+i) = obj->CSR_loc->vals[i];
+    *(*vals+i) = {(obj->CSR_loc->vals[i]).real(), (obj->CSR_loc->vals[i]).imag()};
   }
 
 }
@@ -1036,6 +1262,35 @@ void parMatrixSparseCmplxFloatInt_smg2s(parMatrixSparseCmplxFloatInt_t *mat, int
 
 }
 
+
+void parMatrixSparseCmplxFloatInt_smg2s_advance(parMatrixSparseCmplxFloatInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, fcomplex_t *spectrum, float *init, MPI_Comm comm){
+  parMatrixSparse<std::complex<float>,int> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<std::complex<float>,int> *>(mat->obj);
+
+  Nilpotency<int> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<int> *>(nilp->obj);
+
+  std::complex<float> *spectrum2 = new std::complex<float>[probSize];
+
+  std::complex<float> *init2 = new std::complex<float>[probSize];
+
+  for(int i = 0; i < probSize; i++){
+    spectrum2[i].real(spectrum[i].real);
+    spectrum2[i].imag(spectrum[i].imag);
+
+  }
+
+  matobj = smg2s<std::complex<float>,int>(probSize, *nilpobj, lbandwidth,spectrum2, init2,comm);
+
+  mat->obj = matobj;
+
+}
 
 
 // complex float long
@@ -1116,7 +1371,7 @@ void parMatrixSparseCmplxFloatLong_LocGetCSRSize(parMatrixSparseCmplxFloatLong_t
   *size2 = count2;
 }
 
-void parMatrixSparseCmplxFloatLong_LocGetCSRArrays(parMatrixSparseCmplxFloatLong_t *mat, __int64_t size, __int64_t size2, __int64_t **rows, __int64_t **cols, std::complex<float> **vals){
+void parMatrixSparseCmplxFloatLong_LocGetCSRArrays(parMatrixSparseCmplxFloatLong_t *mat, __int64_t size, __int64_t size2, __int64_t **rows, __int64_t **cols, fcomplex_t **vals){
   parMatrixSparse<std::complex<float>,__int64_t> *obj;
   if(mat == NULL)
     return;
@@ -1129,7 +1384,7 @@ void parMatrixSparseCmplxFloatLong_LocGetCSRArrays(parMatrixSparseCmplxFloatLong
 
   for(__int64_t i = 0; i < size2; i++){
     *(*cols+i) = obj->CSR_loc->cols[i];
-    *(*vals+i) = obj->CSR_loc->vals[i];
+    *(*vals+i) = {(obj->CSR_loc->vals[i]).real(), (obj->CSR_loc->vals[i]).imag()};
   }
 
 }
@@ -1147,6 +1402,36 @@ void parMatrixSparseCmplxFloatLong_smg2s(parMatrixSparseCmplxFloatLong_t *mat, _
   nilpobj = static_cast<Nilpotency<__int64_t> *>(nilp->obj);
 
   matobj = smg2s<std::complex<float>,__int64_t>(probSize, *nilpobj, lbandwidth,spectrum,comm);
+
+  mat->obj = matobj;  
+}
+
+
+
+void parMatrixSparseCmplxFloatLong_smg2s_advance(parMatrixSparseCmplxFloatLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, fcomplex_t *spectrum, float *init, MPI_Comm comm){
+  parMatrixSparse<std::complex<float>,__int64_t> *matobj;
+  if(mat == NULL)
+    return;
+
+  matobj = static_cast<parMatrixSparse<std::complex<float>,__int64_t> *>(mat->obj);
+
+  Nilpotency<__int64_t> *nilpobj;
+  if(nilp == NULL)
+    return;
+
+  nilpobj = static_cast<Nilpotency<__int64_t> *>(nilp->obj);
+
+  std::complex<float> *spectrum2 = new std::complex<float>[probSize];
+
+  std::complex<float> *init2 = new std::complex<float>[probSize];
+
+  for(__int64_t i = 0; i < probSize; i++){
+    spectrum2[i].real(spectrum[i].real);
+    spectrum2[i].imag(spectrum[i].imag);
+
+  }
+
+  matobj = smg2s<std::complex<float>,__int64_t>(probSize, *nilpobj, lbandwidth,spectrum2, init2,comm);
 
   mat->obj = matobj;  
 }

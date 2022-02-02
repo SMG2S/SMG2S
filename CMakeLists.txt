@@ -13,17 +13,13 @@ find_package(MPI REQUIRED)
 message([STATUS] "MPICXX Compiler is ${CMAKE_CXX_COMPILER}")
 
 include(CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
-CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
+CHECK_CXX_COMPILER_FLAG("-std=c++14" COMPILER_SUPPORTS_CXX14)
 
-if(COMPILER_SUPPORTS_CXX11)
-    message([STATUS] "CXX 11 Flags -std=c++11 is found")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-elseif(COMPILER_SUPPORTS_CXX0X)
-    message([STATUS] "CXX 11 Flags -std=c++0x is found")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+if(COMPILER_SUPPORTS_CXX14)
+    message([STATUS] "CXX 14 Flags -std=c++14 is found")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 else()
-     message([FATAL_ERROR] "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
+     message([FATAL_ERROR] "The compiler ${CMAKE_CXX_COMPILER} has no C++14 support. Please use a different C++ compiler.")
 endif()
 
 # Add utils and config include
@@ -36,6 +32,9 @@ target_link_libraries(smg2s.exe PRIVATE MPI::MPI_CXX)
 file(GLOB C_WRAPPERS "interface/C/*.cc")
 add_library(smg2s2c STATIC ${C_WRAPPERS})
 target_link_libraries(smg2s2c PRIVATE MPI::MPI_CXX)
+add_library(smg2s2cs SHARED ${C_WRAPPERS})
+target_link_libraries(smg2s2cs PRIVATE MPI::MPI_CXX)
+
 
 ###example
 add_subdirectory(example)
@@ -52,6 +51,7 @@ INSTALL (
     DESTINATION include)
 
 INSTALL(TARGETS smg2s2c DESTINATION lib)
+INSTALL(TARGETS smg2s2cs DESTINATION lib)
 
 INSTALL (
     DIRECTORY ${CMAKE_SOURCE_DIR}/interface/C/
