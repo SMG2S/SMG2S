@@ -31,8 +31,7 @@ SOFTWARE.
 #include <vector>
 #include <iostream>
 #include <fstream>
-//#include "../config/config.h"
-
+  
 
 template<typename S>
 class parVectorMap

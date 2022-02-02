@@ -41,7 +41,7 @@ void parVector<T, S>::specGen(std::string spectrum){
   //complex values?
   int size1 = sizeof(T) / sizeof(Base<T>);
  
-  std::vector<std::vector<Base<T>>> gen;
+  std::vector<std::vector<Base<T> > > gen;
 
   T* specs;
   specs = new T[size];

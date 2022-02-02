@@ -25,42 +25,50 @@ SOFTWARE.
 
 #include "interface/C/c_wrapper.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <mpi.h>
 
 int main(int argc, char* argv[]) {
 
 	MPI_Init(&argc, &argv);
-
 	int size,rank;
 	MPI_Comm_size(MPI_COMM_WORLD, &size);
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-  /*create Nilpotency object*/
-	struct NilpotencyInt *n;
-  /*create Instance*/
-	n = newNilpotencyInt();
-  /*setup Nilpotency object*/
-	NilpType1(n, 2, 10);
-	if(rank == 0){
-		showNilpotencyInt(n);
-	}
+	NilpInt_t *nilp = newNilpInt();
+	nilpIntType1(nilp, 2, 10);
+	nilpIntShow(nilp);
+	nilpInt_destory(nilp);
 
-  /*Create parMatrixSparse Object*/
-	struct parMatrixSparseRealDoubleInt *m;
-  /*create Instance*/
-	m = newParMatrixSparseRealDoubleInt();
-  /*Generate by SMG2S*/
-	smg2sRealDoubleInt(m, 10, n, 3 ," ",MPI_COMM_WORLD);
-  /*Matrix View*/
-	LOC_MatViewRealDoubleInt(m);
+	parMatrixSparseDoubleInt_t *mat = newparMatrixSparseDoubleInt();
 
-  /*Release Nilpotency Object
-  Release parMatrixSparse Object*/
-	ReleaseNilpotencyInt(&n);
-	ReleaseParMatrixSparseRealDoubleInt(&m);
+	char spectrum[] = " ";
+
+	parMatrixSparseDoubleInt_smg2s(mat, 10, nilp, 3, spectrum, MPI_COMM_WORLD);
+	parMatrixSparseDoubleInt_LocMatView(mat);
+
+	int rs, cs;
+	GetLocalSizeDoubleInt(mat, &rs, &cs);
+
+	printf("rank %d: rs = %d, cs = %d\n", rank, rs, cs);
+
+	int size1, size2;
+
+	parMatrixSparseDoubleInt_LocToCSR(mat);
+
+	parMatrixSparseDoubleInt_LocGetCSRSize(mat, &size1, &size2);
+
+	printf("rank %d: size1 = %d, size2 = %d\n", rank, size1, size2);
+
+	int *rowoffsets = (int *)malloc(size1 * sizeof(int));
+	int *colinds = (int *)malloc(size2 * sizeof(int));
+	double *vals = (double *)malloc(size2 * sizeof(double));
+
+	parMatrixSparseDoubleInt_LocGetCSRArrays(mat, size1, size2, &rowoffsets, &colinds, &vals);			
+
+	parMatrixSparseDoubleInt_destory(mat);
 
 	MPI_Finalize();
-	return 0;
 }
 
 

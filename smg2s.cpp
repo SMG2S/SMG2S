@@ -35,12 +35,6 @@ SOFTWARE.
 #include <string>
 #include <typeinfo>  
 
-#ifdef __APPLE__
-#include <sys/malloc.h>
-#else
-#include <malloc.h>
-#endif
-
 using S = int;
 
 int main(int argc, char** argv) {

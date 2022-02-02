@@ -35,7 +35,6 @@ SOFTWARE.
 #include <vector>
 #include "../utils/MPI_DataType.h"
 #include "../parVector/parVector.h"
-//#include "../utils/utils.h"
 #include "MatrixCSR.h"
 
 #ifdef __USE_COMPLEX__

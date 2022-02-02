@@ -26,174 +26,68 @@ SOFTWARE.
 #ifndef __C_WRAPPER_H__
 #define __C_WRAPPER_H__
 
-#include "../../parMatrix/parMatrixSparse.h"
 #include <mpi.h>
-#include <stdint.h>
-
-
-struct NilpotencyInt;
-
-struct parVectorMapInt;
-
-//complex
-struct parMatrixSparseComplexSingleInt;
-
-//double
-struct parMatrixSparseRealDoubleInt;
-
-//double + complex + int64
-struct parMatrixSparseComplexDoubleLongInt;
-
-//double+int64
-struct parMatrixSparseRealDoubleLongInt;
-//double + complex
-struct parMatrixSparseComplexDoubleInt;
-
-//int64 + complex
-struct parMatrixSparseComplexSingleLongInt;
-
-//int64
-struct parMatrixSparseRealSingleLongInt;
-
-//
-struct parMatrixSparseRealSingleInt;
-
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"{
 #endif
 
 /*Nilpotency Matrix C Wrapper*/
-struct NilpotencyInt *newNilpotencyInt(void);
-void ReleaseNilpotencyInt(struct NilpotencyInt **ppInstance);
-//setup NilpotencyInt Type 1 and Type 2
-extern void NilpType1(struct NilpotencyInt *n, int num, int size);
-extern void NilpType2(struct NilpotencyInt *n, int num, int size);
-void showNilpotencyInt(struct NilpotencyInt *n);
+// int
+struct NilpInt;
+typedef struct NilpInt NilpInt_t;
 
-struct NilpotencyLongInt *newNilpotencyLongInt(void);
-void ReleaseNilpotencyLongInt(struct NilpotencyLongInt **ppInstance);
-//setup NilpotencyInt Type 1 and Type 2
-extern void NilpType1Long(struct NilpotencyLongInt *n, __int64_t num, __int64_t size);
-extern void NilpType2Long(struct NilpotencyLongInt *n, __int64_t num, __int64_t size);
-void showNilpotencyLongInt(struct NilpotencyLongInt *n);
+NilpInt_t *newNilpInt();
+void nilpInt_destory(NilpInt_t *nilp);
+void nilpIntType1(NilpInt_t *nilp, int num, int size);
+void nilpIntShow(struct NilpInt *nilp);
+//long int
+struct NilpLong;
+typedef struct NilpLong NilpLong_t;
 
-/*parVectorMap C wrapper*/
-struct parVectorMapInt *newparVectorMapInt(void);
-
-//complex double long int
-
-struct parMatrixSparseComplexDoubleLongInt *newParMatrixSparseComplexDoubleLongInt(void);
-void ReleaseParMatrixSparseComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt **ppInstance);
-void LOC_MatViewComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt *m);
-void GetLocalSizeComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt *m, __int64_t *rs, __int64_t *cs);
-void Loc_ConvertToCSRComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt *m);
-
-void Loc_CSRGetRowsArraySizesComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt *m, __int64_t *size,__int64_t *size2);
-void Loc_CSRGetRowsArraysComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **real, double **imag);
-void smg2sComplexDoubleLongInt(struct parMatrixSparseComplexDoubleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
-
-//complex double int
-
-struct parMatrixSparseComplexDoubleInt *newParMatrixSparseComplexDoubleInt(void);
-void ReleaseParMatrixSparseComplexDoubleInt(struct parMatrixSparseComplexDoubleInt **ppInstance);
-void LOC_MatViewComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m);
-void GetLocalSizeComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int *rs, int *cs);
-void Loc_ConvertToCSRComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m);
-
-void Loc_CSRGetRowsArraySizesComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int *size, int *size2);
-void Loc_CSRGetRowsArraysComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int size, int **rows, int size2, int **cols, double **real, double **imag);
-
-/*SMG2S C wrapper*/
-void smg2sComplexDoubleInt(struct parMatrixSparseComplexDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
-
-//complex  single long int
-
-struct parMatrixSparseComplexSingleLongInt *newParMatrixSparseComplexSingleLongInt(void);
-void ReleaseParMatrixSparseComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt **ppInstance);
-void LOC_MatViewComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m);
-void GetLocalSizeComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m, __int64_t *rs, __int64_t *cs);
-void Loc_ConvertToCSRComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m);
-void Loc_CSRGetRowsArraySizesComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m, __int64_t *size,__int64_t *size2);
-void Loc_CSRGetRowsArraysComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **real, double **imag);
-
-void smg2sComplexSingleLongInt(struct parMatrixSparseComplexSingleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
-
-//real double long int
-
-/*parMatrixSparse complex<double> int C wrapper*/
-
-struct parMatrixSparseRealDoubleLongInt *newParMatrixSparseRealDoubleLongInt(void);
-void ReleaseParMatrixSparseRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt **ppInstance);
-void LOC_MatViewRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m);
-void GetLocalSizeRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m, __int64_t *rs, __int64_t *cs);
-void Loc_ConvertToCSRRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m);
-void Loc_CSRGetRowsArraySizesRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m, __int64_t *size,__int64_t *size2);
-void Loc_CSRGetRowsArraysRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m, __int64_t size, int **rows, __int64_t size2, int **cols, double **vals);
-void smg2sRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
-
-void smg2sNonSymmetricRealDoubleLongInt(struct parMatrixSparseRealDoubleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
+NilpLong_t *newNilpLong();
+void nilpLong_destory(NilpLong_t *nilp);
+void NilpLongType1(NilpLong_t *nilp, long num, long size);
+void NilpLongShow(struct NilpLong *nilp);
 
 
-//complex single int
+/*parMatrixSparse C wrapper*/
+// double int
+struct parMatrixSparseDoubleInt;
+typedef struct parMatrixSparseDoubleInt parMatrixSparseDoubleInt_t;
 
-/*parMatrixSparse complex<double> int C wrapper*/
-struct parMatrixSparseComplexSingleInt *newParMatrixSparseComplexSingleInt(void);
-void ReleaseParMatrixSparseComplexSingleInt(struct parMatrixSparseComplexSingleInt **ppInstance);
-void LOC_MatViewComplexSingleInt(struct parMatrixSparseComplexSingleInt *m);
+parMatrixSparseDoubleInt_t *newparMatrixSparseDoubleInt();
+void parMatrixSparseDoubleInt_destory(parMatrixSparseDoubleInt_t *mat);
+void parMatrixSparseDoubleInt_LocMatView(parMatrixSparseDoubleInt_t *mat);
+void GetLocalSizeDoubleInt(parMatrixSparseDoubleInt_t *mat, int *rs, int *cs);
+void parMatrixSparseDoubleInt_LocToCSR(parMatrixSparseDoubleInt_t *mat);
+void parMatrixSparseDoubleInt_LocGetCSRSize(parMatrixSparseDoubleInt_t *mat, int *size, int *size2);
+void parMatrixSparseDoubleInt_LocGetCSRArrays(parMatrixSparseDoubleInt_t *mat, int size, int size2, int **rows, int **cols, double **vals);
+void parMatrixSparseDoubleInt_smg2s(parMatrixSparseDoubleInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
+void parMatrixSparseDoubleInt_nonsym_smg2s(parMatrixSparseDoubleInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
 
-void GetLocalSizeComplexSingleInt(struct parMatrixSparseComplexSingleInt *m, int *rs, int *cs);
-void Loc_ConvertToCSRComplexSingleInt(struct parMatrixSparseComplexSingleInt *m);
-void Loc_CSRGetRowsArraySizesComplexSingleInt(struct parMatrixSparseComplexSingleInt *m, int *size,int *size2);
-void Loc_CSRGetRowsArraysComplexSingleInt(struct parMatrixSparseComplexSingleInt *m, int size, int **rows, int size2, int **cols, double **real, double **imag);
-void smg2sComplexSingleInt(struct parMatrixSparseComplexSingleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
 
-//real double int
+// double long
+struct parMatrixSparseDoubleLong;
+typedef struct parMatrixSparseDoubleLong parMatrixSparseDoubleLong_t;
 
-struct parMatrixSparseRealDoubleInt *newParMatrixSparseRealDoubleInt(void);
-void ReleaseParMatrixSparseRealDoubleInt(struct parMatrixSparseRealDoubleInt **ppInstance);
-void LOC_MatViewRealDoubleInt(struct parMatrixSparseRealDoubleInt *m);
-void GetLocalSizeRealDoubleInt(struct parMatrixSparseRealDoubleInt *m, int *rs, int *cs);
-void Loc_ConvertToCSRRealDoubleInt(struct parMatrixSparseRealDoubleInt *m);
+parMatrixSparseDoubleLong_t *newparMatrixSparseDoubleLong();
+void parMatrixSparseDoubleLong_destory(parMatrixSparseDoubleLong_t *mat);
+void parMatrixSparseDoubleLong_LocMatView(parMatrixSparseDoubleLong_t *mat);
+void GetLocalSizeDoubleLong(parMatrixSparseDoubleLong_t *mat, long *rs, long *cs);
+void parMatrixSparseDoubleLong_LocToCSR(parMatrixSparseDoubleLong_t *mat);
+void parMatrixSparseDoubleLong_LocGetCSRSize(parMatrixSparseDoubleLong_t *mat, long *size, long *size2);
+void parMatrixSparseDoubleLong_LocGetCSRArrays(parMatrixSparseDoubleLong_t *mat, long size, long size2, long **rows, long **cols, double **vals);
+void parMatrixSparseDoubleLong_smg2s(parMatrixSparseDoubleLong_t *mat, long probSize, struct NilpInt *nilp, long lbandwidth, char *spectrum, MPI_Comm comm);
+void parMatrixSparseDoubleLong_nonsym_smg2s(parMatrixSparseDoubleLong_t *mat, long probSize, struct NilpInt *nilp, long lbandwidth, char *spectrum, MPI_Comm comm);
 
-void Loc_RealCSRGetRowsArraySizesRealDoubleInt(struct parMatrixSparseRealDoubleInt *m, int *size, int *size2);
-void Loc_RealCSRGetRowsArraysRealDoubleInt(struct parMatrixSparseRealDoubleInt *m, int size, int **rows, int size2, int **cols, double **vals);
-
-/*SMG2S C wrapper*/
-void smg2sRealDoubleInt(struct parMatrixSparseRealDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
-void smg2sNonSymmetricRealDoubleInt(struct parMatrixSparseRealDoubleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
-
-//real single long int
-
-struct parMatrixSparseRealSingleLongInt *newParMatrixSparseRealSingleLongInt(void);
-void ReleaseParMatrixSparseRealSingleLongInt(struct parMatrixSparseRealSingleLongInt **ppInstance);
-void LOC_MatViewRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m);
-void GetLocalSizeRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m, __int64_t *rs, __int64_t *cs);
-void Loc_ConvertToCSRRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m);
-
-void Loc_LongCSRGetRowsArraySizesRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m, __int64_t *size, __int64_t *size2);
-void Loc_RealCSRGetRowsArraysRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m, __int64_t size, __int64_t **rows, __int64_t size2, __int64_t **cols, double **vals);
-
-void smg2sRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
-void smg2sNonSymmetricRealSingleLongInt(struct parMatrixSparseRealSingleLongInt *m, __int64_t probSize, struct NilpotencyLongInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
-
-/*parMatrixSparse int C wrapper*/
-struct parMatrixSparseRealSingleInt *newParMatrixSparseRealSingleInt(void);
-void ReleaseParMatrixSparseRealSingleInt(struct parMatrixSparseRealSingleInt **ppInstance);
-void LOC_MatViewRealSingleInt(struct parMatrixSparseRealSingleInt *m);
-void GetLocalSizeRealSingleInt(struct parMatrixSparseRealSingleInt *m, int *rs, int *cs);
-void Loc_ConvertToCSRRealSingleInt(struct parMatrixSparseRealSingleInt *m);
-
-void Loc_RealCSRGetRowsArraySizesRealSingleInt(struct parMatrixSparseRealSingleInt *m, int *size, int *size2);
-void Loc_RealCSRGetRowsArraysRealSingleInt(struct parMatrixSparseRealSingleInt *m, int size, int **rows, int size2, int **cols, double **vals);
-
-void smg2sRealSingleInt(struct parMatrixSparseRealSingleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
-
-void smg2sNonSymmetricRealSingleInt(struct parMatrixSparseRealSingleInt *m, int probSize, struct NilpotencyInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
 
 
 #ifdef __cplusplus
-};
+}
 #endif
+
+
+
 
 #endif
