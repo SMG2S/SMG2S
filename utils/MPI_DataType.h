@@ -32,6 +32,7 @@ SOFTWARE.
 #include <cstdlib>
 #include <mpi.h>
 #include <complex>
+#include <stdint.h>
 
 template<class T>
 MPI_Datatype MPI_Scalar(){
@@ -88,7 +89,7 @@ MPI_Datatype getMPI_Type<int>() {
 
 template <>
 MPI_Datatype getMPI_Type<__int64_t>() {
-  return MPI_LONG_LONG;
+  return MPI_INT64_T;
 }
 
 

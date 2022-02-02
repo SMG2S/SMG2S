@@ -33,8 +33,9 @@ SOFTWARE.
 
 /*Non symmetric case*/
 
-template<>
-void parVector<std::complex<double>,int>::specGen2(std::string spectrum){
+
+template <>
+void parVector<std::complex<double>, int>::specGen2(std::string spectrum){
 
   int    size;
   size = GetGlobalSize();
@@ -61,6 +62,7 @@ void parVector<std::complex<double>,int>::specGen2(std::string spectrum){
           SetValueGlobal(i, val);
           SetValueGlobal(i+1, val2);
         }
+        
       }
    }
    else{
