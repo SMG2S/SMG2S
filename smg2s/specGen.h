@@ -32,11 +32,11 @@ SOFTWARE.
 #include <string>
 
 template<typename T, typename S>
-void parVector<T, S>::specGen(std::string spectrum){
+void specGen(parVector<T, S> *spec, std::string spectrum){
 
-  S    size = GetGlobalSize();
-  S lb = GetLowerBound();
-  S ub = GetUpperBound();
+  S    size = spec->GetGlobalSize();
+  S lb = spec->GetLowerBound();
+  S ub = spec->GetUpperBound();
 
   //complex values?
   int size1 = sizeof(T) / sizeof(Base<T>);
@@ -47,7 +47,7 @@ void parVector<T, S>::specGen(std::string spectrum){
   specs = new T[size];
 
    if (spectrum.compare(" ") == 0){
-      if(GetVecMap()->GetRank() == 0){
+      if(spec->GetVecMap()->GetRank() == 0){
          printf("Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.\n");
       }
 
@@ -66,12 +66,12 @@ void parVector<T, S>::specGen(std::string spectrum){
       }
 
       for(S i=lb; i < ub; i++){
-        SetValueGlobal(i, specs[i]);
+        spec->SetValueGlobal(i, specs[i]);
       }
    }
    else{
 
-      ReadExtVec(spectrum);
+      spec->ReadExtVec(spectrum);
    }
 }
 
@@ -83,20 +83,9 @@ void matInit(parMatrixSparse<T,S> *Am, parMatrixSparse<T,S> *matAop, S probSize,
     //T scale;
 
 /*This part can be replaced by users provded func*/
-
-/*
-    if(std::is_same<T,std::complex<double> >::value || std::is_same<T,std::complex<float> >::value){
-      scale.real(0.00001);
-      scale.imag(0.0);      
-    }else{
-      scale = 0.00001;
-    }
-*/
-
     for(S i = 0; i < probSize; i++){
         for(S j = i - lbandwidth; j < i; j++){
             if(j >= 0){
-              //rnd = scale * random<T,S>(0,10);
               rnd = 1;
               Am->Loc_SetValue(i,j,rnd);
               matAop->Loc_SetValue(i,j,rnd);

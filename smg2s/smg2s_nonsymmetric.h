@@ -70,10 +70,8 @@ parMatrixSparse<T,S> *smg2s_nonsymmetric(S probSize, Nilpotency<S> nilp, S lband
 
     parVector<std::complex<T>,S> *spec = new parVector<std::complex<T>,S>(comm, lower_b, upper_b);
     
-    MPI_Barrier(comm);
-
     //generate vec containing the given spectra
-    spec->specGen2(spectrum);
+    specGen2(spec, spectrum);
 
     //Matrix Initialization
 
@@ -81,8 +79,6 @@ parMatrixSparse<T,S> *smg2s_nonsymmetric(S probSize, Nilpotency<S> nilp, S lband
     parMatrixSparse<T,S> *MA = new parMatrixSparse<T,S>(vec,vec);
     parMatrixSparse<T,S> *AM = new parMatrixSparse<T,S>(vec,vec);
     parMatrixSparse<T,S> *matAop = new parMatrixSparse<T,S>(vec,vec);
-
-    MPI_Barrier(comm);
 
     //setup the lower part of initial matrix
 
@@ -95,8 +91,6 @@ parMatrixSparse<T,S> *smg2s_nonsymmetric(S probSize, Nilpotency<S> nilp, S lband
     double t2 = end - start;
 
     if(world_rank == 0) {printf("Initial matrix generation time = %1.6f\n", t2);}
-
-    MPI_Barrier(comm);
 
 
     __int64_t my_factorielle_bornes = 1;

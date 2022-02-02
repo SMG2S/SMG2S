@@ -68,12 +68,9 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
 
 	parVector<T,S> *vec = new parVector<T,S>(comm, lower_b, upper_b);
 
-
-    MPI_Barrier(comm);
-
     //generate vec containing the given spectra
 
-    vec->specGen(spectrum);
+    specGen(vec, spectrum);
     
 
     //Matrix Initialization
@@ -82,8 +79,6 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
     parMatrixSparse<T,S> *MA = new parMatrixSparse<T,S>(vec,vec);
     parMatrixSparse<T,S> *AM = new parMatrixSparse<T,S>(vec,vec);
     parMatrixSparse<T,S> *matAop = new parMatrixSparse<T,S>(vec,vec);
-
-    MPI_Barrier(comm);
 
     //setup the lower part of initial matrix
 
@@ -98,8 +93,6 @@ parMatrixSparse<T,S> *smg2s(S probSize, Nilpotency<S> nilp, S lbandwidth, std::s
     double t2 = end - start;
 
     if(world_rank == 0) {printf("Initial matrix generation time = %1.6f\n", t2);}
-
-    MPI_Barrier(comm);
 
     __int64_t my_factorielle_bornes = 1;
 

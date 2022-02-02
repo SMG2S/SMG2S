@@ -45,8 +45,8 @@ int main(int argc, char* argv[]) {
 	char spectrum[] = " ";
 
 	parMatrixSparseDoubleInt_nonsym_smg2s(mat, 100, nilp, 2, spectrum, MPI_COMM_WORLD);
-//	parMatrixSparseDoubleInt_LocMatView(mat);
-/*
+	parMatrixSparseDoubleInt_LocMatView(mat);
+
 	int rs, cs;
 	GetLocalSizeDoubleInt(mat, &rs, &cs);
 
@@ -65,7 +65,7 @@ int main(int argc, char* argv[]) {
 	double *vals = (double *)malloc(size2 * sizeof(double));
 
 	parMatrixSparseDoubleInt_LocGetCSRArrays(mat, size1, size2, &rowoffsets, &colinds, &vals);			
-*/
+
 	parMatrixSparseDoubleInt_destory(mat);
 
 	MPI_Finalize();
