@@ -35,317 +35,261 @@ SOFTWARE.
 
 #include "parVectorMap.h"
 #include "../utils/utils.h"
+#include "../utils/MPI_DataType.h"
 
 template<typename T, typename S>
 class parVector{
-	private:
-		T	*array;
-		S	array_size;
-		S	local_size;
-		parVectorMap<S> *index_map;
+    private:
+    	T	*array;
+	S	local_size;
+	S       global_size;
+	MPI_Comm  	comm;
+	parVectorMap<S> index_map;
 
-	public:
-		parVector();
-		parVector(MPI_Comm ncomm, S lbound, S ubound);
-		~parVector();
+    public:
+	parVector();
+	parVector(MPI_Comm ncomm, S lbound, S ubound);
+	parVector(parVectorMap<S> map);
+	~parVector();
 
-		parVectorMap<S> *GetVecMap(){return index_map;};
+	parVectorMap<S> GetVecMap(){return index_map;};
 
-		S GetLowerBound();
-		S GetUpperBound();
-		S GetGlobalSize();
-		S GetLocalSize();
-		S GetArraySize();
-		T *GetArray(){return array;};
+	S GetLowerBound(){return index_map.GetLowerBound();};
+	S GetUpperBound(){return index_map.GetUpperBound();};
+	S GetGlobalSize(){return global_size;};
+	S GetLocalSize(){return local_size;};
+	S GetRank(){return index_map.GetRank();};
+	T* GetArray(){return array;};
+	MPI_Comm GetComm(){return comm;};
 
-		S Loc2Glob(S local_index);
-		S Glob2Loc(S global_index);
+	S Loc2Glob(S local_index){return index_map.Loc2Glob(local_index);};
+	S Glob2Loc(S global_index){return index_map.Glob2Loc(global_index);};
 
-		void AddValueLocal(S row, T value);
-		void AddValuesLocal(S nindex, S *rows, T *values);
+	void SetToValue(T value);
+	void SetToZero();		
+	void VecView();
+	void SetValueLocal(S row, T value);
+	void SetValuesLocal(S nindex, S *rows, T *values);
+	void SetValueGlobal(S index, T value);
+	void SetValuesGlobal(S nindex, S *rows, T *values);		
+	void AddValueLocal(S row, T value);
+	void AddValuesLocal(S nindex, S *rows, T *values);
+	void VecAdd(parVector v);
 
-		void SetValueLocal(S row, T value);
-		void SetValuesLocal(S nindex, S *rows, T *values);
-		void SetValueGlobal(S index, T value);
-		void SetValuesGlobal(S nindex, S *rows, T *values);
-
-		void SetTovalue(T value);
-		void SetToZero();
-
-		void VecAdd(parVector *v);
-		void VecScale(T scale);
-		T    VecDot(parVector *v);
-		void ReadExtVec(std::string spectrum);
-        void VecView();
-
-		void RestoreArray(){};
-
+	void VecScale(T scale);
+	T    VecDot(parVector v);
+	void ReadExtVec(std::string spectrum);
+        
 
 };
 
 template<typename T,typename S>
-parVector<T,S>::parVector(){
-	array = NULL;
-	array_size = 0;
-	local_size = 0;
-	index_map = NULL;
-}
+parVector<T,S>::parVector(){}
+
 
 template<typename T,typename S>
 parVector<T,S>::parVector(MPI_Comm ncomm, S lbound, S ubound)
 {
-	index_map = new parVectorMap<S>(ncomm, lbound, ubound);
-	index_map->AddUser();
-
-	local_size = index_map->GetLocalSize();
-	array_size = index_map->GetLocTotSize();
-	array = new T[array_size];
+    MPI_Comm_dup(ncomm, &comm);
+    index_map = parVectorMap<S>(ncomm, lbound, ubound);
+    local_size = index_map.GetLocalSize();
+    global_size = index_map.GetGlobalSize();
+    array = new T[local_size];
 }
 
 template<typename T,typename S>
-parVector<T,S>::~parVector()
+parVector<T,S>::parVector(parVectorMap<S> map)
 {
-	if (index_map !=NULL){
-		index_map->DeleteUser();
-		if(index_map->GetUser() == 0){delete index_map;}
-	}
-	if (array != NULL){
-		delete [] array;
-	}
+    index_map = map;
+    comm = index_map.GetCurrentComm();
+    local_size = index_map.GetLocalSize();
+    global_size = index_map.GetGlobalSize();
+    array = new T[local_size];
 }
 
 template<typename T,typename S>
-S parVector<T,S>::GetLowerBound()
-{
-	if (index_map != NULL){
-		return index_map->GetLowerBound();
-	}
-	else {return 0;}
-}
+parVector<T,S>::~parVector(){}
+
 
 template<typename T, typename S>
-S parVector<T,S>::GetUpperBound()
+void parVector<T,S>::SetToValue(T value)
 {
-	if (index_map != NULL){
-		return index_map->GetUpperBound();
-	}
-	else {return 0;}
-}
-
-template<typename T, typename S>
-S parVector<T,S>::GetLocalSize()
-{
-	return local_size;
-}
-
-template<typename T, typename S>
-S parVector<T,S>::GetGlobalSize()
-{
-	if(index_map != NULL){
-		return index_map->GetGlobalSize();
-	}
-	else {return 0;}
-}
-
-template<typename T, typename S>
-S parVector<T,S>::GetArraySize()
-{
-	return array_size;
-}
-
-template<typename T, typename S>
-S parVector<T,S>::Loc2Glob(S local_index)
-{
-	if ( index_map != NULL ) {
-		return index_map -> Loc2Glob(local_index);
-	}
-	else return -1;
-}
-
-template<typename T, typename S>
-S parVector<T,S>::Glob2Loc(S global_index)
-{
-	if ( index_map != NULL ) {
-		return index_map ->Glob2Loc(global_index);
-	} else return -1;
-}
-
-template<typename T, typename S>
-void parVector<T,S>::AddValueLocal(S row, T value)
-{
-	if (row < array_size){
-		array[row] = array[row] + value;
-		//array[row] = value;
-	}
-}
-
-template<typename T, typename S>
-void parVector<T,S>::AddValuesLocal(S nindex, S *rows, T *values)
-{
-	for(S i = 0; i < nindex; i++){
-		AddValueLocal(rows[i],values[i]);
-	}
-}
-
-template<typename T, typename S>
-void parVector<T,S>::SetValueLocal(S row, T value)
-{
-	if (row < array_size){
-		array[row] = value;
-	}
-}
-
-template<typename T, typename S>
-void parVector<T,S>::SetValuesLocal(S nindex, S *rows, T *values)
-{
-	for(S i = 0; i < nindex; i++){
-		SetValueLocal(rows[i],values[i]);
-	}
-}
-
-template<typename T, typename S>
-void parVector<T,S>::SetValueGlobal(S index, T value)
-{
-	SetValueLocal(Glob2Loc(index), value);
-}
-
-template<typename T, typename S>
-void parVector<T,S>::SetValuesGlobal(S nindex, S *rows, T *values)
-{
-	for(S i = 0; i < nindex; i++){
-		SetValueLocal(Glob2Loc(rows[i]),values[i]);
-	}
-}
-
-template<typename T, typename S>
-void parVector<T,S>::SetTovalue(T value)
-{
-	for(S i= 0; i < array_size; i++) {
-		array[i] = value;
-	}
+    for(S i= 0; i < local_size; i++) {
+    	array[i] = value;
+    }
 }
 
 template<typename T, typename S>
 void parVector<T,S>::SetToZero()
 {
-	T val = 0;
-	SetTovalue(val);
+    T val = 0;
+    SetToValue(val);
 }
 
-
-
+template<typename T, typename S>
+void parVector<T,S>::VecView()
+{
+    int r;
+    r = index_map.GetRank();
+    if (r == 0){
+	std::cout << "Parallel Vector View: " << std::endl << std::endl;
+    }
+    T *array = GetArray();
+    S global;
+    for(S i = 0; i < local_size; i++){
+    	global = Loc2Glob(i);
+	std::cout << "[" << global << "]: " << array[i] << std::endl;
+    }
+}
 
 template<typename T, typename S>
-void parVector<T,S>::VecAdd(parVector<T,S> *v)
+void parVector<T,S>::SetValueLocal(S row, T value)
 {
-	if(array_size != v->array_size){std::cout << "vector size not coherant" << std::endl;}
-	else{
-		for(S i = 0; i < array_size; i++){
-			array[i] = array[i] + v->array[i];
-		}
+    if (row < local_size){
+	array[row] = value;
+    }
+}
+
+template<typename T, typename S>
+void parVector<T,S>::SetValuesLocal(S nindex, S *rows, T *values)
+{
+    for(S i = 0; i < nindex; i++){
+    	SetValueLocal(rows[i],values[i]);
+    }
+}
+
+template<typename T, typename S>
+void parVector<T,S>::SetValueGlobal(S index, T value)
+{
+    int lower_bound = GetLowerBound();
+    int upper_bound = GetUpperBound();
+    if((index >= lower_bound) && (index < upper_bound)){
+    	SetValueLocal(index_map.Glob2Loc(index), value);
+    }
+}
+
+template<typename T, typename S>
+void parVector<T,S>::SetValuesGlobal(S nindex, S *rows, T *values)
+{
+    for(S i = 0; i < nindex; i++){
+	SetValueLocal(Glob2Loc(rows[i]),values[i]);
+    }
+}
+
+template<typename T, typename S>
+void parVector<T,S>::AddValueLocal(S row, T value)
+{
+    if (row < local_size){
+	array[row] = array[row] + value;
+    }
+}
+
+template<typename T, typename S>
+void parVector<T,S>::AddValuesLocal(S nindex, S *rows, T *values)
+{
+    for(S i = 0; i < nindex; i++){
+	AddValueLocal(rows[i],values[i]);
+    }
+}
+
+template<typename T, typename S>
+void parVector<T,S>::VecAdd(parVector<T,S> v)
+{
+    if(local_size != v.GetLocalSize()){
+	std::cout << "vector size not coherant" << std::endl;
+    }
+    else{
+	for(S i = 0; i < local_size; i++){
+	    array[i] = array[i] + v.array[i];
 	}
+    }
 }
 
 template<typename T, typename S>
 void parVector<T,S>::VecScale(T scale)
 {
-	for(S i = 0; i < array_size; i++){
-		array[i] = scale*array[i];
-	}
+    for(S i = 0; i < local_size; i++){
+	array[i] = scale*array[i];
+    }
 }
 
 template<typename T, typename S>
-T parVector<T,S>::VecDot(parVector *v)
+T parVector<T,S>::VecDot(parVector v)
 {
-	T sum;
-	for(S i = 0; i < array_size; i++){
-		sum += array[i]*v->array[i];
-	}
-
-	return sum;
-}
-template<typename T, typename S>
-void parVector<T,S>::VecView()
-{
-	int r;
-	r = index_map->GetRank();
-	if (r == 0){
-		std::cout << "Parallel Vector View: " << std::endl << std::endl;
-	}
-	T *array = GetArray();
-	S global;
-	for(S i = 0; i < array_size; i++){
-		global = Loc2Glob(i);
-		std::cout << "[" << global << "]: " << array[i] << std::endl;
-	}
+    T sum;
+    for(S i = 0; i < local_size; i++){
+	sum += array[i]*v.array[i];
+    }
+    MPI_Allreduce(MPI_IN_PLACE, &sum, 1, getMPI_Type<T>(), MPI_SUM, comm);
+    return sum;
 }
 
 
 template<typename T, typename S>
 void parVector<T, S>::ReadExtVec(std::string spectrum)
 {
-        std::ifstream file(spectrum);
-        std::string line;
+    std::ifstream file(spectrum);
+    std::string line;
 
-        int lower_bound = GetLowerBound();
-        int upper_bound = GetUpperBound();
+    int lower_bound = GetLowerBound();
+    int upper_bound = GetUpperBound();
 
-	int size1 = sizeof(T) / sizeof(Base<T>);
+    int size1 = sizeof(T) / sizeof(Base<T>);
 
-        S idx;
+    S idx;
 
-        Base<T> in_vals[size1];
+    Base<T> in_vals[size1];
 
-        T val;
+    T val;
 
-        while (std::getline(file,line)) {
-                idx = 0;
-                for(int i = 0; i < size1; i++){
-		    in_vals[i] = 0.0;
-		}
+    while (std::getline(file,line)) {
+    	idx = 0;
+        for(int i = 0; i < size1; i++){
+            in_vals[i] = 0.0;
+	}
 
-                std::stringstream linestream ( line ) ;
-                linestream >> idx;
-		for(int i = 0; i < size1; i++){
-                    linestream >> in_vals[i];
-                }
-
-		int cnt = 0;
-                if (idx!= 0)
-                {
-		    for(int i = 0; i < size1; i++){
-                        if(in_vals[i] != 0){
-			    cnt ++;
-			}
-                    }
-		    if(cnt == 2){
-                      break ;
-		    }
-                }
+        std::stringstream linestream ( line ) ;
+        linestream >> idx;
+	for(int i = 0; i < size1; i++){
+            linestream >> in_vals[i];
         }
 
-	
-	while (std::getline(file,line)) {
-	    	idx = 0;
-                for(int i = 0; i < size1; i++){
-                    in_vals[i] = 0.0;
-                }
-
-                std::stringstream linestream ( line ) ;
-                linestream >> idx;
-                for(int i = 0; i < size1; i++){
-                    linestream >> in_vals[i];
-                }
-		idx = idx - 1;
-
-		for(int i = 0; i < size1; i++){
- 			reinterpret_cast<Base<T>(&)[size1]>(val)[i] = in_vals[i];
+	int cnt = 0;
+        if (idx!= 0)
+        {
+            for(int i = 0; i < size1; i++){
+            	if(in_vals[i] != 0){
+            	    cnt ++;
 		}
+            }
+            if(cnt == 2){
+                break ;
+            }
+        }
+    }
 
-                if((idx >= lower_bound) && (idx < upper_bound)){
-                        AddValueLocal(index_map->Glob2Loc(idx),val);
-		}		
+	
+    while (std::getline(file,line)) {
+	idx = 0;
+        for(int i = 0; i < size1; i++){
+            in_vals[i] = 0.0;
+        }
+
+        std::stringstream linestream ( line ) ;
+        linestream >> idx;
+        for(int i = 0; i < size1; i++){
+            linestream >> in_vals[i];
+        }
+        idx = idx - 1;
+
+        for(int i = 0; i < size1; i++){
+            reinterpret_cast<Base<T>(&)[size1]>(val)[i] = in_vals[i];
 	}
+
+	if((idx >= lower_bound) && (idx < upper_bound)){
+	    AddValueLocal(index_map->Glob2Loc(idx),val);
+	}		
+    }
 
 }
 

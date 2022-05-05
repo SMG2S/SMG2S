@@ -274,9 +274,7 @@ parMatrixSparse<T,S>::parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec
 
 	//get vector map for x and y direction
 	x_index_map = XVec->GetVecMap();
-	x_index_map->AddUser();
 	y_index_map = YVec->GetVecMap();
-	y_index_map->AddUser();
 
 	if(x_index_map != NULL && y_index_map != NULL){
 		//get num of rows and cols in this mpi procs
@@ -301,13 +299,11 @@ parMatrixSparse<T,S>::~parMatrixSparse()
 {
 	//if index map is defined
 	if(x_index_map != NULL){
-	        x_index_map->DeleteUser();
    	        delete x_index_map;
 	}
 
 
 	if(y_index_map != NULL){
-		y_index_map->DeleteUser();
 	    	delete y_index_map;
 	}
 

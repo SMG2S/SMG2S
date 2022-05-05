@@ -39,13 +39,7 @@ struct MatrixCSR
 	std::vector<S> cols;
 	std::vector<T> vals;
 
-	MatrixCSR()
-	{
-		nnz = 0;
-//		rows = NULL;
-//		cols = NULL; 
-//		vals = NULL;
-	};
+	MatrixCSR(){};
 
 	MatrixCSR(S nnz_in, S nrows_in)
 	{
@@ -109,9 +103,7 @@ struct MatrixCSR
 			prevCol = cols[pos-1];
 			if (currCol == col){
 				SetValue(row, col, val);
-			} else if((currCol > col) && (prevCol < col)){
-//				it = currCol;
-//				itv = currCol;		
+			} else if((currCol > col) && (prevCol < col)){	
 				std::advance(it,currCol);
 				std::advance(itv,currCol);
 				cols.insert(it,col);
@@ -153,9 +145,6 @@ struct MatrixCSR
 			std::vector<T>().swap(vals);
 			
 			nnz = 0;
-//			rows = NULL;
-//			cols = NULL;
-//			vals = NULL;
 		}
 	};
 
