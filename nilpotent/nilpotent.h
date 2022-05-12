@@ -92,6 +92,11 @@ Nilpotent<S>::Nilpotent(S nbOne, S diag, S size){
 		nilpvec[indOfZeros[i]] = 0;
 	}
 
+	for(auto i = 0; i < nilpvec.size();i++){
+		std::cout << nilpvec[i] << ", ";
+	}
+	std::cout << std::endl;
+
     degree = computeDegree(nilpvec);
 
 }
@@ -136,7 +141,8 @@ Nilpotent<S>::Nilpotent(std::vector<S> nilpvec, S diag, S size){
     	}
     }
 
-    degree = computeDegree(nilpvec(nilpvec.begin(), nilpvec.begin() + size - offset));   
+    std::vector<S> vec(nilpvec.begin(), nilpvec.begin() + size - offset);
+    degree = computeDegree(vec);   
 }
 
 template<typename S>

@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 
     int world_size;
     int world_rank;
-    int probSize = 19;
+    int probSize = 7;
 
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
@@ -79,10 +79,23 @@ int main(int argc, char** argv)
 	vec.VecAdd(vec2);
 	vec.VecScale(2);
 	int dot = vec.VecDot(vec2);
- 	vec.VecView();
+ 	//vec.VecView();
 
  	std::cout << "dot = " << dot << std::endl;
 
+ 	//auto spec1 = specNonHerm<std::complex<double>, int>(parVecMap, "v2.txt");
+ 	auto spec1 = specNonHerm<std::complex<double>, int>(parVecMap, "v2.txt");
+	//spec1.VecView();
+    
+    auto spec2 = specNonSymm<double, int>(parVecMap, "v1.txt");
+    //spec2.VecView();
+
+    auto spec3 = specNonSymmCplex<double, int>(parVecMap, "v3.txt");
+    spec3.VecView();
+
+    //for(auto i = 0 ; i < spec3.size(); i++){
+    //	std::cout << spec3[i] << std::endl;
+    //}
 
 	MPI_Finalize();
 

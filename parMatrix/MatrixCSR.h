@@ -54,6 +54,18 @@ struct MatrixCSR
 	
 	};
 
+	MatrixCSR(std::vector<S> rowoffs, std::vector<S> colidxs, std::vector<T> values)
+	{
+	
+		nnz = colidxs.size();
+		ncols = rowoffs.size() - 1;
+		nrows = rowoffs.size() - 1;
+
+		rows = rowoffs;
+		cols = colidxs;
+		vals = values;	
+	};
+
 	~MatrixCSR()
 	{
 		if(nnz != 0){
@@ -133,9 +145,17 @@ struct MatrixCSR
 				}
 			}
 		}
-
 	};
 
+	void show(){
+		std::cout << "MatrixCSR display:" << std::endl; 
+		for(auto i = 0; i < rows.size() - 1; i++){
+			for(auto j = rows[i]; j < rows[i+1]; j++){
+				std::cout << "row " << i << ": (" << cols[j] << "," << vals[j]<< ")";
+			}
+			std::cout << std::endl;
+		}
+	}
 
 	void Free()
 	{

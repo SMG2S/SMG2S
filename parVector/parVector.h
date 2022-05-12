@@ -32,7 +32,7 @@ SOFTWARE.
 #include <sstream>
 #include <string>
 #include <complex>
-
+#include <vector>
 #include "parVectorMap.h"
 #include "../utils/utils.h"
 #include "../utils/MPI_DataType.h"
@@ -45,6 +45,7 @@ class parVector{
 	S       global_size;
 	MPI_Comm  	comm;
 	parVectorMap<S> index_map;
+	int 	MyPID, nProcs; 
 
     public:
 	parVector();
@@ -59,6 +60,22 @@ class parVector{
 	S GetGlobalSize(){return global_size;};
 	S GetLocalSize(){return local_size;};
 	S GetRank(){return index_map.GetRank();};
+
+	T GetUpperNeighbor();
+	T GetLowerNeighbor();
+	
+	T GetValue(S index)
+	{
+	    auto lindex = index_map.Glob2Loc(index);
+	    return array[lindex];
+	};
+
+	T GetValueLocal(S lindex)
+	{
+	    return array[lindex];
+	};
+
+
 	T* GetArray(){return array;};
 	MPI_Comm GetComm(){return comm;};
 
@@ -95,6 +112,8 @@ parVector<T,S>::parVector(MPI_Comm ncomm, S lbound, S ubound)
     local_size = index_map.GetLocalSize();
     global_size = index_map.GetGlobalSize();
     array = new T[local_size];
+    MPI_Comm_rank(ncomm, &MyPID);
+    MPI_Comm_size(ncomm, &nProcs);
 }
 
 template<typename T,typename S>
@@ -105,6 +124,8 @@ parVector<T,S>::parVector(parVectorMap<S> map)
     local_size = index_map.GetLocalSize();
     global_size = index_map.GetGlobalSize();
     array = new T[local_size];
+    MPI_Comm_rank(comm, &MyPID);
+    MPI_Comm_size(comm, &nProcs);    
 }
 
 template<typename T,typename S>
@@ -233,43 +254,24 @@ void parVector<T, S>::ReadExtVec(std::string spectrum)
 
     int lower_bound = GetLowerBound();
     int upper_bound = GetUpperBound();
-
-    int size1 = sizeof(T) / sizeof(Base<T>);
-
+/*
+    //ingnore 1st line
+    std::getline(file,line);
+    //second line
+    std::getline(file,line);
+    std::stringstream linestream ( line ) ;
+    linestream >> m;
+    linestream >> n;
+    linestream >> p;
+    */
+    int size1;
+    size1 = sizeof(T) / sizeof(Base<T>);
     S idx;
-
     Base<T> in_vals[size1];
-
     T val;
 
     while (std::getline(file,line)) {
-    	idx = 0;
-        for(int i = 0; i < size1; i++){
-            in_vals[i] = 0.0;
-	}
-
-        std::stringstream linestream ( line ) ;
-        linestream >> idx;
-	for(int i = 0; i < size1; i++){
-            linestream >> in_vals[i];
-        }
-
-	int cnt = 0;
-        if (idx!= 0)
-        {
-            for(int i = 0; i < size1; i++){
-            	if(in_vals[i] != 0){
-            	    cnt ++;
-		}
-            }
-            if(cnt == 2){
-                break ;
-            }
-        }
-    }
-
-	
-    while (std::getline(file,line)) {
+    	//std::cout << line << std::endl;
 	idx = 0;
         for(int i = 0; i < size1; i++){
             in_vals[i] = 0.0;
@@ -277,6 +279,7 @@ void parVector<T, S>::ReadExtVec(std::string spectrum)
 
         std::stringstream linestream ( line ) ;
         linestream >> idx;
+
         for(int i = 0; i < size1; i++){
             linestream >> in_vals[i];
         }
@@ -287,10 +290,201 @@ void parVector<T, S>::ReadExtVec(std::string spectrum)
 	}
 
 	if((idx >= lower_bound) && (idx < upper_bound)){
-	    AddValueLocal(index_map->Glob2Loc(idx),val);
+	    SetValueLocal(index_map.Glob2Loc(idx),val);
 	}		
+    }
+}
+
+template<typename T, typename S>
+T parVector<T, S>::GetUpperNeighbor(){
+    MPI_Request	rtypereq, stypereq;
+    MPI_Status	typestat;
+    int up, down;
+
+    if(MyPID != 0){
+    	up = MyPID - 1;
+    }else{
+    	up = nProcs - 1;
+    }
+
+    if(MyPID != nProcs - 1){
+    	down = MyPID + 1;
+    }else{
+    	down = 0;
+    }
+
+    T neighbor;
+    MPI_Isend(&array[local_size-1], 1, getMPI_Type<T>(), down, 1, comm, &stypereq);
+    MPI_Irecv(&neighbor, 1, getMPI_Type<T>(), up, 1, comm, &rtypereq);
+
+    MPI_Wait(&rtypereq,&typestat);
+
+    return neighbor;
+      
+}
+
+template<typename T, typename S>
+T parVector<T, S>::GetLowerNeighbor(){
+    MPI_Request	rtypereq, stypereq;
+    MPI_Status	typestat;
+    int up, down;
+
+    if(MyPID != 0){
+    	up = MyPID - 1;
+    }else{
+    	up = nProcs - 1;
+    }
+
+    if(MyPID != nProcs - 1){
+    	down = MyPID + 1;
+    }else{
+    	down = 0;
+    }
+
+    T neighbor;
+    MPI_Isend(&array[0], 1, getMPI_Type<T>(), up, 1, comm, &stypereq);
+    MPI_Irecv(&neighbor, 1, getMPI_Type<T>(), down, 1, comm, &rtypereq);
+
+    MPI_Wait(&rtypereq,&typestat);
+
+    return neighbor;
+
+}
+
+
+template<typename T, typename S>
+std::vector<T> ReadExtStdVec(std::string spectrum)
+{
+    std::ifstream file(spectrum);
+    std::string line;
+
+    std::vector<T> vec;
+
+    int size1;
+    size1 = sizeof(T) / sizeof(Base<T>);
+    S idx;
+    Base<T> in_vals[size1];
+    T val;
+    std::getline(file,line);
+    std::getline(file,line);
+
+    while (std::getline(file,line)) {
+	idx = 0;
+        for(int i = 0; i < size1; i++){
+            in_vals[i] = 0.0;
+        }
+
+        std::stringstream linestream ( line ) ;
+        linestream >> idx;
+
+        for(int i = 0; i < size1; i++){
+            linestream >> in_vals[i];
+        }
+        idx = idx - 1;
+
+        for(int i = 0; i < size1; i++){
+            reinterpret_cast<Base<T>(&)[size1]>(val)[i] = in_vals[i];
+	}
+	vec.push_back(val);		
+    }
+
+    return vec;
+}
+
+template<typename T, typename S>
+void checkNonSymmSpec(std::complex<Base<T>> *spec, S size){
+
+    S idx = 0;
+    S step;
+
+    while (idx < size){
+    	if (std::imag(spec[idx]) == 0 ){ 
+    	    step = 1;
+    	}
+    	else{
+    	    if( (std::imag(spec[idx]) + std::imag(spec[idx+1])) != Base<T>(0) || (std::real(spec[idx]) != std::real(spec[idx+1] ))){
+    	    	throw "input spectrum is invalid for non-symmetric matrix";
+    	    }
+    	    step = 2;
+    	}
+    	idx += step;
+    }
+}
+
+
+template<typename T, typename S>
+void checkNonSymmSpec(parVector<std::complex<Base<T>>, S> spec){
+    auto nu = spec.GetUpperNeighbor();
+    auto nl = spec.GetLowerNeighbor();
+
+    auto lower_bound = spec.GetLowerBound();
+    auto upper_bound = spec.GetUpperBound();
+
+    auto *array = spec.GetArray();
+    auto local_size = spec.GetLocalSize();
+
+    int MyPID, nProcs;
+    MPI_Comm_rank(spec.GetComm(), &MyPID);
+    MPI_Comm_size(spec.GetComm(), &nProcs);
+
+
+    S idx = 0;
+    S step;
+
+    //for procs = 0: normal check for localsize - 1, if already paired, check localsize with his next neighbor
+    //for procs = 1: first check his previous neighbor, if good, then starts, until to the localsize - 1, check localsize with his next neighbor
+    //for procs = nprocs - 1: first check his previous neighbor, if good .. if not good, check with his next neighor, until to the end.
+    if(MyPID == 0){
+    	while(idx < (local_size - 1) ){
+    	    if(array[idx].imag() == 0){
+    	    	step = 1;
+    	    }else{
+    	    	if(array[idx].imag() + array[idx+1].imag() != Base<T>(0) || array[idx].real() != array[idx+1].real()){
+    	    	    throw "input spectrum is invalid for non-symmetric matrix";
+    	    	}
+    	    	step = 2;
+    	    }
+    	    idx += step;
+    	}
+    	std::cout << "idx = " << idx << std::endl; 
     }
 
 }
+
+
+template<typename T, typename S>
+parVector<T, S> specNonHerm(parVectorMap<S> index_map, std::string spectrum){
+    parVector<T, S> spec =  parVector<T, S>(index_map);
+    spec.ReadExtVec(spectrum);
+
+    return spec;
+}
+
+
+template<typename T, typename S>
+parVector<T, S> specNonSymm(parVectorMap<S> index_map, std::string spectrum){
+    parVector<T, S> spec =  parVector<T, S>(index_map);
+    spec.ReadExtVec(spectrum);
+
+    return spec;
+}
+
+template<typename T, typename S>
+std::vector<std::complex<Base<T>>> specNonSymmCplex(std::string spectrum){
+    auto vec = ReadExtStdVec<std::complex<Base<T>>, S>(spectrum);
+    return vec;
+}
+
+template<typename T, typename S>
+parVector<std::complex<Base<T>>, S> specNonSymmCplex(parVectorMap<S> index_map, std::string spectrum){
+    parVector<std::complex<Base<T>>, S> spec =  parVector<std::complex<Base<T>>, S>(index_map);
+    spec.ReadExtVec(spectrum);
+
+    checkNonSymmSpec<T,S>(spec);
+
+    return spec;
+}
+
+
 
 #endif

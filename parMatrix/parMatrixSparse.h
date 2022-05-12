@@ -33,8 +33,12 @@ SOFTWARE.
 #include <sstream>
 #include <string>
 #include <vector>
+#include <random>
+#include <algorithm>
 #include "../utils/MPI_DataType.h"
 #include "../parVector/parVector.h"
+#include "../nilpotent/nilpotent.h"
+
 #include "MatrixCSR.h"
 
 #ifdef __USE_COMPLEX__
@@ -44,1189 +48,706 @@ SOFTWARE.
 template<typename T, typename S>
 class parMatrixSparse
 {
+    private:
+	std::map<S, T> *dynmat_loc;
 
-	private:
-		std::map<S, T> *dynmat_lloc, *dynmat_gloc;
+	//size of local matrix
+	S	ncols, nrows;
+	//number of non-zeros in local
+	S	nnz_loc;
 
-		//size of local matrix
-		S	ncols, nrows;
+	parVectorMap<S>	index_map;
 
-		S	nnz_lloc, nnz_gloc, nnz_loc;
+	S	lower_b, upper_b;
 
-		parVectorMap<S>	*x_index_map;
-		parVectorMap<S>	*y_index_map;
+	MPI_Comm comm;
 
-		S	njloc;
-		S	lower_x, lower_y, upper_x, upper_y;
+	// mpi size and rank
+	int ProcID, nProcs;
 
-		MPI_Comm comm;
+    public:
+    	parMatrixSparse();
+    	parMatrixSparse(parVector<T,S> vec);
+    	parMatrixSparse(parVectorMap<S> map);
 
-		// mpi size and rank
-		int ProcID, nProcs;
+    	//get
+    	S GetNRows(){return nrows;};
+    	S GetNCols(){return ncols;};
+    	S GetNNzLoc(){return nnz_loc;};
+    	parVectorMap<S> GetMap(){return index_map;};
+    	S GetLowerBound(){return lower_b;};
+    	S GetUpperBound(){return upper_b;};
+    	MPI_Comm GetComm(){return comm;};
+    	int GetProcId(){return ProcID;};
+    	int GetNProcs(){return nProcs;};
 
-		// pointers and buffers for setting up communications
-		S	*VNumRecv, *VNumSend;
-		S	maxRecv, maxSend;
-		S	**Rbuffer, **Sbuffer;
+	std::map<S, T> *GetDynMatLoc(){return dynmat_loc;};
 
-		MPI_Datatype *DTypeRecv , *DTypeSend ;
+	//set value
+	void	SetValueLocal(S row, S col, T value);
+	void	SetValuesLocal(S nindex, S *rows, S *cols, T *values);
+	void 	SetValue(S row, S col, T value);
+	void    SetDiagonal(parVector<T,S> diag);
 
-	public:
+	//add value
+	void    AddValueLocal(S row, S col, T value);
+	void 	AddValue(S row, S col, T value);
 
-		MatrixCSR<T,S> *CSR_lloc, *CSR_gloc, *CSR_loc;
+	//get value
+	T 	GetValueLocal(S row, S col);
+	T 	GetValue(S row, S col);
 
-		std::map<S, T> *dynmat_loc;
+	void	MatScale(T scale);
+	void    MatAXPY(parMatrixSparse<T,S> X, T scale);
+	void    MatAYPX(parMatrixSparse<T,S> X, T scale);
 
-		//constructor
-		parMatrixSparse();
+	//init matrix lower part of matrix 
+	void	initMat(S diag_l, S diag_u, Base<T> scale, T shift, Base<T> sparsity );
+	void	initMat(S diag_l, S diag_u);
+	
+	void setSpecNonHerm(parVector<T,S> spectrum);
+	void setSpecNonSymm(parVector<T,S> spectrum);
+	void setSpecNonSymm(std::vector<std::complex<Base<T>>> spectrum);
 
-		parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec);
-		//deconstructor
-		~parMatrixSparse();
+   	//matrix multiplies a nilpotent matrix
+	parMatrixSparse<T,S>	MA(Nilpotent<S> nilp);
 
-		//get
-		parVectorMap<S> *GetXMap(){return x_index_map;};
-		parVectorMap<S> *GetYMap(){return y_index_map;};
-
-		MPI_Comm GetComm(){
-			return x_index_map->GetCurrentComm();
-		}
-		S	GetXLowerBound();
-		S	GetYLowerBound();
-
-	    S   GetXUpperBound();
-        S   GetYUpperBound();
-
-		void	GetTrueLocalSize(S &rs, S &cs){
-			rs = nrows;
-			cs = njloc;
-		};
-
-		void	GetLocalSize(S &rs, S &cs){
-			rs = nrows;
-			cs = ncols;
-		};
-
-		std::map<S,T>	*GetDynMatGLobLoc(){return dynmat_lloc;};
-		std::map<S,T>	*GetDynMatGlobLoc(){return dynmat_gloc;};
-
-		std::map<S,T>	*GetDynMatLoc(){return dynmat_loc;};
-
-		MatrixCSR<T,S>	*GetCSRLocLoc(){return CSR_lloc;};
-		MatrixCSR<T,S>	*GetCSRGlobLoc(){return CSR_gloc;};
-
-		//add
-		void	AddValueLocal( S row, S col, T value);
-  		void 	AddValuesLocal( S nindex, S *rows, S *cols, T *values);
-
-		//global add
-		void	AddValue(S row, S col, T value);
-
-  		//set
-		void	SetValueLocal( S row, S col, T value);
-  		void 	SetValuesLocal( S nindex, S *rows, S *cols, T *values);
-
-		//global set
-		void	SetValue(S row, S col, T value);
-
-		//get
-		T		GetLocalValue(S row, S col);
-		T		GetValue(S row, S col);
+   	//a nilpotent matrix multiplies a matrix
+	parMatrixSparse<T,S>	AM(Nilpotent<S> nilp);
 
 
-		//combine gloc + lloc -> loc together
-		void	glocPlusLloc();
+	void	ZeroEntries();
+	MatrixCSR<T,S>	ConvertToCSR();
 
-		void	llocToGlocLoc();
-
-		//show
-		void	MatView();
-
-		void	LOC_MatView();
-
-
-  		//LOC set
-		void	Loc_SetValueLocal( S row, S col, T value);
-  	void 	Loc_SetValuesLocal( S nindex, S *rows, S *cols, T *values);
-
-		//LOC global set
-		void	Loc_SetValue(S row, S col, T value);
-
-		//LOC get
-		T		Loc_GetLocalValue(S row, S col);
-		T		Loc_GetValue(S row, S col);
-
-
-		//set mat diagonal by vector given
-		void	SetDiagonal(parVector<T,S> *diag);
-
-		//Loc set mat diagonal by vector given
-		void	Loc_SetDiagonal(parVector<T,S> *diag);
-
-		//Loc set mat diagonal by vector given
-		void	Loc_SetDiagonal_index(parVector<T,S> *diag, S index);
-
-		//Mat Scale
-		void	MatScale(T scale);
-
-		//Loc Mat Scale
-		void	Loc_MatScale(T scale);
-
-		//Loc AXPY
-		void	Loc_MatAXPY(parMatrixSparse<T,S> *X, T scale);
-
-		//Loc AYPX
-		void    Loc_MatAYPX(parMatrixSparse<T,S> *X, T scale);
-
-
-		// convert from dyn to csr
-		void	ConvertToCSR();
-
-		// convert from dyn to csr
-		void	Loc_ConvertToCSR();
-
-		// Zeros all entries with keeping the previous matrix pattern
-		void	ZeroEntries();
-
-		// Loc: Zeros all entries with keeping the previous matrix pattern
-		void	Loc_ZeroEntries();
-
-   	//matrix multiple a special nilpotent matrix
-		void	MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod);
-
-		//special nilpotent matrix multiple another matrix
-		void	AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod);
-
-
+    	void show();
+    	void MatView();
 };
 
-
 template<typename T, typename S>
-parMatrixSparse<T,S>::parMatrixSparse()
+parMatrixSparse<T,S>::parMatrixSparse(parVector<T,S> vec)
 {
-	dynmat_lloc = NULL;
-	dynmat_gloc = NULL;
-	dynmat_loc  = NULL;
+    index_map = vec.GetVecMap();
+    lower_b = index_map.GetLowerBound();
+    upper_b = index_map.GetUpperBound();
+    comm = index_map.GetCurrentComm();
+    MPI_Comm_rank(comm, &ProcID);
+    MPI_Comm_size(comm, &nProcs);
+    nrows = index_map.GetLocalSize();
+    ncols = index_map.GetGlobalSize();
 
-	CSR_lloc = NULL;
-	CSR_gloc = NULL;
-	CSR_loc = NULL;
-
-	nnz_lloc = 0;
-	nnz_gloc = 0;
-	nnz_loc = 0;
-
-	ncols = 0;
-	nrows = 0;
-	njloc = 0;
-
-	lower_x = 0;
-	lower_y = 0;
-	upper_x = 0;
-	upper_y = 0;
-
-	x_index_map = NULL;
-	y_index_map = NULL;
-
-	VNumRecv = NULL;
-	VNumSend = NULL;
-	Rbuffer = NULL;
-	Sbuffer = NULL;
-	DTypeRecv = NULL;
-	DTypeSend = NULL;
+    //at the beginning, empty matrix, and elements will be dynamically added
+    nnz_loc = 0;
+    dynmat_loc = NULL;
 }
 
 template<typename T, typename S>
-parMatrixSparse<T,S>::parMatrixSparse(parVector<T,S> *XVec, parVector<T,S> *YVec)
+parMatrixSparse<T,S>::parMatrixSparse(parVectorMap<S> map)
 {
-	dynmat_lloc = NULL;
-	dynmat_gloc = NULL;
-	dynmat_loc  = NULL;
+    index_map = map;
+    lower_b = index_map.GetLowerBound();
+    upper_b = index_map.GetUpperBound();
+    comm = index_map.GetCurrentComm();
+    MPI_Comm_rank(comm, &ProcID);
+    MPI_Comm_size(comm, &nProcs);
+    nrows = index_map.GetLocalSize();
+    ncols = index_map.GetGlobalSize();
 
-	CSR_lloc = NULL;
-	CSR_gloc = NULL;
-    CSR_loc = NULL;
-
-	nnz_lloc = 0;
-	nnz_gloc = 0;
-	nnz_loc  = 0;
-
-	x_index_map = NULL;
-	y_index_map = NULL;
-
-	ncols = 0;
-	nrows = 0;
-	njloc = 0;
-
-	lower_x = 0;
-	lower_y = 0;
-
-	upper_x = 0;
-	upper_y = 0;
-
-	VNumRecv = NULL;
-	VNumSend = NULL;
-	Rbuffer = NULL;
-	Sbuffer = NULL;
-
-	DTypeRecv = NULL;
-	DTypeSend = NULL;
-
-	//get vector map for x and y direction
-	x_index_map = XVec->GetVecMap();
-	y_index_map = YVec->GetVecMap();
-
-	if(x_index_map != NULL && y_index_map != NULL){
-		//get num of rows and cols in this mpi procs
-		ncols = x_index_map->GetGlobalSize();
-		nrows = y_index_map->GetLocalSize();
-		njloc = x_index_map->GetLocalSize();
-		//get upper and lower bounds
-		lower_x = x_index_map->GetLowerBound();
-		lower_y = y_index_map->GetLowerBound();
-		upper_x = x_index_map->GetUpperBound();
-		upper_y = y_index_map->GetUpperBound();
-	}
-
-	comm = GetComm();
-	MPI_Comm_rank(comm, &ProcID);
-	MPI_Comm_size(comm, &nProcs);
-
+    //at the beginning, empty matrix, and elements will be dynamically added
+    nnz_loc = 0;
+    dynmat_loc = NULL;
 }
 
 template<typename T, typename S>
-parMatrixSparse<T,S>::~parMatrixSparse()
+void parMatrixSparse<T,S>::show()
 {
-	//if index map is defined
-	if(x_index_map != NULL){
-   	        delete x_index_map;
-	}
-
-
-	if(y_index_map != NULL){
-	    	delete y_index_map;
-	}
-
-	//if dynmat has been defined
-	if(dynmat_lloc != NULL){
-		delete [] dynmat_lloc;
-	}
-	if(dynmat_gloc != NULL){
-		delete [] dynmat_gloc;
-	}
-	if(CSR_lloc != NULL){
-		delete [] CSR_lloc;
-	}
-	if(CSR_gloc != NULL){
-		delete [] CSR_gloc;
-	}
-	if(CSR_gloc != NULL){
-		delete [] CSR_loc;
-	}
-	if(VNumRecv != NULL){
-		delete [] VNumRecv;
-	}
-	if(VNumSend != NULL){
-		delete [] VNumSend;
-	}
-	if(Rbuffer != NULL){
-		int i;
-		for(i = 0; i < nProcs; i++){
-			if (Rbuffer[i] != NULL){
-				delete [] Rbuffer[i];
-			}
-		}
-		delete [] Rbuffer;
-	}
-
-	if(Sbuffer != NULL){
-		int i;
-	        for(i = 0; i < nProcs; i++){
-                        if (Sbuffer[i] != NULL){
-                                delete [] Sbuffer[i];
-                        }
-                }
-                delete [] Sbuffer;
-	}
-
-
-	if(DTypeRecv != NULL){
-		int i;
-		for(i = 0; i < nProcs; i++){
-			if(DTypeSend[i] != MPI_DATATYPE_NULL){
-				MPI_Type_free(&DTypeSend[i]);
-			}
-		}
-		delete [] DTypeSend;
-	}
-}
-
-
-template<typename T, typename S>
-S parMatrixSparse<T,S>::GetXLowerBound(){
-	if(x_index_map != NULL){
-		return x_index_map->GetLowerBound();
-	}
-	else{
-		return 0;
-	}
+    std::cout << "Id " << ProcID << ": local matrix size = " << nrows << "x" << ncols << ", nnz = " << nnz_loc << ", lower_b = "  << lower_b << ", upper_b = " << upper_b << std::endl;
 }
 
 template<typename T, typename S>
-S parMatrixSparse<T,S>::GetXUpperBound(){
-        if(x_index_map != NULL){
-                return x_index_map->GetUpperBound();
-        }
-        else{
-                return 0;
-        }
+void parMatrixSparse<T,S>::MatView()
+{
+    typename std::map<S,T>::iterator it;
+    if(ProcID == 0) {std::cout << "Parallel MatView: " << std::endl;}
+
+    for (S i = 0; i < nrows; i++){
+    	if(dynmat_loc != NULL){
+    	    std::cout << "row " << index_map.Loc2Glob(i) << ": ";
+    	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+		if(it->second != T(0)){
+		    std::cout <<"("<<it->first << "," << it->second << "); ";
+		}	
+	    }
+	std::cout << std::endl;    
+	}
+    }
+
 }
 
 template<typename T,typename S>
-S parMatrixSparse<T,S>::GetYLowerBound(){
-        if(y_index_map != NULL){
-                return y_index_map->GetLowerBound();
-        }
-        else{
-                return 0;
-        }
+void parMatrixSparse<T,S>::SetValueLocal(S row, S col, T value)
+{
+    typename std::map<S,T>::iterator it;
+
+    if(dynmat_loc == NULL){
+    	dynmat_loc = new std::map<S,T> [nrows];
+    }
+    it = dynmat_loc[row].find(col);
+
+    if(it == dynmat_loc[row].end()){
+    	dynmat_loc[row][col] = value;
+    	nnz_loc++;
+    }
+    else{
+    	it->second = value;
+    }    
 }
 
-template<typename T, typename S>
-S parMatrixSparse<T,S>::GetYUpperBound(){
-        if(y_index_map != NULL){
-                return y_index_map->GetUpperBound();
-        }
-        else{
-                return 0;
-        }
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::SetValuesLocal(S nindex, S *rows, S *cols, T *values)
+{
+    for( S i = 0; i < nindex; i++){
+    	SetValueLocal(rows[i],cols[i],values[i]);
+    }
 }
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::SetValue(S row, S col, T value)
+{
+    S local_row = index_map.Glob2Loc(row);
+
+    if(local_row >= 0 && local_row < nrows){
+    	SetValueLocal(local_row, col, value);
+    }
+}
+
+
+template<typename T,typename S>
+void parMatrixSparse<T,S>::SetDiagonal(parVector<T,S> diag)
+{
+    T *a = diag.GetArray();
+    S local_size = diag.GetLocalSize();
+
+    for(auto i = 0; i < local_size; i++){
+    	SetValueLocal(i, diag.Loc2Glob(i), a[i]);
+    }
+}
+
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::AddValueLocal(S row, S col, T value)
 {
-	typename std::map<S,T>::iterator it;
-	//if location is inside of local area then add to local dynamic map
-	if((row < nrows && row >= 0) && (col < upper_x && col >= lower_x && col >= 0)){
-		if(dynmat_lloc == NULL){
-			dynmat_lloc = new std::map<S,T> [nrows];
-		}
-		it = dynmat_lloc[row].find(col);
-		if(it == dynmat_lloc[row].end()){
-			dynmat_lloc[row][col] = value;
-			nnz_lloc++;
-		}
-		else{
-			it->second = it->second + value;
-		}
-	//if location is inside of local-global area
-	}
-	else if ((row < nrows && row >= 0) && (col >= upper_x || col < lower_x) && (col >= 0)){
-		if(dynmat_gloc == NULL){
-			dynmat_gloc = new std::map<S,T> [nrows];
-		}
-		it = dynmat_gloc[row].find(col);
-		if(it == dynmat_gloc[row].end()){
-			dynmat_gloc[row][col] = value;
-			nnz_gloc++;
-		}
-		else{
-			it->second = it->second + value;
-		}
-	}
-}
+    typename std::map<S,T>::iterator it;
 
-template<typename T,typename S>
-T parMatrixSparse<T,S>::GetLocalValue(S row, S col)
-{
-	if((row < nrows && row >= 0) && (col < upper_x && col >= lower_x && col >= 0)){
-		return dynmat_lloc[row][col];
-	}
-	else if ((row < nrows && row >= 0) && (col >= upper_x || col < lower_x) && (col >= 0)){
-		return dynmat_gloc[row][col];
-	}
-	else return 0.0;
-}
+    if(dynmat_loc == NULL){
+    	dynmat_loc = new std::map<S,T> [nrows];
+    }
+    it = dynmat_loc[row].find(col);
 
-template<typename T,typename S>
-void parMatrixSparse<T,S>::AddValuesLocal(S nindex, S *rows, S *cols, T *values)
-{
-	typename std::map<S,T>::iterator it;
-
-	for( S i = 0; i < nindex; i++){
-		AddValueLocal(rows[i],cols[i],values[i]);
-	}
+    if(it == dynmat_loc[row].end()){
+    	dynmat_loc[row][col] = value;
+    	nnz_loc++;
+    }
+    else{
+    	it->second += value;
+    }    
 }
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::AddValue(S row, S col, T value)
 {
+    S local_row = index_map.Glob2Loc(row);
 
-	if((row >= lower_y) && (row < upper_y) && (col < ncols)){
-		AddValueLocal(y_index_map->Glob2Loc(row),col,value);
-	}
+    if(local_row >= 0 && local_row < nrows){
+    	AddValueLocal(local_row, col, value);
+    }
 }
 
-//set
-template<typename T,typename S>
-void parMatrixSparse<T,S>::SetValueLocal( S row, S col, T value)
-{
-	typename std::map<S,T>::iterator it;
-	//if location is inside of local area then add to local dynamic map
-	if((row < nrows && row >= 0) && (col < upper_x && col >= lower_x && col >= 0)){
-		if(dynmat_lloc == NULL){
-			dynmat_lloc = new std::map<S,T> [nrows];
-		}
-		it = dynmat_lloc[row].find(col);
-		if(it == dynmat_lloc[row].end()){
-			dynmat_lloc[row][col] = value;
-			nnz_lloc++;
-		}
-		else{
-	//		it->second = it->second + value;
-			it->second = value;
-		}
-	//if location is inside of local-global area
-	}
-	else if ((row < nrows && row >= 0) && (col >= upper_x || col < lower_x) && (col >= 0)){
-		if(dynmat_gloc == NULL){
-			dynmat_gloc = new std::map<S,T> [nrows];
-		}
-		it = dynmat_gloc[row].find(col);
-		if(it == dynmat_gloc[row].end()){
-			dynmat_gloc[row][col] = value;
-			nnz_gloc++;
-		}
-		else{
-//			it->second = it->second + value;
-			it->second = value;
-		}
-	}
-}
 
 template<typename T,typename S>
-void parMatrixSparse<T,S>::SetValuesLocal( S nindex, S *rows, S *cols, T *values)
+T parMatrixSparse<T,S>::GetValueLocal(S row, S col)
 {
-	typename std::map<S,T>::iterator it;
+    typename std::map<S,T>::iterator it;
 
-	for( S i = 0; i < nindex; i++){
-		SetValueLocal(rows[i],cols[i],values[i]);
-	}
+    if(dynmat_loc != NULL){
+    	it = dynmat_loc[row].find(col);
+    	if(it == dynmat_loc[row].end()){
+    	    return T(0);
+    	}else{
+    	    return dynmat_loc[row][col];
+    	}
+    }else{
+    	return T(0);
+    }    
 }
-
-//global set
-template<typename T,typename S>
-void parMatrixSparse<T,S>::SetValue(S row, S col, T value)
-{
-	S local_row = y_index_map->Glob2Loc(row);
-
-	if((row >= lower_y) && (row < upper_y) && (col < ncols)){
-		SetValueLocal(local_row,col,value);
-	}
-}
-
 
 template<typename T,typename S>
 T parMatrixSparse<T,S>::GetValue(S row, S col)
 {
-	S local_row = y_index_map->Glob2Loc(row);
-	if(local_row >= 0 && local_row < nrows){
-		return GetLocalValue(local_row, col);
-	}
-	else{
-		return 0.0;
-	}
+    S local_row = index_map.Glob2Loc(row);
+    if(local_row >= 0 && local_row < nrows){
+    	return GetLocalValue(local_row, col);
+    }
+    else{
+    	return 0.0;
+    }
 }
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::glocPlusLloc(){
-
-	S i;
-	typename std::map<S,T>::iterator it;
-
-	if(ProcID == 0) {std::cout << "Combine the block-diagonal part and non block-diagonal part of parallel matrix together " << std::endl;}
-
-	if(dynmat_loc == NULL){
-		dynmat_loc = new std::map<S, T> [nrows];
-	}
-	for(i = 0; i < nrows; i++){
-		if((dynmat_gloc != NULL) && (dynmat_lloc != NULL)){
-			dynmat_loc[i].insert(dynmat_lloc[i].begin(),dynmat_lloc[i].end());
-			dynmat_loc[i].insert(dynmat_gloc[i].begin(),dynmat_gloc[i].end());
-		}
-		else if ((dynmat_lloc != NULL)){
-			dynmat_loc[i].insert(dynmat_lloc[i].begin(),dynmat_lloc[i].end());
-		}
-		else if (dynmat_gloc != NULL){
-			dynmat_loc[i].insert(dynmat_gloc[i].begin(),dynmat_gloc[i].end());
-		}
-		else{
-			if(ProcID == 0) {std::cout << "Cannot execute the function glocPlusLloc since the given matrix is NULL " << std::endl;}
-		}
-	}
-	nnz_loc = nnz_gloc + nnz_lloc;
-
-}
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::llocToGlocLoc()
-{
-	typename std::map<S,T>::iterator it;
-
-	S col;
-
-	//if location is inside of local area then add to local dynamic map
-	if(dynmat_loc != NULL){
-		if(dynmat_lloc == NULL){
-			dynmat_lloc = new std::map<S,T> [nrows];
-		}
-		if(dynmat_gloc == NULL){
-			dynmat_gloc = new std::map<S,T> [nrows];
-		}
-
-		for(S i = 0; i < nrows; i++){
-			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
-				col = it->first;
-				if(col < upper_x && col >= lower_x && col >= 0){
-					dynmat_lloc[i][col] = it->second;
-				}
-				else if((col >= upper_x || col < lower_x) && (col >= 0)){
-					dynmat_gloc[i][col] = it->second;
-				}
-			}
-		}
-	}
-}
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::MatView(){
-
-	S i;
-	typename std::map<S,T>::iterator it;
-
-	if(ProcID == 0) {std::cout << "Parallel MatView: " << std::endl;}
-
-	for (i = 0; i < nrows; i++){
-		std::map<S,T> merge;
-		std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
-
-		if((dynmat_gloc != NULL) && (dynmat_lloc != NULL)){
-			merge.insert(dynmat_lloc[i].begin(),dynmat_lloc[i].end());
-			merge.insert(dynmat_gloc[i].begin(),dynmat_gloc[i].end());
-
-			for(it = merge.begin(); it != merge.end(); ++it){
-				std::cout <<"("<<it->first << "," << it->second << "); ";
-			}
-			merge.clear();
-		}
-		else if ((dynmat_lloc != NULL)){
-			for(it = dynmat_lloc[i].begin(); it != dynmat_lloc[i].end(); ++it){
-				std::cout <<"("<<it->first << "," << it->second << "); ";
-			}
-		}
-		else if (dynmat_gloc != NULL){
-			for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); ++it){
-				std::cout <<"("<<it->first << "," << it->second << "); ";
-			}
-		}
-
-		std::cout << std::endl;
-	}
-}
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::LOC_MatView(){
-
-	S i;
-	typename std::map<S,T>::iterator it;
-
-	if(ProcID == 0) {std::cout << "LOC MODE Parallel MatView: " << std::endl;}
-
-	for (i = 0; i < nrows; i++){
-		if(dynmat_loc != NULL){
-			std::cout << "row " << y_index_map->Loc2Glob(i) << ": ";
-			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
-				if(it->second != T(0)){
-					std::cout <<"("<<it->first << "," << it->second << "); ";
-				}	
-			}
-		}
-	std::cout << std::endl;
-	}
-}
-
-//Loc set
-template<typename T,typename S>
-void parMatrixSparse<T,S>::Loc_SetValueLocal( S row, S col, T value)
-{
-	typename std::map<S,T>::iterator it;
-
-	if(dynmat_loc == NULL){
-		dynmat_loc = new std::map<S,T> [nrows];
-	}
-	it = dynmat_loc[row].find(col);
-
-	if(it == dynmat_loc[row].end()){
-		dynmat_loc[row][col] = value;
-		nnz_loc++;
-	}
-	else{
-		it->second = value;
-	}
-}
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::Loc_SetValuesLocal( S nindex, S *rows, S *cols, T *values)
-{
-	typename std::map<S,T>::iterator it;
-
-	for( S i = 0; i < nindex; i++){
-		Loc_SetValueLocal(rows[i],cols[i],values[i]);
-	}
-}
-
-//Loc global set
-template<typename T,typename S>
-void parMatrixSparse<T,S>::Loc_SetValue(S row, S col, T value)
-{
-	S local_row = y_index_map->Glob2Loc(row);
-
-	if (local_row >= 0 && local_row < nrows){
-		Loc_SetValueLocal(local_row,col,value);
-	}
-
-}
-
-template<typename T,typename S>
-T parMatrixSparse<T,S>::Loc_GetLocalValue(S row, S col)
-{
-	if(dynmat_loc != NULL){
-		return dynmat_loc[row][col];
-	}
-	else return 0.0;
-}
-
-
-template<typename T,typename S>
-T parMatrixSparse<T,S>::Loc_GetValue(S row, S col)
-{
-	S local_row = y_index_map->Glob2Loc(row);
-	if(local_row >= 0 && local_row < nrows){
-		return Loc_GetLocalValue(local_row, col);
-	}
-	else{
-		return 0.0;
-	}
-}
-
-
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::SetDiagonal(parVector<T,S> *diag)
-{
-
-	if (nrows != njloc ){
-		if(ProcID == 0){
-			printf("ERROR: cannot set diagonal for non-square matrix.");
-		}
-	}
-	else{
-		T *a = diag->GetArray();
-		S local_size = diag->GetArraySize();
-
-
-		for(S i = 0; i < local_size; i++){
-			SetValueLocal(i,diag->Loc2Glob(i),a[i]);
-		}
-
-	}
-}
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::Loc_SetDiagonal(parVector<T,S> *diag)
-{
-
-	if (nrows != njloc ){
-		if(ProcID == 0){
-			printf("ERROR: cannot set diagonal for non-square matrix.");
-		}
-	}
-	else{
-		T *a = diag->GetArray();
-		S local_size = diag->GetArraySize();
-
-
-		for(S i = 0; i < local_size; i++){
-			Loc_SetValueLocal(i,diag->Loc2Glob(i),a[i]);
-		}
-
-	}
-}
-
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::Loc_SetDiagonal_index(parVector<T,S> *diag, S index)
-{
-
-	if (nrows != njloc ){
-		if(ProcID == 0){
-			printf("ERROR: cannot set diagonal for non-square matrix.");
-		}
-	}
-	else{
-		T *a = diag->GetArray();
-		S local_size = diag->GetArraySize();	
-		S global_index;
-
-		for(S i = 0; i < local_size; i++){
-			global_index = diag->Loc2Glob(i);
-			if(index >= 0){
-				if(global_index < diag->GetGlobalSize() - index){
-					Loc_SetValueLocal(i,global_index - index, a[i]);
-				}
-			}
-			else if(index <= 0){
-				if(global_index > -index){
-					Loc_SetValueLocal(i, global_index + index, a[i]);
-				}
-			}
-		}
-	}
-}
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::ConvertToCSR()
-{
-	S 	count, i, j;
-	T	v;
-	typename std::map<S,T>::iterator it;
-
-	if(dynmat_lloc != NULL){
-		//allocate csr matrix
-
-
-		CSR_lloc = new MatrixCSR<T,S>(nnz_lloc, nrows);
-
-//		CSR_lloc = new MatrixCSR<T,S>(nrows);
-
-		//convert local local to csr
-		count = 0;
-		//CSR_lloc->rows.push_back(0);
-
-		for(i = 0; i < nrows; i++){
-			CSR_lloc->rows.push_back(count);
-			for(it = dynmat_lloc[i].begin(); it != dynmat_lloc[i].end(); it++){
-				j = it->first;
-				v = it->second;
-				CSR_lloc->vals.push_back(v);
-				CSR_lloc->cols.push_back(j);
-				count++;
-			}
-		}
-		CSR_lloc->rows.push_back(nnz_lloc);
-	}
-
-	if(dynmat_gloc != NULL){
-
-
-		CSR_gloc = new MatrixCSR<T,S>(nnz_gloc, nrows);
-//		CSR_gloc = new MatrixCSR<T,S>(nrows);
-
-		//convert global-local to CSR
-		count = 0;
-		//CSR_gloc->rows.push_back(0);
-		for(i = 0; i < nrows; i++){
-			CSR_gloc->rows.push_back(count);
-			for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); it++){
-				j = it->first;
-				v = it->second;
-				CSR_gloc->vals.push_back(v);
-				CSR_gloc->cols.push_back(j);
-				count++;
-			}
-		}
-		CSR_gloc->rows.push_back(nnz_gloc);
-	}
-}
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::Loc_ConvertToCSR(){
-	S 	count, i, j;
-	T	v;
-
-	typename std::map<S, T>::iterator it;
-
-	if(dynmat_loc != NULL){
-		//allocate csr matrix
-
-		CSR_loc = new MatrixCSR<T, S>(nnz_loc, nrows);
-
-		count = 0;
-
-		for(i = 0; i < nrows; i++){
-			CSR_loc->rows.push_back(count);
-			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
-				if(it->second != T(0)){
-					j = it->first;
-					v = it->second;
-					CSR_loc->vals.push_back(v);
-					CSR_loc->cols.push_back(j);
-					count++;
-				}
-			}
-		}
-		CSR_loc->rows.push_back(count);
-	}
-}
-
-///////////////////////////////
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::MatScale(T scale){
-	typename std::map<S,T>::iterator it;
-
-	S i;
-
-	if(dynmat_lloc != NULL){
-		for(i = 0; i < nrows; i++){
-			for(it = dynmat_lloc[i].begin(); it != dynmat_lloc[i].end(); it++){
-				it->second = it->second*scale;
-			}
-		}
+    typename std::map<S,T>::iterator it;
+    S i;
+    if(dynmat_loc != NULL){
+    	for(i = 0; i < nrows; i++){
+    	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+		it->second = it->second*scale;
+	    }
 	}
-
-	if(dynmat_gloc != NULL){
-		for(i = 0; i < nrows; i++){
-			for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); it++){
-				it->second = it->second*scale;
-			}
-		}
-	}
-}
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::Loc_MatAXPY(parMatrixSparse<T,S> *X, T scale){
-
-	typename std::map<S,T>::iterator it, itv, itvv;
-
-	S i, k;
-
-	if(dynmat_loc != NULL && X->dynmat_loc != NULL){
-		for(i = 0; i < nrows; i++){
-			std::map<S,T> merge;
-			merge.insert(dynmat_loc[i].begin(),dynmat_loc[i].end());
-			merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
-			for(it = merge.begin(); it != merge.end(); ++it){
-				k = it->first;
-				dynmat_loc[i][k] = dynmat_loc[i][k]+X->dynmat_loc[i][k]*scale;
-			}
-			merge.clear();
-		}
-	}
-
-	if(dynmat_loc == NULL && X->dynmat_loc != NULL){
-		for(i = 0; i < nrows; i++){
-			std::map<S,T> merge;
-			merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
-			for(it = merge.begin(); it != merge.end(); ++it){
-				k = it->first;
-				dynmat_loc[i][k] = X->dynmat_loc[i][k]*scale;
-			}
-			merge.clear();
-		}
-	}
+    }
 }
 
 
 template<typename T,typename S>
-void parMatrixSparse<T,S>::Loc_MatScale(T scale){
-	typename std::map<S,T>::iterator it;
+void parMatrixSparse<T,S>::MatAXPY(parMatrixSparse<T,S> X, T scale){
+    typename std::map<S,T>::iterator it;
+    S i, k;
+    if(index_map != X.GetMap()){
+    	throw "for AXPY, matrix should be in the same vectorMap";
+    }
 
-	S i;
-
-	if(dynmat_loc != NULL){
-		for(i = 0; i < nrows; i++){
-			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
-				it->second = it->second*scale;
-			}
-		}
-	}
+    if(dynmat_loc != NULL && X.GetDynMatLoc() != NULL){
+    	for(i = 0; i < nrows; i++){
+    	    std::map<S,T> merge;
+    	    merge.insert(dynmat_loc[i].begin(),dynmat_loc[i].end());
+    	    merge.insert(X.GetDynMatLoc()[i].begin(),X.GetDynMatLoc()[i].end());
+    	    for(it = merge.begin(); it != merge.end(); ++it){
+    	    	k = it->first;
+    	    	dynmat_loc[i][k] = dynmat_loc[i][k]+X.GetDynMatLoc()[i][k]*scale;
+    	    }
+    	    merge.clear();	
+    	}
+    } else if(dynmat_loc == NULL && X.GetDynMatLoc() != NULL){
+    	for(i = 0; i < nrows; i++){
+    	    std::map<S,T> merge;
+    	    merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
+    	    for(it = merge.begin(); it != merge.end(); ++it){
+    	    	k = it->first;
+    	    	dynmat_loc[i][k] = X.GetDynMatLoc()[i][k]*scale;
+    	    }
+    	    merge.clear();
+    	}
+    }
 }
+
 
 template<typename T,typename S>
-void parMatrixSparse<T,S>::Loc_MatAYPX(parMatrixSparse<T,S> *X, T scale){
+void parMatrixSparse<T,S>::MatAYPX(parMatrixSparse<T,S> X, T scale){
+    typename std::map<S,T>::iterator it;
 
-	typename std::map<S,T>::iterator it, itv, itvv;
-
-	S i, k;
-	if(dynmat_loc != NULL){
-		for(i = 0; i < nrows; i++){
-			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
-				k = it->first;
-				dynmat_loc[i][k] = dynmat_loc[i][k]*scale;
-			}
-		}
+    S i, k;
+    if(dynmat_loc != NULL){
+    	for(i = 0; i < nrows; i++){
+    	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+    	    	k = it->first;
+    	    	dynmat_loc[i][k] = dynmat_loc[i][k]*scale;
+	    }
 	}
+    }
 
-	if(dynmat_loc != NULL && X->dynmat_loc != NULL){
-		for(i = 0; i < nrows; i++){
-			std::map<S,T> merge;
-			merge.insert(dynmat_loc[i].begin(),dynmat_loc[i].end());
-			merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
-			for(it = merge.begin(); it != merge.end(); ++it){
-				k = it->first;
-				dynmat_loc[i][k] = dynmat_loc[i][k]+X->dynmat_loc[i][k];
-			}
-			merge.clear();
-		}
+    if(dynmat_loc != NULL && X.GetDynMatLoc() != NULL){
+    	for(i = 0; i < nrows; i++){
+    	    std::map<S,T> merge;
+    	    merge.insert(dynmat_loc[i].begin(),dynmat_loc[i].end());
+    	    merge.insert(X.GetDynMatLoc().begin(),X.GetDynMatLoc().end());
+    	    for(it = merge.begin(); it != merge.end(); ++it){
+    	    	k = it->first;
+    	    	dynmat_loc[i][k] = dynmat_loc[i][k]+X.GetDynMatLoc()[i][k];
+    	    }
+	    merge.clear();
 	}
+    }
 
-	if(dynmat_loc == NULL && X->dynmat_loc != NULL){
-		for(i = 0; i < nrows; i++){
-			std::map<S,T> merge;
-			merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
-			for(it = merge.begin(); it != merge.end(); ++it){
-				k = it->first;
-				dynmat_loc[i][k] = X->dynmat_loc[i][k];
-			}
-			merge.clear();
-		}
+    if(dynmat_loc == NULL && X.GetDynMatLoc() != NULL){
+    	for(i = 0; i < nrows; i++){
+    	    std::map<S,T> merge;
+    	    merge.insert(X.GetDynMatLoc().begin(),X.GetDynMatLoc().end());
+    	    for(it = merge.begin(); it != merge.end(); ++it){
+    	    	k = it->first;
+		dynmat_loc[i][k] = X.GetDynMatLoc()[i][k];
+	    }
+	    merge.clear();
 	}
+    }
 }
-
-
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::ZeroEntries()
 {
-	typename std::map<S,T>::iterator it;
-
-	S i;
-
-	if(dynmat_lloc != NULL){
-		for(i = 0; i < nrows; i++){
-			for(it = dynmat_lloc[i].begin(); it != dynmat_lloc[i].end(); it++){
-				it->second = 0;
-			}
-		}
-	}
-
-	if(dynmat_gloc != NULL){
-		for(i = 0; i < nrows; i++){
-			for(it = dynmat_gloc[i].begin(); it != dynmat_gloc[i].end(); it++){
-				it->second = 0;
-			}
-		}
-	}
-}
-
-
-template<typename T,typename S>
-void parMatrixSparse<T,S>::Loc_ZeroEntries()
-{
-	typename std::map<S,T>::iterator it;
-
-	S i;
-
-	if(dynmat_loc != NULL){
-		for(i = 0; i < nrows; i++){
-			for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
-				it->second = 0;
-			}
-		}
-	}
-}
-
-
-//matrix multiple a special nilpotent matrix
-template<typename T,typename S>
-void parMatrixSparse<T,S>::MA(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
-{
-	S i, j, k;
-
-	typename std::map<S,T>::iterator it;
-
-	//use the given nilpotency matrix, MA operation will make elements of matrix right move diaPosition-1 offset.
-	//And the positions of 0: pos = nbOne*integer - 1
-
+    typename std::map<S,T>::iterator it;
+    S i;
+    if(dynmat_loc != NULL){
 	for(i = 0; i < nrows; i++){
-		if(dynmat_loc == NULL) {
-			return;
-		}
-		if(dynmat_loc != NULL && prod->dynmat_loc == NULL){
-			prod->dynmat_loc = new std::map<S,T> [nrows];
-		}
-
-		for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
-			j = it->first + nilp.diagPosition - 1;
-			k = (j+1)%(nilp.nbOne + 1);
-			if(j < ncols && k != 0){
-				prod->dynmat_loc[i][j] = it->second;
-			}
-		}
+	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+		it->second = 0;
+	    }
 	}
+    }
+}
+
+template<typename T, typename S>
+void parMatrixSparse<T,S>::initMat(S diag_l, S diag_u, Base<T> scale, T shift, Base<T> sparsity){
+   
+    bool isnonsymm = false;
+
+    if (sizeof(scale)/sizeof(sparsity) == 1){
+        //std::cout << "using real scalar" << std::endl;
+    	isnonsymm = true;
+    }
+
+    S size = ncols;
+
+    diag_l = abs(diag_l);
+    diag_u = abs(diag_u);
+
+
+    if (isnonsymm && diag_u < 2)
+        throw  "for initialisationg of non-symmetric matrix, please ensure abs(diag_u) >= 2 ";
+
+
+    if (diag_l < diag_u)
+        throw "for initialisationg of matrix, please ensure abs(diag_l) < abs(diag_u) ";
+            
+    
+
+    if (diag_u >= size)
+        throw "for initialisationg of matrix, please ensure abs(diag_u) < size ";
+
+    //std::random_device rd;
+    std::mt19937_64 rd(ProcID);
+    std::uniform_real_distribution<> d(0, 1);
+            
+    for (auto i = std::max(diag_u, lower_b); i < upper_b; i++){
+    	for (auto j = std::max(0, i - diag_l); j <= i - diag_u; j++){
+    	    auto sampling = d(rd);
+    	    if (sampling < 1.0 - sparsity){
+    	    	SetValue(i, j, scale * d(rd) + shift);
+    	    }
+    	}
+    }
+
+}
+
+template<typename T, typename S>
+void parMatrixSparse<T,S>::initMat(S diag_l, S diag_u){
+    initMat(diag_l, diag_u, 1.0, 0.0, 0.9);
 }
 
 
+template<typename T, typename S>
+void parMatrixSparse<T,S>::setSpecNonHerm(parVector<T,S> spectrum){
+    int size1 = sizeof(T) / sizeof(Base<T>);
+
+    if(size1 == 1){
+        printf("Info ]> For generating non-Hermtian matrices, the matrices should be real\n");
+        return;
+    }
+
+    SetDiagonal(spectrum);
+}
+
+template<typename T, typename S>
+void parMatrixSparse<T,S>::setSpecNonSymm(parVector<T,S> spectrum){
+    
+    int size1 = sizeof(T) / sizeof(Base<T>);
+
+    if(size1 == 2){
+        printf("Info ]> For generating non-Symmetric matrices, the matrices should be real\n");
+        return;
+    }
+
+    SetDiagonal(spectrum);
+}
+
+template<typename T, typename S>
+void parMatrixSparse<T,S>::setSpecNonSymm(std::vector<std::complex<Base<T>>> spectrum){
+    
+    int size1 = sizeof(T) / sizeof(Base<T>);
+
+    if(size1 == 2){
+        printf("Info ]> For generating non-Symmetric matrices, the matrices should be real\n");
+        return;
+    }
+
+    S ind = 0;
+    for(S i = 0; i < spectrum.size();i++){
+
+    	if(spectrum[i].imag() == 0){
+    		if(ind >= lower_b && ind < upper_b){
+    			SetValue(ind, ind, spectrum[i].real());
+    		}
+    		ind = ind + 1;
+    	}else{
+    		if(ind >= lower_b && ind < upper_b){
+    			SetValue(ind, ind, spectrum[i].real());
+    			SetValue(ind, ind + 1, spectrum[i].imag());
+    		}
+
+    		if(ind+1 >= lower_b && ind+1 < upper_b){
+    			SetValue(ind+1, ind+1, spectrum[i].real());
+    			SetValue(ind+1, ind, -spectrum[i].imag());
+    		}
+    		ind = ind + 2;
+    	}    	
+    }
+
+    S size;
+    if (spectrum[spectrum.size()-1].imag() == 0){
+    	size = ind;
+    }else{
+    	size = ind - 1;
+    }
+}
+
 template<typename T,typename S>
-void parMatrixSparse<T,S>::AM(Nilpotency<S> nilp, parMatrixSparse<T,S> *prod)
+MatrixCSR<T,S> parMatrixSparse<T,S>::ConvertToCSR()
 {
-	S i, j, k, p, q, loc;
+    S 	count, i, j;
+    T	v;
+    typename std::map<S, T>::iterator it;
 
-	typename std::map<S,T>::iterator it;
+    MatrixCSR<T,S> csr = MatrixCSR<T,S>(nnz_loc, nrows);
 
-	MPI_Request	rtypereq, stypereq;
-
-	MPI_Status	typestat;
-
-	int up, down;
-	int	tagtype = nilp.diagPosition - 1 + nilp.diagPosition ;
-
-
-	S *sIndx, *rIndx;
-	S gSize = 0, gRsize = 0;
-	S cnt = 0, cnt2 = 0;
-
-	MPI_Request	indSReqs, indRReqs, valSReqs, valRReqs;
-	MPI_Status indRStats, valRStats;
-
-	int tagv = 0;
-	int tagi = 1;
-
-	up = ProcID - 1;
-	down = ProcID + 1;
-
-	S size[nilp.diagPosition - 1], rsize[nilp.diagPosition - 1];
-
-	if(ProcID != 0){
-		for(S a = 0; a < nilp.diagPosition - 1; a++){
-			size[a] = dynmat_loc[a].size();
+    if(dynmat_loc != NULL){
+	count = 0;
+	csr.rows.push_back(count);
+	for(i = 0; i < nrows; i++){	    
+	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
+	    	if(it->second != T(0)){
+	    	    j = it->first;
+	    	    v = it->second;
+	    	    csr.vals.push_back(v);
+	    	    csr.cols.push_back(j);
+	    	    count++;
 		}
+	    }
+	    csr.rows.push_back(count);
 	}
+    }
+    return csr;
+}
 
-	if(ProcID != nProcs - 1){
-		for(S a = 0; a < nilp.diagPosition - 1; a++){
-			rsize[a] = 0;
-		}
-	}
+//matrix multiplies a nilpotent matrix
+template<typename T,typename S>
+parMatrixSparse<T,S> parMatrixSparse<T,S>::MA(Nilpotent<S> nilp){
+
+    auto offset = nilp.getOffset();
+    auto IndOfZeros = nilp.getIndOfZeros();
+    auto prod = parMatrixSparse<T, S>(index_map);
+
+    typename std::map<S,T>::iterator it;
+
+    if(dynmat_loc != NULL){
+    	for(auto i = 0; i < nrows; i++){
+    	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+    	    	S j =  it->first + offset;
+    	    	if(j < ncols){
+    	    	    //if not the index of zeros in nilpotent
+    	    	    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), j-offset) == IndOfZeros.end()){
+    	    	    	prod.SetValueLocal(i, j, it->second);
+    	    	    }
+    	    	}
+    	    }	
+    	}
+    }
+    return prod;
+}
+
+//a nilpotent matrix multiplies a matrix
+template<typename T,typename S>
+parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
+    auto offset = nilp.getOffset();
+    auto IndOfZeros = nilp.getIndOfZeros();
+    auto prod = parMatrixSparse<T, S>(index_map);
+
+    auto lprocbound_map = index_map.GetLBoundMap();
+    auto uprocbound_map = index_map.GetUBoundMap();
+
+    std::vector<int> targetProcs(ncols);
+    std::vector<int> originProcs(ncols);
+    
+    typename std::map<S,T>::iterator it;
+
+    if(prod.dynmat_loc == NULL){
+    	prod.dynmat_loc = new std::map<S,T> [nrows];
+    }
+    
+
+    if(dynmat_loc != NULL){
+    	for(auto row = 0; row < nrows; row++){
+    	    for(it = dynmat_loc[row].begin(); it != dynmat_loc[row].end(); ++it){
+    	    	auto i = row - offset;
+    	    	auto j =  it->first;
+    	    	if(i >= 0){
+    	    	    //if not the index of zeros in nilpotent
+    	    	    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), index_map.Loc2Glob(row)-offset) == IndOfZeros.end()){
+    	    	    	prod.SetValueLocal(i, j, it->second);
+    	    	    }
+    	    	}
+    	    }	
+    	}
+    }
 
 
-	if(ProcID != 0){
-		MPI_Isend(size, nilp.diagPosition - 1, getMPI_Type<S>(), up, tagtype, comm, &stypereq);
-	}
+    //communication part
+    std::vector<T> sBuf;
+    std::vector<S> sIndex; //    sRoffsets + sColIndx
+    S sSize[2]={0, 0};
 
-	if(ProcID != nProcs - 1){
-		MPI_Irecv(rsize,nilp.diagPosition - 1, getMPI_Type<S>(), down, tagtype, comm, &rtypereq);
-		MPI_Wait(&rtypereq,&typestat);
-	}
+    std::vector<T> rBuf;
+    std::vector<S> rIndex; //    rRoffsets + rColIndx
+
+    S rSize[2]={0, 0};
+
+    for(S i = 0; i < ncols; i++){
+    	for(S j = 0; j < lprocbound_map.size(); j++){
+    	    if( (i - offset >= lprocbound_map[j]) && (i - offset < uprocbound_map[j]) ){
+    	    	targetProcs[i] = j;
+    	    	break;
+    	    }
+    	}
+    }
+
+    for(S i = 0; i < ncols; i++){
+    	for(S j = 0; j < lprocbound_map.size(); j++){
+    	    if( (i  >= lprocbound_map[j]) && (i < uprocbound_map[j]) ){
+    	    	originProcs[i] = j;
+    	    	break;
+    	    }
+    	}
+    }
+/*
+    for(S i = 0; i < ncols; i++){
+    	if(ProcID != 0){
+	    	if(i < uprocbound_map[ProcID] && i >= lprocbound_map[ProcID]){
+	    	    if(originProcs[i] != targetProcs[i]){
+	    	    	std::cout << "Sending: ID " << ProcID << ": origin row "<< i << ": " << originProcs[i] << " -> " << targetProcs[i]  << " :" << i - offset << " target row"<< std::endl;
+	    	    }
+	    	}
+    	}
+    	if(ProcID != nProcs - 1){
+	    	if(i < uprocbound_map[ProcID+1] && i >= lprocbound_map[ProcID+1]){
+	    	    if(originProcs[i] != targetProcs[i]){
+	    	    	std::cout << "Receiving: ID " << ProcID << ": origin row "<< i << ": " << originProcs[i] << " -> " << targetProcs[i]  << " :" << i - offset << " target row"<< std::endl;
+	    	    }
+	    	}
+    	}    	
+  	
+    }
+*/  
+    /*
+    S count = 0;
+    sRoffsets.push_back(count);
+    for(S i = 0; i < ncols; i++){
+    	if(ProcID != 0){
+    	    if(i < uprocbound_map[ProcID] && i >= lprocbound_map[ProcID]){
+    	    	
+    	        if(originProcs[i] != targetProcs[i]){
+    	            for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){	
+    	            	sColIndx.push_back(it->first);   
+    	            	sBuf.push_back(it->second);
+    	            	count++;
+    	    	    }
+    	    	}
+    	    }
+    	}
+    }
+    */
+
+    MPI_Request	rtypereq, stypereq;
+    MPI_Status	typestat;
+    
+    int up = ProcID - 1;
+    int down = ProcID + 1;
+
+    if(ProcID != 0 && dynmat_loc != NULL){
+    	S count = lprocbound_map[ProcID];
+    	sIndex.insert(sIndex.begin(), count);
+    	for( S i = lprocbound_map[ProcID]; i < uprocbound_map[ProcID]; i++){
+    	    if(originProcs[i] != targetProcs[i]){
+    	    	S j = index_map.Glob2Loc(i);
+    	    	for(it = dynmat_loc[j].begin(); it != dynmat_loc[j].end(); ++it){	
+    	    	    sIndex.push_back(it->first);
+    	    	    sBuf.push_back(it->second);
+    	    	    count++;
+    	    	}
+    	    	sIndex.insert(sIndex.begin(), count);
+    	    }
+    	}
+    	
+    	sSize[0] = sBuf.size();
+    	sSize[1] = sIndex.size() - sBuf.size() - 1;
+    	
+    	for(auto row = 0; row < sSize[1] ; row++){
+    	    for(auto cnt = sIndex[sSize[1] - row] - sIndex[sSize[1]] ; cnt < sIndex[sSize[1] - row-1] - sIndex[sSize[1]]; cnt++){
+    		auto col = sIndex[cnt + sSize[1] + 1];
+    		auto val = sBuf[cnt];
+    		//std::cout << "Send: locind (" << row << "," << col << ") and "  << "globind (" << row + sIndex[sSize[1]] << "," << col << "): " << val << std::endl;
+    	    }
+    	}
+    	
+    }
+
+    if(ProcID != 0 && dynmat_loc != NULL){
+    	MPI_Isend(sSize, 2, getMPI_Type<S>(), up, 1, comm, &stypereq);
+    }
+
+    if(ProcID != nProcs - 1){
+    	MPI_Irecv(rSize, 2, getMPI_Type<S>(), down, 1, comm, &rtypereq);
+    	MPI_Wait(&rtypereq,&typestat);
+    	rBuf.resize(rSize[0]);
+    	rIndex.resize(rSize[0]+rSize[1]+1);
+    }
+
+    if(ProcID != 0 && dynmat_loc != NULL){
+    	MPI_Isend(sBuf.data(), sSize[0], getMPI_Type<T>(), up, 1, comm, &stypereq);
+    }
+
+    if(ProcID != nProcs - 1){
+    	MPI_Irecv(rBuf.data(), rSize[0], getMPI_Type<T>(), down, 1, comm, &rtypereq);
+    	MPI_Wait(&rtypereq,&typestat);
+    }
+
+    if(ProcID != 0 && dynmat_loc != NULL){
+    	MPI_Isend(sIndex.data(), sSize[0]+sSize[1]+1, getMPI_Type<S>(), up, 1, comm, &stypereq);
+    }
+
+    if(ProcID != nProcs - 1){
+    	MPI_Irecv(rIndex.data(), rSize[0]+rSize[1]+1, getMPI_Type<S>(), down, 1, comm, &rtypereq);
+    	MPI_Wait(&rtypereq,&typestat);
+
+    	for(auto row = 0; row < rSize[1] ; row++){
+    	    for(auto cnt = rIndex[rSize[1] - row] - rIndex[rSize[1]] ; cnt < rIndex[rSize[1] - row-1] - rIndex[rSize[1]]; cnt++){
+    		auto col = rIndex[cnt + rSize[1] + 1];
+    		auto val = rBuf[cnt];
+    		//std::cout << "Recv: locind (" << row << "," << col << ") and "  << "globind (" << index_map.Glob2Loc(row + rIndex[rSize[1]] - offset) << "," << col << "): " << val << std::endl;
+    	    }
+    	}
+
+    	for(auto row = 0; row < rSize[1] ; row++){
+    	    for(auto cnt = rIndex[rSize[1] - row] - rIndex[rSize[1]] ; cnt < rIndex[rSize[1] - row-1] - rIndex[rSize[1]]; cnt++){
+    		auto col = rIndex[cnt + rSize[1] + 1];
+    		auto val = rBuf[cnt];
+    		auto i = index_map.Glob2Loc(row + rIndex[rSize[1]] - offset);
+    		auto j = rIndex[cnt + rSize[1] + 1];
+    		if (std::find(IndOfZeros.begin(), IndOfZeros.end(), row + rIndex[rSize[1]] - offset) == IndOfZeros.end()){
+    		    prod.SetValueLocal(i, j, rBuf[cnt]);
+    		}
+    	    }
+    	}
+    }
 
 
-	if(dynmat_loc == NULL){
-		return;
-	}
-
-	for(p = nilp.diagPosition - 1; p < nrows; p++){
-		if(prod->dynmat_loc == NULL){
-			prod->dynmat_loc = new std::map<S,T> [nrows];
-		}
-
-		i = p - nilp.diagPosition + 1;
-		q = y_index_map->Loc2Glob(i);
-
-		k = (q + 1)%(nilp.nbOne + 1);
-
-		for(it = dynmat_loc[p].begin(); it != dynmat_loc[p].end(); ++it){
-
-			j = it->first;
-
-			if(i >= 0 && i < nrows && k != 0){
-				prod->dynmat_loc[i][j] = it->second;
-			}
-		}
-
-	}
-
-	MPI_Barrier(comm);
-
-	// sending and receving
-
-	if(ProcID != 0){
-		for(S a = 0; a < nilp.diagPosition - 1; a++){
-			size[a] = dynmat_loc[a].size();
-		}
-	}
-
-	if(ProcID != 0){
-		for(S b = 0; b < nilp.diagPosition - 1; b++){
-			gSize += size[b];
-		}
-	}
-
-	if(ProcID != nProcs - 1){
-		for(S b = 0; b < nilp.diagPosition - 1; b++){
-			gRsize += rsize[b];
-		}
-	}
-
-
-	T *sBuf, *rBuf;
-
-	if(ProcID != 0){
-		sBuf  = new T [gSize];
-		sIndx  = new S [gSize];
-	}
-
-	if(ProcID != nProcs - 1){
-		rBuf = new T [gRsize];
-		rIndx = new S [gRsize];
-	}
-
-	if(ProcID != 0){
-		for(S b = 0; b < nilp.diagPosition - 1; b++){
-			for(it = dynmat_loc[b].begin(); it != dynmat_loc[b].end(); ++it){
-				sBuf[cnt] = it->second;
-				sIndx[cnt] = it->first;
-				cnt++;
-			}
-		}
-
-		MPI_Isend(sIndx, gSize, getMPI_Type<S>(), up, tagi, comm, &indSReqs);
-		MPI_Isend(sBuf, gSize, getMPI_Type<T>(), up, tagv, comm, &valSReqs);
-	}
-
-	if(ProcID != nProcs - 1){
-		for(S tt = 0; tt < gRsize; tt++){
-			rBuf[tt] = 0.0;
-		}
-
-		for(S tt = 0; tt < gRsize; tt++){
-			rIndx[tt] = 0;
-		}
-
-		MPI_Irecv(rIndx, gRsize, getMPI_Type<S>(), down, tagi, comm, &indRReqs);
-		MPI_Irecv(rBuf, gRsize, getMPI_Type<T>(), down, tagv, comm, &valRReqs);
-		
-		MPI_Wait(&indRReqs,&indRStats);
-		MPI_Wait(&valRReqs,&valRStats);
-
-	}
-
-	if(ProcID != nProcs - 1){
-		for(S b = 0; b < nilp.diagPosition - 1; b++){
-			loc = y_index_map->Loc2Glob(nrows - nilp.diagPosition + 1 + b);
-			if((loc + 1)%(nilp.nbOne + 1) != 0){
-				if(b == 0){
-					for(S tt = 0; tt < rsize[b]; tt++){
-						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
-					}
-				} else{
-					for(S tt = rsize[b - 1]; tt < rsize[b] + rsize[b - 1]; tt++){
-						prod->dynmat_loc[nrows - nilp.diagPosition + 1 + b][rIndx[tt]] = rBuf[tt];
-					}
-				}
-			}
-		}
-	}
+    return prod;
 }
 
 #endif

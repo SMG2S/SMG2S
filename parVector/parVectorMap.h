@@ -32,6 +32,7 @@ SOFTWARE.
 #include <iostream>
 #include <fstream>
 #include <exception>
+#include "../utils/MPI_DataType.h"
 
 template<typename S>
 class parVectorMap
@@ -45,6 +46,7 @@ class parVectorMap
 	S	  	upper_bound;
 	S	  	local_size;
 	S     	   	global_size;
+	std::vector<S>	lprocbound_map, uprocbound_map;
 
     public:
 	//constructor
@@ -64,6 +66,9 @@ class parVectorMap
 	S GetUpperBound(){return upper_bound;};
 	S GetLocalSize(){return local_size;};
 	S GetGlobalSize(){return global_size;};
+	std::vector<S> GetLBoundMap(){return lprocbound_map;};
+	std::vector<S> GetUBoundMap(){return uprocbound_map;};
+
 };
 
 template<typename S>
@@ -84,7 +89,14 @@ parVectorMap<S>::parVectorMap(MPI_Comm ncomm, S lbound, S ubound)
     //initial global size
     global_size = 0;
 
-    MPI_Allreduce(&local_size, &global_size, 1, MPI_INT, MPI_SUM, comm);	
+    MPI_Allreduce(&local_size, &global_size, 1, MPI_INT, MPI_SUM, comm);
+
+    lprocbound_map.resize(nproc);
+    uprocbound_map.resize(nproc);
+
+    MPI_Allgather(&lower_bound, 1 , getMPI_Type<S>() , lprocbound_map.data() , 1 , getMPI_Type<S>(), comm ) ;
+    MPI_Allgather(&upper_bound, 1 , getMPI_Type<S>() , uprocbound_map.data(), 1 ,  getMPI_Type<S>() , comm ) ;
+
 }
 
 template<typename S>
