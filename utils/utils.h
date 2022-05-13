@@ -30,6 +30,7 @@ SOFTWARE.
 #include <ctime>
 #include <cstdlib>
 #include <map>
+#include<set>
 
 template <class Q>
 struct Base_Class {
@@ -122,82 +123,32 @@ __int64_t factorial(__int64_t start, __int64_t end)
         return value;
 }
 
-template<typename S>
-struct Nilpotency
+
+template<class T, class S>
+int distinct(T* arr, S len)
 {
-	S	diagPosition; //off-diagonal offset
-	S	nbOne; //continuous 1 number of nilpotent matrix
-	S   matrix_size; //matrix size
-	S   nilpotency;
-	bool setup;
+    std::set<T> set;
+    for (auto i = 0; i < len; i++) {
+        set.insert(arr[i]);
+    }
+    return set.size(); 
+}
 
-	Nilpotency()
-	{
-		diagPosition = 0;
-		nbOne = 0;
-		matrix_size = 0;
-		nilpotency = 0;
-		setup = false;
-	};
 
-	Nilpotency(S offset, S num, S size, S nil)
-	{
-		diagPosition = offset;
-		nbOne = num;
-		matrix_size = size;
-		nilpotency = nil;
-		setup = true;
-	};
-
-	void NilpType1(S num, S size)
-	{
-		diagPosition = 2;
-		nbOne = num;
-		matrix_size = size;
-		nilpotency = num+1;
-		setup = true;
+template<class T, class S>
+int distinct(T* arr, S len, T val)
+{
+    
+    std::set<T> set;
+    for (auto i = 0; i < len; i++) {
+    	if(arr[i] != val){
+            set.insert(arr[i]);
 	}
+    }
 
-	void NilpType2(S num, S size)
-	{
-		if(num%2 == 0){
-			diagPosition = 3;
-			nbOne = num;
-			matrix_size = size;
-			nilpotency = num+1;
-			setup = true;
-		}
-		else{
-			setup = false;
-			printf("Please choose the right nb of continuous 1, for NilpType2, it should be divisible by 2 \n");	
-		} 
-	}
+    return set.size(); 
+}
 
-	void NilpType3(S diagP, S num, S size)
-	{
 
-		if (2*(diagP - 1)*num - 1 > size){
-			setup = false;
-			printf("Please choose the right parameter diaP, num and Size to satisfy the relation: 2* 2*(diagP - 1)*num - 1 <= size\n");
-		}
-		else if(num % (diagP - 1) != 0){
-			setup = false;
-			printf("Please choose the right parameter num = %d, for NilpType3 with diagP = %d, it should be divisible by diagP - 1 = %d \n", num, diagP, diagP - 1);
-		}
-		else{
-			diagPosition = diagP;
-			nbOne = num;
-			matrix_size = size;
-			nilpotency = num+1;
-			setup = true;
-		}
-	}
-
-	~Nilpotency()
-	{
-
-	};
-
-};
 
 #endif

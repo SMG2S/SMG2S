@@ -43,17 +43,16 @@ int main(int argc, char** argv)
     auto spec2 = specNonSymm<double, int>(parVecMap, "v1.txt");
     //spec2.VecView();
 
-    //auto spec3 = specNonSymmCplex<double, int>("v3.txt");
+    auto spec3 = specNonSymmCplex<double, int>(parVecMap, "v2.txt");
     //spec3.VecView();
-    //Matrix.setSpecNonSymm(spec3);
+    Matrix.setSpecNonSymmCmplx(spec3);
     //Matrix.show();
-    //Matrix.MatView();
+    Matrix.MatView();
 
-    
-    Matrix.initMat(-4, -2, 2.0, 1.0, 0.5);
-    //Matrix.show();
-    //Matrix.MatView();
 
+    Matrix.writeToMatrixMarket("testmatrix.mtx");
+
+ 
     auto nilp = Nilpotent<int>(2, 2, probSize);
 	auto iz = nilp.getIndOfZeros();
 
@@ -63,14 +62,21 @@ int main(int argc, char** argv)
 		}
     }
 
-
-/*
     auto prod = Matrix.MA(nilp);
 	//prod.show();
     //prod.MatView();
     auto prod2 = Matrix.AM(nilp);
     prod2.MatView();
-*/
+
+
+    auto cmplexMatrix = parMatrixSparse<std::complex<double>, int>(parVecMap);
+    auto spec4 = specNonHerm<std::complex<double>, int>(parVecMap, "v2.txt");
+    cmplexMatrix.setSpecNonHerm(spec4);
+
+    cmplexMatrix.MatView();
+
+    cmplexMatrix.writeToMatrixMarketCmplx("testmatrix_cmplex.mtx");
+
 	MPI_Finalize();
 
 	return 0;
