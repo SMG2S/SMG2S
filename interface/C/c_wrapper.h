@@ -1,19 +1,14 @@
 /*
-
 MIT License
-
 Copyright (c) 2019 Xinzhe WU
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
-
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -47,152 +42,214 @@ struct fcomplex{
 
 typedef struct fcomplex fcomplex_t;
 
+//interface of classes and structs
 /*Nilpotency Matrix C Wrapper*/
 // int
-struct NilpInt;
-typedef struct NilpInt NilpInt_t;
+struct nilp;
+typedef struct nilp nilp_t;
 
-NilpInt_t *newNilpInt();
-void nilpInt_destory(NilpInt_t *nilp);
-void nilpIntType1(NilpInt_t *nilp, int num, int size);
-void nilpIntShow(struct NilpInt *nilp);
-//long int
-struct NilpLong;
-typedef struct NilpLong NilpLong_t;
-
-NilpLong_t *newNilpLong();
-void nilpLong_destory(NilpLong_t *nilp);
-void NilpLongType1(NilpLong_t *nilp, long num, long size);
-void NilpLongShow(struct NilpLong *nilp);
+nilp_t *newNilp_1(int nbOne, int size);
+nilp_t *newNilp_2(int nbOne, int diag, int size);
+nilp_t *newNilp_3(int *nilpvec, int size);
+nilp_t *newNilp_4(int *nilpvec, int diag, int size);
+void nilp_destory(nilp_t *nilp);
+int nilp_getDegree(nilp_t *nilp);
+int* nilp_getIndOfZeros(nilp_t *nilp);
+void nilp_show(nilp_t *nilp);
 
 
-/*parMatrixSparse C wrapper*/
-// double int
-struct parMatrixSparseDoubleInt;
-typedef struct parMatrixSparseDoubleInt parMatrixSparseDoubleInt_t;
+// long int
+struct nilpL;
+typedef struct nilpL nilpL_t;
 
-parMatrixSparseDoubleInt_t *newparMatrixSparseDoubleInt();
-void parMatrixSparseDoubleInt_destory(parMatrixSparseDoubleInt_t *mat);
-void parMatrixSparseDoubleInt_LocMatView(parMatrixSparseDoubleInt_t *mat);
-void GetLocalSizeDoubleInt(parMatrixSparseDoubleInt_t *mat, int *rs, int *cs);
-void parMatrixSparseDoubleInt_LocToCSR(parMatrixSparseDoubleInt_t *mat);
-void parMatrixSparseDoubleInt_LocGetCSRSize(parMatrixSparseDoubleInt_t *mat, int *size, int *size2);
-void parMatrixSparseDoubleInt_LocGetCSRArrays(parMatrixSparseDoubleInt_t *mat, int size, int size2, int **rows, int **cols, double **vals);
-void parMatrixSparseDoubleInt_smg2s(parMatrixSparseDoubleInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseDoubleInt_smg2s_advanace(parMatrixSparseDoubleInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, double *spectrum, double *init, MPI_Comm comm);
-void parMatrixSparseDoubleInt_nonsym_smg2s(parMatrixSparseDoubleInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseDoubleInt_nonsym_smg2s_advance(parMatrixSparseDoubleInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, dcomplex_t *spectrum, double *init, MPI_Comm comm);
+nilpL_t *newNilpL_1(long nbOne, long size);
+nilpL_t *newNilpL_2(long nbOne, long diag, long size);
+nilpL_t *newNilpL_3(long *nilpvec, long size);
+nilpL_t *newNilpL_4(long *nilpvec, long diag, long size);
+void nilpL_destory(nilpL_t *nilp);
+long nilpL_getDegree(nilpL_t *nilp);
+long* nilpL_getIndOfZeros(nilpL_t *nilp);
+void nilpL_show(nilpL_t *nilp);
 
 
-// double long
-struct parMatrixSparseDoubleLong;
-typedef struct parMatrixSparseDoubleLong parMatrixSparseDoubleLong_t;
 
-parMatrixSparseDoubleLong_t *newparMatrixSparseDoubleLong();
-void parMatrixSparseDoubleLong_destory(parMatrixSparseDoubleLong_t *mat);
-void parMatrixSparseDoubleLong_LocMatView(parMatrixSparseDoubleLong_t *mat);
-void GetLocalSizeDoubleLong(parMatrixSparseDoubleLong_t *mat, __int64_t *rs, __int64_t *cs);
-void parMatrixSparseDoubleLong_LocToCSR(parMatrixSparseDoubleLong_t *mat);
-void parMatrixSparseDoubleLong_LocGetCSRSize(parMatrixSparseDoubleLong_t *mat, __int64_t *size, __int64_t *size2);
-void parMatrixSparseDoubleLong_LocGetCSRArrays(parMatrixSparseDoubleLong_t *mat, __int64_t size, __int64_t size2, __int64_t **rows, __int64_t **cols, double **vals);
-void parMatrixSparseDoubleLong_smg2s(parMatrixSparseDoubleLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseDoubleLong_nonsym_smg2s(parMatrixSparseDoubleLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseDoubleLong_smg2s_advance(parMatrixSparseDoubleLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, double *spectrum, double *init, MPI_Comm comm);
-void parMatrixSparseDoubleLong_nonsym_smg2s_advance(parMatrixSparseDoubleLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, dcomplex_t *spectrum, double *init, MPI_Comm comm);
+/*init matrix struct*/
+//int
+struct initMatrix;
+typedef struct initMatrix initMatrix_t;
 
+initMatrix_t *newInitMatrix_1();
+initMatrix_t *newInitMatrix_2(int diagl, int diagu);
+initMatrix_t *newInitMatrix_3(int diagl, int diagu, double Sparsity);
+initMatrix_t *newInitMatrix_4(int diagl, int diagu, double Scale, double Sparsity);
+void initMatrix_show(initMatrix_t *init);
+void initMatrix_destory(initMatrix_t *init);
 
-// float int
-struct parMatrixSparseFloatInt;
-typedef struct parMatrixSparseFloatInt parMatrixSparseFloatInt_t;
+//long
+struct initMatrixL;
+typedef struct initMatrixL initMatrixL_t;
 
-parMatrixSparseFloatInt_t *newparMatrixSparseFloatInt();
-void parMatrixSparseFloatInt_destory(parMatrixSparseFloatInt_t *mat);
-void parMatrixSparseFloatInt_LocMatView(parMatrixSparseFloatInt_t *mat);
-void GetLocalSizeFloatInt(parMatrixSparseFloatInt_t *mat, int *rs, int *cs);
-void parMatrixSparseFloatInt_LocToCSR(parMatrixSparseFloatInt_t *mat);
-void parMatrixSparseFloatInt_LocGetCSRSize(parMatrixSparseFloatInt_t *mat, int *size, int *size2);
-void parMatrixSparseFloatInt_LocGetCSRArrays(parMatrixSparseFloatInt_t *mat, int size, int size2, int **rows, int **cols, float **vals);
-void parMatrixSparseFloatInt_smg2s(parMatrixSparseFloatInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseFloatInt_nonsym_smg2s(parMatrixSparseFloatInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseFloatInt_smg2s_advance(parMatrixSparseFloatInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, float *spectrum, float *init, MPI_Comm comm);
-void parMatrixSparseFloatInt_nonsym_smg2s_advance(parMatrixSparseFloatInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, fcomplex_t *spectrum, float *init, MPI_Comm comm);
-
-// float long
-struct parMatrixSparseFloatLong;
-typedef struct parMatrixSparseFloatLong parMatrixSparseFloatLong_t;
-
-parMatrixSparseFloatLong_t *newparMatrixSparseFloatLong();
-void parMatrixSparseFloatLong_destory(parMatrixSparseFloatLong_t *mat);
-void parMatrixSparseFloatLong_LocMatView(parMatrixSparseFloatLong_t *mat);
-void GetLocalSizeFloatLong(parMatrixSparseFloatLong_t *mat, __int64_t *rs, __int64_t *cs);
-void parMatrixSparseFloatLong_LocToCSR(parMatrixSparseFloatLong_t *mat);
-void parMatrixSparseFloatLong_LocGetCSRSize(parMatrixSparseFloatLong_t *mat, __int64_t *size, __int64_t *size2);
-void parMatrixSparseFloatLong_LocGetCSRArrays(parMatrixSparseFloatLong_t *mat, __int64_t size, __int64_t size2, __int64_t **rows, __int64_t **cols, float **vals);
-void parMatrixSparseFloatLong_smg2s(parMatrixSparseFloatLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseFloatLong_nonsym_smg2s(parMatrixSparseFloatLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseFloatLong_smg2s_advance(parMatrixSparseFloatLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, float *spectrum, float *init, MPI_Comm comm);
-void parMatrixSparseFloatLong_nonsym_smg2s_advance(parMatrixSparseFloatLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, fcomplex_t *spectrum, float *init, MPI_Comm comm);
+initMatrixL_t *newInitMatrixL_1();
+initMatrixL_t *newInitMatrixL_2(long diagl, long diagu);
+initMatrixL_t *newInitMatrixL_3(long diagl, long diagu, double Sparsity);
+initMatrixL_t *newInitMatrixL_4(long diagl, long diagu, double Scale, double Sparsity);
+void initMatrixL_show(initMatrixL_t *init);
+void initMatrixL_destory(initMatrixL_t *init);
 
 
-///
-// double complex int
-struct parMatrixSparseCmplxDoubleInt;
-typedef struct parMatrixSparseCmplxDoubleInt parMatrixSparseCmplxDoubleInt_t;
+/*parVectorMap*/
+struct parVecMap;
+typedef struct parVecMap parVecMap_t;
+parVecMap_t *newParVecMap(MPI_Comm ncomm, int lbound, int ubound);
+MPI_Comm parVecMapGetComm(parVecMap_t *pv);
+int parVecMapL2G(parVecMap_t *pv, int local_index);
+int parVecMapG2L(parVecMap_t *pv, int global_index);
+int parVecMapGetLocSize(parVecMap_t *pv);
+int parVecMapGetGlobSize(parVecMap_t *pv);
+void parVecMap_destory(parVecMap_t *pv);
 
-parMatrixSparseCmplxDoubleInt_t *newparMatrixSparseCmplxDoubleInt();
-void parMatrixSparseCmplxDoubleInt_destory(parMatrixSparseCmplxDoubleInt_t *mat);
-void parMatrixSparseCmplxDoubleInt_LocMatView(parMatrixSparseCmplxDoubleInt_t *mat);
-void GetLocalSizeCmplxDoubleInt(parMatrixSparseCmplxDoubleInt_t *mat, int *rs, int *cs);
-void parMatrixSparseCmplxDoubleInt_LocToCSR(parMatrixSparseCmplxDoubleInt_t *mat);
-void parMatrixSparseCmplxDoubleInt_LocGetCSRSize(parMatrixSparseCmplxDoubleInt_t *mat, int *size, int *size2);
-void parMatrixSparseCmplxDoubleInt_LocGetCSRArrays(parMatrixSparseCmplxDoubleInt_t *mat, int size, int size2, int **rows, int **cols, dcomplex_t **vals);
-void parMatrixSparseCmplxDoubleInt_smg2s(parMatrixSparseCmplxDoubleInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseCmplxDoubleInt_smg2s_advance(parMatrixSparseCmplxDoubleInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, dcomplex_t *spectrum, dcomplex_t *init, MPI_Comm comm);
-
-
-//double complex long
-struct parMatrixSparseCmplxDoubleLong;
-typedef struct parMatrixSparseCmplxDoubleLong parMatrixSparseCmplxDoubleLong_t;
-
-parMatrixSparseCmplxDoubleLong_t *newparMatrixSparseCmplxDoubleLong();
-void parMatrixSparseCmplxDoubleLong_destory(parMatrixSparseCmplxDoubleLong_t *mat);
-void parMatrixSparseCmplxDoubleLong_LocMatView(parMatrixSparseCmplxDoubleLong_t *mat);
-void GetLocalSizeCmplxDoubleLong(parMatrixSparseCmplxDoubleLong_t *mat, __int64_t *rs, __int64_t *cs);
-void parMatrixSparseCmplxDoubleLong_LocToCSR(parMatrixSparseCmplxDoubleLong_t *mat);
-void parMatrixSparseCmplxDoubleLong_LocGetCSRSize(parMatrixSparseCmplxDoubleLong_t *mat, __int64_t *size, __int64_t *size2);
-void parMatrixSparseCmplxDoubleLong_LocGetCSRArrays(parMatrixSparseCmplxDoubleLong_t *mat, __int64_t size, __int64_t size2, __int64_t **rows, __int64_t **cols, dcomplex_t **vals);
-void parMatrixSparseCmplxDoubleLong_smg2s(parMatrixSparseCmplxDoubleLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseCmplxDoubleLong_smg2s_advance(parMatrixSparseCmplxDoubleLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, dcomplex_t *spectrum, dcomplex_t *init, MPI_Comm comm);
-
-// float complex int
-struct parMatrixSparseCmplxFloatInt;
-typedef struct parMatrixSparseCmplxFloatInt parMatrixSparseCmplxFloatInt_t;
-
-parMatrixSparseCmplxFloatInt_t *newparMatrixSparseCmplxFloatInt();
-void parMatrixSparseCmplxFloatInt_destory(parMatrixSparseCmplxFloatInt_t *mat);
-void parMatrixSparseCmplxFloatInt_LocMatView(parMatrixSparseCmplxFloatInt_t *mat);
-void GetLocalSizeCmplxFloatInt(parMatrixSparseCmplxFloatInt_t *mat, int *rs, int *cs);
-void parMatrixSparseCmplxFloatInt_LocToCSR(parMatrixSparseCmplxFloatInt_t *mat);
-void parMatrixSparseCmplxFloatInt_LocGetCSRSize(parMatrixSparseCmplxFloatInt_t *mat, int *size, int *size2);
-void parMatrixSparseCmplxFloatInt_LocGetCSRArrays(parMatrixSparseCmplxFloatInt_t *mat, int size, int size2, int **rows, int **cols, fcomplex_t **vals);
-void parMatrixSparseCmplxFloatInt_smg2s(parMatrixSparseCmplxFloatInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseCmplxFloatInt_smg2s_advance(parMatrixSparseCmplxFloatInt_t *mat, int probSize, struct NilpInt *nilp, int lbandwidth, fcomplex_t *spectrum, fcomplex_t *init, MPI_Comm comm);
+struct parVecMapL;
+typedef struct parVecMapL parVecMapL_t;
+parVecMapL_t *newParVecMapL(MPI_Comm ncomm, long lbound, long ubound);
+MPI_Comm parVecMapLGetComm(parVecMapL_t *pv);
+long parVecMapLL2G(parVecMapL_t *pv, long local_index);
+long parVecMapLG2L(parVecMapL_t *pv, long global_index);
+long parVecMapLGetLocSize(parVecMapL_t *pv);
+long parVecMapLGetGlobSize(parVecMapL_t *pv);
+void parVecMapL_destory(parVecMapL_t *pv);
 
 
-// float complex long
-struct parMatrixSparseCmplxFloatLong;
-typedef struct parMatrixSparseCmplxFloatLong parMatrixSparseCmplxFloatLong_t;
+/*parVector*/
+//double int
+struct ds_parVec;
+typedef struct ds_parVec ds_parVec_t;
+ds_parVec_t *new_ds_ParVec_1(MPI_Comm ncomm, int lbound, int ubound);
+ds_parVec_t *new_ds_ParVec_2(parVecMap_t *map);
+void ds_parVec_destory(ds_parVec_t *pv);
+int ds_parVecGetLowerBound(ds_parVec_t *pv);
+int ds_parVecGetUpperBound(ds_parVec_t *pv);
+int ds_parVecGetLocSize(ds_parVec_t *pv);
+int ds_parVecGetGlobSize(ds_parVec_t *pv);
+double ds_parVecGetVal(ds_parVec_t *pv, int index);
+double ds_parVecGetValLoc(ds_parVec_t *pv, int lindex);
+double *ds_parVecGetArray(ds_parVec_t *pv);
+MPI_Comm ds_parVecGetComm(ds_parVec_t *pv);
+int ds_parVecL2G(ds_parVec_t *pv, int local_index);
+int ds_parVecG2L(ds_parVec_t *pv, int global_index);
+void ds_parVecSetToVal(ds_parVec_t *pv, double val);
+void ds_parVecView(ds_parVec_t *pv);
+void ds_parVecSetVal(ds_parVec_t *pv, int index, double val);
+void ds_parVecSetValLoc(ds_parVec_t *pv, int lindex, double val);
+void ds_parVecAdd(ds_parVec_t *pv, ds_parVec_t *pv2);
+void ds_parVecScale(ds_parVec_t *pv, double scale);
+double ds_parVecDot(ds_parVec_t *pv, ds_parVec_t *pv2);
+void ds_parVecReadExtVec(ds_parVec_t *pv, char* spectrum);
 
-parMatrixSparseCmplxFloatLong_t *newparMatrixSparseCmplxFloatLong();
-void parMatrixSparseCmplxFloatLong_destory(parMatrixSparseCmplxFloatLong_t *mat);
-void parMatrixSparseCmplxFloatLong_LocMatView(parMatrixSparseCmplxFloatLong_t *mat);
-void GetLocalSizeCmplxFloatLong(parMatrixSparseCmplxFloatLong_t *mat, __int64_t *rs, __int64_t *cs);
-void parMatrixSparseCmplxFloatLong_LocToCSR(parMatrixSparseCmplxFloatLong_t *mat);
-void parMatrixSparseCmplxFloatLong_LocGetCSRSize(parMatrixSparseCmplxFloatLong_t *mat, __int64_t *size, __int64_t *size2);
-void parMatrixSparseCmplxFloatLong_LocGetCSRArrays(parMatrixSparseCmplxFloatLong_t *mat, __int64_t size, __int64_t size2, __int64_t **rows, __int64_t **cols, fcomplex_t **vals);
-void parMatrixSparseCmplxFloatLong_smg2s(parMatrixSparseCmplxFloatLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, char *spectrum, MPI_Comm comm);
-void parMatrixSparseCmplxFloatLong_smg2s_advance(parMatrixSparseCmplxFloatLong_t *mat, __int64_t probSize, struct NilpInt *nilp, __int64_t lbandwidth, fcomplex_t *spectrum, fcomplex_t *init, MPI_Comm comm);
+//double long
+struct dl_parVec;
+typedef struct dl_parVec dl_parVec_t;
+dl_parVec_t *new_dl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound);
+dl_parVec_t *new_dl_ParVec_2(parVecMap_t *map);
+void dl_parVec_destory(dl_parVec_t *pv);
+long dl_parVecGetLowerBound(dl_parVec_t *pv);
+long dl_parVecGetUpperBound(dl_parVec_t *pv);
+long dl_parVecGetLocSize(dl_parVec_t *pv);
+long dl_parVecGetGlobSize(dl_parVec_t *pv);
+double dl_parVecGetVal(dl_parVec_t *pv, long index);
+double dl_parVecGetValLoc(dl_parVec_t *pv, long lindex);
+double *dl_parVecGetArray(dl_parVec_t *pv);
+MPI_Comm dl_parVecGetComm(dl_parVec_t *pv);
+long dl_parVecL2G(dl_parVec_t *pv, long local_index);
+long dl_parVecG2L(dl_parVec_t *pv, long global_index);
+void dl_parVecSetToVal(dl_parVec_t *pv, double val);
+void dl_parVecView(dl_parVec_t *pv);
+void dl_parVecSetVal(dl_parVec_t *pv, long index, double val);
+void dl_parVecSetValLoc(dl_parVec_t *pv, long lindex, double val);
+void dl_parVecAdd(dl_parVec_t *pv, dl_parVec_t *pv2);
+void dl_parVecScale(dl_parVec_t *pv, double scale);
+double dl_parVecDot(dl_parVec_t *pv, dl_parVec_t *pv2);
+void dl_parVecReadExtVec(dl_parVec_t *pv, char* spectrum);
 
+//float int
+struct ss_parVec;
+typedef struct ss_parVec ss_parVec_t;
+ss_parVec_t *new_ss_ParVec_1(MPI_Comm ncomm, int lbound, int ubound);
+ss_parVec_t *new_ss_ParVec_2(parVecMap_t *map);
+void ss_parVec_destory(ss_parVec_t *pv);
+int ss_parVecGetLowerBound(ss_parVec_t *pv);
+int ss_parVecGetUpperBound(ss_parVec_t *pv);
+int ss_parVecGetLocSize(ss_parVec_t *pv);
+int ss_parVecGetGlobSize(ss_parVec_t *pv);
+float ss_parVecGetVal(ss_parVec_t *pv, int index);
+float ss_parVecGetValLoc(ss_parVec_t *pv, int lindex);
+float *ss_parVecGetArray(ss_parVec_t *pv);
+MPI_Comm ss_parVecGetComm(ss_parVec_t *pv);
+int ss_parVecL2G(ss_parVec_t *pv, int local_index);
+int ss_parVecG2L(ss_parVec_t *pv, int global_index);
+void ss_parVecSetToVal(ss_parVec_t *pv, float val);
+void ss_parVecView(ss_parVec_t *pv);
+void ss_parVecSetVal(ss_parVec_t *pv, int index, float val);
+void ss_parVecSetValLoc(ss_parVec_t *pv, int lindex, float val);
+void ss_parVecAdd(ss_parVec_t *pv, ss_parVec_t *pv2);
+void ss_parVecScale(ss_parVec_t *pv, float scale);
+float ss_parVecDot(ss_parVec_t *pv, ss_parVec_t *pv2);
+void ss_parVecReadExtVec(ss_parVec_t *pv, char* spectrum);
+
+
+//float long
+struct sl_parVec;
+typedef struct sl_parVec sl_parVec_t;
+sl_parVec_t *new_sl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound);
+sl_parVec_t *new_sl_ParVec_2(parVecMap_t *map);
+void sl_parVec_destory(sl_parVec_t *pv);
+long sl_parVecGetLowerBound(sl_parVec_t *pv);
+long sl_parVecGetUpperBound(sl_parVec_t *pv);
+long sl_parVecGetLocSize(sl_parVec_t *pv);
+long sl_parVecGetGlobSize(sl_parVec_t *pv);
+float sl_parVecGetVal(sl_parVec_t *pv, long index);
+float sl_parVecGetValLoc(sl_parVec_t *pv, long lindex);
+float *sl_parVecGetArray(sl_parVec_t *pv);
+MPI_Comm sl_parVecGetComm(sl_parVec_t *pv);
+long sl_parVecL2G(sl_parVec_t *pv, long local_index);
+long sl_parVecG2L(sl_parVec_t *pv, long global_index);
+void sl_parVecSetToVal(sl_parVec_t *pv, float val);
+void sl_parVecView(sl_parVec_t *pv);
+void sl_parVecSetVal(sl_parVec_t *pv, long index, float val);
+void sl_parVecSetValLoc(sl_parVec_t *pv, long lindex, float val);
+void sl_parVecAdd(sl_parVec_t *pv, sl_parVec_t *pv2);
+void sl_parVecScale(sl_parVec_t *pv, float scale);
+float sl_parVecDot(sl_parVec_t *pv, sl_parVec_t *pv2);
+void sl_parVecReadExtVec(sl_parVec_t *pv, char* spectrum);
+
+
+//double complex int
+struct zs_parVec;
+typedef struct zs_parVec zs_parVec_t;
+zs_parVec_t *new_zs_ParVec_1(MPI_Comm ncomm, int lbound, int ubound);
+zs_parVec_t *new_zs_ParVec_2(parVecMap_t *map);
+void zs_parVec_destory(zs_parVec_t *pv);
+int zs_parVecGetLowerBound(zs_parVec_t *pv);
+int zs_parVecGetUpperBound(zs_parVec_t *pv);
+int zs_parVecGetLocSize(zs_parVec_t *pv);
+int zs_parVecGetGlobSize(zs_parVec_t *pv);
+dcomplex_t zs_parVecGetVal(zs_parVec_t *pv, int index);
+dcomplex_t zs_parVecGetValLoc(zs_parVec_t *pv, int lindex);
+dcomplex_t *zs_parVecGetArray(zs_parVec_t *pv);
+MPI_Comm zs_parVecGetComm(zs_parVec_t *pv);
+int zs_parVecL2G(zs_parVec_t *pv, int local_index);
+int zs_parVecG2L(zs_parVec_t *pv, int global_index);
+void zs_parVecSetToVal(zs_parVec_t *pv, dcomplex_t val);
+void zs_parVecView(zs_parVec_t *pv);
+void zs_parVecSetVal(zs_parVec_t *pv, int index, dcomplex_t val);
+void zs_parVecSetValLoc(zs_parVec_t *pv, int lindex, dcomplex_t val);
+void zs_parVecAdd(zs_parVec_t *pv, zs_parVec_t *pv2);
+void zs_parVecScale(zs_parVec_t *pv, dcomplex_t scale);
+dcomplex_t zs_parVecDot(zs_parVec_t *pv, zs_parVec_t *pv2);
+void zs_parVecReadExtVec(zs_parVec_t *pv, char* spectrum);
+
+
+
+//interface of selected functions
 
 #ifdef __cplusplus
 }

@@ -35,9 +35,10 @@ SOFTWARE.
 #include <vector>
 #include <random>
 #include <algorithm>
-#include "../utils/MPI_DataType.h"
 #include "../parVector/parVector.h"
 #include "../nilpotent/nilpotent.h"
+#include "../utils/MPI_DataType.h"
+#include "../utils/utils.h"
 
 #include "MatrixCSR.h"
 
@@ -109,6 +110,12 @@ class parMatrixSparse
 	void setSpecNonSymm(parVector<T,S> spectrum);
 	void setSpecNonSymmCmplx(parVector<std::complex<Base<T>>,S> spectrum);
 
+	void    updateNnz();
+
+	void    copy(parMatrixSparse<T,S> X);
+
+	void rmNNz();
+
    	//matrix multiplies a nilpotent matrix
 	parMatrixSparse<T,S>	MA(Nilpotent<S> nilp);
 
@@ -177,9 +184,7 @@ void parMatrixSparse<T,S>::MatView()
     	if(dynmat_loc != NULL){
     	    std::cout << "row " << index_map.Loc2Glob(i) << ": ";
     	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
-		if(it->second != T(0)){
-		    std::cout <<"("<<it->first << "," << it->second << "); ";
-		}	
+		std::cout <<"("<<it->first << "," << it->second << "); ";	
 	    }
 	std::cout << std::endl;    
 	}
@@ -197,13 +202,15 @@ void parMatrixSparse<T,S>::SetValueLocal(S row, S col, T value)
     }
     it = dynmat_loc[row].find(col);
 
-    if(it == dynmat_loc[row].end()){
-    	dynmat_loc[row][col] = value;
-    	nnz_loc++;
+    if(value != T(0)){
+    	if(it == dynmat_loc[row].end()){
+    	    dynmat_loc[row][col] = value;
+    	    nnz_loc++;
+    	}
+    	else{
+    	    it->second = value;
+        }    
     }
-    else{
-    	it->second = value;
-    }    
 }
 
 
@@ -314,32 +321,54 @@ void parMatrixSparse<T,S>::MatScale(T scale){
 template<typename T,typename S>
 void parMatrixSparse<T,S>::MatAXPY(parMatrixSparse<T,S> X, T scale){
     typename std::map<S,T>::iterator it;
+    typename std::map<S,T>::iterator it1;
+
     S i, k;
+
     if(index_map != X.GetMap()){
-    	throw "for AXPY, matrix should be in the same vectorMap";
+    	try{
+    	    throw 505;
+    	}catch(...){
+    	    std::cout << "SMG2S]> Caught Exception: for AXPY, matrix should be in the same vectorMap" << std::endl;
+    	}
     }
 
+    if(X.GetDynMatLoc() != NULL && scale != T(1)){
+    	for(i = 0; i < nrows; i++){
+    	    for(it1 = X.GetDynMatLoc()[i].begin(); it1 != X.GetDynMatLoc()[i].end();++it1){
+    	    	X.GetDynMatLoc()[i][it1->first] = scale * it1->second;
+    	    }   
+    	    	
+    	}
+    }
     if(dynmat_loc != NULL && X.GetDynMatLoc() != NULL){
     	for(i = 0; i < nrows; i++){
-    	    std::map<S,T> merge;
-    	    merge.insert(dynmat_loc[i].begin(),dynmat_loc[i].end());
-    	    merge.insert(X.GetDynMatLoc()[i].begin(),X.GetDynMatLoc()[i].end());
-    	    for(it = merge.begin(); it != merge.end(); ++it){
+
+    	    dynmat_loc[i] = std::accumulate( X.GetDynMatLoc()[i].begin(), X.GetDynMatLoc()[i].end(), dynmat_loc[i],
+        		[]( std::map<S, T> &m, const std::pair<const S, T> &p)
+        			{
+            			    return ( m[p.first] += p.second, m );
+        			} );
+
+    	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end();){
     	    	k = it->first;
-    	    	dynmat_loc[i][k] = dynmat_loc[i][k]+X.GetDynMatLoc()[i][k]*scale;
-    	    }
-    	    merge.clear();	
+    	    	if(it->second == T(0)){
+    	    	     it=dynmat_loc[i].erase(it);
+    	    	}else{
+    	    	     it++;
+    	    	}
+	    }
+
     	}
+
+    	updateNnz();
+
     } else if(dynmat_loc == NULL && X.GetDynMatLoc() != NULL){
+    	dynmat_loc = new std::map<S,T> [nrows];
     	for(i = 0; i < nrows; i++){
-    	    std::map<S,T> merge;
-    	    merge.insert(X->dynmat_loc[i].begin(),X->dynmat_loc[i].end());
-    	    for(it = merge.begin(); it != merge.end(); ++it){
-    	    	k = it->first;
-    	    	dynmat_loc[i][k] = X.GetDynMatLoc()[i][k]*scale;
-    	    }
-    	    merge.clear();
-    	}
+    	    dynmat_loc[i].insert(X.GetDynMatLoc()[i].begin(), X.GetDynMatLoc()[i].end());		
+	}
+    	nnz_loc = X.nnz_loc;
     }
 }
 
@@ -349,7 +378,7 @@ void parMatrixSparse<T,S>::MatAYPX(parMatrixSparse<T,S> X, T scale){
     typename std::map<S,T>::iterator it;
 
     S i, k;
-    if(dynmat_loc != NULL){
+    if(dynmat_loc != NULL && scale != T(1)){
     	for(i = 0; i < nrows; i++){
     	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
     	    	k = it->first;
@@ -360,28 +389,88 @@ void parMatrixSparse<T,S>::MatAYPX(parMatrixSparse<T,S> X, T scale){
 
     if(dynmat_loc != NULL && X.GetDynMatLoc() != NULL){
     	for(i = 0; i < nrows; i++){
-    	    std::map<S,T> merge;
-    	    merge.insert(dynmat_loc[i].begin(),dynmat_loc[i].end());
-    	    merge.insert(X.GetDynMatLoc().begin(),X.GetDynMatLoc().end());
-    	    for(it = merge.begin(); it != merge.end(); ++it){
+
+    	    dynmat_loc[i] = std::accumulate( X.GetDynMatLoc()[i].begin(), X.GetDynMatLoc()[i].end(), dynmat_loc[i],
+        		[]( std::map<S, T> &m, const std::pair<const S, T> &p)
+        			{
+            			    return ( m[p.first] += p.second, m );
+        			} );
+
+    	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end();){
     	    	k = it->first;
-    	    	dynmat_loc[i][k] = dynmat_loc[i][k]+X.GetDynMatLoc()[i][k];
-    	    }
-	    merge.clear();
-	}
+    	    	if(it->second == T(0)){
+    	    	     it=dynmat_loc[i].erase(it);
+    	    	}else{
+    	    	     it++;
+    	    	}
+	    }
+    	}
+
+    	updateNnz();
     }
 
     if(dynmat_loc == NULL && X.GetDynMatLoc() != NULL){
+    	dynmat_loc = new std::map<S,T> [nrows];
     	for(i = 0; i < nrows; i++){
-    	    std::map<S,T> merge;
-    	    merge.insert(X.GetDynMatLoc().begin(),X.GetDynMatLoc().end());
-    	    for(it = merge.begin(); it != merge.end(); ++it){
-    	    	k = it->first;
-		dynmat_loc[i][k] = X.GetDynMatLoc()[i][k];
-	    }
-	    merge.clear();
+    	    dynmat_loc[i].insert(X.GetDynMatLoc()[i].begin(), X.GetDynMatLoc()[i].end() );		
+	}
+	nnz_loc = X.nnz_loc;
+    }
+}
+
+template<typename T, typename S>
+void parMatrixSparse<T,S>::copy(parMatrixSparse<T,S> X){
+    
+    dynmat_loc = new std::map<S,T> [nrows];
+    
+    typename std::map<S,T>::iterator it;
+
+    S i, k;
+
+    if(X.GetDynMatLoc() != NULL){
+    	for(i = 0; i < nrows; i++){
+    	    dynmat_loc[i].insert(X.GetDynMatLoc()[i].begin(),X.GetDynMatLoc()[i].end());
 	}
     }
+}
+
+
+template<typename T, typename S>
+void parMatrixSparse<T,S>::updateNnz(){
+        
+    typename std::map<S,T>::iterator it;
+
+    S i, k;
+
+    nnz_loc = 0;
+
+    if(dynmat_loc != NULL){
+    	for(i = 0; i < nrows; i++){
+    	    nnz_loc += dynmat_loc[i].size();
+	}
+    }
+}
+
+
+template<typename T, typename S>
+void parMatrixSparse<T,S>::rmNNz(){
+    typename std::map<S,T>::iterator it;
+    S i, k;
+    if(dynmat_loc != NULL){
+    	for(i = 0; i < nrows; i++){
+    	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end();){
+    	    	k = it->first;
+    	    	if(it->second == T(0)){
+    	    	     it=dynmat_loc[i].erase(it);
+    	    	}else{
+    	    	     it++;
+    	    	}
+	    }
+	}
+    
+    	updateNnz();
+    }
+
 }
 
 template<typename T,typename S>
@@ -392,7 +481,7 @@ void parMatrixSparse<T,S>::ZeroEntries()
     if(dynmat_loc != NULL){
 	for(i = 0; i < nrows; i++){
 	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
-		it->second = 0;
+		it->second = T(0);
 	    }
 	}
     }
@@ -414,17 +503,29 @@ void parMatrixSparse<T,S>::initMat(S diag_l, S diag_u, Base<T> scale, T shift, B
     diag_u = abs(diag_u);
 
 
-    if (isnonsymm && diag_u < 2)
-        throw  "for initialisationg of non-symmetric matrix, please ensure abs(diag_u) >= 2 ";
+    if (isnonsymm && diag_u < 2){
+    	try{
+    	    throw 505;
+    	}catch(...){
+    	    std::cout << "SMG2S]> Caught Exception: for initialisationg of non-symmetric matrix, please ensure abs(diag_u) >= 2" << std::endl;
+    	}
+    }
 
-
-    if (diag_l < diag_u)
-        throw "for initialisationg of matrix, please ensure abs(diag_l) < abs(diag_u) ";
-            
-    
-
-    if (diag_u >= size)
-        throw "for initialisationg of matrix, please ensure abs(diag_u) < size ";
+    if (diag_l < diag_u){
+    	try{
+    	    throw 505;
+    	}catch(...){
+    	    std::cout << "SMG2S]> Caught Exception: for initialisationg of matrix, please ensure abs(diag_l) < abs(diag_u)" << std::endl;
+    	}    	
+    }
+                  
+    if (diag_u >= size){
+    	try{
+    	    throw 505;
+    	}catch(...){
+    	    std::cout << "SMG2S]> Caught Exception: for initialisationg of matrix, please ensure abs(diag_u) < size" << std::endl;
+    	}     	
+    }
 
     //std::random_device rd;
     std::mt19937_64 rd(ProcID);
@@ -481,7 +582,6 @@ void parMatrixSparse<T,S>::setSpecNonSymmCmplx(parVector<std::complex<Base<T>>,S
         printf("Info ]> For generating non-Symmetric matrices, the matrices should be real\n");
         return;
     }
-
 
     auto overlap = checkNonSymmSpec<T,S>(spectrum);
 
@@ -573,7 +673,7 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::MA(Nilpotent<S> nilp){
     	    	S j =  it->first + offset;
     	    	if(j < ncols){
     	    	    //if not the index of zeros in nilpotent
-    	    	    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), j-offset) == IndOfZeros.end()){
+    	    	    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), j-offset) == IndOfZeros.end() && it->second != T(0) ){
     	    	    	prod.SetValueLocal(i, j, it->second);
     	    	    }
     	    	}
@@ -612,7 +712,7 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
     	    	auto j =  it->first;
     	    	if(i >= 0){
     	    	    //if not the index of zeros in nilpotent
-    	    	    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), index_map.Loc2Glob(row)-offset) == IndOfZeros.end()){
+    	    	    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), index_map.Loc2Glob(row)-offset) == IndOfZeros.end()&& it->second != T(0) ){
     	    	    	prod.SetValueLocal(i, j, it->second);
     	    	    }
     	    	}
@@ -653,7 +753,7 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
     	procsDiff[i] = originProcs[i] - targetProcs[i];
     }
 
-    auto sendrecv_cnt = distinct<S,S>(procsDiff.data(), procsDiff.size(), T(0));
+    auto sendrecv_cnt = distinct<S,S>(procsDiff.data(), procsDiff.size(), S(0));
 
     sBufs.resize(sendrecv_cnt);
     sIndices.resize(sendrecv_cnt);
@@ -749,7 +849,7 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
     		    auto val = rBufs[k][cnt];
     		    auto i = index_map.Glob2Loc(row + rIndices[k][rSize[k][1]] - offset);
     		    auto j = rIndices[k][cnt + rSize[k][1] + 1];
-    		    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), row + rIndices[k][rSize[k][1]] - offset) == IndOfZeros.end()){
+    		    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), row + rIndices[k][rSize[k][1]] - offset) == IndOfZeros.end()&& rBufs[k][cnt] != T(0) ){
     		        prod.SetValueLocal(i, j, rBufs[k][cnt]);
     		    }
     	        }
@@ -769,7 +869,11 @@ void parMatrixSparse<T,S>::writeToMatrixMarket(std::string file_name){
     std::string data;
 
     if( (sizeof(T)/sizeof(Base<T>) != 1) ){
-    	throw "for complex matrix, please use writeToMatrixMarketCmplx ";
+        try{
+    	    throw 505;
+    	}catch(...){
+    	    std::cout << "SMG2S]> Caught Exception: for complex matrix, please use writeToMatrixMarketCmplx" << std::endl;
+    	}       	   	
     }
 
     //generate MatrixMarket header
@@ -809,7 +913,7 @@ void parMatrixSparse<T,S>::writeToMatrixMarket(std::string file_name){
     	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
     	    	auto k = it->first;
     	    	auto v = it->second;
-    	    	data += std::to_string(index_map.Loc2Glob(i)) + " " + std::to_string(k) + " " + std::to_string(v) + "\n";
+    	    	data += std::to_string(index_map.Loc2Glob(i)+1) + " " + std::to_string(k+1) + " " + std::to_string(v) + "\n";
 	    }
 	}
     }
@@ -859,7 +963,11 @@ void parMatrixSparse<T,S>::writeToMatrixMarketCmplx(std::string file_name){
     std::string data;
 
     if( (sizeof(T)/sizeof(Base<T>) != 2) ){
-    	throw "for real matrix, please use writeToMatrixMarket ";
+        try{
+    	    throw 505;
+    	}catch(...){
+    	    std::cout << "SMG2S]> Caught Exception: for real matrix, please use writeToMatrixMarket" << std::endl;
+    	}  
     }
 
     //generate MatrixMarket header
@@ -900,7 +1008,7 @@ void parMatrixSparse<T,S>::writeToMatrixMarketCmplx(std::string file_name){
     	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); it++){
     	    	auto k = it->first;
     	    	auto v = it->second;
-    	    	data += std::to_string(index_map.Loc2Glob(i)) + " " + std::to_string(k) + " " + std::to_string(v.real()) + " " + std::to_string(v.imag()) + "\n";
+    	    	data += std::to_string(index_map.Loc2Glob(i)+1) + " " + std::to_string(k+1) + " " + std::to_string(v.real()) + " " + std::to_string(v.imag()) + "\n";
     	    }	
 	}
     }

@@ -254,16 +254,7 @@ void parVector<T, S>::ReadExtVec(std::string spectrum)
 
     int lower_bound = GetLowerBound();
     int upper_bound = GetUpperBound();
-/*
-    //ingnore 1st line
-    std::getline(file,line);
-    //second line
-    std::getline(file,line);
-    std::stringstream linestream ( line ) ;
-    linestream >> m;
-    linestream >> n;
-    linestream >> p;
-    */
+
     int size1;
     size1 = sizeof(T) / sizeof(Base<T>);
     S idx;
@@ -315,8 +306,12 @@ T parVector<T, S>::GetUpperNeighbor(S offset){
 
     T neighbor;
 
-    if(offset < 1 || offset > local_size){
-    	throw "input parameter is invalid";
+    try{
+        if(offset < 1 || offset > local_size){
+    	    throw 505;
+        }
+    }catch(...){
+    	std::cout << "SMG2S]> Caught Exception: input parameter is invalid for GetUpperNeighbor" << std::endl;
     }
 
     MPI_Isend(&array[local_size-offset], 1, getMPI_Type<T>(), down, 1, comm, &stypereq);
@@ -348,8 +343,12 @@ T parVector<T, S>::GetLowerNeighbor(S offset){
 
     T neighbor;
     
-    if(offset < 1 || offset > local_size){
-    	throw "input parameter is invalid";
+    try{
+        if(offset < 1 || offset > local_size){
+    	    throw 505;
+        }
+    }catch(...){
+    	std::cout << "SMG2S]> Caught Exception: input parameter is invalid for GetLowerNeighbor" << std::endl;
     }
 
     MPI_Isend(&array[offset-1], 1, getMPI_Type<T>(), up, 1, comm, &stypereq);
@@ -359,66 +358,6 @@ T parVector<T, S>::GetLowerNeighbor(S offset){
 
     return neighbor;
 
-}
-
-
-template<typename T, typename S>
-std::vector<T> ReadExtStdVec(std::string spectrum)
-{
-    std::ifstream file(spectrum);
-    std::string line;
-
-    std::vector<T> vec;
-
-    int size1;
-    size1 = sizeof(T) / sizeof(Base<T>);
-    S idx;
-    Base<T> in_vals[size1];
-    T val;
-    std::getline(file,line);
-    std::getline(file,line);
-
-    while (std::getline(file,line)) {
-	idx = 0;
-        for(int i = 0; i < size1; i++){
-            in_vals[i] = 0.0;
-        }
-
-        std::stringstream linestream ( line ) ;
-        linestream >> idx;
-
-        for(int i = 0; i < size1; i++){
-            linestream >> in_vals[i];
-        }
-        idx = idx - 1;
-
-        for(int i = 0; i < size1; i++){
-            reinterpret_cast<Base<T>(&)[size1]>(val)[i] = in_vals[i];
-	}
-	vec.push_back(val);		
-    }
-
-    return vec;
-}
-
-template<typename T, typename S>
-void checkNonSymmSpec(std::complex<Base<T>> *spec, S size){
-
-    S idx = 0;
-    S step;
-
-    while (idx < size){
-    	if (std::imag(spec[idx]) == 0 ){ 
-    	    step = 1;
-    	}
-    	else{
-    	    if( (std::imag(spec[idx]) + std::imag(spec[idx+1])) != Base<T>(0) || (std::real(spec[idx]) != std::real(spec[idx+1] ))){
-    	    	throw "input spectrum is invalid for non-symmetric matrix";
-    	    }
-    	    step = 2;
-    	}
-    	idx += step;
-    }
 }
 
 
@@ -452,9 +391,19 @@ S checkNonSymmSpec(parVector<std::complex<Base<T>>, S> spec){
     	    	step = 1;
     	    	nzeros++;
     	    }else{
-    	    	if(array[idx].imag() + array[idx+1].imag() != Base<T>(0) || array[idx].real() != array[idx+1].real()){
-    	    	    throw "input spectrum is invalid for non-symmetric matrix";
+    	    	
+    	    	try{
+
+    	    	    if(array[idx].imag() + array[idx+1].imag() != T(0) || array[idx].real() != array[idx+1].real()){
+    	    	        throw 505;
+    	    	    }
+
+    	    	}catch(...){
+    	    	    
+    	    	    std::cout << "SMG2S]> Caught Exception: input spectrum is invalid for non-symmetric matrix" << std::endl;
+    	    	    
     	    	}
+
     	    	step = 2;
     	    }
     	    idx += step;
@@ -462,8 +411,15 @@ S checkNonSymmSpec(parVector<std::complex<Base<T>>, S> spec){
 
     	if( (local_size - nzeros) % 2 != 0 ){ //should compare the element from next proc
     	    if(array[local_size - 1].imag() != 0){
-    	    	if(array[local_size - 1].imag() + nl.imag() != Base<T>(0) || array[local_size - 1].real() != nl.real()){
-    	    	    throw "input spectrum is invalid for non-symmetric matrix";
+
+    	    	try{
+
+    	    	    if(array[local_size - 1].imag() + nl.imag() != Base<T>(0) || array[local_size - 1].real() != nl.real()){
+    	    	        throw 505;
+    	    	    }
+
+    	    	}catch(...){
+    	    	    std::cout << "SMG2S]> Caught Exception: input spectrum is invalid for non-symmetric matrix" << std::endl;
     	    	}
     	    }
     	}
@@ -477,9 +433,14 @@ S checkNonSymmSpec(parVector<std::complex<Base<T>>, S> spec){
     	    	step = 1;
     	    	nzeros++;
 	    }else{
-	    	if(array[idx].imag() + array[idx-1].imag() != Base<T>(0) || array[idx].real() != array[idx-1].real()){
-    	    	    throw "input spectrum is invalid for non-symmetric matrix";
-    	    	}
+	    	try{
+	    	    if(array[idx].imag() + array[idx-1].imag() != Base<T>(0) || array[idx].real() != array[idx-1].real()){
+    	    	        throw 505;
+    	    	    }
+	    	}catch(...){
+    	    	    std::cout << "SMG2S]> Caught Exception: input spectrum is invalid for non-symmetric matrix" << std::endl;
+	    	}
+
     	    	step = 2;
 	    }
 	    idx -= step;
@@ -487,10 +448,15 @@ S checkNonSymmSpec(parVector<std::complex<Base<T>>, S> spec){
 
     	if( (local_size - nzeros) % 2 != 0 ){ //should compare the element from next proc
     	    if(array[0].imag() != 0){
-    	    	if(array[0].imag() + nu.imag() != Base<T>(0) || array[0].real() != nu.real()){
-    	    	    throw "input spectrum is invalid for non-symmetric matrix";
-    	    	}else{
-    	    	    overlap = 1;
+
+    	    	try{
+    	    	    if(array[0].imag() + nu.imag() != Base<T>(0) || array[0].real() != nu.real()){
+    	    	        throw 505;
+    	    	        overlap = 1;
+    	    	    }
+
+    	    	}catch(...){
+    	    	    std::cout << "SMG2S]> Caught Exception: input spectrum is invalid for non-symmetric matrix" << std::endl;
     	    	}
     	    }
     	}
@@ -507,14 +473,22 @@ S checkNonSymmSpec(parVector<std::complex<Base<T>>, S> spec){
     	}else{
     	    if(array[0].imag() + array[1].imag() != Base<T>(0) || array[0].real() != array[1].real()){
     	    	if(array[0].imag() + nu.imag() != Base<T>(0) || array[0].real() != nu.real()){
-    	    	    throw "input spectrum is invalid for non-symmetric matrix";
+    	    	    try{
+    	    	    	throw 505;
+    	    	    }catch(...){
+    	    	    	std::cout << "SMG2S]> Caught Exception: input spectrum is invalid for non-symmetric matrix" << std::endl;
+    	    	    }
     	    	}else{
     	    	    if(nu_2.imag() + nu.imag() != Base<T>(0) || nu_2.real() != nu.real()){
     	    	    	idx = 1;
     	    	    	size = local_size - 1;
     	    	    	overlap = 1;
     	    	    }else{
-    	    	    	throw "input spectrum is invalid for non-symmetric matrix";
+    	    	    	try{
+    	    	    	    throw 505;
+    	    	    	}catch(...){
+	    	    	    std::cout << "SMG2S]> Caught Exception: input spectrum is invalid for non-symmetric matrix" << std::endl;
+    	    	    	}
     	    	    }
     	    	}    	    	
     	    }else{
@@ -530,7 +504,11 @@ S checkNonSymmSpec(parVector<std::complex<Base<T>>, S> spec){
     	    	nzeros++;
     	    }else{
     	    	if(array[idx].imag() + array[idx+1].imag() != Base<T>(0) || array[idx].real() != array[idx+1].real()){
-    	    	    throw "input spectrum is invalid for non-symmetric matrix";
+    	    	    try{
+    	    	        throw 505;
+    	    	    }catch(...){
+	    	    	std::cout << "SMG2S]> Caught Exception: input spectrum is invalid for non-symmetric matrix" << std::endl;
+    	    	    }
     	    	}
     	    	step = 2;
     	    }
@@ -540,7 +518,11 @@ S checkNonSymmSpec(parVector<std::complex<Base<T>>, S> spec){
     	if( (size - nzeros) % 2 != 0 ){ //should compare the element from next proc
     	    if(array[local_size - 1].imag() != 0){
     	    	if(array[local_size - 1].imag() + nl.imag() != Base<T>(0) || array[local_size - 1].real() != nl.real()){
-    	    	    throw "input spectrum is invalid for non-symmetric matrix";
+    	    	    try{
+    	    	    	throw 505;
+    	    	    }catch(...){
+	    	    	std::cout << "SMG2S]> Caught Exception: input spectrum is invalid for non-symmetric matrix" << std::endl;
+    	    	    }
     	    	}
     	    }
     	}    	
@@ -567,11 +549,6 @@ parVector<T, S> specNonSymm(parVectorMap<S> index_map, std::string spectrum){
     return spec;
 }
 
-template<typename T, typename S>
-std::vector<std::complex<Base<T>>> specNonSymmCplex(std::string spectrum){
-    auto vec = ReadExtStdVec<std::complex<Base<T>>, S>(spectrum);
-    return vec;
-}
 
 template<typename T, typename S>
 parVector<std::complex<Base<T>>, S> specNonSymmCplex(parVectorMap<S> index_map, std::string spectrum){

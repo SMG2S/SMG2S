@@ -47,7 +47,11 @@ Nilpotent<S>::Nilpotent(S nbOne, S size){
     degree = nbOne + 1;
 
     if(nbOne > probSize - 1){
-    	throw "nbOne is too large";
+    	try{
+    	    throw 505;
+    	}catch(...){
+    	    std::cout << "SMG2S]> Caught Exception: for Nilpotent, nbOne is too large" << std::endl;
+    	}
     }
 
     for(auto i = 0; i < probSize - 1; i++){
@@ -66,7 +70,11 @@ Nilpotent<S>::Nilpotent(S nbOne, S diag, S size){
     //degree = nbOne + 1;
     
     if(nbOne > probSize - diag){
-    	throw "nbOne is too large";
+    	try{
+    	    throw 505;
+    	}catch(...){
+    	    std::cout << "SMG2S]> Caught Exception: for Nilpotent, nbOne is too large" << std::endl;
+    	}
     }
 
     S length = probSize - diag;
@@ -110,7 +118,11 @@ Nilpotent<S>::Nilpotent(std::vector<S> nilpvec, S size){
     S cnt = 0;
 
     if(nilpvec.size() < size - 1){
-    	throw "nilpvec size is not enough";
+    	try{
+    	    throw 505;
+    	}catch(...){
+    	    std::cout << "SMG2S]> Caught Exception: for Nilpotent, nilpvec size is not enough" << std::endl;
+    	}    	
     }
     for(auto i = 0; i < size - 1; i++){
     	if (nilpvec[i] != 0){
@@ -133,7 +145,11 @@ Nilpotent<S>::Nilpotent(std::vector<S> nilpvec, S diag, S size){
     offset = diag; 
 
     if(nilpvec.size() < size - offset){
-    	throw "nilpvec size is not enough";
+    	try{
+    	    throw 505;
+    	}catch(...){
+    	    std::cout << "SMG2S]> Caught Exception: for Nilpotent, nilpvec size is not enough" << std::endl;
+    	}  
     }
     for(auto i = 0; i < size - diag; i++){
     	if(nilpvec[i] == 0){

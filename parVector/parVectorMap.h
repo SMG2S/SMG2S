@@ -55,6 +55,32 @@ class parVectorMap
 	//destructor
 	~parVectorMap();
 
+	bool operator == (const parVectorMap &map1){
+	    bool ifsamecom;
+	    int flag;
+	    MPI_Comm_compare(comm, map1.comm, &flag);
+	    if(flag == MPI_IDENT){
+	    	ifsamecom = true;
+	    }else{
+	    	ifsamecom = false;
+	    }
+
+	    return (ifsamecom && nproc == map1.nproc && rank == map1.rank && lower_bound == map1.lower_bound && upper_bound == map1.upper_bound && local_size == map1.local_size && global_size == map1.global_size);
+	};
+
+	bool operator != (const parVectorMap &map1){
+	    bool ifdiffcom;
+	    int flag;
+	    MPI_Comm_compare(comm, map1.comm, &flag);
+	    if(flag == MPI_IDENT){
+	    	ifdiffcom = false;
+	    }else{
+	    	ifdiffcom = true;
+	    }
+
+	    return (ifdiffcom || nproc != map1.nproc || rank != map1.rank || lower_bound != map1.lower_bound || upper_bound != map1.upper_bound || local_size != map1.local_size || global_size != map1.global_size);
+	};
+
 	MPI_Comm GetCurrentComm(){return comm;};
 
 	S Loc2Glob(S local_index);
@@ -108,26 +134,34 @@ S parVectorMap<S>::Loc2Glob(S local_index){
 
     S global_index = lower_bound + local_index;
 
-    if (global_index > global_size)
-    {
-    	throw "index out of range";
-    }else{
-    	return global_index;	
+    try{
+    	if (global_index > global_size){
+    	    global_index = -1;	
+    	    throw (local_index);
+    	}
+    }
+    catch(S local_index){
+    	std::cout << "The given local index <" << local_index <<"> is out of bound." << std::endl;
     }
     
+    return global_index;
 }
 
 template<typename S>
 S parVectorMap<S>::Glob2Loc(S global_index){
 
     S local_index = global_index - lower_bound;
-    
-    if (local_index < 0 || local_index >= local_size)
-    {
-    	throw "index out of range";
-    }else{
-    	return local_index;	
+
+    try{
+    	if (local_index < 0 || local_index >= local_size){
+    	    local_index = -1;
+    	    throw(global_index);	
+    	}
+    }catch(S global_index){
+    	std::cout << "The given global index <" << global_index <<"> is out of bound." << std::endl;	
     }
+
+    return local_index;
 }
 
 

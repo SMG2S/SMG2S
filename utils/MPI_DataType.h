@@ -92,6 +92,10 @@ MPI_Datatype getMPI_Type<__int64_t>() {
   return MPI_INT64_T;
 }
 
+template <>
+MPI_Datatype getMPI_Type<long>() {
+  return MPI_LONG;
+}
 
 
 

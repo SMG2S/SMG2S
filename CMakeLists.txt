@@ -29,11 +29,11 @@ include_directories(${SMG2S_SOURCE_FILE}/utils ${SMG2S_SOURCE_FILE}/config ${SMG
 #add_executable(smg2s.exe smg2s.cpp)
 #target_link_libraries(smg2s.exe PRIVATE MPI::MPI_CXX)
 
-#file(GLOB C_WRAPPERS "interface/C/*.cc")
-#add_library(smg2s2c STATIC ${C_WRAPPERS})
-#target_link_libraries(smg2s2c PRIVATE MPI::MPI_CXX)
-#add_library(smg2s2cs SHARED ${C_WRAPPERS})
-#target_link_libraries(smg2s2cs PRIVATE MPI::MPI_CXX)
+file(GLOB C_WRAPPERS "interface/C/*.cc")
+add_library(smg2s2c STATIC ${C_WRAPPERS})
+target_link_libraries(smg2s2c PRIVATE MPI::MPI_CXX)
+add_library(smg2s2cs SHARED ${C_WRAPPERS})
+target_link_libraries(smg2s2cs PRIVATE MPI::MPI_CXX)
 
 
 ###example

@@ -49,7 +49,18 @@ int main(int argc, char** argv)
     //Matrix.show();
     Matrix.MatView();
 
+    auto Mat2 = parMatrixSparse<double, int>(vec);
+    Mat2.setSpecNonSymm(spec2);
+    Mat2.SetValueLocal(3,5,0.212121);
 
+    Mat2.MatView();
+
+    Matrix.MatAXPY(Mat2, 2.0);
+
+    Matrix.MatView();
+
+
+/*
     Matrix.writeToMatrixMarket("testmatrix.mtx");
 
  
@@ -64,7 +75,7 @@ int main(int argc, char** argv)
 
     auto prod = Matrix.MA(nilp);
 	//prod.show();
-    //prod.MatView();
+    prod.MatView();
     auto prod2 = Matrix.AM(nilp);
     prod2.MatView();
 
@@ -73,10 +84,10 @@ int main(int argc, char** argv)
     auto spec4 = specNonHerm<std::complex<double>, int>(parVecMap, "v2.txt");
     cmplexMatrix.setSpecNonHerm(spec4);
 
-    cmplexMatrix.MatView();
+    //cmplexMatrix.MatView();
 
     cmplexMatrix.writeToMatrixMarketCmplx("testmatrix_cmplex.mtx");
-
+*/
 	MPI_Finalize();
 
 	return 0;
