@@ -46,6 +46,9 @@ SOFTWARE.
 #include <complex>
 #endif
 
+#define MIN(a,b) (((a)<(b))?(a):(b))
+#define MAX(a,b) (((a)>(b))?(a):(b))
+
 template<typename T, typename S>
 class parMatrixSparse
 {
@@ -114,7 +117,7 @@ class parMatrixSparse
 
 	void    copy(parMatrixSparse<T,S> X);
 
-	void rmNNz();
+	void rmZeros();
 
    	//matrix multiplies a nilpotent matrix
 	parMatrixSparse<T,S>	MA(Nilpotent<S> nilp);
@@ -297,7 +300,7 @@ T parMatrixSparse<T,S>::GetValue(S row, S col)
 {
     S local_row = index_map.Glob2Loc(row);
     if(local_row >= 0 && local_row < nrows){
-    	return GetLocalValue(local_row, col);
+    	return GetValueLocal(local_row, col);
     }
     else{
     	return 0.0;
@@ -453,7 +456,7 @@ void parMatrixSparse<T,S>::updateNnz(){
 
 
 template<typename T, typename S>
-void parMatrixSparse<T,S>::rmNNz(){
+void parMatrixSparse<T,S>::rmZeros(){
     typename std::map<S,T>::iterator it;
     S i, k;
     if(dynmat_loc != NULL){
@@ -531,11 +534,11 @@ void parMatrixSparse<T,S>::initMat(S diag_l, S diag_u, Base<T> scale, T shift, B
     std::mt19937_64 rd(ProcID);
     std::uniform_real_distribution<> d(0, 1);
             
-    for (auto i = std::max(diag_u, lower_b); i < upper_b; i++){
-    	for (auto j = std::max(0, i - diag_l); j <= i - diag_u; j++){
+    for (auto i = MAX(diag_u, lower_b); i < upper_b; i++){
+    	for (auto j = MAX(0, i - diag_l); j <= i - diag_u; j++){
     	    auto sampling = d(rd);
     	    if (sampling < 1.0 - sparsity){
-    	    	SetValue(i, j, scale * d(rd) + shift);
+    	    	SetValue(i, j, T(scale * d(rd)) + shift);
     	    }
     	}
     }
