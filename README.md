@@ -21,7 +21,7 @@ SMG2S is able to generate large-scale non-Hermitian (non-Symmetric) methods in p
 
 2. Wu, Xinzhe. SMG2S Manual v1. 0. Maison de la Simulation, 2018. [(PDF)](https://hal.archives-ouvertes.fr/hal-01874810/document)
 
-![Matrix Generation Pattern](figure/matgen.png)
+![Matrix Generation Pattern](doc/figure/matgen.png)
 
 ## Documentation
 
@@ -372,4 +372,4 @@ K->describe(*fos, Teuchos::VERB_EXTREME);
 
 ## Verification
 
-![Comparison of generated spectrum with given spectrum](figure/vector.png)
+![Comparison of generated spectrum with given spectrum](doc/figure/vector.png)
