@@ -1,13 +1,8 @@
 #ifndef __NILPOTENT_H__
 #define __NILPOTENT_H__
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <complex>
-#include <vector>
-#include "../utils/utils.h"
+
+#include "utils/utils.hpp"
 
 //T scalar, S integer
 template<typename S>
@@ -60,7 +55,6 @@ Nilpotent<S>::Nilpotent(S nbOne, S size){
     	}
     }    	
 }
-
 
 template<typename S>
 Nilpotent<S>::Nilpotent(S nbOne, S diag, S size){
@@ -196,6 +190,5 @@ template<typename S>
 Nilpotent<S>::~Nilpotent(){
 
 }
-
 
 #endif

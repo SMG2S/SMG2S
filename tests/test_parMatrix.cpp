@@ -6,8 +6,8 @@
 #include <typeinfo>  
 #include <mpi.h>
 
-#include "../parMatrix/MatrixCSR.h"
-#include "../parMatrix/parMatrixSparse.h"
+#include <smg2s-interface.hpp>
+
 
 int main(int argc, char** argv) 
 {

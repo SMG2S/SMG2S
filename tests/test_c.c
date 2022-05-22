@@ -1,4 +1,4 @@
-#include "../interface/C/c_wrapper.h"
+#include <C/c-smg2s.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <mpi.h>

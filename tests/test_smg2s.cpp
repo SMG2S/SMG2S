@@ -6,7 +6,7 @@
 #include <typeinfo>  
 #include <mpi.h>
 
-#include "../smg2s/smg2s.h"
+#include <smg2s-interface.hpp>
 
 int main(int argc, char** argv) 
 {

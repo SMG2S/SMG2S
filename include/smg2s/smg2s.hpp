@@ -1,48 +1,21 @@
-/*
-MIT License
-Copyright (c) 2019 Xinzhe WU
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*/
-
 #ifndef __SMG2S_H__
 #define __SMG2S_H__
 
-#include "../parVector/parVector.h"
-#include "../parMatrix/parMatrixSparse.h"
-#include "../parMatrix/initMat.h"
+#include <parVector/parVectorMap.hpp>
+#include <parVector/parVector.hpp>
+#include <parMatrix/parMatrixSparse.hpp>
+#include <smg2s/initMat.hpp>
+#include <smg2s/nilpotent.hpp>
+#include <smg2s/spectrum.hpp>
 
 #include <math.h>
-#include <complex.h>
-#include <string>
-
-
-#ifdef __APPLE__
-#include <sys/malloc.h>
-#else
-#include <malloc.h>
-#endif
-
 
 template<typename T, typename S>
 parMatrixSparse<T,S> nonherm(S probSize, Nilpotent<S> nilp, initMat<S> init, std::string spectrum, MPI_Comm comm){
-	int world_size;
+    int world_size;
     int world_rank;
 
-	double start, end;
+    double start, end;
 
     MPI_Comm_size(comm, &world_size);
     MPI_Comm_rank(comm, &world_rank);
@@ -68,7 +41,7 @@ parMatrixSparse<T,S> nonherm(S probSize, Nilpotent<S> nilp, initMat<S> init, std
 
     auto parVecMap = parVectorMap<S>(comm, lower_b, upper_b);
 
-	auto spec = specNonHerm<T, S>(parVecMap, spectrum);
+    auto spec = specNonHerm<T, S>(parVecMap, spectrum);
 
     return nonherm(probSize, nilp, init, spec);
 }
@@ -97,12 +70,12 @@ parMatrixSparse<T,S> nonherm(S probSize, Nilpotent<S> nilp, initMat<S> init, par
 
 template<typename T, typename S>
 void nonherm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<T,S> spec){
-	int world_size;
+    int world_size;
     int world_rank;
 
     MPI_Comm comm = Am->GetComm();
 
-	double start, end;
+    double start, end;
 
     MPI_Comm_size(comm, &world_size);
     MPI_Comm_rank(comm, &world_rank);
@@ -134,13 +107,13 @@ void nonherm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
     Am->MatScale((T)my_factorielle_bornes);
 
     for (S k=1; k<=2*(nilp.getDegree()-1); k++){
-    	auto MA = matAop.MA(nilp);
-    	auto AM = matAop.AM(nilp);
-    	matAop.copy(AM);
-    	//matAop.MatAYPX(AM, 0);
-    	matAop.MatAXPY(MA, -1);
-    	my_factorielle_bornes = factorial(k+1,2*(nilp.getDegree()-1));
-    	Am->MatAXPY(matAop, (double)my_factorielle_bornes);
+        auto MA = matAop.MA(nilp);
+        auto AM = matAop.AM(nilp);
+        matAop.copy(AM);
+        //matAop.MatAYPX(AM, 0);
+        matAop.MatAXPY(MA, -1);
+        my_factorielle_bornes = factorial(k+1,2*(nilp.getDegree()-1));
+        Am->MatAXPY(matAop, (double)my_factorielle_bornes);
     }
 
     my_factorielle_bornes = factorial(1,2*(nilp.getDegree()-1));
@@ -152,15 +125,15 @@ void nonherm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
 }
 
 
-///		
-		
+///     
+        
 
 template<typename T, typename S>
 parMatrixSparse<T,S> nonsymm(S probSize, Nilpotent<S> nilp, initMat<S> init, std::string spectrum, MPI_Comm comm){
-	int world_size;
+    int world_size;
     int world_rank;
 
-	double start, end;
+    double start, end;
 
     MPI_Comm_size(comm, &world_size);
     MPI_Comm_rank(comm, &world_rank);
@@ -191,16 +164,16 @@ parMatrixSparse<T,S> nonsymm(S probSize, Nilpotent<S> nilp, initMat<S> init, std
     std::ifstream file(spectrum);
     std::string line;
 
-	std::getline(file,line);
-	auto  pos = line.find(word);
+    std::getline(file,line);
+    auto  pos = line.find(word);
 
-	if ( pos != std::string::npos){
+    if ( pos != std::string::npos){
         auto spec = specNonSymmCplex<T, S>(parVecMap, spectrum);
-        return nonsymmconj(probSize, nilp, init, spec);	
-	}else{
-	    auto spec = specNonSymm<T, S>(parVecMap, spectrum);
-        return nonsymm(probSize, nilp, init, spec);	
-	}
+        return nonsymmconj(probSize, nilp, init, spec); 
+    }else{
+        auto spec = specNonSymm<T, S>(parVecMap, spectrum);
+        return nonsymm(probSize, nilp, init, spec); 
+    }
     
 }
 
@@ -227,12 +200,12 @@ parMatrixSparse<T,S> nonsymm(S probSize, Nilpotent<S> nilp, initMat<S> init, par
 
 template<typename T, typename S>
 void nonsymm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<T,S> spec){
-	int world_size;
+    int world_size;
     int world_rank;
 
     MPI_Comm comm = Am->GetComm();
 
-	double start, end;
+    double start, end;
 
     MPI_Comm_size(comm, &world_size);
     MPI_Comm_rank(comm, &world_rank);
@@ -265,13 +238,13 @@ void nonsymm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
     Am->MatScale((T)my_factorielle_bornes);
 
     for (S k=1; k<=2*(nilp.getDegree()-1); k++){
-    	auto MA = matAop.MA(nilp);
-    	auto AM = matAop.AM(nilp);
-    	matAop.copy(AM);
-    	//matAop.MatAYPX(AM, 0);
-    	matAop.MatAXPY(MA, -1);
-    	my_factorielle_bornes = factorial(k+1,2*(nilp.getDegree()-1));
-    	Am->MatAXPY(matAop, (double)my_factorielle_bornes);
+        auto MA = matAop.MA(nilp);
+        auto AM = matAop.AM(nilp);
+        matAop.copy(AM);
+        //matAop.MatAYPX(AM, 0);
+        matAop.MatAXPY(MA, -1);
+        my_factorielle_bornes = factorial(k+1,2*(nilp.getDegree()-1));
+        Am->MatAXPY(matAop, (double)my_factorielle_bornes);
     }
 
     my_factorielle_bornes = factorial(1,2*(nilp.getDegree()-1));
@@ -306,12 +279,12 @@ parMatrixSparse<T,S> nonsymmconj(S probSize, Nilpotent<S> nilp, initMat<S> init,
 
 template<typename T, typename S>
 void nonsymmconj(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<std::complex<T>, S> spec){
-	int world_size;
+    int world_size;
     int world_rank;
 
     MPI_Comm comm = Am->GetComm();
 
-	double start, end;
+    double start, end;
 
     MPI_Comm_size(comm, &world_size);
     MPI_Comm_rank(comm, &world_rank);
@@ -342,13 +315,13 @@ void nonsymmconj(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVec
     Am->MatScale((T)my_factorielle_bornes);
 
     for (S k=1; k<=2*(nilp.getDegree()-1); k++){
-    	auto MA = matAop.MA(nilp);
-    	auto AM = matAop.AM(nilp);
-    	matAop.copy(AM);
-    	//matAop.MatAYPX(AM, 0);
-    	matAop.MatAXPY(MA, -1);
-    	my_factorielle_bornes = factorial(k+1,2*(nilp.getDegree()-1));
-    	Am->MatAXPY(matAop, (double)my_factorielle_bornes);
+        auto MA = matAop.MA(nilp);
+        auto AM = matAop.AM(nilp);
+        matAop.copy(AM);
+        //matAop.MatAYPX(AM, 0);
+        matAop.MatAXPY(MA, -1);
+        my_factorielle_bornes = factorial(k+1,2*(nilp.getDegree()-1));
+        Am->MatAXPY(matAop, (double)my_factorielle_bornes);
     }
 
     my_factorielle_bornes = factorial(1,2*(nilp.getDegree()-1));
@@ -359,8 +332,5 @@ void nonsymmconj(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVec
     Am->MatScale((T)inv);
 
 }
-
-
-
 
 #endif

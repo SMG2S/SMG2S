@@ -23,17 +23,15 @@ else()
 endif()
 
 # Add utils and config include
-include_directories(${SMG2S_SOURCE_FILE}/utils ${SMG2S_SOURCE_FILE}/config ${SMG2S_SOURCE_FILE}/parVector ${SMG2S_SOURCE_FILE}/parMatrix)
+include_directories(${SMG2S_SOURCE_DIR}/include)
 
 # Generate SMG2S file
 #add_executable(smg2s.exe smg2s.cpp)
 #target_link_libraries(smg2s.exe PRIVATE MPI::MPI_CXX)
 
-file(GLOB C_WRAPPERS "interface/C/*.cc")
-add_library(smg2s2c STATIC ${C_WRAPPERS})
-target_link_libraries(smg2s2c PRIVATE MPI::MPI_CXX)
-add_library(smg2s2cs SHARED ${C_WRAPPERS})
-target_link_libraries(smg2s2cs PRIVATE MPI::MPI_CXX)
+file(GLOB_RECURSE SMG2S_CPP_SOURCE RELATIVE "${SMG2S_SOURCE_DIR}" "include/*.hpp" "include/*.h" "src/*cc")
+add_library(smg2s STATIC ${SMG2S_CPP_SOURCE})
+target_link_libraries(smg2s PUBLIC MPI::MPI_CXX)
 
 
 ###example
@@ -41,11 +39,6 @@ target_link_libraries(smg2s2cs PRIVATE MPI::MPI_CXX)
 
 ###tests
 add_subdirectory(tests)
-
-
-#add_executable(c_interface.exe test_c.c)
-#target_link_libraries(c_interface.exe PRIVATE MPI::MPI_CXX smg2s2c)
-#target_include_directories(c_interface.exe PRIVATE ${CMAKE_SOURCE_DIR})
 
 message([STATUS] "Copy the SMG2S include files: ${INSTALL_TO_USE}")
 #install(TARGETS smg2s.exe DESTINATION bin)

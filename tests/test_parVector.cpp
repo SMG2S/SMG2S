@@ -6,8 +6,8 @@
 #include <typeinfo>  
 #include <mpi.h>
 
-#include "../parVector/parVectorMap.h"
-#include "../parVector/parVector.h"
+#include <smg2s-interface.hpp>
+
 
 int main(int argc, char** argv) 
 {

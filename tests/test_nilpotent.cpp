@@ -1,4 +1,5 @@
-#include "../nilpotent/nilpotent.h"
+#include <smg2s-interface.hpp>
+#include <smg2s/nilpotent.hpp>
 #include <math.h>
 #include <complex>
 #include <cstdlib>
@@ -29,7 +30,7 @@ int main(int argc, char** argv)
 		std::cout << iz2[i] << std::endl;
 	}
 */
-
+/*
 	std::vector<int> v{ 1,1,1,1,0,0,1,1,0,0,0,1};
 
 	auto nilp3 = Nilpotent<int>(v,12);
@@ -40,7 +41,7 @@ int main(int argc, char** argv)
 
 	auto nilp5 = Nilpotent<int>(v,4,15);
 	nilp5.show();
-
+*/
 	return 0;
 
 
