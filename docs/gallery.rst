@@ -1,0 +1,2 @@
+Gallery: Sparisity Patterns
+=============================

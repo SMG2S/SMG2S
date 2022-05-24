@@ -26,19 +26,72 @@ SOFTWARE.
 
 #include <vector>
 
+/** @defgroup group6 Parallel Vector and Matrix
+ *  Implementation of paralel vector and matrix distributed across 1D MPI grids.
+ *  @{
+ */
+//!  @brief A struct which stores a sparse matrix in CSR format.
+/*!
+  This struct defines a CSR format to store a sparse matrix. This format stores a sparse matrix
+  with three arrays
+  
+  - `rows` points to row starts in indices and data
+  - `cols` is array of column indices
+  - `val` is array of corresponding nonzero values
+
+  @tparam T describes the scalar types of the entries of a sparse matrix.   
+  @tparam S type of integer to describes the dimension of matrices to be generated. 
+*/
 template<typename T, typename S>
 struct MatrixCSR
 {
+ 	//! number of rows of a sparse matrix
+    /*!
+      number of rows of a sparse matrix
+    */	
 	S	nrows;
+	//! number of non-zero entries of a sparse matrix
+    /*!
+      number of non-zero entries of a sparse matrix
+    */		
 	S	nnz;
+	//! dimension of the array MatrixCSR#cols
+	/*!
+	  dimension of the array MatrixCSR#cols, which stores the column indices of all non-zero entries.
+	  
+	  - It equals to MatrixCSR#nnz
+	*/
 	S   ncols;
 
+	//! An array points to row starts in indices and data
+    /*!
+      Its size is `nrows+1`
+      - non-zero entry of the `i`-th row are `vals[rows[i]:rows[i+1]]`, with column indices `cols[rows[i]:rows[i+1]]`
+      - item `(i,j)` can be accessed as `vals[rows[i]+k]`, where `k` is the position of `j` in `cols[rows[i]:rows[i+1]]`
+    */		
 	std::vector<S> rows;
+	//! An array stores the column indices of non-zero elements
+    /*!
+      Its size is `nnz`
+      - non-zero entry of the `i`-th row are `vals[rows[i]:rows[i+1]]`, with column indices `cols[rows[i]:rows[i+1]]`
+      - item `(i,j)` can be accessed as `vals[rows[i]+k]`, where `k` is the position of `j` in `cols[rows[i]:rows[i+1]]`
+    */		
 	std::vector<S> cols;
+	//! An array stores the values of non-zero elements
+    /*!
+      Its size is `nnz`
+      - non-zero entry of the `i`-th row are `vals[rows[i]:rows[i+1]]`, with column indices `cols[rows[i]:rows[i+1]]`
+      - item `(i,j)` can be accessed as `vals[rows[i]+k]`, where `k` is the position of `j` in `cols[rows[i]:rows[i+1]]`
+    */		
 	std::vector<T> vals;
 
 	MatrixCSR(){};
 
+    //! A constructor of `MatrixCSR`. The three arrays MatrixCSR#rows, MatrixCSR#cols and MatrixCSR#vals are allocated, without further filling in.
+    /*!
+      * @param[in] nnz_in number of non-zero elements in the sparse matrix to be allocated
+      * @param[in] nrows_in number of rows of the sparse matrix to be allocated
+    */	
 	MatrixCSR(S nnz_in, S nrows_in)
 	{
 	
@@ -51,7 +104,12 @@ struct MatrixCSR
 		vals.reserve(nnz);	
 	
 	};
-
+    //! A constructor of `MatrixCSR`. The three arrays MatrixCSR#rows, MatrixCSR#cols and MatrixCSR#vals are filled with user-provided arrays.
+    /*!
+      * @param[in] rowoffs user-provided array stored in a `std::vector` for MatrixCSR#rows
+      * @param[in] colidxs user-provided array stored in a `std::vector` for MatrixCSR#cols
+      * @param[in] values user-provided array stored in a `std::vector` for MatrixCSR#vals
+    */	
 	MatrixCSR(std::vector<S> rowoffs, std::vector<S> colidxs, std::vector<T> values)
 	{
 	
@@ -64,6 +122,7 @@ struct MatrixCSR
 		vals = values;	
 	};
 
+	//! This a destructor of MatrixCSR
 	~MatrixCSR()
 	{
 		if(nnz != 0){
@@ -73,6 +132,11 @@ struct MatrixCSR
 		}
 	};
 
+	//! Get the value of position `(row, col)` from sparse matrix
+    /*!
+      * @param[in] row index of row of the poisition in sparse matrix
+      * @param[in] col index of column of the poisition in sparse matrix
+    */		
 	T GetValue(S row, S col)
 	{
 		T val;
@@ -90,6 +154,12 @@ struct MatrixCSR
 	};
 
 
+	//! Overwrite the value of entry of position  `(row, col)` in sparse matrix by `val`
+    /*!
+      * @param[in] row index of row of the poisition in sparse matrix
+      * @param[in] col index of column of the poisition in sparse matrix
+      * @param[in] val the value should be set on the position `(row, col)` of sparse matrix
+    */	
 	void SetValue(S row, S col, T val)
 	{
 		S currCol;
@@ -102,6 +172,13 @@ struct MatrixCSR
 		}
 	};
 
+	//! Insert a value `val` in the position `(row, col)` in sparse matrix
+    /*!
+      - unlike MatrixCSR<T>#SetValue, in this function, the position `(row, col)` can be anyone which is still not available in the matrix.
+      * @param[in] row index of row of the poisition in sparse matrix
+      * @param[in] col index of column of the poisition in sparse matrix
+      * @param[in] val the value should be set on the position `(row, col)` of sparse matrix
+    */		
 	void InsertValue(S row, S col, T val)
 	{
 		S currCol, prevCol;
@@ -124,27 +201,10 @@ struct MatrixCSR
 		}
 	};
 
-	void Add(MatrixCSR<T,S> m){
-		S row, nnz;
-		T v1, v2, v;
-		
-		if (nrows != m.nrows || ncols != m.ncols) {
-			printf("Cannot add: matrices dimensions don't match.\n");
-			return;
-		}
-
-		for (S i = 1; i <= nrows; i++){
-			for (S j = 1; j <= ncols; j++) {
-				v1 = GetValue(i,j);
-				v2 = m.GetValue(i,j);
-				v = v1 + v2;
-				if(v != 0.0){
-					InsertValue(i,j,v1+v2);
-				}
-			}
-		}
-	};
-
+	//! Print the sparse matrix in COO format
+	/*!
+		Print the sparse matrix in COO format
+	 */
 	void show(){
 		std::cout << "MatrixCSR display:" << std::endl; 
 		for(auto i = 0; i < rows.size() - 1; i++){
@@ -155,17 +215,6 @@ struct MatrixCSR
 		}
 	}
 
-	void Free()
-	{
-		if(nnz != 0){
-			std::vector<S>().swap(rows);
-			std::vector<S>().swap(cols);
-			std::vector<T>().swap(vals);
-			
-			nnz = 0;
-		}
-	};
-
 };
-
+/** @} */ // end of group6
 #endif

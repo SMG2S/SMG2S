@@ -27,35 +27,150 @@ SOFTWARE.
 
 #include "utils/utils.hpp"
 
-//T scalar, S integer
+/** @defgroup group3 Nilpotent
+ *  This module relates to the nilpotent matrix used by SMG2S
+ *  @{
+ */
+//!  @brief A class which determines the information of a nilpotent matrix.
+/*!
+  This class determines a special subset of <a href="https://en.wikipedia.org/wiki/Nilpotent">nilpotent matrix</a>,
+  in which only one single off-diagonal on the upper-triangular part of a square matrix has non-zeros entries.
+  These non-zeros entries are fixed to be `1`.
+
+  This types of nilpotent matrix is determined by the four variables: Nilpotent<S>#probSize, Nilpotent<S>#degree, Nilpotent<S>#offset and Nilpotent<S>#indOfZeros.
+
+  @tparam S type of integer to describes the dimension of matrices to be generated. 
+*/
 template<typename S>
 class Nilpotent
 {
 	private:
+		//! size of nilpotent matrix
+    	/*!
+      	size of nilpotent matrix (square matrix with number of rows = number of columns = probSize)
+    	*/			
 		S probSize;
+		//! nilpotency of nilpotent matrix
+  		/*!
+      	Nipotency of the determined nilpotent matrix. For a nilpotent matrix `A`, it is the minimal integer `k` 
+      		which makes \f$A^k = 0\f$.
+    	*/		
 		S degree;
+		//! offset of off-diagonal
+		/*!
+		Offset of the the off-diagonal on the upper-triangular part of nilpotent matrix. 
+		It is `0`-indexed, which means that the offset of main diagonal is `0`. 
+
+		- Currently, the maximum degree supported is `80`
+		*/
 		S offset;
+		//! indices of all zeros entries on the off-diagonal.
+		/*!
+		Indices of all zero entries on the only off-diagonal of a nilpotent matrix
+		*/
 		std::vector<S> indOfZeros; // a pair: index
 
 	public:
-		Nilpotent();
-		Nilpotent(S nbOne, S size);
-		Nilpotent(S nbOne, S diag, S size);
-		Nilpotent(std::vector<S> nilpvec, S size);
-		Nilpotent(std::vector<S> nilpvec, S diag, S size);
-		~Nilpotent();
+		//! A constructor of class `Nilpotent`.
+	    /*!
+	      This is a constructor of class `Nilpotent`. With this constructor, the nilpotent has single off-diagonal
+	      with index `1`. On this diagonal, the entries starts with `nbOne` number of continuous `1`, then one single
+	      entry to be `0`, then `nbOne` number of continuous `1`. The pattern repeats until to the end.
 
+	      In this pattern, the nilpotency is easy to be determined as \f$nbOne + 1\f$.
+		  
+		  - Currently, the maximum degree supported is `80`, there's risk that SMG2S fails with \f$nbOne > 80\f$
+
+    	  * @param[in] nbOne number of continuous `1` on the single off-diagonal
+      	  * @param[in] size size of nilpotent matrix
+	    */		
+		Nilpotent(S nbOne, S size);
+		//! A constructor of class `Nilpotent`.
+	    /*!
+	      This is a constructor of class `Nilpotent`. With this constructor, the nilpotent has single off-diagonal
+	      with index `diag`. On this diagonal, the entries starts with a number `k` of continuous `1`, in which `k`
+	      is randomly generated as an integer between `0` and `nbOne`. Then a new `k` is re-generated,
+	      for a continuous `k` of zero-entries. 
+
+	      In this pattern, the nilpotency is not trivial and it can be computed by Nilpotent<S>#computeDegree.
+
+		  - Currently, the maximum degree supported is `80`, there's risk that SMG2S fails with \f$nbOne - diagonal > 80\f$
+	
+    	  * @param[in] nbOne determines the maximum lengths of continous `1` and `0` on the off-diagonal. The lengths are randomly generated between `0` and `nbOne`, step by step.
+    	  * @param[in] diag offset of the single off-diagonal of nilpotent matrix
+      	  * @param[in] size size of nilpotent matrix
+	    */		
+		Nilpotent(S nbOne, S diag, S size);
+		//! A constructor of class `Nilpotent`.
+	    /*!
+	      This is a constructor of class `Nilpotent`. It determines a nilpotent with user provided vector `nilpvec`, and
+	      set it onto the off-diagonal indexing `1`.
+
+	      In this pattern, the nilpotency is not trivial and it can be computed by Nilpotent<S>#computeDegree.
+
+		  - Currently, the maximum degree supported is `80`, there's risk that SMG2S fails with user-given `nilpvec`.
+
+    	  * @param[in] nilpvec user provided vector
+      	  * @param[in] size size of nilpotent matrix
+	    */			
+		Nilpotent(std::vector<S> nilpvec, S size);
+		//! A constructor of class `Nilpotent`.
+	    /*!
+	      This is a constructor of class `Nilpotent`. It determines a nilpotent with user provided vector `nilpvec`, and
+	      set it onto the off-diagonal indexing `diag`.
+
+	      In this pattern, the nilpotency is not trivial and it can be computed by Nilpotent<S>#computeDegree.
+
+		  - Currently, the maximum degree supported is `80`, there's risk that SMG2S fails with user-given `nilpvec`.
+
+    	  * @param[in] nilpvec user provided vector
+    	  * @param[in] diag offset of the single off-diagonal of nilpotent matrix
+      	  * @param[in] size size of nilpotent matrix
+	    */			
+		Nilpotent(std::vector<S> nilpvec, S diag, S size);
+		//! A destructor of class `Nilpotent`. 
+		~Nilpotent();
+		//! compute the degree of a nilpotent with its off-diagonal entries stored in a vector `nilpvec`.
+		/*!
+	      This is a member function of class `Nilpotent`, which computes the degree of a nilpotent with its off-diagonal entries stored in a vector `nilpvec`.
+		  
+		  - Attention, the size of nilpotent matrix and the offset of diagonal should already be provided.
+
+    	  * @param[in] nilpvec user provided vector
+	    */		
 		S computeDegree(std::vector<S> nilpvec);
+		//! Get the size of nilpotent matrix
+		/*!
+			return Nilpotent<S>#probSize
+		*/
 		S getProbSize(){return probSize;};
+		/*!
+			return Nilpotent<S>#degree
+		*/		
+		//! Get the nilpotency of nilpotent matrix
 		S getDegree(){return degree;};
+		/*!
+			return Nilpotent<S>#offset
+		*/		
+		//! Get off-diagonal offset of nilpotent matrix
+		/*!
+			return Nilpotent<S>#offset
+		*/		
 		S getOffset(){return offset;};
+		//! Get indices of all zeros entries on the off-diagonal
+		/*!
+			return Nilpotent<S>#indOfZeros
+		*/
 		std::vector<S> getIndOfZeros(){return indOfZeros;};
+		//! Display the information of a nilpotent matrix
+		/*!
+		    print Nilpotent<S>#probSize, Nilpotent<S>#degree, Nilpotent<S>#offset, and Nilpotent<S>#indOfZeros
+		*/		
 		void show();
 
 };
 
-template<typename S>
-Nilpotent<S>::Nilpotent(){}
+
 
 template<typename S>
 Nilpotent<S>::Nilpotent(S nbOne, S size){
@@ -116,11 +231,6 @@ Nilpotent<S>::Nilpotent(S nbOne, S diag, S size){
 	for(auto i = 0; i < indOfZeros.size(); i++){
 		nilpvec[indOfZeros[i]] = 0;
 	}
-
-	for(auto i = 0; i < nilpvec.size();i++){
-		std::cout << nilpvec[i] << ", ";
-	}
-	std::cout << std::endl;
 
     degree = computeDegree(nilpvec);
 
@@ -213,5 +323,7 @@ template<typename S>
 Nilpotent<S>::~Nilpotent(){
 
 }
+
+/** @} */ // end of group3
 
 #endif

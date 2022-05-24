@@ -28,67 +28,191 @@ SOFTWARE.
 #include <utils/utils.hpp>
 #include <utils/MPI_DataType.hpp>
 
+//!  @brief A class which defines a vector distributed across 1D MPI grid.
+/*!
+ * @ingroup group6 
+  - This class can be constructed with user-provided of index ranges `[lower_bound, upper_bound)` of vector on each MPI proc.
+  - This class can be constructed with a distribution scheme by a given parVectorMap object.
+
+  @tparam T describes the scalar types of the entries of vector.   
+  @tparam S type of integer to describes the dimension of vector to be generated. 
+*/
 template<typename T, typename S>
 class parVector{
     private:
-    	T	*array;
+    //! An array store the local piece of a global vector on each MPI proc
+    T	*array;
+	//! The number of elements of vector stored on each MPI proc    
 	S	local_size;
+	//! Global size of this distributed vector	
 	S       global_size;
-	MPI_Comm  	comm;
+    //! The working MPI Communicator	
+	MPI_Comm  	comm;	
+	//! A parVectorMap object which shows the distribution scheme of a vector
 	parVectorMap<S> index_map;
-	int 	MyPID, nProcs; 
+	//! rank of each MPI procs within the working MPI communicator parVectorMap#comm	
+	int 	MyPID;
+	//! number of MPI procs within the working MPI communicator parVectorMap#comm
+	int 	nProcs; 
 
     public:
 	parVector();
+    //! A constructor of `parVector`. 
+    /*!
+      * @param[in] ncomm the working MPI Communicator
+      * @param[in] lbound the smallest index of a distributed vector on each MPI proc
+      * @param[in] ubound `ubound-1 = `  the largest index of a distributed vector on each MPI proc 
+      
+      - parVector::array is also allocated. 
+    */		
 	parVector(MPI_Comm ncomm, S lbound, S ubound);
+    //! A constructor of `parVectorMap`. 
+    /*!
+      * @param[in] map the distribution scheme determined by this object of type parVectorMap
+
+      - parVector::array is also allocated. 
+    */		
 	parVector(parVectorMap<S> map);
+	//! A destructor
 	~parVector();
 
+	//! Return parVector#index_map
 	parVectorMap<S> GetVecMap(){return index_map;};
 
+	//! Return the lower_bound on  each MPI proc 
 	S GetLowerBound(){return index_map.GetLowerBound();};
+	//! Return the upper_bound on  each MPI proc 
 	S GetUpperBound(){return index_map.GetUpperBound();};
+	//! Return parVector<S>#global_size			
 	S GetGlobalSize(){return global_size;};
+	//! Return parVector<S>#local_size		
 	S GetLocalSize(){return local_size;};
+	//! Return parVector<S>#MyPID
 	S GetRank(){return index_map.GetRank();};
 
+	//! For each MPI of rank `i`, get a value from the local vector stored on rank `i-1`.
+    /*!
+      * @param[in] offset get the value from local vector on rank `i-1` with index `upper_bound-1-offset`.
+
+      - Attention, for the MPI rank `0`, the value is obtained from the MPI proc of rank `nProcs-1`. 
+    */		
 	T GetUpperNeighbor(S offset);
+	//! For each MPI of rank `i`, get a value from the local vector stored on rank `i+1`.
+    /*!
+      * @param[in] offset get the value from local vector on rank `i+1` with index `offset`.
+
+      - Attention, for the MPI rank `nProcs-1`, the value is obtained from the MPI proc of rank `0`. 
+    */	
 	T GetLowerNeighbor(S offset);
-	
+	//! Get a value of vector with a given global index
+    /*!
+      * @param[in] index the querying global index
+
+      - Attention, this function is naturally distributed, so each MPI proc can only query the value within its range `[lower_bound, upper_bound)`. 
+    */		
 	T GetValue(S index)
 	{
 	    auto lindex = index_map.Glob2Loc(index);
 	    return array[lindex];
 	};
-
+	//! Get a value of vector with a given local index on each MPI proc.
+    /*!
+      * @param[in] lindex the querying local index
+    */	
 	T GetValueLocal(S lindex)
 	{
 	    return array[lindex];
 	};
 
-
+	//! Get the pointer `*array` which stores the local piece of vector on each MPI proc
 	T* GetArray(){return array;};
+	//! Get working MPI communicator
 	MPI_Comm GetComm(){return comm;};
+	//! Convert a index of local vector on each MPI proc into its index in the global distributed vector
+    /*!
+      * @param[in] local_index the index local vector to be converted
 
+      - Attention, this function is in distributed manner, each MPI proc can only convert the local index of vector stored on itself.
+    */	
 	S Loc2Glob(S local_index){return index_map.Loc2Glob(local_index);};
+	//! Convert a index of global vector into its index in the local vector on each MPI proc.
+    /*!
+      * @param[in] global_index the index global vector to be converted
+
+      - Attention, this function is in distributed manner, each MPI proc can only convert the global index of vector in the range `[lower_bound, upper_bound)`.
+    */		
 	S Glob2Loc(S global_index){return index_map.Glob2Loc(global_index);};
 
+	//! Set all the entries of a vector to a same value
+    /*!
+      * @param[in] value the value to be set
+    */		
 	void SetToValue(T value);
-	void SetToZero();		
-	void VecView();
+	//! Set all the entries of a vector to zero	
+	void SetToZero();
+	//! Set a value on a local index of piece of distributed vector on each MPI proc 
+    /*!
+      * @param[in] row the local index
+      * @param[in] value the scalar to be set
+    */		
 	void SetValueLocal(S row, T value);
+	//! Set multiple values with multiple local indices of piece of distributed vector on each MPI proc
+    /*!
+      * @param[in] nindex number of values to be set
+      * @param[in] rows an pointer stores all the values to be set
+      * @param[in] values an pointer stores all the indices to be set
+    */	
 	void SetValuesLocal(S nindex, S *rows, T *values);
+	//! Set a value with a global index distributed vector 
+    /*!
+      * @param[in] index the global index
+      * @param[in] value the scalar to be set
+    */		
 	void SetValueGlobal(S index, T value);
+	//! Set multiple values with multiple global indices of distributed vector
+    /*!
+      * @param[in] nindex number of values to be set
+      * @param[in] rows an pointer stores all the values to be set
+      * @param[in] values an pointer stores all the indices to be set
+    */		
 	void SetValuesGlobal(S nindex, S *rows, T *values);		
+	//! add a value onto the value with a given global index of distributed vector 
+    /*!
+      * @param[in] row the global index
+      * @param[in] value the scalar to be added
+    */		
 	void AddValueLocal(S row, T value);
+	//! Add  multiple values with multiple global indices onto the related values of distributed vector
+    /*!
+      * @param[in] nindex number of values to be set
+      * @param[in] rows an pointer stores all the values to be set
+      * @param[in] values an pointer stores all the indices to be set
+    */		
 	void AddValuesLocal(S nindex, S *rows, T *values);
+	//! Add with another vector
+    /*!
+      * @param[in] v the parVector object used to be added
+    */		
 	void VecAdd(parVector v);
-
+	//! Scale all the elements of a vector with `scale`
+    /*!
+      * @param[in] scale the value used for scaling on the vector
+    */		
 	void VecScale(T scale);
-	T    VecDot(parVector v);
-	void ReadExtVec(std::string spectrum);
-        
+	//! Compute the dot product with another vector `v`
+    /*!
+      * @param[in] v the parVector object used to perform a dot product
 
+      - Attention, the results of dot product is stored rebundantly across all MPI procs 
+    */		
+	T    VecDot(parVector v);
+	//! Read a vector from local text file.
+    /*!
+      * @param[in] spectrum a `std::string` indicates the path+filename of local text file
+    */		
+	void ReadExtVec(std::string spectrum);
+	//! Display the vector in a distributed manner		
+	void VecView();
 };
 
 template<typename T,typename S>

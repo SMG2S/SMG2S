@@ -33,6 +33,21 @@ SOFTWARE.
 
 #include <math.h>
 
+/** @defgroup group2 SMG2S
+ *  This module relates to multiple implementation of SMG2S to generate a non-Symmetric/Hermitian sparse matrix with it. 
+ *  @{
+ */
+//! Generating a non-Hermitian sparse matrix using the spectrum stored in local file
+/*!
+  * @param[in] probSize row and column number of the sparse matrix to be generated
+  * @param[in] nilp a Nilpotent object which determines the nilpotent matrix used by SMG2S
+  * @param[in] init a initMat object which determines the way of initialization of matrix, which will be further operated by SMG2S
+  * @param[in] spectrum path and file name of a local file which provides the spectrum
+  * @param[in] comm the working MPI communicator
+  
+  - The distribution of sparse matrix and vector is determined internally by this function. If you can cosider
+  to use your own distribution scheme, please consider other two implementations of SMG2S for non-Hermitian matrix.
+*/  
 template<typename T, typename S>
 parMatrixSparse<T,S> nonherm(S probSize, Nilpotent<S> nilp, initMat<S> init, std::string spectrum, MPI_Comm comm){
     int world_size;
@@ -69,7 +84,15 @@ parMatrixSparse<T,S> nonherm(S probSize, Nilpotent<S> nilp, initMat<S> init, std
     return nonherm(probSize, nilp, init, spec);
 }
 
-
+//! Generating a non-Hermitian sparse matrix using the spectrum stored in a parVector object
+/*!
+  * @param[in] probSize row and column number of the sparse matrix to be generated
+  * @param[in] nilp a Nilpotent object which determines the nilpotent matrix used by SMG2S
+  * @param[in] init a initMat object which determines the way of initialization of matrix, which will be further operated by SMG2S
+  * @param[in] spec a parVector object which stores the given spectrum by users
+  
+  - The distribution of generated matrix across MPI procs is the same as the one of `spec` which provides the spectrum.
+*/ 
 template<typename T, typename S>
 parMatrixSparse<T,S> nonherm(S probSize, Nilpotent<S> nilp, initMat<S> init, parVector<T, S> spec){
 
@@ -91,6 +114,17 @@ parMatrixSparse<T,S> nonherm(S probSize, Nilpotent<S> nilp, initMat<S> init, par
 }
 
 
+//! Generating a non-Hermitian sparse matrix using the spectrum stored in a parVector object and user-provided initial matrix stored in a parMatrixSparse object
+/*!
+  * @param[in] probSize row and column number of the sparse matrix to be generated
+  * @param[in] nilp a Nilpotent object which determines the nilpotent matrix used by SMG2S
+  * @param[in] Am a parMatrixSparse provided by the users as a initial matrix of SMG2S, it can only be any sparse lower-triangular matrix
+  * @param[in] spec a parVector object which stores the given spectrum by users
+  * @param[out] Am for the output, it is overwritten by the generated non-Hermtian matrix
+  
+  - The distribution of generated matrix across MPI procs is the same as the one of `spec` which provides the spectrum.
+  - The distribution scheme of `Am` and `spec` should be the same.
+*/ 
 template<typename T, typename S>
 void nonherm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<T,S> spec){
     int world_size;
@@ -150,7 +184,19 @@ void nonherm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
 
 ///     
         
-
+//! Generating a non-Symmetric sparse matrix using the spectrum stored in local file
+/*!
+  * @param[in] probSize row and column number of the sparse matrix to be generated
+  * @param[in] nilp a Nilpotent object which determines the nilpotent matrix used by SMG2S
+  * @param[in] init a initMat object which determines the way of initialization of matrix, which will be further operated by SMG2S
+  * @param[in] spectrum path and file name of a local file which provides the spectrum
+  * @param[in] comm the working MPI communicator
+  
+  - The distribution of sparse matrix and vector is determined internally by this function. If you can cosider
+  to use your own distribution scheme, please consider other two implementations of SMG2S for non-Hermitian matrix.
+  - It can manage both the case with eigenvalues in real and the case with conjugate eigenvalues. The function will internally check whhich type
+  of spectrum is provided in the local file
+*/  
 template<typename T, typename S>
 parMatrixSparse<T,S> nonsymm(S probSize, Nilpotent<S> nilp, initMat<S> init, std::string spectrum, MPI_Comm comm){
     int world_size;
@@ -200,7 +246,16 @@ parMatrixSparse<T,S> nonsymm(S probSize, Nilpotent<S> nilp, initMat<S> init, std
     
 }
 
-
+//! Generating a non-Symmetric sparse matrix using the spectrum stored in a parVector object
+/*!
+  * @param[in] probSize row and column number of the sparse matrix to be generated
+  * @param[in] nilp a Nilpotent object which determines the nilpotent matrix used by SMG2S
+  * @param[in] init a initMat object which determines the way of initialization of matrix, which will be further operated by SMG2S
+  * @param[in] spec a parVector object which stores the given spectrum by users
+  
+  - The distribution of generated matrix across MPI procs is the same as the one of `spec` which provides the spectrum.
+  - It works only with eigenvalues in real.
+*/ 
 template<typename T, typename S>
 parMatrixSparse<T,S> nonsymm(S probSize, Nilpotent<S> nilp, initMat<S> init, parVector<T, S> spec){
 
@@ -220,7 +275,18 @@ parMatrixSparse<T,S> nonsymm(S probSize, Nilpotent<S> nilp, initMat<S> init, par
     return Am;
 }
 
-
+//! Generating a non-Symmetric sparse matrix using the spectrum stored in a parVector object and user-provided initial matrix stored in a parMatrixSparse object
+/*!
+  * @param[in] probSize row and column number of the sparse matrix to be generated
+  * @param[in] nilp a Nilpotent object which determines the nilpotent matrix used by SMG2S
+  * @param[in] Am a parMatrixSparse provided by the users as a initial matrix of SMG2S, it can only be any sparse lower-triangular matrix
+  * @param[in] spec a parVector object which stores the given spectrum by users
+  * @param[out] Am for the output, it is overwritten by the generated matrix
+  
+  - The distribution of generated matrix across MPI procs is the same as the one of `spec` which provides the spectrum.
+  - The distribution scheme of `Am` and `spec` should be the same.
+  - It works only with eigenvalues in real.  
+*/ 
 template<typename T, typename S>
 void nonsymm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<T,S> spec){
     int world_size;
@@ -279,7 +345,16 @@ void nonsymm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
     
 }
 
-
+//! Generating a non-Symmetric sparse matrix using the spectrum stored in a parVector object
+/*!
+  * @param[in] probSize row and column number of the sparse matrix to be generated
+  * @param[in] nilp a Nilpotent object which determines the nilpotent matrix used by SMG2S
+  * @param[in] init a initMat object which determines the way of initialization of matrix, which will be further operated by SMG2S
+  * @param[in] spec a parVector object which stores the given spectrum by users
+  
+  - The distribution of generated matrix across MPI procs is the same as the one of `spec` which provides the spectrum.
+  - It targets the case with conjugate eigenvalues.
+*/ 
 template<typename T, typename S>
 parMatrixSparse<T,S> nonsymmconj(S probSize, Nilpotent<S> nilp, initMat<S> init, parVector<std::complex<T>, S> spec){
 
@@ -299,7 +374,18 @@ parMatrixSparse<T,S> nonsymmconj(S probSize, Nilpotent<S> nilp, initMat<S> init,
     return Am;
 }
 
-
+//! Generating a non-Symmetric sparse matrix using the spectrum stored in a parVector object and user-provided initial matrix stored in a parMatrixSparse object
+/*!
+  * @param[in] probSize row and column number of the sparse matrix to be generated
+  * @param[in] nilp a Nilpotent object which determines the nilpotent matrix used by SMG2S
+  * @param[in] Am a parMatrixSparse provided by the users as a initial matrix of SMG2S, it can only be any sparse lower-triangular matrix
+  * @param[in] spec a parVector object which stores the given spectrum by users
+  * @param[out] Am for the output, it is overwritten by the generated matrix
+  
+  - The distribution of generated matrix across MPI procs is the same as the one of `spec` which provides the spectrum.
+  - The distribution scheme of `Am` and `spec` should be the same.
+  - It targets the case with conjugate eigenvalues.
+*/ 
 template<typename T, typename S>
 void nonsymmconj(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<std::complex<T>, S> spec){
     int world_size;
@@ -356,4 +442,5 @@ void nonsymmconj(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVec
 
 }
 
+/** @} */ // end of group2
 #endif

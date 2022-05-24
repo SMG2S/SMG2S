@@ -40,6 +40,14 @@ target_link_libraries(smg2s PUBLIC MPI::MPI_CXX)
 ###tests
 add_subdirectory(tests)
 
+
+# Documentation
+option(BUILD_WITH_DOCS "Build the examples" OFF)
+if(BUILD_WITH_DOCS)
+    message(STATUS "Building Documentation of SMG2S")
+    add_subdirectory("./docs")
+endif()
+
 message([STATUS] "Copy the SMG2S include files: ${INSTALL_TO_USE}")
 #install(TARGETS smg2s.exe DESTINATION bin)
 

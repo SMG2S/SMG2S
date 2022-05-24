@@ -26,27 +26,54 @@ SOFTWARE.
 
 #include "utils/MPI_DataType.hpp"
 
+//!  @brief A class which determines the way to distribute a vector across MPI procs.
+/*!
+   * @ingroup group6 
+  - This class is to create a mapping from a fixed-size vector to multiple MPI procs in 1D grid.
+  - This class can also be used to create more distributed vectors and sparse matrices following
+  the same way.
+  - For each MPI proc, a piece of vector with indexing `[lower_bound, upper_bound)` is allocated.
+
+  @tparam S type of integer to describes the dimension of vector to be generated. 
+*/
 template<typename S>
 class parVectorMap
 {
 
     private:
+    //! The working MPI Communicator
 	MPI_Comm  	comm;
+	//! number of MPI procs within the working MPI communicator parVectorMap#comm
 	int	  	nproc;
+	//! rank of each MPI procs within the working MPI communicator parVectorMap#comm
 	int	  	rank;
+	//! the smallest index of a distributed vector on each MPI proc
 	S	  	lower_bound;
+	//! `upper_bound-1 = `  the largest index of a distributed vector on each MPI proc 
 	S	  	upper_bound;
+	//! The number of elements of vector stored on each MPI proc
 	S	  	local_size;
+	//! Global size of this distributed vector
 	S     	   	global_size;
-	std::vector<S>	lprocbound_map, uprocbound_map;
+	//! A `std::vector` which stores the parVectorMap#lower_bound of all MPI procs together
+	std::vector<S>	lprocbound_map;
+	//! A `std::vector` which stores the parVectorMap#upper_bound of all MPI procs together	
+	std::vector<S> uprocbound_map;
 
     public:
 	//constructor
 	parVectorMap();
+    //! A constructor of `parVectorMap`. 
+    /*!
+      * @param[in] ncomm the working MPI Communicator
+      * @param[in] lbound the smallest index of a distributed vector on each MPI proc
+      * @param[in] ubound `ubound-1 = `  the largest index of a distributed vector on each MPI proc 
+    */		
 	parVectorMap(MPI_Comm ncomm, S lbound, S ubound);
-	//destructor
+	//! A destructor of `parVectorMap`
 	~parVectorMap();
 
+	//! Compare if this map is identical to another one `map1`
 	bool operator == (const parVectorMap &map1){
 	    bool ifsamecom;
 	    int flag;
@@ -60,6 +87,7 @@ class parVectorMap
 	    return (ifsamecom && nproc == map1.nproc && rank == map1.rank && lower_bound == map1.lower_bound && upper_bound == map1.upper_bound && local_size == map1.local_size && global_size == map1.global_size);
 	};
 
+	//! Compare if this map is different with another one `map1`
 	bool operator != (const parVectorMap &map1){
 	    bool ifdiffcom;
 	    int flag;
@@ -73,18 +101,37 @@ class parVectorMap
 	    return (ifdiffcom || nproc != map1.nproc || rank != map1.rank || lower_bound != map1.lower_bound || upper_bound != map1.upper_bound || local_size != map1.local_size || global_size != map1.global_size);
 	};
 
-	MPI_Comm GetCurrentComm(){return comm;};
+	//! Convert a index of local vector on each MPI proc into its index in the global distributed vector
+    /*!
+      * @param[in] local_index the index local vector to be converted
 
+      - Attention, this function is in distributed manner, each MPI proc can only convert the local index of vector stored on itself.
+    */		
 	S Loc2Glob(S local_index);
+	//! Convert a index of global vector into its index in the local vector on each MPI proc.
+    /*!
+      * @param[in] global_index the index global vector to be converted
+
+      - Attention, this function is in distributed manner, each MPI proc can only convert the global index of vector in the range `[lower_bound, upper_bound)`.
+    */		
 	S Glob2Loc(S global_index);
 
 	//get
+	//! Return parVectorMap<S>#comm
+	MPI_Comm GetCurrentComm(){return comm;};
+	//! Return parVectorMap<S>#rank
 	int GetRank(){return rank;};
+	//! Return parVectorMap<S>#lower_bound
 	S GetLowerBound(){return lower_bound;};
+	//! Return parVectorMap<S>#upper_bound	
 	S GetUpperBound(){return upper_bound;};
+	//! Return parVectorMap<S>#local_size		
 	S GetLocalSize(){return local_size;};
+	//! Return parVectorMap<S>#global_size		
 	S GetGlobalSize(){return global_size;};
+	//! Return parVectorMap<S>#lprocbound_map	
 	std::vector<S> GetLBoundMap(){return lprocbound_map;};
+	//! Return parVectorMap<S>#uprocbound_map		
 	std::vector<S> GetUBoundMap(){return uprocbound_map;};
 
 };

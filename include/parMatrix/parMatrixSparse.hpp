@@ -46,90 +46,277 @@ SOFTWARE.
 #define MIN(a,b) (((a)<(b))?(a):(b))
 #define MAX(a,b) (((a)>(b))?(a):(b))
 
+//!  A class which defines a sparse matrix distributed across 1D MPI grid.
+/*!
+ * @ingroup group6 
+  - This class can be constructed with a given parVector with the same distribution scheme.
+  - This class can be constructed with a distribution scheme by a given parVectorMap object.
+
+  @tparam T describes the scalar types of the entries of a sparse matrix.   
+  @tparam S type of integer to describes the dimension of vector to be generated. 
+*/
 template<typename T, typename S>
 class parMatrixSparse
 {
     private:
+    //! An array of `std::map` in which each map stores the column index and related non-zero entry value of each row.
 	std::map<S, T> *dynmat_loc;
 
 	//size of local matrix
-	S	ncols, nrows;
+	//! number of columns of local matrix on each MPI proc
+	S	ncols;
+	//! number of rows of local matrix on each MPI proc
+	S   nrows;
 	//number of non-zeros in local
+	//! number of non-zero entries of local matrix on each MPI proc
 	S	nnz_loc;
-
+	//! the parVectorMap object used to distribute the global matrix across 1D MPI grid
 	parVectorMap<S>	index_map;
-
-	S	lower_b, upper_b;
-
+	//! the smallest index of row of a distributed matrix on each MPI proc
+	S	lower_b;
+	//! upper_b-1 = the largest index of row of a distributed matrix on each MPI proc
+	S   upper_b;
+	//! the working MPI communicator
 	MPI_Comm comm;
 
 	// mpi size and rank
-	int ProcID, nProcs;
+	//! rank of each MPI procs within the working MPI communicator	
+	int ProcID;
+	//! number of MPI procs within the working MPI communicator
+	int nProcs;
 
     public:
     	parMatrixSparse();
+	    //! A constructor of `parMatrixSparse`. 
+	    /*!
+	      * @param[in] vec a given parVector, a parMatrixSparse object is constructed with the same distribution scheme of `vec`
+
+	      - parMatrixSparse::dynmat_loc is not allocated. 
+	    */	    	
     	parMatrixSparse(parVector<T,S> vec);
+	    //! A constructor of `parMatrixSparse`. 
+	    /*!
+	      * @param[in] map the distribution scheme determined by this object of type parVectorMap
+
+	      - parMatrixSparse::dynmat_loc is not allocated. 
+	    */	    	
     	parMatrixSparse(parVectorMap<S> map);
 
     	//get
+    	//! Return the number of rows of local matrix on each MPI proc
     	S GetNRows(){return nrows;};
+    	//! Return the number of columns of local matrix on each MPI proc    	
     	S GetNCols(){return ncols;};
+    	//! Return the number of non-zeros entries of local matrix on each MPI proc    	    	
     	S GetNNzLoc(){return nnz_loc;};
+    	//! Return the parVectorMap object used to distribute sparse Matrix 
     	parVectorMap<S> GetMap(){return index_map;};
+    	//! Return parMatrixSparse#lower_b
     	S GetLowerBound(){return lower_b;};
+    	//! Return parMatrixSparse#upper_b    	
     	S GetUpperBound(){return upper_b;};
+    	//! Return parMatrixSparse#comm    	
     	MPI_Comm GetComm(){return comm;};
+    	//! Return parMatrixSparse#ProcID    	    	
     	int GetProcId(){return ProcID;};
+    	//! Return parMatrixSparse#nProcs    	    	    	
     	int GetNProcs(){return nProcs;};
 
-	std::map<S, T> *GetDynMatLoc(){return dynmat_loc;};
+    	//! Return parMatrixSparse#dynmat_loc 
+		std::map<S, T> *GetDynMatLoc(){return dynmat_loc;};
 
-	//set value
-	void	SetValueLocal(S row, S col, T value);
-	void	SetValuesLocal(S nindex, S *rows, S *cols, T *values);
-	void 	SetValue(S row, S col, T value);
-	void    SetDiagonal(parVector<T,S> diag);
+		//set value
+		//! Set a value to a distributed sparse matrix with a given local index on each MPI proc
+	    /*!
+	      * @param[in] row the local index of row
+	      * @param[in] col the local index of column
+	      * @param[in] value the scalar to be set
+	    */			
+		void	SetValueLocal(S row, S col, T value);
+		//set value
+		//! Set multiple values to a distributed sparse matrix with given multiple local indices on each MPI proc
+	    /*!
+	      * @param[in] nindex number of values to be set
+	      * @param[in] rows an array storing multiple local indices of row
+	      * @param[in] cols an array storing multiple local indices of column
+	      * @param[in] values an array storing multiple scalars to be set
+	    */			
+		void	SetValuesLocal(S nindex, S *rows, S *cols, T *values);
+		//set value
+		//! Set a value to a distributed sparse matrix with a given global index on each MPI proc
+	    /*!
+	      * @param[in] row the global index of row
+	      * @param[in] col the global index of column
+	      * @param[in] value the scalar to be set
+	    */			
+		void 	SetValue(S row, S col, T value);
+		//! Set the diagonal of a distributed sparse matrix with a given parVector object
+	    /*!
+	      * @param[in] diag a given parVector object to be set on the diagonal
+	    */			
+		void    SetDiagonal(parVector<T,S> diag);
 
-	//add value
-	void    AddValueLocal(S row, S col, T value);
-	void 	AddValue(S row, S col, T value);
+		//add value
+		//! Add a value to an entry of a distributed sparse matrix with a given local index on each MPI proc
+	    /*!
+	      * @param[in] row the local index of row
+	      * @param[in] col the local index of column
+	      * @param[in] value the scalar to be added
+	    */		
+		void    AddValueLocal(S row, S col, T value);
+		//! Add a value to an entry of a distributed sparse matrix with a given global index on each MPI proc
+	    /*!
+	      * @param[in] row the global index of row
+	      * @param[in] col the global index of column
+	      * @param[in] value the scalar to be added
+	    */			
+		void 	AddValue(S row, S col, T value);
 
-	//get value
-	T 	GetValueLocal(S row, S col);
-	T 	GetValue(S row, S col);
+		//get value
+		//! Return a value of an entry of a distributed sparse matrix with a given local index on each MPI proc
+	    /*!
+	      * @param[in] row the local index of row
+	      * @param[in] col the local index of column
+	    */			
+		T 	GetValueLocal(S row, S col);
+		//! Return a value to an entry of a distributed sparse matrix with a given global index on each MPI proc
+	    /*!
+	      * @param[in] row the global index of row
+	      * @param[in] col the global index of column
+	    */				
+		T 	GetValue(S row, S col);
 
-	void	MatScale(T scale);
-	void    MatAXPY(parMatrixSparse<T,S> X, T scale);
-	void    MatAYPX(parMatrixSparse<T,S> X, T scale);
+		//! Perform an operation `A = scale * A`, in which `scale` is a scalar
+	    /*!
+	      * @param[in] scale the scalar to be multiplied on the distributed sparse matrix
+	    */			
+		void	MatScale(T scale);
+		//! Perform `A = A + scale * X`
+	    /*!
+	      * @param[in] X another parMatrixSparse object with a same distribution scheme
+	      * @param[in] scale the scalar to be multiplied on `X`
+	    */			
+		void    MatAXPY(parMatrixSparse<T,S> X, T scale);
+		//! Perform `A = scale * A + X`
+	    /*!
+	      * @param[in] X another parMatrixSparse object with a same distribution scheme
+	      * @param[in] scale the scalar to be multiplied on `A`
+	    */			
+		void    MatAYPX(parMatrixSparse<T,S> X, T scale);
 
-	//init matrix lower part of matrix 
-	void	initMat(S diag_l, S diag_u, Base<T> scale, T shift, Base<T> sparsity );
-	void	initMat(S diag_l, S diag_u);
-	
-	void setSpecNonHerm(parVector<T,S> spectrum);
-	void setSpecNonSymm(parVector<T,S> spectrum);
-	void setSpecNonSymmCmplx(parVector<std::complex<Base<T>>,S> spectrum);
+		//init matrix lower part of matrix 
+		//! filling the lower part of matrix between diagonal of offset `diag_l` and diagonal of offset `diag_u` with random values `scale * rnd + shift` where `rnd` is a randomly generated value between `0` and `1`
+	    /*!
+	      * @param[in] diag_l the offset of lower diagonal 
+	      * @param[in] diag_u the offset of lower diagonal 
+	      * @param[in] scale a scalar to be multiplied on the randomly generated value 
+	      * @param[in] shift a scalar to be added on the randomly generated value 
+	      * @param[in] sparsity the probability that a entry in the range set to be zero
+	    */			
+		void	initMat(S diag_l, S diag_u, Base<T> scale, T shift, Base<T> sparsity );
+		//! filling the lower part of matrix between diagonal of offset `diag_l` and diagonal of offset `diag_u` with random values `rnd`, which is a randomly generated value between `0` and `1`
+	    /*!
+	      * @param[in] diag_l the offset of lower diagonal 
+	      * @param[in] diag_u the offset of lower diagonal 
+	    */			
+		void	initMat(S diag_l, S diag_u);
+	   	//! Set a given spectrum onto a parMatrixSparse object for constructing a non-Hermitian matrix
+		/*!
+	      * @param[in] spectrum a parVector object which stores the given spectrum in complex scalars
 
-	void    updateNnz();
+		  - This operation is naturally in parallel since the spectrum is stored in a parVector object
 
-	void    copy(parMatrixSparse<T,S> X);
+	      - Attention, this member function works only with complex scalar
+		*/		
+		void setSpecNonHerm(parVector<T,S> spectrum);
+	   	//! Set a given spectrum (all eigenvalues are in real scalars) onto a parMatrixSparse object for constructing a non-Symmetric matrix
+		/*!
+	      * @param[in] spectrum a parVector object which stores the given spectrum in real scalars
 
-	void rmZeros();
+		  - This operation is naturally in parallel since the spectrum is stored in a parVector object
+		  
+	      - Attention, this member function works only with real scalar
+		*/			
+		void setSpecNonSymm(parVector<T,S> spectrum);
+	   	//! Set a given spectrum (all eigenvalues can be in real scalars or appear as pairs of conjugate complex scalars) onto a parMatrixSparse object for constructing a non-Symmetric matrix
+		/*!
+	      * @param[in] spectrum a parVector object which stores the given spectrum with conjugate eigenvalues
 
-   	//matrix multiplies a nilpotent matrix
-	parMatrixSparse<T,S>	MA(Nilpotent<S> nilp);
+		  - This operation is naturally in parallel since the spectrum is stored in a parVector object
+		  
+	      - Attention, for each conjugate pairs of eigenvalues, they should be placed one after another, they cannot be placed in a random order.
+	        Before setting the spectrum to the matrix, the spectrum will be checked if it satisfies this condition
+		*/			
+		void setSpecNonSymmCmplx(parVector<std::complex<Base<T>>,S> spectrum);
 
-   	//a nilpotent matrix multiplies a matrix
-	parMatrixSparse<T,S>	AM(Nilpotent<S> nilp);
+		//! Explicitly re-compute the number of nnz on each MPI proc
+		/*!
+		  - This member function is introduced in case any matrix operation would failed to update the number of nnz 
+		*/
+		void    updateNnz();
 
+		//! Duplicate from another parMatrixSparse object
+		/*!
+	      * @param[in] X another parMatrixSparse object to be duplicated with a same distribution scheme
+		*/
+		void    copy(parMatrixSparse<T,S> X);
+		//! Explicitly remove all the zeros of parMatrixSparse object
+		/*!
+		  - This member function is introduced in case any matrix operation would introduce some (explicit) zeros.
+		*/
+		void rmZeros();
 
-	void	ZeroEntries();
-	MatrixCSR<T,S>	ConvertToCSR();
+	   	//matrix multiplies a nilpotent matrix
+	   	//! Perform `M*A`, in which `A` is a nilpotent matrix
+		/*!
+	      * @param[in] nilp a Nilpotent<S> object which determines a nilpotent matrix
+		*/	   	
+		parMatrixSparse<T,S>	MA(Nilpotent<S> nilp);
 
+	   	//a nilpotent matrix multiplies a matrix
+	   	//! Perform `A*M`, in which `A` is a nilpotent matrix
+		/*!
+	      * @param[in] nilp a Nilpotent<S> object which determines a nilpotent matrix
+		*/		   	
+		parMatrixSparse<T,S>	AM(Nilpotent<S> nilp);
+
+		//! Make all the entries a sparse matrix to be zeros, but keep the sparsity structure as it is
+		void	ZeroEntries();
+
+		//! Convert a parMatrixSparse with dynamic memory into a distributed CSR matrix
+		/*!
+		  - Attention, after the converting, any operations on the matrix can be implicity updated on the CSR matrix
+		*/		
+		MatrixCSR<T,S>	ConvertToCSR();
+
+		//! Display multiple information of a parMatrixSparse object
+		/*!
+		  - number of rows of local matrix
+		  - number of columns of local matrix
+		  - number of nnz of local matrix
+		  - parMatrixSparse#lower_b
+		  - parMatrixSparse#upper_b
+		*/		
     	void show();
+		//! Print a parMatrixSparse object in a distributed COO format
+		/*!
+		  - This is a distributed function that each MPI proc can only display the piece of local matrix on itself.
+		*/	    	
     	void MatView();
 
+    	//! A parallel IO to write a parMatrixSparse object into a file of MatrixMarket format
+   		/*!
+	      * @param[in] file_name the path and file name to write into
+
+	      - Attention, this method works only of sparse matrix with real scalar (`double`, `float`...)
+		*/ 	
     	void writeToMatrixMarket(std::string file_name);
+    	//! A parallel IO to write a parMatrixSparse object with complex scalar into a file of MatrixMarket format
+   		/*!
+	      * @param[in] file_name the path and file name to write into
+
+	      - Attention, this method works only of sparse matrix with scalar scalar (std::complex<double>, std::complex<float>...)
+		*/ 	    	
     	void writeToMatrixMarketCmplx(std::string file_name);
 
 };
@@ -863,9 +1050,7 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::writeToMatrixMarket(std::string file_name){
-	// 1. generate header
-        // 2. generate output data
-        // 3. perform write
+
     std::string header;
     std::string data;
 
@@ -957,9 +1142,7 @@ void parMatrixSparse<T,S>::writeToMatrixMarket(std::string file_name){
 
 template<typename T,typename S>
 void parMatrixSparse<T,S>::writeToMatrixMarketCmplx(std::string file_name){
-	// 1. generate header
-        // 2. generate output data
-        // 3. perform write
+
     std::string header;
     std::string data;
 

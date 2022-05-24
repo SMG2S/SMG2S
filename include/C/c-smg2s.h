@@ -3,7 +3,7 @@ MIT License
 Copyright (c) 2019 Xinzhe WU @ Maison de la Simulation, France
 Copyright (c) 2019-2022, Xinzhe Wu @ Simulation and Data Laboratory Quantum 
 									 Materials,  Forschungszentrum Juelich GmbH.
-									 
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -31,47 +31,83 @@ SOFTWARE.
 extern "C"{
 #endif
 
+/** @defgroup group5 C interface
+ *  This module provides the C interface of SMG2S.
+ *  @{
+ */
+//!  @brief A struct determines a complex number with double precision.
+/*!
+	This struct is only userful for the C interface of SMG2S. 
+*/
 struct dcomplex{
+	/*! The real part of a complex scalar */
 	double real;
+	/*! The imaginary part of a complex scalar */	
 	double imag;
 };
 
+/*! Creates a type name for dcomplex */ 
 typedef struct dcomplex dcomplex_t;
 
+//!  @brief A struct determines a complex number with single precision.
+/*!
+	This struct is only userful for the C interface of SMG2S. 
+*/
 struct fcomplex{
+	/*! The real part of a complex scalar */	
 	float real;
+	/*! The imaginary part of a complex scalar */		
 	float imag;
 };
 
+/*! Creates a type name for fcomplex */ 
 typedef struct fcomplex fcomplex_t;
 
 //interface of classes and structs
 /*Nilpotency Matrix C Wrapper*/
 // int
+//! A struct which provides a C-interface for Nilpotent<S> with `S=int`
 struct nilp;
+//! Creates a type name for nilp which is a C-interface for Nilpotent with `S=int` 
 typedef struct nilp nilp_t;
 
+//! C-interface of Nilpotent#Nilpotent(S nbOne, S size)
 nilp_t *newNilp_1(int nbOne, int size);
+//! C-interface of Nilpotent#Nilpotent(S nbOne, S diag, S size)
 nilp_t *newNilp_2(int nbOne, int diag, int size);
+//! C-interface of Nilpotent#Nilpotent(std::vector<S> nilpvec, S size)
 nilp_t *newNilp_3(int *nilpvec, int size);
+//! C-interface of Nilpotent#Nilpotent(std::vector<S> nilpvec, S diag, S size)
 nilp_t *newNilp_4(int *nilpvec, int diag, int size);
+//! Destory a nilp struct 
 void nilp_destory(nilp_t *nilp);
+//! C-interface of Nilpotent#getDegree 
 int nilp_getDegree(nilp_t *nilp);
+//! C-interface of Nilpotent#getIndOfZeros 
 int* nilp_getIndOfZeros(nilp_t *nilp);
+//! C-interface of Nilpotent#show 
 void nilp_show(nilp_t *nilp);
 
 
 // long int
 struct nilpL;
+//! Creates a type name for nilp which is a C-interface for Nilpotent with `S=long` 
 typedef struct nilpL nilpL_t;
-
+//! C-interface of Nilpotent#Nilpotent(S nbOne, S size)
 nilpL_t *newNilpL_1(long nbOne, long size);
+//! C-interface of Nilpotent#Nilpotent(S nbOne, S diag, S size)
 nilpL_t *newNilpL_2(long nbOne, long diag, long size);
+//! C-interface of Nilpotent#Nilpotent(std::vector<S> nilpvec, S size)
 nilpL_t *newNilpL_3(long *nilpvec, long size);
+//! C-interface of Nilpotent#Nilpotent(std::vector<S> nilpvec, S diag, S size)
 nilpL_t *newNilpL_4(long *nilpvec, long diag, long size);
+//! Destory a nilp struct 
 void nilpL_destory(nilpL_t *nilp);
+//! C-interface of Nilpotent#getDegree 
 long nilpL_getDegree(nilpL_t *nilp);
+//! C-interface of Nilpotent#getIndOfZeros 
 long* nilpL_getIndOfZeros(nilpL_t *nilp);
+//! C-interface of Nilpotent#show 
 void nilpL_show(nilpL_t *nilp);
 
 
@@ -79,63 +115,103 @@ void nilpL_show(nilpL_t *nilp);
 /*init matrix struct*/
 //int
 struct initMatrix;
+//! Creates a type name for initMatrix which is a C-interface for initMat with `S=int` 
 typedef struct initMatrix initMatrix_t;
-
+//! C-interface of initMat#initMat()
 initMatrix_t *newInitMatrix_1();
+//! C-interface of initMat#initMat(S diagl, S diagu)
 initMatrix_t *newInitMatrix_2(int diagl, int diagu);
+//! C-interface of initMat#initMat(S diagl, S diagu, double Sparsity)
 initMatrix_t *newInitMatrix_3(int diagl, int diagu, double Sparsity);
+//! C-interface of initMat#initMat(S diagl, S diagu, double Scale, double Sparsity)
 initMatrix_t *newInitMatrix_4(int diagl, int diagu, double Scale, double Sparsity);
+//! C-interface of initMat#show()
 void initMatrix_show(initMatrix_t *init);
+//! Destory a initMatrix struct 
 void initMatrix_destory(initMatrix_t *init);
 
 //long
 struct initMatrixL;
+//! Creates a type name for initMatrix which is a C-interface for initMat with `S=long` 
 typedef struct initMatrixL initMatrixL_t;
-
+//! C-interface of initMat#initMat()
 initMatrixL_t *newInitMatrixL_1();
+//! C-interface of initMat#initMat(S diagl, S diagu)
 initMatrixL_t *newInitMatrixL_2(long diagl, long diagu);
+//! C-interface of initMat#initMat(S diagl, S diagu, double Sparsity)
 initMatrixL_t *newInitMatrixL_3(long diagl, long diagu, double Sparsity);
+//! C-interface of initMat#initMat(S diagl, S diagu, double Scale, double Sparsity)
 initMatrixL_t *newInitMatrixL_4(long diagl, long diagu, double Scale, double Sparsity);
+//! C-interface of initMat#show()
 void initMatrixL_show(initMatrixL_t *init);
+//! Destory a initMatrixL struct 
 void initMatrixL_destory(initMatrixL_t *init);
 
 
 /*parVectorMap*/
 struct parVecMap;
+//! Creates a type name for parVecMap which is a C-interface for parVectorMap with `S=int` 
 typedef struct parVecMap parVecMap_t;
+//! C-interfance of parVectorMap#parVectorMap(MPI_Comm ncomm, S lbound, S ubound)
 parVecMap_t *newParVecMap(MPI_Comm ncomm, int lbound, int ubound);
+//! C-interfance of parVectorMap#GetCurrentComm()
 MPI_Comm parVecMapGetComm(parVecMap_t *pv);
+//! C-interfance of parVectorMap#Loc2Glob(S local_index)
 int parVecMapL2G(parVecMap_t *pv, int local_index);
+//! C-interfance of parVectorMap#Glob2Loc(S global_index)
 int parVecMapG2L(parVecMap_t *pv, int global_index);
+//! C-interfance of parVectorMap#GetLocalSize()
 int parVecMapGetLocSize(parVecMap_t *pv);
+//! C-interfance of parVectorMap#GetGlobalSize()
 int parVecMapGetGlobSize(parVecMap_t *pv);
+//! Destory a parVecMap struct 
 void parVecMap_destory(parVecMap_t *pv);
 
 struct parVecMapL;
+//! Creates a type name for parVecMap which is a C-interface for parVectorMap with `S=long` typedef struct parVecMapL parVecMapL_t;
 typedef struct parVecMapL parVecMapL_t;
+//! C-interfance of parVectorMap#parVectorMap(MPI_Comm ncomm, S lbound, S ubound)
 parVecMapL_t *newParVecMapL(MPI_Comm ncomm, long lbound, long ubound);
+//! C-interfance of parVectorMap#GetCurrentComm()
 MPI_Comm parVecMapLGetComm(parVecMapL_t *pv);
+//! C-interfance of parVectorMap#Loc2Glob(S local_index)
 long parVecMapLL2G(parVecMapL_t *pv, long local_index);
+//! C-interfance of parVectorMap#Glob2Loc(S global_index)
 long parVecMapLG2L(parVecMapL_t *pv, long global_index);
+//! C-interfance of parVectorMap#GetLocalSize()
 long parVecMapLGetLocSize(parVecMapL_t *pv);
+//! C-interfance of parVectorMap#GetGlobalSize()
 long parVecMapLGetGlobSize(parVecMapL_t *pv);
+//! Destory a parVecMapL struct 
 void parVecMapL_destory(parVecMapL_t *pv);
 
 
 /*parVector*/
 //double int
 struct ds_parVec;
+//! Creates a type name for ds_parVec which is a C-interface for parVector with `T=double` and `S=int` 
 typedef struct ds_parVec ds_parVec_t;
+//! C-interface of parVector#parVector(MPI_Comm ncomm, S lbound, S ubound)
 ds_parVec_t *new_ds_ParVec_1(MPI_Comm ncomm, int lbound, int ubound);
+//! C-interface of parVector#parVector(parVectorMap<S> map)
 ds_parVec_t *new_ds_ParVec_2(parVecMap_t *map);
+//! Destory the struct
 void ds_parVec_destory(ds_parVec_t *pv);
+//! C-interface of parVector#GetLowerBound()
 int ds_parVecGetLowerBound(ds_parVec_t *pv);
-int ds_parVecGetUpperBound(ds_parVec_t *pv);
+//! C-interface of parVector#GetUpperBound()
+int ds_parVecGetUpperBound(ds_parVec_t *pv); 
+//! C-interface of parVector#GetLocalSize()
 int ds_parVecGetLocSize(ds_parVec_t *pv);
+//! C-interface of parVector#GetGlobalSize()
 int ds_parVecGetGlobSize(ds_parVec_t *pv);
+//! C-interface of parVector#GetValue(S index)
 double ds_parVecGetVal(ds_parVec_t *pv, int index);
+//! C-interface of parVector#GetValueLocal(S lindex)
 double ds_parVecGetValLoc(ds_parVec_t *pv, int lindex);
+//! C-interface of parVector#GetArray()
 double *ds_parVecGetArray(ds_parVec_t *pv);
+
 MPI_Comm ds_parVecGetComm(ds_parVec_t *pv);
 int ds_parVecL2G(ds_parVec_t *pv, int local_index);
 int ds_parVecG2L(ds_parVec_t *pv, int global_index);
@@ -150,17 +226,29 @@ void ds_parVecReadExtVec(ds_parVec_t *pv, char* spectrum);
 
 //double long
 struct dl_parVec;
+//! Creates a type name for dl_parVec which is a C-interface for parVector with `T=double` and `S=long` 
 typedef struct dl_parVec dl_parVec_t;
+//! C-interface of parVector#parVector(MPI_Comm ncomm, S lbound, S ubound)
 dl_parVec_t *new_dl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound);
+//! C-interface of parVector#parVector(parVectorMap<S> map)
 dl_parVec_t *new_dl_ParVec_2(parVecMap_t *map);
+//! Destory the struct
 void dl_parVec_destory(dl_parVec_t *pv);
+//! C-interface of parVector#GetLowerBound()
 long dl_parVecGetLowerBound(dl_parVec_t *pv);
-long dl_parVecGetUpperBound(dl_parVec_t *pv);
+//! C-interface of parVector#GetUpperBound()
+long dl_parVecGetUpperBound(dl_parVec_t *pv) ;
+//! C-interface of parVector#GetLocalSize()
 long dl_parVecGetLocSize(dl_parVec_t *pv);
+//! C-interface of parVector#GetGlobalSize()
 long dl_parVecGetGlobSize(dl_parVec_t *pv);
+//! C-interface of parVector#GetValue(S index)
 double dl_parVecGetVal(dl_parVec_t *pv, long index);
+//! C-interface of parVector#GetValueLocal(S lindex)
 double dl_parVecGetValLoc(dl_parVec_t *pv, long lindex);
+//! C-interface of parVector#GetArray()
 double *dl_parVecGetArray(dl_parVec_t *pv);
+
 MPI_Comm dl_parVecGetComm(dl_parVec_t *pv);
 long dl_parVecL2G(dl_parVec_t *pv, long local_index);
 long dl_parVecG2L(dl_parVec_t *pv, long global_index);
@@ -175,17 +263,29 @@ void dl_parVecReadExtVec(dl_parVec_t *pv, char* spectrum);
 
 //float int
 struct ss_parVec;
+//! Creates a type name for ss_parVec which is a C-interface for parVector with `T=float` and `S=int` 
 typedef struct ss_parVec ss_parVec_t;
+//! C-interface of parVector#parVector(MPI_Comm ncomm, S lbound, S ubound)
 ss_parVec_t *new_ss_ParVec_1(MPI_Comm ncomm, int lbound, int ubound);
+//! C-interface of parVector#parVector(parVectorMap<S> map)
 ss_parVec_t *new_ss_ParVec_2(parVecMap_t *map);
+//! Destory the struct
 void ss_parVec_destory(ss_parVec_t *pv);
+//! C-interface of parVector#GetLowerBound()
 int ss_parVecGetLowerBound(ss_parVec_t *pv);
-int ss_parVecGetUpperBound(ss_parVec_t *pv);
+//! C-interface of parVector#GetUpperBound()
+int ss_parVecGetUpperBound(ss_parVec_t *pv); 
+//! C-interface of parVector#GetLocalSize()
 int ss_parVecGetLocSize(ss_parVec_t *pv);
+//! C-interface of parVector#GetGlobalSize()
 int ss_parVecGetGlobSize(ss_parVec_t *pv);
+//! C-interface of parVector#GetValue(S index)
 float ss_parVecGetVal(ss_parVec_t *pv, int index);
+//! C-interface of parVector#GetValueLocal(S lindex)
 float ss_parVecGetValLoc(ss_parVec_t *pv, int lindex);
+//! C-interface of parVector#GetArray()
 float *ss_parVecGetArray(ss_parVec_t *pv);
+
 MPI_Comm ss_parVecGetComm(ss_parVec_t *pv);
 int ss_parVecL2G(ss_parVec_t *pv, int local_index);
 int ss_parVecG2L(ss_parVec_t *pv, int global_index);
@@ -201,17 +301,29 @@ void ss_parVecReadExtVec(ss_parVec_t *pv, char* spectrum);
 
 //float long
 struct sl_parVec;
+//! Creates a type name for sl_parVec which is a C-interface for parVector with `T=float` and `S=long` 
 typedef struct sl_parVec sl_parVec_t;
+//! C-interface of parVector#parVector(MPI_Comm ncomm, S lbound, S ubound)
 sl_parVec_t *new_sl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound);
+//! C-interface of parVector#parVector(parVectorMap<S> map)
 sl_parVec_t *new_sl_ParVec_2(parVecMap_t *map);
+//! Destory the struct
 void sl_parVec_destory(sl_parVec_t *pv);
+//! C-interface of parVector#GetLowerBound()
 long sl_parVecGetLowerBound(sl_parVec_t *pv);
-long sl_parVecGetUpperBound(sl_parVec_t *pv);
+//! C-interface of parVector#GetUpperBound()
+long sl_parVecGetUpperBound(sl_parVec_t *pv) ;
+//! C-interface of parVector#GetLocalSize()
 long sl_parVecGetLocSize(sl_parVec_t *pv);
+//! C-interface of parVector#GetGlobalSize()
 long sl_parVecGetGlobSize(sl_parVec_t *pv);
+//! C-interface of parVector#GetValue(S index)
 float sl_parVecGetVal(sl_parVec_t *pv, long index);
+//! C-interface of parVector#GetValueLocal(S lindex)
 float sl_parVecGetValLoc(sl_parVec_t *pv, long lindex);
+//! C-interface of parVector#GetArray()
 float *sl_parVecGetArray(sl_parVec_t *pv);
+
 MPI_Comm sl_parVecGetComm(sl_parVec_t *pv);
 long sl_parVecL2G(sl_parVec_t *pv, long local_index);
 long sl_parVecG2L(sl_parVec_t *pv, long global_index);
@@ -227,17 +339,29 @@ void sl_parVecReadExtVec(sl_parVec_t *pv, char* spectrum);
 
 //double complex int
 struct zs_parVec;
+//! Creates a type name for zs_parVec which is a C-interface for parVector with `T=std::complex<double>` and `S=int` 
 typedef struct zs_parVec zs_parVec_t;
+//! C-interface of parVector#parVector(MPI_Comm ncomm, S lbound, S ubound)
 zs_parVec_t *new_zs_ParVec_1(MPI_Comm ncomm, int lbound, int ubound);
+//! C-interface of parVector#parVector(parVectorMap<S> map)
 zs_parVec_t *new_zs_ParVec_2(parVecMap_t *map);
+//! Destory the struct
 void zs_parVec_destory(zs_parVec_t *pv);
+//! C-interface of parVector#GetLowerBound()
 int zs_parVecGetLowerBound(zs_parVec_t *pv);
-int zs_parVecGetUpperBound(zs_parVec_t *pv);
+//! C-interface of parVector#GetUpperBound()
+int zs_parVecGetUpperBound(zs_parVec_t *pv); 
+//! C-interface of parVector#GetLocalSize()
 int zs_parVecGetLocSize(zs_parVec_t *pv);
+//! C-interface of parVector#GetGlobalSize()
 int zs_parVecGetGlobSize(zs_parVec_t *pv);
+//! C-interface of parVector#GetValue(S index)
 dcomplex_t zs_parVecGetVal(zs_parVec_t *pv, int index);
+//! C-interface of parVector#GetValueLocal(S lindex)
 dcomplex_t zs_parVecGetValLoc(zs_parVec_t *pv, int lindex);
+//! C-interface of parVector#GetArray()
 dcomplex_t *zs_parVecGetArray(zs_parVec_t *pv);
+
 MPI_Comm zs_parVecGetComm(zs_parVec_t *pv);
 int zs_parVecL2G(zs_parVec_t *pv, int local_index);
 int zs_parVecG2L(zs_parVec_t *pv, int global_index);
@@ -253,17 +377,29 @@ void zs_parVecReadExtVec(zs_parVec_t *pv, char* spectrum);
 
 //double complex long
 struct zl_parVec;
+//! Creates a type name for zl_parVec which is a C-interface for parVector with `T=std::complex<double>` and `S=long` 
 typedef struct zl_parVec zl_parVec_t;
+//! C-interface of parVector#parVector(MPI_Comm ncomm, S lbound, S ubound)
 zl_parVec_t *new_zl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound);
+//! C-interface of parVector#parVector(parVectorMap<S> map)
 zl_parVec_t *new_zl_ParVec_2(parVecMap_t *map);
+//! Destory the struct
 void zl_parVec_destory(zl_parVec_t *pv);
+//! C-interface of parVector#GetLowerBound()
 long zl_parVecGetLowerBound(zl_parVec_t *pv);
-long zl_parVecGetUpperBound(zl_parVec_t *pv);
+//! C-interface of parVector#GetUpperBound()
+long zl_parVecGetUpperBound(zl_parVec_t *pv) ;
+//! C-interface of parVector#GetLocalSize()
 long zl_parVecGetLocSize(zl_parVec_t *pv);
+//! C-interface of parVector#GetGlobalSize()
 long zl_parVecGetGlobSize(zl_parVec_t *pv);
+//! C-interface of parVector#GetValue(S index)
 dcomplex_t zl_parVecGetVal(zl_parVec_t *pv, long index);
+//! C-interface of parVector#GetValueLocal(S lindex)
 dcomplex_t zl_parVecGetValLoc(zl_parVec_t *pv, long lindex);
+//! C-interface of parVector#GetArray()
 dcomplex_t *zl_parVecGetArray(zl_parVec_t *pv);
+
 MPI_Comm zl_parVecGetComm(zl_parVec_t *pv);
 long zl_parVecL2G(zl_parVec_t *pv, long local_index);
 long zl_parVecG2L(zl_parVec_t *pv, long global_index);
@@ -279,17 +415,29 @@ void zl_parVecReadExtVec(zl_parVec_t *pv, char* spectrum);
 
 //float complex int
 struct cs_parVec;
+//! Creates a type name for cs_parVec which is a C-interface for parVector with `T=std::complex<float>` and `S=int` 
 typedef struct cs_parVec cs_parVec_t;
+//! C-interface of parVector#parVector(MPI_Comm ncomm, S lbound, S ubound)
 cs_parVec_t *new_cs_ParVec_1(MPI_Comm ncomm, int lbound, int ubound);
+//! C-interface of parVector#parVector(parVectorMap<S> map)
 cs_parVec_t *new_cs_ParVec_2(parVecMap_t *map);
+//! Destory the struct
 void cs_parVec_destory(cs_parVec_t *pv);
+//! C-interface of parVector#GetLowerBound()
 int cs_parVecGetLowerBound(cs_parVec_t *pv);
-int cs_parVecGetUpperBound(cs_parVec_t *pv);
+//! C-interface of parVector#GetUpperBound()
+int cs_parVecGetUpperBound(cs_parVec_t *pv); 
+//! C-interface of parVector#GetLocalSize()
 int cs_parVecGetLocSize(cs_parVec_t *pv);
+//! C-interface of parVector#GetGlobalSize()
 int cs_parVecGetGlobSize(cs_parVec_t *pv);
+//! C-interface of parVector#GetValue(S index)
 fcomplex_t cs_parVecGetVal(cs_parVec_t *pv, int index);
+//! C-interface of parVector#GetValueLocal(S lindex)
 fcomplex_t cs_parVecGetValLoc(cs_parVec_t *pv, int lindex);
+//! C-interface of parVector#GetArray()
 fcomplex_t *cs_parVecGetArray(cs_parVec_t *pv);
+
 MPI_Comm cs_parVecGetComm(cs_parVec_t *pv);
 int cs_parVecL2G(cs_parVec_t *pv, int local_index);
 int cs_parVecG2L(cs_parVec_t *pv, int global_index);
@@ -305,17 +453,29 @@ void cs_parVecReadExtVec(cs_parVec_t *pv, char* spectrum);
 
 //float complex long
 struct cl_parVec;
+//! Creates a type name for cl_parVec which is a C-interface for parVector with `T=std::complex<float>` and `S=long` 
 typedef struct cl_parVec cl_parVec_t;
+//! C-interface of parVector#parVector(MPI_Comm ncomm, S lbound, S ubound)
 cl_parVec_t *new_cl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound);
+//! C-interface of parVector#parVector(parVectorMap<S> map)
 cl_parVec_t *new_cl_ParVec_2(parVecMap_t *map);
+//! Destory the struct
 void cl_parVec_destory(cl_parVec_t *pv);
+//! C-interface of parVector#GetLowerBound()
 long cl_parVecGetLowerBound(cl_parVec_t *pv);
-long cl_parVecGetUpperBound(cl_parVec_t *pv);
+//! C-interface of parVector#GetUpperBound()
+long cl_parVecGetUpperBound(cl_parVec_t *pv) ;
+//! C-interface of parVector#GetLocalSize()
 long cl_parVecGetLocSize(cl_parVec_t *pv);
+//! C-interface of parVector#GetGlobalSize()
 long cl_parVecGetGlobSize(cl_parVec_t *pv);
+//! C-interface of parVector#GetValue(S index)
 fcomplex_t cl_parVecGetVal(cl_parVec_t *pv, long index);
+//! C-interface of parVector#GetValueLocal(S lindex)
 fcomplex_t cl_parVecGetValLoc(cl_parVec_t *pv, long lindex);
+//! C-interface of parVector#GetArray()
 fcomplex_t *cl_parVecGetArray(cl_parVec_t *pv);
+
 MPI_Comm cl_parVecGetComm(cl_parVec_t *pv);
 long cl_parVecL2G(cl_parVec_t *pv, long local_index);
 long cl_parVecG2L(cl_parVec_t *pv, long global_index);
@@ -332,6 +492,7 @@ void cl_parVecReadExtVec(cl_parVec_t *pv, char* spectrum);
 
 //double int
 struct ds_parMatSparse;
+//! Creates a type name for ds_parMatSparse which is a C-interface for parMatrixSparse with `T=double` and `S=int` 
 typedef struct ds_parMatSparse ds_parMatSparse_t;
 ds_parMatSparse_t *new_ds_ParMatSparse_1(ds_parVec_t *pv);
 ds_parMatSparse_t *new_ds_ParMatSparse_2(parVecMap_t *map);
@@ -355,6 +516,7 @@ void ds_parMatSparse_Wrt2MM(ds_parMatSparse_t *pm, char *file_name);
 
 //double long
 struct dl_parMatSparse;
+//! Creates a type name for dl_parMatSparse which is a C-interface for parMatrixSparse with `T=double` and `S=long` 
 typedef struct dl_parMatSparse dl_parMatSparse_t;
 dl_parMatSparse_t *new_dl_ParMatSparse_1(dl_parVec_t *pv);
 dl_parMatSparse_t *new_dl_ParMatSparse_2(parVecMap_t *map);
@@ -378,6 +540,7 @@ void dl_parMatSparse_Wrt2MM(dl_parMatSparse_t *pm, char *file_name);
 
 //float int
 struct ss_parMatSparse;
+//! Creates a type name for ss_parMatSparse which is a C-interface for parMatrixSparse with `T=float` and `S=int` 
 typedef struct ss_parMatSparse ss_parMatSparse_t;
 ss_parMatSparse_t *new_ss_ParMatSparse_1(ss_parVec_t *pv);
 ss_parMatSparse_t *new_ss_ParMatSparse_2(parVecMap_t *map);
@@ -402,6 +565,7 @@ void ss_parMatSparse_Wrt2MM(ss_parMatSparse_t *pm, char *file_name);
 
 //float long
 struct sl_parMatSparse;
+//! Creates a type name for sl_parMatSparse which is a C-interface for parMatrixSparse with `T=float` and `S=long` 
 typedef struct sl_parMatSparse sl_parMatSparse_t;
 sl_parMatSparse_t *new_sl_ParMatSparse_1(sl_parVec_t *pv);
 sl_parMatSparse_t *new_sl_ParMatSparse_2(parVecMap_t *map);
@@ -425,6 +589,7 @@ void sl_parMatSparse_Wrt2MM(sl_parMatSparse_t *pm, char *file_name);
 
 //dcomplex_t int
 struct zs_parMatSparse;
+//! Creates a type name for zs_parMatSparse which is a C-interface for parMatrixSparse with `T=std::complex<double>` and `S=int` 
 typedef struct zs_parMatSparse zs_parMatSparse_t;
 zs_parMatSparse_t *new_zs_ParMatSparse_1(zs_parVec_t *pv);
 zs_parMatSparse_t *new_zs_ParMatSparse_2(parVecMap_t *map);
@@ -448,6 +613,7 @@ void zs_parMatSparse_Wrt2MMCmplx(zs_parMatSparse_t *pm, char *file_name);
 
 //dcomplex_t long
 struct zl_parMatSparse;
+//! Creates a type name for zl_parMatSparse which is a C-interface for parMatrixSparse with `T=std::complex<double>` and `S=long` 
 typedef struct zl_parMatSparse zl_parMatSparse_t;
 zl_parMatSparse_t *new_zl_ParMatSparse_1(zl_parVec_t *pv);
 zl_parMatSparse_t *new_zl_ParMatSparse_2(parVecMap_t *map);
@@ -471,6 +637,7 @@ void zl_parMatSparse_Wrt2MMCmplx(zl_parMatSparse_t *pm, char *file_name);
 
 //fcomplex_t int
 struct cs_parMatSparse;
+//! Creates a type name for cs_parMatSparse which is a C-interface for parMatrixSparse with `T=std::complex<float>` and `S=int` 
 typedef struct cs_parMatSparse cs_parMatSparse_t;
 cs_parMatSparse_t *new_cs_ParMatSparse_1(cs_parVec_t *pv);
 cs_parMatSparse_t *new_cs_ParMatSparse_2(parVecMap_t *map);
@@ -495,6 +662,7 @@ void cs_parMatSparse_Wrt2MMCmplx(cs_parMatSparse_t *pm, char *file_name);
 
 //fcomplex_t long
 struct cl_parMatSparse;
+//! Creates a type name for cl_parMatSparse which is a C-interface for parMatrixSparse with `T=std::complex<float>` and `S=long` 
 typedef struct cl_parMatSparse cl_parMatSparse_t;
 cl_parMatSparse_t *new_cl_ParMatSparse_1(cl_parVec_t *pv);
 cl_parMatSparse_t *new_cl_ParMatSparse_2(parVecMap_t *map);
@@ -575,7 +743,7 @@ void sl_nonsymmconj_3(long probSize, nilpL_t *nilp, sl_parMatSparse_t *Am, cl_pa
 void ds_nonsymmconj_3(int probSize, nilp_t *nilp, ds_parMatSparse_t *Am, zs_parVec_t *spec);
 void dl_nonsymmconj_3(long probSize, nilpL_t *nilp, dl_parMatSparse_t *Am, zl_parVec_t *spec);
 
-
+/** @} */ // end of group5
 
 #ifdef __cplusplus
 }

@@ -28,6 +28,18 @@ SOFTWARE.
 #include <parVector/parVectorMap.hpp>
 #include <parVector/parVector.hpp>
 
+/** @defgroup group1 Spectrum
+ *  This module relates to the loading, generation, and check of spectrum provided by the users.
+ *  This spectrum will be fed into SMG2S for generating a non-Symmetric/Hermitian sparse matrix with it. 
+ *  @{
+ */
+
+/** @brief Check if provided spectrum with conjugate eigenvalues is valid */
+/*!
+  * @param[in] spec the provided spectrum stored in a parVector object with complex scalar.
+
+  - Attention, this function is only useful for generating non-Symmetric matrix with conjuagte eigenvalues.
+*/	
 template<typename T, typename S>
 S checkNonSymmSpec(parVector<std::complex<Base<T>>, S> spec){
     auto nu = spec.GetUpperNeighbor(1);
@@ -198,7 +210,13 @@ S checkNonSymmSpec(parVector<std::complex<Base<T>>, S> spec){
     return overlap;
 }
 
+/** @brief load user-provided spectrum from local text file for generating non-Hermitian matrix */
+/*!
+  * @param[in] index_map the distribution scheme used for building the parVector object which stores the loaded spectrum
+  * @param[in] spectrum path and file name which stores the given eigenvalues.
 
+  - Attention, this function is only useful for generating non-Hermitian matrix with conjuagte eigenvalues.
+*/	
 template<typename T, typename S>
 parVector<T, S> specNonHerm(parVectorMap<S> index_map, std::string spectrum){
     parVector<T, S> spec =  parVector<T, S>(index_map);
@@ -207,7 +225,13 @@ parVector<T, S> specNonHerm(parVectorMap<S> index_map, std::string spectrum){
     return spec;
 }
 
+/** @brief load user-provided spectrum (only eigenvalues in real) from local text file for generating non-Symmetric matrix */
+/*!
+  * @param[in] index_map the distribution scheme used for building the parVector object which stores the loaded spectrum
+  * @param[in] spectrum path and file name which stores the given eigenvalues.
 
+  - Attention, this function is only useful for generating non-Symmetric matrix with eigenvalues in real.
+*/	
 template<typename T, typename S>
 parVector<T, S> specNonSymm(parVectorMap<S> index_map, std::string spectrum){
     parVector<T, S> spec =  parVector<T, S>(index_map);
@@ -216,7 +240,13 @@ parVector<T, S> specNonSymm(parVectorMap<S> index_map, std::string spectrum){
     return spec;
 }
 
+/** @brief load user-provided spectrum (conjugate eigenvalues) from local text file for generating non-Symmetric matrix */
+/*!
+  * @param[in] index_map the distribution scheme used for building the parVector object which stores the loaded spectrum
+  * @param[in] spectrum path and file name which stores the given eigenvalues.
 
+  - Attention, this function is only useful for generating non-Symmetric matrix with conjugate eigenvalues.
+*/	
 template<typename T, typename S>
 parVector<std::complex<Base<T>>, S> specNonSymmCplex(parVectorMap<S> index_map, std::string spectrum){
     parVector<std::complex<Base<T>>, S> spec =  parVector<std::complex<Base<T>>, S>(index_map);
@@ -225,4 +255,5 @@ parVector<std::complex<Base<T>>, S> specNonSymmCplex(parVectorMap<S> index_map, 
     return spec;
 }
 
+/** @} */ // end of group1
 #endif

@@ -24,15 +24,45 @@ SOFTWARE.
 #ifndef __INIT_MAT_H__
 #define __INIT_MAT_H__
 
+/** @defgroup group4 initMat
+ *  This module relates to the information of initialisation of matrix to be used by SMG2S.
+ *  @{
+ */
+//!  @brief A struct which stores the information for the initial input matrix of SMG2S.
+/*!
+  This struct defines a initial input matrix by the offset of lower diagonal `diag_l` and upper
+  diagonal `diag_u`. The entries between diagonal `diag_l` and `diag_u` of lower-triangular part
+  of initial matrix are set randomly with (0, 1). These 
+  entries can be modified by `scale`. The `sparsity` determines the possibility of the entries
+  of initial matrix to be `0`.
+
+  @tparam S type of integer to describes the dimension of matrices to be generated. 
+*/
 template<typename S>
 struct initMat
 {
+    /*!
+      Offset of lower diagonal
+    */	
 	S diag_l;
+  	/*!
+      Offset of upper diagonal
+    */		
 	S diag_u;
+ 	/*!
+      Number can be multiplied on the randomly generated entries of initial matrix
+    */		
 	double scale;
+  	/*!
+      Possibility of the entries of initial matrix to be `0`
+    */	
 	double sparsity;
 
-	
+	//! A constructor of struct `initMat`.
+    /*!
+      This is a constructor of struct `initMat`, in which the variables are set
+      with default values: `diag_l=-3`, `diag_u=-2`, `scale=1.0` and `sparsity=0.9`.
+    */	
 	initMat(){
 		diag_l = -3;
 		diag_u = -2;
@@ -40,6 +70,13 @@ struct initMat
 		sparsity = 0.9;
 	};
 
+	//! A constructor of struct `initMat`.
+    /*!
+      This is a constructor of struct `initMat` with default values `scale=1.0` and `sparsity=0.9`.
+
+      * @param[in] diagl Offset of lower diagonal
+      * @param[in] diagu Offset of upper diagonal
+    */	
 	initMat(S diagl, S diagu){
 		diag_l = diagl;
 		diag_u = diagu;
@@ -47,6 +84,14 @@ struct initMat
 		sparsity = 0.9;			
 	};
 
+	//! A constructor of struct `initMat`.
+    /*!
+      This is a constructor of struct `initMat` with default value `scale=1.0`.
+
+      * @param[in] diagl Offset of lower diagonal
+      * @param[in] diagu Offset of upper diagonal
+      * @param[in] Sparsity Possibility of the entries of initial matrix to be `0`
+    */	
 	initMat(S diagl, S diagu, double Sparsity){
 		diag_l = diagl;
 		diag_u = diagu;
@@ -54,6 +99,15 @@ struct initMat
 		sparsity = Sparsity;			
 	};
 
+	//! A constructor of struct `initMat`.
+    /*!
+      This is a constructor of struct `initMat` without any default values.
+
+      * @param[in] diagl Offset of lower diagonal
+      * @param[in] diagu Offset of upper diagonal
+      * @param[in] Scale Number can be multiplied on the randomly generated entries of initial matrix
+      * @param[in] Sparsity Possibility of the entries of initial matrix to be `0`
+    */	
 	initMat(S diagl, S diagu, double Scale, double Sparsity){
 		diag_l = diagl;
 		diag_u = diagu;
@@ -61,7 +115,10 @@ struct initMat
 		sparsity = Sparsity;			
 	};		
 
-
+	//! A member function of struct `initMat` to display all its variables.
+    /*!
+      This is a member function of struct `initMat` to display all its variables.
+    */	
 	void show(){
 		std::cout << "Init Mat parameters:" << std::endl;
 		std::cout << "        diag_l: " << diag_l << ", diag_u: " << diag_u << ", scale: " << scale << ", sparsity: " << sparsity << std::endl;
@@ -69,5 +126,6 @@ struct initMat
 
 };
 
+/** @} */ // end of group4
 
 #endif
