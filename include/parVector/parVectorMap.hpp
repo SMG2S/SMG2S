@@ -197,7 +197,7 @@ S parVectorMap<S>::Glob2Loc(S global_index){
     	    throw(global_index);	
     	}
     }catch(S global_index){
-    	std::cout << "The given global index <" << global_index <<"> is out of bound." << std::endl;	
+
     }
 
     return local_index;

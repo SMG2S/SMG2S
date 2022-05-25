@@ -157,11 +157,7 @@ void nonherm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
 
     double t2 = end - start;
 
-    __int64_t my_factorielle_bornes = 1;
-
-    my_factorielle_bornes = factorial(1,2*(nilp.getDegree()-1) );
-
-    Am->MatScale((T)my_factorielle_bornes);
+    double fact = 1;
 
     for (S k=1; k<=2*(nilp.getDegree()-1); k++){
         auto MA = matAop.MA(nilp);
@@ -169,16 +165,9 @@ void nonherm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
         matAop.copy(AM);
         //matAop.MatAYPX(AM, 0);
         matAop.MatAXPY(MA, -1);
-        my_factorielle_bornes = factorial(k+1,2*(nilp.getDegree()-1));
-        Am->MatAXPY(matAop, (double)my_factorielle_bornes);
+        fact /= factorial<double, int>(k, k);
+        Am->MatAXPY(matAop, fact);
     }
-
-    my_factorielle_bornes = factorial(1,2*(nilp.getDegree()-1));
-
-    double fac = (double)my_factorielle_bornes;
-    double inv = 1/fac;
-
-    Am->MatScale((T)inv);    
 }
 
 
@@ -320,11 +309,7 @@ void nonsymm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
 
     double t2 = end - start;
 
-    __int64_t my_factorielle_bornes = 1;
-
-    my_factorielle_bornes = factorial(1,2*(nilp.getDegree()-1) );
-
-    Am->MatScale((T)my_factorielle_bornes);
+    double fact = 1;
 
     for (S k=1; k<=2*(nilp.getDegree()-1); k++){
         auto MA = matAop.MA(nilp);
@@ -332,17 +317,9 @@ void nonsymm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
         matAop.copy(AM);
         //matAop.MatAYPX(AM, 0);
         matAop.MatAXPY(MA, -1);
-        my_factorielle_bornes = factorial(k+1,2*(nilp.getDegree()-1));
-        Am->MatAXPY(matAop, (double)my_factorielle_bornes);
+        fact /= factorial<double, int>(k, k);
+        Am->MatAXPY(matAop, fact);
     }
-
-    my_factorielle_bornes = factorial(1,2*(nilp.getDegree()-1));
-
-    double fac = (double)my_factorielle_bornes;
-    double inv = 1/fac;
-
-    Am->MatScale((T)inv);
-    
 }
 
 //! Generating a non-Symmetric sparse matrix using the spectrum stored in a parVector object
@@ -417,11 +394,7 @@ void nonsymmconj(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVec
 
     double t2 = end - start;
 
-    __int64_t my_factorielle_bornes = 1;
-
-    my_factorielle_bornes = factorial(1,2*(nilp.getDegree()-1) );
-
-    Am->MatScale((T)my_factorielle_bornes);
+    double fact = 1;
 
     for (S k=1; k<=2*(nilp.getDegree()-1); k++){
         auto MA = matAop.MA(nilp);
@@ -429,16 +402,9 @@ void nonsymmconj(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVec
         matAop.copy(AM);
         //matAop.MatAYPX(AM, 0);
         matAop.MatAXPY(MA, -1);
-        my_factorielle_bornes = factorial(k+1,2*(nilp.getDegree()-1));
-        Am->MatAXPY(matAop, (double)my_factorielle_bornes);
+        fact /= factorial<double, int>(k, k);
+        Am->MatAXPY(matAop, fact);
     }
-
-    my_factorielle_bornes = factorial(1,2*(nilp.getDegree()-1));
-
-    double fac = (double)my_factorielle_bornes;
-    double inv = 1/fac;
-
-    Am->MatScale((T)inv);
 
 }
 

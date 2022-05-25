@@ -900,14 +900,13 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
     	    	auto j =  it->first;
     	    	if(i >= 0){
     	    	    //if not the index of zeros in nilpotent
-    	    	    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), index_map.Loc2Glob(row)-offset) == IndOfZeros.end()&& it->second != T(0) ){
+    	    	    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), index_map.Loc2Glob(i)-offset ) == IndOfZeros.end()&& it->second != T(0) ){
     	    	    	prod.SetValueLocal(i, j, it->second);
     	    	    }
     	    	}
     	    }	
     	}
     }
-
 
     //communication part
     std::vector<std::vector<T>> sBufs;
@@ -951,11 +950,9 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
     rIndices.resize(sendrecv_cnt);
     rSize.resize(sendrecv_cnt);
 
-    for(auto i = 0; i < sendrecv_cnt; i++){
-    	sSize[i].push_back(0);
-	sSize[i].push_back(0);
-	rSize[i].push_back(0);
-	rSize[i].push_back(0);
+    for(auto k = 0; k < sendrecv_cnt; k++){
+    	sSize[k].resize(2);
+    	rSize[k].resize(2);
     }
 
     MPI_Request	*stypereq = new MPI_Request[sendrecv_cnt];
@@ -977,13 +974,16 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
     	    sIndices[k].insert(sIndices[k].begin(), count);
     	    for( S i = lprocbound_map[ProcID]; i < uprocbound_map[ProcID]; i++){
     	    	if( (originProcs[i] - targetProcs[i] - 1) == k ){
-    	    	    S j = index_map.Glob2Loc(i);
-    	    	    for(it = dynmat_loc[j].begin(); it != dynmat_loc[j].end(); ++it){
-    	    	    	sIndices[k].push_back(it->first);
-    	    	    	sBufs[k].push_back(it->second);
-    	    	    	count ++;
-    	    	    }
-    	    	    sIndices[k].insert(sIndices[k].begin(), count);
+    	    		if (std::find(IndOfZeros.begin(), IndOfZeros.end(), i-offset-offset) == IndOfZeros.end()){
+	    	    	    S j = index_map.Glob2Loc(i);
+	    	    	    for(it = dynmat_loc[j].begin(); it != dynmat_loc[j].end(); ++it){
+	    	    	    	sIndices[k].push_back(it->first);
+	    	    	    	sBufs[k].push_back(it->second);
+	    	    	    	count ++;
+	    	    	    }
+	    	    	    sIndices[k].insert(sIndices[k].begin(), count);    	    			
+    	    		}
+
     	    	}
     	    }
 
@@ -1006,7 +1006,6 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
     	    rIndices[k].resize(rSize[k][0]+rSize[k][1]+1);
     	}
     }
-
 
     for(auto k = 0; k < sendrecv_cnt; k++){
     	if(ProcID != 0 && dynmat_loc != NULL){
@@ -1033,13 +1032,13 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
     	if(ProcID != nProcs - 1){
     	    for(auto row = 0; row < rSize[k][1] ; row++){
     	        for(auto cnt = rIndices[k][rSize[k][1] - row] - rIndices[k][rSize[k][1]] ; cnt < rIndices[k][rSize[k][1] - row-1] - rIndices[k][rSize[k][1]]; cnt++){
-    		    auto col = rIndices[k][cnt + rSize[k][1] + 1];
-    		    auto val = rBufs[k][cnt];
-    		    auto i = index_map.Glob2Loc(row + rIndices[k][rSize[k][1]] - offset);
-    		    auto j = rIndices[k][cnt + rSize[k][1] + 1];
-    		    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), row + rIndices[k][rSize[k][1]] - offset) == IndOfZeros.end()&& rBufs[k][cnt] != T(0) ){
-    		        prod.SetValueLocal(i, j, rBufs[k][cnt]);
-    		    }
+    		    	auto col = rIndices[k][cnt + rSize[k][1] + 1];
+    		    	auto val = rBufs[k][cnt];
+    		    	auto i = index_map.Glob2Loc(row + rIndices[k][rSize[k][1]] - offset);
+    		    	auto j = rIndices[k][cnt + rSize[k][1] + 1];
+    		    	if (rBufs[k][cnt] != T(0) ){
+    		        	prod.SetValueLocal(i, j, rBufs[k][cnt]);
+    		    	}
     	        }
     	    }
     	}

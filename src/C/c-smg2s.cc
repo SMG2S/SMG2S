@@ -22,8 +22,9 @@ SOFTWARE.
 */
 
 #include <smg2s-interface.hpp>
-#include<cmath>
+#include <cmath>
 #include <C/c-smg2s.h>
+#include <cstring>
 
 nilp_t *newNilp_1(int nbOne, int size){
 	return reinterpret_cast<nilp_t *>( new Nilpotent<int>( nbOne, size ) );

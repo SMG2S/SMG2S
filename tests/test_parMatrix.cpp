@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 
     int world_size;
     int world_rank;
-    int probSize = 7;
+    int probSize = 11;
 
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
@@ -36,58 +36,53 @@ int main(int argc, char** argv)
 
     auto parVecMap = parVectorMap<int>(MPI_COMM_WORLD, lower_b, upper_b);
     parVector<double, int> vec = parVector<double, int>(parVecMap);
+    vec.SetToValue(3.3);
+    vec.VecView();
 
     auto Matrix = parMatrixSparse<double, int>(vec);
-   	//initMat(S diag_l, S diag_u, Base<T> scale, Base<T> shift, Base<T> sparsity );
 
-    auto spec2 = specNonSymm<double, int>(parVecMap, "v1.txt");
-    //spec2.VecView();
+    Matrix.initMat(-5, -3, 1.0, 0.0, 0.0);
+    //Matrix.MatView();
 
-    auto spec3 = specNonSymmCplex<double, int>(parVecMap, "v2.txt");
-    //spec3.VecView();
-    Matrix.setSpecNonSymmCmplx(spec3);
-    //Matrix.show();
-    Matrix.MatView();
+    Matrix.SetValue(3,0,2.4);
+    //Matrix.MatView();
 
-    auto Mat2 = parMatrixSparse<double, int>(vec);
-    Mat2.setSpecNonSymm(spec2);
-    Mat2.SetValueLocal(3,5,0.212121);
+    Matrix.SetDiagonal(vec);
+    Matrix.MatScale(2.0);
 
-    Mat2.MatView();
+    auto X = parMatrixSparse<double, int>(vec);
+    auto Y = parMatrixSparse<double, int>(vec);
+    X.initMat(-6,-4, 1.0, 0.0, 0.0);
+    Y.initMat(-7,-4, 1.0, 0.0, 0.0);
+    //X.MatView();
+    //Y.MatView();
+    //Matrix.MatView();
 
-    Matrix.MatAXPY(Mat2, 2.0);
+    Matrix.MatAXPY(X, 2);
+    //Matrix.MatView();
 
-    Matrix.MatView();
+    Matrix.MatAYPX(Y, 0.0001);
+    //Matrix.MatView();
 
+    //Matrix.writeToMatrixMarket("matrix.txt");
 
-/*
-    Matrix.writeToMatrixMarket("testmatrix.mtx");
+    Nilpotent<int> nilp = Nilpotent<int>(2,2, probSize);
+    nilp.show();
+    auto iz = nilp.getIndOfZeros();
 
- 
-    auto nilp = Nilpotent<int>(2, 2, probSize);
-	auto iz = nilp.getIndOfZeros();
-
-	if(world_rank == 0){
-		for(auto i = 0; i < iz.size(); i++){
-			std::cout << "getIndOfZeros ]>" << i << ": " << iz[i] << std::endl;
-		}
+    if(world_rank == 0){
+        for(auto i = 0; i < iz.size(); i++){
+            std::cout << iz[i] << std::endl;
+        }
     }
 
-    auto prod = Matrix.MA(nilp);
-	//prod.show();
-    prod.MatView();
-    auto prod2 = Matrix.AM(nilp);
-    prod2.MatView();
+    //auto MA = Matrix.MA(nilp);
+    auto AM = Matrix.AM(nilp);
+    //Matrix.copy(Y);
+    Matrix.MatView();
+    //MA.MatView();
+    AM.MatView();
 
-
-    auto cmplexMatrix = parMatrixSparse<std::complex<double>, int>(parVecMap);
-    auto spec4 = specNonHerm<std::complex<double>, int>(parVecMap, "v2.txt");
-    cmplexMatrix.setSpecNonHerm(spec4);
-
-    //cmplexMatrix.MatView();
-
-    cmplexMatrix.writeToMatrixMarketCmplx("testmatrix_cmplex.mtx");
-*/
 	MPI_Finalize();
 
 	return 0;

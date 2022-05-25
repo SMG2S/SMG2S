@@ -102,20 +102,13 @@ T random(S min, S max)
 
 }
 
-
-__int64_t factorial(__int64_t start, __int64_t end)
+template<class T, class S>
+T factorial(T num, S depth)
 {
-        __int64_t i;
-        __int64_t value;
+        T value = num;
 
-        if(start > end){
-                value = 1;
-        }
-        else{
-                value = start;
-                for(i = start + 1; i <= end; i++){
-                        value *= i;
-                }
+        for(auto i = 1; i < depth; i++){
+        	value *= (num - i);
         }
 
         return value;
