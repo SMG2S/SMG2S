@@ -303,7 +303,11 @@ class parMatrixSparse
 		  - This is a distributed function that each MPI proc can only display the piece of local matrix on itself.
 		*/	    	
     	void MatView();
-
+                //! Print a parMatrixSparse object in a distributed COO format with matrix name indicated at the starting point of each line
+                /*!
+                  - This is a distributed function that each MPI proc can only display the piece of local matrix on itself.
+                */
+	void MatView(std::string matName);
     	//! A parallel IO to write a parMatrixSparse object into a file of MatrixMarket format
    		/*!
 	      * @param[in] file_name the path and file name to write into
@@ -376,6 +380,24 @@ void parMatrixSparse<T,S>::MatView()
 	    }
 	std::cout << std::endl;    
 	}
+    }
+
+}
+
+template<typename T, typename S>
+void parMatrixSparse<T,S>::MatView(std::string matName)
+{
+    typename std::map<S,T>::iterator it;
+    if(ProcID == 0) {std::cout << "Parallel MatView: " << std::endl;}
+
+    for (S i = 0; i < nrows; i++){
+        if(dynmat_loc != NULL){
+            std::cout <<  matName + " ]> row " << index_map.Loc2Glob(i) << ": ";
+            for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
+                std::cout <<"("<<it->first << "," << it->second << "); ";
+            }
+        std::cout << std::endl;
+        }
     }
 
 }
@@ -881,9 +903,9 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
     auto lprocbound_map = index_map.GetLBoundMap();
     auto uprocbound_map = index_map.GetUBoundMap();
 
-    std::vector<S> targetProcs(ncols);
-    std::vector<S> originProcs(ncols);
-    std::vector<S> procsDiff(ncols);
+    std::vector<S> targetProcs;
+    std::vector<S> originProcs;
+    std::vector<S> procsDiff;
     
     typename std::map<S,T>::iterator it;
 
@@ -894,156 +916,146 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
 
     //shift the in-memory part
     if(dynmat_loc != NULL){
-    	for(auto row = 0; row < nrows; row++){
-    	    for(it = dynmat_loc[row].begin(); it != dynmat_loc[row].end(); ++it){
-    	    	auto i = row - offset;
+    	for(auto row = lprocbound_map[ProcID] + offset; row < uprocbound_map[ProcID]; row++){
+	    auto i = index_map.Glob2Loc(row);
+    	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
     	    	auto j =  it->first;
-    	    	if(i >= 0){
     	    	    //if not the index of zeros in nilpotent
-    	    	    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), index_map.Loc2Glob(i)-offset ) == IndOfZeros.end()&& it->second != T(0) ){
-    	    	    	prod.SetValueLocal(i, j, it->second);
-    	    	    }
+    	    	if (std::find(IndOfZeros.begin(), IndOfZeros.end(), row-offset-offset ) == IndOfZeros.end()&& it->second != T(0) ){
+    	    	    prod.SetValueLocal(i-offset, j, it->second);
     	    	}
     	    }	
     	}
     }
 
-    //communication part
-    std::vector<std::vector<T>> sBufs;
-    std::vector<std::vector<S>> sIndices; //    sRoffsets + sColIndx
-    std::vector<std::vector<S>> sSize;
+    std::map<std::pair<int, int>, std::vector<S>> rowSendToProc;
+    typename std::map<std::pair<int, int>, std::vector<S>>::iterator itm;
 
-
-    std::vector<std::vector<T>> rBufs;
-    std::vector<std::vector<S>> rIndices; //    rRoffsets + rColIndx
-    std::vector<std::vector<S>> rSize;   
-
-    for(S i = 0; i < ncols; i++){
-    	for(S j = 0; j < lprocbound_map.size(); j++){
-    	    if( (i - offset >= lprocbound_map[j]) && (i - offset < uprocbound_map[j]) ){
-    	    	targetProcs[i] = j;
-    	    	break;
-    	    }
-    	}
+    for(auto id = 0; id < nProcs; id++){
+	for(auto rid = 0; rid < id; rid++){   
+             std::vector<S> rcollect;	       	
+             for(auto r = lprocbound_map[id]; r < lprocbound_map[id] + MIN(offset, uprocbound_map[id] - lprocbound_map[id]); r++){
+                if( (r - offset >= lprocbound_map[rid]) && (r - offset < uprocbound_map[rid]) ){
+                    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), r - offset - offset) == IndOfZeros.end() ){
+		        rcollect.push_back(r);
+                    }
+                }
+            }
+            if(rcollect.size() != 0){
+                rowSendToProc.insert(std::pair<std::pair<int, int>, std::vector<S>>( std::pair<int, S>(id, rid), rcollect ) );
+            }	     
+        }
     }
 
-    for(S i = 0; i < ncols; i++){
-    	for(S j = 0; j < lprocbound_map.size(); j++){
-    	    if( (i  >= lprocbound_map[j]) && (i < uprocbound_map[j]) ){
-    	    	originProcs[i] = j;
-    	    	break;
-    	    }
-    	}
+    std::vector<std::map<std::pair<int, int>,std::vector<S>>> rowSendToProc_Path;
+    while(rowSendToProc.size() != 0){
+        std::map<std::pair<int, int>,std::vector<S>> single_path;
+        std::vector<int> first_collected;
+	std::vector<int> second_collected;
+	for(itm = rowSendToProc.begin(); itm != rowSendToProc.end(); ++itm){
+	    if(std::find(first_collected.begin(), first_collected.end(), itm->first.first) == first_collected.end()){
+		if(std::find(second_collected.begin(), second_collected.end(), itm->first.second) == second_collected.end()){
+	            first_collected.push_back(itm->first.first);
+		    second_collected.push_back(itm->first.second);
+                    single_path.insert(std::pair<std::pair<int, int>,std::vector<S>>(itm->first, itm->second) );
+
+		}
+	    }
+	}
+
+	for(auto i = 0; i < first_collected.size(); i++){
+	    rowSendToProc.erase(std::pair<int, int>(first_collected[i], second_collected[i]) );
+	}
+
+	rowSendToProc_Path.push_back(single_path);
     }
-
-    for(S i = 0; i < ncols; i++){
-    	procsDiff[i] = originProcs[i] - targetProcs[i];
+  
+    if(ProcID == 0){
+	for(auto i = 0; i < rowSendToProc_Path.size();i++){
+		std::cout << "Sending path #" << i << ": ";
+		for(itm = rowSendToProc_Path[i].begin(); itm != rowSendToProc_Path[i].end(); ++itm){
+		    std::cout << itm->first.first << " ===> " << itm->first.second << "     ";
+		}
+		std::cout << std::endl;
+    	} 
     }
+    
+    int comm_path_nb = rowSendToProc_Path.size();
+    //package for sending and receving
 
-    auto sendrecv_cnt = distinct<S,S>(procsDiff.data(), procsDiff.size(), S(0));
+    for(auto path = 0; path < comm_path_nb; path++){
+    	
+	std::vector<S> sSize;
+    	std::vector<S> sIndices;
+    	std::vector<T> sBufs;
 
-    sBufs.resize(sendrecv_cnt);
-    sIndices.resize(sendrecv_cnt);
-    sSize.resize(sendrecv_cnt);
+        std::vector<S> rSize;
+        std::vector<S> rIndices;
+        std::vector<T> rBufs;
 
-    rBufs.resize(sendrecv_cnt);
-    rIndices.resize(sendrecv_cnt);
-    rSize.resize(sendrecv_cnt);
+        for(itm = rowSendToProc_Path[path].begin(); itm != rowSendToProc_Path[path].end(); ++itm){
+	     MPI_Request stypereq;
+	     MPI_Request rtypereq;
+	     MPI_Status  typestat;
+	     if(ProcID == itm->first.first){
+	         S count = 0;
+		 sIndices.insert(sIndices.begin(), count);
+		 for(auto i = 0; i < itm->second.size(); i++){
+		     S j = index_map.Glob2Loc(itm->second[i]);
+		     for(it = dynmat_loc[j].begin(); it != dynmat_loc[j].end(); ++it){
+		          sIndices.push_back(it->first);
+			  sBufs.push_back(it->second);
+			  count++;
+		     }
+		     sIndices.insert(sIndices.begin(), count);
+		 }
+		 sSize.resize(2);
+		 sSize[0] = sBufs.size();
+		 sSize[1] = sIndices.size() - sBufs.size() - 1;
 
-    for(auto k = 0; k < sendrecv_cnt; k++){
-    	sSize[k].resize(2);
-    	rSize[k].resize(2);
+		 MPI_Isend(sSize.data(), 2, getMPI_Type<S>(), itm->first.second, itm->first.second, comm, &stypereq);
+
+	     }
+
+	     if(ProcID == itm->first.second){
+	         rSize.resize(2);
+                 MPI_Irecv(rSize.data(), 2, getMPI_Type<S>(), itm->first.first, ProcID, comm, &rtypereq);
+                 MPI_Wait(&rtypereq, &typestat);
+
+		 rBufs.resize(rSize[0]);
+		 rIndices.resize(rSize[1]+rSize[0]+1);
+	     }
+
+	     if(ProcID == itm->first.first){
+	         MPI_Isend(sBufs.data(), sSize[0], getMPI_Type<T>(), itm->first.second, itm->first.second, comm, &stypereq);
+	     }
+
+	     if(ProcID == itm->first.second){
+     	    	MPI_Irecv(rBufs.data(), rSize[0], getMPI_Type<T>(), itm->first.first, ProcID, comm, &rtypereq);	
+    	    	MPI_Wait(&rtypereq, &typestat);
+	     }
+
+             if(ProcID == itm->first.first){
+                 MPI_Isend(sIndices.data(), sSize[0]+sSize[1]+1, getMPI_Type<S>(), itm->first.second, itm->first.second, comm, &stypereq);
+             }
+
+             if(ProcID == itm->first.second){
+                MPI_Irecv(rIndices.data(), rSize[0]+rSize[1]+1, getMPI_Type<S>(), itm->first.first, ProcID, comm, &rtypereq);
+                MPI_Wait(&rtypereq, &typestat);
+     
+                for(auto i = 0; i < itm->second.size(); i++){
+		    auto row = index_map.Glob2Loc(itm->second[i] - offset);
+		    for(auto cnt = rIndices[rSize[1] - i]  ; cnt < rIndices[rSize[1] - i - 1]; cnt++){
+		        auto col = rIndices[rSize[1]+1+cnt];
+			prod.SetValueLocal(row, col, rBufs[cnt]);
+		    }
+		}
+
+
+	     }
+	}
     }
-
-    MPI_Request	*stypereq = new MPI_Request[sendrecv_cnt];
-    MPI_Request *rtypereq = new MPI_Request[sendrecv_cnt];
-    MPI_Status	*typestat = new MPI_Status[sendrecv_cnt];
-
-    int *up = new int[sendrecv_cnt];
-    int *down = new int[sendrecv_cnt];
-
-    for(auto i = 0; i < sendrecv_cnt; i++){
-    	up[i] = ProcID - i - 1;
-    	down[i] = ProcID + i + 1;
-    }
-
-
-    if(ProcID != 0 && dynmat_loc != NULL){
-    	S count = lprocbound_map[ProcID];
-    	for(auto k = 0; k < sendrecv_cnt; k++){
-    	    sIndices[k].insert(sIndices[k].begin(), count);
-    	    for( S i = lprocbound_map[ProcID]; i < uprocbound_map[ProcID]; i++){
-    	    	if( (originProcs[i] - targetProcs[i] - 1) == k ){
-    	    		if (std::find(IndOfZeros.begin(), IndOfZeros.end(), i-offset-offset) == IndOfZeros.end()){
-	    	    	    S j = index_map.Glob2Loc(i);
-	    	    	    for(it = dynmat_loc[j].begin(); it != dynmat_loc[j].end(); ++it){
-	    	    	    	sIndices[k].push_back(it->first);
-	    	    	    	sBufs[k].push_back(it->second);
-	    	    	    	count ++;
-	    	    	    }
-	    	    	    sIndices[k].insert(sIndices[k].begin(), count);    	    			
-    	    		}
-
-    	    	}
-    	    }
-
-    	    sSize[k][0] = sBufs[k].size();
-    	    sSize[k][1] = sIndices[k].size() - sBufs[k].size() - 1;
-    	}
-
-    }
-
-
-    for(auto k = 0; k < sendrecv_cnt; k++){
-    	if(ProcID != 0 && dynmat_loc != NULL){
-    	    MPI_Isend(sSize[k].data(), 2, getMPI_Type<S>(), up[k], k, comm, &stypereq[k]);
-    	}
-    	if(ProcID != nProcs - 1){
-    	    MPI_Irecv(rSize[k].data(), 2, getMPI_Type<S>(), down[k], k, comm, &rtypereq[k]);
-    	    MPI_Wait(&rtypereq[k], &typestat[k]);
-
-    	    rBufs[k].resize(rSize[k][0]);
-    	    rIndices[k].resize(rSize[k][0]+rSize[k][1]+1);
-    	}
-    }
-
-    for(auto k = 0; k < sendrecv_cnt; k++){
-    	if(ProcID != 0 && dynmat_loc != NULL){
-    	    MPI_Isend(sBufs[k].data(), sSize[k][0], getMPI_Type<T>(), up[k], k, comm, &stypereq[k]);
-    	}
-    	if(ProcID != nProcs - 1){
-    	    MPI_Irecv(rBufs[k].data(), rSize[k][0], getMPI_Type<T>(), down[k], k, comm, &rtypereq[k]);	
-    	    MPI_Wait(&rtypereq[k], &typestat[k]);
-    	}
-    }
-
-
-    for(auto k = 0; k < sendrecv_cnt; k++){
-    	if(ProcID != 0 && dynmat_loc != NULL){
-    	    MPI_Isend(sIndices[k].data(), sSize[k][0]+sSize[k][1]+1, getMPI_Type<S>(), up[k], k, comm, &stypereq[k]);
-    	}
-    	if(ProcID != nProcs - 1){
-    	    MPI_Irecv(rIndices[k].data(), rSize[k][0]+rSize[k][1]+1, getMPI_Type<S>(), down[k], k, comm, &rtypereq[k]);	
-    	    MPI_Wait(&rtypereq[k], &typestat[k]);
-    	}
-    }
-
-    for(auto k = 0; k < sendrecv_cnt; k++){
-    	if(ProcID != nProcs - 1){
-    	    for(auto row = 0; row < rSize[k][1] ; row++){
-    	        for(auto cnt = rIndices[k][rSize[k][1] - row] - rIndices[k][rSize[k][1]] ; cnt < rIndices[k][rSize[k][1] - row-1] - rIndices[k][rSize[k][1]]; cnt++){
-    		    	auto col = rIndices[k][cnt + rSize[k][1] + 1];
-    		    	auto val = rBufs[k][cnt];
-    		    	auto i = index_map.Glob2Loc(row + rIndices[k][rSize[k][1]] - offset);
-    		    	auto j = rIndices[k][cnt + rSize[k][1] + 1];
-    		    	if (rBufs[k][cnt] != T(0) ){
-    		        	prod.SetValueLocal(i, j, rBufs[k][cnt]);
-    		    	}
-    	        }
-    	    }
-    	}
-    }
-
+    
     return prod;
 }
 

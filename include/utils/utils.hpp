@@ -137,6 +137,8 @@ int distinct(T* arr, S len, T val)
 	}
     }
 
+    for(int const&t : set)
+        std::cout << "-- " << t << std::endl;
     return set.size(); 
 }
 

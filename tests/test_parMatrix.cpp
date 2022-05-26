@@ -16,14 +16,14 @@ int main(int argc, char** argv)
 
     int world_size;
     int world_rank;
-    int probSize = 11;
+    int probSize = 17;
 
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
 
     int span, lower_b, upper_b;
 
-    span = int(ceil(double(probSize)/double(world_size)));
+    span = int(floor(double(probSize)/double(world_size)));
 
     if(world_rank == world_size - 1){
         lower_b = world_rank * span;
@@ -33,11 +33,11 @@ int main(int argc, char** argv)
         upper_b = (world_rank + 1) * span - 1 + 1;
     }
 
-
+    //std::cout << world_rank << " : [" << lower_b << " " << upper_b << ")" << std::endl;
     auto parVecMap = parVectorMap<int>(MPI_COMM_WORLD, lower_b, upper_b);
     parVector<double, int> vec = parVector<double, int>(parVecMap);
     vec.SetToValue(3.3);
-    vec.VecView();
+    //vec.VecView();
 
     auto Matrix = parMatrixSparse<double, int>(vec);
 
@@ -66,8 +66,8 @@ int main(int argc, char** argv)
 
     //Matrix.writeToMatrixMarket("matrix.txt");
 
-    Nilpotent<int> nilp = Nilpotent<int>(2,2, probSize);
-    nilp.show();
+    Nilpotent<int> nilp = Nilpotent<int>(2, 3, probSize);
+    //nilp.show();
     auto iz = nilp.getIndOfZeros();
 
     if(world_rank == 0){

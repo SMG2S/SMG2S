@@ -67,7 +67,7 @@ parMatrixSparse<T,S> nonherm(S probSize, Nilpotent<S> nilp, initMat<S> init, std
             std::cout << "SMG2S]> Caught Exception: this is for non-hermitian matrix, please use complex scalar type" << std::endl;
         }  
     }
-    span = S(ceil(double(probSize)/double(world_size)));
+    span = S(floor(double(probSize)/double(world_size)));
 
     if(world_rank == world_size - 1){
         lower_b = world_rank * span;
@@ -205,7 +205,7 @@ parMatrixSparse<T,S> nonsymm(S probSize, Nilpotent<S> nilp, initMat<S> init, std
             std::cout << "SMG2S]> Caught Exception: this is for non-symmetric matrix, please use real scalar type" << std::endl;
         }  
     }
-    span = S(ceil(double(probSize)/double(world_size)));
+    span = S(floor(double(probSize)/double(world_size)));
 
     if(world_rank == world_size - 1){
         lower_b = world_rank * span;
