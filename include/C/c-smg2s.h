@@ -223,6 +223,7 @@ void ds_parVecAdd(ds_parVec_t *pv, ds_parVec_t *pv2);
 void ds_parVecScale(ds_parVec_t *pv, double scale);
 double ds_parVecDot(ds_parVec_t *pv, ds_parVec_t *pv2);
 void ds_parVecReadExtVec(ds_parVec_t *pv, char* spectrum);
+void ds_writeToTxt(ds_parVec_t *pv, char* spectrum);
 
 //double long
 struct dl_parVec;
@@ -260,6 +261,7 @@ void dl_parVecAdd(dl_parVec_t *pv, dl_parVec_t *pv2);
 void dl_parVecScale(dl_parVec_t *pv, double scale);
 double dl_parVecDot(dl_parVec_t *pv, dl_parVec_t *pv2);
 void dl_parVecReadExtVec(dl_parVec_t *pv, char* spectrum);
+void dl_writeToTxt(dl_parVec_t *pv, char* spectrum);
 
 //float int
 struct ss_parVec;
@@ -297,6 +299,7 @@ void ss_parVecAdd(ss_parVec_t *pv, ss_parVec_t *pv2);
 void ss_parVecScale(ss_parVec_t *pv, float scale);
 float ss_parVecDot(ss_parVec_t *pv, ss_parVec_t *pv2);
 void ss_parVecReadExtVec(ss_parVec_t *pv, char* spectrum);
+void ss_writeToTxt(ss_parVec_t *pv, char* spectrum);
 
 
 //float long
@@ -335,6 +338,7 @@ void sl_parVecAdd(sl_parVec_t *pv, sl_parVec_t *pv2);
 void sl_parVecScale(sl_parVec_t *pv, float scale);
 float sl_parVecDot(sl_parVec_t *pv, sl_parVec_t *pv2);
 void sl_parVecReadExtVec(sl_parVec_t *pv, char* spectrum);
+void sl_writeToTxt(sl_parVec_t *pv, char* spectrum);
 
 
 //double complex int
@@ -373,6 +377,7 @@ void zs_parVecAdd(zs_parVec_t *pv, zs_parVec_t *pv2);
 void zs_parVecScale(zs_parVec_t *pv, dcomplex_t scale);
 dcomplex_t zs_parVecDot(zs_parVec_t *pv, zs_parVec_t *pv2);
 void zs_parVecReadExtVec(zs_parVec_t *pv, char* spectrum);
+void zs_writeToTxtCmplx(zs_parVec_t *pv, char* spectrum);
 
 
 //double complex long
@@ -411,6 +416,7 @@ void zl_parVecAdd(zl_parVec_t *pv, zl_parVec_t *pv2);
 void zl_parVecScale(zl_parVec_t *pv, dcomplex_t scale);
 dcomplex_t zl_parVecDot(zl_parVec_t *pv, zl_parVec_t *pv2);
 void zl_parVecReadExtVec(zl_parVec_t *pv, char* spectrum);
+void zl_writeToTxtCmplx(zl_parVec_t *pv, char* spectrum);
 
 
 //float complex int
@@ -449,6 +455,7 @@ void cs_parVecAdd(cs_parVec_t *pv, cs_parVec_t *pv2);
 void cs_parVecScale(cs_parVec_t *pv, fcomplex_t scale);
 fcomplex_t cs_parVecDot(cs_parVec_t *pv, cs_parVec_t *pv2);
 void cs_parVecReadExtVec(cs_parVec_t *pv, char* spectrum);
+void cs_writeToTxtCmplx(cs_parVec_t *pv, char* spectrum);
 
 
 //float complex long
@@ -487,6 +494,7 @@ void cl_parVecAdd(cl_parVec_t *pv, cl_parVec_t *pv2);
 void cl_parVecScale(cl_parVec_t *pv, fcomplex_t scale);
 fcomplex_t cl_parVecDot(cl_parVec_t *pv, cl_parVec_t *pv2);
 void cl_parVecReadExtVec(cl_parVec_t *pv, char* spectrum);
+void cl_writeToTxtCmplx(cl_parVec_t *pv, char* spectrum);
 
 /*parMatrixSparse*/
 

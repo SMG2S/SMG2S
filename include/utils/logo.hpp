@@ -70,7 +70,9 @@ void logo(float version)
 	printf("\n");
 	printf("\n");
 	border_print();
-    center_print("Developed by Xinzhe WU at Maison de la Simulation, France", 100);
+  center_print("Initially developed by Xinzhe WU @ Maison de la Simulation, France", 100);
+	center_print("Continuously maintained by Xinzhe WU @ Forschungszentrum Juelich GmbH, Germany", 100);
+
 	border_print();
 
 	printf("\n\n\n");

@@ -235,6 +235,10 @@ void ds_parVecReadExtVec(ds_parVec_t *pv, char* spectrum){
 	reinterpret_cast<parVector<double, int> *>(pv)->ReadExtVec(spec);		
 }
 
+void ds_writeToTxt(ds_parVec_t *pv, char* spectrum){
+	std::string spec(spectrum);
+	reinterpret_cast<parVector<double, int> *>(pv)->writeToTxt(spec);				
+}
 
 //
 dl_parVec_t *new_dl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound){
@@ -303,7 +307,10 @@ void dl_parVecReadExtVec(dl_parVec_t *pv, char* spectrum){
 	reinterpret_cast<parVector<double, long> *>(pv)->ReadExtVec(spec);		
 }
 
-
+void dl_writeToTxt(dl_parVec_t *pv, char* spectrum){
+	std::string spec(spectrum);
+	reinterpret_cast<parVector<double, long> *>(pv)->writeToTxt(spec);				
+}
 //
 //
 ss_parVec_t *new_ss_ParVec_1(MPI_Comm ncomm, int lbound, int ubound){
@@ -371,7 +378,10 @@ void ss_parVecReadExtVec(ss_parVec_t *pv, char* spectrum){
 	std::string spec(spectrum);
 	reinterpret_cast<parVector<float, int> *>(pv)->ReadExtVec(spec);		
 }
-
+void ss_writeToTxt(ss_parVec_t *pv, char* spectrum){
+	std::string spec(spectrum);
+	reinterpret_cast<parVector<float, int> *>(pv)->writeToTxt(spec);				
+}
 //
 sl_parVec_t *new_sl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound){
 	return reinterpret_cast<sl_parVec_t *>( new parVector<float, long>(ncomm, lbound, ubound) );		
@@ -438,7 +448,10 @@ void sl_parVecReadExtVec(sl_parVec_t *pv, char* spectrum){
 	std::string spec(spectrum);
 	reinterpret_cast<parVector<float, long> *>(pv)->ReadExtVec(spec);		
 }
-
+void sl_writeToTxt(sl_parVec_t *pv, char* spectrum){
+	std::string spec(spectrum);
+	reinterpret_cast<parVector<float, long> *>(pv)->writeToTxt(spec);				
+}
 
 //
 zs_parVec_t *new_zs_ParVec_1(MPI_Comm ncomm, int lbound, int ubound){
@@ -530,7 +543,10 @@ void zs_parVecReadExtVec(zs_parVec_t *pv, char* spectrum){
 	std::string spec(spectrum);
 	reinterpret_cast<parVector<std::complex<double>, int> *>(pv)->ReadExtVec(spec);		
 }
-
+void zs_writeToTxtCmplx(zs_parVec_t *pv, char* spectrum){
+	std::string spec(spectrum);
+	reinterpret_cast<parVector<std::complex<double>, int> *>(pv)->writeToTxtCmplx(spec);				
+}
 
 //
 zl_parVec_t *new_zl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound){
@@ -622,7 +638,10 @@ void zl_parVecReadExtVec(zl_parVec_t *pv, char* spectrum){
 	std::string spec(spectrum);
 	reinterpret_cast<parVector<std::complex<double>, long> *>(pv)->ReadExtVec(spec);		
 }
-
+void zl_writeToTxtCmplx(zl_parVec_t *pv, char* spectrum){
+	std::string spec(spectrum);
+	reinterpret_cast<parVector<std::complex<double>, long> *>(pv)->writeToTxtCmplx(spec);				
+}
 //
 //
 cs_parVec_t *new_cs_ParVec_1(MPI_Comm ncomm, int lbound, int ubound){
@@ -715,7 +734,10 @@ void cs_parVecReadExtVec(cs_parVec_t *pv, char* spectrum){
 	reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->ReadExtVec(spec);		
 }
 
-
+void cs_writeToTxtCmplx(cs_parVec_t *pv, char* spectrum){
+	std::string spec(spectrum);
+	reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->writeToTxtCmplx(spec);				
+}
 //
 cl_parVec_t *new_cl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound){
 	return reinterpret_cast<cl_parVec_t *>( new parVector<std::complex<float>, long>(ncomm, lbound, ubound) );		
@@ -806,7 +828,10 @@ void cl_parVecReadExtVec(cl_parVec_t *pv, char* spectrum){
 	std::string spec(spectrum);
 	reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->ReadExtVec(spec);		
 }
-
+void cl_writeToTxtCmplx(cl_parVec_t *pv, char* spectrum){
+	std::string spec(spectrum);
+	reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->writeToTxtCmplx(spec);				
+}
 
 /*parMatrixSparse*/
 //double int

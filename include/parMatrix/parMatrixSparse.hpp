@@ -38,7 +38,7 @@ SOFTWARE.
 #include <utils/MPI_DataType.hpp>
 #include <utils/utils.hpp>
 #include <parMatrix/MatrixCSR.hpp>
-
+#include <limits>
 #ifdef __USE_COMPLEX__
 #include <complex>
 #endif
@@ -670,7 +670,7 @@ void parMatrixSparse<T,S>::rmZeros(){
     	for(i = 0; i < nrows; i++){
     	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end();){
     	    	k = it->first;
-    	    	if(it->second == T(0)){
+    	    	if(std::abs(it->second) < (std::numeric_limits<Base<T>>::denorm_min())){
     	    	     it=dynmat_loc[i].erase(it);
     	    	}else{
     	    	     it++;
@@ -745,7 +745,9 @@ void parMatrixSparse<T,S>::initMat(S diag_l, S diag_u, Base<T> scale, T shift, B
     	for (auto j = MAX(0, i - diag_l); j <= i - diag_u; j++){
     	    auto sampling = d(rd);
     	    if (sampling < 1.0 - sparsity){
-    	    	SetValue(i, j, T(scale * d(rd)) + shift);
+    	    	SetValue(i, j, T(scale * d(rd)) + shift );
+    	    }else{
+    	    	SetValue(i, j, T(0) );
     	    }
     	}
     }
@@ -969,7 +971,7 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
 
 	rowSendToProc_Path.push_back(single_path);
     }
-  
+    /*
     if(ProcID == 0){
 	for(auto i = 0; i < rowSendToProc_Path.size();i++){
 		std::cout << "Sending path #" << i << ": ";
@@ -979,7 +981,7 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
 		std::cout << std::endl;
     	} 
     }
-    
+    */
     int comm_path_nb = rowSendToProc_Path.size();
     //package for sending and receving
 

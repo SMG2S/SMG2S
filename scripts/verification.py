@@ -33,7 +33,7 @@ from matplotlib.patches import Rectangle
 import matplotlib.colorbar as cbar
 import matplotlib.cm as cm
 import matplotlib.collections as collections
-
+from numpy import linalg as LA
 #load sparse matrix from MatrixMarket format
 #output is in COO format
 def loadMatrix(filename):
@@ -146,6 +146,12 @@ def approx_spectrum(M, spec, offset):
 
     return eigenvalues    
 
+def compute_spectrum(M):
+    Mdense = M.toarray()
+    eigenvalues = LA.eig(Mdense)
+
+    return eigenvalues   
+
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='verification of matrices generated matrices to keep given spectra')
@@ -153,19 +159,25 @@ if __name__ == '__main__':
     parser.add_argument("--offset", default=1e-10)
     parser.add_argument("--matpath", default="data/testmatrix_cmplx.mtx")
     parser.add_argument("--specpath", default="data/given_spectrum_cmplx.txt")
-    
+    parser.add_argument('--verify', action='store_true')
+
 
     value = parser.parse_args()
 
     M=loadMatrix(value.matpath)
-    spec = loadVector(value.specpath)
-    eigenvalues = approx_spectrum(M, spec, value.offset)
 
     fig = plt.figure()
-    ax = fig.add_subplot(121)
-    ax = spy_coo(M, ax, type="heatmap")
-    ax2 = fig.add_subplot(122)
-    ax2 = plot_spectrum(spec, eigenvalues, ax2)
+    if value.verify:
+        spec = loadVector(value.specpath)
+        #eigenvalues = approx_spectrum(M, spec, value.offset)
+        eigenvalues, _ = compute_spectrum(M)
+        ax = fig.add_subplot(121)
+        ax = spy_coo(M, ax, type="heatmap")
+        ax2 = fig.add_subplot(122)
+        ax2 = plot_spectrum(spec, eigenvalues, ax2)
+    else:
+        ax = fig.add_subplot(111)
+        ax = spy_coo(M, ax)        
 
     plt.tight_layout()
     

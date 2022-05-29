@@ -107,7 +107,6 @@ parMatrixSparse<T,S> nonherm(S probSize, Nilpotent<S> nilp, initMat<S> init, par
     auto Am = parMatrixSparse<T, S>(spec.GetVecMap());
 
     Am.initMat(init.diag_l, init.diag_u, Base<T>(init.scale), T(0.0), Base<T>(init.sparsity) );
-
     nonherm(probSize, nilp, &Am, spec);
 
     return Am;
@@ -132,7 +131,7 @@ void nonherm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
 
     MPI_Comm comm = Am->GetComm();
 
-    double start, end;
+    double t1, t2, t3, diff1, diff2;
 
     MPI_Comm_size(comm, &world_size);
     MPI_Comm_rank(comm, &world_rank);
@@ -148,26 +147,21 @@ void nonherm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
 
     auto matAop = parMatrixSparse<T, S>(Am->GetMap());
 
-    start = MPI_Wtime();
-
     Am->setSpecNonHerm(spec);
-    matAop.setSpecNonHerm(spec);
-
-    end = MPI_Wtime();
-
-    double t2 = end - start;
-
+    matAop.copy(*Am);
     double fact = 1;
 
     for (S k=1; k<=2*(nilp.getDegree()-1); k++){
         auto MA = matAop.MA(nilp);
         auto AM = matAop.AM(nilp);
-        matAop.copy(AM);
-        //matAop.MatAYPX(AM, 0);
-        matAop.MatAXPY(MA, -1);
+        matAop.copy(MA);
+        matAop.MatAXPY(AM, -1);
         fact /= factorial<double, int>(k, k);
         Am->MatAXPY(matAop, fact);
     }
+
+    Am->rmZeros();
+    Am->updateNnz();
 }
 
 
@@ -303,7 +297,7 @@ void nonsymm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
     start = MPI_Wtime();
 
     Am->setSpecNonSymm(spec);
-    matAop.setSpecNonSymm(spec);
+    matAop.copy(*Am);
 
     end = MPI_Wtime();
 
@@ -314,12 +308,15 @@ void nonsymm(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVector<
     for (S k=1; k<=2*(nilp.getDegree()-1); k++){
         auto MA = matAop.MA(nilp);
         auto AM = matAop.AM(nilp);
-        matAop.copy(AM);
+        matAop.copy(MA);
         //matAop.MatAYPX(AM, 0);
-        matAop.MatAXPY(MA, -1);
+        matAop.MatAXPY(AM, -1);
         fact /= factorial<double, int>(k, k);
         Am->MatAXPY(matAop, fact);
     }
+
+    Am->rmZeros();
+    Am->updateNnz();
 }
 
 //! Generating a non-Symmetric sparse matrix using the spectrum stored in a parVector object
@@ -388,7 +385,7 @@ void nonsymmconj(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVec
     start = MPI_Wtime();
 
     Am->setSpecNonSymmCmplx(spec);
-    matAop.setSpecNonSymmCmplx(spec);
+    matAop.copy(*Am);
 
     end = MPI_Wtime();
 
@@ -399,12 +396,15 @@ void nonsymmconj(S probSize, Nilpotent<S> nilp, parMatrixSparse<T,S> *Am, parVec
     for (S k=1; k<=2*(nilp.getDegree()-1); k++){
         auto MA = matAop.MA(nilp);
         auto AM = matAop.AM(nilp);
-        matAop.copy(AM);
+        matAop.copy(MA);
         //matAop.MatAYPX(AM, 0);
-        matAop.MatAXPY(MA, -1);
+        matAop.MatAXPY(AM, -1);
         fact /= factorial<double, int>(k, k);
         Am->MatAXPY(matAop, fact);
     }
+
+    Am->rmZeros();
+    Am->updateNnz();
 
 }
 

@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 
     int world_size;
     int world_rank;
-    int probSize = 17;
+    int probSize = 1000;
 
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
@@ -37,11 +37,12 @@ int main(int argc, char** argv)
     auto parVecMap = parVectorMap<int>(MPI_COMM_WORLD, lower_b, upper_b);
     parVector<double, int> vec = parVector<double, int>(parVecMap);
     vec.SetToValue(3.3);
+    vec.writeToTxt("vector.txt");
     //vec.VecView();
 
     auto Matrix = parMatrixSparse<double, int>(vec);
 
-    Matrix.initMat(-5, -3, 1.0, 0.0, 0.0);
+    Matrix.initMat(-720, -80, 10.0, 0.0, 0.98);
     //Matrix.MatView();
 
     Matrix.SetValue(3,0,2.4);
@@ -58,13 +59,13 @@ int main(int argc, char** argv)
     //Y.MatView();
     //Matrix.MatView();
 
-    Matrix.MatAXPY(X, 2);
+    //Matrix.MatAXPY(X, 2);
     //Matrix.MatView();
 
-    Matrix.MatAYPX(Y, 0.0001);
+    //Matrix.MatAYPX(Y, 0.0001);
     //Matrix.MatView();
 
-    //Matrix.writeToMatrixMarket("matrix.txt");
+    Matrix.writeToMatrixMarket("matrix.mtx");
 
     Nilpotent<int> nilp = Nilpotent<int>(2, 3, probSize);
     //nilp.show();
@@ -72,16 +73,16 @@ int main(int argc, char** argv)
 
     if(world_rank == 0){
         for(auto i = 0; i < iz.size(); i++){
-            std::cout << iz[i] << std::endl;
+            //std::cout << iz[i] << std::endl;
         }
     }
 
     //auto MA = Matrix.MA(nilp);
     auto AM = Matrix.AM(nilp);
     //Matrix.copy(Y);
-    Matrix.MatView();
+    //Matrix.MatView();
     //MA.MatView();
-    AM.MatView();
+    //AM.MatView();
 
 	MPI_Finalize();
 

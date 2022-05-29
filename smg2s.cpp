@@ -21,88 +21,129 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include "smg2s/smg2s.h"
-#include "smg2s/smg2s_nonsymmetric.h"
 #include <math.h>
 #include <complex>
 #include <cstdlib>
 #include <string.h>
-#include "utils/logo.h"
-#include "utils/utils.h"
-#include "utils/cmdline/cmdline.h"
 #include <string>
 #include <typeinfo>  
+#include <random>
+#include <cmath>
+#include <smg2s-interface.hpp>
+#include <utils/logo.hpp>
+#include <utils/cmdline/cmdline.hpp>
+
+const double pi = std::acos(-1);
 
 using S = int;
+using T1 = std::complex<double>;
+using T2 = double;
+
+void specGenNonHerm(parVector<T1, S> *spec){
+    std::mt19937_64 rd(12234);
+    std::uniform_real_distribution<> d(0, 1);
+
+    auto lb = spec->GetLowerBound();
+    auto ub = spec->GetUpperBound();
+    auto n = spec->GetGlobalSize();
+
+    for(auto i = lb; i < ub; i++){
+        T1 v(std::cos(i * 2 * pi / n) * 100 + 100 + 50 * d(rd), 100 * std::sin(i * 2 * pi / n) );
+        spec->SetValueGlobal(i, v);
+    }
+}
+
+void specGenNonSymmConj(parVector<std::complex<T2>, S> *spec){
+    std::mt19937_64 rd(12234);
+    std::uniform_real_distribution<> d(0, 1);
+
+    auto lb = spec->GetLowerBound();
+    auto ub = spec->GetUpperBound();
+    auto n = spec->GetGlobalSize();
+    
+    for(auto i = 0; i < n; i = i + 2){
+        if(i >= lb && i < ub){
+            std::complex<T2> v(std::cos(i * pi / n) * 1000 + 1000 , 1000 * std::sin(i * pi / n)+0.001 );
+            spec->SetValueGlobal(i, v);
+            std::complex<T2> v2(std::cos(i * pi / n) * 1000 + 1000 , -1000 * std::sin(i * pi / n)-0.001 );
+            spec->SetValueGlobal(i+1, v2);
+        }
+    }
+
+}
+
 
 int main(int argc, char** argv) {
 
     // Initialize the MPI environment
     MPI_Init(&argc, &argv);
 
-    // Get the number of processes
-    int size;
+    int nProcs;
+    int MyPID;
+    MPI_Comm_size(MPI_COMM_WORLD, &nProcs);
+    MPI_Comm_rank(MPI_COMM_WORLD, &MyPID);
 
-    double start, end, time;
-
-    bool non_sym = false;
-
-    MPI_Comm_size(MPI_COMM_WORLD, &size);
-
-    // Get the rank of the process
-    int rank;
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-
-    if(rank == 0) {logo(1.1);}
-
-    // Get the name of the processor
-    char processor_name[MPI_MAX_PROCESSOR_NAME];
-    int name_len;
-    MPI_Get_processor_name(processor_name, &name_len);
+    if(MyPID == 0) {logo(1.1);}
 
     // Command Line parser
     cmdline::parser parser;
 
     parser.add<S>("dim", 'D', "Dimension of matrix to be generated", false, 1000);
-    parser.add<S>("lbandwidth", 'L', "low bandwidth of initial matrix", false, 5);
+    parser.add<S>("diagL", 'L', "offset of lower diagonal of initial matrix", false, -10);
+    parser.add<S>("diagU", 'U', "offset of upper diagonal of initial matrix", false, -5);
+    parser.add<S>("nilpOffset", 'O', "offset of diagonal of a nilpotent", false, 5);
     parser.add<S>("continous", 'C', "Continuous length in Nilpotent matrix", false, 2);
-    parser.add<std::string>("spectrum", 'S', "local file with given spectrum", false, " ");
-    parser.add<std::string>("mattype", 'M', "Matrix type to be generated: non-symmetric or non-Hermitian", false, "non-herm", cmdline::oneof<std::string>("non-herm", "non-sym"));
+
+    parser.add<std::string>("mattype", 'M', "Matrix type to be generated: non-symmetric or non-Hermitian", false, "non-herm", cmdline::oneof<std::string>("non-herm", "non-symm"));
 
     parser.parse_check(argc, argv);
 
     //parser value from cmdline
     S probSize = parser.get<S>("dim");
-    S lbandwidth = parser.get<S>("lbandwidth");
+    S diag_l = parser.get<S>("diagL");
+    S diag_u = parser.get<S>("diagU");
     S length = parser.get<S>("continous");
-    std::string spectrum = parser.get<std::string>("spectrum");
+    S offset = parser.get<S>("nilpOffset");
     std::string mattype = parser.get<std::string>("mattype");
 
-    if(rank == 0) printf("INFO ]> Starting ... \n");
+    S span, lower_b, upper_b;
 
-    if(rank == 0) printf("INFO ]> The MPI Comm World Size is %d\n", size);
+    span = S(floor(double(probSize)/double(nProcs)));
 
-    Nilpotency<S> nilp;
-    nilp.NilpType1(length, probSize);
+    if(MyPID == nProcs - 1){
+        lower_b = MyPID * span;
+        upper_b = probSize - 1 + 1;
+    }else{
+        lower_b = MyPID * span;
+        upper_b = (MyPID + 1) * span - 1 + 1;
+    }
+
+    auto parVecMap = parVectorMap<S>(MPI_COMM_WORLD, lower_b, upper_b);
+    
+    if(MyPID == 0) printf("INFO ]> Starting ... \n");
+
+    if(MyPID == 0) printf("INFO ]> The MPI Comm World Size is %d\n", nProcs);
+
+    Nilpotent<S> nilp = Nilpotent<S>(length, offset, probSize);
+
+    double start, end, time;
 
     if(mattype == "non-herm"){
-        using T = std::complex<double>;
+        auto spec1 = parVector<T1, S>(parVecMap);
 
-        parMatrixSparse<T, S> *Mt;
+        specGenNonHerm(&spec1);
 
         start = MPI_Wtime();
-
-        Mt =  smg2s<T, S>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-
+        auto mat = nonherm<T1, S>(probSize, nilp, initMat<S>(diag_l, diag_u, 0.1, 0.95), spec1);
         end = MPI_Wtime();
 
         time = end - start;
 
-        if(rank == 0){
+        if(MyPID == 0){
             border_print2();
             center_print ( "SMG2S Finish the Generation of Non Hermitian Matrix",100 );
-            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << lbandwidth << ", C = " << length << ", Proc = " << size << "\n" << std::endl;
-            std::cout <<  "                               Data Types for the test: " << typeid(T).name() <<", "<< typeid(S).name() <<  "\n" << std::endl;
+            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << diag_l << ", U = " << diag_u << ", O = " << offset << ", C = " << length << ", Proc = " << nProcs << "\n" << std::endl;
+            std::cout <<  "                               Data Types for the test: " << typeid(T1).name() <<", "<< typeid(S).name() <<  "\n" << std::endl;
             printf ( "                                  SMG2S Time is %f seconds \n", time );
             border_print2();
         }
@@ -110,24 +151,21 @@ int main(int argc, char** argv) {
    else
    {
 
-        using P = double;
+        auto spec2 = parVector<std::complex<T2>, S>(parVecMap);
 
-        parMatrixSparse<P, S> *Mt2;
+        specGenNonSymmConj(&spec2);
 
         start = MPI_Wtime();
-
-        Mt2 =  smg2s_nonsymmetric<P, S>(probSize, nilp,lbandwidth, spectrum, MPI_COMM_WORLD);
-
+        auto mat2 = nonsymmconj<T2, S>(probSize, nilp, initMat<S>(diag_l, diag_u, 0.1, 0.95), spec2);
         end = MPI_Wtime();
 
         time = end - start;
-
-        if(rank == 0){
+        
+        if(MyPID == 0){
             border_print2();
             center_print ( "SMG2S Finish the Generation of Non Symmetric Matrix",100 );
-
-            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << lbandwidth << ", C = " << length << ", Proc = " << size << "\n" << std::endl;
-            std::cout <<  "                               Data Types for the test: " << typeid(P).name() <<", "<< typeid(S).name() <<  "\n" << std::endl;
+            std::cout << "\n                              Size = "<< demical<int>(probSize) <<"e^" << pw<int>(probSize) << ", L = " << diag_l << ", U = " << diag_u << ", O = " << offset << ", C = " << length << ", Proc = " << nProcs << "\n" << std::endl;
+            std::cout <<  "                               Data Types for the test: " << typeid(T2).name() <<", "<< typeid(S).name() <<  "\n" << std::endl;
             printf ( "                                  SMG2S Time is %f seconds \n", time );
             border_print2();
         }
@@ -135,5 +173,4 @@ int main(int argc, char** argv) {
 
    MPI_Finalize();
 
-    return 0;
 }

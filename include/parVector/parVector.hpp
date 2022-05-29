@@ -211,6 +211,17 @@ class parVector{
       * @param[in] spectrum a `std::string` indicates the path+filename of local text file
     */		
 	void ReadExtVec(std::string spectrum);
+    //! Write a parVector in real scalar to a local file
+    /*!
+      * @param[in] file_name a `std::string` indicates the path+filename to write into
+    */      
+    void writeToTxt(std::string file_name);
+    //! Write a parVector in complex scalar to a local file
+    /*!
+      * @param[in] file_name a `std::string` indicates the path+filename to write into
+    */        
+    void writeToTxtCmplx(std::string file_name);
+
 	//! Display the vector in a distributed manner		
 	void VecView();
 };
@@ -395,11 +406,123 @@ void parVector<T, S>::ReadExtVec(std::string spectrum)
             reinterpret_cast<Base<T>(&)[size1]>(val)[i] = in_vals[i];
 	}
 
-	if((idx >= lower_bound) && (idx < upper_bound)){
-	    SetValueLocal(index_map.Glob2Loc(idx),val);
-	}		
+	   if((idx >= lower_bound) && (idx < upper_bound)){
+	       SetValueLocal(index_map.Glob2Loc(idx),val);
+	   }		
     }
 }
+
+template<typename T, typename S>
+void parVector<T, S>::writeToTxt(std::string file_name)
+{
+    std::string header;
+    std::string data;
+
+    if( (sizeof(T)/sizeof(Base<T>) != 1) ){
+        try{
+            throw 505;
+        }catch(...){
+            std::cout << "SMG2S]> Caught Exception: for complex vector, please use writeToTxtCmplx" << std::endl;
+        }               
+    }
+
+    //generate header
+    header.append("%%SMG2S vector in real scalar\n");
+    std::string dim_info = std::to_string(global_size) + " " + std::to_string(global_size) + "\n";
+    header.append(dim_info);    
+
+    for(auto i = 0; i < local_size; i++){
+        data += std::to_string(index_map.Loc2Glob(i)+1) + " " + std::to_string(array[i]) + "\n";
+    }
+
+    MPI_File fh;
+    MPI_Offset write_offset;
+    MPI_Offset text_size;
+    MPI_Offset *write_size_per_proc;
+    MPI_Status sts;
+
+    write_size_per_proc = (MPI_Offset *)malloc(sizeof(MPI_Offset) * nProcs);
+    
+    text_size = data.size();
+
+    MPI_Allgather(&text_size, 1, MPI_OFFSET, write_size_per_proc, 1, MPI_OFFSET, comm);
+
+    write_offset = header.size();
+
+    for (auto i = 0; i < MyPID; ++i) {
+        write_offset += write_size_per_proc[i];
+    }
+
+
+    MPI_File_delete (file_name.c_str(), MPI_INFO_NULL);
+    MPI_File_open(comm, file_name.c_str(), MPI_MODE_WRONLY | MPI_MODE_CREATE, MPI_INFO_NULL, &fh);
+
+
+    if (MyPID == 0) {
+        MPI_File_write_at(fh, 0, header.c_str(), header.size(), MPI_CHAR, &sts);
+    }
+
+    MPI_File_write_at(fh, write_offset, data.c_str(), data.size(), MPI_CHAR, &sts);
+
+    MPI_File_close(&fh);
+    free(write_size_per_proc);
+}
+
+template<typename T, typename S>
+void parVector<T, S>::writeToTxtCmplx(std::string file_name){
+    std::string header;
+    std::string data;
+
+    if( (sizeof(T)/sizeof(Base<T>) != 2) ){
+        try{
+            throw 505;
+        }catch(...){
+            std::cout << "SMG2S]> Caught Exception: for real vector, please use writeToTxt" << std::endl;
+        }               
+    }
+
+    //generate header
+    header.append("%%SMG2S vector in complex scalar\n");
+    std::string dim_info = std::to_string(global_size) + " " + std::to_string(global_size)  + " " + std::to_string(global_size) + "\n";
+    header.append(dim_info);    
+
+    for(auto i = 0; i < local_size; i++){
+        data += std::to_string(index_map.Loc2Glob(i)+1) + " " + std::to_string(array[i].real()) + + " " + std::to_string(array[i].imag()) + "\n";
+    }
+
+    MPI_File fh;
+    MPI_Offset write_offset;
+    MPI_Offset text_size;
+    MPI_Offset *write_size_per_proc;
+    MPI_Status sts;
+
+    write_size_per_proc = (MPI_Offset *)malloc(sizeof(MPI_Offset) * nProcs);
+    
+    text_size = data.size();
+
+    MPI_Allgather(&text_size, 1, MPI_OFFSET, write_size_per_proc, 1, MPI_OFFSET, comm);
+
+    write_offset = header.size();
+
+    for (auto i = 0; i < MyPID; ++i) {
+        write_offset += write_size_per_proc[i];
+    }
+
+
+    MPI_File_delete (file_name.c_str(), MPI_INFO_NULL);
+    MPI_File_open(comm, file_name.c_str(), MPI_MODE_WRONLY | MPI_MODE_CREATE, MPI_INFO_NULL, &fh);
+
+
+    if (MyPID == 0) {
+        MPI_File_write_at(fh, 0, header.c_str(), header.size(), MPI_CHAR, &sts);
+    }
+
+    MPI_File_write_at(fh, write_offset, data.c_str(), data.size(), MPI_CHAR, &sts);
+
+    MPI_File_close(&fh);
+    free(write_size_per_proc);
+}
+
 
 template<typename T, typename S>
 T parVector<T, S>::GetUpperNeighbor(S offset){
