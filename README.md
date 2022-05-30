@@ -1,4 +1,6 @@
-# SMG2S
+[TOC]
+
+# Overview
 Sparse Matrix Generator with Given Spectrum
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2694506.svg)](https://doi.org/10.5281/zenodo.2694506)
@@ -35,9 +37,9 @@ Python version is avaiable on [Pypi](https://pypi.org/project/smg2s/), which can
 CC=mpicxx pip install smg2s
 ```
 
-## Installation
+# Installation
 
-### Binary Executable file
+## Binary Executable file
 In the main directory:
 
 ```bash
@@ -73,7 +75,7 @@ options:
   -?, --help          print this message
 ```
 
-### Include files
+## Include files
 
 Install the binary file and includes files into ${INSTALL_DIRECTORY}
 ```bash
@@ -95,8 +97,8 @@ Include and Compile
 mpicxx example.cpp -I${INSTALL_DIRECTORY}/include
 ```
 
-## Example
-### Creation
+# Example
+## Creation
 
 Include header file
 
