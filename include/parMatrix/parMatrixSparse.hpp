@@ -884,14 +884,15 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::MA(Nilpotent<S> nilp){
     	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
     	    	S j =  it->first + offset;
     	    	if(j < ncols){
-    	    	    //if not the index of zeros in nilpotent
-    	    	    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), j-offset) == IndOfZeros.end() && it->second != T(0) ){
-    	    	    	prod.SetValueLocal(i, j, it->second);
+    	    	    if(!std::binary_search(IndOfZeros.begin(), IndOfZeros.end(), j-offset) && it->second != T(0)){
+    	    	    	prod.SetValueLocal(i, j, it->second);	
     	    	    }
     	    	}
-    	    }	
+    	    }
+    	    	
     	}
     }
+
     return prod;
 }
 
@@ -923,7 +924,7 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
     	    for(it = dynmat_loc[i].begin(); it != dynmat_loc[i].end(); ++it){
     	    	auto j =  it->first;
     	    	    //if not the index of zeros in nilpotent
-    	    	if (std::find(IndOfZeros.begin(), IndOfZeros.end(), row-offset-offset ) == IndOfZeros.end()&& it->second != T(0) ){
+    	    	if (!std::binary_search(IndOfZeros.begin(), IndOfZeros.end(), row-offset-offset)&& it->second != T(0) ){
     	    	    prod.SetValueLocal(i-offset, j, it->second);
     	    	}
     	    }	
@@ -938,7 +939,7 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
              std::vector<S> rcollect;	       	
              for(auto r = lprocbound_map[id]; r < lprocbound_map[id] + MIN(offset, uprocbound_map[id] - lprocbound_map[id]); r++){
                 if( (r - offset >= lprocbound_map[rid]) && (r - offset < uprocbound_map[rid]) ){
-                    if (std::find(IndOfZeros.begin(), IndOfZeros.end(), r - offset - offset) == IndOfZeros.end() ){
+                    if ( !std::binary_search(IndOfZeros.begin(), IndOfZeros.end(), r-offset-offset) ){
 		        rcollect.push_back(r);
                     }
                 }
@@ -971,17 +972,7 @@ parMatrixSparse<T,S> parMatrixSparse<T,S>::AM(Nilpotent<S> nilp){
 
 	rowSendToProc_Path.push_back(single_path);
     }
-    /*
-    if(ProcID == 0){
-	for(auto i = 0; i < rowSendToProc_Path.size();i++){
-		std::cout << "Sending path #" << i << ": ";
-		for(itm = rowSendToProc_Path[i].begin(); itm != rowSendToProc_Path[i].end(); ++itm){
-		    std::cout << itm->first.first << " ===> " << itm->first.second << "     ";
-		}
-		std::cout << std::endl;
-    	} 
-    }
-    */
+
     int comm_path_nb = rowSendToProc_Path.size();
     //package for sending and receving
 
