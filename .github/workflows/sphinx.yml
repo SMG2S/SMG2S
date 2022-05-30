@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build HTML
       run: |
-          chmod +x build.sh
-          ./build.sh
+          chmod +x .github/workflow/build.sh
+          .github/workflow/build.sh
       shell: bash
 

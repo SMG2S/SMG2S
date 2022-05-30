@@ -1,13 +1,14 @@
 #!/bin/bash
 
-cd SMG2S
+#cd SMG2S
 
-cd docs
+#cd docs
 
-mkdir build
+#mkdir build
 
-cd build
+#cd build
 
-cmake ..
+#cmake ..
 
+pwd
 
