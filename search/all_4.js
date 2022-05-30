@@ -27,5 +27,6 @@ var searchData=
   ['getvaluelocal_82',['GetValueLocal',['../classpar_matrix_sparse.html#a56a833ce54055a73d9547286044f445d',1,'parMatrixSparse::GetValueLocal()'],['../classpar_vector.html#a368a5e37aa8588755c376940224d8abc',1,'parVector::GetValueLocal()']]],
   ['getvecmap_83',['GetVecMap',['../classpar_vector.html#a76964baa1667ffd21d38170227aa810b',1,'parVector']]],
   ['glob2loc_84',['Glob2Loc',['../classpar_vector.html#a7d53d0b813e8cfa5ec6b166b4b6a8cdf',1,'parVector::Glob2Loc()'],['../classpar_vector_map.html#ad0160a6ab325824ca978f34b24944bbb',1,'parVectorMap::Glob2Loc()']]],
-  ['global_5fsize_85',['global_size',['../classpar_vector.html#a6c4f36a984dd01a4c23c1cda93dee407',1,'parVector::global_size()'],['../classpar_vector_map.html#acd8bf78c90b4b66b5851880d26ce03f4',1,'parVectorMap::global_size()']]]
+  ['global_5fsize_85',['global_size',['../classpar_vector.html#a6c4f36a984dd01a4c23c1cda93dee407',1,'parVector::global_size()'],['../classpar_vector_map.html#acd8bf78c90b4b66b5851880d26ce03f4',1,'parVectorMap::global_size()']]],
+  ['getting_20started_86',['Getting Started',['../md_docs_started.html',1,'']]]
 ];

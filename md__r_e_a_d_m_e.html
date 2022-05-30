@@ -97,61 +97,61 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md0">Overview</a><ul><li class="level2"><a href="#autotoc_md1">Update !!!</a></li>
-<li class="level2"><a href="#autotoc_md3">What for ?</a></li>
-<li class="level2"><a href="#autotoc_md4">Cite SMG2S</a></li>
-<li class="level2"><a href="#autotoc_md5">Documentation</a></li>
+<ul><li class="level1"><a href="#autotoc_md2">Overview</a><ul><li class="level2"><a href="#autotoc_md3">Update !!!</a></li>
+<li class="level2"><a href="#autotoc_md5">What for ?</a></li>
+<li class="level2"><a href="#autotoc_md6">Cite SMG2S</a></li>
+<li class="level2"><a href="#autotoc_md7">Documentation</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md6">Installation</a><ul><li class="level2"><a href="#autotoc_md7">Binary Executable file</a></li>
-<li class="level2"><a href="#autotoc_md8">Include files</a></li>
+<li class="level1"><a href="#autotoc_md8">Installation</a><ul><li class="level2"><a href="#autotoc_md9">Binary Executable file</a></li>
+<li class="level2"><a href="#autotoc_md10">Include files</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md9">Example</a><ul><li class="level2"><a href="#autotoc_md10">Creation</a><ul><li class="level3"><a href="#autotoc_md12">Given Spectra file in pseudo-Matrix Market Vector Format</a><ul><li class="level4"><a href="#autotoc_md13">Non-Hermitian case</a></li>
-<li class="level4"><a href="#autotoc_md14">Non-Symmetric case</a></li>
+<li class="level1"><a href="#autotoc_md11">Example</a><ul><li class="level2"><a href="#autotoc_md12">Creation</a><ul><li class="level3"><a href="#autotoc_md14">Given Spectra file in pseudo-Matrix Market Vector Format</a><ul><li class="level4"><a href="#autotoc_md15">Non-Hermitian case</a></li>
+<li class="level4"><a href="#autotoc_md16">Non-Symmetric case</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md16">Interface</a><ul><li class="level3"><a href="#autotoc_md17">Interface to PETSc</a></li>
-<li class="level3"><a href="#autotoc_md18">Interface to Python</a></li>
-<li class="level3"><a href="#autotoc_md19">Interface to C</a></li>
-<li class="level3"><a href="#autotoc_md20">Interface to Trilinos/Teptra CSR matrix</a></li>
+<li class="level2"><a href="#autotoc_md18">Interface</a><ul><li class="level3"><a href="#autotoc_md19">Interface to PETSc</a></li>
+<li class="level3"><a href="#autotoc_md20">Interface to Python</a></li>
+<li class="level3"><a href="#autotoc_md21">Interface to C</a></li>
+<li class="level3"><a href="#autotoc_md22">Interface to Trilinos/Teptra CSR matrix</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md21">Verification</a></li>
+<li class="level2"><a href="#autotoc_md23">Verification</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md0"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md2"></a>
 Overview</h1>
 <p>Sparse Matrix Generator with Given Spectrum</p>
 <p><a href="https://doi.org/10.5281/zenodo.2694506"><object type="image/svg+xml" data="https://zenodo.org/badge/DOI/10.5281/zenodo.2694506.svg" style="pointer-events: none;">DOI</object></a></p>
-<h2><a class="anchor" id="autotoc_md1"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Update !!!</h2>
 <p>In the newest version (v1.1) of SMG2S, it supports the generation of nonsymmetric matrices that all the entries of matrices are real and the eigenvalues can be both real and complex.</p>
 <hr  />
 <p>Author <a href="https://brunowu.github.io">Xinzhe Wu</a> @ <a href="http://www.maisondelasimulation.fr">Maison de la Simulation</a>, France.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 What for ?</h2>
 <p>SMG2S is able to generate large-scale non-Hermitian (non-Symmetric) methods in parallel with the spectral distribution functions or eigenvalues given by users. SMG2S can be used to benchmark the iterative linear and eigen solvers on supercomputers using the generated very large test matrices with customized spectral properties.</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Cite SMG2S</h2>
 <ol type="1">
 <li>Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." Concurrency and Computation: Practice and Experience, 32(20), e5710, 2020. <a href="https://doi.org/10.1002/cpe.5710">(DOI)</a></li>
 <li>Wu, Xinzhe. SMG2S Manual v1. 0. Maison de la Simulation, 2018. <a href="https://hal.archives-ouvertes.fr/hal-01874810/document">(PDF)</a></li>
 </ol>
 <p><img src="doc/figure/matgen.png" alt="Matrix Generation Pattern" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Documentation</h2>
 <p>Website of SMG2S is <a href="https://smg2s.github.io/">here</a>, Developing repository is on <a href="https://github.com/SMG2S">Github</a>.</p>
 <p><a href="https://smg2s.github.io/files/smg2s_manual_v1_1.pdf">Documentation</a> is avaiable.</p>
 <p>Python version is avaiable on <a href="https://pypi.org/project/smg2s/">Pypi</a>, which can be installed by the command:</p>
 <div class="fragment"><div class="line">CC=mpicxx pip install smg2s</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
 Installation</h1>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Binary Executable file</h2>
 <p>In the main directory:</p>
 <div class="fragment"><div class="line">cmake .  -DCMAKE_INSTALL_PREFIX=${INSTALL_DIRECTORY}</div>
@@ -170,7 +170,7 @@ Binary Executable file</h2>
 <div class="line">  -S, --spectrum      local file with given spectrum (string [= ])</div>
 <div class="line">  -M, --mattype       Matrix type to be generated: non-symmetric or non-Hermitian (string [=non-herm])</div>
 <div class="line">  -?, --help          print this message</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
 Include files</h2>
 <p>Install the binary file and includes files into ${INSTALL_DIRECTORY} </p><div class="fragment"><div class="line">make install</div>
 </div><!-- fragment --><p>Include the SMG2S header file </p><div class="fragment"><div class="line"><span class="comment">/*Generate Non Hermitian Matrices*/</span></div>
@@ -179,9 +179,9 @@ Include files</h2>
 <div class="line"><span class="comment">/*Generate Non Symmetric Matrices whose eigenvalues can be real and complex*/</span></div>
 <div class="line"><span class="preprocessor">#include &lt;smg2s/smg2s_nonsymmetric.h&gt;</span></div>
 </div><!-- fragment --><p>Include and Compile </p><div class="fragment"><div class="line">mpicxx example.cpp -I${INSTALL_DIRECTORY}/include</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md9"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md11"></a>
 Example</h1>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 Creation</h2>
 <p>Include header file</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;smg2s/smg2s.h&gt;</span></div>
@@ -195,11 +195,11 @@ Creation</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">/*Generate Non Symmetric Matrices whose eigenvalues can be real and complex*/</span></div>
 <div class="line">Mt2 = smg2s_nonsymmetric&lt;float,int&gt;(probSize, nilp, lbandwidth, spectrum, comm);</div>
-</div><!-- fragment --><p><a class="anchor" id="autotoc_md11"></a></p><h5>ATTENTION:</h5>
+</div><!-- fragment --><p><a class="anchor" id="autotoc_md13"></a></p><h5>ATTENTION:</h5>
 <p>For generating non symmetric matrices with complex eigenvalues, the first typename in the template of can only be <b>double</b> or <b>float</b>.</p>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="autotoc_md14"></a>
 Given Spectra file in pseudo-Matrix Market Vector Format</h3>
-<h4><a class="anchor" id="autotoc_md13"></a>
+<h4><a class="anchor" id="autotoc_md15"></a>
 Non-Hermitian case</h4>
 <ul>
 <li>Complex values</li>
@@ -217,10 +217,10 @@ Non-Hermitian case</h4>
 1 10
 2 10.6288    
 3 10.7621
-</pre><h4><a class="anchor" id="autotoc_md14"></a>
+</pre><h4><a class="anchor" id="autotoc_md16"></a>
 Non-Symmetric case</h4>
 <p>In order to generate non-Symmetric test matrices with given complex and real eigenvalues, the give spectrum are always stored in complex form, which has three columns.</p>
-<p><a class="anchor" id="autotoc_md15"></a></p><h5>Attention:</h5>
+<p><a class="anchor" id="autotoc_md17"></a></p><h5>Attention:</h5>
 <p>For the non-Symmetric test matrices, if one eigenvalue is complex, there exits another value that they two are symmetric to the real axis in the real-imaginary plain. So when setting up the spectral file, one eigenvalue a+bi should be closely followed by another eigenvalue a-bi. For the real eigenvalues, they are stored with their imaginary part being 0. Here is an example </p><pre class="fragment">%%MatrixMarket matrix coordinate complex general
 9 9 9
 1 10.6288 -3.4790
@@ -232,10 +232,10 @@ Non-Symmetric case</h4>
 7 -11.02 0
 8 21.21 4.4
 9 21.21 -4.4
-</pre><h2><a class="anchor" id="autotoc_md16"></a>
+</pre><h2><a class="anchor" id="autotoc_md18"></a>
 Interface</h2>
 <p>The cmake will check if PETSc is installed in the platfrom, if yes, header file to interface will also be copied to ${INSTALL_DIRECTORY}/include when installing SMG2S.</p>
-<h3><a class="anchor" id="autotoc_md17"></a>
+<h3><a class="anchor" id="autotoc_md19"></a>
 Interface to PETSc</h3>
 <p>Include header file</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;interface/PETSc/petsc_interface.h&gt;</span></div>
@@ -246,7 +246,7 @@ Interface to PETSc</h3>
 </div><!-- fragment --><p>Create PETSc MAT type </p><div class="fragment"><div class="line">MatCreate(PETSC_COMM_WORLD,&amp;A);</div>
 </div><!-- fragment --><p>Convert to PETSc MAT format </p><div class="fragment"><div class="line">A = ConvertToPETSCMat(Mt);</div>
 </div><!-- fragment --><p>More information: <a href="https://github.com/brunowu/SMG2S/tree/master/example/gmres">PETSc GMRES example</a> and <a href="https://github.com/brunowu/SMG2S/tree/master/example/arnoldi">PETSc Arnoldi example</a></p>
-<h3><a class="anchor" id="autotoc_md18"></a>
+<h3><a class="anchor" id="autotoc_md20"></a>
 Interface to Python</h3>
 <p>Generate the shared library and install the python module of smg2s </p><div class="fragment"><div class="line">#install online from pypi</div>
 <div class="line">CC=mpicxx pip install smg2s</div>
@@ -298,7 +298,7 @@ Interface to Python</h3>
 <div class="line">Mt=smg2s.smg2sDoubleInt(10,nilp,lbandwidth,&quot;vector.txt&quot;, MPI.COMM_WORLD)</div>
 <div class="line">#Generate non-Symmetric matrix Mt by SMG2S</div>
 <div class="line">Mt2=smg2s.smg2sNonSymmetricDoubleInt(10,nilp,lbandwidth,&quot; &quot;, MPI.COMM_WORLD)</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md19"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md21"></a>
 Interface to C</h3>
 <p>The make install command will generate a shared library <code>libsmg2s2c.so</code> into <code>${INSTALL_DIRECTORY}/lib</code>. It can be used to profit the C wrapper of SMG2S.</p>
 <p>The compile command:</p>
@@ -357,7 +357,7 @@ Interface to C</h3>
 <div class="line">    MPI_Finalize();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md20"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md22"></a>
 Interface to Trilinos/Teptra CSR matrix</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;interface/Trilinos/trilinos_interface.hpp&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;parMatrix/parMatrixSparse.h&gt;</span></div>
@@ -386,7 +386,7 @@ Interface to Trilinos/Teptra CSR matrix</h3>
 <div class="line"> </div>
 <div class="line"><span class="comment">/* Shown the matrix K by describe function in Trilinos*/</span></div>
 <div class="line">K-&gt;describe(*fos, Teuchos::VERB_EXTREME);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md21"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md23"></a>
 Verification</h2>
 <p><img src="doc/figure/vector.png" alt="Comparison of generated spectrum with given spectrum" class="inline"/> </p>
 </div></div><!-- contents -->
