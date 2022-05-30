@@ -1,3 +1,8 @@
+cmake_minimum_required(VERSION 3.8)
+
+#project setting
+project(SMG2S-doc)
+
 find_package(Doxygen REQUIRED)
 find_package(Python REQUIRED)
 
