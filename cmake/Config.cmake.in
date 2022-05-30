@@ -1,0 +1,6 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/smg2s-header.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/smg2s-c.cmake")
+
+check_required_components("@PROJECT_NAME@")

@@ -36,7 +36,7 @@ install( TARGETS smg2s
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   )
 
-install(DIRECTORY include DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/..
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
   FILES_MATCHING
     PATTERN "*.hpp"
 )
@@ -45,44 +45,52 @@ install(EXPORT smg2s-headers
   NAMESPACE SMG2S::
   FILE smg2s-header.cmake
   EXPORT_LINK_INTERFACE_LIBRARIES
-  DESTINATION ${CMAKE_INSTALL_LIBDIR}/../cmake/${PROJECT_NAME}
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
   )
 
 INSTALL(TARGETS smg2s.exe DESTINATION ${CMAKE_INSTALL_BINDIR})
 
-option(BUILD_C_INTERFACE "Build C interface" ON)
 
-if(BUILD_C_INTERFACE)
-    file(GLOB C_WRAPPERS "src/C/*.cc")
-    add_library(smg2s2c ${C_WRAPPERS})
-    target_include_directories(smg2s2c INTERFACE 
-                                "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include/>"
-                                $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
-        )
-
-    target_link_libraries(smg2s2c PUBLIC smg2s)
-
-
-    install( TARGETS smg2s2c
-        EXPORT smg2s-c
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+file(GLOB C_WRAPPERS "src/C/*.cc")
+add_library(smg2s2c ${C_WRAPPERS})
+target_include_directories(smg2s2c INTERFACE 
+                            "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include/>"
+                            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
     )
 
-    install(DIRECTORY include DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/..
-        FILES_MATCHING
-        PATTERN "*.h"
-    )
+target_link_libraries(smg2s2c PUBLIC smg2s)
 
-    install(EXPORT smg2s-c
-        NAMESPACE SMG2S::
-        FILE smg2s-c.cmake
-        EXPORT_LINK_INTERFACE_LIBRARIES
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/../cmake/${PROJECT_NAME}
-    )
-endif()
 
+install( TARGETS smg2s2c
+    EXPORT smg2s-c
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    FILES_MATCHING
+    PATTERN "*.h"
+)
+
+install(EXPORT smg2s-c
+    NAMESPACE SMG2S::
+    FILE smg2s-c.cmake
+    EXPORT_LINK_INTERFACE_LIBRARIES
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+)
+
+include(CMakePackageConfigHelpers)
+configure_package_config_file(
+    "cmake/Config.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/smg2s-config.cmake"
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+)
+
+install( FILES
+  "${CMAKE_CURRENT_BINARY_DIR}/smg2s-config.cmake"
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+  )
 
 ###tests
 add_subdirectory(tests)
