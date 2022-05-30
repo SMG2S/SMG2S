@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build HTML
       run: |
-          sphinx.yml ./build.sh
+          chmod +x ./build.sh
           ./build.sh
       shell: bash
 
