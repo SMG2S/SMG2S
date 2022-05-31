@@ -62,6 +62,7 @@ class parVectorMap
 
     public:
 	//constructor
+    //! A constructor of `parVectorMap`. 
 	parVectorMap();
     //! A constructor of `parVectorMap`. 
     /*!

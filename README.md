@@ -1,5 +1,3 @@
-[TOC]
-
 # Overview
 Sparse Matrix Generator with Given Spectrum
 

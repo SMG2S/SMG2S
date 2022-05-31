@@ -249,6 +249,7 @@ parMatrixSparse<T,S> nonsymm(S probSize, Nilpotent<S> nilp, initMat<S> init, par
             std::cout << "SMG2S]> Caught Exception: this is for non-symmetric matrix, please use real scalar type" << std::endl;
         }      
     }
+
     auto Am = parMatrixSparse<T, S>(spec.GetVecMap());
 
     Am.initMat(init.diag_l, init.diag_u, Base<T>(init.scale), T(0.0), Base<T>(init.sparsity) );

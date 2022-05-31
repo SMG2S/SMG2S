@@ -70,7 +70,7 @@ void specGenNonSymm(parVector<double, int> *spec, double scale, double shift){
 
 void specGenNonSymm2(parVector<std::complex<double>, int> *spec, double scale, double shift){
     std::mt19937_64 rd(12234);
-    std::uniform_real_distribution<> d(0, 10);
+    std::uniform_real_distribution<> d(0, 1);
 
     auto lb = spec->GetLowerBound();
     auto ub = spec->GetUpperBound();

@@ -124,6 +124,9 @@ void initMatrixL_destory(initMatrixL_t *init){
 }
 
 /*parVectorMap*/
+parVecMap_t *newParVecMap_empty(){
+	return reinterpret_cast<parVecMap_t *>( new parVectorMap<int>() );	
+}
 parVecMap_t *newParVecMap(MPI_Comm ncomm, int lbound, int ubound){
 	return reinterpret_cast<parVecMap_t *>( new parVectorMap<int>(ncomm, lbound, ubound) );
 }
@@ -144,6 +147,10 @@ int parVecMapGetGlobSize(parVecMap_t *pv){
 }
 void parVecMap_destory(parVecMap_t *pv){
 	delete reinterpret_cast<parVectorMap<int> *>(pv);
+}
+
+parVecMapL_t *newParVecMapL_empty(){
+	return reinterpret_cast<parVecMapL_t *>( new parVectorMap<long>() );	
 }
 
 parVecMapL_t *newParVecMapL(MPI_Comm ncomm, long lbound, long ubound){
@@ -240,11 +247,19 @@ void ds_writeToTxt(ds_parVec_t *pv, char* spectrum){
 	reinterpret_cast<parVector<double, int> *>(pv)->writeToTxt(spec);				
 }
 
+parVecMap_t *ds_parVecGetMap(ds_parVec_t *pv){
+	parVecMap_t *map = newParVecMap_empty();
+	parVectorMap<int> *map2 = reinterpret_cast<parVectorMap<int> *>(map);
+	*map2 = reinterpret_cast<parVector<double, int> *>(pv)->GetVecMap();
+	map = reinterpret_cast<parVecMap_t *>(map2);
+	return map;
+}
+
 //
 dl_parVec_t *new_dl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound){
 	return reinterpret_cast<dl_parVec_t *>( new parVector<double, long>(ncomm, lbound, ubound) );		
 }
-dl_parVec_t *new_dl_ParVec_2(parVecMap_t *map){
+dl_parVec_t *new_dl_ParVec_2(parVecMapL_t *map){
 	return reinterpret_cast<dl_parVec_t *>( new parVector<double,long>(*reinterpret_cast<parVectorMap<long> *>(map)) );
 }
 void dl_parVec_destory(dl_parVec_t *pv){
@@ -311,147 +326,14 @@ void dl_writeToTxt(dl_parVec_t *pv, char* spectrum){
 	std::string spec(spectrum);
 	reinterpret_cast<parVector<double, long> *>(pv)->writeToTxt(spec);				
 }
-//
-//
-ss_parVec_t *new_ss_ParVec_1(MPI_Comm ncomm, int lbound, int ubound){
-	return reinterpret_cast<ss_parVec_t *>( new parVector<float, int>(ncomm, lbound, ubound) );		
-}
-ss_parVec_t *new_ss_ParVec_2(parVecMap_t *map){
-	return reinterpret_cast<ss_parVec_t *>( new parVector<float,int>(*reinterpret_cast<parVectorMap<int> *>(map)) );
-}
-void ss_parVec_destory(ss_parVec_t *pv){
-	delete reinterpret_cast<parVector<float,int> *>(pv);
-}
-int ss_parVecGetLowerBound(ss_parVec_t *pv){
-	return reinterpret_cast<parVector<float,int> *>(pv)->GetLowerBound();
-}
-int ss_parVecGetUpperBound(ss_parVec_t *pv){
-	return reinterpret_cast<parVector<float, int> *>(pv)->GetUpperBound();	
+parVecMapL_t *dl_parVecGetMap(dl_parVec_t *pv){
+	parVecMapL_t *map = newParVecMapL_empty();
+	parVectorMap<long> *map2 = reinterpret_cast<parVectorMap<long> *>(map);
+	*map2 = reinterpret_cast<parVector<double, long> *>(pv)->GetVecMap();
+	map = reinterpret_cast<parVecMapL_t *>(map2);
+	return map;
 }
 
-int ss_parVecGetLocSize(ss_parVec_t *pv){
-	return reinterpret_cast<parVector<float, int> *>(pv)->GetLocalSize();		
-}
-int ss_parVecGetGlobSize(ss_parVec_t *pv){
-	return reinterpret_cast<parVector<float, int> *>(pv)->GetGlobalSize();			
-}
-float ss_parVecGetVal(ss_parVec_t *pv, int index){
-	return reinterpret_cast<parVector<float, int> *>(pv)->GetValue(index);			
-}
-float ss_parVecGetValLoc(ss_parVec_t *pv, int lindex){
-	return reinterpret_cast<parVector<float, int> *>(pv)->GetValueLocal(lindex);				
-}
-float *ss_parVecGetArray(ss_parVec_t *pv){
-	return reinterpret_cast<parVector<float, int> *>(pv)->GetArray();				
-}
-MPI_Comm ss_parVecGetComm(ss_parVec_t *pv){
-	return reinterpret_cast<parVector<float, int> *>(pv)->GetComm();				
-}
-int ss_parVecL2G(ss_parVec_t *pv, int local_index){
-	return reinterpret_cast<parVector<float, int> *>(pv)->Loc2Glob(local_index);				
-}
-int ss_parVecG2L(ss_parVec_t *pv, int global_index){
-	return reinterpret_cast<parVector<float, int> *>(pv)->Glob2Loc(global_index);					
-}
-void ss_parVecSetToVal(ss_parVec_t *pv, float val){
-	return reinterpret_cast<parVector<float, int> *>(pv)->SetToValue(val);					
-}
-void ss_parVecView(ss_parVec_t *pv){
-	return reinterpret_cast<parVector<float, int> *>(pv)->VecView();						
-}
-void ss_parVecSetVal(ss_parVec_t *pv, int index, float val){
-	return reinterpret_cast<parVector<float, int> *>(pv)->SetValueGlobal(index, val);						
-}
-void ss_parVecSetValLoc(ss_parVec_t *pv, int lindex, float val){
-	return reinterpret_cast<parVector<float, int> *>(pv)->SetValueLocal(lindex, val);						
-}
-void ss_parVecAdd(ss_parVec_t *pv, ss_parVec_t *pv2){
-	return reinterpret_cast<parVector<float, int> *>(pv)->VecAdd(* reinterpret_cast<parVector<float, int> *>(pv2));						
-}
-void ss_parVecScale(ss_parVec_t *pv, float scale){
-	reinterpret_cast<parVector<float, int> *>(pv)->VecScale(scale);	
-}
-float ss_parVecDot(ss_parVec_t *pv, ss_parVec_t *pv2){
-	return reinterpret_cast<parVector<float, int> *>(pv)->VecDot(* reinterpret_cast<parVector<float, int> *>(pv2));							
-}
-void ss_parVecReadExtVec(ss_parVec_t *pv, char* spectrum){
-	std::string spec(spectrum);
-	reinterpret_cast<parVector<float, int> *>(pv)->ReadExtVec(spec);		
-}
-void ss_writeToTxt(ss_parVec_t *pv, char* spectrum){
-	std::string spec(spectrum);
-	reinterpret_cast<parVector<float, int> *>(pv)->writeToTxt(spec);				
-}
-//
-sl_parVec_t *new_sl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound){
-	return reinterpret_cast<sl_parVec_t *>( new parVector<float, long>(ncomm, lbound, ubound) );		
-}
-sl_parVec_t *new_sl_ParVec_2(parVecMap_t *map){
-	return reinterpret_cast<sl_parVec_t *>( new parVector<float,long>(*reinterpret_cast<parVectorMap<long> *>(map)) );
-}
-void sl_parVec_destory(sl_parVec_t *pv){
-	delete reinterpret_cast<parVector<float,long> *>(pv);
-}
-long sl_parVecGetLowerBound(sl_parVec_t *pv){
-	return reinterpret_cast<parVector<float,long> *>(pv)->GetLowerBound();
-}
-long sl_parVecGetUpperBound(sl_parVec_t *pv){
-	return reinterpret_cast<parVector<float, long> *>(pv)->GetUpperBound();	
-}
-
-long sl_parVecGetLocSize(sl_parVec_t *pv){
-	return reinterpret_cast<parVector<float, long> *>(pv)->GetLocalSize();		
-}
-long sl_parVecGetGlobSize(sl_parVec_t *pv){
-	return reinterpret_cast<parVector<float, long> *>(pv)->GetGlobalSize();			
-}
-float sl_parVecGetVal(sl_parVec_t *pv, long index){
-	return reinterpret_cast<parVector<float, long> *>(pv)->GetValue(index);			
-}
-float sl_parVecGetValLoc(sl_parVec_t *pv, long lindex){
-	return reinterpret_cast<parVector<float, long> *>(pv)->GetValueLocal(lindex);				
-}
-float *sl_parVecGetArray(sl_parVec_t *pv){
-	return reinterpret_cast<parVector<float, long> *>(pv)->GetArray();				
-}
-MPI_Comm sl_parVecGetComm(sl_parVec_t *pv){
-	return reinterpret_cast<parVector<float, long> *>(pv)->GetComm();				
-}
-long sl_parVecL2G(sl_parVec_t *pv, long local_index){
-	return reinterpret_cast<parVector<float, long> *>(pv)->Loc2Glob(local_index);				
-}
-long sl_parVecG2L(sl_parVec_t *pv, long global_index){
-	return reinterpret_cast<parVector<float, long> *>(pv)->Glob2Loc(global_index);					
-}
-void sl_parVecSetToVal(sl_parVec_t *pv, float val){
-	return reinterpret_cast<parVector<float, long> *>(pv)->SetToValue(val);					
-}
-void sl_parVecView(sl_parVec_t *pv){
-	return reinterpret_cast<parVector<float, long> *>(pv)->VecView();						
-}
-void sl_parVecSetVal(sl_parVec_t *pv, long index, float val){
-	return reinterpret_cast<parVector<float, long> *>(pv)->SetValueGlobal(index, val);						
-}
-void sl_parVecSetValLoc(sl_parVec_t *pv, long lindex, float val){
-	return reinterpret_cast<parVector<float, long> *>(pv)->SetValueLocal(lindex, val);						
-}
-void sl_parVecAdd(sl_parVec_t *pv, sl_parVec_t *pv2){
-	return reinterpret_cast<parVector<float, long> *>(pv)->VecAdd(* reinterpret_cast<parVector<float, long> *>(pv2));						
-}
-void sl_parVecScale(sl_parVec_t *pv, float scale){
-	reinterpret_cast<parVector<float, long> *>(pv)->VecScale(scale);	
-}
-float sl_parVecDot(sl_parVec_t *pv, sl_parVec_t *pv2){
-	return reinterpret_cast<parVector<float, long> *>(pv)->VecDot(* reinterpret_cast<parVector<float, long> *>(pv2));							
-}
-void sl_parVecReadExtVec(sl_parVec_t *pv, char* spectrum){
-	std::string spec(spectrum);
-	reinterpret_cast<parVector<float, long> *>(pv)->ReadExtVec(spec);		
-}
-void sl_writeToTxt(sl_parVec_t *pv, char* spectrum){
-	std::string spec(spectrum);
-	reinterpret_cast<parVector<float, long> *>(pv)->writeToTxt(spec);				
-}
 
 //
 zs_parVec_t *new_zs_ParVec_1(MPI_Comm ncomm, int lbound, int ubound){
@@ -499,6 +381,14 @@ dcomplex_t *zs_parVecGetArray(zs_parVec_t *pv){
 		array[i].imag = a[i].imag();
 	}
 	return array;				
+}
+
+parVecMap_t *zs_parVecGetMap(zs_parVec_t *pv){
+	parVecMap_t *map = newParVecMap_empty();
+	parVectorMap<int> *map2 = reinterpret_cast<parVectorMap<int> *>(map);
+	*map2 = reinterpret_cast<parVector<std::complex<double>, int> *>(pv)->GetVecMap();
+	map = reinterpret_cast<parVecMap_t *>(map2);
+	return map;
 }
 
 MPI_Comm zs_parVecGetComm(zs_parVec_t *pv){
@@ -552,7 +442,7 @@ void zs_writeToTxtCmplx(zs_parVec_t *pv, char* spectrum){
 zl_parVec_t *new_zl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound){
 	return reinterpret_cast<zl_parVec_t *>( new parVector<std::complex<double>, long>(ncomm, lbound, ubound) );		
 }
-zl_parVec_t *new_zl_ParVec_2(parVecMap_t *map){
+zl_parVec_t *new_zl_ParVec_2(parVecMapL_t *map){
 	return reinterpret_cast<zl_parVec_t *>( new parVector<std::complex<double>,long>(*reinterpret_cast<parVectorMap<long> *>(map)) );
 }
 void zl_parVec_destory(zl_parVec_t *pv){
@@ -595,6 +485,15 @@ dcomplex_t *zl_parVecGetArray(zl_parVec_t *pv){
 	}
 	return array;				
 }
+
+parVecMapL_t *zl_parVecGetMap(zl_parVec_t *pv){
+	parVecMapL_t *map = newParVecMapL_empty();
+	parVectorMap<long> *map2 = reinterpret_cast<parVectorMap<long> *>(map);
+	*map2 = reinterpret_cast<parVector<std::complex<double>, long> *>(pv)->GetVecMap();
+	map = reinterpret_cast<parVecMapL_t *>(map2);
+	return map;
+}
+
 
 MPI_Comm zl_parVecGetComm(zl_parVec_t *pv){
 	return reinterpret_cast<parVector<std::complex<double>, long> *>(pv)->GetComm();				
@@ -643,195 +542,6 @@ void zl_writeToTxtCmplx(zl_parVec_t *pv, char* spectrum){
 	reinterpret_cast<parVector<std::complex<double>, long> *>(pv)->writeToTxtCmplx(spec);				
 }
 //
-//
-cs_parVec_t *new_cs_ParVec_1(MPI_Comm ncomm, int lbound, int ubound){
-	return reinterpret_cast<cs_parVec_t *>( new parVector<std::complex<float>, int>(ncomm, lbound, ubound) );		
-}
-cs_parVec_t *new_cs_ParVec_2(parVecMap_t *map){
-	return reinterpret_cast<cs_parVec_t *>( new parVector<std::complex<float>,int>(*reinterpret_cast<parVectorMap<int> *>(map)) );
-}
-void cs_parVec_destory(cs_parVec_t *pv){
-	delete reinterpret_cast<parVector<std::complex<float>,int> *>(pv);
-}
-int cs_parVecGetLowerBound(cs_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>,int> *>(pv)->GetLowerBound();
-}
-int cs_parVecGetUpperBound(cs_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->GetUpperBound();	
-}
-
-int cs_parVecGetLocSize(cs_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->GetLocalSize();		
-}
-int cs_parVecGetGlobSize(cs_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->GetGlobalSize();			
-}
-fcomplex_t cs_parVecGetVal(cs_parVec_t *pv, int index){
-	std::complex<float> v = reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->GetValue(index);
-	fcomplex_t val;
-	val.real = v.real();
-	val.imag = v.imag();
-	return val;			
-}
-fcomplex_t cs_parVecGetValLoc(cs_parVec_t *pv, int lindex){
-	std::complex<float> v = reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->GetValueLocal(lindex);
-	fcomplex_t val;
-	val.real = v.real();
-	val.imag = v.imag();
-	return val;	
-}
-fcomplex_t *cs_parVecGetArray(cs_parVec_t *pv){
-	int nnz = reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->GetLocalSize();
-	std::complex<float> *a = reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->GetArray();
-	fcomplex_t *array = new fcomplex_t [nnz];
-	for(int i = 0; i < nnz; i++){
-		array[i].real = a[i].real();
-		array[i].imag = a[i].imag();
-	}
-	return array;				
-}
-
-MPI_Comm cs_parVecGetComm(cs_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->GetComm();				
-}
-int cs_parVecL2G(cs_parVec_t *pv, int local_index){
-	return reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->Loc2Glob(local_index);				
-}
-int cs_parVecG2L(cs_parVec_t *pv, int global_index){
-	return reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->Glob2Loc(global_index);					
-}
-void cs_parVecSetToVal(cs_parVec_t *pv, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);
-	return reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->SetToValue(v);					
-}
-void cs_parVecView(cs_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->VecView();						
-}
-void cs_parVecSetVal(cs_parVec_t *pv, int index, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);	
-	return reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->SetValueGlobal(index, v);						
-}
-void cs_parVecSetValLoc(cs_parVec_t *pv, int lindex, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);	
-	return reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->SetValueLocal(lindex, v);						
-}
-void cs_parVecAdd(cs_parVec_t *pv, cs_parVec_t *pv2){
-	return reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->VecAdd(* reinterpret_cast<parVector<std::complex<float>, int> *>(pv2));						
-}
-void cs_parVecScale(cs_parVec_t *pv, fcomplex_t scale){
-	std::complex<float> s(scale.real, scale.imag);
-	reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->VecScale(s);	
-}
-fcomplex_t cs_parVecDot(cs_parVec_t *pv, cs_parVec_t *pv2){
-	std::complex<float> d = reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->VecDot(* reinterpret_cast<parVector<std::complex<float>, int> *>(pv2));	
-	fcomplex_t pp;
-	pp.real = d.real();
-	pp.imag = d.imag();
-	return pp;							
-}
-void cs_parVecReadExtVec(cs_parVec_t *pv, char* spectrum){
-	std::string spec(spectrum);
-	reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->ReadExtVec(spec);		
-}
-
-void cs_writeToTxtCmplx(cs_parVec_t *pv, char* spectrum){
-	std::string spec(spectrum);
-	reinterpret_cast<parVector<std::complex<float>, int> *>(pv)->writeToTxtCmplx(spec);				
-}
-//
-cl_parVec_t *new_cl_ParVec_1(MPI_Comm ncomm, long lbound, long ubound){
-	return reinterpret_cast<cl_parVec_t *>( new parVector<std::complex<float>, long>(ncomm, lbound, ubound) );		
-}
-cl_parVec_t *new_cl_ParVec_2(parVecMap_t *map){
-	return reinterpret_cast<cl_parVec_t *>( new parVector<std::complex<float>,long>(*reinterpret_cast<parVectorMap<long> *>(map)) );
-}
-void cl_parVec_destory(cl_parVec_t *pv){
-	delete reinterpret_cast<parVector<std::complex<float>,long> *>(pv);
-}
-long cl_parVecGetLowerBound(cl_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>,long> *>(pv)->GetLowerBound();
-}
-long cl_parVecGetUpperBound(cl_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->GetUpperBound();	
-}
-
-long cl_parVecGetLocSize(cl_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->GetLocalSize();		
-}
-long cl_parVecGetGlobSize(cl_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->GetGlobalSize();			
-}
-fcomplex_t cl_parVecGetVal(cl_parVec_t *pv, long index){
-	std::complex<float> v = reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->GetValue(index);
-	fcomplex_t val;
-	val.real = v.real();
-	val.imag = v.imag();
-	return val;			
-}
-fcomplex_t cl_parVecGetValLoc(cl_parVec_t *pv, long lindex){
-	std::complex<float> v = reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->GetValueLocal(lindex);
-	fcomplex_t val;
-	val.real = v.real();
-	val.imag = v.imag();
-	return val;	
-}
-fcomplex_t *cl_parVecGetArray(cl_parVec_t *pv){
-	long nnz = reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->GetLocalSize();
-	std::complex<float> *a = reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->GetArray();
-	fcomplex_t *array = new fcomplex_t [nnz];
-	for(long i = 0; i < nnz; i++){
-		array[i].real = a[i].real();
-		array[i].imag = a[i].imag();
-	}
-	return array;				
-}
-
-MPI_Comm cl_parVecGetComm(cl_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->GetComm();				
-}
-long cl_parVecL2G(cl_parVec_t *pv, long local_index){
-	return reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->Loc2Glob(local_index);				
-}
-long cl_parVecG2L(cl_parVec_t *pv, long global_index){
-	return reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->Glob2Loc(global_index);					
-}
-void cl_parVecSetToVal(cl_parVec_t *pv, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);
-	return reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->SetToValue(v);					
-}
-void cl_parVecView(cl_parVec_t *pv){
-	return reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->VecView();						
-}
-void cl_parVecSetVal(cl_parVec_t *pv, long index, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);	
-	return reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->SetValueGlobal(index, v);						
-}
-void cl_parVecSetValLoc(cl_parVec_t *pv, long lindex, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);	
-	return reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->SetValueLocal(lindex, v);						
-}
-void cl_parVecAdd(cl_parVec_t *pv, cl_parVec_t *pv2){
-	return reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->VecAdd(* reinterpret_cast<parVector<std::complex<float>, long> *>(pv2));						
-}
-void cl_parVecScale(cl_parVec_t *pv, fcomplex_t scale){
-	std::complex<float> s(scale.real, scale.imag);
-	reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->VecScale(s);	
-}
-fcomplex_t cl_parVecDot(cl_parVec_t *pv, cl_parVec_t *pv2){
-	std::complex<float> d = reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->VecDot(* reinterpret_cast<parVector<std::complex<float>, long> *>(pv2));	
-	fcomplex_t pp;
-	pp.real = d.real();
-	pp.imag = d.imag();
-	return pp;							
-}
-void cl_parVecReadExtVec(cl_parVec_t *pv, char* spectrum){
-	std::string spec(spectrum);
-	reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->ReadExtVec(spec);		
-}
-void cl_writeToTxtCmplx(cl_parVec_t *pv, char* spectrum){
-	std::string spec(spectrum);
-	reinterpret_cast<parVector<std::complex<float>, long> *>(pv)->writeToTxtCmplx(spec);				
-}
 
 /*parMatrixSparse*/
 //double int
@@ -903,12 +613,30 @@ void ds_parMatSparse_Wrt2MM(ds_parMatSparse_t *pm, char *file_name){
 	return reinterpret_cast<parMatrixSparse<double, int > *>(pm)->writeToMatrixMarket(file_name);						
 }
 
+void ds_parMatSparse_initMat(ds_parMatSparse_t *pm, int diagl, int diagu, double Scale, double Sparsity){
+	return reinterpret_cast<parMatrixSparse<double, int > *>(pm)->initMat(diagl, diagu, Scale, 0.0, Sparsity);
+}
+void dl_parMatSparse_initMat(dl_parMatSparse_t *pm, long diagl, long diagu, double Scale, double Sparsity){
+	return reinterpret_cast<parMatrixSparse<double, long > *>(pm)->initMat(diagl, diagu, Scale, 0.0, Sparsity);
+}
+
+
+
+void zs_parMatSparse_initMat(zs_parMatSparse_t *pm, int diagl, int diagu, double Scale, double Sparsity){
+	return reinterpret_cast<parMatrixSparse<std::complex<double>, int > *>(pm)->initMat(diagl, diagu, Scale, 0.0, Sparsity);
+}
+void zl_parMatSparse_initMat(zl_parMatSparse_t *pm, long diagl, long diagu, double Scale, double Sparsity){
+	return reinterpret_cast<parMatrixSparse<std::complex<double>, long > *>(pm)->initMat(diagl, diagu, Scale, 0.0, Sparsity);
+}
+
+
+
 //
 //double long
 dl_parMatSparse_t *new_dl_ParMatSparse_1(dl_parVec_t *pv){
 	return reinterpret_cast<dl_parMatSparse_t *>( new parMatrixSparse<double,long >(*reinterpret_cast<parVector<double, long > *>(pv)) );
 }
-dl_parMatSparse_t *new_dl_ParMatSparse_2(parVecMap_t *map){
+dl_parMatSparse_t *new_dl_ParMatSparse_2(parVecMapL_t *map){
 	return reinterpret_cast<dl_parMatSparse_t *>( new parMatrixSparse<double,long >(*reinterpret_cast<parVectorMap<long > *>(map)) );
 }
 void dl_parMatSparse_destory(dl_parMatSparse_t *pm){
@@ -971,145 +699,6 @@ void dl_parMatSparse_View(dl_parMatSparse_t *pm){
 }
 void dl_parMatSparse_Wrt2MM(dl_parMatSparse_t *pm, char *file_name){
 	return reinterpret_cast<parMatrixSparse<double, long > *>(pm)->writeToMatrixMarket(file_name);						
-}
-
-//
-//float int
-ss_parMatSparse_t *new_ss_ParMatSparse_1(ss_parVec_t *pv){
-	return reinterpret_cast<ss_parMatSparse_t *>( new parMatrixSparse<float,int >(*reinterpret_cast<parVector<float, int > *>(pv)) );
-}
-ss_parMatSparse_t *new_ss_ParMatSparse_2(parVecMap_t *map){
-	return reinterpret_cast<ss_parMatSparse_t *>( new parMatrixSparse<float,int >(*reinterpret_cast<parVectorMap<int > *>(map)) );
-}
-void ss_parMatSparse_destory(ss_parMatSparse_t *pm){
-	delete reinterpret_cast<parMatrixSparse<float, int > *>(pm);
-}
-int ss_parMatSparse_GetNRows(ss_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->GetNRows();
-}
-int ss_parMatSparse_GetNCols(ss_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->GetNCols();	
-}
-int ss_parMatSparse_GetNNzLoc(ss_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->GetNNzLoc();	
-}
-int ss_parMatSparse_GetLowerBound(ss_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->GetLowerBound();		
-}
-int ss_parMatSparse_GetUpperBound(ss_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->GetUpperBound();			
-}
-MPI_Comm ss_parMatSparse_GetComm(ss_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->GetComm();				
-}
-void ss_parMatSparse_SetValLocal(ss_parMatSparse_t *pm, int row, int col, float val){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->SetValueLocal(row, col, val);					
-}
-void ss_parMatSparse_SetVal(ss_parMatSparse_t *pm, int row, int col, float val){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->SetValue(row, col, val);						
-}
-void ss_parMatSparse_AddValLocal(ss_parMatSparse_t *pm, int row, int col, float val){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->AddValueLocal(row, col, val);						
-}
-void ss_parMatSparse_AddVal(ss_parMatSparse_t *pm, int row, int col, float val){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->AddValue(row, col, val);						
-}
-float ss_parMatSparse_GetValLocal(ss_parMatSparse_t *pm, int row, int col){
-	return reinterpret_cast<parMatrixSparse<double, int > *>(pm)->GetValueLocal(row, col);	
-}
-float ss_parMatSparse_GetVal(ss_parMatSparse_t *pm, int row, int col){
-	return reinterpret_cast<parMatrixSparse<double, int > *>(pm)->GetValue(row, col);								
-}
-void ss_parMatSparse_toCSRArray(ss_parMatSparse_t *pm, int *nrows, int *nnz, int **roffs, int **cols, float **val){
-	MatrixCSR<float, int > csr = reinterpret_cast<parMatrixSparse<float, int > *>(pm)->ConvertToCSR();
-	*nrows = csr.nrows;
-	*nnz = csr.nnz;
-	*roffs = (int *)malloc( (csr.nrows + 1) * sizeof(int ) );
-	*cols = (int *)malloc( csr.nnz * sizeof(int ) );
-	*val = (float *)malloc(csr.nnz * sizeof(float));
-
-	memcpy(*roffs, csr.rows.data(), (csr.nrows + 1) * sizeof(int ));
-	memcpy(*cols, csr.cols.data(), csr.nnz * sizeof(int ));
-	memcpy(*val, csr.vals.data(), csr.nnz * sizeof(float));
-
-}
-void ss_parMatSparse_Show(ss_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->show();						
-}
-void ss_parMatSparse_View(ss_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->MatView();						
-}
-void ss_parMatSparse_Wrt2MM(ss_parMatSparse_t *pm, char *file_name){
-	return reinterpret_cast<parMatrixSparse<float, int > *>(pm)->writeToMatrixMarket(file_name);						
-}
-
-//float long
-sl_parMatSparse_t *new_sl_ParMatSparse_1(sl_parVec_t *pv){
-	return reinterpret_cast<sl_parMatSparse_t *>( new parMatrixSparse<float,long >(*reinterpret_cast<parVector<float, long > *>(pv)) );
-}
-sl_parMatSparse_t *new_sl_ParMatSparse_2(parVecMap_t *map){
-	return reinterpret_cast<sl_parMatSparse_t *>( new parMatrixSparse<float,long >(*reinterpret_cast<parVectorMap<long > *>(map)) );
-}
-void sl_parMatSparse_destory(sl_parMatSparse_t *pm){
-	delete reinterpret_cast<parMatrixSparse<float, long > *>(pm);
-}
-long sl_parMatSparse_GetNRows(sl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->GetNRows();
-}
-long sl_parMatSparse_GetNCols(sl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->GetNCols();	
-}
-long sl_parMatSparse_GetNNzLoc(sl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->GetNNzLoc();	
-}
-long sl_parMatSparse_GetLowerBound(sl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->GetLowerBound();		
-}
-long sl_parMatSparse_GetUpperBound(sl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->GetUpperBound();			
-}
-MPI_Comm sl_parMatSparse_GetComm(sl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->GetComm();				
-}
-void sl_parMatSparse_SetValLocal(sl_parMatSparse_t *pm, long row, long col, float val){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->SetValueLocal(row, col, val);					
-}
-void sl_parMatSparse_SetVal(sl_parMatSparse_t *pm, long row, long col, float val){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->SetValue(row, col, val);						
-}
-void sl_parMatSparse_AddValLocal(sl_parMatSparse_t *pm, long row, long col, float val){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->AddValueLocal(row, col, val);						
-}
-void sl_parMatSparse_AddVal(sl_parMatSparse_t *pm, long row, long col, float val){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->AddValue(row, col, val);						
-}
-float sl_parMatSparse_GetValLocal(sl_parMatSparse_t *pm, long row, long col){
-	return reinterpret_cast<parMatrixSparse<double, int > *>(pm)->GetValueLocal(row, col);								
-}
-float sl_parMatSparse_GetVal(sl_parMatSparse_t *pm, long row, long col){
-	return reinterpret_cast<parMatrixSparse<double, int > *>(pm)->GetValue(row, col);								
-}
-void sl_parMatSparse_toCSRArray(sl_parMatSparse_t *pm, long *nrows, long *nnz, long **roffs, long **cols, float **val){
-	MatrixCSR<float, long > csr = reinterpret_cast<parMatrixSparse<float, long > *>(pm)->ConvertToCSR();
-	*nrows = csr.nrows;
-	*nnz = csr.nnz;
-	*roffs = (long *)malloc( (csr.nrows + 1) * sizeof(long ) );
-	*cols = (long *)malloc( csr.nnz * sizeof(long ) );
-	*val = (float *)malloc(csr.nnz * sizeof(float));
-
-	memcpy(*roffs, csr.rows.data(), (csr.nrows + 1) * sizeof(long ));
-	memcpy(*cols, csr.cols.data(), csr.nnz * sizeof(long));
-	memcpy(*val, csr.vals.data(), csr.nnz * sizeof(float));
-
-}
-void sl_parMatSparse_Show(sl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->show();						
-}
-void sl_parMatSparse_View(sl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->MatView();						
-}
-void sl_parMatSparse_Wrt2MM(sl_parMatSparse_t *pm, char *file_name){
-	return reinterpret_cast<parMatrixSparse<float, long > *>(pm)->writeToMatrixMarket(file_name);						
 }
 
 
@@ -1193,7 +782,7 @@ void zs_parMatSparse_Wrt2MMCmplx(zs_parMatSparse_t *pm, char *file_name){
 zl_parMatSparse_t *new_zl_ParMatSparse_1(zl_parVec_t *pv){
 	return reinterpret_cast<zl_parMatSparse_t *>( new parMatrixSparse<std::complex<double>,long >(*reinterpret_cast<parVector<std::complex<double>, long > *>(pv)) );
 }
-zl_parMatSparse_t *new_zl_ParMatSparse_2(parVecMap_t *map){
+zl_parMatSparse_t *new_zl_ParMatSparse_2(parVecMapL_t *map){
 	return reinterpret_cast<zl_parMatSparse_t *>( new parMatrixSparse<std::complex<double>,long >(*reinterpret_cast<parVectorMap<long > *>(map)) );
 }
 void zl_parMatSparse_destory(zl_parMatSparse_t *pm){
@@ -1266,196 +855,23 @@ void zl_parMatSparse_Wrt2MMCmplx(zl_parMatSparse_t *pm, char *file_name){
 }
 
 
-//fcomplex_t int
-cs_parMatSparse_t *new_cs_ParMatSparse_1(cs_parVec_t *pv){
-	return reinterpret_cast<cs_parMatSparse_t *>( new parMatrixSparse<std::complex<float>,int >(*reinterpret_cast<parVector<std::complex<float>, int > *>(pv)) );
-}
-cs_parMatSparse_t *new_cs_ParMatSparse_2(parVecMap_t *map){
-	return reinterpret_cast<cs_parMatSparse_t *>( new parMatrixSparse<std::complex<float>,int >(*reinterpret_cast<parVectorMap<int > *>(map)) );
-}
-void cs_parMatSparse_destory(cs_parMatSparse_t *pm){
-	delete reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm);
-}
-int cs_parMatSparse_GetNRows(cs_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->GetNRows();
-}
-int cs_parMatSparse_GetNCols(cs_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->GetNCols();	
-}
-int cs_parMatSparse_GetNNzLoc(cs_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->GetNNzLoc();	
-}
-int cs_parMatSparse_GetLowerBound(cs_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->GetLowerBound();		
-}
-int cs_parMatSparse_GetUpperBound(cs_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->GetUpperBound();			
-}
-MPI_Comm cs_parMatSparse_GetComm(cs_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->GetComm();				
-}
-void cs_parMatSparse_SetValLocal(cs_parMatSparse_t *pm, int row, int col, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->SetValueLocal(row, col, v);					
-}
-void cs_parMatSparse_SetVal(cs_parMatSparse_t *pm, int row, int col, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);	
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->SetValue(row, col, v);						
-}
-void cs_parMatSparse_AddValLocal(cs_parMatSparse_t *pm, int row, int col, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);	
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->AddValueLocal(row, col, v);						
-}
-void cs_parMatSparse_AddVal(cs_parMatSparse_t *pm, int row, int col, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);	
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->AddValue(row, col, v);						
-}
-fcomplex_t cs_parMatSparse_GetValLocal(cs_parMatSparse_t *pm, int row, int col){
-	auto val = reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->GetValueLocal(row, col);	
-	return {val.real(), val.imag()};								
-}
-fcomplex_t cs_parMatSparse_GetVal(cs_parMatSparse_t *pm, int row, int col){
-	auto val = reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->GetValue(row, col);	
-	return {val.real(), val.imag()};																
-}
-void cs_parMatSparse_toCSRArray(cs_parMatSparse_t *pm, int *nrows, int *nnz, int **roffs, int **cols, fcomplex_t **val){
-	MatrixCSR<std::complex<float>, int > csr = reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->ConvertToCSR();
-	*nrows = csr.nrows;
-	*nnz = csr.nnz;
-	*roffs = (int *)malloc( (csr.nrows + 1) * sizeof(int ) );
-	*cols = (int *)malloc( csr.nnz * sizeof(int ) );
-	*val = (fcomplex_t *)malloc(csr.nnz * sizeof(fcomplex_t));
-
-	memcpy(*roffs, csr.rows.data(), (csr.nrows + 1) * sizeof(int ));
-	memcpy(*cols, csr.cols.data(), csr.nnz * sizeof(int ));
-	for(auto i = 0; i < csr.nnz; i++){
-		*(*val+i) = {csr.vals[i].real(), csr.vals[i].imag()};
-	}	
-}
-void cs_parMatSparse_Show(cs_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->show();						
-}
-void cs_parMatSparse_View(cs_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->MatView();						
-}
-void cs_parMatSparse_Wrt2MMCmplx(cs_parMatSparse_t *pm, char *file_name){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, int > *>(pm)->writeToMatrixMarketCmplx(file_name);						
-}
-
-//fcomplex_t long
-cl_parMatSparse_t *new_cl_ParMatSparse_1(cl_parVec_t *pv){
-	return reinterpret_cast<cl_parMatSparse_t *>( new parMatrixSparse<std::complex<float>,long >(*reinterpret_cast<parVector<std::complex<float>, long > *>(pv)) );
-}
-cl_parMatSparse_t *new_cl_ParMatSparse_2(parVecMap_t *map){
-	return reinterpret_cast<cl_parMatSparse_t *>( new parMatrixSparse<std::complex<float>,long >(*reinterpret_cast<parVectorMap<long > *>(map)) );
-}
-void cl_parMatSparse_destory(cl_parMatSparse_t *pm){
-	delete reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm);
-}
-long cl_parMatSparse_GetNRows(cl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->GetNRows();
-}
-long cl_parMatSparse_GetNCols(cl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->GetNCols();	
-}
-long cl_parMatSparse_GetNNzLoc(cl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->GetNNzLoc();	
-}
-long cl_parMatSparse_GetLowerBound(cl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->GetLowerBound();		
-}
-long cl_parMatSparse_GetUpperBound(cl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->GetUpperBound();			
-}
-MPI_Comm cl_parMatSparse_GetComm(cl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->GetComm();				
-}
-void cl_parMatSparse_SetValLocal(cl_parMatSparse_t *pm, long row, long col, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->SetValueLocal(row, col, v);					
-}
-void cl_parMatSparse_SetVal(cl_parMatSparse_t *pm, long row, long col, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);	
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->SetValue(row, col, v);						
-}
-void cl_parMatSparse_AddValLocal(cl_parMatSparse_t *pm, long row, long col, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);	
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->AddValueLocal(row, col, v);						
-}
-void cl_parMatSparse_AddVal(cl_parMatSparse_t *pm, long row, long col, fcomplex_t val){
-	std::complex<float> v(val.real, val.imag);	
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->AddValue(row, col, v);						
-}
-fcomplex_t cl_parMatSparse_GetValLocal(cl_parMatSparse_t *pm, long row, long col){
-	auto val = reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->GetValueLocal(row, col);	
-	return {val.real(), val.imag()};								
-}
-fcomplex_t cl_parMatSparse_GetVal(cl_parMatSparse_t *pm, long row, long col){
-	auto val = reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->GetValue(row, col);	
-	return {val.real(), val.imag()};																
-}
-void cl_parMatSparse_toCSRArray(cl_parMatSparse_t *pm, long *nrows, long *nnz, long **roffs, long **cols, fcomplex_t **val){
-	MatrixCSR<std::complex<float>, long > csr = reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->ConvertToCSR();
-	*nrows = csr.nrows;
-	*nnz = csr.nnz;
-	*roffs = (long *)malloc( (csr.nrows + 1) * sizeof(long ) );
-	*cols = (long *)malloc( csr.nnz * sizeof(long ) );
-	*val = (fcomplex_t *)malloc(csr.nnz * sizeof(fcomplex_t));
-
-	memcpy(*roffs, csr.rows.data(), (csr.nrows + 1) * sizeof(long ));
-	memcpy(*cols, csr.cols.data(), csr.nnz * sizeof(long ));
-	for(auto i = 0; i < csr.nnz; i++){
-		*(*val+i) = {csr.vals[i].real(), csr.vals[i].imag()};
-	}	
-}
-void cl_parMatSparse_Show(cl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->show();						
-}
-void cl_parMatSparse_View(cl_parMatSparse_t *pm){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->MatView();						
-}
-void cl_parMatSparse_Wrt2MMCmplx(cl_parMatSparse_t *pm, char *file_name){
-	return reinterpret_cast<parMatrixSparse<std::complex<float>, long > *>(pm)->writeToMatrixMarketCmplx(file_name);						
-}
-
-//
-cs_parVec_t *cs_specNonHermLoad(parVecMap_t *map, char *spectrum){
-	cs_parVec_t *pv = new_cs_ParVec_2(map);
-	cs_parVecReadExtVec(pv, spectrum);
-	return pv;
-}
-cl_parVec_t *cl_specNonHermLoad(parVecMap_t *map, char *spectrum){
-	cl_parVec_t *pv = new_cl_ParVec_2(map);
-	cl_parVecReadExtVec(pv, spectrum);
-	return pv;	
-}
 zs_parVec_t *zs_specNonHermLoad(parVecMap_t *map, char *spectrum){
 	zs_parVec_t *pv = new_zs_ParVec_2(map);
 	zs_parVecReadExtVec(pv, spectrum);
 	return pv;	
 }
-zl_parVec_t *zl_specNonHermLoad(parVecMap_t *map, char *spectrum){
+zl_parVec_t *zl_specNonHermLoad(parVecMapL_t *map, char *spectrum){
 	zl_parVec_t *pv = new_zl_ParVec_2(map);
 	zl_parVecReadExtVec(pv, spectrum);
 	return pv;	
 }
 
-cs_parVec_t *cs_specNonSymmLoad(parVecMap_t *map, char *spectrum){
-	cs_parVec_t *pv = new_cs_ParVec_2(map);
-	cs_parVecReadExtVec(pv, spectrum);
-	return pv;	
-}
-cl_parVec_t *cl_specNonSymmLoad(parVecMap_t *map, char *spectrum){
-	cl_parVec_t *pv = new_cl_ParVec_2(map);
-	cl_parVecReadExtVec(pv, spectrum);
-	return pv;	
-}
 zs_parVec_t *zs_specNonSymmLoad(parVecMap_t *map, char *spectrum){
 	zs_parVec_t *pv = new_zs_ParVec_2(map);
 	zs_parVecReadExtVec(pv, spectrum);
 	return pv;	
 }
-zl_parVec_t *zl_specNonSymmLoad(parVecMap_t *map, char *spectrum){
+zl_parVec_t *zl_specNonSymmLoad(parVecMapL_t *map, char *spectrum){
 	zl_parVec_t *pv = new_zl_ParVec_2(map);
 	zl_parVecReadExtVec(pv, spectrum);
 	return pv;		
@@ -1466,112 +882,88 @@ ds_parVec_t *ds_specNonSymmLoad(parVecMap_t *map, char *spectrum){
 	ds_parVecReadExtVec(pv, spectrum);
 	return pv;	
 }
-dl_parVec_t *dl_specNonSymmLoad(parVecMap_t *map, char *spectrum){
+dl_parVec_t *dl_specNonSymmLoad(parVecMapL_t *map, char *spectrum){
 	dl_parVec_t *pv = new_dl_ParVec_2(map);
 	dl_parVecReadExtVec(pv, spectrum);
 	return pv;	
 }
-ss_parVec_t *ss_specNonSymmLoad(parVecMap_t *map, char *spectrum){
-	ss_parVec_t *pv = new_ss_ParVec_2(map);
-	ss_parVecReadExtVec(pv, spectrum);
-	return pv;	
-}
-sl_parVec_t *sl_specNonSymmLoad(parVecMap_t *map, char *spectrum){
-	sl_parVec_t *pv = new_sl_ParVec_2(map);
-	sl_parVecReadExtVec(pv, spectrum);
-	return pv;	
-}
+
 
 //
-cs_parMatSparse_t *cs_nonherm(int probSize, nilp_t *nilp, initMatrix_t *init, char *spectrum, MPI_Comm comm){
-	parMatrixSparse<std::complex<float>,int> *matobj;
-	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
-	initMat<int> *initMobj = reinterpret_cast<initMat<int> *>(init);
-	std::string spec(spectrum);
-
-	*matobj = nonherm<std::complex<float>, int>(probSize, *nilpobj, *initMobj, spec, comm);
-	return reinterpret_cast<cs_parMatSparse_t *>(matobj);
-}
-
-cl_parMatSparse_t *cl_nonherm(long probSize, nilpL_t *nilp, initMatrixL_t *init, char *spectrum, MPI_Comm comm){
-	parMatrixSparse<std::complex<float>,long> *matobj;
-	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
-	initMat<long> *initMobj = reinterpret_cast<initMat<long> *>(init);
-	std::string spec(spectrum);
-
-	*matobj = nonherm<std::complex<float>, long>(probSize, *nilpobj, *initMobj, spec, comm);
-	return reinterpret_cast<cl_parMatSparse_t *>(matobj);	
-}
-
 zs_parMatSparse_t *zs_nonherm(int probSize, nilp_t *nilp, initMatrix_t *init, char *spectrum, MPI_Comm comm){
-	parMatrixSparse<std::complex<double>,int> *matobj;
 	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
 	initMat<int> *initMobj = reinterpret_cast<initMat<int> *>(init);
-	std::string spec(spectrum);
+	int world_size, world_rank;
+	
+	MPI_Comm_size(comm, &world_size);
+    MPI_Comm_rank(comm, &world_rank);
 
-	*matobj = nonherm<std::complex<double>, int>(probSize, *nilpobj, *initMobj, spec, comm);
-	return reinterpret_cast<zs_parMatSparse_t *>(matobj);
+    int span, lower_b, upper_b;
+
+    span = int(floor(double(probSize)/double(world_size)));
+
+    parVecMap_t *map = newParVecMap (comm, lower_b, upper_b);
+    zs_parVec_t *spec = zs_specNonHermLoad(map, spectrum);
+	zs_parMatSparse_t *Am = new_zs_ParMatSparse_1(spec);
+	parVector<std::complex<double>, int> *spec2 = reinterpret_cast<parVector<std::complex<double>, int> *>(spec);
+	zs_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
+	parMatrixSparse<std::complex<double>, int> *Mat = reinterpret_cast<parMatrixSparse<std::complex<double>, int> *>(Am);
+	nonherm<std::complex<double>, int>(probSize, *nilpobj, Mat ,*spec2);
+	Am = reinterpret_cast<zs_parMatSparse_t *>(Mat);
+
+	return Am;
 }
 
 zl_parMatSparse_t *zl_nonherm(long probSize, nilpL_t *nilp, initMatrixL_t *init, char *spectrum, MPI_Comm comm){
-	parMatrixSparse<std::complex<double>,long> *matobj;
 	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
 	initMat<long> *initMobj = reinterpret_cast<initMat<long> *>(init);
-	std::string spec(spectrum);
+	int world_size, world_rank;
+	
+	MPI_Comm_size(comm, &world_size);
+    MPI_Comm_rank(comm, &world_rank);
 
-	*matobj = nonherm<std::complex<double>, long>(probSize, *nilpobj, *initMobj, spec, comm);
-	return reinterpret_cast<zl_parMatSparse_t *>(matobj);		
+    long span, lower_b, upper_b;
+
+    span = long(floor(double(probSize)/double(world_size)));
+
+    parVecMapL_t *map = newParVecMapL (comm, lower_b, upper_b);
+    zl_parVec_t *spec = zl_specNonHermLoad(map, spectrum);
+	zl_parMatSparse_t *Am = new_zl_ParMatSparse_1(spec);
+	parVector<std::complex<double>, long> *spec2 = reinterpret_cast<parVector<std::complex<double>, long> *>(spec);
+	zl_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
+	parMatrixSparse<std::complex<double>, long> *Mat = reinterpret_cast<parMatrixSparse<std::complex<double>, long> *>(Am);
+	nonherm<std::complex<double>, long>(probSize, *nilpobj, Mat ,*spec2);
+	Am = reinterpret_cast<zl_parMatSparse_t *>(Mat);
+
+	return Am;	
 }
 
-
-cs_parMatSparse_t *cs_nonherm_2(int probSize, nilp_t *nilp, initMatrix_t *init, cs_parVec_t *spec){
-	parMatrixSparse<std::complex<float>,int> *matobj;
-	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
-	initMat<int> *initMobj = reinterpret_cast<initMat<int> *>(init);
-	parVector<std::complex<float>, int> *spectrum = reinterpret_cast<parVector<std::complex<float>, int> *>(spec);
-	*matobj = nonherm<std::complex<float>, int>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<cs_parMatSparse_t *>(matobj);	
-}
-cl_parMatSparse_t *cl_nonherm_2(long probSize, nilpL_t *nilp, initMatrixL_t *init, cl_parVec_t *spec){
-	parMatrixSparse<std::complex<float>,long> *matobj;
-	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
-	initMat<long> *initMobj = reinterpret_cast<initMat<long> *>(init);
-	parVector<std::complex<float>, long> *spectrum = reinterpret_cast<parVector<std::complex<float>, long> *>(spec);
-	*matobj = nonherm<std::complex<float>, long>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<cl_parMatSparse_t *>(matobj);		
-}
 zs_parMatSparse_t *zs_nonherm_2(int probSize, nilp_t *nilp, initMatrix_t *init, zs_parVec_t *spec){
-	parMatrixSparse<std::complex<double>,int> *matobj;
 	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
 	initMat<int> *initMobj = reinterpret_cast<initMat<int> *>(init);
+	zs_parMatSparse_t *Am = new_zs_ParMatSparse_1(spec);
+	zs_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
 	parVector<std::complex<double>, int> *spectrum = reinterpret_cast<parVector<std::complex<double>, int> *>(spec);
-	*matobj = nonherm<std::complex<double>, int>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<zs_parMatSparse_t *>(matobj);	
+	parMatrixSparse<std::complex<double>, int> *Mat = reinterpret_cast<parMatrixSparse<std::complex<double>, int> *>(Am);
+	nonherm<std::complex<double>, int>(probSize, *nilpobj, Mat ,*spectrum);
+	Am = reinterpret_cast<zs_parMatSparse_t *>(Mat);
+
+	return Am;
 }
 zl_parMatSparse_t *zl_nonherm_2(long probSize, nilpL_t *nilp, initMatrixL_t *init, zl_parVec_t *spec){
-	parMatrixSparse<std::complex<double>,long> *matobj;
 	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
 	initMat<long> *initMobj = reinterpret_cast<initMat<long> *>(init);
+	zl_parMatSparse_t *Am = new_zl_ParMatSparse_1(spec);
+	zl_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
 	parVector<std::complex<double>, long> *spectrum = reinterpret_cast<parVector<std::complex<double>, long> *>(spec);
-	*matobj = nonherm<std::complex<double>, long>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<zl_parMatSparse_t *>(matobj);		
+	parMatrixSparse<std::complex<double>, long> *Mat = reinterpret_cast<parMatrixSparse<std::complex<double>, long> *>(Am);
+	nonherm<std::complex<double>, long>(probSize, *nilpobj, Mat ,*spectrum);
+	Am = reinterpret_cast<zl_parMatSparse_t *>(Mat);
+
+	return Am;	
 }
 
-void cs_nonherm_3(int probSize, nilp_t *nilp, cs_parMatSparse_t *Am, cs_parVec_t *spec){
-	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
-	parVector<std::complex<float>, int> *spectrum = reinterpret_cast<parVector<std::complex<float>, int> *>(spec);
-	parMatrixSparse<std::complex<float>, int> *Mat = reinterpret_cast<parMatrixSparse<std::complex<float>, int> *>(Am);
-	nonherm<std::complex<float>, int>(probSize, *nilpobj, Mat ,*spectrum);
-	Am = reinterpret_cast<cs_parMatSparse_t *>(Mat);
-}
 
-void cl_nonherm_3(long probSize, nilpL_t *nilp, cl_parMatSparse_t *Am, cl_parVec_t *spec){
-	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
-	parVector<std::complex<float>, long> *spectrum = reinterpret_cast<parVector<std::complex<float>, long> *>(spec);
-	parMatrixSparse<std::complex<float>, long> *Mat = reinterpret_cast<parMatrixSparse<std::complex<float>, long> *>(Am);
-	nonherm<std::complex<float>, long>(probSize, *nilpobj, Mat ,*spectrum);
-	Am = reinterpret_cast<cl_parMatSparse_t *>(Mat);	
-}
 void zs_nonherm_3(int probSize, nilp_t *nilp, zs_parMatSparse_t *Am, zs_parVec_t *spec){
 	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
 	parVector<std::complex<double>, int> *spectrum = reinterpret_cast<parVector<std::complex<double>, int> *>(spec);
@@ -1588,93 +980,80 @@ void zl_nonherm_3(long probSize, nilpL_t *nilp, zl_parMatSparse_t *Am, zl_parVec
 }
 
 //
-ss_parMatSparse_t *ss_nonsymm(int probSize, nilp_t *nilp, initMatrix_t *init, char *spectrum, MPI_Comm comm){
-	parMatrixSparse<float,int> *matobj;
-	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
-	initMat<int> *initMobj = reinterpret_cast<initMat<int> *>(init);
-	std::string spec(spectrum);
-
-	*matobj = nonsymm<float, int>(probSize, *nilpobj, *initMobj, spec, comm);
-	return reinterpret_cast<ss_parMatSparse_t *>(matobj);	
-}
-sl_parMatSparse_t *sl_nonsymm(long probSize, nilpL_t *nilp, initMatrixL_t *init, char *spectrum, MPI_Comm comm){
-	parMatrixSparse<float,long> *matobj;
-	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
-	initMat<long> *initMobj = reinterpret_cast<initMat<long> *>(init);
-	std::string spec(spectrum);
-
-	*matobj = nonsymm<float, long>(probSize, *nilpobj, *initMobj, spec, comm);
-	return reinterpret_cast<sl_parMatSparse_t *>(matobj);		
-}
 ds_parMatSparse_t *ds_nonsymm(int probSize, nilp_t *nilp, initMatrix_t *init,  char *spectrum, MPI_Comm comm){
-	parMatrixSparse<double,int> *matobj;
 	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
 	initMat<int> *initMobj = reinterpret_cast<initMat<int> *>(init);
-	std::string spec(spectrum);
+	int world_size, world_rank;
+	
+	MPI_Comm_size(comm, &world_size);
+    MPI_Comm_rank(comm, &world_rank);
 
-	*matobj = nonsymm<double, int>(probSize, *nilpobj, *initMobj, spec, comm);
-	return reinterpret_cast<ds_parMatSparse_t *>(matobj);	
+    int span, lower_b, upper_b;
+
+    span = int(floor(double(probSize)/double(world_size)));
+
+    parVecMap_t *map = newParVecMap (comm, lower_b, upper_b);
+    ds_parVec_t *spec = ds_specNonSymmLoad(map, spectrum);
+	ds_parMatSparse_t *Am = new_ds_ParMatSparse_1(spec);
+	parVector<double, int> *spec2 = reinterpret_cast<parVector<double, int> *>(spec);
+	ds_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
+	parMatrixSparse<double, int> *Mat = reinterpret_cast<parMatrixSparse<double, int> *>(Am);
+	nonsymm<double, int>(probSize, *nilpobj, Mat ,*spec2);
+	Am = reinterpret_cast<ds_parMatSparse_t *>(Mat);
+
+	return Am;
 }
 dl_parMatSparse_t *dl_nonsymm(long probSize, nilpL_t *nilp, initMatrixL_t *init, char *spectrum, MPI_Comm comm){
-	parMatrixSparse<double,long> *matobj;
 	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
 	initMat<long> *initMobj = reinterpret_cast<initMat<long> *>(init);
-	std::string spec(spectrum);
+	int world_size, world_rank;
+	
+	MPI_Comm_size(comm, &world_size);
+    MPI_Comm_rank(comm, &world_rank);
 
-	*matobj = nonsymm<double, long>(probSize, *nilpobj, *initMobj, spec, comm);
-	return reinterpret_cast<dl_parMatSparse_t *>(matobj);		
+    long span, lower_b, upper_b;
+
+    span = long(floor(double(probSize)/double(world_size)));
+
+    parVecMapL_t *map = newParVecMapL (comm, lower_b, upper_b);
+    dl_parVec_t *spec = dl_specNonSymmLoad(map, spectrum);
+	dl_parMatSparse_t *Am = new_dl_ParMatSparse_1(spec);
+	parVector<double, long> *spec2 = reinterpret_cast<parVector<double, long> *>(spec);
+	dl_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
+	parMatrixSparse<double, long> *Mat = reinterpret_cast<parMatrixSparse<double, long> *>(Am);
+	nonsymm<double, long>(probSize, *nilpobj, Mat ,*spec2);
+	Am = reinterpret_cast<dl_parMatSparse_t *>(Mat);
+
+	return Am;	
 }
 
 //
-ss_parMatSparse_t *ss_nonsymm_2(int probSize, nilp_t *nilp, initMatrix_t *init, ss_parVec_t *spec){
-	parMatrixSparse<float,int> *matobj;
-	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
-	initMat<int> *initMobj = reinterpret_cast<initMat<int> *>(init);
-	parVector<float, int> *spectrum = reinterpret_cast<parVector<float, int> *>(spec);
-	*matobj = nonsymm<float, int>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<ss_parMatSparse_t *>(matobj);		
-}
-sl_parMatSparse_t *sl_nonsymm_2(long probSize, nilpL_t *nilp, initMatrixL_t *init, sl_parVec_t *spec){
-	parMatrixSparse<float,long> *matobj;
-	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
-	initMat<long> *initMobj = reinterpret_cast<initMat<long> *>(init);
-	parVector<float, long> *spectrum = reinterpret_cast<parVector<float, long> *>(spec);
-	*matobj = nonsymm<float, long>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<sl_parMatSparse_t *>(matobj);		
-}
 ds_parMatSparse_t *ds_nonsymm_2(int probSize, nilp_t *nilp, initMatrix_t *init, ds_parVec_t *spec){
-{
-	parMatrixSparse<double,int> *matobj;
+
 	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
 	initMat<int> *initMobj = reinterpret_cast<initMat<int> *>(init);
+	ds_parMatSparse_t *Am = new_ds_ParMatSparse_1(spec);
+	ds_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
 	parVector<double, int> *spectrum = reinterpret_cast<parVector<double, int> *>(spec);
-	*matobj = nonsymm<double, int>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<ds_parMatSparse_t *>(matobj);		
-}	
+	parMatrixSparse<double, int> *Mat = reinterpret_cast<parMatrixSparse<double, int> *>(Am);
+	nonsymm<double, int>(probSize, *nilpobj, Mat ,*spectrum);
+	Am = reinterpret_cast<ds_parMatSparse_t *>(Mat);
+
+	return Am;
 }
 dl_parMatSparse_t *dl_nonsymm_2(long probSize, nilpL_t *nilp, initMatrixL_t *init, dl_parVec_t *spec){
-	parMatrixSparse<double,long> *matobj;
 	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
 	initMat<long> *initMobj = reinterpret_cast<initMat<long> *>(init);
+	dl_parMatSparse_t *Am = new_dl_ParMatSparse_1(spec);
+	dl_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
 	parVector<double, long> *spectrum = reinterpret_cast<parVector<double, long> *>(spec);
-	*matobj = nonsymm<double, long>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<dl_parMatSparse_t *>(matobj);		
+	parMatrixSparse<double, long> *Mat = reinterpret_cast<parMatrixSparse<double, long> *>(Am);
+	nonsymm<double, long>(probSize, *nilpobj, Mat ,*spectrum);
+	Am = reinterpret_cast<dl_parMatSparse_t *>(Mat);
+
+	return Am;	
 }
 
-void ss_nonsymm_3(int probSize, nilp_t *nilp, ss_parMatSparse_t *Am, ss_parVec_t *spec){
-	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
-	parVector<float, int> *spectrum = reinterpret_cast<parVector<float, int> *>(spec);
-	parMatrixSparse<float, int> *Mat = reinterpret_cast<parMatrixSparse<float, int> *>(Am);
-	nonsymm<float, int>(probSize, *nilpobj, Mat ,*spectrum);
-	Am = reinterpret_cast<ss_parMatSparse_t *>(Mat);
-}
-void sl_nonsymm_3(int probSize, nilpL_t *nilp, sl_parMatSparse_t *Am, sl_parVec_t *spec){
-	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
-	parVector<float, long> *spectrum = reinterpret_cast<parVector<float, long> *>(spec);
-	parMatrixSparse<float, long> *Mat = reinterpret_cast<parMatrixSparse<float, long> *>(Am);
-	nonsymm<float, long>(probSize, *nilpobj, Mat ,*spectrum);
-	Am = reinterpret_cast<sl_parMatSparse_t *>(Mat);
-}
 void ds_nonsymm_3(int probSize, nilp_t *nilp, ds_parMatSparse_t *Am, ds_parVec_t *spec){
 	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
 	parVector<double, int> *spectrum = reinterpret_cast<parVector<double, int> *>(spec);
@@ -1692,53 +1071,82 @@ void dl_nonsymm_3(int probSize, nilpL_t *nilp, dl_parMatSparse_t *Am, dl_parVec_
 }
 
 //
-ss_parMatSparse_t *ss_nonsymmconj_2(int probSize, nilp_t *nilp, initMatrix_t *init, cs_parVec_t *spec){
-	parMatrixSparse<float,int> *matobj;
+ds_parMatSparse_t *ds_nonsymmconj(int probSize, nilp_t *nilp, initMatrix_t *init,  char *spectrum, MPI_Comm comm){
 	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
 	initMat<int> *initMobj = reinterpret_cast<initMat<int> *>(init);
-	parVector<std::complex<float>, int> *spectrum = reinterpret_cast<parVector<std::complex<float>, int> *>(spec);
-	*matobj = nonsymmconj<float, int>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<ss_parMatSparse_t *>(matobj);		
+	int world_size, world_rank;
+	
+	MPI_Comm_size(comm, &world_size);
+    MPI_Comm_rank(comm, &world_rank);
+
+    int span, lower_b, upper_b;
+
+    span = int(floor(double(probSize)/double(world_size)));
+
+    parVecMap_t *map = newParVecMap (comm, lower_b, upper_b);
+    zs_parVec_t *spec = zs_specNonSymmLoad(map, spectrum);
+	ds_parMatSparse_t *Am = new_ds_ParMatSparse_2(map);
+	parVector<std::complex<double>, int> *spec2 = reinterpret_cast<parVector<std::complex<double>, int> *>(spec);
+	ds_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
+	parMatrixSparse<double, int> *Mat = reinterpret_cast<parMatrixSparse<double, int> *>(Am);
+	nonsymmconj<double, int>(probSize, *nilpobj, Mat ,*spec2);
+	Am = reinterpret_cast<ds_parMatSparse_t *>(Mat);
+
+	return Am;
 }
-sl_parMatSparse_t *sl_nonsymmconj_2(long probSize, nilpL_t *nilp, initMatrixL_t *init, cl_parVec_t *spec){
-	parMatrixSparse<float,long> *matobj;
+dl_parMatSparse_t *dl_nonsymmconj(long probSize, nilpL_t *nilp, initMatrixL_t *init, char *spectrum, MPI_Comm comm){
 	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
 	initMat<long> *initMobj = reinterpret_cast<initMat<long> *>(init);
-	parVector<std::complex<float>, long> *spectrum = reinterpret_cast<parVector<std::complex<float>, long> *>(spec);
-	*matobj = nonsymmconj<float, long>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<sl_parMatSparse_t *>(matobj);	
-}
-ds_parMatSparse_t *ds_nonsymmconj_2(int probSize, nilp_t *nilp, initMatrix_t *init, zs_parVec_t *spec){
-	parMatrixSparse<double,int> *matobj;
-	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
-	initMat<int> *initMobj = reinterpret_cast<initMat<int> *>(init);
-	parVector<std::complex<double>, int> *spectrum = reinterpret_cast<parVector<std::complex<double>, int> *>(spec);
-	*matobj = nonsymmconj<double, int>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<ds_parMatSparse_t *>(matobj);		
-}
-dl_parMatSparse_t *dl_nonsymmconj_2(long probSize, nilpL_t *nilp, initMatrixL_t *init, zl_parVec_t *spec){
-	parMatrixSparse<double,long> *matobj;
-	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
-	initMat<long> *initMobj = reinterpret_cast<initMat<long> *>(init);
-	parVector<std::complex<double>, long> *spectrum = reinterpret_cast<parVector<std::complex<double>, long> *>(spec);
-	*matobj = nonsymmconj<double, long>(probSize, *nilpobj, *initMobj, *spectrum);
-	return reinterpret_cast<dl_parMatSparse_t *>(matobj);	
+	int world_size, world_rank;
+	
+	MPI_Comm_size(comm, &world_size);
+    MPI_Comm_rank(comm, &world_rank);
+
+    long span, lower_b, upper_b;
+
+    span = long(floor(double(probSize)/double(world_size)));
+
+    parVecMapL_t *map = newParVecMapL (comm, lower_b, upper_b);
+    zl_parVec_t *spec = zl_specNonSymmLoad(map, spectrum);
+	dl_parMatSparse_t *Am = new_dl_ParMatSparse_2(map);
+	parVector<std::complex<double>, long> *spec2 = reinterpret_cast<parVector<std::complex<double>, long> *>(spec);
+	dl_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
+	parMatrixSparse<double, long> *Mat = reinterpret_cast<parMatrixSparse<double, long> *>(Am);
+	nonsymmconj<double, long>(probSize, *nilpobj, Mat ,*spec2);
+	Am = reinterpret_cast<dl_parMatSparse_t *>(Mat);
+
+	return Am;	
 }
 
-void ss_nonsymmconj_3(int probSize, nilp_t *nilp, ss_parMatSparse_t *Am, cs_parVec_t *spec){
+ds_parMatSparse_t *ds_nonsymmconj_2(int probSize, nilp_t *nilp, initMatrix_t *init, zs_parVec_t *spec){
+
 	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
-	parVector<std::complex<float>, int> *spectrum = reinterpret_cast<parVector<std::complex<float>, int> *>(spec);
-	parMatrixSparse<float, int> *Mat = reinterpret_cast<parMatrixSparse<float, int> *>(Am);
-	nonsymmconj<float, int>(probSize, *nilpobj, Mat ,*spectrum);
-	Am = reinterpret_cast<ss_parMatSparse_t *>(Mat);
+	initMat<int> *initMobj = reinterpret_cast<initMat<int> *>(init);
+	parVecMap_t *mymap = zs_parVecGetMap(spec);
+	ds_parMatSparse_t *Am = new_ds_ParMatSparse_2(mymap);
+	ds_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
+	parVector<std::complex<double>, int> *spectrum = reinterpret_cast<parVector<std::complex<double>, int> *>(spec);
+	parMatrixSparse<double, int> *Mat = reinterpret_cast<parMatrixSparse<double, int> *>(Am);
+	nonsymmconj<double, int>(probSize, *nilpobj, Mat ,*spectrum);
+	Am = reinterpret_cast<ds_parMatSparse_t *>(Mat);
+
+	return Am;	
 }
-void sl_nonsymmconj_3(long probSize, nilpL_t *nilp, sl_parMatSparse_t *Am, cl_parVec_t *spec){
+dl_parMatSparse_t *dl_nonsymmconj_2(long probSize, nilpL_t *nilp, initMatrixL_t *init, zl_parVec_t *spec){
+
 	Nilpotent<long> *nilpobj = reinterpret_cast<Nilpotent<long> *>(nilp);
-	parVector<std::complex<float>, long> *spectrum = reinterpret_cast<parVector<std::complex<float>, long> *>(spec);
-	parMatrixSparse<float, long> *Mat = reinterpret_cast<parMatrixSparse<float, long> *>(Am);
-	nonsymmconj<float, long>(probSize, *nilpobj, Mat ,*spectrum);
-	Am = reinterpret_cast<sl_parMatSparse_t *>(Mat);
+	initMat<long> *initMobj = reinterpret_cast<initMat<long> *>(init);
+	parVecMapL_t *mymap = zl_parVecGetMap(spec);
+	dl_parMatSparse_t *Am = new_dl_ParMatSparse_2(mymap);
+	dl_parMatSparse_initMat(Am, initMobj->diag_l, initMobj->diag_u, initMobj->scale, initMobj->sparsity);
+	parVector<std::complex<double>, long> *spectrum = reinterpret_cast<parVector<std::complex<double>, long> *>(spec);
+	parMatrixSparse<double, long> *Mat = reinterpret_cast<parMatrixSparse<double, long> *>(Am);
+	nonsymmconj<double, long>(probSize, *nilpobj, Mat ,*spectrum);
+	Am = reinterpret_cast<dl_parMatSparse_t *>(Mat);
+
+	return Am;		
 }
+
 void ds_nonsymmconj_3(int probSize, nilp_t *nilp, ds_parMatSparse_t *Am, zs_parVec_t *spec){
 	Nilpotent<int> *nilpobj = reinterpret_cast<Nilpotent<int> *>(nilp);
 	parVector<std::complex<double>, int> *spectrum = reinterpret_cast<parVector<std::complex<double>, int> *>(spec);
