@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['getting_20started_769',['Getting Started',['../md_docs_started.html',1,'']]]
+  ['citing_20smg2s_772',['Citing SMG2S',['../_citing.html',1,'']]],
+  ['contact_20and_20contributation_773',['Contact and Contributation',['../contact.html',1,'']]]
 ];
