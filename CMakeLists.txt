@@ -95,12 +95,8 @@ install( FILES
 ###tests
 add_subdirectory(tests)
 
-# Documentation
-option(BUILD_WITH_DOCS "Build the examples" OFF)
-if(BUILD_WITH_DOCS)
-    message(STATUS "Building Documentation of SMG2S")
-    add_subdirectory("./docs")
-endif()
+###examples
+add_subdirectory(examples)
 
 # SMG2S test
 enable_testing()
