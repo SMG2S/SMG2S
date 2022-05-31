@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SMG2S: README</title>
+<title>SMG2S: Overview</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,6 +29,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SMG2S
    </div>
@@ -93,58 +94,28 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizab
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">README </div>  </div>
+<div class="title">Overview </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md2">Overview</a><ul><li class="level2"><a href="#autotoc_md3">Update !!!</a></li>
-<li class="level2"><a href="#autotoc_md5">What for ?</a></li>
-<li class="level2"><a href="#autotoc_md6">Cite SMG2S</a></li>
-<li class="level2"><a href="#autotoc_md7">Documentation</a></li>
-</ul>
-</li>
-<li class="level1"><a href="#autotoc_md8">Installation</a><ul><li class="level2"><a href="#autotoc_md9">Binary Executable file</a></li>
-<li class="level2"><a href="#autotoc_md10">Include files</a></li>
-</ul>
-</li>
-<li class="level1"><a href="#autotoc_md11">Example</a><ul><li class="level2"><a href="#autotoc_md12">Creation</a><ul><li class="level3"><a href="#autotoc_md14">Given Spectra file in pseudo-Matrix Market Vector Format</a><ul><li class="level4"><a href="#autotoc_md15">Non-Hermitian case</a></li>
-<li class="level4"><a href="#autotoc_md16">Non-Symmetric case</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="level2"><a href="#autotoc_md18">Interface</a><ul><li class="level3"><a href="#autotoc_md19">Interface to PETSc</a></li>
-<li class="level3"><a href="#autotoc_md20">Interface to Python</a></li>
-<li class="level3"><a href="#autotoc_md21">Interface to C</a></li>
-<li class="level3"><a href="#autotoc_md22">Interface to Trilinos/Teptra CSR matrix</a></li>
-</ul>
-</li>
-<li class="level2"><a href="#autotoc_md23">Verification</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md2"></a>
-Overview</h1>
-<p>Sparse Matrix Generator with Given Spectrum</p>
+<div class="textblock"><p>Sparse Matrix Generator with Given Spectrum</p>
 <p><a href="https://doi.org/10.5281/zenodo.2694506"><object type="image/svg+xml" data="https://zenodo.org/badge/DOI/10.5281/zenodo.2694506.svg" style="pointer-events: none;">DOI</object></a></p>
-<h2><a class="anchor" id="autotoc_md3"></a>
-Update !!!</h2>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Update !!!</h1>
 <p>In the newest version (v1.1) of SMG2S, it supports the generation of nonsymmetric matrices that all the entries of matrices are real and the eigenvalues can be both real and complex.</p>
 <hr  />
 <p>Author <a href="https://brunowu.github.io">Xinzhe Wu</a> @ <a href="http://www.maisondelasimulation.fr">Maison de la Simulation</a>, France.</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
-What for ?</h2>
+<h1><a class="anchor" id="autotoc_md5"></a>
+What for ?</h1>
 <p>SMG2S is able to generate large-scale non-Hermitian (non-Symmetric) methods in parallel with the spectral distribution functions or eigenvalues given by users. SMG2S can be used to benchmark the iterative linear and eigen solvers on supercomputers using the generated very large test matrices with customized spectral properties.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
-Cite SMG2S</h2>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Cite SMG2S</h1>
 <ol type="1">
 <li>Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." Concurrency and Computation: Practice and Experience, 32(20), e5710, 2020. <a href="https://doi.org/10.1002/cpe.5710">(DOI)</a></li>
 <li>Wu, Xinzhe. SMG2S Manual v1. 0. Maison de la Simulation, 2018. <a href="https://hal.archives-ouvertes.fr/hal-01874810/document">(PDF)</a></li>
 </ol>
 <p><img src="doc/figure/matgen.png" alt="Matrix Generation Pattern" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md7"></a>
-Documentation</h2>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Documentation</h1>
 <p>Website of SMG2S is <a href="https://smg2s.github.io/">here</a>, Developing repository is on <a href="https://github.com/SMG2S">Github</a>.</p>
 <p><a href="https://smg2s.github.io/files/smg2s_manual_v1_1.pdf">Documentation</a> is avaiable.</p>
 <p>Python version is avaiable on <a href="https://pypi.org/project/smg2s/">Pypi</a>, which can be installed by the command:</p>

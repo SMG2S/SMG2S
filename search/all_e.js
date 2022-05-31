@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['vals_239',['vals',['../struct_matrix_c_s_r.html#ab54a5db3612d09a0a5eb4b333366e8d4',1,'MatrixCSR']]],
-  ['vecadd_240',['VecAdd',['../classpar_vector.html#ac1bfc79e07347ac1cf33ab7e681264f0',1,'parVector']]],
-  ['vecdot_241',['VecDot',['../classpar_vector.html#ad230c7c3a243be3018e31016daf39f7e',1,'parVector']]],
-  ['vecscale_242',['VecScale',['../classpar_vector.html#a2bc55afc97ade13ad7ee4406a64bf77b',1,'parVector']]],
-  ['vecview_243',['VecView',['../classpar_vector.html#abf3a12f7539c581ae45867d73b4151a8',1,'parVector']]],
-  ['verification_244',['verification',['../namespaceverification.html',1,'']]]
+  ['writetomatrixmarket_282',['writeToMatrixMarket',['../classpar_matrix_sparse.html#ae0bb25445d859997c267d01028de2457',1,'parMatrixSparse']]],
+  ['writetomatrixmarketcmplx_283',['writeToMatrixMarketCmplx',['../classpar_matrix_sparse.html#ae2106220d853b165ff53a4a643fc47d9',1,'parMatrixSparse']]],
+  ['writetotxt_284',['writeToTxt',['../classpar_vector.html#ae52e90a3105c377140f432251e2a3a8b',1,'parVector']]],
+  ['writetotxtcmplx_285',['writeToTxtCmplx',['../classpar_vector.html#aab9f38beb4a793bf20c43431eb665d36',1,'parVector']]]
 ];

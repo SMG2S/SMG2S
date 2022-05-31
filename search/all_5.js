@@ -1,15 +1,8 @@
 var searchData=
 [
-  ['initmat_87',['initMat',['../group__group4.html',1,'']]],
-  ['imag_88',['imag',['../structdcomplex.html#a927b1d2a4947ef186052fbb2843da788',1,'dcomplex::imag()'],['../structfcomplex.html#afe7dc8f2f9095679b49dfa17c9dec448',1,'fcomplex::imag()']]],
-  ['index_5fmap_89',['index_map',['../classpar_matrix_sparse.html#a14e3b5910c4671015f960fca23228aae',1,'parMatrixSparse::index_map()'],['../classpar_vector.html#af8f6ba0c619dcd1e21dfe578b54ec057',1,'parVector::index_map()']]],
-  ['indofzeros_90',['indOfZeros',['../class_nilpotent.html#a991a2e3475a3f2088f9fc03dca8f32e0',1,'Nilpotent']]],
-  ['initmat_91',['initMat',['../structinit_mat.html',1,'initMat&lt; S &gt;'],['../classpar_matrix_sparse.html#a8d50f5934c8f02b69ecc881fba409c9a',1,'parMatrixSparse::initMat(S diag_l, S diag_u, Base&lt; T &gt; scale, T shift, Base&lt; T &gt; sparsity)'],['../classpar_matrix_sparse.html#ae0e63e21dd772646d95e8425c2991ca8',1,'parMatrixSparse::initMat(S diag_l, S diag_u)'],['../structinit_mat.html#a6f60cad1111043d329599c893b7491b8',1,'initMat::initMat()'],['../structinit_mat.html#a0bf2430d9a01f4b8bed53824f6b34b7a',1,'initMat::initMat(S diagl, S diagu)'],['../structinit_mat.html#a593bbc65206b6bdbbb49b41e18e98cad',1,'initMat::initMat(S diagl, S diagu, double Sparsity)'],['../structinit_mat.html#af60eb1d6403e7f8f8cf5ed42490e24f1',1,'initMat::initMat(S diagl, S diagu, double Scale, double Sparsity)']]],
-  ['initmatrix_5fdestory_92',['initMatrix_destory',['../group__group5.html#ga1f8661713015b780865975049e064596',1,'initMatrix_destory(initMatrix_t *init):&#160;c-smg2s.cc'],['../group__group5.html#ga1f8661713015b780865975049e064596',1,'initMatrix_destory(initMatrix_t *init):&#160;c-smg2s.cc']]],
-  ['initmatrix_5fshow_93',['initMatrix_show',['../group__group5.html#ga2bf5c3cafb08142d4476e81ccde54c22',1,'initMatrix_show(initMatrix_t *init):&#160;c-smg2s.cc'],['../group__group5.html#ga2bf5c3cafb08142d4476e81ccde54c22',1,'initMatrix_show(initMatrix_t *init):&#160;c-smg2s.cc']]],
-  ['initmatrix_5ft_94',['initMatrix_t',['../group__group5.html#gad72e26546338d375ccb8acb00d1825fd',1,'c-smg2s.h']]],
-  ['initmatrixl_5fdestory_95',['initMatrixL_destory',['../group__group5.html#gac950704d0119fb6e42de28b72c47c952',1,'initMatrixL_destory(initMatrixL_t *init):&#160;c-smg2s.cc'],['../group__group5.html#gac950704d0119fb6e42de28b72c47c952',1,'initMatrixL_destory(initMatrixL_t *init):&#160;c-smg2s.cc']]],
-  ['initmatrixl_5fshow_96',['initMatrixL_show',['../group__group5.html#ga8a933bda948ea77ff0ba5e8eeae98b72',1,'initMatrixL_show(initMatrixL_t *init):&#160;c-smg2s.cc'],['../group__group5.html#ga8a933bda948ea77ff0ba5e8eeae98b72',1,'initMatrixL_show(initMatrixL_t *init):&#160;c-smg2s.cc']]],
-  ['initmatrixl_5ft_97',['initMatrixL_t',['../group__group5.html#gab31202abb0509f17abdb1bbca1c27bc9',1,'c-smg2s.h']]],
-  ['insertvalue_98',['InsertValue',['../struct_matrix_c_s_r.html#a05fe3207dd52e9ae48c121d83ea11ce8',1,'MatrixCSR']]]
+  ['loc2glob_154',['Loc2Glob',['../classpar_vector.html#ac35b4b53d63ba1ddc85111037c5740d6',1,'parVector::Loc2Glob()'],['../classpar_vector_map.html#a6a30869dc2c34527eb52fbcfb2cd0290',1,'parVectorMap::Loc2Glob()']]],
+  ['local_5fsize_155',['local_size',['../classpar_vector.html#aea01ccc898ae2c16bdb1d54d60c38bed',1,'parVector::local_size()'],['../classpar_vector_map.html#a4ddb97c704d9704a4abd14e8aba64e39',1,'parVectorMap::local_size()']]],
+  ['lower_5fb_156',['lower_b',['../classpar_matrix_sparse.html#acdb81ab5b09c5505cfef8f722bf4c8c1',1,'parMatrixSparse']]],
+  ['lower_5fbound_157',['lower_bound',['../classpar_vector_map.html#a99b03c5680b9ffc13770df30326d9915',1,'parVectorMap']]],
+  ['lprocbound_5fmap_158',['lprocbound_map',['../classpar_vector_map.html#a882f1c79267c997cfaeb4f4aaaf6b12f',1,'parVectorMap']]]
 ];

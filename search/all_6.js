@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['loc2glob_99',['Loc2Glob',['../classpar_vector.html#ac35b4b53d63ba1ddc85111037c5740d6',1,'parVector::Loc2Glob()'],['../classpar_vector_map.html#a6a30869dc2c34527eb52fbcfb2cd0290',1,'parVectorMap::Loc2Glob()']]],
-  ['local_5fsize_100',['local_size',['../classpar_vector.html#aea01ccc898ae2c16bdb1d54d60c38bed',1,'parVector::local_size()'],['../classpar_vector_map.html#a4ddb97c704d9704a4abd14e8aba64e39',1,'parVectorMap::local_size()']]],
-  ['lower_5fb_101',['lower_b',['../classpar_matrix_sparse.html#acdb81ab5b09c5505cfef8f722bf4c8c1',1,'parMatrixSparse']]],
-  ['lower_5fbound_102',['lower_bound',['../classpar_vector_map.html#a99b03c5680b9ffc13770df30326d9915',1,'parVectorMap']]],
-  ['lprocbound_5fmap_103',['lprocbound_map',['../classpar_vector_map.html#a882f1c79267c997cfaeb4f4aaaf6b12f',1,'parVectorMap']]]
+  ['ma_159',['MA',['../classpar_matrix_sparse.html#a235f8ba9c2c98d2047c6c439c609e8dc',1,'parMatrixSparse']]],
+  ['mataxpy_160',['MatAXPY',['../classpar_matrix_sparse.html#a4a73d1822367fd478c205a2f64626fdc',1,'parMatrixSparse']]],
+  ['mataypx_161',['MatAYPX',['../classpar_matrix_sparse.html#ace9afdf197c96c0f513ccbab14c7b775',1,'parMatrixSparse']]],
+  ['matrixcsr_162',['MatrixCSR',['../struct_matrix_c_s_r.html',1,'MatrixCSR&lt; T, S &gt;'],['../struct_matrix_c_s_r.html#ae6c514df3e26f015800a54c116b55e07',1,'MatrixCSR::MatrixCSR(S nnz_in, S nrows_in)'],['../struct_matrix_c_s_r.html#a5d363eb27d30dd83eb9e3ff468889515',1,'MatrixCSR::MatrixCSR(std::vector&lt; S &gt; rowoffs, std::vector&lt; S &gt; colidxs, std::vector&lt; T &gt; values)']]],
+  ['matscale_163',['MatScale',['../classpar_matrix_sparse.html#abf3a5ad83ac84790278edca18f78b292',1,'parMatrixSparse']]],
+  ['matview_164',['MatView',['../classpar_matrix_sparse.html#a0f7d0f0c8cb5aaa324e404d438b039ba',1,'parMatrixSparse::MatView()'],['../classpar_matrix_sparse.html#a9646d867bd86ae295424adbac5123d4c',1,'parMatrixSparse::MatView(std::string matName)']]],
+  ['mypid_165',['MyPID',['../classpar_vector.html#a9a68acbc7b004db50c7b56a81dbc1616',1,'parVector']]]
 ];

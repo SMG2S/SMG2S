@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fcomplex_275',['fcomplex',['../structfcomplex.html',1,'']]]
+  ['initmat_384',['initMat',['../structinit_mat.html',1,'']]]
 ];

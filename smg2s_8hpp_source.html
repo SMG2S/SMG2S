@@ -29,6 +29,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SMG2S
    </div>
@@ -293,135 +294,136 @@ $(document).ready(function(){initNavTree('smg2s_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SMG2S]&gt; Caught Exception: this is for non-symmetric matrix, please use real scalar type&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        }      </div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keyword">auto</span> Am = <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T, S&gt;</a>(spec.GetVecMap());</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    Am.initMat(init.<a class="code" href="structinit_mat.html#a59c672ab69a579dd70177e76d2d9ccad">diag_l</a>, init.<a class="code" href="structinit_mat.html#a96113ed94001ccce232c0b26d8dc2fcd">diag_u</a>, Base&lt;T&gt;(init.<a class="code" href="structinit_mat.html#ad486d86bc17b6dc317b0d9992cefff12">scale</a>), T(0.0), Base&lt;T&gt;(init.<a class="code" href="structinit_mat.html#a70087f48e9ececadba73985c641a7907">sparsity</a>) );</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <a class="code" href="group__group2.html#gab53f8ecbe6b3bc4ee5192a91fa4772f2">nonsymm</a>(probSize, nilp, &amp;Am, spec);</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordflow">return</span> Am;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;}</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> S&gt;</div>
-<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="group__group2.html#ga75407f9df2dda1900b3e5c08fb770c91">  274</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__group2.html#gab53f8ecbe6b3bc4ee5192a91fa4772f2">nonsymm</a>(S probSize, <a class="code" href="class_nilpotent.html">Nilpotent&lt;S&gt;</a> nilp, <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T,S&gt;</a> *Am, <a class="code" href="classpar_vector.html">parVector&lt;T,S&gt;</a> spec){</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordtype">int</span> world_size;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordtype">int</span> world_rank;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    MPI_Comm comm = Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a06fcdb4ef63be497dd60005b4b70747b">GetComm</a>();</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordtype">double</span> start, end;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    MPI_Comm_size(comm, &amp;world_size);</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    MPI_Comm_rank(comm, &amp;world_rank);</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">sizeof</span>(T) / <span class="keyword">sizeof</span>(Base&lt;T&gt;) != 1){</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="keywordflow">try</span>{</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            <span class="keywordflow">throw</span> 505;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        }<span class="keywordflow">catch</span>(...){</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SMG2S]&gt; Caught Exception: this is for non-symmetric matrix, please use real scalar type&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        }  </div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    }</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keyword">auto</span> matAop = <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T, S&gt;</a>(Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a29c43a866f847d23047c73849658e6fb">GetMap</a>());</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    start = MPI_Wtime();</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a1ab03a6492b2dea44d72ff35e630b6b4">setSpecNonSymm</a>(spec);</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    matAop.copy(*Am);</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    end = MPI_Wtime();</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordtype">double</span> t2 = end - start;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordtype">double</span> fact = 1;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordflow">for</span> (S k=1; k&lt;=2*(nilp.<a class="code" href="class_nilpotent.html#a984c1a7cfb59857fa6900a748c8842f9">getDegree</a>()-1); k++){</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keyword">auto</span> MA = matAop.MA(nilp);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keyword">auto</span> AM = matAop.AM(nilp);</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        matAop.copy(MA);</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <span class="comment">//matAop.MatAYPX(AM, 0);</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        matAop.MatAXPY(AM, -1);</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        fact /= factorial&lt;double, int&gt;(k, k);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a4a73d1822367fd478c205a2f64626fdc">MatAXPY</a>(matAop, fact);</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    }</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#ae65615fca96ae5df7527a0db7feefc87">rmZeros</a>();</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#af06caa3df2e238ba185b8734b72ea2b8">updateNnz</a>();</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;}</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> S&gt;</div>
-<div class="line"><a name="l00333"></a><span class="lineno"><a class="line" href="group__group2.html#gad5ce6901b9e428a5b1c349c533f73c0e">  333</a></span>&#160;<a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T,S&gt;</a> <a class="code" href="group__group2.html#gad5ce6901b9e428a5b1c349c533f73c0e">nonsymmconj</a>(S probSize, <a class="code" href="class_nilpotent.html">Nilpotent&lt;S&gt;</a> nilp, <a class="code" href="structinit_mat.html">initMat&lt;S&gt;</a> init, <a class="code" href="classpar_vector.html">parVector</a>&lt;std::complex&lt;T&gt;, S&gt; spec){</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">sizeof</span>(T) / <span class="keyword">sizeof</span>(Base&lt;T&gt;) != 1 ){</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="keywordflow">try</span>{</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            <span class="keywordflow">throw</span> 505;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        }<span class="keywordflow">catch</span>(...){</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SMG2S]&gt; Caught Exception: this is for non-symmetric matrix, please use real scalar type&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        }  </div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    }</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keyword">auto</span> Am = <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;Base&lt;T&gt;</a>, S&gt;(spec.GetVecMap());</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    Am.<a class="code" href="classpar_matrix_sparse.html#a8d50f5934c8f02b69ecc881fba409c9a">initMat</a>(init.<a class="code" href="structinit_mat.html#a59c672ab69a579dd70177e76d2d9ccad">diag_l</a>, init.<a class="code" href="structinit_mat.html#a96113ed94001ccce232c0b26d8dc2fcd">diag_u</a>, Base&lt;T&gt;(init.<a class="code" href="structinit_mat.html#ad486d86bc17b6dc317b0d9992cefff12">scale</a>), Base&lt;T&gt;(0.0), Base&lt;T&gt;(init.<a class="code" href="structinit_mat.html#a70087f48e9ececadba73985c641a7907">sparsity</a>) );</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <a class="code" href="group__group2.html#gad5ce6901b9e428a5b1c349c533f73c0e">nonsymmconj</a>(probSize, nilp, &amp;Am, spec);</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordflow">return</span> Am;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;}</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> S&gt;</div>
-<div class="line"><a name="l00364"></a><span class="lineno"><a class="line" href="group__group2.html#ga23135226880430dbd6c71705cac684e2">  364</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__group2.html#gad5ce6901b9e428a5b1c349c533f73c0e">nonsymmconj</a>(S probSize, <a class="code" href="class_nilpotent.html">Nilpotent&lt;S&gt;</a> nilp, <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T,S&gt;</a> *Am, <a class="code" href="classpar_vector.html">parVector</a>&lt;std::complex&lt;T&gt;, S&gt; spec){</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordtype">int</span> world_size;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keywordtype">int</span> world_rank;</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    MPI_Comm comm = Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a06fcdb4ef63be497dd60005b4b70747b">GetComm</a>();</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <span class="keywordtype">double</span> start, end;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    MPI_Comm_size(comm, &amp;world_size);</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    MPI_Comm_rank(comm, &amp;world_rank);</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">sizeof</span>(T) / <span class="keyword">sizeof</span>(Base&lt;T&gt;) != 1){</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <span class="keywordflow">try</span>{</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            <span class="keywordflow">throw</span> 505;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        }<span class="keywordflow">catch</span>(...){</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SMG2S]&gt; Caught Exception: this is for non-symmetric matrix, please use real scalar type&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        }  </div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    }</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keyword">auto</span> matAop = <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T, S&gt;</a>(Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a29c43a866f847d23047c73849658e6fb">GetMap</a>());</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    start = MPI_Wtime();</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a340f7dc812f5ecc0be910c9de9ae3449">setSpecNonSymmCmplx</a>(spec);</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    matAop.copy(*Am);</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    end = MPI_Wtime();</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keywordtype">double</span> t2 = end - start;</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160; </div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordtype">double</span> fact = 1;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="keywordflow">for</span> (S k=1; k&lt;=2*(nilp.<a class="code" href="class_nilpotent.html#a984c1a7cfb59857fa6900a748c8842f9">getDegree</a>()-1); k++){</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="keyword">auto</span> MA = matAop.MA(nilp);</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="keyword">auto</span> AM = matAop.AM(nilp);</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        matAop.copy(MA);</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="comment">//matAop.MatAYPX(AM, 0);</span></div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        matAop.MatAXPY(AM, -1);</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        fact /= factorial&lt;double, int&gt;(k, k);</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a4a73d1822367fd478c205a2f64626fdc">MatAXPY</a>(matAop, fact);</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    }</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160; </div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#ae65615fca96ae5df7527a0db7feefc87">rmZeros</a>();</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#af06caa3df2e238ba185b8734b72ea2b8">updateNnz</a>();</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;}</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; <span class="comment">// end of group2</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keyword">auto</span> Am = <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T, S&gt;</a>(spec.GetVecMap());</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    Am.initMat(init.<a class="code" href="structinit_mat.html#a59c672ab69a579dd70177e76d2d9ccad">diag_l</a>, init.<a class="code" href="structinit_mat.html#a96113ed94001ccce232c0b26d8dc2fcd">diag_u</a>, Base&lt;T&gt;(init.<a class="code" href="structinit_mat.html#ad486d86bc17b6dc317b0d9992cefff12">scale</a>), T(0.0), Base&lt;T&gt;(init.<a class="code" href="structinit_mat.html#a70087f48e9ececadba73985c641a7907">sparsity</a>) );</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <a class="code" href="group__group2.html#gab53f8ecbe6b3bc4ee5192a91fa4772f2">nonsymm</a>(probSize, nilp, &amp;Am, spec);</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">return</span> Am;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;}</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="group__group2.html#ga75407f9df2dda1900b3e5c08fb770c91">  275</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__group2.html#gab53f8ecbe6b3bc4ee5192a91fa4772f2">nonsymm</a>(S probSize, <a class="code" href="class_nilpotent.html">Nilpotent&lt;S&gt;</a> nilp, <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T,S&gt;</a> *Am, <a class="code" href="classpar_vector.html">parVector&lt;T,S&gt;</a> spec){</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordtype">int</span> world_size;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordtype">int</span> world_rank;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    MPI_Comm comm = Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a06fcdb4ef63be497dd60005b4b70747b">GetComm</a>();</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordtype">double</span> start, end;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    MPI_Comm_size(comm, &amp;world_size);</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    MPI_Comm_rank(comm, &amp;world_rank);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">sizeof</span>(T) / <span class="keyword">sizeof</span>(Base&lt;T&gt;) != 1){</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keywordflow">try</span>{</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            <span class="keywordflow">throw</span> 505;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        }<span class="keywordflow">catch</span>(...){</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SMG2S]&gt; Caught Exception: this is for non-symmetric matrix, please use real scalar type&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        }  </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    }</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keyword">auto</span> matAop = <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T, S&gt;</a>(Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a29c43a866f847d23047c73849658e6fb">GetMap</a>());</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    start = MPI_Wtime();</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a1ab03a6492b2dea44d72ff35e630b6b4">setSpecNonSymm</a>(spec);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    matAop.copy(*Am);</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    end = MPI_Wtime();</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordtype">double</span> t2 = end - start;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordtype">double</span> fact = 1;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordflow">for</span> (S k=1; k&lt;=2*(nilp.<a class="code" href="class_nilpotent.html#a984c1a7cfb59857fa6900a748c8842f9">getDegree</a>()-1); k++){</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keyword">auto</span> MA = matAop.MA(nilp);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keyword">auto</span> AM = matAop.AM(nilp);</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        matAop.copy(MA);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="comment">//matAop.MatAYPX(AM, 0);</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        matAop.MatAXPY(AM, -1);</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        fact /= factorial&lt;double, int&gt;(k, k);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a4a73d1822367fd478c205a2f64626fdc">MatAXPY</a>(matAop, fact);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    }</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#ae65615fca96ae5df7527a0db7feefc87">rmZeros</a>();</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#af06caa3df2e238ba185b8734b72ea2b8">updateNnz</a>();</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;}</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="group__group2.html#gad5ce6901b9e428a5b1c349c533f73c0e">  334</a></span>&#160;<a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T,S&gt;</a> <a class="code" href="group__group2.html#gad5ce6901b9e428a5b1c349c533f73c0e">nonsymmconj</a>(S probSize, <a class="code" href="class_nilpotent.html">Nilpotent&lt;S&gt;</a> nilp, <a class="code" href="structinit_mat.html">initMat&lt;S&gt;</a> init, <a class="code" href="classpar_vector.html">parVector</a>&lt;std::complex&lt;T&gt;, S&gt; spec){</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">sizeof</span>(T) / <span class="keyword">sizeof</span>(Base&lt;T&gt;) != 1 ){</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordflow">try</span>{</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            <span class="keywordflow">throw</span> 505;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        }<span class="keywordflow">catch</span>(...){</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SMG2S]&gt; Caught Exception: this is for non-symmetric matrix, please use real scalar type&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        }  </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    }</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">auto</span> Am = <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;Base&lt;T&gt;</a>, S&gt;(spec.GetVecMap());</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    Am.<a class="code" href="classpar_matrix_sparse.html#a8d50f5934c8f02b69ecc881fba409c9a">initMat</a>(init.<a class="code" href="structinit_mat.html#a59c672ab69a579dd70177e76d2d9ccad">diag_l</a>, init.<a class="code" href="structinit_mat.html#a96113ed94001ccce232c0b26d8dc2fcd">diag_u</a>, Base&lt;T&gt;(init.<a class="code" href="structinit_mat.html#ad486d86bc17b6dc317b0d9992cefff12">scale</a>), Base&lt;T&gt;(0.0), Base&lt;T&gt;(init.<a class="code" href="structinit_mat.html#a70087f48e9ececadba73985c641a7907">sparsity</a>) );</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <a class="code" href="group__group2.html#gad5ce6901b9e428a5b1c349c533f73c0e">nonsymmconj</a>(probSize, nilp, &amp;Am, spec);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordflow">return</span> Am;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;}</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a name="l00365"></a><span class="lineno"><a class="line" href="group__group2.html#ga23135226880430dbd6c71705cac684e2">  365</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__group2.html#gad5ce6901b9e428a5b1c349c533f73c0e">nonsymmconj</a>(S probSize, <a class="code" href="class_nilpotent.html">Nilpotent&lt;S&gt;</a> nilp, <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T,S&gt;</a> *Am, <a class="code" href="classpar_vector.html">parVector</a>&lt;std::complex&lt;T&gt;, S&gt; spec){</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keywordtype">int</span> world_size;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="keywordtype">int</span> world_rank;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    MPI_Comm comm = Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a06fcdb4ef63be497dd60005b4b70747b">GetComm</a>();</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keywordtype">double</span> start, end;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    MPI_Comm_size(comm, &amp;world_size);</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    MPI_Comm_rank(comm, &amp;world_rank);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">sizeof</span>(T) / <span class="keyword">sizeof</span>(Base&lt;T&gt;) != 1){</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <span class="keywordflow">try</span>{</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            <span class="keywordflow">throw</span> 505;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        }<span class="keywordflow">catch</span>(...){</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SMG2S]&gt; Caught Exception: this is for non-symmetric matrix, please use real scalar type&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        }  </div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    }</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keyword">auto</span> matAop = <a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;T, S&gt;</a>(Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a29c43a866f847d23047c73849658e6fb">GetMap</a>());</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    start = MPI_Wtime();</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160; </div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a340f7dc812f5ecc0be910c9de9ae3449">setSpecNonSymmCmplx</a>(spec);</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    matAop.copy(*Am);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    end = MPI_Wtime();</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordtype">double</span> t2 = end - start;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keywordtype">double</span> fact = 1;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <span class="keywordflow">for</span> (S k=1; k&lt;=2*(nilp.<a class="code" href="class_nilpotent.html#a984c1a7cfb59857fa6900a748c8842f9">getDegree</a>()-1); k++){</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="keyword">auto</span> MA = matAop.MA(nilp);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keyword">auto</span> AM = matAop.AM(nilp);</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        matAop.copy(MA);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="comment">//matAop.MatAYPX(AM, 0);</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        matAop.MatAXPY(AM, -1);</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        fact /= factorial&lt;double, int&gt;(k, k);</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        Am-&gt;<a class="code" href="classpar_matrix_sparse.html#a4a73d1822367fd478c205a2f64626fdc">MatAXPY</a>(matAop, fact);</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    }</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#ae65615fca96ae5df7527a0db7feefc87">rmZeros</a>();</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    Am-&gt;<a class="code" href="classpar_matrix_sparse.html#af06caa3df2e238ba185b8734b72ea2b8">updateNnz</a>();</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160; </div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;}</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; <span class="comment">// end of group2</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__group2_html_gaa014826cd27dcbe95ab17852c074fcd9"><div class="ttname"><a href="group__group2.html#gaa014826cd27dcbe95ab17852c074fcd9">nonherm</a></div><div class="ttdeci">parMatrixSparse&lt; T, S &gt; nonherm(S probSize, Nilpotent&lt; S &gt; nilp, initMat&lt; S &gt; init, std::string spectrum, MPI_Comm comm)</div><div class="ttdoc">Generating a non-Hermitian sparse matrix using the spectrum stored in local file.</div><div class="ttdef"><b>Definition:</b> smg2s.hpp:52</div></div>
@@ -439,7 +441,7 @@ $(document).ready(function(){initNavTree('smg2s_8hpp_source.html',''); initResiz
 <div class="ttc" id="aclasspar_matrix_sparse_html_a8d50f5934c8f02b69ecc881fba409c9a"><div class="ttname"><a href="classpar_matrix_sparse.html#a8d50f5934c8f02b69ecc881fba409c9a">parMatrixSparse::initMat</a></div><div class="ttdeci">void initMat(S diag_l, S diag_u, Base&lt; T &gt; scale, T shift, Base&lt; T &gt; sparsity)</div><div class="ttdoc">filling the lower part of matrix between diagonal of offset diag_l and diagonal of offset diag_u with...</div><div class="ttdef"><b>Definition:</b> parMatrixSparse.hpp:701</div></div>
 <div class="ttc" id="astructinit_mat_html"><div class="ttname"><a href="structinit_mat.html">initMat</a></div><div class="ttdoc">A struct which stores the information for the initial input matrix of SMG2S.</div><div class="ttdef"><b>Definition:</b> initMat.hpp:42</div></div>
 <div class="ttc" id="aclasspar_matrix_sparse_html_af06caa3df2e238ba185b8734b72ea2b8"><div class="ttname"><a href="classpar_matrix_sparse.html#af06caa3df2e238ba185b8734b72ea2b8">parMatrixSparse::updateNnz</a></div><div class="ttdeci">void updateNnz()</div><div class="ttdoc">Explicitly re-compute the number of nnz on each MPI proc.</div><div class="ttdef"><b>Definition:</b> parMatrixSparse.hpp:649</div></div>
-<div class="ttc" id="agroup__group2_html_gad5ce6901b9e428a5b1c349c533f73c0e"><div class="ttname"><a href="group__group2.html#gad5ce6901b9e428a5b1c349c533f73c0e">nonsymmconj</a></div><div class="ttdeci">parMatrixSparse&lt; T, S &gt; nonsymmconj(S probSize, Nilpotent&lt; S &gt; nilp, initMat&lt; S &gt; init, parVector&lt; std::complex&lt; T &gt;, S &gt; spec)</div><div class="ttdoc">Generating a non-Symmetric sparse matrix using the spectrum stored in a parVector object.</div><div class="ttdef"><b>Definition:</b> smg2s.hpp:333</div></div>
+<div class="ttc" id="agroup__group2_html_gad5ce6901b9e428a5b1c349c533f73c0e"><div class="ttname"><a href="group__group2.html#gad5ce6901b9e428a5b1c349c533f73c0e">nonsymmconj</a></div><div class="ttdeci">parMatrixSparse&lt; T, S &gt; nonsymmconj(S probSize, Nilpotent&lt; S &gt; nilp, initMat&lt; S &gt; init, parVector&lt; std::complex&lt; T &gt;, S &gt; spec)</div><div class="ttdoc">Generating a non-Symmetric sparse matrix using the spectrum stored in a parVector object.</div><div class="ttdef"><b>Definition:</b> smg2s.hpp:334</div></div>
 <div class="ttc" id="astructinit_mat_html_a96113ed94001ccce232c0b26d8dc2fcd"><div class="ttname"><a href="structinit_mat.html#a96113ed94001ccce232c0b26d8dc2fcd">initMat::diag_u</a></div><div class="ttdeci">S diag_u</div><div class="ttdef"><b>Definition:</b> initMat.hpp:51</div></div>
 <div class="ttc" id="aclasspar_matrix_sparse_html_a29c43a866f847d23047c73849658e6fb"><div class="ttname"><a href="classpar_matrix_sparse.html#a29c43a866f847d23047c73849658e6fb">parMatrixSparse::GetMap</a></div><div class="ttdeci">parVectorMap&lt; S &gt; GetMap()</div><div class="ttdoc">Return the parVectorMap object used to distribute sparse Matrix.</div><div class="ttdef"><b>Definition:</b> parMatrixSparse.hpp:113</div></div>
 <div class="ttc" id="aclasspar_matrix_sparse_html_a4a73d1822367fd478c205a2f64626fdc"><div class="ttname"><a href="classpar_matrix_sparse.html#a4a73d1822367fd478c205a2f64626fdc">parMatrixSparse::MatAXPY</a></div><div class="ttdeci">void MatAXPY(parMatrixSparse&lt; T, S &gt; X, T scale)</div><div class="ttdoc">Perform A = A + scale * X</div><div class="ttdef"><b>Definition:</b> parMatrixSparse.hpp:532</div></div>

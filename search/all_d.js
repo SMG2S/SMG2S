@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['updatennz_235',['updateNnz',['../classpar_matrix_sparse.html#af06caa3df2e238ba185b8734b72ea2b8',1,'parMatrixSparse']]],
-  ['upper_5fb_236',['upper_b',['../classpar_matrix_sparse.html#a721a29f839670b21a2c5cbae1e6f63e3',1,'parMatrixSparse']]],
-  ['upper_5fbound_237',['upper_bound',['../classpar_vector_map.html#a2545349659851b0385c64e6805bf73fe',1,'parVectorMap']]],
-  ['uprocbound_5fmap_238',['uprocbound_map',['../classpar_vector_map.html#ac7e55ca337f443b589272c5e2f9d286c',1,'parVectorMap']]]
+  ['vals_276',['vals',['../struct_matrix_c_s_r.html#ab54a5db3612d09a0a5eb4b333366e8d4',1,'MatrixCSR']]],
+  ['vecadd_277',['VecAdd',['../classpar_vector.html#ac1bfc79e07347ac1cf33ab7e681264f0',1,'parVector']]],
+  ['vecdot_278',['VecDot',['../classpar_vector.html#ad230c7c3a243be3018e31016daf39f7e',1,'parVector']]],
+  ['vecscale_279',['VecScale',['../classpar_vector.html#a2bc55afc97ade13ad7ee4406a64bf77b',1,'parVector']]],
+  ['vecview_280',['VecView',['../classpar_vector.html#abf3a12f7539c581ae45867d73b4151a8',1,'parVector']]],
+  ['verification_281',['verification',['../namespaceverification.html',1,'']]]
 ];

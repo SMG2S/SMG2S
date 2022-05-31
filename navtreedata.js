@@ -25,13 +25,11 @@ var NAVTREE =
   [ "SMG2S", "index.html", [
     [ "Overview", "md_docs__overview.html", null ],
     [ "Getting Started", "md_docs_started.html", null ],
-    [ "README", "md__r_e_a_d_m_e.html", [
-      [ "Overview", "md__r_e_a_d_m_e.html#autotoc_md2", [
-        [ "Update !!!", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
-        [ "What for ?", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
-        [ "Cite SMG2S", "md__r_e_a_d_m_e.html#autotoc_md6", null ],
-        [ "Documentation", "md__r_e_a_d_m_e.html#autotoc_md7", null ]
-      ] ],
+    [ "Overview", "md__r_e_a_d_m_e.html", [
+      [ "Update !!!", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
+      [ "What for ?", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
+      [ "Cite SMG2S", "md__r_e_a_d_m_e.html#autotoc_md6", null ],
+      [ "Documentation", "md__r_e_a_d_m_e.html#autotoc_md7", null ],
       [ "Installation", "md__r_e_a_d_m_e.html#autotoc_md8", [
         [ "Binary Executable file", "md__r_e_a_d_m_e.html#autotoc_md9", null ],
         [ "Include files", "md__r_e_a_d_m_e.html#autotoc_md10", null ]
@@ -74,7 +72,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_matrix_c_s_r_8hpp_source.html",
-"group__group5.html#ga94d3acba641364140e840a55beb5ced1"
+"group__group5.html#ga507b374b821cc031bce52423642f14a7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

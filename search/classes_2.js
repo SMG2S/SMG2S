@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initmat_276',['initMat',['../structinit_mat.html',1,'']]]
+  ['matrixcsr_385',['MatrixCSR',['../struct_matrix_c_s_r.html',1,'']]]
 ];

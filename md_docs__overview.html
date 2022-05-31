@@ -29,6 +29,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SMG2S
    </div>
@@ -96,13 +97,22 @@ $(document).ready(function(){initNavTree('md_docs__overview.html',''); initResiz
 <div class="title">Overview </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Sparse Matrix Generator with Given Spectrum</p>
+<div class="textblock"><p>SMG2S = Sparse Matrix Generator with Given Spectrum</p>
+<p>It is a software which provides to generator the non-Hermitian and non-Symmetric sparse Matrices with user-customized eigenvalues. The generated sparse matrices contain still the user-provided spectrum. SMG2S is implemented in parallel based on MPI (Message Passing Interface) and C++14 to support efficiently the generation of test matrices on distributed memory platforms.</p>
+<p>The initial motivation of the creation of SMG2S comes from the studay of iterative methods for solving linear systems and eigenvalue problems. Iterative linear algebra methods are important for the applications in various fields. The analysis of the iterative method behaviors is complex, and it is necessary to evaluate their convergence to solve extremely large non-Hermitian/non-symmtric eigenvalue and linear problems on parallel and/or distributed machines. This convergence depends on the properties of spectra. Thus, we propse SMG2S to generate large matrices with known spectra to benchmark these methods. The generated matrices are non-trivial with very high dimension.</p>
+<p>As a matrix generator, SMG2S provides:</p>
 <ul>
-<li>Support of generating of both Non-Hermitian and Non-Symmetric sparse matrix</li>
-<li>The generated matrices are naturally Sparse with non-trivial sparsity pattern</li>
+<li>generating of both Non-Hermitian and Non-Symmetric sparse matrix</li>
+<li>generated matrices are naturally Sparse with non-trivial sparsity pattern</li>
 <li>Given Spectrum: the spectrum of generated matrix is the same as the one specified by the users</li>
-<li>Sparsity Patterns is Controllable (in some sense)</li>
-<li>it is able to very efficiently generate high dimension matrices </li>
+<li>Sparsity Patterns are diverse and controllable</li>
+</ul>
+<p>As a software, SMG2S provides:</p>
+<ul>
+<li>a collection of c++ header files</li>
+<li>parallel implementation based on MPI which is able to efficiently generate very large sparse matrices in parallel on supercomputers</li>
+<li>a verification module based on Python for the plotting and verification of small size of generated matrix.</li>
+<li>an easy-to-use C interface </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

@@ -1,7 +1,6 @@
 var annotated_dup =
 [
     [ "dcomplex_t", "structdcomplex.html", "structdcomplex" ],
-    [ "fcomplex_t", "structfcomplex.html", "structfcomplex" ],
     [ "initMat", "structinit_mat.html", "structinit_mat" ],
     [ "MatrixCSR", "struct_matrix_c_s_r.html", "struct_matrix_c_s_r" ],
     [ "Nilpotent", "class_nilpotent.html", "class_nilpotent" ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dcomplex_274',['dcomplex',['../structdcomplex.html',1,'']]]
+  ['dcomplex_383',['dcomplex',['../structdcomplex.html',1,'']]]
 ];

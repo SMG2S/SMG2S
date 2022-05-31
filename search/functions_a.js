@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['readextvec_426',['ReadExtVec',['../classpar_vector.html#a4f4361ba2eb8ad53746cfaf9bad62bb9',1,'parVector']]],
-  ['rmzeros_427',['rmZeros',['../classpar_matrix_sparse.html#ae65615fca96ae5df7527a0db7feefc87',1,'parMatrixSparse']]]
+  ['readextvec_596',['ReadExtVec',['../classpar_vector.html#a4f4361ba2eb8ad53746cfaf9bad62bb9',1,'parVector']]],
+  ['rmzeros_597',['rmZeros',['../classpar_matrix_sparse.html#ae65615fca96ae5df7527a0db7feefc87',1,'parMatrixSparse']]]
 ];
