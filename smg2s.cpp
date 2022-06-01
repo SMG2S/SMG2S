@@ -93,6 +93,7 @@ int main(int argc, char** argv) {
     parser.add<S>("diagU", 'U', "offset of upper diagonal of initial matrix", false, -5);
     parser.add<S>("nilpOffset", 'O', "offset of diagonal of a nilpotent", false, 5);
     parser.add<S>("continous", 'C', "Continuous length in Nilpotent matrix", false, 2);
+    parser.add<double>("sparsity", 'S', "sparsity of initial matrix (NOT THE FINAL GENERATED ONES)", false, 0.95);
 
     parser.add<std::string>("mattype", 'M', "Matrix type to be generated: non-symmetric or non-Hermitian", false, "non-herm", cmdline::oneof<std::string>("non-herm", "non-symm"));
 
@@ -105,6 +106,7 @@ int main(int argc, char** argv) {
     S length = parser.get<S>("continous");
     S offset = parser.get<S>("nilpOffset");
     std::string mattype = parser.get<std::string>("mattype");
+    double sparsity = parser.get<double>("sparsity");
 
     S span, lower_b, upper_b;
 
@@ -134,7 +136,7 @@ int main(int argc, char** argv) {
         specGenNonHerm(&spec1);
 
         start = MPI_Wtime();
-        auto mat = nonherm<T1, S>(probSize, nilp, initMat<S>(diag_l, diag_u, 0.1, 0.95), spec1);
+        auto mat = nonherm<T1, S>(probSize, nilp, initMat<S>(diag_l, diag_u, 0.1, sparsity), spec1);
         end = MPI_Wtime();
 
         time = end - start;
@@ -156,7 +158,7 @@ int main(int argc, char** argv) {
         specGenNonSymmConj(&spec2);
 
         start = MPI_Wtime();
-        auto mat2 = nonsymmconj<T2, S>(probSize, nilp, initMat<S>(diag_l, diag_u, 0.1, 0.95), spec2);
+        auto mat2 = nonsymmconj<T2, S>(probSize, nilp, initMat<S>(diag_l, diag_u, 0.1, sparsity), spec2);
         end = MPI_Wtime();
 
         time = end - start;

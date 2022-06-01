@@ -172,7 +172,7 @@ if __name__ == '__main__':
         #eigenvalues = approx_spectrum(M, spec, value.offset)
         eigenvalues, _ = compute_spectrum(M)
         ax = fig.add_subplot(121)
-        ax = spy_coo(M, ax, type="heatmap")
+        ax = spy_coo(M, ax)
         ax2 = fig.add_subplot(122)
         ax2 = plot_spectrum(spec, eigenvalues, ax2)
     else:

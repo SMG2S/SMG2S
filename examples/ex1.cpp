@@ -21,7 +21,7 @@ void specGenNonHerm1(parVector<std::complex<double>, int> *spec){
     auto n = spec->GetGlobalSize();
 
     for(auto i = lb; i < ub; i++){
-        std::complex<double> v(std::cos(i * 2 * pi / n) * 1 + 1 + d(rd), 1 * std::sin(i * 2 * pi / n) );
+        std::complex<double> v(std::cos(i * 2 * pi / n) * 10 + 1 + d(rd), 10 * std::sin(i * 2 * pi / n) );
         spec->SetValueGlobal(i, v);
     }
 }
@@ -37,16 +37,16 @@ void specGenNonHerm2(parVector<std::complex<double>, int> *spec){
 
     for(auto i = lb; i < ub; i++){
         if(i < 0.25 * n){
-            std::complex<double> v(std::cos(i * 8 * pi / n) * 1 + 1, 1 * std::sin(i * 8 * pi / n)  + 1);
+            std::complex<double> v(std::cos(i * 8 * pi / n) * 10 + 1, 10 * std::sin(i * 8 * pi / n) + 5  );
             spec->SetValueGlobal(i, v);
         }else if(i >= 0.25 * n && i < 0.5 * n){
-            std::complex<double> v(std::cos(i * 8 * pi / n) * 100 + 100, 100 * std::sin(i * 8 * pi / n) - 150);
+            std::complex<double> v(std::cos(i * 8 * pi / n) * 10 + 15, 10 * std::sin(i * 8 * pi / n) + 15);
             spec->SetValueGlobal(i, v);
         }else if(i >= 0.5 * n && i < 0.75 * n){
-            std::complex<double> v(std::cos(i * 8 * pi / n) * 1000 + 1000, 1000 * std::sin(i * 8 * pi / n) + 50000);
+            std::complex<double> v(std::cos(i * 8 * pi / n) * 10 + 25, 10 * std::sin(i * 8 * pi / n) - 20);
             spec->SetValueGlobal(i, v);
         }else{
-            std::complex<double> v(std::cos(i * 8 * pi / n) * 10000 + 10000, 10000 * std::sin(i * 8 * pi / n) - 20000);
+            std::complex<double> v(std::cos(i * 8 * pi / n) * 10 + 40, 10 * std::sin(i * 8 * pi / n) - 25);
             spec->SetValueGlobal(i, v);
         }
 
@@ -56,7 +56,7 @@ void specGenNonHerm2(parVector<std::complex<double>, int> *spec){
 
 void specGenNonSymm(parVector<double, int> *spec, double scale, double shift){
     std::mt19937_64 rd(12234);
-    std::uniform_real_distribution<> d(0, 1);
+    std::uniform_real_distribution<> d(0, 10);
 
     auto lb = spec->GetLowerBound();
     auto ub = spec->GetUpperBound();
@@ -70,7 +70,7 @@ void specGenNonSymm(parVector<double, int> *spec, double scale, double shift){
 
 void specGenNonSymm2(parVector<std::complex<double>, int> *spec, double scale, double shift){
     std::mt19937_64 rd(12234);
-    std::uniform_real_distribution<> d(0, 1);
+    std::uniform_real_distribution<> d(0, 10);
 
     auto lb = spec->GetLowerBound();
     auto ub = spec->GetUpperBound();
@@ -119,11 +119,11 @@ int main(int argc, char** argv)
     int world_size;
     int world_rank;
     int probSize = 100;
-    int l_diag = -20;
-    int u_diag = -5;
-    int nbOne = 10;
-    int offset = 20;
-    double sparsity = 0.9;
+    int l_diag = -60;
+    int u_diag = -20;
+    int nbOne = 5;
+    int offset = 50;
+    double sparsity = 0.5;
 
     Nilpotent<int> nilp = Nilpotent<int>(nbOne, offset, probSize);
 
@@ -153,23 +153,23 @@ int main(int argc, char** argv)
     mat.writeToMatrixMarketCmplx("matGenNonHerm1.mtx");
 
     parVector<double, int> spec2 = parVector<double, int>(parVecMap);
-    specGenNonSymm(&spec2, 100000.0, 0.0);
+    specGenNonSymm(&spec2, 10.0, 0.0);
     spec2.writeToTxt("specNonSymm1.txt");
-    auto mat2 = nonsymm<double , int>(probSize, nilp, initMat<int>(-l_diag, -u_diag, 0.1, sparsity), spec2);
+    auto mat2 = nonsymm<double , int>(probSize, nilp, initMat<int>(-l_diag, -u_diag, 1, sparsity), spec2);
     mat2.writeToMatrixMarket("matGenNonSymm1.mtx");
 
     parVector<std::complex<double>, int> spec3 = parVector<std::complex<double>, int>(parVecMap);
     specGenNonSymmConj(&spec3);
     spec3.writeToTxtCmplx("specNonSymmConj1.txt");    
 //    spec3.VecView();
-    auto mat3 = nonsymmconj<double , int>(probSize, nilp, initMat<int>(-l_diag, -u_diag, 0.1, sparsity), spec3);
+    auto mat3 = nonsymmconj<double , int>(probSize, nilp, initMat<int>(-l_diag, -u_diag, 1, sparsity), spec3);
     mat3.writeToMatrixMarket("matGenNonSymmConj1.mtx");
 
     parVector<std::complex<double>, int> spec4 = parVector<std::complex<double>, int>(parVecMap);
     specGenNonSymm2(&spec4, 100000.0, 0.0);
     spec4.writeToTxtCmplx("specNonSymm2.txt");    
 //    spec3.VecView();
-    auto mat4 = nonsymmconj<double , int>(probSize, nilp, initMat<int>(-l_diag, -u_diag, 0.1, sparsity), spec4);
+    auto mat4 = nonsymmconj<double , int>(probSize, nilp, initMat<int>(-l_diag, -u_diag, 1, sparsity), spec4);
     mat4.writeToMatrixMarket("matGenNonSymm2.mtx");
 
 
