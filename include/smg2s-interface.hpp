@@ -84,6 +84,7 @@ SOFTWARE.
 * 
 * \image html ../docs/figure/verification_5.png width=1000px
 * \image html ./docs/logo.png width=0px
+* 
 * <hr>
 * @section notes Release Notes
 * This is the release note
