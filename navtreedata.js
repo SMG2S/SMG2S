@@ -31,7 +31,11 @@ var NAVTREE =
     [ "User guide", "started.html", [
       [ "Quick start", "started.html#quick", null ],
       [ "Installation", "started.html#install", null ],
-      [ "Quick example", "started.html#quickexample", null ],
+      [ "Usage", "started.html#use", [
+        [ "CMake", "started.html#cmake", null ],
+        [ "Direct linking", "started.html#link", null ]
+      ] ],
+      [ "Mini example", "started.html#example", null ],
       [ "Customization", "started.html#custom", [
         [ "Nilpotent matrix", "started.html#nilp", null ],
         [ "Initialization of matrix", "started.html#initmat", null ],
@@ -97,7 +101,7 @@ var NAVTREEINDEX =
 [
 "_citing.html",
 "group__group5.html#ga4a0521e1c70639975fb9147e34a38a28",
-"structinit_mat.html#a3aec69cb6e6470e4520982b53c95cb03"
+"structdcomplex.html#aefa7e23ae8a9431c31d63c305d121571"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

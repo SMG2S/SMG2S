@@ -100,13 +100,134 @@ $(document).ready(function(){initNavTree('started.html',''); initResizable(); })
 <div class="textblock"><hr  />
  <h1><a class="anchor" id="quick"></a>
 Quick start</h1>
-<hr  />
+<div class="fragment"><div class="line">git clone https://github.com/SMG2S/SMG2S.git</div>
+<div class="line">cd SMG2S</div>
+<div class="line">mkdir build</div>
+<div class="line">cd build</div>
+<div class="line">cmake ..</div>
+<div class="line">make</div>
+</div><!-- fragment --><div class="fragment"><div class="line">mpirun -np ${PROCS} ./smg2s.exe -D ${dim} -L ${diag_l} -U ${diag_u} -O ${offset} -C ${nbOne} -S ${sparsity} -M {no-herm or non-symm}</div>
+</div><!-- fragment --><div class="fragment"><div class="line">usage: ./smg2s.exe [options] ...</div>
+<div class="line">options:</div>
+<div class="line">  -D, --dim           Dimension of matrix to be generated (int [=1000])</div>
+<div class="line">  -L, --diagL         offset of lower diagonal of initial matrix (int [=-10])</div>
+<div class="line">  -U, --diagU         offset of upper diagonal of initial matrix (int [=-5])</div>
+<div class="line">  -O, --nilpOffset    offset of diagonal of a nilpotent (int [=5])</div>
+<div class="line">  -C, --continous     Continuous length in Nilpotent matrix (int [=2])</div>
+<div class="line">  -S, --sparsity      sparsity of initial matrix (NOT THE FINAL GENERATED ONES) (double [=0.95])</div>
+<div class="line">  -M, --mattype       Matrix type to be generated: non-symmetric or non-Hermitian (string [=non-herm])</div>
+<div class="line">  -?, --help          print this message</div>
+</div><!-- fragment --> <hr  />
  <h1><a class="anchor" id="install"></a>
 Installation</h1>
-<hr  />
- <h1><a class="anchor" id="quickexample"></a>
-Quick example</h1>
-<hr  />
+<div class="fragment"><div class="line">cmake .. -DCMAKE_INSTALL_PREFIX=${PATH_TO_INSTALL}</div>
+<div class="line">make -j install</div>
+</div><!-- fragment --> <hr  />
+ <h1><a class="anchor" id="use"></a>
+Usage</h1>
+<h2><a class="anchor" id="cmake"></a>
+CMake</h2>
+<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.8)</div>
+<div class="line">project(xxx)</div>
+<div class="line">#find installation of SMG2S</div>
+<div class="line">find_package( smg2s REQUIRED CONFIG)</div>
+<div class="line">include(CheckCXXCompilerFlag)</div>
+<div class="line">CHECK_CXX_COMPILER_FLAG(&quot;-std=c++14&quot; COMPILER_SUPPORTS_CXX14)</div>
+<div class="line">if(COMPILER_SUPPORTS_CXX14)</div>
+<div class="line">    set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -std=c++14&quot;)</div>
+<div class="line">else()</div>
+<div class="line">     message([FATAL_ERROR] &quot;The compiler ${CMAKE_CXX_COMPILER} has no C++14 support. Please use a different C++ compiler.&quot;)</div>
+<div class="line">endif()</div>
+<div class="line"># for C++ code</div>
+<div class="line">add_executable(smg2s-app test_parMatrix.cpp)</div>
+<div class="line">target_link_libraries(smg2s-app PUBLIC SMG2S::smg2s)</div>
+<div class="line"># for C code</div>
+<div class="line">add_executable(test_c.exe test_c.c)</div>
+<div class="line">target_link_libraries(test_c.exe PRIVATE SMG2S::smg2s2c)</div>
+</div><!-- fragment --><h2><a class="anchor" id="link"></a>
+Direct linking</h2>
+<h1><a class="anchor" id="example"></a>
+Mini example</h1>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;complex&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;typeinfo&gt;</span>  </div>
+<div class="line"><span class="preprocessor">#include &lt;mpi.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;smg2s-interface.hpp&gt;</span></div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv) </div>
+<div class="line">{</div>
+<div class="line">    MPI_Init(&amp;argc, &amp;argv);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordtype">int</span> world_size;</div>
+<div class="line">    <span class="keywordtype">int</span> world_rank;</div>
+<div class="line">    <span class="keywordtype">int</span> probSize = 100;</div>
+<div class="line">    <span class="keywordtype">int</span> l_diag = -60;</div>
+<div class="line">    <span class="keywordtype">int</span> u_diag = -20;</div>
+<div class="line">    <span class="keywordtype">int</span> nbOne = 5;</div>
+<div class="line">    <span class="keywordtype">int</span> offset = 50;</div>
+<div class="line">    <span class="keywordtype">double</span> sparsity = 0.5;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="class_nilpotent.html">Nilpotent&lt;int&gt;</a> nilp = <a class="code" href="class_nilpotent.html">Nilpotent&lt;int&gt;</a>(nbOne, offset, probSize);</div>
+<div class="line"> </div>
+<div class="line">    nilp.<a class="code" href="group__group3.html#gaa9ab7b781b96f7d3bb4cd2041986b8a3">show</a>();</div>
+<div class="line"> </div>
+<div class="line">    MPI_Comm_size(MPI_COMM_WORLD, &amp;world_size);</div>
+<div class="line">    MPI_Comm_rank(MPI_COMM_WORLD, &amp;world_rank);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">int</span> span, lower_b, upper_b;</div>
+<div class="line"> </div>
+<div class="line">    span = int(floor(<span class="keywordtype">double</span>(probSize)/<span class="keywordtype">double</span>(world_size)));</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span>(world_rank == world_size - 1){</div>
+<div class="line">        lower_b = world_rank * span;</div>
+<div class="line">        upper_b = probSize - 1 + 1;</div>
+<div class="line">    }<span class="keywordflow">else</span>{</div>
+<div class="line">        lower_b = world_rank * span;</div>
+<div class="line">        upper_b = (world_rank + 1) * span - 1 + 1;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span> parVecMap = <a class="code" href="classpar_vector_map.html">parVectorMap&lt;int&gt;</a>(MPI_COMM_WORLD, lower_b, upper_b);</div>
+<div class="line">    <a class="code" href="classpar_vector.html">parVector&lt;std::complex&lt;double&gt;</a>, <span class="keywordtype">int</span>&gt; spec1 = <a class="code" href="classpar_vector.html">parVector&lt;std::complex&lt;double&gt;</a>, <span class="keywordtype">int</span>&gt;(parVecMap);</div>
+<div class="line">    specGenNonHerm2(&amp;spec1);</div>
+<div class="line">    spec1.<a class="code" href="classpar_vector.html#aab9f38beb4a793bf20c43431eb665d36">writeToTxtCmplx</a>(<span class="stringliteral">&quot;specNonHerm1.txt&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span> mat = nonherm&lt;std::complex&lt;double&gt;, <span class="keywordtype">int</span>&gt;(probSize, nilp, <a class="code" href="structinit_mat.html">initMat&lt;int&gt;</a>(-l_diag, -u_diag, 0.1, sparsity), spec1);</div>
+<div class="line">    mat.writeToMatrixMarketCmplx(<span class="stringliteral">&quot;matGenNonHerm1.mtx&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="classpar_vector.html">parVector&lt;double, int&gt;</a> spec2 = <a class="code" href="classpar_vector.html">parVector&lt;double, int&gt;</a>(parVecMap);</div>
+<div class="line">    specGenNonSymm(&amp;spec2, 10.0, 0.0);</div>
+<div class="line">    spec2.<a class="code" href="classpar_vector.html#ae52e90a3105c377140f432251e2a3a8b">writeToTxt</a>(<span class="stringliteral">&quot;specNonSymm1.txt&quot;</span>);</div>
+<div class="line">    <span class="keyword">auto</span> mat2 = nonsymm&lt;double , int&gt;(probSize, nilp, <a class="code" href="structinit_mat.html">initMat&lt;int&gt;</a>(-l_diag, -u_diag, 1, sparsity), spec2);</div>
+<div class="line">    mat2.writeToMatrixMarket(<span class="stringliteral">&quot;matGenNonSymm1.mtx&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="classpar_vector.html">parVector&lt;std::complex&lt;double&gt;</a>, <span class="keywordtype">int</span>&gt; spec3 = <a class="code" href="classpar_vector.html">parVector&lt;std::complex&lt;double&gt;</a>, <span class="keywordtype">int</span>&gt;(parVecMap);</div>
+<div class="line">    specGenNonSymmConj(&amp;spec3);</div>
+<div class="line">    spec3.<a class="code" href="classpar_vector.html#aab9f38beb4a793bf20c43431eb665d36">writeToTxtCmplx</a>(<span class="stringliteral">&quot;specNonSymmConj1.txt&quot;</span>);    </div>
+<div class="line"><span class="comment">//    spec3.VecView();</span></div>
+<div class="line">    <span class="keyword">auto</span> mat3 = nonsymmconj&lt;double , int&gt;(probSize, nilp, <a class="code" href="structinit_mat.html">initMat&lt;int&gt;</a>(-l_diag, -u_diag, 1, sparsity), spec3);</div>
+<div class="line">    mat3.writeToMatrixMarket(<span class="stringliteral">&quot;matGenNonSymmConj1.mtx&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="classpar_vector.html">parVector&lt;std::complex&lt;double&gt;</a>, <span class="keywordtype">int</span>&gt; spec4 = <a class="code" href="classpar_vector.html">parVector&lt;std::complex&lt;double&gt;</a>, <span class="keywordtype">int</span>&gt;(parVecMap);</div>
+<div class="line">    specGenNonSymm2(&amp;spec4, 100000.0, 0.0);</div>
+<div class="line">    spec4.<a class="code" href="classpar_vector.html#aab9f38beb4a793bf20c43431eb665d36">writeToTxtCmplx</a>(<span class="stringliteral">&quot;specNonSymm2.txt&quot;</span>);    </div>
+<div class="line"><span class="comment">//    spec3.VecView();</span></div>
+<div class="line">    <span class="keyword">auto</span> mat4 = nonsymmconj&lt;double , int&gt;(probSize, nilp, <a class="code" href="structinit_mat.html">initMat&lt;int&gt;</a>(-l_diag, -u_diag, 1, sparsity), spec4);</div>
+<div class="line">    mat4.writeToMatrixMarket(<span class="stringliteral">&quot;matGenNonSymm2.mtx&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">    MPI_Finalize();</div>
+<div class="line">    </div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><hr  />
  <h1><a class="anchor" id="custom"></a>
 Customization</h1>
 <h2><a class="anchor" id="nilp"></a>
@@ -120,16 +241,165 @@ Assembling the customizations</h2>
 <hr  />
  <h1><a class="anchor" id="verify"></a>
 Plotting and verification</h1>
-<hr  />
+<p>* </p><div class="image">
+<img src="./docs/figure/verification_1png" alt="" width="1000px"/>
+</div>
+ <div class="image">
+<img src="verification_2.png" alt="" width="1000px"/>
+</div>
+ <div class="image">
+<img src="verification_3.png" alt="" width="1000px"/>
+</div>
+ <div class="image">
+<img src="verification_4.png" alt="" width="1000px"/>
+</div>
+ <div class="image">
+<img src="verification_5.png" alt="" width="1000px"/>
+</div>
+ <hr  />
  <h1><a class="anchor" id="c-interface"></a>
 C interface</h1>
-<hr  />
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;C/c-smg2s.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;mpi.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
+<div class="line"> </div>
+<div class="line">    MPI_Init(&amp;argc, &amp;argv);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">int</span> world_size;</div>
+<div class="line">    <span class="keywordtype">int</span> world_rank;</div>
+<div class="line"> </div>
+<div class="line">    MPI_Comm_size(MPI_COMM_WORLD, &amp;world_size);</div>
+<div class="line">    MPI_Comm_rank(MPI_COMM_WORLD, &amp;world_rank);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">int</span> probSize = 7;</div>
+<div class="line">    <span class="keywordtype">int</span> span, lower_b, upper_b;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">int</span> diagl = -5;</div>
+<div class="line">    <span class="keywordtype">int</span> diagu = -3;</div>
+<div class="line">    <span class="keywordtype">double</span> sparsity = 0.5;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="group__group5.html#gab342f3cd269bf4a9a6b1d4b51dc25636">nilp_t</a> *nilp = <a class="code" href="group__group5.html#ga92fb0cfb4559474f321200b7d215376c">newNilp_1</a>(2, 7);</div>
+<div class="line">    <a class="code" href="group__group5.html#ga5c508315fbd552f1fc1bd7bd6ec1fb10">nilp_show</a>(nilp);</div>
+<div class="line"> </div>
+<div class="line">    span = (int)ceil((<span class="keywordtype">double</span>)probSize/(double)world_size);</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span>(world_rank == world_size - 1){</div>
+<div class="line">        lower_b = world_rank * span;</div>
+<div class="line">        upper_b = probSize - 1 + 1;</div>
+<div class="line">    }<span class="keywordflow">else</span>{</div>
+<div class="line">        lower_b = world_rank * span;</div>
+<div class="line">        upper_b = (world_rank + 1) * span - 1 + 1;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="group__group5.html#gad72e26546338d375ccb8acb00d1825fd">initMatrix_t</a> *<a class="code" href="structinit_mat.html">initMat</a> = <a class="code" href="group__group5.html#ga149ff0215357a45569171c5585d2ced0">newInitMatrix_3</a>(diagl, diagu, sparsity);  </div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="group__group5.html#ga0259c48919a675dc2d1f7fcdfb8f1354">parVecMap_t</a> *p = <a class="code" href="group__group5.html#ga3f6a63fcf0d1043c05bf421c018a9efb">newParVecMap</a>(MPI_COMM_WORLD, lower_b, upper_b);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//non-symm case 1</span></div>
+<div class="line">    <a class="code" href="group__group5.html#gaac8e7c711188d70adaa06f3e6a930528">ds_parVec_t</a> *spec = <a class="code" href="group__group5.html#ga9b8a2d822116e15ba5d5643bbc1d8cd7">new_ds_ParVec_2</a>(p);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = lower_b; i &lt; upper_b; i++){</div>
+<div class="line">        <a class="code" href="group__group5.html#gabd919b8f162194d6526612672b0b9002">ds_parVecSetVal</a>(spec, i, i + 1);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="group__group5.html#ga031dc0e3f74328e223ca8cb34c38e4a8">ds_parVecView</a>(spec);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//initMatrix_show (initMat);</span></div>
+<div class="line">    <a class="code" href="group__group5.html#ga8f782c5053e469b6df8e1f51f50ba7d5">ds_parMatSparse_t</a> *mat = <a class="code" href="group__group5.html#ga10747bbfb3e7e3ba45a14cc6f0b24f62">ds_nonsymm_2</a>(probSize, nilp, <a class="code" href="structinit_mat.html">initMat</a>, spec);    </div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="group__group5.html#ga9b7b2aad9befc5284ac57f73b87f827b">ds_parMatSparse_View</a>(mat);  </div>
+<div class="line">    <a class="code" href="group__group5.html#ga4178f92bdee795efbd00d26347891e75">ds_parMatSparse_destory</a>(mat);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//non-symm case 2 with conjugate eigenvalues</span></div>
+<div class="line">    <a class="code" href="group__group5.html#ga88bc2f52b5b0048f4f36c19c7996be4b">zs_parVec_t</a> *spec2 = <a class="code" href="group__group5.html#ga9b66dd8213ba7a0ede0751d9a6094815">new_zs_ParVec_2</a>(p);</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = lower_b; i &lt; upper_b; i++){</div>
+<div class="line">        <span class="keywordflow">if</span>(i % 2 == 0){</div>
+<div class="line">            dcomplex_t v = {i/2 + 1, i/2 + 2};</div>
+<div class="line">            <a class="code" href="group__group5.html#gaed60b2f3e59160f42f5aac199f60c0b9">zs_parVecSetVal</a>(spec2, i, v);</div>
+<div class="line">        }<span class="keywordflow">else</span>{</div>
+<div class="line">            dcomplex_t v = {i/2 + 1, -i/2 - 2};</div>
+<div class="line">            <a class="code" href="group__group5.html#gaed60b2f3e59160f42f5aac199f60c0b9">zs_parVecSetVal</a>(spec2, i, v);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span>(i == probSize - 1){</div>
+<div class="line">            dcomplex_t v = {i + 1, 0};</div>
+<div class="line">            <a class="code" href="group__group5.html#gaed60b2f3e59160f42f5aac199f60c0b9">zs_parVecSetVal</a>(spec2, i, v);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="group__group5.html#ga6c5539bd42c15915a495972d92a6b862">zs_parVecView</a>(spec2);</div>
+<div class="line">    <a class="code" href="group__group5.html#ga8f782c5053e469b6df8e1f51f50ba7d5">ds_parMatSparse_t</a> *mat2 = <a class="code" href="group__group5.html#gaf87b61ad1766fdc041a813602b4488d1">ds_nonsymmconj_2</a>(probSize, nilp, <a class="code" href="structinit_mat.html">initMat</a>, spec2);    </div>
+<div class="line">    <a class="code" href="group__group5.html#ga9b7b2aad9befc5284ac57f73b87f827b">ds_parMatSparse_View</a>(mat2);  </div>
+<div class="line">    <a class="code" href="group__group5.html#ga4178f92bdee795efbd00d26347891e75">ds_parMatSparse_destory</a>(mat2);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//non-herm case </span></div>
+<div class="line">    <a class="code" href="group__group5.html#ga88bc2f52b5b0048f4f36c19c7996be4b">zs_parVec_t</a> *spec3 = <a class="code" href="group__group5.html#ga9b66dd8213ba7a0ede0751d9a6094815">new_zs_ParVec_2</a>(p);</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = lower_b; i &lt; upper_b; i++){</div>
+<div class="line">        dcomplex_t v = {i+1, i+2};</div>
+<div class="line">        <a class="code" href="group__group5.html#gaed60b2f3e59160f42f5aac199f60c0b9">zs_parVecSetVal</a>(spec3, i, v);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="group__group5.html#ga6c5539bd42c15915a495972d92a6b862">zs_parVecView</a>(spec3);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="group__group5.html#ga9a9b56276f3563688c52287520762763">zs_parMatSparse_t</a> *mat3 = <a class="code" href="group__group5.html#gafd4856bde2d0a51c6488c84afe0c4ac5">zs_nonherm_2</a>(probSize, nilp, <a class="code" href="structinit_mat.html">initMat</a>, spec3);    </div>
+<div class="line">    <a class="code" href="group__group5.html#ga4a7119da0211cb67ceb1d21a2bc847e0">zs_parMatSparse_View</a>(mat3);  </div>
+<div class="line">    <a class="code" href="group__group5.html#ga6b5c90a5915a04db34cf0097d9f238b0">zs_parMatSparse_destory</a>(mat3);</div>
+<div class="line">    <a class="code" href="group__group5.html#ga1f8661713015b780865975049e064596">initMatrix_destory</a>(<a class="code" href="structinit_mat.html">initMat</a>);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="group__group5.html#gacb4033210533fefe315ce59fcb8268c3">ds_parVec_destory</a>(spec);</div>
+<div class="line">    <a class="code" href="group__group5.html#ga2b4142727443be4132fa1e81890a2a2e">zs_parVec_destory</a>(spec2);</div>
+<div class="line">    <a class="code" href="group__group5.html#ga2b4142727443be4132fa1e81890a2a2e">zs_parVec_destory</a>(spec3);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="group__group5.html#ga98b6a8ecec23a8826cc930afbcffad32">nilp_destory</a> (nilp);</div>
+<div class="line"> </div>
+<div class="line">    MPI_Finalize();</div>
+<div class="line">}</div>
+</div><!-- fragment --> <hr  />
  <h1><a class="anchor" id="moreexample"></a>
 More examples</h1>
 <hr  />
  </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclasspar_vector_map_html"><div class="ttname"><a href="classpar_vector_map.html">parVectorMap</a></div><div class="ttdoc">A class which determines the way to distribute a vector across MPI procs.</div><div class="ttdef"><b>Definition:</b> parVectorMap.hpp:40</div></div>
+<div class="ttc" id="agroup__group3_html_gaa9ab7b781b96f7d3bb4cd2041986b8a3"><div class="ttname"><a href="group__group3.html#gaa9ab7b781b96f7d3bb4cd2041986b8a3">Nilpotent::show</a></div><div class="ttdeci">void show()</div><div class="ttdoc">Display the information of a nilpotent matrix.</div><div class="ttdef"><b>Definition:</b> nilpotent.hpp:318</div></div>
+<div class="ttc" id="aclasspar_vector_html_aab9f38beb4a793bf20c43431eb665d36"><div class="ttname"><a href="classpar_vector.html#aab9f38beb4a793bf20c43431eb665d36">parVector::writeToTxtCmplx</a></div><div class="ttdeci">void writeToTxtCmplx(std::string file_name)</div><div class="ttdoc">Write a parVector in complex scalar to a local file.</div><div class="ttdef"><b>Definition:</b> parVector.hpp:472</div></div>
+<div class="ttc" id="agroup__group5_html_gab342f3cd269bf4a9a6b1d4b51dc25636"><div class="ttname"><a href="group__group5.html#gab342f3cd269bf4a9a6b1d4b51dc25636">nilp_t</a></div><div class="ttdeci">struct nilp nilp_t</div><div class="ttdoc">Creates a type name for nilp which is a C-interface for Nilpotent with `S=int`.</div><div class="ttdef"><b>Definition:</b> c-smg2s.h:66</div></div>
+<div class="ttc" id="agroup__group5_html_gaed60b2f3e59160f42f5aac199f60c0b9"><div class="ttname"><a href="group__group5.html#gaed60b2f3e59160f42f5aac199f60c0b9">zs_parVecSetVal</a></div><div class="ttdeci">void zs_parVecSetVal(zs_parVec_t *pv, int index, dcomplex_t val)</div><div class="ttdoc">C-interface of parVector::SetValueGlobal(S index, T value)</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:410</div></div>
+<div class="ttc" id="agroup__group5_html_gafd4856bde2d0a51c6488c84afe0c4ac5"><div class="ttname"><a href="group__group5.html#gafd4856bde2d0a51c6488c84afe0c4ac5">zs_nonherm_2</a></div><div class="ttdeci">zs_parMatSparse_t * zs_nonherm_2(int probSize, nilp_t *nilp, initMatrix_t *init, zs_parVec_t *spec)</div><div class="ttdoc">C-interface of function nonherm (S probSize, Nilpotent&lt; S &gt; nilp, initMat&lt; S &gt; init,...</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:941</div></div>
+<div class="ttc" id="agroup__group5_html_ga0259c48919a675dc2d1f7fcdfb8f1354"><div class="ttname"><a href="group__group5.html#ga0259c48919a675dc2d1f7fcdfb8f1354">parVecMap_t</a></div><div class="ttdeci">struct parVecMap parVecMap_t</div><div class="ttdoc">Creates a type name for parVecMap which is a C-interface for parVectorMap with `S=int`.</div><div class="ttdef"><b>Definition:</b> c-smg2s.h:147</div></div>
+<div class="ttc" id="agroup__group5_html_gabd919b8f162194d6526612672b0b9002"><div class="ttname"><a href="group__group5.html#gabd919b8f162194d6526612672b0b9002">ds_parVecSetVal</a></div><div class="ttdeci">void ds_parVecSetVal(ds_parVec_t *pv, int index, double val)</div><div class="ttdoc">C-interface of parVector::SetValueGlobal(S index, T value)</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:225</div></div>
+<div class="ttc" id="agroup__group5_html_ga4178f92bdee795efbd00d26347891e75"><div class="ttname"><a href="group__group5.html#ga4178f92bdee795efbd00d26347891e75">ds_parMatSparse_destory</a></div><div class="ttdeci">void ds_parMatSparse_destory(ds_parMatSparse_t *pm)</div><div class="ttdoc">Destory the struct.</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:554</div></div>
+<div class="ttc" id="agroup__group5_html_ga9b7b2aad9befc5284ac57f73b87f827b"><div class="ttname"><a href="group__group5.html#ga9b7b2aad9befc5284ac57f73b87f827b">ds_parMatSparse_View</a></div><div class="ttdeci">void ds_parMatSparse_View(ds_parMatSparse_t *pm)</div><div class="ttdoc">C-interface of parMatrixSparse::MatView()</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:609</div></div>
+<div class="ttc" id="agroup__group5_html_gacb4033210533fefe315ce59fcb8268c3"><div class="ttname"><a href="group__group5.html#gacb4033210533fefe315ce59fcb8268c3">ds_parVec_destory</a></div><div class="ttdeci">void ds_parVec_destory(ds_parVec_t *pv)</div><div class="ttdoc">Destory the struct.</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:185</div></div>
+<div class="ttc" id="aclass_nilpotent_html"><div class="ttname"><a href="class_nilpotent.html">Nilpotent</a></div><div class="ttdoc">A class which determines the information of a nilpotent matrix.</div><div class="ttdef"><b>Definition:</b> nilpotent.hpp:45</div></div>
+<div class="ttc" id="agroup__group5_html_ga1f8661713015b780865975049e064596"><div class="ttname"><a href="group__group5.html#ga1f8661713015b780865975049e064596">initMatrix_destory</a></div><div class="ttdeci">void initMatrix_destory(initMatrix_t *init)</div><div class="ttdoc">Destory a initMatrix struct.</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:102</div></div>
+<div class="ttc" id="agroup__group5_html_ga3f6a63fcf0d1043c05bf421c018a9efb"><div class="ttname"><a href="group__group5.html#ga3f6a63fcf0d1043c05bf421c018a9efb">newParVecMap</a></div><div class="ttdeci">parVecMap_t * newParVecMap(MPI_Comm ncomm, int lbound, int ubound)</div><div class="ttdoc">C-interfance of parVectorMap::parVectorMap(MPI_Comm ncomm, S lbound, S ubound)</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:130</div></div>
+<div class="ttc" id="agroup__group5_html_ga6b5c90a5915a04db34cf0097d9f238b0"><div class="ttname"><a href="group__group5.html#ga6b5c90a5915a04db34cf0097d9f238b0">zs_parMatSparse_destory</a></div><div class="ttdeci">void zs_parMatSparse_destory(zs_parMatSparse_t *pm)</div><div class="ttdoc">Destory the struct.</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:712</div></div>
+<div class="ttc" id="aclasspar_vector_html_ae52e90a3105c377140f432251e2a3a8b"><div class="ttname"><a href="classpar_vector.html#ae52e90a3105c377140f432251e2a3a8b">parVector::writeToTxt</a></div><div class="ttdeci">void writeToTxt(std::string file_name)</div><div class="ttdoc">Write a parVector in real scalar to a local file.</div><div class="ttdef"><b>Definition:</b> parVector.hpp:416</div></div>
+<div class="ttc" id="agroup__group5_html_ga10747bbfb3e7e3ba45a14cc6f0b24f62"><div class="ttname"><a href="group__group5.html#ga10747bbfb3e7e3ba45a14cc6f0b24f62">ds_nonsymm_2</a></div><div class="ttdeci">ds_parMatSparse_t * ds_nonsymm_2(int probSize, nilp_t *nilp, initMatrix_t *init, ds_parVec_t *spec)</div><div class="ttdoc">C-interface of function nonsymm (S probSize, Nilpotent&lt; S &gt; nilp, initMat&lt; S &gt; init,...</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:1031</div></div>
+<div class="ttc" id="agroup__group5_html_gad72e26546338d375ccb8acb00d1825fd"><div class="ttname"><a href="group__group5.html#gad72e26546338d375ccb8acb00d1825fd">initMatrix_t</a></div><div class="ttdeci">struct initMatrix initMatrix_t</div><div class="ttdoc">Creates a type name for initMatrix which is a C-interface for initMat with `S=int`.</div><div class="ttdef"><b>Definition:</b> c-smg2s.h:112</div></div>
+<div class="ttc" id="agroup__group5_html_ga031dc0e3f74328e223ca8cb34c38e4a8"><div class="ttname"><a href="group__group5.html#ga031dc0e3f74328e223ca8cb34c38e4a8">ds_parVecView</a></div><div class="ttdeci">void ds_parVecView(ds_parVec_t *pv)</div><div class="ttdoc">C-interface of parVector::VecView()</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:222</div></div>
+<div class="ttc" id="agroup__group5_html_ga88bc2f52b5b0048f4f36c19c7996be4b"><div class="ttname"><a href="group__group5.html#ga88bc2f52b5b0048f4f36c19c7996be4b">zs_parVec_t</a></div><div class="ttdeci">struct zs_parVec zs_parVec_t</div><div class="ttdoc">Creates a type name for zs_parVec which is a C-interface for parVector with `T=std::complex&lt;double&gt;` ...</div><div class="ttdef"><b>Definition:</b> c-smg2s.h:293</div></div>
+<div class="ttc" id="agroup__group5_html_ga5c508315fbd552f1fc1bd7bd6ec1fb10"><div class="ttname"><a href="group__group5.html#ga5c508315fbd552f1fc1bd7bd6ec1fb10">nilp_show</a></div><div class="ttdeci">void nilp_show(nilp_t *nilp)</div><div class="ttdoc">C-interface of Nilpotent::show.</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:46</div></div>
+<div class="ttc" id="agroup__group5_html_gaf87b61ad1766fdc041a813602b4488d1"><div class="ttname"><a href="group__group5.html#gaf87b61ad1766fdc041a813602b4488d1">ds_nonsymmconj_2</a></div><div class="ttdeci">ds_parMatSparse_t * ds_nonsymmconj_2(int probSize, nilp_t *nilp, initMatrix_t *init, zs_parVec_t *spec)</div><div class="ttdoc">C-interface of function nonsymmconj (S probSize, Nilpotent&lt; S &gt; nilp, initMat&lt; S &gt; init,...</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:1121</div></div>
+<div class="ttc" id="agroup__group5_html_ga4a7119da0211cb67ceb1d21a2bc847e0"><div class="ttname"><a href="group__group5.html#ga4a7119da0211cb67ceb1d21a2bc847e0">zs_parMatSparse_View</a></div><div class="ttdeci">void zs_parMatSparse_View(zs_parMatSparse_t *pm)</div><div class="ttdoc">C-interface of parMatrixSparse::MatView()</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:774</div></div>
+<div class="ttc" id="astructinit_mat_html"><div class="ttname"><a href="structinit_mat.html">initMat</a></div><div class="ttdoc">A struct which stores the information for the initial input matrix of SMG2S.</div><div class="ttdef"><b>Definition:</b> initMat.hpp:42</div></div>
+<div class="ttc" id="agroup__group5_html_ga2b4142727443be4132fa1e81890a2a2e"><div class="ttname"><a href="group__group5.html#ga2b4142727443be4132fa1e81890a2a2e">zs_parVec_destory</a></div><div class="ttdeci">void zs_parVec_destory(zs_parVec_t *pv)</div><div class="ttdoc">Destory the struct.</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:345</div></div>
+<div class="ttc" id="agroup__group5_html_ga92fb0cfb4559474f321200b7d215376c"><div class="ttname"><a href="group__group5.html#ga92fb0cfb4559474f321200b7d215376c">newNilp_1</a></div><div class="ttdeci">nilp_t * newNilp_1(int nbOne, int size)</div><div class="ttdoc">C-interface of Nilpotent::Nilpotent(S nbOne, S size)</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:29</div></div>
+<div class="ttc" id="agroup__group5_html_ga9b8a2d822116e15ba5d5643bbc1d8cd7"><div class="ttname"><a href="group__group5.html#ga9b8a2d822116e15ba5d5643bbc1d8cd7">new_ds_ParVec_2</a></div><div class="ttdeci">ds_parVec_t * new_ds_ParVec_2(parVecMap_t *map)</div><div class="ttdoc">C-interface of parVector::parVector(parVectorMap&lt;S&gt; map)</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:182</div></div>
+<div class="ttc" id="agroup__group5_html_ga6c5539bd42c15915a495972d92a6b862"><div class="ttname"><a href="group__group5.html#ga6c5539bd42c15915a495972d92a6b862">zs_parVecView</a></div><div class="ttdeci">void zs_parVecView(zs_parVec_t *pv)</div><div class="ttdoc">C-interface of parVector::VecView()</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:407</div></div>
+<div class="ttc" id="agroup__group5_html_ga9b66dd8213ba7a0ede0751d9a6094815"><div class="ttname"><a href="group__group5.html#ga9b66dd8213ba7a0ede0751d9a6094815">new_zs_ParVec_2</a></div><div class="ttdeci">zs_parVec_t * new_zs_ParVec_2(parVecMap_t *map)</div><div class="ttdoc">C-interface of parVector::parVector(parVectorMap&lt;S&gt; map)</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:342</div></div>
+<div class="ttc" id="agroup__group5_html_ga9a9b56276f3563688c52287520762763"><div class="ttname"><a href="group__group5.html#ga9a9b56276f3563688c52287520762763">zs_parMatSparse_t</a></div><div class="ttdeci">struct zs_parMatSparse zs_parMatSparse_t</div><div class="ttdoc">Creates a type name for zs_parMatSparse which is a C-interface for parMatrixSparse with `T=std::compl...</div><div class="ttdef"><b>Definition:</b> c-smg2s.h:509</div></div>
+<div class="ttc" id="agroup__group5_html_gaac8e7c711188d70adaa06f3e6a930528"><div class="ttname"><a href="group__group5.html#gaac8e7c711188d70adaa06f3e6a930528">ds_parVec_t</a></div><div class="ttdeci">struct ds_parVec ds_parVec_t</div><div class="ttdoc">Creates a type name for ds_parVec which is a C-interface for parVector with `T=double` and `S=int`.</div><div class="ttdef"><b>Definition:</b> c-smg2s.h:190</div></div>
+<div class="ttc" id="aclasspar_vector_html"><div class="ttname"><a href="classpar_vector.html">parVector</a></div><div class="ttdoc">A class which defines a vector distributed across 1D MPI grid.</div><div class="ttdef"><b>Definition:</b> parVector.hpp:41</div></div>
+<div class="ttc" id="agroup__group5_html_ga149ff0215357a45569171c5585d2ced0"><div class="ttname"><a href="group__group5.html#ga149ff0215357a45569171c5585d2ced0">newInitMatrix_3</a></div><div class="ttdeci">initMatrix_t * newInitMatrix_3(int diagl, int diagu, double Sparsity)</div><div class="ttdoc">C-interface of initMat::initMat(S diagl, S diagu, double Sparsity)</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:93</div></div>
+<div class="ttc" id="agroup__group5_html_ga8f782c5053e469b6df8e1f51f50ba7d5"><div class="ttname"><a href="group__group5.html#ga8f782c5053e469b6df8e1f51f50ba7d5">ds_parMatSparse_t</a></div><div class="ttdeci">struct ds_parMatSparse ds_parMatSparse_t</div><div class="ttdoc">Creates a type name for ds_parMatSparse which is a C-interface for parMatrixSparse with `T=double` an...</div><div class="ttdef"><b>Definition:</b> c-smg2s.h:402</div></div>
+<div class="ttc" id="agroup__group5_html_ga98b6a8ecec23a8826cc930afbcffad32"><div class="ttname"><a href="group__group5.html#ga98b6a8ecec23a8826cc930afbcffad32">nilp_destory</a></div><div class="ttdeci">void nilp_destory(nilp_t *nilp)</div><div class="ttdoc">Destory a nilp struct.</div><div class="ttdef"><b>Definition:</b> c-smg2s.cc:43</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

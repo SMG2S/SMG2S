@@ -1,5 +1,8 @@
 var NAVTREEINDEX2 =
 {
+"structdcomplex.html#aefa7e23ae8a9431c31d63c305d121571":[7,0,0,1],
+"structinit_mat.html":[7,2,0],
+"structinit_mat.html#a0bf2430d9a01f4b8bed53824f6b34b7a":[7,2,0,1],
 "structinit_mat.html#a3aec69cb6e6470e4520982b53c95cb03":[7,2,0,4],
 "structinit_mat.html#a593bbc65206b6bdbbb49b41e18e98cad":[7,2,0,2],
 "structinit_mat.html#a59c672ab69a579dd70177e76d2d9ccad":[7,2,0,5],
