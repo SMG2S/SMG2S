@@ -1,166 +1,206 @@
 # Overview
+
 Sparse Matrix Generator with Given Spectrum
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2694506.svg)](https://doi.org/10.5281/zenodo.2694506)
 
-## Update !!!
-
-In the newest version (v1.1) of SMG2S, it supports the generation of nonsymmetric matrices that all the entries of matrices are real and the eigenvalues can be both real and complex.
-
 -------------------------------------------------------------------------------
 
-Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http://www.maisondelasimulation.fr), France.
+Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http://www.maisondelasimulation.fr), France (2016-2019).
 
-## What for ?
+                                  @ [SDL Quantum Materials](https://www.fz-juelich.de/en/ias/jsc/about-us/structure/simulation-and-data-labs/sdl-quantum-materials), Forschungszentrum Juelich GmbH, Germany (2019-present).
 
-SMG2S is able to generate large-scale non-Hermitian (non-Symmetric) methods in parallel with the spectral distribution functions or eigenvalues given by users. SMG2S can be used to benchmark the iterative linear and eigen solvers on supercomputers using the generated very large test matrices with customized spectral properties.
+****
+
+**SMG2S** is able to generate large-scale non-Hermitian and non-Symmetric matrices in parallel with the spectral distribution functions or eigenvalues given by users. SMG2S can be used to benchmark the iterative solvers for both linear systems and eigenvalue problems on supercomputers using the generated very large test matrices with customized spectral properties.
+
+As a matrix generator, SMG2S provides:
+
+- generating of both Non-Hermitian and Non-Symmetric sparse matrix
+
+- generated matrices are naturally Sparse with non-trivial sparsity pattern
+
+- Given Spectrum: the spectrum of generated matrix is the same as the one specified by the users
+
+- Sparsity Patterns are diverse and controllable
+
+
+
+As a software, SMG2S provides:
+
+* a collection of C++ header only files
+* parallel implementation based on [[MPI]](https://en.wikipedia.org/wiki/Message_Passing_Interface) which is able to efficiently generate very large sparse matrices in parallel on supercomputers
+* an easy-to-use C interface
+* a verification module based on Python for the sparsity pattern plotting and spectrum verification of small size of generated matrix.
+* Efficient parallel IO to store the generated matrix into [MatrixMarket format](https://math.nist.gov/MatrixMarket/formats.html)
+
+
+
+![Matrix Generation Pattern](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/matgen.png)
 
 ## Cite SMG2S
 
-1. Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." Concurrency and Computation: Practice and Experience, 32(20), e5710, 2020. [(DOI)](https://doi.org/10.1002/cpe.5710)
+If you find SMG2S useful in your project, we kindly request that you cite the following paper:
 
-2. Wu, Xinzhe. SMG2S Manual v1. 0. Maison de la Simulation, 2018. [(PDF)](https://hal.archives-ouvertes.fr/hal-01874810/document)
+Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." Concurrency and Computation: Practice and Experience, 32(20), e5710, 2020. [[DOI]](https://doi.org/10.1002/cpe.5710) [[PDF]](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/cpe.5710?casa_token=UUntHdbHvo4AAAAA:CHJa3O1_B-15_eHKY09LuWdh5TNs_trh_IXa_qDuNZLeTKcxa4CQt9WzrNsU1XSWxunknU8GeXP9Ihv9)
 
-![Matrix Generation Pattern](doc/figure/matgen.png)
+## Gallery: Sparsity Patterns
 
-## Documentation
+Please refer to [docs/gallery](./docs/galllery) for more examples.
 
-Website of SMG2S is [here](https://smg2s.github.io/), Developing repository is on [Github](https://github.com/SMG2S).
+# Documentation
 
-[Documentation](https://smg2s.github.io/files/smg2s_manual_v1_1.pdf) is avaiable.
+## Getting SMG2S
 
-Python version is avaiable on [Pypi](https://pypi.org/project/smg2s/), which can be installed by the command:
-
-```bash
-CC=mpicxx pip install smg2s
-```
-
-# Installation
-
-## Binary Executable file
-In the main directory:
+SMG2S is able to available on the Github. The most updated version of SMG2S can be gotten either by the following `git` command:
 
 ```bash
-cmake .  -DCMAKE_INSTALL_PREFIX=${INSTALL_DIRECTORY}
+git clone https://github.com/SMG2S/SMG2S.git
 ```
 
-Install
+Moreover a released version can be downloaded [here](http)
+
+## Dependencies
+
+SMG2S is developed in C++14 and MPI, and it is compiled with CMake. So the following software and compiler should be available before the installation of SMG2S.
+
+1. a C++ compiler with C++14 support
+
+2. MPI: message passing interface
+
+3. CMake: version >= 3.8
+
+## Quick start
+
+SMG2S provides an executable `smg2s.exe` that the users can compile and start to play with SMG2S without installation as follows. 
 
 ```bash
-make
+cd SMG2S
+mkdir build & cd build
+cmake .. 
+make -j
 ```
 
-Execution
+Then the executable `smg2s.exe`is available, and it can be run as follows:
 
 ```bash
-mpirun -np ${PROCS} ./smg2s.exe -D ${MAT_SIZE} -L ${LOW_BANDWIDTH} -C ${CONTINUOUS_ONES} -S ${GIVEN_SPECTRUM_FILE} -M ${MATTYPE}
+  mpirun -np ${PROCS} ./smg2s.exe -D ${dim} -L ${diag_l} -U ${diag_u} -O ${offset} -C ${nbOne} -S ${sparsity} -M {no-herm or non-symm}
 ```
 
-If ${GIVEN_SPECTRUM_FILE} is not given, SMG2S will use the internal eigenvalue generation method to generate a default spectrum.
-
-If ${MATTYPE} is not given, SMG2S will generate the non-Hermitian matrices. If the users want to generate non symmetric matrices, it should be set as "non-sym".
-
-Below are the complete definitions of commandline parser for it:
+in which the command line parsers provides the customization of following parameters:
 
 ```bash
 usage: ./smg2s.exe [options] ...
 options:
   -D, --dim           Dimension of matrix to be generated (int [=1000])
-  -L, --lbandwidth    low bandwidth of initial matrix (int [=5])
+  -L, --diagL         offset of lower diagonal of initial matrix (int [=-10])
+  -U, --diagU         offset of upper diagonal of initial matrix (int [=-5])
+  -O, --nilpOffset    offset of diagonal of a nilpotent (int [=5])
   -C, --continous     Continuous length in Nilpotent matrix (int [=2])
-  -S, --spectrum      local file with given spectrum (string [= ])
+  -S, --sparsity      sparsity of initial matrix (NOT THE FINAL GENERATED ONES) (double [=0.95])
   -M, --mattype       Matrix type to be generated: non-symmetric or non-Hermitian (string [=non-herm])
   -?, --help          print this message
 ```
 
-## Include files
+## Installation
 
-Install the binary file and includes files into ${INSTALL_DIRECTORY}
+SMG2S relies on CMake for compiling and installation. A CMake flag `CMAKE_INSTALL_PREFIX` should be provided for the path of installation.
+
 ```bash
-make install
+cd SMG2S
+mkdir build & cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=${PATH_TO_INSTALL}
+make -j install
 ```
 
-Include the SMG2S header file
-```cpp
-/*Generate Non Hermitian Matrices*/
-#include <smg2s/smg2s.h>
+## Use SMG2S with own project
 
-/*Generate Non Symmetric Matrices whose eigenvalues can be real and complex*/
-#include <smg2s/smg2s_nonsymmetric.h>
+### header-only
 
-```
+SMG2S is a collection of C++ header files. If users want to use SMG2S with C++, they can just copy SMG2S headers into their project.
 
-Include and Compile
+### CMake
+
+SMG2S is installed as a CMake package, and it can be detected by the classic CMake `find_package` command. If the installation path is not in the default searching path of CMake, a CMake flag `CMAKE_PREFIX_PATH` should be provided which links to the installation path of SMG2S.
+
+So in your own project which want to use SMG2S:
+
 ```bash
-mpicxx example.cpp -I${INSTALL_DIRECTORY}/include
+mkdir build & cd build
+cmake .. -DCMAKE_PREFIX_PATH=${INSTALLED_PATH_OF_SMG2S}
+make -j
 ```
 
-# Example
-## Creation
+and in the `CMakeLists.txt` of own project, it should provide some content as follows:
 
-Include header file
-
-```cpp
-#include <smg2s/smg2s.h>
+```cmake
+cmake_minimum_required(VERSION 3.8)
+project(YOUR-OWN-PROJECT)
+#find installation of SMG2S
+find_package( smg2s REQUIRED CONFIG)
+# for C++ code
+add_executable(smg2s-app test_parMatrix.cpp)
+target_link_libraries(smg2s-app PUBLIC SMG2S::smg2s)
+# for C-interface code
+add_executable(test_c.exe test_c.c)
+target_link_libraries(test_c.exe PRIVATE SMG2S::smg2s2c)
 ```
 
-Generate the Nilpotent Matrix for operation:
-```cpp
-Nilpotency<int> nilp;
-nilp.NilpType1(length,probSize);
-```
-Create the parallel Sparse Matrix Object Mt:
-```cpp
-parMatrixSparse<std::complex<float>,int> *Mt;
-parMatrixSparse<std::complex<float>,int> *Mt2;
-```
-Generate a new matrix:
-```cpp
-MPI_Comm comm; //working MPI Communicator
-/*Generate Non Hermitian Matrices*/
-Mt = smg2s<std::complex<float>,int>(probSize, nilp, lbandwidth, spectrum, comm);
+In case that the support of `C++14` is disabled by some `C++` compiler, please insert also the following lines into your `CMakeLists.txt` before the usage of SMG2S.
 
-/*Generate Non Symmetric Matrices whose eigenvalues can be real and complex*/
-Mt2 = smg2s_nonsymmetric<float,int>(probSize, nilp, lbandwidth, spectrum, comm);
+```cmake
+include(CheckCXXCompilerFlag)
+CHECK_CXX_COMPILER_FLAG("-std=c++14" COMPILER_SUPPORTS_CXX14)
+if(COMPILER_SUPPORTS_CXX14)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+else()
+     message([FATAL_ERROR] "The compiler ${CMAKE_CXX_COMPILER} has no C++14 support. Please use a different C++ compiler.")
+endif()
 ```
 
-##### ATTENTION: 
 
-For generating non symmetric matrices with complex eigenvalues, the first typename in the template of can only be **double** or **float**.
 
-### Given Spectra file in pseudo-Matrix Market Vector Format
+### Format of Given Spectrum Files
 
-#### Non-Hermitian case
+SMG2S is able to load user-provided spectrum in parallel from local text files. However, the provided files should conform into a specific format.
 
-* Complex values
+1. The first line is the comment part which includes the scalar types of given spectrum. This line should be: `%%SMG2S vector in complex scalar` and `%%SMG2S vector in real scalar` for the eigenvalues in complex or real scalar type, explicitly. **Attention**, for this line, the key word `complex` or `real` should always be there and conform with the type of user-provided spectrum. The parallel IO of SMG2S queries at first this line to check if the provided eigenvalues are complex or real.
 
-For the complex values, the given spectrum is stored in three columns, the first column is the coordinates, the second column is the real part of complex values, and the third column is the imaginary part of complex values.
+2. The second line indicates the number of given eigenvaues in the files. For the ones with `3` complex values, it is `3 3 3`, and for the ones with `3` real eigenvalues, it should be `3 3`.
 
-    %%MatrixMarket matrix coordinate complex general
+3. Starting from the `3rd` line, it is the main content of this file. It can have either `2` or `3` columns, which depends on the scalar types of eigenvalues. For the case with complex values, the first column indicates the coordinates for each eigenvalue, the second column contains the real part of eigenvalues, and the third column is for the imaginary part of eigenvalues. For the case with real values, the two columns contain the indexing and values of eigenvalues, respectively. **Attention**, the indexing is `1`-based, rather than `0`-based.  
+
+##### Real eigenvalues for non-Symmetric matrices
+
+For the case with real eigenvalues for non-Symmetric matrices, the given spectrum file format should be as follows:
+
+```
+%%SMG2S vector in real scalar
+3 3 
+1 10
+2 3.4790
+3 5.0540
+```
+
+##### Complex eigenvalues for non-Hermtian matrices
+
+For the complex values for non-Hermitian matrices which are not supposed to be conjugated, the given spectrum is stored in three columns, the first column is the coordinates, the second column is the real part of complex values, and the third column is the imaginary part of complex values. Here is an example with `3` eigenvalues:
+
+    %%SMG2S vector in complex scalar
     3 3 3
     1 10 6.5154
     2 10.6288 3.4790
     3 10.7621 5.0540
 
-* Real Values
+##### Conjugate eigenvalues for non-Symmetric matrices
 
-For the real values, the given spectrum is stored in two columns, the first column is the coordinates, the second column is related values.
-
-    %%MatrixMarket matrix coordinate real general
-    3 3
-    1 10
-    2 10.6288    
-    3 10.7621
-
-#### Non-Symmetric case
-
-In order to generate non-Symmetric test matrices with given complex and real eigenvalues, the give spectrum are always stored in complex form, which has three columns.
+For the non-Symmetric matrices whose entries are all in real scalar, they can have conjugate eigenvalues which are in complex scalar. So in order to generate non-Symmetric test matrices with given conjugated eigenvalues, the give spectrum are always stored in complex form, with three columns.
 
 ##### Attention:
 
-For the non-Symmetric test matrices, if one eigenvalue is complex, there exits another value that they two are symmetric to the real axis in the real-imaginary plain. So when setting up the spectral file, one eigenvalue a+bi should be closely followed by another eigenvalue a-bi. For the real eigenvalues, they are stored with their imaginary part being 0. Here is an example
+For the non-Symmetric matrices, if one eigenvalue is complex, there is another value that they two are symmetric to the real axis in the real-imaginary plain, this is their conjugated eigenvalue. So when setting up the spectral file, one eigenvalue `a+bi` with `b != 0` should be closely followed by another eigenvalue `a-bi`. For the eigenvalues with their imaginary part to be `0`, they are stored with their imaginary part being 0. Here is an example
 
-    %%MatrixMarket matrix coordinate complex general
+    %%SMG2S vector in complex scalar
     9 9 9
     1 10.6288 -3.4790
     2 10.6288 3.4790
@@ -172,112 +212,10 @@ For the non-Symmetric test matrices, if one eigenvalue is complex, there exits a
     8 21.21 4.4
     9 21.21 -4.4
 
-
 ## Interface
-The cmake will check if PETSc is installed in the platfrom, if yes, header file to interface will also be copied to ${INSTALL_DIRECTORY}/include when installing SMG2S.
-
-### Interface to PETSc
-
-Include header file
-
-```cpp
-#include <interface/PETSc/petsc_interface.h>
-```
-
-Create parMatrixSparse type matrix
-
-```cpp
-parMatrixSparse<std::complex<double>,int> *Mt;
-```
-
-Restore this matrix into CSR format
-
-```cpp
-Mt->Loc_ConvertToCSR();
-```
-
-Create PETSc MAT type
-```cpp
-MatCreate(PETSC_COMM_WORLD,&A);
-```
-
-Convert to PETSc MAT format
-```cpp
-A = ConvertToPETSCMat(Mt);
-```
-
-More information: [PETSc GMRES example](https://github.com/brunowu/SMG2S/tree/master/example/gmres) and [PETSc Arnoldi example](https://github.com/brunowu/SMG2S/tree/master/example/arnoldi)
-
-### Interface to Python
-Generate the shared library and install the python module of smg2s
-```bash
-#install online from pypi
-CC=mpicxx pip install smg2s
-
-#bulid in local
-cd ./interface/Python
-CC=mpicxx python setup.py build_ext --inplace
-#or
-CC=mpicxx python setup.py build
-#or
-CC=mpicxx python setup.py install
-
-#run
-mpirun -np 2 python generate.py
-
-```
-
-Before the utilisation, make sure that [mpi4py](http://mpi4py.scipy.org/docs/) installed.
-
-A little example of usge:
-```python
-from mpi4py import MPI
-import smg2s
-import sys
-
-size = MPI.COMM_WORLD.Get_size()
-rank = MPI.COMM_WORLD.Get_rank()
-name = MPI.Get_processor_name()
-
-sys.stdout.write(
-    "Hello, World! I am process %d of %d on %s.\n"
-    % (rank, size, name))
-
-if rank == 0:
-        print ('INFO ]> Starting ...')
-        print("INFO ]> The MPI Comm World Size is %d" %size)
-
-#bandwidth for the lower band of initial matrix
-lbandwidth = 3
-
-#create the nilpotent matrix
-nilp = smg2s.NilpotencyInt()
-
-#setup the nilpotent matrix: 2 = continous 1 nb, 10 = matrix size
-nilp.NilpType1(2,10)
-
-if rank == 0:
-        print("Nilptency matrix continuous one nb = %d" %nilp.nbOne)
-
-Mt = smg2s.parMatrixSparseDoubleInt()
-Mt2 = smg2s.parMatrixSparseDoubleInt()
-
-#Generate non-Hermitian matrix Mt by SMG2S
-#vector.txt is the file that stores the given spectral distribution in local filesystem.
-Mt=smg2s.smg2sDoubleInt(10,nilp,lbandwidth,"vector.txt", MPI.COMM_WORLD)
-#Generate non-Symmetric matrix Mt by SMG2S
-Mt2=smg2s.smg2sNonSymmetricDoubleInt(10,nilp,lbandwidth," ", MPI.COMM_WORLD)
-```
 
 ### Interface to C
 
-The make install command will generate a shared library `libsmg2s2c.so` into `${INSTALL_DIRECTORY}/lib`. It can be used to profit the C wrapper of SMG2S.
-
-The compile command:
-
-```bash
- mpicxx -L${INSTALL_DIRECTORY}/lib -I${INSTALL_DIRECTORY}/include -Wall -o test.exe main.c -lsmg2s2c
-```
 A basic example of usge:
 
 ```c
@@ -286,90 +224,17 @@ A basic example of usge:
 #include <mpi.h>
 
 int main(int argc, char* argv[]) {
-
-	MPI_Init(&argc, &argv);
-
-	int size,rank;
-	MPI_Comm_size(MPI_COMM_WORLD, &size);
-	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-
-  /*create Nilpotency object*/
-	struct NilpotencyInt *n;
-  /*create Instance*/
-	n = newNilpotencyInt();
-  /*setup Nilpotency object*/
-	NilpType1(n, 2, 10);
-	if(rank == 0){
-		showNilpotencyInt(n);
-	}
-
-  /*Create parMatrixSparse Object*/
-	struct parMatrixSparseDoubleInt *m;
-
-  struct parMatrixSparseDoubleInt *m2;
-
-  /*create Instance*/
-	m = newParMatrixSparseDoubleInt();
-  
-  m2 = newParMatrixSparseDoubleInt();
-  
-  /*Generate non-Hermitian matrix by SMG2S*/
-	smg2s(m, 10, n, 3 ," ",MPI_COMM_WORLD);
-  
-  /*Generate non-Symmetric matrix by SMG2S*/
-  smg2s(m2, 10, n, 3 ," ",MPI_COMM_WORLD);
-  
-  /*Matrix View*/
-	LOC_MatView(m);
-  
-  LOC_MatView(m2);
-
-  /*Release Nilpotency Object
-  Release parMatrixSparse Object*/
-	ReleaseNilpotencyInt(&n);
-	ReleaseParMatrixSparseDoubleInt(&m);
-  ReleaseParMatrixSparseDoubleInt(&m2);
-
-
-	MPI_Finalize();
-	return 0;
 }
 ```
 
-### Interface to Trilinos/Teptra CSR matrix
+### 
 
-```cpp
+![](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_5.png)
 
-#include <interface/Trilinos/trilinos_interface.hpp>
-#include <parMatrix/parMatrixSparse.h>
+![](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_4.png)
 
-/* 
-...
-Include the headers of Trilinos/Teptra 
-...
-*/
+![](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_1.png)
 
-/* 
-...
-Generate matrix Am by SMG2S function
-...
-*/
+![](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_2.png)
 
-/* Trilinos outstream */
-Teuchos::RCP<Teuchos::FancyOStream> fos = Teuchos::fancyOStream(Teuchos::rcpFromRef(out));
-
-/* Convert Am to Teptra Matrix format */
-
-Teuchos::RCP<Teptra::CsrMatrix<Scalar Type>> K = ConvertToTrilinosMat(Am);
-
-/* FIX the matrix allocation status, this function should be called after all the modifcations on matrix K are DONE! */
-K->fillComplete (); 
-
-/* Shown the matrix K by describe function in Trilinos*/
-K->describe(*fos, Teuchos::VERB_EXTREME);
-
-```
-
-## Verification
-
-![Comparison of generated spectrum with given spectrum](doc/figure/vector.png)
+![](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_3.png)
