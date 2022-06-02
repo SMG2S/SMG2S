@@ -29,7 +29,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SMG2S
    </div>
@@ -99,100 +98,133 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizab
 <div class="contents">
 <div class="textblock"><p>Sparse Matrix Generator with Given Spectrum</p>
 <p><a href="https://doi.org/10.5281/zenodo.2694506"><object type="image/svg+xml" data="https://zenodo.org/badge/DOI/10.5281/zenodo.2694506.svg" style="pointer-events: none;">DOI</object></a></p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Update !!!</h1>
-<p>In the newest version (v1.1) of SMG2S, it supports the generation of nonsymmetric matrices that all the entries of matrices are real and the eigenvalues can be both real and complex.</p>
 <hr  />
-<p>Author <a href="https://brunowu.github.io">Xinzhe Wu</a> @ <a href="http://www.maisondelasimulation.fr">Maison de la Simulation</a>, France.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
-What for ?</h1>
-<p>SMG2S is able to generate large-scale non-Hermitian (non-Symmetric) methods in parallel with the spectral distribution functions or eigenvalues given by users. SMG2S can be used to benchmark the iterative linear and eigen solvers on supercomputers using the generated very large test matrices with customized spectral properties.</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<p>Author <a href="https://brunowu.github.io">Xinzhe Wu</a> @ <a href="http://www.maisondelasimulation.fr">Maison de la Simulation</a>, France (2016-2019).</p>
+<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;@ <a href="https://www.fz-juelich.de/en/ias/jsc/about-us/structure/simulation-and-data-labs/sdl-quantum-materials">SDL Quantum Materials</a>, Forschungszentrum Juelich GmbH, Germany (2019-present).</p>
+<hr  />
+<p><b>SMG2S</b> is able to generate large-scale non-Hermitian and non-Symmetric matrices in parallel with the spectral distribution functions or eigenvalues given by users. SMG2S can be used to benchmark the iterative solvers for both linear systems and eigenvalue problems on supercomputers using the generated very large test matrices with customized spectral properties.</p>
+<p>As a matrix generator, SMG2S provides:</p>
+<ul>
+<li>generating of both Non-Hermitian and Non-Symmetric sparse matrix</li>
+<li>generated matrices are naturally Sparse with non-trivial sparsity pattern</li>
+<li>Given Spectrum: the spectrum of generated matrix is the same as the one specified by the users</li>
+<li>Sparsity Patterns are diverse and controllable</li>
+</ul>
+<p>As a software, SMG2S provides:</p>
+<ul>
+<li>a collection of C++ header only files</li>
+<li>parallel implementation based on <a href="https://en.wikipedia.org/wiki/Message_Passing_Interface">[MPI]</a> which is able to efficiently generate very large sparse matrices in parallel on supercomputers</li>
+<li>an easy-to-use C interface</li>
+<li>a verification module based on Python for the sparsity pattern plotting and spectrum verification of small size of generated matrix.</li>
+<li>Efficient parallel IO to store the generated matrix into <a href="https://math.nist.gov/MatrixMarket/formats.html">MatrixMarket format</a></li>
+</ul>
+<p><img src="/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/matgen.png" alt="Matrix Generation Pattern" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Cite SMG2S</h1>
-<ol type="1">
-<li>Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." Concurrency and Computation: Practice and Experience, 32(20), e5710, 2020. <a href="https://doi.org/10.1002/cpe.5710">(DOI)</a></li>
-<li>Wu, Xinzhe. SMG2S Manual v1. 0. Maison de la Simulation, 2018. <a href="https://hal.archives-ouvertes.fr/hal-01874810/document">(PDF)</a></li>
-</ol>
-<p><img src="doc/figure/matgen.png" alt="Matrix Generation Pattern" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<p>If you find SMG2S useful in your project, we kindly request that you cite the following paper:</p>
+<p>Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." Concurrency and Computation: Practice and Experience, 32(20), e5710, 2020. <a href="https://doi.org/10.1002/cpe.5710">[DOI]</a> <a href="https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/cpe.5710?casa_token=UUntHdbHvo4AAAAA:CHJa3O1_B-15_eHKY09LuWdh5TNs_trh_IXa_qDuNZLeTKcxa4CQt9WzrNsU1XSWxunknU8GeXP9Ihv9">[PDF]</a></p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Gallery: Sparsity Patterns</h1>
+<p>Please refer to <a href="./docs/galllery">docs/gallery</a> for more examples.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Documentation</h1>
-<p>Website of SMG2S is <a href="https://smg2s.github.io/">here</a>, Developing repository is on <a href="https://github.com/SMG2S">Github</a>.</p>
-<p><a href="https://smg2s.github.io/files/smg2s_manual_v1_1.pdf">Documentation</a> is avaiable.</p>
-<p>Python version is avaiable on <a href="https://pypi.org/project/smg2s/">Pypi</a>, which can be installed by the command:</p>
-<div class="fragment"><div class="line">CC=mpicxx pip install smg2s</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
-Installation</h1>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Getting SMG2S</h2>
+<p>SMG2S is able to available on the Github. The most updated version of SMG2S can be gotten either by the following <code>git</code> command:</p>
+<div class="fragment"><div class="line">git clone https://github.com/SMG2S/SMG2S.git</div>
+</div><!-- fragment --><p>Moreover a released version can be downloaded [here](http)</p>
+<h2><a class="anchor" id="autotoc_md6"></a>
+Dependencies</h2>
+<p>SMG2S is developed in C++14 and MPI, and it is compiled with CMake. So the following software and compiler should be available before the installation of SMG2S.</p>
+<ol type="1">
+<li>a C++ compiler with C++14 support</li>
+<li>MPI: message passing interface</li>
+<li>CMake: version &gt;= 3.8</li>
+</ol>
 <h2><a class="anchor" id="autotoc_md7"></a>
-Binary Executable file</h2>
-<p>In the main directory:</p>
-<div class="fragment"><div class="line">cmake .  -DCMAKE_INSTALL_PREFIX=${INSTALL_DIRECTORY}</div>
-</div><!-- fragment --><p>Install</p>
-<div class="fragment"><div class="line">make</div>
-</div><!-- fragment --><p>Execution</p>
-<div class="fragment"><div class="line">mpirun -np ${PROCS} ./smg2s.exe -D ${MAT_SIZE} -L ${LOW_BANDWIDTH} -C ${CONTINUOUS_ONES} -S ${GIVEN_SPECTRUM_FILE} -M ${MATTYPE}</div>
-</div><!-- fragment --><p>If ${GIVEN_SPECTRUM_FILE} is not given, SMG2S will use the internal eigenvalue generation method to generate a default spectrum.</p>
-<p>If ${MATTYPE} is not given, SMG2S will generate the non-Hermitian matrices. If the users want to generate non symmetric matrices, it should be set as "non-sym".</p>
-<p>Below are the complete definitions of commandline parser for it:</p>
+Quick start</h2>
+<p>SMG2S provides an executable <code>smg2s.exe</code> that the users can compile and start to play with SMG2S without installation as follows.</p>
+<div class="fragment"><div class="line">cd SMG2S</div>
+<div class="line">mkdir build &amp; cd build</div>
+<div class="line">cmake .. </div>
+<div class="line">make -j</div>
+</div><!-- fragment --><p>Then the executable <code>smg2s.exe</code>is available, and it can be run as follows:</p>
+<div class="fragment"><div class="line">mpirun -np ${PROCS} ./smg2s.exe -D ${dim} -L ${diag_l} -U ${diag_u} -O ${offset} -C ${nbOne} -S ${sparsity} -M {no-herm or non-symm}</div>
+</div><!-- fragment --><p>in which the command line parsers provides the customization of following parameters:</p>
 <div class="fragment"><div class="line">usage: ./smg2s.exe [options] ...</div>
 <div class="line">options:</div>
 <div class="line">  -D, --dim           Dimension of matrix to be generated (int [=1000])</div>
-<div class="line">  -L, --lbandwidth    low bandwidth of initial matrix (int [=5])</div>
+<div class="line">  -L, --diagL         offset of lower diagonal of initial matrix (int [=-10])</div>
+<div class="line">  -U, --diagU         offset of upper diagonal of initial matrix (int [=-5])</div>
+<div class="line">  -O, --nilpOffset    offset of diagonal of a nilpotent (int [=5])</div>
 <div class="line">  -C, --continous     Continuous length in Nilpotent matrix (int [=2])</div>
-<div class="line">  -S, --spectrum      local file with given spectrum (string [= ])</div>
+<div class="line">  -S, --sparsity      sparsity of initial matrix (NOT THE FINAL GENERATED ONES) (double [=0.95])</div>
 <div class="line">  -M, --mattype       Matrix type to be generated: non-symmetric or non-Hermitian (string [=non-herm])</div>
 <div class="line">  -?, --help          print this message</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
-Include files</h2>
-<p>Install the binary file and includes files into ${INSTALL_DIRECTORY} </p><div class="fragment"><div class="line">make install</div>
-</div><!-- fragment --><p>Include the SMG2S header file </p><div class="fragment"><div class="line"><span class="comment">/*Generate Non Hermitian Matrices*/</span></div>
-<div class="line"><span class="preprocessor">#include &lt;smg2s/smg2s.h&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/*Generate Non Symmetric Matrices whose eigenvalues can be real and complex*/</span></div>
-<div class="line"><span class="preprocessor">#include &lt;smg2s/smg2s_nonsymmetric.h&gt;</span></div>
-</div><!-- fragment --><p>Include and Compile </p><div class="fragment"><div class="line">mpicxx example.cpp -I${INSTALL_DIRECTORY}/include</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md9"></a>
-Example</h1>
-<h2><a class="anchor" id="autotoc_md10"></a>
-Creation</h2>
-<p>Include header file</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;smg2s/smg2s.h&gt;</span></div>
-</div><!-- fragment --><p>Generate the <a class="el" href="class_nilpotent.html" title="A class which determines the information of a nilpotent matrix.">Nilpotent</a> Matrix for operation: </p><div class="fragment"><div class="line">Nilpotency&lt;int&gt; nilp;</div>
-<div class="line">nilp.NilpType1(length,probSize);</div>
-</div><!-- fragment --><p>Create the parallel Sparse Matrix Object Mt: </p><div class="fragment"><div class="line"><a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;std::complex&lt;float&gt;</a>,<span class="keywordtype">int</span>&gt; *Mt;</div>
-<div class="line"><a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;std::complex&lt;float&gt;</a>,<span class="keywordtype">int</span>&gt; *Mt2;</div>
-</div><!-- fragment --><p>Generate a new matrix: </p><div class="fragment"><div class="line">MPI_Comm comm; <span class="comment">//working MPI Communicator</span></div>
-<div class="line"><span class="comment">/*Generate Non Hermitian Matrices*/</span></div>
-<div class="line">Mt = smg2s&lt;std::complex&lt;float&gt;,<span class="keywordtype">int</span>&gt;(probSize, nilp, lbandwidth, spectrum, comm);</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/*Generate Non Symmetric Matrices whose eigenvalues can be real and complex*/</span></div>
-<div class="line">Mt2 = smg2s_nonsymmetric&lt;float,int&gt;(probSize, nilp, lbandwidth, spectrum, comm);</div>
-</div><!-- fragment --><p><a class="anchor" id="autotoc_md11"></a></p><h5>ATTENTION:</h5>
-<p>For generating non symmetric matrices with complex eigenvalues, the first typename in the template of can only be <b>double</b> or <b>float</b>.</p>
-<h3><a class="anchor" id="autotoc_md12"></a>
-Given Spectra file in pseudo-Matrix Market Vector Format</h3>
-<h4><a class="anchor" id="autotoc_md13"></a>
-Non-Hermitian case</h4>
-<ul>
-<li>Complex values</li>
-</ul>
-<p>For the complex values, the given spectrum is stored in three columns, the first column is the coordinates, the second column is the real part of complex values, and the third column is the imaginary part of complex values. </p><pre class="fragment">%%MatrixMarket matrix coordinate complex general
+Installation</h2>
+<p>SMG2S relies on CMake for compiling and installation. A CMake flag <code>CMAKE_INSTALL_PREFIX</code> should be provided for the path of installation.</p>
+<div class="fragment"><div class="line">cd SMG2S</div>
+<div class="line">mkdir build &amp; cd build</div>
+<div class="line">cmake .. -DCMAKE_INSTALL_PREFIX=${PATH_TO_INSTALL}</div>
+<div class="line">make -j install</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
+Use SMG2S with own project</h2>
+<h3><a class="anchor" id="autotoc_md10"></a>
+header-only</h3>
+<p>SMG2S is a collection of C++ header files. If users want to use SMG2S with C++, they can just copy SMG2S headers into their project.</p>
+<h3><a class="anchor" id="autotoc_md11"></a>
+CMake</h3>
+<p>SMG2S is installed as a CMake package, and it can be detected by the classic CMake <code>find_package</code> command. If the installation path is not in the default searching path of CMake, a CMake flag <code>CMAKE_PREFIX_PATH</code> should be provided which links to the installation path of SMG2S.</p>
+<p>So in your own project which want to use SMG2S:</p>
+<div class="fragment"><div class="line">mkdir build &amp; cd build</div>
+<div class="line">cmake .. -DCMAKE_PREFIX_PATH=${INSTALLED_PATH_OF_SMG2S}</div>
+<div class="line">make -j</div>
+</div><!-- fragment --><p>and in the <code>CMakeLists.txt</code> of own project, it should provide some content as follows:</p>
+<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.8)</div>
+<div class="line">project(YOUR-OWN-PROJECT)</div>
+<div class="line">#find installation of SMG2S</div>
+<div class="line">find_package( smg2s REQUIRED CONFIG)</div>
+<div class="line"># for C++ code</div>
+<div class="line">add_executable(smg2s-app test_parMatrix.cpp)</div>
+<div class="line">target_link_libraries(smg2s-app PUBLIC SMG2S::smg2s)</div>
+<div class="line"># for C-interface code</div>
+<div class="line">add_executable(test_c.exe test_c.c)</div>
+<div class="line">target_link_libraries(test_c.exe PRIVATE SMG2S::smg2s2c)</div>
+</div><!-- fragment --><p>In case that the support of <code>C++14</code> is disabled by some <code>C++</code> compiler, please insert also the following lines into your <code>CMakeLists.txt</code> before the usage of SMG2S.</p>
+<div class="fragment"><div class="line">include(CheckCXXCompilerFlag)</div>
+<div class="line">CHECK_CXX_COMPILER_FLAG(&quot;-std=c++14&quot; COMPILER_SUPPORTS_CXX14)</div>
+<div class="line">if(COMPILER_SUPPORTS_CXX14)</div>
+<div class="line">    set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -std=c++14&quot;)</div>
+<div class="line">else()</div>
+<div class="line">     message([FATAL_ERROR] &quot;The compiler ${CMAKE_CXX_COMPILER} has no C++14 support. Please use a different C++ compiler.&quot;)</div>
+<div class="line">endif()</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md12"></a>
+Format of Given Spectrum Files</h3>
+<p>SMG2S is able to load user-provided spectrum in parallel from local text files. However, the provided files should conform into a specific format.</p>
+<ol type="1">
+<li>The first line is the comment part which includes the scalar types of given spectrum. This line should be: <code>%SMG2S vector in complex scalar</code> and <code>%SMG2S vector in real scalar</code> for the eigenvalues in complex or real scalar type, explicitly. <b>Attention</b>, for this line, the key word <code>complex</code> or <code>real</code> should always be there and conform with the type of user-provided spectrum. The parallel IO of SMG2S queries at first this line to check if the provided eigenvalues are complex or real.</li>
+<li>The second line indicates the number of given eigenvaues in the files. For the ones with <code>3</code> complex values, it is <code>3 3 3</code>, and for the ones with <code>3</code> real eigenvalues, it should be <code>3 3</code>.</li>
+<li>Starting from the <code>3rd</code> line, it is the main content of this file. It can have either <code>2</code> or <code>3</code> columns, which depends on the scalar types of eigenvalues. For the case with complex values, the first column indicates the coordinates for each eigenvalue, the second column contains the real part of eigenvalues, and the third column is for the imaginary part of eigenvalues. For the case with real values, the two columns contain the indexing and values of eigenvalues, respectively. <b>Attention</b>, the indexing is <code>1</code>-based, rather than <code>0</code>-based. <br  />
+</li>
+</ol>
+<p><a class="anchor" id="autotoc_md13"></a></p><h5>Real eigenvalues for non-Symmetric matrices</h5>
+<p>For the case with real eigenvalues for non-Symmetric matrices, the given spectrum file format should be as follows:</p>
+<div class="fragment"><div class="line">%%SMG2S vector in real scalar</div>
+<div class="line">3 3 </div>
+<div class="line">1 10</div>
+<div class="line">2 3.4790</div>
+<div class="line">3 5.0540</div>
+</div><!-- fragment --><p><a class="anchor" id="autotoc_md14"></a></p><h5>Complex eigenvalues for non-Hermtian matrices</h5>
+<p>For the complex values for non-Hermitian matrices which are not supposed to be conjugated, the given spectrum is stored in three columns, the first column is the coordinates, the second column is the real part of complex values, and the third column is the imaginary part of complex values. Here is an example with <code>3</code> eigenvalues: </p><pre class="fragment">%%SMG2S vector in complex scalar
 3 3 3
 1 10 6.5154
 2 10.6288 3.4790
 3 10.7621 5.0540
-</pre><ul>
-<li>Real Values</li>
-</ul>
-<p>For the real values, the given spectrum is stored in two columns, the first column is the coordinates, the second column is related values. </p><pre class="fragment">%%MatrixMarket matrix coordinate real general
-3 3
-1 10
-2 10.6288    
-3 10.7621
-</pre><h4><a class="anchor" id="autotoc_md14"></a>
-Non-Symmetric case</h4>
-<p>In order to generate non-Symmetric test matrices with given complex and real eigenvalues, the give spectrum are always stored in complex form, which has three columns.</p>
-<p><a class="anchor" id="autotoc_md15"></a></p><h5>Attention:</h5>
-<p>For the non-Symmetric test matrices, if one eigenvalue is complex, there exits another value that they two are symmetric to the real axis in the real-imaginary plain. So when setting up the spectral file, one eigenvalue a+bi should be closely followed by another eigenvalue a-bi. For the real eigenvalues, they are stored with their imaginary part being 0. Here is an example </p><pre class="fragment">%%MatrixMarket matrix coordinate complex general
+</pre><p><a class="anchor" id="autotoc_md15"></a></p><h5>Conjugate eigenvalues for non-Symmetric matrices</h5>
+<p>For the non-Symmetric matrices whose entries are all in real scalar, they can have conjugate eigenvalues which are in complex scalar. So in order to generate non-Symmetric test matrices with given conjugated eigenvalues, the give spectrum are always stored in complex form, with three columns.</p>
+<p><a class="anchor" id="autotoc_md16"></a></p><h5>Attention:</h5>
+<p>For the non-Symmetric matrices, if one eigenvalue is complex, there is another value that they two are symmetric to the real axis in the real-imaginary plain, this is their conjugated eigenvalue. So when setting up the spectral file, one eigenvalue <code>a+bi</code> with <code>b != 0</code> should be closely followed by another eigenvalue <code>a-bi</code>. For the eigenvalues with their imaginary part to be <code>0</code>, they are stored with their imaginary part being 0. Here is an example </p><pre class="fragment">%%SMG2S vector in complex scalar
 9 9 9
 1 10.6288 -3.4790
 2 10.6288 3.4790
@@ -203,167 +235,27 @@ Non-Symmetric case</h4>
 7 -11.02 0
 8 21.21 4.4
 9 21.21 -4.4
-</pre><h2><a class="anchor" id="autotoc_md16"></a>
+</pre><h2><a class="anchor" id="autotoc_md17"></a>
 Interface</h2>
-<p>The cmake will check if PETSc is installed in the platfrom, if yes, header file to interface will also be copied to ${INSTALL_DIRECTORY}/include when installing SMG2S.</p>
-<h3><a class="anchor" id="autotoc_md17"></a>
-Interface to PETSc</h3>
-<p>Include header file</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;interface/PETSc/petsc_interface.h&gt;</span></div>
-</div><!-- fragment --><p>Create <a class="el" href="classpar_matrix_sparse.html" title="A class which defines a sparse matrix distributed across 1D MPI grid.">parMatrixSparse</a> type matrix</p>
-<div class="fragment"><div class="line"><a class="code" href="classpar_matrix_sparse.html">parMatrixSparse&lt;std::complex&lt;double&gt;</a>,<span class="keywordtype">int</span>&gt; *Mt;</div>
-</div><!-- fragment --><p>Restore this matrix into CSR format</p>
-<div class="fragment"><div class="line">Mt-&gt;Loc_ConvertToCSR();</div>
-</div><!-- fragment --><p>Create PETSc MAT type </p><div class="fragment"><div class="line">MatCreate(PETSC_COMM_WORLD,&amp;A);</div>
-</div><!-- fragment --><p>Convert to PETSc MAT format </p><div class="fragment"><div class="line">A = ConvertToPETSCMat(Mt);</div>
-</div><!-- fragment --><p>More information: <a href="https://github.com/brunowu/SMG2S/tree/master/example/gmres">PETSc GMRES example</a> and <a href="https://github.com/brunowu/SMG2S/tree/master/example/arnoldi">PETSc Arnoldi example</a></p>
 <h3><a class="anchor" id="autotoc_md18"></a>
-Interface to Python</h3>
-<p>Generate the shared library and install the python module of smg2s </p><div class="fragment"><div class="line">#install online from pypi</div>
-<div class="line">CC=mpicxx pip install smg2s</div>
-<div class="line"> </div>
-<div class="line">#bulid in local</div>
-<div class="line">cd ./interface/Python</div>
-<div class="line">CC=mpicxx python setup.py build_ext --inplace</div>
-<div class="line">#or</div>
-<div class="line">CC=mpicxx python setup.py build</div>
-<div class="line">#or</div>
-<div class="line">CC=mpicxx python setup.py install</div>
-<div class="line"> </div>
-<div class="line">#run</div>
-<div class="line">mpirun -np 2 python generate.py</div>
-</div><!-- fragment --><p>Before the utilisation, make sure that <a href="http://mpi4py.scipy.org/docs/">mpi4py</a> installed.</p>
-<p>A little example of usge: </p><div class="fragment"><div class="line">from mpi4py import MPI</div>
-<div class="line">import smg2s</div>
-<div class="line">import sys</div>
-<div class="line"> </div>
-<div class="line">size = MPI.COMM_WORLD.Get_size()</div>
-<div class="line">rank = MPI.COMM_WORLD.Get_rank()</div>
-<div class="line">name = MPI.Get_processor_name()</div>
-<div class="line"> </div>
-<div class="line">sys.stdout.write(</div>
-<div class="line">    &quot;Hello, World! I am process %d of %d on %s.\n&quot;</div>
-<div class="line">    % (rank, size, name))</div>
-<div class="line"> </div>
-<div class="line">if rank == 0:</div>
-<div class="line">        print (&#39;INFO ]&gt; Starting ...&#39;)</div>
-<div class="line">        print(&quot;INFO ]&gt; The MPI Comm World Size is %d&quot; %size)</div>
-<div class="line"> </div>
-<div class="line">#bandwidth for the lower band of initial matrix</div>
-<div class="line">lbandwidth = 3</div>
-<div class="line"> </div>
-<div class="line">#create the nilpotent matrix</div>
-<div class="line">nilp = smg2s.NilpotencyInt()</div>
-<div class="line"> </div>
-<div class="line">#setup the nilpotent matrix: 2 = continous 1 nb, 10 = matrix size</div>
-<div class="line">nilp.NilpType1(2,10)</div>
-<div class="line"> </div>
-<div class="line">if rank == 0:</div>
-<div class="line">        print(&quot;Nilptency matrix continuous one nb = %d&quot; %nilp.nbOne)</div>
-<div class="line"> </div>
-<div class="line">Mt = smg2s.parMatrixSparseDoubleInt()</div>
-<div class="line">Mt2 = smg2s.parMatrixSparseDoubleInt()</div>
-<div class="line"> </div>
-<div class="line">#Generate non-Hermitian matrix Mt by SMG2S</div>
-<div class="line">#vector.txt is the file that stores the given spectral distribution in local filesystem.</div>
-<div class="line">Mt=smg2s.smg2sDoubleInt(10,nilp,lbandwidth,&quot;vector.txt&quot;, MPI.COMM_WORLD)</div>
-<div class="line">#Generate non-Symmetric matrix Mt by SMG2S</div>
-<div class="line">Mt2=smg2s.smg2sNonSymmetricDoubleInt(10,nilp,lbandwidth,&quot; &quot;, MPI.COMM_WORLD)</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md19"></a>
 Interface to C</h3>
-<p>The make install command will generate a shared library <code>libsmg2s2c.so</code> into <code>${INSTALL_DIRECTORY}/lib</code>. It can be used to profit the C wrapper of SMG2S.</p>
-<p>The compile command:</p>
-<div class="fragment"><div class="line">mpicxx -L${INSTALL_DIRECTORY}/lib -I${INSTALL_DIRECTORY}/include -Wall -o test.exe main.c -lsmg2s2c</div>
-</div><!-- fragment --><p>A basic example of usge:</p>
+<p>A basic example of usge:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;interface/C/c_wrapper.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;mpi.h&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
-<div class="line"> </div>
-<div class="line">    MPI_Init(&amp;argc, &amp;argv);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">int</span> size,rank;</div>
-<div class="line">    MPI_Comm_size(MPI_COMM_WORLD, &amp;size);</div>
-<div class="line">    MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);</div>
-<div class="line"> </div>
-<div class="line">  <span class="comment">/*create Nilpotency object*/</span></div>
-<div class="line">    <span class="keyword">struct </span>NilpotencyInt *n;</div>
-<div class="line">  <span class="comment">/*create Instance*/</span></div>
-<div class="line">    n = newNilpotencyInt();</div>
-<div class="line">  <span class="comment">/*setup Nilpotency object*/</span></div>
-<div class="line">    NilpType1(n, 2, 10);</div>
-<div class="line">    <span class="keywordflow">if</span>(rank == 0){</div>
-<div class="line">        showNilpotencyInt(n);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">  <span class="comment">/*Create parMatrixSparse Object*/</span></div>
-<div class="line">    <span class="keyword">struct </span>parMatrixSparseDoubleInt *m;</div>
-<div class="line"> </div>
-<div class="line">  <span class="keyword">struct </span>parMatrixSparseDoubleInt *m2;</div>
-<div class="line"> </div>
-<div class="line">  <span class="comment">/*create Instance*/</span></div>
-<div class="line">    m = newParMatrixSparseDoubleInt();</div>
-<div class="line">  </div>
-<div class="line">  m2 = newParMatrixSparseDoubleInt();</div>
-<div class="line">  </div>
-<div class="line">  <span class="comment">/*Generate non-Hermitian matrix by SMG2S*/</span></div>
-<div class="line">    smg2s(m, 10, n, 3 ,<span class="stringliteral">&quot; &quot;</span>,MPI_COMM_WORLD);</div>
-<div class="line">  </div>
-<div class="line">  <span class="comment">/*Generate non-Symmetric matrix by SMG2S*/</span></div>
-<div class="line">  smg2s(m2, 10, n, 3 ,<span class="stringliteral">&quot; &quot;</span>,MPI_COMM_WORLD);</div>
-<div class="line">  </div>
-<div class="line">  <span class="comment">/*Matrix View*/</span></div>
-<div class="line">    LOC_MatView(m);</div>
-<div class="line">  </div>
-<div class="line">  LOC_MatView(m2);</div>
-<div class="line"> </div>
-<div class="line">  <span class="comment">/*Release Nilpotency Object</span></div>
-<div class="line"><span class="comment">  Release parMatrixSparse Object*/</span></div>
-<div class="line">    ReleaseNilpotencyInt(&amp;n);</div>
-<div class="line">    ReleaseParMatrixSparseDoubleInt(&amp;m);</div>
-<div class="line">  ReleaseParMatrixSparseDoubleInt(&amp;m2);</div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line">    MPI_Finalize();</div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md20"></a>
-Interface to Trilinos/Teptra CSR matrix</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;interface/Trilinos/trilinos_interface.hpp&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;parMatrix/parMatrixSparse.h&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/* </span></div>
-<div class="line"><span class="comment">...</span></div>
-<div class="line"><span class="comment">Include the headers of Trilinos/Teptra </span></div>
-<div class="line"><span class="comment">...</span></div>
-<div class="line"><span class="comment">*/</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/* </span></div>
-<div class="line"><span class="comment">...</span></div>
-<div class="line"><span class="comment">Generate matrix Am by SMG2S function</span></div>
-<div class="line"><span class="comment">...</span></div>
-<div class="line"><span class="comment">*/</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/* Trilinos outstream */</span></div>
-<div class="line">Teuchos::RCP&lt;Teuchos::FancyOStream&gt; fos = Teuchos::fancyOStream(Teuchos::rcpFromRef(out));</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/* Convert Am to Teptra Matrix format */</span></div>
-<div class="line"> </div>
-<div class="line">Teuchos::RCP&lt;Teptra::CsrMatrix&lt;Scalar Type&gt;&gt; K = ConvertToTrilinosMat(Am);</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/* FIX the matrix allocation status, this function should be called after all the modifcations on matrix K are DONE! */</span></div>
-<div class="line">K-&gt;fillComplete (); </div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/* Shown the matrix K by describe function in Trilinos*/</span></div>
-<div class="line">K-&gt;describe(*fos, Teuchos::VERB_EXTREME);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md21"></a>
-Verification</h2>
-<p><img src="doc/figure/vector.png" alt="Comparison of generated spectrum with given spectrum" class="inline"/> </p>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md19"></a>
+autotoc_md19</h3>
+<p><img src="/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_5.png" alt="" class="inline"/></p>
+<p><img src="/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_4.png" alt="" class="inline"/></p>
+<p><img src="/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_1.png" alt="" class="inline"/></p>
+<p><img src="/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_2.png" alt="" class="inline"/></p>
+<p><img src="/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_3.png" alt="" class="inline"/> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclasspar_matrix_sparse_html"><div class="ttname"><a href="classpar_matrix_sparse.html">parMatrixSparse</a></div><div class="ttdoc">A class which defines a sparse matrix distributed across 1D MPI grid.</div><div class="ttdef"><b>Definition:</b> parMatrixSparse.hpp:59</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

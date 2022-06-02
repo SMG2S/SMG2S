@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['citing_20smg2s_772',['Citing SMG2S',['../_citing.html',1,'']]],
-  ['contact_20and_20contributation_773',['Contact and Contributation',['../contact.html',1,'']]]
+  ['overview_768',['Overview',['../index.html',1,'']]],
+  ['overview_769',['Overview',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

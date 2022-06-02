@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initmat_387',['initMat',['../structinit_mat.html',1,'']]]
+  ['initmat_383',['initMat',['../structinit_mat.html',1,'']]]
 ];
