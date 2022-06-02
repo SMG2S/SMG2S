@@ -27,7 +27,6 @@ As a matrix generator, SMG2S provides:
 - Sparsity Patterns are diverse and controllable
 
 
-
 As a software, SMG2S provides:
 
 * a collection of C++ header only files
@@ -38,8 +37,7 @@ As a software, SMG2S provides:
 * Efficient parallel IO to store the generated matrix into [MatrixMarket format](https://math.nist.gov/MatrixMarket/formats.html)
 
 
-
-![Matrix Generation Pattern](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/matgen.png)
+![Matrix Generation Pattern](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/matgen.png)
 
 ### Cite SMG2S
 
@@ -49,7 +47,7 @@ Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermit
 
 ### Gallery: Sparsity Patterns
 
-Please refer to [docs/gallery](docs/galllery) for more examples.
+Please refer to [docs/gallery](https://github.com/SMG2S/SMG2S/tree/devel/docs/gallery) for more examples.
 
 ### Contact and Contributation
 
@@ -179,8 +177,6 @@ endif()
 
 ##### 4. Initial matrix
 
-
-
 SMG2S provides the generation of matrices in three different categories:
 
 1. non-Hermtian matrices with complex eigenvalues
@@ -266,12 +262,13 @@ int main(int argc, char* argv[]) {
 
 ### 
 
-![](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_5.png)
+![](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/verification_5.png)
 
-![](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_4.png)
+![](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/verification_4.png)
 
-![](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_1.png)
+![](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/verification_1.png)
 
-![](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_2.png)
+![](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/verification_2.png)
 
-![](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/verification_3.png)
+![](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/verification_3.png)
+
