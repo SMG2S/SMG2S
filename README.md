@@ -49,7 +49,7 @@ Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermit
 
 ### Gallery: Sparsity Patterns
 
-Please refer to [docs/gallery](./docs/galllery) for more examples.
+Please refer to [docs/gallery](docs/galllery) for more examples.
 
 ### Contact and Contributation
 
