@@ -1,16 +1,18 @@
-# Overview
-
-Sparse Matrix Generator with Given Spectrum
+# Sparse Matrix Generator with Given Spectrum
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2694506.svg)](https://doi.org/10.5281/zenodo.2694506)
 
 -------------------------------------------------------------------------------
+
+## Overview
 
 Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http://www.maisondelasimulation.fr), France (2016-2019).
 
                                   @ [SDL Quantum Materials](https://www.fz-juelich.de/en/ias/jsc/about-us/structure/simulation-and-data-labs/sdl-quantum-materials), Forschungszentrum Juelich GmbH, Germany (2019-present).
 
 ****
+
+### What is SMG2S?
 
 **SMG2S** is able to generate large-scale non-Hermitian and non-Symmetric matrices in parallel with the spectral distribution functions or eigenvalues given by users. SMG2S can be used to benchmark the iterative solvers for both linear systems and eigenvalue problems on supercomputers using the generated very large test matrices with customized spectral properties.
 
@@ -29,6 +31,7 @@ As a matrix generator, SMG2S provides:
 As a software, SMG2S provides:
 
 * a collection of C++ header only files
+* C++ templated implementation for different data type
 * parallel implementation based on [[MPI]](https://en.wikipedia.org/wiki/Message_Passing_Interface) which is able to efficiently generate very large sparse matrices in parallel on supercomputers
 * an easy-to-use C interface
 * a verification module based on Python for the sparsity pattern plotting and spectrum verification of small size of generated matrix.
@@ -38,19 +41,23 @@ As a software, SMG2S provides:
 
 ![Matrix Generation Pattern](/Users/xinzhewu/jsc-xwu/codes/SMG2S-refactor/SMG2S/docs/figure/matgen.png)
 
-## Cite SMG2S
+### Cite SMG2S
 
 If you find SMG2S useful in your project, we kindly request that you cite the following paper:
 
 Wu, Xinzhe, Serge G. Petiton, and Yutong Lu. "A Parallel Generator of Non-Hermitian Matrices computed from Given Spectra." Concurrency and Computation: Practice and Experience, 32(20), e5710, 2020. [[DOI]](https://doi.org/10.1002/cpe.5710) [[PDF]](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/cpe.5710?casa_token=UUntHdbHvo4AAAAA:CHJa3O1_B-15_eHKY09LuWdh5TNs_trh_IXa_qDuNZLeTKcxa4CQt9WzrNsU1XSWxunknU8GeXP9Ihv9)
 
-## Gallery: Sparsity Patterns
+### Gallery: Sparsity Patterns
 
 Please refer to [docs/gallery](./docs/galllery) for more examples.
 
-# Documentation
+### Contact and Contributation
 
-## Getting SMG2S
+Feel free to contact by email address: **xin DOT wu AT fz BAR juelich DOT de***
+
+## Documentation
+
+### Getting SMG2S
 
 SMG2S is able to available on the Github. The most updated version of SMG2S can be gotten either by the following `git` command:
 
@@ -60,7 +67,7 @@ git clone https://github.com/SMG2S/SMG2S.git
 
 Moreover a released version can be downloaded [here](http)
 
-## Dependencies
+### Dependencies
 
 SMG2S is developed in C++14 and MPI, and it is compiled with CMake. So the following software and compiler should be available before the installation of SMG2S.
 
@@ -70,7 +77,7 @@ SMG2S is developed in C++14 and MPI, and it is compiled with CMake. So the follo
 
 3. CMake: version >= 3.8
 
-## Quick start
+### Quick start
 
 SMG2S provides an executable `smg2s.exe` that the users can compile and start to play with SMG2S without installation as follows. 
 
@@ -102,7 +109,7 @@ options:
   -?, --help          print this message
 ```
 
-## Installation
+### Installation
 
 SMG2S relies on CMake for compiling and installation. A CMake flag `CMAKE_INSTALL_PREFIX` should be provided for the path of installation.
 
@@ -113,13 +120,13 @@ cmake .. -DCMAKE_INSTALL_PREFIX=${PATH_TO_INSTALL}
 make -j install
 ```
 
-## Use SMG2S with own project
+### Use SMG2S with own project
 
-### header-only
+#### header-only
 
 SMG2S is a collection of C++ header files. If users want to use SMG2S with C++, they can just copy SMG2S headers into their project.
 
-### CMake
+#### CMake
 
 SMG2S is installed as a CMake package, and it can be detected by the classic CMake `find_package` command. If the installation path is not in the default searching path of CMake, a CMake flag `CMAKE_PREFIX_PATH` should be provided which links to the installation path of SMG2S.
 
@@ -158,7 +165,37 @@ else()
 endif()
 ```
 
+### Usage
 
+#### Parallel vector and sparse matrix
+
+#### Building blocks SMG2S
+
+##### 1. Distribution of sparse matrix and vector
+
+##### 2. User-provided spectrum
+
+##### 3. Nilpotent matrix
+
+##### 4. Initial matrix
+
+
+
+SMG2S provides the generation of matrices in three different categories:
+
+1. non-Hermtian matrices with complex eigenvalues
+
+2. non-Symmetric matrices with real eigenvalues
+
+3. non-Symmetric matrices with conjugated eigenvalues
+
+For each categories, SMG2S provides three functions which allows the users having different levels of controlling and customizing the properties of generated matrices.
+
+1. the first level, users need to provide multiple simple parameters and a local text file containing the eigenvalues. For the format of local file, please check the next section.
+
+2. the second level, 
+
+3. the third level
 
 ### Format of Given Spectrum Files
 
@@ -212,9 +249,9 @@ For the non-Symmetric matrices, if one eigenvalue is complex, there is another v
     8 21.21 4.4
     9 21.21 -4.4
 
-## Interface
+### Interface
 
-### Interface to C
+#### Interface to C
 
 A basic example of usge:
 
