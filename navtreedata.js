@@ -28,23 +28,36 @@ var NAVTREE =
       [ "Release Notes", "index.html#notes", null ],
       [ "Requirements", "index.html#Requirements", null ]
     ] ],
-    [ "Overview", "md__r_e_a_d_m_e.html", [
-      [ "Cite SMG2S", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
-      [ "Gallery: Sparsity Patterns", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
-      [ "Documentation", "md__r_e_a_d_m_e.html#autotoc_md4", [
-        [ "Getting SMG2S", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
-        [ "Dependencies", "md__r_e_a_d_m_e.html#autotoc_md6", null ],
-        [ "Quick start", "md__r_e_a_d_m_e.html#autotoc_md7", null ],
-        [ "Installation", "md__r_e_a_d_m_e.html#autotoc_md8", null ],
-        [ "Use SMG2S with own project", "md__r_e_a_d_m_e.html#autotoc_md9", [
-          [ "header-only", "md__r_e_a_d_m_e.html#autotoc_md10", null ],
-          [ "CMake", "md__r_e_a_d_m_e.html#autotoc_md11", null ],
-          [ "Format of Given Spectrum Files", "md__r_e_a_d_m_e.html#autotoc_md12", null ]
+    [ "Sparse Matrix Generator with Given Spectrum", "md__r_e_a_d_m_e.html", [
+      [ "Overview", "md__r_e_a_d_m_e.html#autotoc_md2", [
+        [ "What is SMG2S?", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
+        [ "Cite SMG2S", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
+        [ "Gallery: Sparsity Patterns", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
+        [ "Contact and Contributation", "md__r_e_a_d_m_e.html#autotoc_md6", null ]
+      ] ],
+      [ "Documentation", "md__r_e_a_d_m_e.html#autotoc_md7", [
+        [ "Getting SMG2S", "md__r_e_a_d_m_e.html#autotoc_md8", null ],
+        [ "Dependencies", "md__r_e_a_d_m_e.html#autotoc_md9", null ],
+        [ "Quick start", "md__r_e_a_d_m_e.html#autotoc_md10", null ],
+        [ "Installation", "md__r_e_a_d_m_e.html#autotoc_md11", null ],
+        [ "Use SMG2S with own project", "md__r_e_a_d_m_e.html#autotoc_md12", [
+          [ "header-only", "md__r_e_a_d_m_e.html#autotoc_md13", null ],
+          [ "CMake", "md__r_e_a_d_m_e.html#autotoc_md14", null ]
         ] ],
-        [ "Interface", "md__r_e_a_d_m_e.html#autotoc_md17", [
-          [ "Interface to C", "md__r_e_a_d_m_e.html#autotoc_md18", null ],
-          [ "autotoc_md19", "md__r_e_a_d_m_e.html#autotoc_md19", null ]
-        ] ]
+        [ "Usage", "md__r_e_a_d_m_e.html#autotoc_md15", [
+          [ "Parallel vector and sparse matrix", "md__r_e_a_d_m_e.html#autotoc_md16", null ],
+          [ "Building blocks SMG2S", "md__r_e_a_d_m_e.html#autotoc_md17", [
+            [ "1. Distribution of sparse matrix and vector", "md__r_e_a_d_m_e.html#autotoc_md18", null ],
+            [ "2. User-provided spectrum", "md__r_e_a_d_m_e.html#autotoc_md19", null ],
+            [ "3. Nilpotent matrix", "md__r_e_a_d_m_e.html#autotoc_md20", null ],
+            [ "4. Initial matrix", "md__r_e_a_d_m_e.html#autotoc_md21", null ]
+          ] ]
+        ] ],
+        [ "Format of Given Spectrum Files", "md__r_e_a_d_m_e.html#autotoc_md22", null ],
+        [ "Interface", "md__r_e_a_d_m_e.html#autotoc_md27", [
+          [ "Interface to C", "md__r_e_a_d_m_e.html#autotoc_md28", null ]
+        ] ],
+        [ "autotoc_md29", "md__r_e_a_d_m_e.html#autotoc_md29", null ]
       ] ]
     ] ],
     [ "Modules", "modules.html", "modules" ],

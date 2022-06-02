@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['spectrum_252',['Spectrum',['../group__group1.html',1,'']]],
-  ['smg2s_253',['SMG2S',['../group__group2.html',1,'']]],
+  ['spectrum_251',['Spectrum',['../group__group1.html',1,'']]],
+  ['smg2s_252',['SMG2S',['../group__group2.html',1,'']]],
+  ['sparse_20matrix_20generator_20with_20given_20spectrum_253',['Sparse Matrix Generator with Given Spectrum',['../md__r_e_a_d_m_e.html',1,'']]],
   ['scale_254',['scale',['../structinit_mat.html#ad486d86bc17b6dc317b0d9992cefff12',1,'initMat']]],
   ['setdiagonal_255',['SetDiagonal',['../classpar_matrix_sparse.html#a6c529eeecaf092bf9365b13ab6b957c2',1,'parMatrixSparse']]],
   ['setspecnonherm_256',['setSpecNonHerm',['../classpar_matrix_sparse.html#a9f6146fc6b73321fd7f4be8c062ce9de',1,'parMatrixSparse']]],
