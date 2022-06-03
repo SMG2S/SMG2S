@@ -52,32 +52,6 @@ def loadVector(filename):
     else:
         raise ValueError('Oops! The given vector file is not in good format')
 
-#shifted inverse iteration method to approach eigenvalue closest to mu
-def shiftInverse(A, mu, tol=0.001, max_iter = 100):
-    m, n = A.shape
-
-    x = np.random.rand(m)
-
-    I = sp.identity(m)
-
-    idx = 0
-
-    eval = 0
-    eval_old = 0
-
-    while idx < max_iter:
-        Ashift = A - (mu*I)
-        y = spsolve(Ashift, x) 
-        x = y / np.linalg.norm(y)
-        c = y.dot(x) / x.dot(x)
-        eval = 1 / c + mu
-        if np.abs(eval - eval_old) < tol * np.abs(eval_old):
-            break
-        eval_old = eval
-        idx = idx + 1
-
-    return eval, idx
-
 def spy_coo(M, ax, type="pattern"):
     if not isinstance(M, sp.coo_matrix):
         M = sp.coo_matrix(M)
@@ -137,14 +111,6 @@ def plot_spectrum(input, estimate, ax):
 
     return ax
 
-def approx_spectrum(M, spec, offset):
-    M_csr = M.tocsr()
-    eigenvalues=[]
-    for i in range(M.shape[0]):
-        eval, _=shiftInverse(M_csr, (1+offset) * spec[i])
-        eigenvalues.append(eval)
-
-    return eigenvalues    
 
 def compute_spectrum(M):
     Mdense = M.toarray()
@@ -156,10 +122,9 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='verification of matrices generated matrices to keep given spectra')
 
-    parser.add_argument("--offset", default=1e-10)
-    parser.add_argument("--matpath", default="data/testmatrix_cmplx.mtx")
-    parser.add_argument("--specpath", default="data/given_spectrum_cmplx.txt")
-    parser.add_argument('--verify', action='store_true')
+    parser.add_argument("--matpath", help='path of matrix to be plotted or verified. Matrix should be in MatrixMarket format', default="data/testmatrix_cmplx.mtx")
+    parser.add_argument("--specpath", help='path of spectrum to be verified which is used to generate the related matrix. Vector should be in SMG2S vector file format', default="data/given_spectrum_cmplx.txt")
+    parser.add_argument('--verify', help='if only plotting patterns or also verifying the spectrum: default false' ,action='store_true')
 
 
     value = parser.parse_args()
@@ -169,7 +134,6 @@ if __name__ == '__main__':
     fig = plt.figure()
     if value.verify:
         spec = loadVector(value.specpath)
-        #eigenvalues = approx_spectrum(M, spec, value.offset)
         eigenvalues, _ = compute_spectrum(M)
         ax = fig.add_subplot(121)
         ax = spy_coo(M, ax)
