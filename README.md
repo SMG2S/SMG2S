@@ -257,7 +257,7 @@ Roughly, the workflow of SMG2S to generate a sparse matrix is that:
    
    - inplace through the manuplating member functions of the `parVector` class
    
-   - by loading from local text files [click](###Format of Given Spectrum Files)
+   - by loading from local text files [click](#format-of-given-spectrum-files)
 
 ##### 1. User-provided spectrum
 
