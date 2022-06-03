@@ -4,6 +4,41 @@
 
 -------------------------------------------------------------------------------
 
+* [Sparse Matrix Generator with Given Spectrum](#sparse-matrix-generator-with-given-spectrum)
+  * [Overview](#overview)
+    * [What is SMG2S?](#what-is-smg2s?)
+    * [Cite SMG2S](#cite-smg2s)
+    * [Gallery: Sparsity Patterns](#gallery:-sparsity-patterns)
+    * [Contact and Contributation](#contact-and-contributation)
+  * [Documentation](#documentation)
+    * [Getting SMG2S](#getting-smg2s)
+    * [Dependencies](#dependencies)
+    * [Quick start](#quick-start)
+    * [Installation](#installation)
+    * [Use SMG2S with own project](#use-smg2s-with-own-project)
+      * [header-only](#header-only)
+      * [CMake](#cmake)
+    * [Usage](#usage)
+      * [Parallel vector and sparse matrix](#parallel-vector-and-sparse-matrix)
+        * [parVectorMap class](#parvectormap-class)
+        * [parVector class](#parvector-class)
+        * [parMatrixSparse class](#parmatrixsparse-class)
+      * [Building blocks of SMG2S](#building-blocks-of-smg2s)
+      * [Assembling the building blocks](#assembling-the-building-blocks)
+      * [Mini-app](#mini-app)
+    * [Format of Given Spectrum Files](#format-of-given-spectrum-files)
+      * [Real eigenvalues for non-Symmetric matrices](#real-eigenvalues-for-non-symmetric-matrices)
+      * [Complex eigenvalues for non-Hermtian matrices](#complex-eigenvalues-for-non-hermtian-matrices)
+      * [Conjugate eigenvalues for non-Symmetric matrices](#conjugate-eigenvalues-for-non-symmetric-matrices)
+      * [Attention:](#attention:)
+    * [Parallel I/O](#parallel-i/o)
+      * [I/O for parallel vector](#i/o-for-parallel-vector)
+      * [I/O for parallel sparse matrix](#i/o-for-parallel-sparse-matrix)
+    * [Interface](#interface)
+      * [Interface to C](#interface-to-c)
+
+
+-------------------------------------------------------------------------------
 ## Overview
 
 Author [Xinzhe Wu](https://brunowu.github.io) @ [Maison de la Simulation](http://www.maisondelasimulation.fr), France (2016-2019).
@@ -263,7 +298,7 @@ Roughly, the workflow of SMG2S to generate a sparse matrix is that:
    
    - by loading from local text files following a specific formats, [click](#format-of-given-spectrum-files) for more details.
 
-   - parallel I/Os are provided which loads the spectrums from local, from more details, please visit [I/O for loading spectrum](https://smg2s.github.io/SMG2S/group__group1.html.html).
+   - parallel I/Os are provided which loads the spectrums from local, from more details, please visit [I/O for loading spectrum](https://smg2s.github.io/SMG2S/group__group1.html).
 
    The spectrum vector is to set on the initial matrix in a way that:
    
@@ -275,7 +310,7 @@ Roughly, the workflow of SMG2S to generate a sparse matrix is that:
 
     - a class named `Nilpotent` is implemented in SMG2S, which determines the nilpotent matrix used in SMG2S.
 
-    - this class provides multiple constructors of a nilpotent matrix, either with some simple parameters, or a user-provided vector. please visit [Nilpotent class](https://smg2s.github.io/SMG2S/group__group1.html.html) for more details.
+    - this class provides multiple constructors of a nilpotent matrix, either with some simple parameters, or a user-provided vector. please visit [Nilpotent class](https://smg2s.github.io/SMG2S/group__group1.html) for more details.
 
 
 #### Assembling the building blocks
