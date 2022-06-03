@@ -37,7 +37,7 @@ As a software, SMG2S provides:
 * Efficient parallel IO to store the generated matrix into [MatrixMarket format](https://math.nist.gov/MatrixMarket/formats.html)
 
 
-![Matrix Generation Pattern](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/matgen.png)
+![Matrix Generation Pattern](docs/figure/matgen.png)
 
 ### Cite SMG2S
 
@@ -262,13 +262,13 @@ int main(int argc, char* argv[]) {
 
 ### 
 
-![](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/verification_5.png)
+![](docs/figure/verification_5.png)
 
-![](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/verification_4.png)
+![](docs/figure/verification_4.png)
 
-![](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/verification_1.png)
+![](docs/figure/verification_1.png)
 
-![](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/verification_2.png)
+![](docs/figure/verification_2.png)
 
-![](https://github.com/SMG2S/SMG2S/tree/devel/docs/figure/verification_3.png)
+![](docs/figure/verification_3.png)
 
