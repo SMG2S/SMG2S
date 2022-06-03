@@ -1,11 +1,14 @@
-aux_source_directory(. DIR_SRC)
+add_executable(test_nilpotent.exe test_nilpotent.cpp)
+target_link_libraries(test_nilpotent.exe PRIVATE smg2s )
 
-message([STATUS] "We use MPICXX Compiler as ${CMAKE_CXX_COMPILER} to generate
-the executable")
-add_executable(run.exe test.cpp)
+add_executable(test_parVector.exe test_parVector.cpp)
+target_link_libraries(test_parVector.exe PRIVATE smg2s)
 
-link_directories(${SMG2S_SOURCE_FILE}/${DIR_PARVEC_SRC} ${SMG2S_SOURCE_FILE}/${DIR_PARMAT_SRC})
+add_executable(test_parMatrix.exe test_parMatrix.cpp)
+target_link_libraries(test_parMatrix.exe PRIVATE smg2s)
 
-target_link_libraries(run.exe PRIVATE ${MPI_CXX_LIBRARIES} parvec parmat)
+add_executable(test_smg2s.exe test_smg2s.cpp)
+target_link_libraries(test_smg2s.exe PRIVATE smg2s)
 
-target_include_directories(run.exe PRIVATE ${MPI_CXX_INCLUDE_PATH})
+add_executable(test_smg2s_c.exe test_smg2s_c.c)
+target_link_libraries(test_smg2s_c.exe PRIVATE smg2s2c)

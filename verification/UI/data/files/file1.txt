@@ -1,1 +1,0 @@
-/Users/xwu/phd_xwu/SMG2S/verification/tests/vector1.txt

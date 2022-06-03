@@ -59,3 +59,5 @@ DartConfiguration.tcl
 install_manifest.txt
 build
 install
+./html
+html
