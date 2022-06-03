@@ -4,35 +4,35 @@
 
 -------------------------------------------------------------------------------
 
-* [Sparse Matrix Generator with Given Spectrum](#sparse-matrix-generator-with-given-spectrum)
-  * [Overview](#overview)
+
+* [Overview](#overview)
     * [What is SMG2S?](#what-is-smg2s?)
     * [Cite SMG2S](#cite-smg2s)
     * [Gallery: Sparsity Patterns](#some-sparsity-patterns)
     * [Contact and Contributation](#contact-and-contributation)
-  * [Documentation](#documentation)
+* [Documentation](#documentation)
     * [Getting SMG2S](#getting-smg2s)
     * [Dependencies](#dependencies)
     * [Quick start](#quick-start)
     * [Installation](#installation)
     * [Use SMG2S with own project](#use-smg2s-with-own-project)
-      * [header-only](#header-only)
-      * [CMake](#cmake)
+        * [header-only](#header-only)
+        * [CMake](#cmake)
     * [Usage](#usage)
-      * [Parallel vector and sparse matrix](#parallel-vector-and-sparse-matrix)
-        * [parVectorMap class](#parvectormap-class)
-        * [parVector class](#parvector-class)
-        * [parMatrixSparse class](#parmatrixsparse-class)
-      * [Building blocks of SMG2S](#building-blocks-of-smg2s)
-      * [Assembling the building blocks](#assembling-the-building-blocks)
-      * [Mini-app](#mini-app)
+        * [Parallel vector and sparse matrix](#parallel-vector-and-sparse-matrix)
+            * [parVectorMap class](#parvectormap-class)
+            * [parVector class](#parvector-class)
+            * [parMatrixSparse class](#parmatrixsparse-class)
+        * [Building blocks of SMG2S](#building-blocks-of-smg2s)
+        * [Assembling the building blocks](#assembling-the-building-blocks)
+        * [Mini-app](#mini-app)
     * [Format of Given Spectrum Files](#format-of-given-spectrum-files)
-      * [Real eigenvalues for non-Symmetric matrices](#real-eigenvalues-for-non-symmetric-matrices)
-      * [Complex eigenvalues for non-Hermtian matrices](#complex-eigenvalues-for-non-hermtian-matrices)
-      * [Conjugate eigenvalues for non-Symmetric matrices](#conjugate-eigenvalues-for-non-symmetric-matrices)
+        * [Real eigenvalues for non-Symmetric matrices](#real-eigenvalues-for-non-symmetric-matrices)
+        * [Complex eigenvalues for non-Hermtian matrices](#complex-eigenvalues-for-non-hermtian-matrices)
+        * [Conjugate eigenvalues for non-Symmetric matrices](#conjugate-eigenvalues-for-non-symmetric-matrices)
     * [Parallel I/O](#parallel-i/o)
-      * [I/O for parallel vector](#i/o-for-parallel-vector)
-      * [I/O for parallel sparse matrix](#i/o-for-parallel-sparse-matrix)
+        * [I/O for parallel vector](#i/o-for-parallel-vector)
+        * [I/O for parallel sparse matrix](#i/o-for-parallel-sparse-matrix)
     * [Interface](#interface)
       * [Interface to C](#interface-to-c)
     * [Plotting and Validation](#plotting-and-validation)
@@ -455,7 +455,7 @@ For the complex values for non-Hermitian matrices which are not supposed to be c
 
 For the non-Symmetric matrices whose entries are all in real scalar, they can have conjugate eigenvalues which are in complex scalar. So in order to generate non-Symmetric test matrices with given conjugated eigenvalues, the give spectrum are always stored in complex form, with three columns.
 
-##Attention##
+**Attention**
 
 For the non-Symmetric matrices, if one eigenvalue is complex, there is another value that they two are symmetric to the real axis in the real-imaginary plain, this is their conjugated eigenvalue. So when setting up the spectral file, one eigenvalue `a+bi` with `b != 0` should be closely followed by another eigenvalue `a-bi`. For the eigenvalues with their imaginary part to be `0`, they are stored with their imaginary part being 0. Here is an example
 
@@ -627,7 +627,9 @@ optional arguments:
   --verify             if only plotting patterns or also verifying the spectrum: default false
 ```
 
-Below are examples of the outputs of `verification.py` with two different sparse matrices generated with a same given spectrum.
+The [example 1](examples/ex1.cpp) provided by SMG2S can be a good starting point for the verification, since it provies multiple types of spectrums, and the spectrums and related matrices are all saved to local files through the parallel I/O of SMG2S.
+
+Below are examples of the outputs of `verification.py` with two different sparse matrices generated with a same given spectrum. For more examples, please visit [docs/figure](docs/figure).
 
 ![](docs/figure/verification_4.png)
 
