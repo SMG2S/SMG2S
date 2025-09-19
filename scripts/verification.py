@@ -122,8 +122,8 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='verification of matrices generated matrices to keep given spectra')
 
-    parser.add_argument("--matpath", help='path of matrix to be plotted or verified. Matrix should be in MatrixMarket format', default="data/testmatrix_cmplx.mtx")
-    parser.add_argument("--specpath", help='path of spectrum to be verified which is used to generate the related matrix. Vector should be in SMG2S vector file format', default="data/given_spectrum_cmplx.txt")
+    parser.add_argument("--matpath", help='path of matrix to be plotted or verified. Matrix should be in MatrixMarket format', default="data/testmatrix.mtx")
+    parser.add_argument("--specpath", help='path of spectrum to be verified which is used to generate the related matrix. Vector should be in SMG2S vector file format', default="data/given_spectrum.txt")
     parser.add_argument('--verify', help='if only plotting patterns or also verifying the spectrum: default false' ,action='store_true')
 
 
